@@ -591,7 +591,7 @@ Alguns recrutadores se preocupam com "overqualification". Endereça isso diretam
     desc: 'Transforma seu LinkedIn numa máquina de oportunidades de emprego 24 horas por dia.',
     duration: '3h',
     icon: '💼',
-    isPro: true,
+    isPro: false,
     color: { bg: 'bg-violet-50', border: 'border-violet-200', badge: 'bg-violet-100 text-violet-700', icon: 'bg-violet-500' },
     lessons: [
       {
@@ -3025,7 +3025,7 @@ Se você vai para um país com custo de vida maior, planeje:
     desc: 'Use ferramentas de inteligência artificial para escrever CVs, preparar entrevistas e encontrar vagas com muito mais eficiência.',
     duration: '3h',
     icon: '🤖',
-    isPro: true,
+    isPro: false,
     color: { bg: 'bg-violet-50', border: 'border-violet-200', badge: 'bg-violet-100 text-violet-700', icon: 'bg-violet-500' },
     lessons: [
       {
@@ -4121,6 +4121,3540 @@ Não é com posters ou valores na parede. É com comportamento consistente do l�
 4. **Ser consistente** — uma exceção desfaz meses de construção
 
 A cultura não muda em semanas. É um processo de 6-18 meses de sinais consistentes.`,
+      },
+    ],
+  },
+  {
+    id: 14,
+    title: 'Psicologia da Busca de Emprego',
+    desc: 'Mantém a motivação, lida com rejeições e constrói resiliência durante o processo de recolocação.',
+    duration: '2h 30min',
+    icon: '🧠',
+    isPro: false,
+    color: { bg: 'bg-teal-50', border: 'border-teal-200', badge: 'bg-teal-100 text-teal-700', icon: 'bg-teal-500' },
+    lessons: [
+      {
+        id: '14-1',
+        title: 'A síndrome do impostor na busca de emprego',
+        duration: '25 min',
+        content: `# A síndrome do impostor na busca de emprego
+
+## O que é a síndrome do impostor?
+
+A síndrome do impostor é a sensação persistente de não merecer o lugar onde se está — de ser uma "fraude" que será descoberta a qualquer momento. É extremamente comum: estudos mostram que **70% das pessoas** experienciam isso em algum momento da carreira.
+
+Na busca de emprego, manifesta-se de formas específicas:
+- "Não estou qualificado o suficiente para me candidatar"
+- "Vão descobrir que sou menos capaz do que pareço no CV"
+- "Os outros candidatos são muito melhores do que eu"
+- "Só consegui aquela entrevista por sorte"
+
+## Por que acontece especialmente durante a busca?
+
+A busca de emprego é uma fase de **alta exposição e incerteza**. Você está constantemente sendo avaliado, comparado e (frequentemente) rejeitado. Isso activa o sistema de ameaça do cérebro.
+
+Agravantes comuns:
+- Período de desemprego prolongado (questiona sua autoestima)
+- Transição de carreira (falta de histórico na nova área)
+- Mercado competitivo (sente que há sempre alguém "melhor")
+- Redes sociais (todo mundo parece bem-sucedido)
+
+## 5 estratégias para combater o impostor
+
+### 1. Evidências, não emoções
+Quando o pensamento "não sou bom o suficiente" aparecer, peça evidências ao cérebro:
+> "O que prova que não sou qualificado?" → Na maioria dos casos, não há prova real.
+> "O que prova que sou qualificado?" → Liste conquistas concretas com números.
+
+### 2. Separe sentimento de facto
+"Sinto que sou fraude" ≠ "Sou fraude"
+Sentimentos são dados sobre o seu estado interno — não são factos sobre a realidade.
+
+### 3. Normaliza a incompletude
+**Ninguém cumpre 100% dos requisitos.** Estudos mostram que homens candidatam quando cumprem 60% dos requisitos; mulheres, quando cumprem 100%. Aplique para vagas onde cumpre 60-70% — é o suficiente.
+
+### 4. Regista conquistas em tempo real
+Crie um "arquivo de orgulho": documento onde registas resultados positivos assim que acontecem. Feedback positivo de um colega, meta batida, projeto entregue. Consulte este arquivo quando a síndrome atacar.
+
+### 5. Fala com outras pessoas sobre isso
+A síndrome prospera no silêncio. Quando você descobre que um colega que admiras também sente isso, o poder da crença diminui drasticamente.
+
+## O paradoxo do impostor
+
+Há um dado curioso: **pessoas com síndrome do impostor tendem a ser mais competentes**, não menos. Por quê? Porque são mais conscientes das suas limitações, mais abertas ao feedback e mais rigorosas consigo mesmas.
+
+A síndrome do impostor não é sinal de fraqueza — é frequentemente sinal de inteligência e autoconsciência.`,
+      },
+      {
+        id: '14-2',
+        title: 'Lidar com rejeições e silêncio dos recrutadores',
+        duration: '30 min',
+        content: `# Lidar com rejeições e silêncio dos recrutadores
+
+## A realidade das rejeições
+
+Se você está em busca activa de emprego, vai ser rejeitado. Muitas vezes. Isso não é falha — é o processo.
+
+Os números reais:
+- Taxa de resposta média para candidaturas online: **2-5%**
+- Taxa de conversão de entrevista para oferta: **20-30%**
+- Média de candidaturas antes de conseguir emprego: **50-200**
+
+Matematicamente, rejeições são garantidas e esperadas. A questão não é se vai ser rejeitado — é como vai responder quando acontecer.
+
+## Os 3 tipos de "não" na busca de emprego
+
+### Tipo 1: O silêncio (ghosting)
+A empresa não responde. Nunca.
+
+**Porquê acontece:** Volume de candidaturas, sistemas de ATS que filtram sem aviso, reorganizações internas, vagas canceladas.
+
+**O que fazer:** Espera 1 semana → envia follow-up educado → espera mais 1 semana → esquece e avança. Não é pessoal.
+
+### Tipo 2: A rejeição automática (pré-entrevista)
+Email genérico: "Não seguiremos com a sua candidatura."
+
+**Porquê acontece:** ATS filtrou palavras-chave, perfil não correspondeu a critério eliminatório, vaga preenchida internamente.
+
+**O que fazer:** Pede feedback (raramente respondem, mas vale tentar). Revê se o CV estava optimizado para ATS. Avança.
+
+### Tipo 3: A rejeição após entrevista
+Depois de uma ou mais entrevistas, um "não" chega.
+
+**Porquê acontece:** Outro candidato com perfil mais específico, decisão interna de não contratar, fit cultural que não funcionou.
+
+**O que fazer:** Pede feedback específico — após entrevistas, há probabilidade maior de resposta. Aprende. Avança.
+
+## O protocolo de processamento emocional
+
+Rejeições doem. Tentar suprimir a emoção não funciona. O que funciona:
+
+**Passo 1 — Sente (20 minutos)**
+Permite-te estar frustrado, desapontado ou chateado. Sem julgamento. É uma resposta humana normal.
+
+**Passo 2 — Separa (1 hora depois)**
+Escreve: "Esta rejeição diz o quê sobre mim especificamente?" Se a resposta for vaga ("não sou bom"), questiona a evidência. Se for específica ("preciso melhorar X"), transforma em plano.
+
+**Passo 3 — Extrai (no dia seguinte)**
+Pergunta: "O que posso aprender daqui que me ajuda na próxima candidatura?"
+
+**Passo 4 — Avança (72 horas depois)**
+Envia 3 novas candidaturas. A acção é o melhor antídoto contra a ruminação.
+
+## O que as rejeições NÃO significam
+
+- ❌ Que você não é qualificado
+- ❌ Que nunca vai conseguir emprego
+- ❌ Que há algo fundamentalmente errado consigo
+- ❌ Que os outros candidatos eram claramente melhores
+
+O que geralmente significam:
+- ✅ Outro candidato tinha um fit mais específico naquele momento
+- ✅ A vaga foi cancelada ou preenchida internamente
+- ✅ Havia critério eliminatório que não estava na descrição
+- ✅ Simplesmente foi má sorte de timing
+
+## Estratégia de dessensibilização
+
+Uma técnica usada em psicologia comportamental: **exposição gradual**.
+
+Se as rejeições são muito dolorosas, comece a candidatar-se a vagas que não quer muito. Pratique o processo sem investimento emocional alto. Com o tempo, o sistema nervoso aprende que rejeição é temporária e tolerável.`,
+      },
+      {
+        id: '14-3',
+        title: 'Rotina e produtividade: buscando com consistência',
+        duration: '25 min',
+        content: `# Rotina e produtividade: buscando com consistência
+
+## O problema da busca sem estrutura
+
+A busca de emprego sem rotina parece "trabalho constante mas sem progresso". Você passa o dia a ver LinkedIn, candidata-se aleatoriamente, sente-se ocupado mas sem direcção.
+
+A solução é tratar a busca como um trabalho — com horários, métricas e pausas programadas.
+
+## O sistema de blocos de tempo
+
+Divide o dia de busca em 4 tipos de actividade:
+
+### Bloco 1: Candidaturas (2-3h pela manhã)
+- Revê vagas identificadas no dia anterior
+- Adapta CV e carta para 2-3 vagas seleccionadas
+- Envia candidaturas
+
+### Bloco 2: Networking (1h no final da manhã)
+- Envia 2-3 mensagens personalizadas no LinkedIn
+- Responde a mensagens pendentes
+- Agenda coffee chats
+
+### Bloco 3: Aprendizagem (1h à tarde)
+- Módulo do JobJump
+- Artigo da área
+- Preparação para entrevista pendente
+
+### Bloco 4: Revisão e planeamento (30min no final do dia)
+- Actualiza o rastreador de candidaturas
+- Lista as 3 candidaturas prioritárias de amanhã
+- Celebra uma pequena vitória do dia
+
+## Métricas semanais que importam
+
+Acompanha estas 4 métricas toda semana:
+
+| Métrica | Meta mínima | Meta ideal |
+|---|---|---|
+| Candidaturas enviadas | 5 | 10-15 |
+| Mensagens de networking | 5 | 10 |
+| Entrevistas agendadas | 1 | 3+ |
+| Follow-ups enviados | 100% dos pendentes | — |
+
+## O problema da "busca contínua"
+
+Trabalhar 12 horas por dia na busca de emprego não é produtivo — é contraproducente. Pesquisas mostram que a qualidade das candidaturas cai drasticamente após 4-5 horas de trabalho focado.
+
+**Regras de higiene mental:**
+- Define um horário de início e de fim
+- Não verifica emails de recrutadores fora do horário
+- Reserva pelo menos 1 tarde por semana para algo que não seja a busca
+- Dorme 7-8 horas — decisões sob fadiga são piores
+
+## Mantendo o impulso em semanas difíceis
+
+Há semanas em que tudo parece estagnado. Nesses momentos:
+
+1. **Revisita as métricas** — às vezes você está produzindo mais do que sente
+2. **Muda o canal** — se candidaturas online estão frias, foca em networking esta semana
+3. **Conversa com alguém** — um mentor, coach ou amigo que entende o processo
+4. **Reduz o objetivo** — em vez de 10 candidaturas, compromete com 3. Feito é melhor que perfeito.
+5. **Celebra o processo** — cada candidatura enviada é uma vitória, independente do resultado`,
+      },
+      {
+        id: '14-4',
+        title: 'Resiliência de longo prazo: quando a busca demora meses',
+        duration: '30 min',
+        content: `# Resiliência de longo prazo: quando a busca demora meses
+
+## A realidade que ninguém conta
+
+Buscas de emprego longas são normais. Para cargos de gestão e sênior, 3-6 meses é típico. Para transições de carreira, 6-12 meses é razoável. Para mercados saturados ou contextos económicos difíceis, pode ser mais.
+
+Mas ninguém posta no LinkedIn "estou há 8 meses buscando e ainda não encontrei". O silêncio dos que estão no processo cria a ilusão de que todos os outros conseguem rápido — e você é o único a demorar.
+
+Não é verdade.
+
+## Os estágios emocionais da busca prolongada
+
+Reconhecer onde você está ajuda a saber o que precisa:
+
+### Estágio 1: Optimismo (semanas 1-4)
+Energia alta, CV actualizado, candidaturas enviadas. "Vai correr bem."
+
+### Estágio 2: Ajuste (semanas 4-8)
+Primeiras rejeições. Ajuste de expectativas. "Isto vai levar mais tempo do que pensei."
+
+### Estágio 3: Frustração (semanas 8-16)
+Padrão de rejeições sem feedback claro. Questionamento: "O que estou a fazer de errado?"
+
+### Estágio 4: Dúvida (semanas 16+)
+Questionar a estratégia, a área, o mercado. Risco de isolamento e perda de motivação.
+
+### Estágio 5: Recalibração
+Revisão profunda da estratégia. Muitas vezes é aqui que a virada acontece.
+
+## Estratégias de sustentabilidade para buscas longas
+
+### 1. Estrutura financeira primeiro
+O stress financeiro amplifica tudo. Se possível, define quanto tempo pode buscar sem pressão extrema e faz um plano B claro para o cenário de extensão.
+
+### 2. Identidade além do cargo
+Quando a busca se prolonga, é fácil que toda a identidade se torne "alguém que está buscando emprego". Isso é psicologicamente desgastante.
+
+Mantém actividades que te dão sentido independente da busca: voluntariado, um projecto pessoal, desporto, família, criatividade.
+
+### 3. Revisão estratégica a cada 30 dias
+Em vez de mudar tudo em pânico, faz revisões estruturadas mensais:
+- O que candidatei este mês?
+- O que gerou respostas? O que não gerou?
+- Devo ajustar o canal, o CV, a área alvo ou o nível do cargo?
+
+### 4. Mentoria e suporte
+Pessoas que passaram pelo processo e conseguiram são os melhores recursos. Encontra mentores na tua área no LinkedIn, grupos de recolocação, ou comunidades online.
+
+### 5. Celebra marcos intermédios
+Não só o emprego conta como vitória. Celebra:
+- Primeira entrevista de empresa de topo
+- Chegar à fase final de um processo
+- CV actualizado e melhorado
+- Nova conexão estratégica
+
+## A virada que muitos não percebem
+
+Muitas buscas que parecem fracassar nos últimos dias antes da virada resultam em sucesso. O problema: muita gente desiste exactamente quando estava prestes a conseguir.
+
+Os dados de recrutamento mostram que o tempo médio para contratar aumentou nos últimos anos — não porque os candidatos são piores, mas porque os processos são mais longos. A busca exige mais resiliência do que nunca.
+
+> **A pergunta certa não é "Porque ainda não consegui?" — é "O que posso aprender este mês para estar mais perto de conseguir?"**`,
+      },
+      {
+        id: '14-5',
+        title: 'Apoio, rede de suporte e saúde mental na busca',
+        duration: '20 min',
+        content: `# Apoio, rede de suporte e saúde mental na busca
+
+## Quando a busca afecta a saúde mental
+
+A busca de emprego prolongada é um factor de stress reconhecido que pode levar a ansiedade, depressão e isolamento. Reconhecer os sinais cedo é fundamental.
+
+**Sinais de alerta:**
+- Dificuldade para sair da cama ou iniciar o dia
+- Perda de interesse em actividades que antes davam prazer
+- Isolamento social crescente
+- Pensamentos repetitivos e negativos sobre si mesmo
+- Dificuldade de concentração ou sono alterado
+
+Se reconhece 3 ou mais destes sinais de forma persistente (2+ semanas), considera procurar apoio profissional — psicólogo, coach ou médico de família.
+
+## A importância da rede de suporte
+
+Pesquisas mostram que pessoas em busca de emprego com suporte social activo conseguem emprego **mais rapidamente** e com menos impacto na saúde mental do que as que buscam isoladas.
+
+**Tipos de suporte que ajudam:**
+
+### Suporte emocional
+Família, amigos próximos — pessoas que te ouvem sem julgamento. Não precisam entender de mercado de trabalho. Precisam estar presentes.
+
+### Suporte prático
+Mentores, ex-colegas, pessoas na área — quem pode rever o CV, fazer introduções, dar feedback sobre entrevistas.
+
+### Suporte de pares
+Outros em busca de emprego — partilha experiências, valida que é normal, compara estratégias. Grupos de LinkedIn, comunidades online, fóruns.
+
+## Como pedir ajuda sem parecer desesperado
+
+Muitas pessoas não pedem ajuda por medo de parecer vulneráveis ou sobrecarregar os outros. Mas a maioria das pessoas quer ajudar — simplesmente não sabe que você precisa.
+
+**Pedidos eficazes:**
+> "Estou em busca activa de novas oportunidades em [área]. Se souberes de alguma vaga ou quiser fazer uma introdução, ficaria muito grato."
+
+> "Estou a preparar-me para entrevistas em [tipo de empresa]. Teria 20 minutos para me dar feedback sobre como estou a apresentar minha experiência?"
+
+> "Passei por um processo difícil esta semana. Não preciso de soluções — precisava partilhar com alguém de confiança."
+
+## Cuidados de bem-estar durante a busca
+
+Parece básico, mas é o que mais é descurado quando a pressão aumenta:
+
+**Exercício físico:** 30 minutos diários de actividade física reduzem cortisol e melhoram humor. Não precisa ser academia — uma caminhada conta.
+
+**Exposição social:** Mesmo que não seja networking "útil" para a busca — almoço com amigos, actividade de grupo, desporto colectivo. O isolamento amplifica o stress.
+
+**Limites de ecrã:** Passar 8 horas a ver LinkedIn gera mais ansiedade do que candidaturas. Define blocos de tempo limitados para redes sociais.
+
+**Sono consistente:** A privação de sono piora a tomada de decisão, a criatividade e a regulação emocional — tudo que você precisa numa busca de emprego.`,
+      },
+    ],
+  },
+  {
+    id: 15,
+    title: 'Entrevistas em Inglês',
+    desc: 'Prepara-se para processos seletivos em inglês com vocabulário, scripts e simulações para posições internacionais.',
+    duration: '3h',
+    icon: '🇬🇧',
+    isPro: true,
+    color: { bg: 'bg-cyan-50', border: 'border-cyan-200', badge: 'bg-cyan-100 text-cyan-700', icon: 'bg-cyan-500' },
+    lessons: [
+      {
+        id: '15-1',
+        title: 'Preparação para entrevistas em inglês: por onde começar',
+        duration: '25 min',
+        content: `# Preparação para entrevistas em inglês: por onde começar
+
+## Porque as entrevistas em inglês são diferentes
+
+Não é apenas traduzir as respostas que usas em português. Há diferenças culturais, expectativas comunicativas e convenções específicas que mudam dependendo da empresa ser americana, britânica, europeia ou asiática.
+
+## Diferenças culturais por origem da empresa
+
+### Empresas americanas (EUA)
+- Tom directo e confident — dizer "I don't know" é melhor do que enrolar
+- Storytelling valorizado — as respostas STAR devem ter arc narrativo claro
+- Entusiasmo é esperado — "I'm really excited about this opportunity" é natural
+- Small talk antes de começar é comum e importante
+
+### Empresas britânicas
+- Tom mais reservado e formal no início
+- Understatement — "I performed reasonably well" pode significar "I excelled"
+- Humor discreto pode aparecer — não te sintas obrigado a corresponder se não é natural
+- Pontualidade e preparação são sinais de respeito muito valorizados
+
+### Empresas europeias (França, Alemanha, Holanda)
+- Directas sobre competências técnicas
+- Menos small talk, mais foco na substância
+- Humildade é valorizada — não sobre-vender sem evidências
+- Expectativa de perguntas inteligentes sobre a empresa
+
+### Empresas de tecnologia global (remote-first)
+- Comunicação assíncrona valorizada — escrita clara e precisa
+- Autonomia e iniciativa como valores centrais
+- Diversidade de backgrounds aceite — não é necessário ter sotaque perfeito
+
+## Avaliação do seu nível actual de inglês
+
+Antes de te preparares, honestidade sobre o nível actual:
+
+| Nível | Descrição | O que consegues fazer |
+|---|---|---|
+| A2-B1 | Básico-intermediário | Perguntas simples, frases curtas |
+| B2 | Intermediário-avançado | Conversação fluida com alguma hesitação |
+| C1 | Avançado | Expressão de nuances e argumentos complexos |
+| C2/Nativo | Fluente | Sem limitações práticas |
+
+Para uma entrevista profissional eficaz, o mínimo é **B2**. Abaixo disso, o conteúdo da resposta fica comprometido pelo esforço de construir as frases.
+
+## Plano de preparação em 4 semanas
+
+### Semana 1: Diagnóstico e vocabulário
+- Faz um mock interview consigo mesmo (grava em vídeo)
+- Identifica as principais lacunas (vocabulário, fluência, gramática)
+- Aprende 20 palavras/expressões específicas da tua área em inglês
+
+### Semana 2: Estrutura das respostas
+- Pratica o método STAR em inglês (situação → task → action → result)
+- Grava 3 respostas STAR e revê o vocabulário
+
+### Semana 3: Mock interviews
+- Usa recursos como Pramp (gratuito) ou Big Interview para simular
+- Pede a um falante de inglês para te fazer perguntas
+- Foca em fluência, não em perfeição gramatical
+
+### Semana 4: Refinamento e confiança
+- Pratica o "Tell me about yourself" até fluir naturalmente
+- Aprende perguntas específicas para fazer ao entrevistador
+- Prepara a resposta para "Why do you want to work here?" com pesquisa real sobre a empresa
+
+## O maior erro: tentar traduzir em tempo real
+
+Candidatos que traduzem do português para o inglês na hora da entrevista ficam lentos, usam construções estranhas e perdem confiança. A solução é **pensar directamente em inglês** — o que vem com prática.
+
+Exercício: durante 2 semanas, muda o idioma do telemóvel, computador e redes sociais para inglês. Ouve podcasts em inglês da tua área. Assiste séries sem legendas em português.`,
+      },
+      {
+        id: '15-2',
+        title: 'Tell me about yourself: o script perfeito em inglês',
+        duration: '30 min',
+        content: `# Tell me about yourself: o script perfeito em inglês
+
+## A pergunta mais importante da entrevista
+
+"Tell me about yourself" (ou "Walk me through your background") é quase sempre a primeira pergunta. É a oportunidade de:
+- Controlar a narrativa da entrevista
+- Destacar o que é mais relevante para aquela vaga
+- Estabelecer confiança desde o início
+
+## A estrutura Past → Present → Future
+
+Esta estrutura é universalmente eficaz e funciona em qualquer cultura empresarial.
+
+**Template:**
+> "I've spent the last [X years] working in [field/industry], primarily focused on [main specialization]. Most recently, at [company], I [key achievement]. Before that, at [previous company], I [another key achievement]. Now, I'm looking to [next step], which is why this role at [company] caught my attention — particularly [specific thing about the role/company]."
+
+## Exemplos por área
+
+### Marketing
+> "I've spent the last 7 years in digital marketing, with a focus on growth and customer acquisition for B2B SaaS companies. Most recently at TechCorp, I led a team of 5 and grew organic traffic by 180% in 18 months, which directly contributed to a 40% increase in qualified leads. Before that, at StartupXY, I built the paid acquisition strategy from scratch with a budget of $500k, achieving a 3.2x ROAS. I'm now looking to step into a Head of Marketing role where I can combine strategic leadership with hands-on execution — which is exactly what you're building here."
+
+### Technology (Developer)
+> "I'm a backend engineer with 6 years of experience building scalable systems, primarily with Python and AWS. In my current role at FinTech Inc., I architected a payment processing service handling 2 million transactions per day with 99.99% uptime. Previously, I worked at a Series B startup where I reduced API response time by 60% through caching optimization. I'm now interested in joining a team where I can work on higher-complexity distributed systems problems — the infrastructure challenges you mentioned in the job description are exactly the kind of thing I want to go deeper on."
+
+### Finance
+> "My background is in corporate finance, specifically FP&A and financial modelling. I've spent the last 5 years at mid-size companies, most recently leading the annual budgeting cycle for a €150M revenue business — which involved coordinating with 8 business units and presenting to the CFO and board. I'm now looking to move into a more complex, international environment where financial analysis directly feeds into strategic decisions at the executive level."
+
+## Frases de transição úteis
+
+- "Building on that experience..." (construindo nessa experiência)
+- "Which led me to..." (o que me levou a)
+- "At that point, I realized..." (nesse ponto, percebi)
+- "That's what drew me to..." (foi isso que me atraiu para)
+- "More recently, I've been focused on..." (mais recentemente, tenho me focado em)
+
+## O que evitar
+
+- ❌ Recitar o CV cronologicamente sem narrativa
+- ❌ Incluir informações pessoais irrelevantes ("I'm married with 2 kids")
+- ❌ Exceder 2 minutos — a atenção cai depois disso
+- ❌ Ser vago: "I have experience in marketing" (sem números ou conquistas)
+- ❌ Começar com "Well..." ou "Um..." (pausa, respira, começa directo)
+
+## Prática recomendada
+
+1. Escreve o teu script personalizado usando o template
+2. Grava-te a dizer em voz alta
+3. Revê o vídeo: fluência, postura, contacto visual (com câmara)
+4. Pratica até não precisar ler — deve soar natural, não memorizado`,
+      },
+      {
+        id: '15-3',
+        title: 'Vocabulário e frases de alto impacto para entrevistas',
+        duration: '25 min',
+        content: `# Vocabulário e frases de alto impacto para entrevistas
+
+## Por que o vocabulário importa tanto
+
+Dois candidatos com a mesma experiência podem causar impressões muito diferentes dependendo de como articulam essa experiência. Vocabulário preciso comunica competência e confiança.
+
+## Verbos de acção de alto impacto (Action Verbs)
+
+### Liderança e gestão
+- **Led** (liderança directa): "I led a cross-functional team of 12"
+- **Spearheaded** (iniciativa pioneira): "I spearheaded the digital transformation initiative"
+- **Orchestrated** (coordenação complexa): "I orchestrated the launch across 5 markets"
+- **Championed** (defesa de causa): "I championed the move to agile methodology"
+- **Mentored** (desenvolvimento): "I mentored 3 junior developers"
+
+### Resultados e crescimento
+- **Drove** (impulsionou): "I drove a 45% increase in sales"
+- **Delivered** (entregou): "I delivered the project 2 weeks ahead of schedule"
+- **Achieved** (alcançou): "I achieved 118% of annual quota"
+- **Exceeded** (superou): "I exceeded targets by 30% for 3 consecutive quarters"
+- **Generated** (gerou): "I generated $2M in new revenue"
+
+### Resolução de problemas
+- **Identified** (identificou): "I identified the root cause of the performance bottleneck"
+- **Resolved** (resolveu): "I resolved a critical client escalation within 48 hours"
+- **Streamlined** (optimizou): "I streamlined the onboarding process"
+- **Revamped** (reformulou): "I revamped the reporting structure"
+- **Implemented** (implementou): "I implemented a new CRM system"
+
+### Análise e estratégia
+- **Analysed** (analisou): "I analysed customer churn patterns across 3 years of data"
+- **Developed** (desenvolveu): "I developed the go-to-market strategy"
+- **Designed** (desenhou): "I designed the A/B testing framework"
+- **Established** (estabeleceu): "I established KPIs for the entire team"
+
+## Expressões para falar de conquistas
+
+### Quantificar impacto
+- "...resulting in a X% improvement in..."
+- "...which translated to $X in savings/revenue"
+- "...reducing [metric] from X to Y"
+- "...increasing [metric] by X percentage points"
+- "...ahead of schedule / under budget"
+
+### Falar de colaboração
+- "I worked closely with..." (trabalhei de perto com)
+- "In collaboration with the [team/department]..."
+- "I partnered with [team] to..."
+- "Cross-functionally, I..."
+- "I liaised between [team A] and [team B]"
+
+### Contextualizar o ambiente
+- "In a fast-paced environment..." (ambiente acelerado)
+- "With limited resources..." (recursos limitados)
+- "Under tight deadlines..." (prazos apertados)
+- "Despite [challenge], we managed to..."
+- "At a time when [context]..."
+
+## Frases para gerir perguntas difíceis
+
+### Quando não sabes a resposta
+- "That's a great question. Let me think about that for a moment."
+- "I haven't encountered that exact scenario, but I'd approach it by..."
+- "I'm not familiar with that specific tool, but I've worked with similar solutions like X, and I pick up new technologies quickly."
+
+### Quando precisas de tempo
+- "Could you give me a moment to structure my thoughts?"
+- "Just to make sure I'm addressing what you're asking..."
+- "Let me be specific here — can I share a concrete example?"
+
+### Quando não entendeste
+- "I want to make sure I answer your question correctly — could you clarify...?"
+- "I'm sorry, I didn't catch that last part. Could you repeat?"
+- "Do you mean [interpretation A] or [interpretation B]?"
+
+## Expressões a evitar
+
+| ❌ Evitar | ✅ Melhor |
+|---|---|
+| "I think I can..." | "I have demonstrated ability to..." |
+| "I just..." | (omite — minimiza o impacto) |
+| "I did some work on..." | "I led / delivered / managed..." |
+| "We did..." (sempre "we") | "I was responsible for... the team..." |
+| "I'm not sure but..." | "Based on my experience..." |`,
+      },
+      {
+        id: '15-4',
+        title: 'Perguntas comportamentais em inglês: método STAR aplicado',
+        duration: '35 min',
+        content: `# Perguntas comportamentais em inglês: método STAR aplicado
+
+## Behavioral Questions: o formato padrão internacional
+
+Em entrevistas anglófonas, as perguntas comportamentais são iniciadas com:
+- "Tell me about a time when..."
+- "Give me an example of..."
+- "Describe a situation where..."
+- "Walk me through a time when..."
+- "Can you share an experience where..."
+
+A resposta esperada segue a estrutura **STAR**:
+- **S**ituation: the context
+- **T**ask: your role and responsibility
+- **A**ction: what you specifically did
+- **R**esult: the measurable outcome
+
+## 10 perguntas comportamentais mais comuns com respostas modelo
+
+### 1. Tell me about a time you had to deal with a difficult team member.
+
+**Template de resposta:**
+> "In my previous role at [company], I had a situation where [S: brief context]. My responsibility was to [T: your role]. I approached it by [A: specific actions taken — include having a direct conversation, empathising, setting clear expectations]. As a result, [R: specific outcome — improved relationship, project delivered, atmosphere changed]."
+
+**Frases úteis:**
+- "I scheduled a one-on-one to understand their perspective..."
+- "I approached the conversation with curiosity rather than judgement..."
+- "We established clear expectations going forward..."
+
+### 2. Describe a time when you failed. What did you learn?
+
+**Template de resposta:**
+> "[S: context of the failure]. My responsibility was [T]. I [A: what you did that led to or during the failure]. The outcome was [R: honest about what went wrong]. What I learned was [lesson] — and since then, I've [applied lesson: specific change in behaviour]."
+
+**Frases úteis:**
+- "In retrospect, I should have..."
+- "The key lesson for me was..."
+- "That experience changed how I approach..."
+- "I've since built a habit of..."
+
+### 3. Give me an example of when you had to manage competing priorities.
+
+**Frases úteis:**
+- "I prioritised based on business impact..."
+- "I communicated proactively to manage expectations..."
+- "I used a framework to triage the tasks — urgent vs. important..."
+- "I escalated early rather than waiting until it became a crisis..."
+
+### 4. Tell me about a time you had to influence someone without direct authority.
+
+**Frases úteis:**
+- "I built the business case with data..."
+- "I aligned incentives — showing how it benefited them..."
+- "I listened first to understand their objections..."
+- "I found a small win to demonstrate proof of concept..."
+
+### 5. Describe a time when you had to adapt quickly to change.
+
+**Frases úteis:**
+- "When the situation shifted, I quickly reassessed..."
+- "I stayed flexible while keeping the end goal in sight..."
+- "I focused on what I could control..."
+- "I communicated the change clearly to the team..."
+
+## Gestão de nervosismo em inglês
+
+O nervosismo é amplificado quando entrevistamos numa segunda língua. Estratégias:
+
+**1. Fala mais devagar do que pareces precisar**
+Quando nervoso, a tendência é acelerar. Mentalmente, diz a ti mesmo "fala mais devagar" — o ritmo que parece demasiado lento para ti é provavelmente perfeito para o entrevistador.
+
+**2. Pausa antes de responder**
+> "That's a great question — let me take a moment to think of the best example."
+
+Esta frase está 100% normalizada em entrevistas anglófonas. Usá-la mostra ponderação, não fraqueza.
+
+**3. Pede esclarecimento sem vergonha**
+> "Just to make sure I'm answering correctly — are you asking about [X] or [Y]?"
+
+**4. Aceita o sotaque como parte de quem és**
+Sotaque não é problema — falta de clareza é. Articula bem, fala com ritmo moderado e o sotaque deixa de ser barreira.`,
+      },
+      {
+        id: '15-5',
+        title: 'Perguntas para fazer e negociação em inglês',
+        duration: '25 min',
+        content: `# Perguntas para fazer e negociação em inglês
+
+## Questions to ask the interviewer
+
+Fazer boas perguntas no final da entrevista é tão importante quanto responder bem. Em contextos anglófonos, é esperado e valorizado.
+
+### Sobre a função
+- "What would success look like in the first 90 days?"
+- "What are the biggest challenges the person in this role will face?"
+- "How does this role interact with other teams?"
+- "What does a typical day/week look like in this position?"
+
+### Sobre a equipa
+- "Can you tell me about the team I'd be working with?"
+- "What's the team's biggest strength? And what's an area you're actively working to improve?"
+- "How long have the team members been in their current roles?"
+
+### Sobre a empresa e cultura
+- "How would you describe the company culture in 3 words?"
+- "What do you enjoy most about working here?"
+- "How has the company changed in the last 2 years?"
+- "Where do you see the company in 3 years?"
+
+### Sobre o processo
+- "What are the next steps in the process?"
+- "When can I expect to hear back?"
+- "Is there anything you'd like me to clarify about my background?"
+
+## Frases de fecho que deixam boa impressão
+
+**Reafirma o interesse:**
+> "Based on everything we've discussed today, I'm even more excited about this opportunity. I believe my experience in [X] aligns well with what you're looking for, and I'd love the chance to contribute to [specific company goal]."
+
+**Agradecimento:**
+> "Thank you so much for your time today. I really enjoyed our conversation, especially the discussion about [specific topic]. I'm looking forward to the next steps."
+
+**Email de follow-up (24-48h depois):**
+> "Hi [Name], thank you for the interview yesterday. I enjoyed learning more about [role] and was particularly excited about [something specific]. I remain very interested in the opportunity and look forward to hearing about the next steps. Best regards, [Name]"
+
+## Negociação salarial em inglês
+
+### Quando perguntam sobre expectativas
+> "I'd love to learn more about the full scope of the role before discussing numbers. Could you share the budgeted range for this position?"
+
+Se insistirem:
+> "Based on my research and experience, I'm targeting something in the range of $[X] to $[Y]. But I'm flexible depending on the full compensation package."
+
+### Quando recebes uma oferta
+> "Thank you so much — I'm genuinely excited about this opportunity. I'd like to take a day or two to review the details carefully. Is that okay?"
+
+### A contra-proposta
+> "I've reviewed the offer and I'm very enthusiastic about joining the team. I was hoping we could discuss the base salary — based on my research and the value I bring in [specific areas], I was targeting something closer to $[amount]. Is there any flexibility there?"
+
+### Se não há margem no salário
+> "I understand. Is there flexibility in any other part of the package — such as a signing bonus, additional vacation days, or an earlier performance review?"`,
+      },
+    ],
+  },
+  {
+    id: 16,
+    title: 'Assessment Centers e Dinâmicas de Grupo',
+    desc: 'Domina as avaliações coletivas usadas por grandes empresas: dinâmicas, role plays, apresentações e in-tray exercises.',
+    duration: '2h 45min',
+    icon: '🎭',
+    isPro: true,
+    color: { bg: 'bg-fuchsia-50', border: 'border-fuchsia-200', badge: 'bg-fuchsia-100 text-fuchsia-700', icon: 'bg-fuchsia-500' },
+    lessons: [
+      {
+        id: '16-1',
+        title: 'O que é um Assessment Center e por que existe',
+        duration: '20 min',
+        content: `# O que é um Assessment Center e por que existe
+
+## O que é
+
+Um Assessment Center (AC) é uma metodologia de avaliação que usa múltiplos exercícios e observadores para avaliar candidatos em situações simuladas. É diferente de uma entrevista: em vez de perguntar "o que você faria se...", o AC coloca você para fazer.
+
+Empresas que mais usam: multinacionais, consultorias, bancos, grandes varejistas, programas de trainee e estágios de alto nível.
+
+## Por que as empresas usam
+
+- **Validade preditiva** maior que entrevistas tradicionais — o comportamento observado prediz melhor o desempenho real
+- **Reduz viés** do entrevistador — múltiplos avaliadores, critérios padronizados
+- **Avalia soft skills** que não aparecem no CV: liderança, colaboração, gestão de pressão
+
+## Estrutura típica de um AC de 1 dia
+
+| Horário | Atividade |
+|---|---|
+| 09h00 | Boas-vindas e apresentação |
+| 09h30 | Dinâmica de grupo (caso empresarial) |
+| 11h00 | Entrevista individual por competências |
+| 12h00 | Almoço (também é observado!) |
+| 13h30 | In-tray exercise ou estudo de caso individual |
+| 15h30 | Role play (cliente difícil, feedback, negociação) |
+| 16h30 | Apresentação individual |
+| 17h30 | Encerramento |
+
+## O que os avaliadores observam
+
+Em todos os exercícios, avaliadores anotam comportamentos específicos mapeados a competências:
+
+- **Orientação para resultados** — foca no objetivo mesmo sob pressão?
+- **Trabalho em equipa** — contribui e deixa os outros contribuírem?
+- **Liderança** — influencia sem impor, facilita o grupo?
+- **Comunicação** — clara, assertiva, adaptada ao interlocutor?
+- **Resolução de problemas** — estruturado, criativo, baseado em dados?
+- **Resiliência** — mantém a qualidade quando o tempo aperta?
+
+## O que ninguém te conta
+
+O almoço e os intervalos também são momentos de observação. Comportamento com a equipa de apoio, naturalidade nas conversas, curiosidade genuína sobre a empresa — tudo conta.
+
+Não significa ser artificial. Significa estar presente e ser você mesmo de forma consistente.`,
+      },
+      {
+        id: '16-2',
+        title: 'Dinâmicas de grupo: como se destacar sem atropelar',
+        duration: '35 min',
+        content: `# Dinâmicas de grupo: como se destacar sem atropelar
+
+## O erro mais comum
+
+A maioria dos candidatos acha que precisa falar mais para se destacar. O resultado: todos falam ao mesmo tempo, ninguém ouve, o grupo não chega a lugar nenhum — e os avaliadores anotam exatamente isso.
+
+Os candidatos que passam são os que **facilitam o grupo a chegar a uma boa decisão**, não os que dominam a conversa.
+
+## Tipos de dinâmica de grupo
+
+### Caso empresarial coletivo
+O grupo recebe um problema de negócio e tem 45-60 minutos para chegar a uma recomendação.
+
+### Discussão sem líder definido
+Cada candidato defende uma posição (sorteada ou escolhida). O grupo deve chegar a consenso.
+
+### Simulação de reunião
+O grupo assume papéis numa empresa fictícia e precisa tomar decisões em conjunto.
+
+### Exercício de recursos limitados
+Distribuir orçamento, priorizar projetos, alocar pessoas — com recursos insuficientes para tudo.
+
+## A estratégia dos 5 papéis valorizados
+
+Em qualquer dinâmica, há papéis que os avaliadores querem ver. Você não precisa fazer todos — mas garanta pelo menos 2-3:
+
+**1. O estruturador**
+> "Antes de começarmos, que tal definirmos como vamos organizar o tempo? Temos 45 minutos..."
+
+Estabelece o processo. Extremamente valorizado — mostra liderança de processo.
+
+**2. O sintetizador**
+> "Então, se eu entendi bem, estamos de acordo em A e B. A divergência é sobre C, certo?"
+
+Resume o estado da discussão. Mantém o grupo no trilho.
+
+**3. O incluidor**
+> "João, você ainda não se posicionou sobre isso — qual é sua visão?"
+
+Puxa quem está em silêncio. Mostra consciência coletiva.
+
+**4. O questionador de premissas**
+> "Antes de decidir isso, precisamos saber se temos dados sobre o comportamento do cliente neste segmento..."
+
+Adiciona rigor. Evita que o grupo tome decisão com premissa errada.
+
+**5. O tomador de tempo**
+> "Faltam 10 minutos — precisamos chegar a uma conclusão. O que decidimos?"
+
+Mantém o foco no objetivo. Crítico no final das dinâmicas.
+
+## Comportamentos que eliminam candidatos
+
+- ❌ Interromper constantemente outros candidatos
+- ❌ Ignorar sugestões dos colegas sem explicação
+- ❌ Ficar em silêncio por mais de 5 minutos seguidos
+- ❌ Agredir verbalmente ou ironizar a posição de outro
+- ❌ Abandonar a posição original sem argumentação (apenas para agradar)
+- ❌ Monopolizar o whiteboard ou o papel de facilitador sem convidar o grupo
+
+## Script de entrada poderoso
+
+Quando a dinâmica começa e ninguém fala, este é o momento para tomar a iniciativa:
+
+> "Podemos começar por garantir que entendemos bem o problema? Vou resumir o que li e vocês complementam se faltou algo..."
+
+Isso posiciona você como estruturador desde o início — sem impor nem excluir.`,
+      },
+      {
+        id: '16-3',
+        title: 'In-tray exercise e estudo de caso individual',
+        duration: '30 min',
+        content: `# In-tray exercise e estudo de caso individual
+
+## O que é um in-tray exercise
+
+Você recebe uma pasta com 15-25 documentos (emails, relatórios, memorandos, mensagens) de um executivo fictício que acabou de entrar de férias. Tem 60-90 minutos para:
+
+1. Priorizar o que é urgente vs. importante
+2. Redigir respostas ou indicar ações para cada item
+3. Justificar suas decisões
+
+O que avaliam: gestão de prioridades, julgamento executivo, comunicação escrita, capacidade de agir com informação incompleta.
+
+## Estratégia para o in-tray
+
+**Fase 1 (10 min): Leitura rápida de tudo**
+Não responda nada ainda. Leia todos os documentos para entender o contexto geral, as relações entre os itens e identificar conflitos de prioridade.
+
+**Fase 2 (5 min): Classifique**
+Separe em 3 pilhas:
+- 🔴 Urgente e importante (responda primeiro)
+- 🟡 Importante mas não urgente (delegue ou agende)
+- ⚪ Pouco relevante (arquive ou ignore com justificativa)
+
+**Fase 3 (45-60 min): Responda e documente**
+Para cada item, indique: o que vai fazer, quem vai envolver, em que prazo, e por quê.
+
+**Fase 4 (5-10 min): Revisão**
+Verifique consistência — suas decisões não podem se contradizer.
+
+## Erros típicos no in-tray
+
+- Tentar responder em ordem, sem priorizar
+- Responder emails com detalhes excessivos em vez de decisões claras
+- Não justificar as priorizações
+- Ignorar itens que parecem sem importância (às vezes são armadilhas)
+- Não delegar — tentar resolver tudo pessoalmente
+
+## Estudo de caso individual
+
+Formato: recebe dados de uma empresa/situação e tem 30-60 minutos para preparar uma análise com recomendação.
+
+**Estrutura recomendada de resposta:**
+
+1. **Diagnóstico** — qual é o problema real? (não só o sintoma)
+2. **Análise** — dados relevantes, premissas, trade-offs
+3. **Opções** — 2-3 alternativas com prós e contras
+4. **Recomendação** — escolha clara com justificativa
+5. **Próximos passos** — o que fazer primeiro, quem envolve
+
+**O que diferencia os aprovados:** chegam a uma recomendação clara e defendível, não apenas "depende". Avaliadores querem ver julgamento, não apenas análise.`,
+      },
+      {
+        id: '16-4',
+        title: 'Role plays: cliente difícil, feedback e negociação',
+        duration: '30 min',
+        content: `# Role plays: cliente difícil, feedback e negociação
+
+## O que são role plays em Assessment Centers
+
+Você recebe um briefing (5-10 min de leitura) e depois atua numa conversa simulada com um avaliador que interpreta um papel: cliente insatisfeito, colaborador com baixo desempenho, fornecedor em negociação, gestor a dar feedback.
+
+Duração típica: 15-20 minutos de interação + 5 min de debriefing.
+
+## Os 3 tipos mais comuns
+
+### 1. Cliente insatisfeito
+Situação: cliente reclama de produto/serviço com razão (ou sem razão).
+
+O que avaliam: empatia, resolução de conflito, orientação para o cliente, criatividade em soluções.
+
+**Estrutura de resposta:**
+1. Escuta ativa sem interromper (deixe a pessoa desabafar)
+2. Valide o sentimento: *"Entendo que isso foi frustrante..."*
+3. Peça detalhes para entender o problema real
+4. Proponha solução concreta e realista
+5. Confirme se a solução resolve: *"Isso resolveria sua questão?"*
+
+### 2. Feedback a colaborador com baixo desempenho
+Situação: você é o gestor de alguém que está falhando em entregas.
+
+**Estrutura SBI (Situação-Comportamento-Impacto):**
+> "Na última semana [**Situação**], percebi que os relatórios chegaram com 2 dias de atraso [**Comportamento**]. Isso impactou a reunião com o cliente e gerou retrabalho para a equipa [**Impacto**]. O que aconteceu?"
+
+Escuta a resposta. Depois define expectativa clara e acompanhamento.
+
+### 3. Negociação com fornecedor
+Situação: precisa renegociar prazo, preço ou condições.
+
+**Princípio de Harvard:** separe pessoa do problema. Busque interesses, não posições.
+
+Pergunte antes de propor: *"Qual é o maior constrangimento do vosso lado neste momento?"* — a resposta muitas vezes abre espaço que você não imaginava.
+
+## Comportamentos que passam e que eliminam
+
+| ✅ Valorizado | ❌ Elimina |
+|---|---|
+| Escuta ativa (silêncio estratégico) | Interromper antes de ouvir tudo |
+| Valida emoções antes de resolver | Ir direto à solução sem empatia |
+| Faz perguntas para entender | Assume que já entendeu |
+| Propõe solução concreta | Fica em generalidades |
+| Mantém a calma sob pressão | Fica defensivo ou se desculpa em excesso |
+
+## Preparação prática
+
+Antes do AC, pratique 2-3 role plays com um amigo. O desconforto de fazer em voz alta pela primeira vez é muito real — melhor sentir isso em casa do que no centro de avaliação.`,
+      },
+      {
+        id: '16-5',
+        title: 'Apresentação individual: estrutura e presença',
+        duration: '30 min',
+        content: `# Apresentação individual: estrutura e presença
+
+## Formatos mais comuns
+
+**Apresentação preparada (com tempo):**
+Recebe tema com 20-30 min de preparo, apresenta 5-10 min, responde perguntas.
+
+**Apresentação surpresa:**
+Recebe tema e tem 2-3 min para estruturar mentalmente antes de apresentar.
+
+**Pitch de negócio:**
+Apresenta proposta/solução para problema fictício a "executivos" (avaliadores).
+
+## Estrutura em 3 partes que sempre funciona
+
+### 1. Abertura com impacto (30 seg)
+Não comece com "Bom dia, meu nome é...". Comece com o ponto central:
+> *"Vou argumentar que a empresa deve expandir para o mercado B2B — e vou mostrar 3 razões por que isso vai dobrar a receita em 2 anos."*
+
+### 2. Desenvolvimento (70% do tempo)
+Estrutura piramidal: conclusão primeiro, evidências depois.
+
+Para cada ponto: afirmação → evidência/dado → implicação.
+
+Use transições explícitas:
+- *"O segundo ponto é..."*
+- *"Isso nos leva a..."*
+- *"Em resumo sobre este ponto..."*
+
+### 3. Encerramento memorável (30 seg)
+Retome a tese principal + chamada à ação clara:
+> *"Em resumo: 3 razões apontam para B2B. O próximo passo é um projeto piloto de 90 dias com 5 clientes. Perguntas?"*
+
+## Presença executiva durante a apresentação
+
+**Contacto visual:** distribua por todos os avaliadores. 3-5 segundos por pessoa antes de mudar.
+
+**Voz:** fale mais devagar do que parece necessário. Pausas estratégicas comunicam confiança.
+
+**Gestos:** mãos visíveis e naturais. Evite apontar para a audiência.
+
+**Postura:** de pé sempre que possível, ligeiramente inclinado para a frente.
+
+## Respondendo perguntas difíceis
+
+Se não sabe a resposta:
+> *"Boa pergunta. Não tenho o dado exato, mas baseado no que apresentei, a minha hipótese seria... Confirmaria depois com pesquisa adicional."*
+
+Se a pergunta é para desestabilizar:
+> *"Percebo o ceticismo — é legítimo. Vou reforçar o argumento central..."*
+
+Nunca diga "não sei" e pare. Sempre complete com raciocínio.`,
+      },
+    ],
+  },
+  {
+    id: 17,
+    title: 'Big Techs e Startups: Processos Seletivos Específicos',
+    desc: 'Entende como funcionam os processos do Google, Meta, Amazon, Microsoft e startups de alto crescimento — e como passar em cada um.',
+    duration: '3h 30min',
+    icon: '🚀',
+    isPro: true,
+    color: { bg: 'bg-sky-50', border: 'border-sky-200', badge: 'bg-sky-100 text-sky-700', icon: 'bg-sky-500' },
+    lessons: [
+      {
+        id: '17-1',
+        title: 'Como as big techs estruturam seus processos seletivos',
+        duration: '25 min',
+        content: `# Como as big techs estruturam seus processos seletivos
+
+## O que diferencia o processo de uma big tech
+
+Processo de uma empresa comum: CV → entrevista RH → entrevista técnica → oferta. Dura 2-4 semanas.
+
+Processo de uma big tech: CV → screening → 4-7 entrevistas em painel → debrief → calibration → oferta. Dura 6-14 semanas.
+
+A diferença central: **comitê de contratação**, não decisão individual. Múltiplos entrevistadores avaliam de forma independente, os resultados são calibrados em reunião coletiva. Isso elimina muito viés individual — mas torna o processo mais longo e mais imprescindível de preparação.
+
+## As 4 dimensões avaliadas em todas as big techs
+
+Independente do cargo ou empresa, as grandes techs avaliam:
+
+**1. Competência técnica (Technical Bar)**
+Você consegue fazer o trabalho? Testes de código, design de sistemas, análise, gestão de produto — dependendo da área.
+
+**2. Competências comportamentais (Behavioral)**
+Você se encaixa na forma de trabalhar? Perguntas STAR focadas em princípios específicos da empresa.
+
+**3. Liderança (Leadership)**
+Mesmo sem título de gestor — você influencia, resolve ambiguidade, prioriza?
+
+**4. Fit com a missão (Mission/Culture Fit)**
+Por que esta empresa? Demonstra entender e se identificar com o que a empresa faz.
+
+## Visão geral dos processos por empresa
+
+### Google
+- Processo mais longo do mercado: 5-8 entrevistas de 45 min cada
+- Avaliação em 4 dimensões: General Cognitive Ability, Leadership, Googleyness, Role-related knowledge
+- Decisão tomada por comitê central (não pelo gestor direto)
+- Foco forte em pensamento estruturado e comunicação clara sob pressão
+
+### Meta (Facebook)
+- Processo focado em impacto ("Move Fast, Build Things")
+- Perguntas comportamentais ligadas a princípios como "Be Direct and Respect Your Colleagues"
+- Para tech: coding + system design + behavioral em separado
+- Tende a ser mais direto e rápido que Google
+
+### Amazon
+- 14 Leadership Principles são o eixo central de TUDO
+- Cada pergunta comportamental é mapeada a 1-2 princípios
+- Método STAR obrigatório — respostas sem estrutura são penalizadas
+- "Bar Raiser": entrevistador independente com poder de veto
+
+### Microsoft
+- Processo mais humanizado e colaborativo
+- Foco em "Growth Mindset" (conceito de Carol Dweck)
+- Para tech: coding, design, behavioral — mas cultura mais aberta a erros
+- Gestor direto tem mais peso na decisão final
+
+## Quanto tempo preparar
+
+| Nível | Preparação recomendada |
+|---|---|
+| Júnior/Estágio | 4-8 semanas de preparação intensiva |
+| Pleno | 6-10 semanas |
+| Sênior | 8-14 semanas |
+| Staff/Principal | 12-20 semanas |`,
+      },
+      {
+        id: '17-2',
+        title: 'Os 14 Leadership Principles da Amazon: como dominá-los',
+        duration: '40 min',
+        content: `# Os 14 Leadership Principles da Amazon
+
+## Por que os LPs são tudo na Amazon
+
+Cada entrevistador da Amazon tem 2-3 Leadership Principles designados para avaliar. Cada pergunta comportamental é mapeada a pelo menos 1 LP. Sem dominar os LPs, não passa nas entrevistas comportamentais — independente de competência técnica.
+
+## Os 14 Leadership Principles (resumidos para entrevista)
+
+### 1. Customer Obsession
+Começa pelo cliente e trabalha de trás para frente. Ganha a confiança e mantém-na.
+*Pergunta típica: "Conte sobre uma vez em que você foi além do esperado para satisfazer um cliente."*
+
+### 2. Ownership
+Age como dono. Pensa no longo prazo. Nunca diz "não é meu problema".
+*Pergunta típica: "Conte sobre um problema que estava fora do seu escopo mas que você resolveu mesmo assim."*
+
+### 3. Invent and Simplify
+Busca novas ideias em todo lugar. Simplifica.
+*Pergunta típica: "Conte sobre uma inovação que você trouxe e como a implementou."*
+
+### 4. Are Right, A Lot
+Tem bom julgamento. Busca diversidade de perspectivas. Reconhece quando está errado.
+*Pergunta típica: "Conte sobre uma decisão difícil que tomou com dados incompletos."*
+
+### 5. Learn and Be Curious
+Nunca para de aprender. Explora novas possibilidades.
+*Pergunta típica: "O que você aprendeu recentemente por conta própria? Como aplicou?"*
+
+### 6. Hire and Develop the Best
+Eleva o nível de quem está ao redor. Reconhece talentos excepcionais.
+*Pergunta típica: "Conte sobre alguém que você desenvolveu ou mentoreou."*
+
+### 7. Insist on the Highest Standards
+Tem padrões altos. Não aceita trabalho mediano.
+*Pergunta típica: "Conte sobre uma vez que você insistiu em qualidade quando havia pressão para entregar rápido."*
+
+### 8. Think Big
+Cria e comunica direção ousada. Pensa diferente.
+*Pergunta típica: "Qual foi a ideia mais ousada que você teve e executou?"*
+
+### 9. Bias for Action
+Velocidade importa. Muitas decisões são reversíveis — age.
+*Pergunta típica: "Conte sobre uma vez que agiu sem ter todos os dados necessários."*
+
+### 10. Frugality
+Faz mais com menos. Restrição gera engenhosidade.
+*Pergunta típica: "Conte sobre uma vez que entregou resultado expressivo com poucos recursos."*
+
+### 11. Earn Trust
+Escuta atentamente. Fala com franqueza. Respeita outros mesmo discordando.
+*Pergunta típica: "Conte sobre uma vez que discordou de um superior e como conduziu."*
+
+### 12. Dive Deep
+Fica conectado aos detalhes. Questiona métricas com ceticismo saudável.
+*Pergunta típica: "Conte sobre uma vez que analisou dados em profundidade e encontrou algo inesperado."*
+
+### 13. Have Backbone; Disagree and Commit
+Desafia decisões com as quais discorda — mesmo que seja desconfortável. Mas quando decidido, compromete-se totalmente.
+*Pergunta típica: "Conte sobre uma vez que discordou de uma decisão da equipa e o que fez."*
+
+### 14. Deliver Results
+Foca em resultados e entrega com qualidade no prazo.
+*Pergunta típica: "Conte sobre o maior desafio de entrega que você enfrentou e como superou."*
+
+## Como preparar: o banco de histórias
+
+Prepare 8-10 histórias STAR da sua carreira. Para cada uma, mapeie os LPs que ela pode ilustrar. Uma boa história cobre 3-4 LPs dependendo de como é contada.
+
+Crie uma tabela:
+
+| História | LPs cobertos |
+|---|---|
+| Redesenhei o processo de onboarding | #2, #7, #9, #14 |
+| Assumi projeto abandonado | #2, #9, #13, #14 |`,
+      },
+      {
+        id: '17-3',
+        title: 'Processos seletivos em startups: seed, série A, B e C+',
+        duration: '30 min',
+        content: `# Processos seletivos em startups por estágio
+
+## Por que o estágio importa tanto
+
+Uma startup em seed de 8 pessoas e uma série C de 300 pessoas são mundos completamente diferentes — apesar de ambas serem chamadas de "startup". O processo seletivo, os critérios e o que você deve mostrar variam radicalmente.
+
+## Seed / Pre-seed (até 20 pessoas)
+
+**O processo:** geralmente 2-3 conversas diretas com founders. Informal. Rápido (1-2 semanas).
+
+**O que avaliam acima de tudo:**
+- Vontade genuína de construir (não apenas trabalhar)
+- Capacidade de fazer coisas que estão fora do job description
+- Alta tolerância à ambiguidade e mudança de planos
+
+**O que mostrar:**
+- Projetos pessoais, side projects, coisas que construiu por conta própria
+- Exemplos em que "encontrou o caminho" sem ter um manual
+- Entusiasmo real pelo problema que a startup resolve (eles percebem quem é genuíno)
+
+**Erros típicos:** pedir processos estruturados, perguntar sobre plano de carreira formal, não ter estudado o produto/problema da empresa.
+
+## Série A (20-80 pessoas)
+
+**O processo:** 3-5 entrevistas. Começa a aparecer estrutura. RH ou People Ops envolvido.
+
+**O que avaliam:**
+- Competência técnica clara na área
+- Capacidade de escalar com a empresa
+- Cultura: colaboração sem ego, velocidade de execução
+
+**O que mostrar:**
+- Resultados mensuráveis em contextos de crescimento rápido
+- Que você já viu (e sobreviveu a) caos organizado
+- Que aprende rápido quando entra numa área nova
+
+## Série B/C (80-500 pessoas)
+
+**O processo:** mais formalizado. 4-6 entrevistas. Pode incluir case ou take-home assignment.
+
+**O que avaliam:**
+- Especialização real (generalistas viram menos valorizados)
+- Capacidade de liderar sem autoridade formal (squads, projetos cross-funcionais)
+- Fit com valores explícitos da empresa
+
+**Take-home assignments:** muito comuns neste estágio. Dica: documente o processo de raciocínio, não apenas o resultado. Mostre que você questiona premissas antes de executar.
+
+## Série D+ / Unicórnios
+
+Processo similar a uma empresa de médio porte. Pode incluir Assessment Center.
+
+O diferencial: velocidade e impacto ainda são valorizados, mas governança e processo já existem. Mostre que você consegue trabalhar com estrutura sem perder a mentalidade de dono.`,
+      },
+      {
+        id: '17-4',
+        title: 'Take-home assignments e technical screens',
+        duration: '35 min',
+        content: `# Take-home assignments e technical screens
+
+## Take-home assignments
+
+São tarefas enviadas antes ou durante o processo para você fazer fora da entrevista — análises, estratégias, código, planos de produto.
+
+### Por que as empresas usam
+- Avalia trabalho real em condições mais próximas do dia-a-dia
+- Permite avaliação mais profunda do que 45 min de entrevista
+- Reduz o impacto do nervosismo
+
+### O que os avaliadores realmente procuram
+
+**Para perfis de análise/estratégia:**
+- Clareza de raciocínio (processo, não só conclusão)
+- Uso de dados para suportar decisões (mesmo dados hipotéticos)
+- Capacidade de priorizar — não tentar resolver tudo
+
+**Para perfis técnicos:**
+- Código limpo e legível (não apenas funcional)
+- Decisões de arquitetura justificadas
+- README claro explicando as escolhas
+
+**Para perfis de produto:**
+- Estrutura: problema → usuário → solução → métricas
+- Opiniões claras, não só opções
+
+### As 3 regras de ouro do take-home
+
+1. **Documente seu raciocínio** — o que você considerou e descartou vale tanto quanto o que entregou
+2. **Respeite o tempo estimado** — se disseram 4 horas, entregue em 4 horas. Entregar algo muito além do esperado pode ser sinal negativo (dificuldade de priorizar)
+3. **Pergunte antes de começar** — uma boa pergunta de esclarecimento mostra maturidade
+
+### Template de apresentação de take-home
+
+\`\`\`
+1. Entendimento do problema (2-3 linhas)
+2. Premissas assumidas
+3. Metodologia / abordagem
+4. Análise / desenvolvimento
+5. Conclusão / recomendação
+6. O que faria diferente com mais tempo/dados
+\`\`\`
+
+## Technical screens (entrevistas técnicas ao vivo)
+
+### Coding interviews
+
+Plataformas: CoderPad, HackerRank, LeetCode (ao vivo).
+
+**O que importa mais que resolver:**
+- Verbalizar o raciocínio em tempo real
+- Perguntar clarificações antes de começar a codificar
+- Identificar edge cases antes de ser perguntado
+- Complexidade de tempo e espaço mencionada espontaneamente
+
+**Se travar:** diga em voz alta. *"Estou pensando entre esta abordagem e outra — deixa eu explorar as duas."* Entrevistadores preferem transparência a silêncio.
+
+### System design
+
+Usado para sênior+. *"Como você desenharia o Twitter? Um sistema de pagamentos? Um feed de notícias?"*
+
+**Framework recomendado:**
+1. Clarifica requisitos (funcionais e não-funcionais)
+2. Estima escala (usuários, requests/segundo, armazenamento)
+3. Design de alto nível (componentes principais)
+4. Deep dive nos componentes críticos
+5. Trade-offs das suas escolhas`,
+      },
+      {
+        id: '17-5',
+        title: 'Cultura e fit: o que realmente avaliam além da técnica',
+        duration: '20 min',
+        content: `# Cultura e fit: o que realmente avaliam além da técnica
+
+## Por que bons candidatos são rejeitados
+
+O motivo mais comum de rejeição pós-entrevistas técnicas bem-sucedidas é **culture fit** mal avaliado. Não é discriminação — é que empresas de tecnologia têm formas específicas de trabalhar, e pessoas que não se encaixam nessas formas tornam o trabalho de todos mais difícil.
+
+## O que "culture fit" realmente significa em tech
+
+**Autonomia e ambiguidade:** você consegue trabalhar sem que alguém defina cada passo? Faz perguntas melhores do que pedidos de permissão?
+
+**Velocidade vs. perfeição:** cada empresa tem seu ponto de equilíbrio. Startups cedo valorizam velocidade; Google valoriza robustez. Você sabe identificar e se adaptar?
+
+**Comunicação escrita:** em empresas remote-first ou com times distribuídos, escrever bem é tão importante quanto falar bem.
+
+**Ego vs. impacto:** você credita o sucesso a si mesmo ou ao time? Prefere ter razão ou ter o melhor resultado?
+
+**Feedback como ferramenta:** você busca feedback? Como reage a crítica direta?
+
+## Como demonstrar fit nas entrevistas
+
+**Pesquise antes** — leia o blog de engenharia, os posts do CEO no LinkedIn, reviews no Glassdoor. Mencione o que leu.
+
+**Perguntas que mostram fit:**
+- *"Como é o processo de tomada de decisão quando há desacordo entre times?"*
+- *"O que diferencia quem performa muito bem aqui de quem performa bem?"*
+- *"Como é o onboarding de novas pessoas — o que as ajuda a impactar rápido?"*
+
+## Red flags que você deve observar na empresa
+
+- Respostas vagas sobre cultura (*"somos como uma família"* — red flag)
+- Avaliadores que chegam atrasados e não pedem desculpas
+- Processo extremamente longo sem comunicação clara
+- Perguntas de entrevista desrespeitosas ou que violam privacidade
+- Todos os entrevistadores repetem os mesmos adjetivos sobre a cultura (roteiro)
+
+Lembre: você também está avaliando se quer trabalhar ali.`,
+      },
+    ],
+  },
+  {
+    id: 18,
+    title: 'Promoção Interna: Crescer Sem Mudar de Empresa',
+    desc: 'Estratégias para se tornar visível, construir o caso para promoção e navegar a política interna com inteligência.',
+    duration: '2h 30min',
+    icon: '📈',
+    isPro: true,
+    color: { bg: 'bg-lime-50', border: 'border-lime-200', badge: 'bg-lime-100 text-lime-700', icon: 'bg-lime-500' },
+    lessons: [
+      {
+        id: '18-1',
+        title: 'Como funcionam as promoções de verdade (o que ninguém te conta)',
+        duration: '25 min',
+        content: `# Como funcionam as promoções de verdade
+
+## O mito da promoção por mérito
+
+A maioria das pessoas acredita que promoções acontecem quando você trabalha muito e entrega bem. Isso é necessário — mas não suficiente.
+
+Promoções acontecem quando a intersecção de três elementos está presente:
+1. **Você entrega resultados acima do esperado** (o mínimo necessário)
+2. **As pessoas certas sabem disso** (visibilidade)
+3. **Há espaço ou necessidade para o cargo acima** (timing e contexto)
+
+Muitos profissionais excelentes ficam anos sem promoção porque dominam o ponto 1 mas ignoram os pontos 2 e 3.
+
+## O ciclo de promoções na maioria das empresas
+
+As promoções formais acontecem em janelas específicas: fim de ano, meio de ano, ciclos de performance review. Entender o calendário é estratégico.
+
+**6 meses antes da janela:** comece a construir o caso ativamente.
+**3 meses antes:** tenha a conversa explícita com seu gestor.
+**1 mês antes:** garanta que seu gestor tem todos os dados para te defender.
+
+## O papel do gestor direto
+
+Na maioria das empresas, o gestor direto é seu principal patrocinador — ou seu principal obstáculo. Eles precisam:
+- Acreditar que você está pronto
+- Ter dados concretos para defender sua promoção em reuniões de calibração
+- Estar dispostos a "gastar capital político" por você
+
+Se seu gestor não está fazendo isso, você precisa mudar o gestor, mudar sua estratégia, ou aceitar que a promoção não virá por esse caminho.
+
+## Calibration meetings: onde as promoções são decididas
+
+Na maioria das grandes empresas, gestores se reúnem periodicamente para calibrar avaliações de performance e promoções. Nessas reuniões:
+
+- Seu gestor apresenta seu caso
+- Outros gestores questionam ou validam
+- A decisão final não é do seu gestor sozinho
+
+Isso significa que você precisa ser conhecido e respeitado por pessoas além do seu gestor direto. Cross-functional relationships são investimento de carreira, não apenas trabalho.`,
+      },
+      {
+        id: '18-2',
+        title: 'Visibilidade estratégica: ser conhecido pelas razões certas',
+        duration: '30 min',
+        content: `# Visibilidade estratégica: ser conhecido pelas razões certas
+
+## O problema da visibilidade passiva
+
+Muitos profissionais excelentes esperam que o trabalho fale por si. Em equipes pequenas, isso às vezes funciona. Em organizações médias e grandes, é uma estratégia de stagnação.
+
+Visibilidade não é autopromoção vazia. É garantir que as contribuições certas cheguem às pessoas certas.
+
+## 5 formas de aumentar visibilidade estrategicamente
+
+### 1. Apresente resultados, não atividades
+Em reuniões de equipa, relatórios e updates: foque em impacto mensurável, não em volume de trabalho.
+
+❌ "Esta semana trabalhei no projeto X e fiz várias reuniões de alinhamento."
+✅ "Esta semana finalizamos a fase 1 do projeto X — o que vai reduzir o tempo de processo em 30% a partir de segunda-feira."
+
+### 2. Tome iniciativas além do escopo
+Resolver um problema que não é "seu" — especialmente se beneficia outros times — gera capital político e visibilidade.
+
+Identifique problemas que todos reclamam mas ninguém resolve. Proponha solução. Execute. Comunique o resultado.
+
+### 3. Construa relações verticais e horizontais
+Agende cafés ou conversas de 20 min com líderes sênior de outras áreas. O pretexto: aprender sobre o trabalho deles. O objetivo real: ser conhecido e lembrado.
+
+### 4. Contribua com conhecimento coletivo
+Apresente em reuniões de equipa alargadas. Escreva documentos internos sobre o que você aprendeu. Compartilhe aprendizados em canais de Slack/Teams relevantes.
+
+### 5. Solicite oportunidades de exposição ao seu gestor
+> *"Gostaria de apresentar os resultados do projeto X na próxima reunião de liderança. Faz sentido?"*
+
+Gestores normalmente apoiam — tira trabalho deles e demonstra maturidade.
+
+## A diferença entre visibilidade e política negativa
+
+Visibilidade positiva: baseada em contribuições reais, beneficia o coletivo, é transparente.
+
+Política negativa: baseada em aparecer sem substância, diminui outros para se elevar, é percebida e ressente.
+
+A linha é clara: se você está fazendo coisas que realmente ajudam e comunicando isso, é visibilidade estratégica. Se está exagerando contribuições ou ocultando as de outros, é política destrutiva — e acaba mal.`,
+      },
+      {
+        id: '18-3',
+        title: 'Como pedir promoção: a conversa que a maioria evita',
+        duration: '30 min',
+        content: `# Como pedir promoção: a conversa que a maioria evita
+
+## Por que a maioria não pede
+
+1. Medo de ouvir "não" — que é tratado como rejeição pessoal
+2. Acredita que o gestor vai perceber "sozinho"
+3. Não sabe como estruturar a conversa
+4. Teme parecer ambicioso de forma negativa
+
+A realidade: gestores raramente promovem quem não sinalizou desejo de crescer. A conversa é necessária.
+
+## Quando ter a conversa
+
+- **Não:** logo após um erro ou projeto problemático
+- **Não:** em período de crise na empresa ou mudança organizacional
+- **Sim:** após entrega relevante com resultado mensurável
+- **Sim:** 3-4 meses antes do ciclo formal de performance review
+- **Sim:** quando você já está entregando responsabilidades do nível acima
+
+## Como estruturar a conversa
+
+**Abertura:**
+> *"Queria conversar sobre minha trajetória aqui. Estou no cargo de [X] há [Y meses/anos] e tenho pensado sobre crescimento. Posso compartilhar minha perspectiva e ouvir a sua?"*
+
+**O caso:**
+> *"Nos últimos [período], contribuí com [resultados específicos com números]. Além das responsabilidades do meu cargo, tenho assumido [responsabilidades do nível acima]. Acredito que estou pronto para o próximo nível e gostaria de entender o que seria necessário para isso acontecer."*
+
+**A pergunta direta:**
+> *"Na sua visão, o que estou fazendo bem que devo continuar? E o que precisaria desenvolver para estar pronto para a promoção?"*
+
+## Se o gestor disser "ainda não"
+
+Não é fim de linha — é informação.
+
+Perguntas a fazer após um "não":
+- *"Quais são os critérios específicos para o próximo nível?"*
+- *"O que você precisaria ver nos próximos 6 meses?"*
+- *"Há algo no meu trabalho atual que preciso melhorar?"*
+
+Documente as respostas. Se em 6 meses você cumpriu os critérios e ainda não houve promoção, você tem dados para uma conversa mais direta — ou para buscar o crescimento fora da empresa.`,
+      },
+      {
+        id: '18-4',
+        title: 'Navegar política interna sem se perder',
+        duration: '25 min',
+        content: `# Navegar política interna sem se perder
+
+## Política não é palavrão
+
+Toda organização tem política — dinâmicas de poder, influência e interesses. Ignorar isso não a elimina. Aprender a navegar com integridade é habilidade profissional, não fraqueza moral.
+
+## Mapeando o poder real (não o organograma)
+
+O organograma mostra hierarquia formal. O mapa de poder real mostra quem influencia decisões.
+
+Perguntas para mapear:
+- Quem o CEO/liderança sênior escuta de verdade?
+- Quem sempre sabe das mudanças antes dos comunicados oficiais?
+- Cujas opiniões bloqueiam ou aceleram iniciativas?
+- Quem outros pedem opinião antes de decidir?
+
+Construa relações com essas pessoas — não por manipulação, mas porque elas entendem o contexto real da organização.
+
+## Gestão de stakeholders difíceis
+
+### O colega que sabota
+Não reaja publicamente. Documente comportamentos com datas e factos. Tenha conversa direta se for seguro. Envolva o gestor apenas com evidências.
+
+### O gestor que não te apoia
+Primeira pergunta: é intencional ou ele não sabe como te apoiar? Muitos gestores simplesmente não sabem fazer desenvolvimento de carreira.
+
+Se intencional: avalie mudar de equipa internamente ou buscar oportunidade externa.
+
+Se não-intencional: seja explícito sobre o que precisa. *"Para conseguir a promoção, precisaria que você me incluísse nas reuniões de liderança de X. Isso seria possível?"*
+
+### O concorrente interno
+Há outra pessoa competindo pelo mesmo cargo. A resposta errada: competição destrutiva. A certa: demonstre que você soma, não subtrai — colabore visivelmente.
+
+## Quando a política está contra você
+
+Sinais de que você está em desvantagem política:
+- Excluído de reuniões importantes sem explicação
+- Projetos relevantes vão para outros sem critério claro
+- Feedback de performance vago e inconsistente
+- Seu gestor não te defende quando questionado
+
+Se 3 ou mais desses sinais estão presentes há mais de 6 meses: provavelmente é hora de buscar a promoção em outro lugar. Às vezes, o crescimento mais rápido é lateral — para outra empresa.`,
+      },
+    ],
+  },
+  {
+    id: 19,
+    title: 'Recolocação Após Demissão ou Layoff',
+    desc: 'Guia prático para se recolocar com rapidez e estratégia após uma demissão — tratando os aspectos emocionais, práticos e de posicionamento.',
+    duration: '2h',
+    icon: '💪',
+    isPro: false,
+    color: { bg: 'bg-orange-50', border: 'border-orange-200', badge: 'bg-orange-100 text-orange-700', icon: 'bg-orange-600' },
+    lessons: [
+      {
+        id: '19-1',
+        title: 'Os primeiros 7 dias: o que fazer imediatamente',
+        duration: '25 min',
+        content: `# Os primeiros 7 dias após a demissão
+
+## Dia 1-2: Permita-se processar
+
+Demissão — mesmo quando esperada — é um choque. Sentimentos de raiva, vergonha, alívio, medo, tristeza são todos normais e podem coexistir. Tentar saltar direto para "modo busca" sem processar o que aconteceu resulta em candidaturas feitas com mau estado de espírito.
+
+Reserve 24-48h para não fazer nada profissional. Converse com pessoas de confiança. Não publique nada nas redes sociais enquanto estiver emocional.
+
+## Dia 2-4: Questões práticas urgentes
+
+### Rescisão e direitos
+- Verifique todos os cálculos da rescisão antes de assinar
+- Entenda o que está recebendo: FGTS + multa, aviso prévio, férias, 13º proporcional
+- Em caso de dúvida, consulte um advogado trabalhista (muitos fazem primeira consulta gratuita)
+- Guarde todos os documentos da empresa antes do acesso ser cortado
+
+### Seguro-desemprego
+- Solicite dentro do prazo (geralmente até 120 dias após a demissão)
+- Verifique elegibilidade: mínimo de 12 meses com carteira assinada para 1ª solicitação
+- Calcule quanto tempo de benefício tem e use como runway para busca sem desespero
+
+### Finanças
+- Monte planilha de despesas mensais essenciais vs. opcionais
+- Calcule quantos meses tem de reserva (FGTS + seguro + poupança)
+- Se necessário, renegocie dívidas proativamente — antes de atrasar, não depois
+
+## Dia 5-7: Preparação estratégica
+
+### Atualize o CV imediatamente
+Enquanto os números e detalhes de projetos estão frescos, documente tudo. Conquistas, métricas, projetos relevantes, ferramentas usadas.
+
+### Faça o inventário de networking
+Liste 20-30 contatos que podem ajudar: ex-colegas, ex-gestores, clientes, fornecedores, conhecidos do setor.
+
+### Defina os próximos passos com calma
+- Quer o mesmo cargo numa empresa similar?
+- Quer mudar de área ou setor?
+- Está aberto a freelance temporário enquanto busca?
+- Há oportunidades internas em outras empresas do mesmo grupo?
+
+Decisões tomadas no calor do momento de uma demissão raramente são as melhores. Uma semana de reflexão vale mais que agir precipitadamente.`,
+      },
+      {
+        id: '19-2',
+        title: 'Como explicar a demissão em entrevistas',
+        duration: '30 min',
+        content: `# Como explicar a demissão em entrevistas
+
+## A pergunta que todo candidato teme
+
+"Por que você saiu da última empresa?" — e quando a resposta é "fui demitido", muitos candidatos ficam sem saber o que dizer.
+
+A boa notícia: demissões são extremamente comuns, especialmente após layoffs em massa dos últimos anos. Recrutadores experientes sabem disso. O que eles avaliam não é o facto de você ter sido demitido — mas como você lida com isso e o que fez desde então.
+
+## Tipos de demissão e como comunicar cada um
+
+### Layoff / Reestruturação (redução coletiva)
+
+Esta é a mais fácil de comunicar — e a mais comum nos últimos anos.
+
+> *"A empresa passou por uma reestruturação que eliminou minha área inteira — junto com mais [X] colegas. Foi uma decisão de negócio que não tinha relação com performance individual. Tenho referências excelentes de meu gestor direto, se precisar."*
+
+**Por que funciona:** é verificável, não gera dúvida sobre você, e demonstra maturidade ao contextualizar sem dramatizar.
+
+### Demissão individual (performance ou conflito)
+
+Esta exige mais cuidado, mas ainda é gerenciável.
+
+**O que nunca fazer:** falar mal da empresa ou do gestor. O recrutador vai imaginar que você fará o mesmo sobre eles.
+
+**Framework honesto sem se autossabotar:**
+
+> *"Naquele momento, havia um desalinhamento entre o que a empresa precisava e o que eu estava entregando em [área específica]. Aprendi muito com o processo — especialmente [lição concreta]. Hoje estou muito mais [habilidade] e busco um ambiente onde possa aplicar isso."*
+
+Se houve conflito de gestão: *"Tivemos divergências sobre a direção estratégica da área. Acabou sendo melhor para ambos seguirmos caminhos diferentes."*
+
+### Mutual agreement / PDV
+
+> *"A empresa ofereceu um programa de desligamento voluntário e, avaliando meu momento de carreira, fez sentido aceitar para buscar novos desafios."*
+
+## Como preparar a narrativa
+
+1. **Seja breve** — não mais que 2-3 frases para explicar a saída
+2. **Redirecione rápido** — termine sempre com o que você aprendeu ou o que busca
+3. **Pratique em voz alta** — o desconforto na primeira vez que você diz é real
+4. **Tenha referências prontas** — ex-gestores ou colegas dispostos a dar referência positiva neutralizam quase qualquer preocupação
+
+## O timing de revelar
+
+Se perguntado diretamente: seja honesto imediatamente.
+Se não perguntado: você não precisa trazer no primeiro contato. No CV, basta indicar a data de saída. A explicação vem na entrevista.`,
+      },
+      {
+        id: '19-3',
+        title: 'Estratégia de recolocação acelerada',
+        duration: '30 min',
+        content: `# Estratégia de recolocação acelerada
+
+## O erro que prolonga a busca
+
+Candidatar-se em massa para qualquer vaga, sem estratégia, é o caminho mais longo. A taxa de retorno de candidaturas não direcionadas é de 2-3%. O caminho mais rápido para recolocação é sempre o networking.
+
+## O plano de 30 dias para recolocação
+
+### Semana 1: Base e ativação
+
+**Dia 1-3: Materiais**
+- CV atualizado e otimizado para ATS
+- Perfil LinkedIn atualizado com "Open to Work" (visível só para recrutadores, se preferir)
+- Lista de 15-20 empresas-alvo definida
+
+**Dia 4-7: Ativação da rede**
+Envie mensagem personalizada para 10 contatos da sua rede mais próxima:
+
+> *"Oi [Nome], espero que esteja bem. Recentemente fui desligado da [empresa] e estou em busca ativa de novas oportunidades em [área]. Se você souber de alguma vaga ou puder me apresentar a alguém relevante, ficaria muito grato. Abraço, [Nome]"*
+
+### Semana 2-3: Expansão e candidaturas
+
+- 5-10 candidaturas por semana (qualidade > quantidade)
+- 3-5 mensagens de networking por dia (LinkedIn, email, WhatsApp)
+- Identificar 2-3 recrutadores especializados na sua área e entrar em contacto
+
+### Semana 4: Revisão e ajuste
+
+Analise o que funcionou:
+- Quais candidaturas geraram resposta?
+- Quais empresas do networking responderam?
+- Precisa ajustar o CV, o targeting ou o nível do cargo?
+
+## Usar o período produtivamente
+
+Além de candidatar-se, use o tempo para:
+
+- **Freelance ou consultoria temporária** — gera renda e preenche o gap no CV
+- **Certificações relevantes** — 4-6 semanas bem investidas
+- **Projetos pessoais** — especialmente para tech e criativas
+- **Mentorias e informational interviews** — aprende e expande rede simultaneamente
+
+## Como lidar com o gap no CV
+
+Um gap de 1-3 meses não precisa de explicação. Acima de 6 meses, tenha uma narrativa:
+
+> *"Usei o período para [freelance / projeto pessoal / certificação / cuidar de família] enquanto buscava a oportunidade certa, em vez de aceitar a primeira oferta apenas para preencher o gap."*`,
+      },
+      {
+        id: '19-4',
+        title: 'Identidade profissional além do cargo',
+        duration: '25 min',
+        content: `# Identidade profissional além do cargo
+
+## O perigo da identidade fundida ao trabalho
+
+Quando você se apresenta como "Sou [cargo] na [empresa)", sua identidade está fundida ao cargo. Quando perde o emprego, perde parte de si.
+
+Isso não é exagero — pesquisas em psicologia do trabalho mostram que demissão tem impacto semelhante ao luto em termos de resposta emocional, especialmente para pessoas com alta identidade ligada ao trabalho.
+
+## Reconstruindo a narrativa de si mesmo
+
+Durante a busca, é útil separar conscientemente:
+
+**O que você faz** (habilidades, expertises) — não muda com a demissão.
+**O que você realizou** (conquistas, impacto) — permanente, independente de onde você trabalhava.
+**Quem você é** (valores, caráter, forma de trabalhar) — intacto.
+
+Exercício: escreva 10 afirmações sobre você que não dependem de nenhuma empresa específica. *"Sou alguém que resolve problemas complexos com dados. Sou alguém que constrói times de alto desempenho. Sou alguém que aprende novas ferramentas rapidamente."*
+
+## Mantendo estrutura e propósito sem trabalho formal
+
+A perda de estrutura é um dos aspectos mais difíceis da transição. Estratégias:
+
+**Crie rotina deliberada:** horários fixos de "trabalho na busca", horários de não-trabalho.
+
+**Mantenha contribuição:** voluntariado, mentoria, projetos open source — qualquer forma de dar algo cria senso de propósito.
+
+**Cultive comunidade:** grupos de busca de emprego, masterminds, eventos da área. O isolamento amplia os pensamentos negativos.
+
+**Celebre marcos pequenos:** a busca tem pouco feedback positivo — você precisa criá-lo. Cada candidatura enviada, cada contato respondido, cada entrevista agendada é uma vitória real.
+
+## Quando considerar ajuda profissional
+
+Se após 4+ semanas de demissão você ainda sente que não consegue começar a buscar, tem dificuldade de dormir, perdeu interesse em coisas que antes gostava, ou sente angústia persistente — considere falar com um psicólogo. Não é fraqueza; é inteligência em cuidar do recurso mais importante: você mesmo.`,
+      },
+    ],
+  },
+  {
+    id: 20,
+    title: 'Soft Skills que Decidem Carreiras',
+    desc: 'As competências interpessoais que separam profissionais bons de extraordinários: comunicação, inteligência emocional, feedback e presença.',
+    duration: '3h',
+    icon: '🌟',
+    isPro: false,
+    color: { bg: 'bg-amber-50', border: 'border-amber-200', badge: 'bg-amber-100 text-amber-700', icon: 'bg-amber-500' },
+    lessons: [
+      {
+        id: '20-1',
+        title: 'Comunicação que influencia: falar menos, dizer mais',
+        duration: '35 min',
+        content: `# Comunicação que influencia
+
+## O problema da comunicação corporativa
+
+A maioria das comunicações no ambiente de trabalho é ineficaz: demasiado longa, sem ponto central claro, sem chamada à ação. Reuniões que poderiam ser emails. Emails que deveriam ser uma frase no Slack.
+
+## A pirâmide invertida (Top-Down)
+
+**Bottom-up (como a maioria faz):**
+> "Analisámos os dados de Q1. Email tem CTR 3.2%, pago tem CPA R$45, orgânico cresceu 18%. Concluímos que deveríamos investir mais em orgânico."
+
+**Top-down (como líderes eficazes fazem):**
+> "Recomendo dobrar o investimento em SEO. É o canal com melhor ROI: cresceu 18% a custo quase zero, enquanto o pago tem CPA de R$45."
+
+**Regra prática:** comece pela conclusão, depois pelos dados que a suportam.
+
+## Email executivo de alto impacto
+
+- **Assunto:** a decisão ou ação necessária, não o tema geral
+  - ❌ "Atualização do projeto X"
+  - ✅ "Aprovação necessária: mudança de prazo do projeto X"
+- **1º parágrafo:** o que você precisa e quando
+- **Desenvolvimento:** contexto e dados (quem concordar pode ignorar)
+- **Encerramento:** próximo passo com responsável e data
+
+## Em reuniões
+
+**O pitch de contexto:**
+> "Tenho 3 pontos. O principal é X [30 seg]. Posso começar por ele?"
+
+Organiza a conversa antes de começar. Demonstra pensamento estruturado.
+
+**Perguntas mais inteligentes:**
+- Não: "Qual é o status do projeto?" (resposta: relatório de 10 min)
+- Sim: "O projeto está no prazo para 15/03?" (resposta: sim ou não + contexto)`,
+      },
+      {
+        id: '20-2',
+        title: 'Inteligência emocional no trabalho',
+        duration: '35 min',
+        content: `# Inteligência emocional no trabalho
+
+## O que é IE de facto
+
+IE não é ser emotivo. É reconhecer emoções (próprias e alheias), entender o que causam, e usar essa informação produtivamente.
+
+4 domínios (Goleman):
+1. **Autoconsciência** — reconhecer suas emoções em tempo real
+2. **Auto-regulação** — não agir impulsivamente por impulso emocional
+3. **Consciência social** — perceber o estado dos outros
+4. **Gestão de relacionamentos** — influenciar e colaborar eficazmente
+
+## Autoconsciência: o início
+
+Ao final de cada dia:
+- Qual foi o momento mais frustrante?
+- Qual foi o momento de mais energia?
+- Houve alguma reação da qual não me orgulho?
+
+Com o tempo, você vê padrões — quais situações te activam emocionalmente.
+
+## Auto-regulação: a pausa estratégica
+
+O espaço entre estímulo e resposta é onde IE acontece.
+
+Quando recebe feedback negativo ou mensagem hostil:
+- Não responda imediatamente se estiver emocional
+- Nomeie a emoção internamente ("estou frustrado")
+- Pergunte: "Se responder assim, é o que quero?"
+
+## Dar feedback com IE (modelo SBI)
+
+**Situação → Comportamento → Impacto**
+
+❌ "Você é desorganizado."
+✅ "Na reunião de ontem [S], você chegou 15 min atrasado sem avisar [C]. Isso fez todos esperarem sem saber se aconteceria, gerando frustração [I]."
+
+SBI descreve factos observáveis, não julgamentos de carácter.
+
+## Receber feedback
+
+1. Ouça até o fim sem interromper
+2. Agradeça antes de responder
+3. Faça perguntas de clarificação
+4. Separe reação imediata de resposta
+5. Decida conscientemente o que fazer com o feedback`,
+      },
+      {
+        id: '20-3',
+        title: 'Presença executiva: como ser levado a sério',
+        duration: '30 min',
+        content: `# Presença executiva: como ser levado a sério
+
+## O que é presença executiva
+
+Não é sobre cargo. É sobre a percepção que os outros têm de você — de que tem algo a acrescentar, pode ser confiado com responsabilidade, tem perspectiva.
+
+## 3 pilares
+
+### 1. Gravitas (como você age)
+- Mantém calma sob pressão
+- Toma posições claras e defende-as com dados
+- Reconhece erros sem colapso de confiança
+- Foca em soluções mais do que em problemas
+
+**O que mina a gravitas:**
+- Reclamar em público sem propor solução
+- Mudar de posição sob pressão social sem nova informação
+- Precisar de validação constante para decisões pequenas
+
+### 2. Comunicação (como você fala)
+- Fala com ritmo moderado — não acelera quando nervoso
+- Usa silêncio estrategicamente (pausa = ponderação)
+- Elimina enchimentos: "tipo", "sabes", "basicamente"
+- É direto: "Não concordo porque..." vs. "Não sei se seria o melhor..."
+
+**Exercício:** grave-se em 3 reuniões. Ouça depois. O que está lá que não devia?
+
+### 3. Aparência visual
+- Postura de abertura em reuniões (não braços cruzados)
+- Contacto visual distribuído em grupos
+- Câmara ao nível dos olhos em vídeo
+
+## Desenvolver presença sem autoridade formal
+
+- **Nomeie o elefante na sala** com tato e solução
+- **Tome posições públicas** em debates — quem nunca tem opinião é esquecível
+- **Fale nos primeiros 5 minutos de reuniões** — quem fala cedo parece mais confiante
+- **Gerencie o tempo do grupo:** "Faltam 10 min — qual é a decisão que precisamos tomar?"`,
+      },
+      {
+        id: '20-4',
+        title: 'Gestão de tempo como competência estratégica',
+        duration: '30 min',
+        content: `# Gestão de tempo como competência estratégica
+
+## Por que gestão de tempo é uma soft skill
+
+Não é sobre apps ou técnicas. É sobre a capacidade de tomar decisões contínuas sobre o que importa mais — e comunicar essas decisões com clareza.
+
+## 3 perguntas antes de aceitar qualquer tarefa
+
+1. **Qual é o resultado esperado?** (Se ninguém sabe, recuse ou redefina)
+2. **Sou a pessoa certa?** (Quem mais poderia? Delegar é competência)
+3. **Qual é o custo de oportunidade?** (O que não vou fazer se aceitar isto?)
+
+## A matriz Eisenhower na prática
+
+| | Urgente | Não urgente |
+|---|---|---|
+| **Importante** | Faz agora | Planeia e protege tempo |
+| **Não importante** | Delega | Elimina |
+
+A maioria vive no "urgente/importante" porque não investe no "importante/não urgente" — onde estão desenvolvimento de carreira, relações estratégicas e prevenção de crises.
+
+## Dizer não com elegância
+
+> "Estou comprometido com X e Y até [data]. Se pode esperar, fico feliz em ajudar. Se é urgente, podemos conversar sobre prioridades com [gestor]?"
+
+> "Não estou na melhor posição para entregar isso com qualidade agora. [Nome] provavelmente ajudaria mais rápido."
+
+Recusar com alternativa é profissionalismo, não negativa.
+
+## Proteger tempo de trabalho profundo
+
+Trabalho de alto impacto (análise, escrita, código) exige blocos ininterruptos de 90-120 min.
+
+Estratégias:
+- Bloqueie 2-3h pela manhã no calendário para trabalho focado
+- Agrupe reuniões em blocos (ex: tarde de segunda e quinta)
+- Responda mensagens em 2-3 blocos definidos por dia, não continuamente`,
+      },
+    ],
+  },
+  {
+    id: 21,
+    title: 'Trabalho em Portugal e na Europa',
+    desc: 'Guia completo para conseguir emprego em Portugal e outros países europeus: vistos, mercado, adaptação cultural e processo seletivo.',
+    duration: '3h 15min',
+    icon: '🇪🇺',
+    isPro: true,
+    color: { bg: 'bg-blue-50', border: 'border-blue-200', badge: 'bg-blue-100 text-blue-700', icon: 'bg-blue-700' },
+    lessons: [
+      {
+        id: '21-1',
+        title: 'O mercado de trabalho em Portugal',
+        duration: '35 min',
+        content: `# O mercado de trabalho em Portugal
+
+## Por que Portugal é o destino mais procurado por brasileiros
+
+- Idioma partilhado (com diferenças de vocabulário e tom)
+- Acesso ao mercado europeu (Schengen)
+- Processo de visto mais simples para brasileiros vs. outros países europeus
+- Custo de vida abaixo da média da Europa Ocidental
+- Ecossistema tech em crescimento (Lisboa e Porto)
+
+## Salários em Portugal: a realidade
+
+| Nível | Faixa mensal bruta |
+|---|---|
+| Salário mínimo (2024) | €820 |
+| Média geral | ~€1.400 |
+| Tech júnior | €1.200–€1.800 |
+| Tech sénior | €2.500–€4.000 |
+| Gestão | €2.000–€5.000+ |
+
+Para brasileiros vindos de salários em reais, os valores em euros são menores numericamente — mas o poder de compra em Portugal é superior, especialmente comparado a São Paulo.
+
+## Sectores com mais oportunidades
+
+- **Tecnologia:** Lisboa é hub europeu de startups (Feedzai, Talkdesk, Farfetch). Maior demanda por devs, dados e produto.
+- **Saúde:** médicos e enfermeiros brasileiros com reconhecimento de diploma (processo longo, 6-18 meses).
+- **Turismo e hotelaria:** fácil entrada, salários mais baixos.
+- **Finanças e consultoria:** Lisboa tem presença de grandes bancos e Big 4.
+
+## O que o mercado português valoriza
+
+- Pontualidade e comprometimento com prazos
+- Comunicação escrita cuidadosa (emails formais ainda são norma)
+- Estabilidade (mudar frequentemente de emprego é visto com ceticismo)
+- Proatividade discreta — não a assertividade intensa comum no Brasil`,
+      },
+      {
+        id: '21-2',
+        title: 'Vistos e autorização de trabalho para brasileiros',
+        duration: '30 min',
+        content: `# Vistos e autorização de trabalho para brasileiros
+
+## As 3 formas principais de trabalhar legalmente em Portugal
+
+### Visto D3 (Atividade Altamente Qualificada)
+**Para quem:** profissionais com oferta de emprego + diploma universitário ou experiência comprovada numa área qualificada.
+
+**Processo:**
+1. Empresa portuguesa faz contrato de trabalho
+2. Você solicita o D3 no Consulado Português no Brasil
+3. Prazo médio: 2-4 meses
+
+**Documentos principais:** passaporte, contrato assinado, diploma, comprovante de alojamento.
+
+### Visto D8 (Nómada Digital)
+**Para quem:** quem tem emprego remoto fora de Portugal (empresa brasileira, freelance internacional) e quer residir em Portugal.
+
+**Requisito de renda:** mínimo de €3.280/mês líquido (2024 = 4x salário mínimo).
+
+**Vantagem:** não precisa de empresa portuguesa. Você trabalha remotamente enquanto vive em Portugal.
+
+### Dupla cidadania europeia
+Brasileiros com ascendência portuguesa, espanhola, italiana ou alemã podem ter direito a cidadania europeia. Com ela, trabalha em qualquer país da UE sem visto de trabalho.
+
+## O processo passo a passo (D3)
+
+**No Brasil:**
+1. Consegue oferta de emprego em Portugal
+2. Assina contrato (pode ser feito à distância)
+3. Solicita visto D3 no Consulado
+4. Aguarda aprovação (2-4 meses)
+
+**Em Portugal:**
+5. Solicita Autorização de Residência (AIMA) dentro de 4 meses da chegada
+6. Obtém NIF (Número de Identificação Fiscal — essencial para tudo)
+7. Abre conta bancária
+8. Solicita NISS (Segurança Social)
+
+## Plataformas para encontrar vagas em Portugal
+
+- LinkedIn (filtro de localização: Portugal)
+- Net-Empregos (net-empregos.com)
+- Indeed.pt
+- SAPO Emprego
+- Startup Lisboa job board`,
+      },
+      {
+        id: '21-3',
+        title: 'Adaptar CV e carta para o mercado europeu',
+        duration: '25 min',
+        content: `# Adaptar CV e carta para o mercado europeu
+
+## Diferenças entre CV brasileiro e europeu
+
+| Aspecto | Brasil | Europa (PT) |
+|---|---|---|
+| Foto | Comum e esperada | Opcional, menos comum |
+| Objetivo profissional | Frequente | Raro — use sumário profissional |
+| Dados pessoais | CPF, estado civil | Apenas contato essencial |
+| Extensão | 1-3 páginas | Máximo 2 páginas |
+| Língua | PT-BR | PT-PT ou inglês (em tech) |
+
+## Adaptações linguísticas essenciais
+
+| PT-BR | PT-PT |
+|---|---|
+| Gerenciar | Gerir |
+| Time (equipa) | Equipa |
+| Celular | Telemóvel |
+| Faculdade | Universidade |
+| Cargo | Função / Cargo |
+
+## A carta de motivação no mercado português
+
+Em Portugal, cartas são esperadas — especialmente em empresas tradicionais.
+
+**Tom:** mais formal do que no Brasil. Menos storytelling emocional, mais competência com evidências.
+
+**Estrutura:**
+1. Abertura formal: "Venho por este meio candidatar-me à posição de X..."
+   (Em Portugal esta abertura ainda é adequada — ao contrário do Brasil)
+2. Por que a empresa: pesquisa real, não elogios genéricos
+3. Por que você: 2 conquistas com números
+4. Encerramento: disponibilidade para entrevista
+
+## Candidaturas em inglês
+
+Startups e empresas de tecnologia em Portugal frequentemente conduzem processos em inglês. Para essas empresas, CV e carta podem ser em inglês.`,
+      },
+      {
+        id: '21-4',
+        title: 'Cultura de trabalho em Portugal e adaptação',
+        duration: '30 min',
+        content: `# Cultura de trabalho em Portugal e adaptação
+
+## As diferenças que mais surpreendem brasileiros
+
+### Ritmo de comunicação
+Portugueses comunicam de forma mais reservada e indireta. Um "está bem" pode esconder reservas não expressas. Aprenda a ler as entrelinhas.
+
+### Hierarquia e formalidade
+Em empresas tradicionais (bancos, seguradoras, organismos públicos), a hierarquia é mais rígida. Tratar superiores por "você" em vez de "tu" e usar títulos (Dr., Eng.) ainda é esperado.
+
+Startups e empresas tech são muito mais informais.
+
+### Velocidade de decisão
+Processos de decisão tendem a ser mais lentos. Mudanças que em startups brasileiras aconteciam em dias podem levar semanas em empresas estabelecidas.
+
+### Pontualidade
+Reuniões começam na hora. Atraso de 15 minutos sem aviso é considerado desrespeitoso.
+
+## O que portugueses apreciam em colegas brasileiros
+
+- Energia e entusiasmo
+- Capacidade de adaptação
+- Facilidade em criar relações genuínas
+
+## O que pode causar atrito
+
+- Informalidade excessiva demasiado cedo (tuteando superiores imediatamente)
+- Falar alto ou de forma muito expansiva em ambientes conservadores
+- Assumir que tudo é igual porque a língua é a mesma
+
+## Integração prática
+
+Nos primeiros 3 meses, observe mais do que age. Identifique quem são as pessoas-chave não-oficiais (quem todos consultam informalmente). Construa relações individuais antes de tentar influenciar grupos.
+
+Associe-se a comunidades de brasileiros em Portugal — são fontes de dicas sobre mercado, burocracia e vida quotidiana.`,
+      },
+      {
+        id: '21-5',
+        title: 'Outros países europeus: Alemanha, Holanda, Irlanda, Espanha',
+        duration: '30 min',
+        content: `# Outros países europeus
+
+## Alemanha
+
+**Idioma:** alemão é essencial para a maioria das posições. Inglês funciona bem em tech e multinacionais.
+
+**Mercado:** maior economia da Europa. Escassez de mão de obra qualificada — alemães procuram profissionais estrangeiros activamente.
+
+**Oportunity Card (desde 2024):** permite entrar sem oferta de emprego para buscar trabalho por 1 ano.
+
+**Salários:** significativamente mais altos que Portugal. Tech sênior: €60k-€100k+/ano bruto.
+
+**Cultura:** pontualidade sagrada. Comunicação directa e focada em factos. Separação clara entre vida profissional e pessoal.
+
+## Holanda
+
+**Idioma:** inglês é língua de trabalho na maioria das multinacionais e startups. Amsterdã é uma das cidades mais anglófonas da Europa.
+
+**Mercado:** sede europeia de Netflix, Uber, Booking.com, Adyen. Forte em tech, logística, agricultura e finanças.
+
+**Cultura:** extremamente directa. Feedback honesto e sem rodeios é norma. Work-life balance muito valorizado.
+
+## Irlanda
+
+**Idioma:** inglês nativo. Excelente para consolidar o idioma.
+
+**Mercado:** Dublin é sede europeia de Google, Meta, Apple, LinkedIn, Airbnb, Stripe.
+
+**Cultura:** informal, sociável. Boa integração para brasileiros.
+
+## Espanha
+
+**Idioma:** espanhol — português é muito próximo, adaptação rápida.
+
+**Mercado:** tecnologia crescendo em Madrid e Barcelona. Muitas startups em expansão.
+
+**Nómada Digital Visa (2023):** para freelancers e trabalhadores remotos.
+
+**Cultura:** similar ao Brasil em muitos aspectos — horários mais flexíveis, almoço importante, relacionamento social no trabalho valorizado.`,
+      },
+    ],
+  },
+  {
+    id: 22,
+    title: 'Portfólio Profissional: Da Ideia ao Destaque',
+    desc: 'Cria um portfólio que substitui o CV como prova de competência — por área, do zero ao publicado online.',
+    duration: '2h 45min',
+    icon: '🎨',
+    isPro: true,
+    color: { bg: 'bg-rose-50', border: 'border-rose-200', badge: 'bg-rose-100 text-rose-700', icon: 'bg-rose-500' },
+    lessons: [
+      {
+        id: '22-1',
+        title: 'Por que um portfólio bate o CV',
+        duration: '25 min',
+        content: `# Por que um portfólio bate o CV
+
+## O CV é promessa. O portfólio é prova.
+
+O CV diz "tenho experiência em X". O portfólio mostra "aqui está X que fiz".
+
+Recrutadores tomam decisões baseadas em confiança. Um portfólio forte encurta o caminho da dúvida para a confiança — o que traduz directamente em mais entrevistas e mais ofertas.
+
+## Áreas onde portfólio é obrigatório
+
+- **Design (UX/UI, gráfico):** sem portfólio, sem entrevista
+- **Desenvolvimento de software:** GitHub ativo e projetos são o portfólio
+- **Marketing de conteúdo:** amostras de escrita e campanhas com resultados
+- **Dados e BI:** projetos no Kaggle, dashboards públicos, análises no GitHub
+
+## Áreas onde portfólio é diferenciador (menos óbvio)
+
+- **Gestão de produto:** PRDs, análises de mercado, estratégias de produto — mesmo fictícias
+- **Marketing digital:** campanha com métricas, análise de funil, estratégia de SEO
+- **Consultoria:** análise de caso publicada, white paper, artigo com insights de mercado
+
+## O portfólio mínimo viável
+
+Não precisa de site elaborado. Um MVP pode ser:
+- **Notion público** com 2-3 projetos documentados
+- **LinkedIn:** secção de projetos preenchida + artigos publicados
+- **GitHub** com READMEs bem escritos (para tech)
+
+**Regra:** 3 projetos bem documentados valem mais do que 15 mal apresentados.
+
+## O que cada projeto deve mostrar
+
+1. **O problema** — o que precisava ser resolvido?
+2. **O processo** — como você abordou? Que alternativas considerou?
+3. **A solução** — o que entregou especificamente?
+4. **O resultado** — qual foi o impacto? Tem números?
+5. **O que aprendeu** — reflexão honesta aumenta credibilidade`,
+      },
+      {
+        id: '22-2',
+        title: 'Portfólio para tech: GitHub e projetos',
+        duration: '35 min',
+        content: `# Portfólio para tech: GitHub e projetos
+
+## O GitHub como portfólio vivo
+
+Para desenvolvedores, o GitHub é o portfólio. Recrutadores técnicos olham o perfil antes (ou em vez) do CV.
+
+## O que faz um bom perfil GitHub
+
+### Profile README
+O perfil pode ter um README.md que aparece na página principal:
+
+\`\`\`markdown
+## Olá, sou [Nome] 👋
+Desenvolvedor [especialidade] com foco em [área].
+
+**Stack:** Python · FastAPI · PostgreSQL · React
+**Interesse:** sistemas distribuídos · ML em produção
+
+📫 [email] | [LinkedIn]
+\`\`\`
+
+### Repositórios que importam
+
+**READMEs claros em cada projeto:**
+- O que resolve (1 parágrafo)
+- Como instalar e rodar (comandos copiáveis)
+- Screenshots ou demo
+- Decisões técnicas e por quê
+
+**Pinned repos:** os 6 melhores aparecem no topo do perfil.
+
+**Contribuições regulares:** commits consistentes são melhores que sprints ocasionais.
+
+## Tipos de projetos que impressionam
+
+1. **Resolver um problema real seu** — mostra iniciativa e relevância
+2. **Clonar e melhorar** — versão simplificada de produto conhecido, com uma melhoria original
+3. **Contribuir em open source** — mesmo pequenas contribuições mostram capacidade de trabalhar em código de outros
+4. **Ferramenta de automação** — scripts que automatizam algo manual
+
+## Para Data Science e ML
+
+- Notebooks no Kaggle com análise bem documentada
+- Dashboard público no Streamlit ou Tableau Public
+- Análise de dataset público (IBGE, IPEA) com storytelling
+
+**O diferencial:** narrativa. Não basta o código funcionar — mostre que comunicou os insights claramente.`,
+      },
+      {
+        id: '22-3',
+        title: 'Portfólio para design e marketing',
+        duration: '30 min',
+        content: `# Portfólio para design e marketing
+
+## Design (UX/UI e Gráfico)
+
+### Plataformas
+- **Behance** — padrão para design gráfico e motion
+- **Dribbble** — UI e identidade visual
+- **Site próprio** (Framer, Webflow) — para diferenciar
+- **Figma Community** — interfaces acessíveis por recrutadores
+
+### O que todo case de UX deve ter
+
+1. Problema / briefing (o que foi pedido)
+2. Pesquisa (usuários, mercado, concorrentes)
+3. Definição (personas, hipóteses)
+4. Ideação (wireframes, alternativas descartadas)
+5. Prototipagem (low-fi → high-fi)
+6. Teste com usuários
+7. Entrega final (mockups, especificações)
+8. Resultados (métricas se disponíveis)
+
+**Erro comum:** mostrar só o resultado final bonito. Recrutadores de UX querem ver o processo de pensamento.
+
+### Número ideal de projetos
+
+3-5 projectos bem documentados. Qualidade > quantidade.
+
+## Marketing Digital
+
+### O que incluir
+
+**Performance e paid media:**
+- Capturas de ecrã de contas de anúncios com métricas (anonimize dados sensíveis)
+- Resumo: objectivo, estratégia, resultado (ROAS, CPA, conversão)
+
+**SEO:** evolução de tráfego orgânico + artigos que você escreveu e seu desempenho
+
+**Email marketing:** taxa de abertura, CTR vs. benchmarks da indústria
+
+### Plataformas para publicar
+
+- **Notion público** — para apresentar dados e narrar estratégia
+- **Medium** — artigos com análises (mostra raciocínio e escrita)
+- **LinkedIn** — estudos de caso em formato mais curto`,
+      },
+      {
+        id: '22-4',
+        title: 'Portfólio sem experiência formal',
+        duration: '30 min',
+        content: `# Portfólio sem experiência formal
+
+## O paradoxo — e como resolver
+
+"Preciso de experiência para ter portfólio, mas preciso de portfólio para ter experiência."
+
+A solução: criar experiência real sem emprego formal. É possível e cada vez mais aceite.
+
+## 6 formas de criar projetos reais sem emprego
+
+### 1. Projetos pessoais com problema real
+Resolva um problema que você mesmo tem. O problema real + solução = portfólio.
+
+Exemplos:
+- App de controlo de gastos que você criou para si
+- Dashboard de dados sobre tema que te interessa (futebol, clima)
+- Redesenho de interface de app que você usa e acha ruim
+- Campanha de marketing fictícia para marca que admira
+
+### 2. Trabalho voluntário para ONGs
+ONGs precisam de designers, marketers e devs. Você entrega trabalho real + recebe case + referência.
+
+### 3. Freelance a preço simbólico
+2-3 projetos por valor baixo em troca de depoimento e autorização para incluir no portfólio.
+
+### 4. Projetos de curso com qualidade de portfólio
+Em vez de fazer o mínimo, invista nos projectos dos cursos como se fossem reais. Documente bem. Publique.
+
+### 5. Hackathons e competições
+Kaggle (dados), desafios de design, case competitions. Resultado verificável + visibilidade.
+
+### 6. Spec work (criação não-solicitada)
+Para marketing e design: crie campanha ou identidade visual para empresa real — sem ser contratado. É ficção, mas demonstra como você pensa.
+
+## Como apresentar projectos sem experiência
+
+Seja honesto sobre o contexto:
+> "Este projeto foi desenvolvido como exercício durante o curso X / como projeto pessoal para resolver [problema real]."
+
+Compense com profundidade de documentação. Um projeto pessoal bem documentado pode ser mais convincente do que um profissional mal documentado.`,
+      },
+    ],
+  },
+  {
+    id: 23,
+    title: 'Processos de Consultoria: McKinsey, BCG, Bain e Big 4',
+    desc: 'Tudo sobre case interviews, fit interviews e como passar nos processos mais rigorosos do mercado de trabalho.',
+    duration: '4h',
+    icon: '📊',
+    isPro: true,
+    color: { bg: 'bg-slate-50', border: 'border-slate-200', badge: 'bg-slate-100 text-slate-700', icon: 'bg-slate-700' },
+    lessons: [
+      {
+        id: '23-1',
+        title: 'O universo da consultoria: MBB, Big 4 e boutiques',
+        duration: '25 min',
+        content: `# O universo da consultoria
+
+## A hierarquia
+
+### MBB (McKinsey, BCG, Bain)
+O topo da pirâmide. Processos mais rigorosos do mercado. Clientes: C-level de Fortune 500, governos, organizações multilaterais.
+
+Entrada típica: MBA de top school ou graduação de universidades de elite + processo ultra-seletivo.
+
+### Big 4 (Deloitte, PwC, EY, KPMG)
+Maior volume de contratações. Processo rigoroso mas mais acessível que MBB. Além de consultoria, atuam em auditoria, impostos, advisory.
+
+### Boutiques e especialistas
+Firmas menores com foco em indústria: Roland Berger, Oliver Wyman, A.T. Kearney. Processos mais humanos com acesso mais directo a projetos reais desde cedo.
+
+## O modelo de carreira
+
+| Nível | Tempo médio |
+|---|---|
+| Analyst / Associate | 2-3 anos |
+| Consultant / Senior Associate | 2-3 anos |
+| Engagement Manager | 2-4 anos |
+| Principal / Partner | 3+ anos |
+
+Modelo "up or out": quem não progride, sai. Alta pressão mas alta velocidade de desenvolvimento.
+
+## Por que o processo é diferente
+
+Consultores precisam, no dia-a-dia, de:
+- Estruturar problemas complexos e ambíguos
+- Comunicar análises de forma clara para executivos
+- Trabalhar bem em equipa sob pressão intensa
+
+O processo seletivo replica exactamente essas situações — daí os case interviews.`,
+      },
+      {
+        id: '23-2',
+        title: 'Case interviews: estrutura, frameworks e prática',
+        duration: '50 min',
+        content: `# Case interviews: estrutura e frameworks
+
+## O que é um case interview
+
+O entrevistador apresenta um problema de negócio. Você tem 20-30 minutos para estruturar, analisar e chegar a uma recomendação.
+
+Não há resposta "certa". O que avaliam é o processo de raciocínio.
+
+## Os 4 tipos de case mais comuns
+
+### 1. Rentabilidade
+"O lucro da empresa X caiu 20%. Por quê e o que fazer?"
+
+Framework: Lucro = Receita − Custo
+- Receita: volume × preço — o que mudou?
+- Custo: fixo e variável — onde cresceu?
+
+### 2. Entrada em novo mercado
+"A empresa deve entrar no mercado de energia renovável?"
+
+Framework: Atratividade do mercado → Capacidade da empresa → Estratégia de entrada
+
+### 3. Crescimento
+"Como dobrar a receita em 3 anos?"
+
+Framework: Crescimento orgânico (novos produtos, mercados, preço) vs. inorgânico (M&A, parcerias)
+
+### 4. M&A
+"A empresa A deve adquirir a empresa B?"
+
+Framework: Strategic fit → Financial fit → Integration feasibility
+
+## A estrutura de resposta que funciona
+
+**Ao receber o case:**
+1. Confirme que entendeu: repita o problema em suas palavras
+2. Peça 1-2 minutos para estruturar
+3. Apresente a estrutura antes de mergulhar nos detalhes
+
+**Durante:**
+- Comunique o raciocínio em voz alta
+- Sinalize mudanças de área: "Explorei a receita. Agora vou os custos."
+- Faça math em voz alta (estimativas são aceites)
+
+**Conclusão:**
+- Dê recomendação clara (não "depende")
+- Suporte com 2-3 dados mais relevantes
+- Mencione riscos ou próximos passos
+
+## Market sizing (fermi estimation)
+
+Exemplo: *"Quantos litros de cerveja são consumidos no Brasil por ano?"*
+- 210M pessoas → ~50% adultos que bebem = 105M pessoas
+- Consumo: ~2 cervejas/semana × 330ml = 660ml/semana
+- 660ml × 52 × 105M ≈ 36 bilhões de litros/ano
+- Sanity check: Brasil é o 3º maior mercado — faz sentido.`,
+      },
+      {
+        id: '23-3',
+        title: 'Fit interview em consultoria',
+        duration: '30 min',
+        content: `# Fit interview em consultoria
+
+## Por que o fit é crítico
+
+Consultores trabalham em equipa em condições intensas: viagens, prazos apertados, clientes difíceis. Uma pessoa que não colabora bem pode destruir um projeto inteiro.
+
+## As perguntas mais comuns
+
+### "Por que consultoria?"
+
+❌ "Quero resolver problemas complexos e aprender rápido." (genérico — todos dizem isso)
+
+✅ "Em [empresa anterior], lideramos reestruturação do processo X. Em 6 semanas criámos modelo que reduziu tempo em 40%. Percebi que gosto especialmente de estruturar problemas e ver a mudança acontecer — e quero fazer isso sistematicamente em diferentes contextos."
+
+### "Por que McKinsey/BCG/Bain?"
+Cada firma tem cultura distinta:
+- **McKinsey:** liderança e impacto sistémico
+- **BCG:** inovação e vantagem competitiva sustentável
+- **Bain:** resultados mensuráveis e relacionamento profundo com clientes
+
+Mencione algo específico: projeto publicado que admira, tipo de cliente com que trabalham.
+
+### "Qual foi seu maior fracasso?"
+Escolha algo real. Foque: o que aconteceu → o que faria diferente → o que mudou no seu comportamento desde então.
+
+## Como preparar
+
+1. Escreva 5-6 histórias STAR com conquistas mensuráveis
+2. Mapeie cada história para as perguntas típicas
+3. Pesquise a firma a fundo — LinkedIn dos entrevistadores, publicações
+4. Pratique em voz alta — o awkwardness na primeira vez é real`,
+      },
+      {
+        id: '23-4',
+        title: 'Como se preparar em 30 dias',
+        duration: '35 min',
+        content: `# Como se preparar para um processo de consultoria em 30 dias
+
+## A realidade
+
+Um processo MBB exige 80-120 horas de preparação estruturada. Quem tenta sem preparação raramente passa — independentemente de inteligência.
+
+## O plano de 30 dias
+
+### Semana 1: Fundamentos
+
+**Dias 1-2:**
+- Leia: *Case in Point* (Cosentino) ou *The McKinsey Way* (Rasiel)
+- Assista: vídeos de cases (IGotAnOffer, CaseCoach no YouTube)
+- Faça 1 case sozinho em voz alta para diagnosticar onde está
+
+**Dias 3-7: Frameworks básicos**
+- Árvore de lucratividade
+- Framework de entrada em mercado
+- Framework de M&A
+- Estimativas de mercado (fermi estimation)
+
+### Semana 2-3: Prática intensiva
+
+Meta: 2 cases por dia (1 sozinho, 1 com parceiro).
+
+**Onde encontrar parceiros:**
+- PrepLounge.com (plataforma global de parceiros de prática)
+- Grupos de LinkedIn/WhatsApp de candidatos a consultoria
+
+### Semana 3 (fit): Histórias STAR
+
+Escreva e pratique em voz alta suas 6 histórias STAR. Grave-se. Reveja. Ajuste.
+
+### Semana 4: Simulação e calibração
+
+2-3 mock interviews completos com ex-consultores ou coaches especializados.
+
+**Recursos:**
+- PrepLounge: coaches com ex-MBB
+- RocketBlocks: plataforma de prática guiada
+
+## Semana do processo
+
+- Durma bem nos 3 dias anteriores
+- Revise os frameworks — não aprenda nada novo
+- Faça 1-2 cases de aquecimento no dia anterior`,
+      },
+      {
+        id: '23-5',
+        title: 'Vida real em consultoria: o que esperar após entrar',
+        duration: '20 min',
+        content: `# Vida real em consultoria
+
+## A curva de aprendizagem
+
+Os primeiros 6 meses são intensos. Analistas novos trabalham 60-80h/semana em projetos intensos.
+
+O que aprende rapidamente:
+- Estruturar qualquer problema em 30 minutos
+- Comunicar insights complexos em linguagem executiva
+- Trabalhar com dados incompletos e tomar decisões
+- Gestão de stakeholders de nível C
+
+## O modelo de trabalho
+
+**Por projetos (engagements):**
+- Duração: 3-6 meses em média
+- Equipa: 3-6 pessoas (Partner, Manager, Consultores, Analysts)
+- Localização: pode envolver viagens semanais ao cliente
+
+**Feedback intenso e contínuo:**
+Após cada apresentação ou reunião importante, há debrief. Isso acelera o desenvolvimento — mas exige abertura genuína para receber crítica constante.
+
+## Por que muitos saem após 2-4 anos (e para onde vão)
+
+A saída é planejada para a maioria. As consultoras são "aceleradoras de carreira" — você entra, aprende muito rápido, e sai para posição de liderança que normalmente não teria acesso sem esse background.
+
+Destinos comuns de ex-consultores:
+- C-suite em empresas médias
+- Gestores sénior em multinacionais
+- Fundadores de startups
+- Private equity e venture capital
+- Chief of Staff em empresas de crescimento rápido
+
+O branding de ex-McKinsey/BCG/Bain abre portas que demorariam 10+ anos sem esse percurso.`,
+      },
+    ],
+  },
+  {
+    id: 24,
+    title: 'Os Primeiros 90 Dias: Onboarding com Impacto',
+    desc: 'O que fazer depois de conseguir o emprego. O plano estratégico para criar credibilidade, construir alianças e ter vitórias rápidas nos primeiros 3 meses.',
+    duration: '3h 15min',
+    icon: '🚀',
+    isPro: true,
+    color: { bg: 'bg-emerald-50', border: 'border-emerald-200', badge: 'bg-emerald-100 text-emerald-700', icon: 'bg-emerald-600' },
+    lessons: [
+      {
+        id: '24-1',
+        title: 'Por que os primeiros 90 dias são críticos',
+        duration: '20 min',
+        content: `# Por que os primeiros 90 dias são críticos
+
+## A estatística que poucos conhecem
+
+Estudos de retenção mostram que **até 20% dos novos contratados deixam o emprego nos primeiros 45 dias**. Não por falta de competência — mas por falhas de integração.
+
+E do lado do candidato, outro problema: **as primeiras impressões formam-se em 3 semanas** e são difíceis de reverter. Uma entrada desastrosa pode perseguir-te por anos na empresa.
+
+## O que está em jogo
+
+Os primeiros 90 dias determinam:
+
+- **Quem és na empresa** — a reputação que constróis é sticky (pegajosa)
+- **Que projetos te são atribuídos** — visibilidade e desafio ou trabalho marginal
+- **O ritmo da tua progressão** — quem entra forte cresce mais rápido
+- **A rede interna** — as relações que construíres agora valem durante anos
+
+## O erro mais comum
+
+A maioria chega com vontade de **mostrar o que sabe imediatamente** — propõe mudanças, critica processos, tenta demonstrar valor pela velocidade.
+
+Resultado: é visto como arrogante, ameaçador ou ingénuo.
+
+A abordagem correcta é o oposto: **escuta primeiro, propõe depois**.
+
+## O modelo dos 90 dias
+
+O framework clássico divide em três fases:
+
+| Fase | Foco | Duração |
+|---|---|---|
+| Imersão | Aprender, ouvir, mapear | Dias 1–30 |
+| Integração | Construir relações, validar hipóteses | Dias 31–60 |
+| Acção | Executar, entregar, liderar | Dias 61–90 |
+
+> **A regra de ouro:** Aprende 2x mais do que falas no primeiro mês. Depois vai aumentando gradualmente a tua voz.`,
+      },
+      {
+        id: '24-2',
+        title: 'O plano de 30-60-90 dias: como criar o teu',
+        duration: '35 min',
+        content: `# O plano de 30-60-90 dias
+
+## Para que serve o plano
+
+O plano de 30-60-90 dias é um documento estratégico que define:
+- O que vais **aprender** em cada fase
+- Quem vais **conhecer** e quando
+- O que vais **entregar** e como medir o sucesso
+
+É uma ferramenta de gestão da tua própria integração.
+
+## Estrutura de cada fase
+
+### Primeiros 30 dias — Imersão
+
+**Objectivo:** Entender antes de agir.
+
+**O que fazer:**
+- Lê toda a documentação disponível (processos, estratégia, relatórios)
+- Marca reuniões de 30 min com cada membro directo da equipa
+- Observa reuniões sem pressão de contribuir
+- Mapeia stakeholders: quem são, o que querem, como preferem comunicar
+- Identifica "vitórias rápidas" potenciais — mas não as executes ainda
+
+**O que não fazer:**
+- Propor mudanças de processo antes de entender o porquê do actual
+- Criticar a empresa anterior em comparação
+- Assumir que o que funcionou na empresa anterior vai funcionar aqui
+
+**Pergunta de reflexão do mês:** *O que não sabia sobre esta empresa que me surpreendeu?*
+
+---
+
+### 31–60 dias — Integração
+
+**Objectivo:** Construir relações e validar hipóteses.
+
+**O que fazer:**
+- Começa a contribuir activamente nas reuniões
+- Partilha 1-2 ideias pequenas e testáveis — não revolucionárias
+- Alinha com o gestor sobre prioridades dos próximos 30 dias
+- Expande a rede além da tua equipa directa
+- Identifica quem são os "influenciadores informais" da empresa
+
+**Entregável desta fase:** Uma análise breve (escrita ou numa reunião com o gestor) do que aprendestes, as tuas hipóteses sobre oportunidades e como planeas contribuir no próximo mês.
+
+---
+
+### 61–90 dias — Acção
+
+**Objectivo:** Executar uma vitória tangível.
+
+**O que fazer:**
+- Lidera ou contribui significativamente num projecto visível
+- Apresenta a tua análise e recomendações (se aplicável)
+- Pede feedback explícito ao gestor: "O que devo manter? O que devo ajustar?"
+- Consolida as relações chave
+
+**Entregável desta fase:** Um resultado mensurável. Não tem de ser enorme — tem de ser real e visível.
+
+---
+
+## Como apresentar o plano ao gestor
+
+Se o teu gestor não mencionou um plano de integração, podes propor o teu:
+
+> *"Queria partilhar consigo o meu plano para os primeiros 90 dias. Preparei um documento que define as minhas prioridades de aprendizagem, as relações que quero construir e os resultados que espero entregar em cada fase. Posso partilhar e receber o seu feedback?"*
+
+Isto demonstra proactividade e organização — qualidades que os gestores adoram ver em novos contratados.`,
+      },
+      {
+        id: '24-3',
+        title: 'Construir credibilidade e alianças internas',
+        duration: '30 min',
+        content: `# Construir credibilidade e alianças internas
+
+## Credibilidade: o que é e como se constrói
+
+Credibilidade profissional resulta da combinação de:
+- **Competência percebida** — acreditam que sabes fazer o trabalho
+- **Confiabilidade** — cumpres o que prometeste, sem excepções
+- **Integridade** — és consistente e honesto, mesmo quando é difícil
+
+A competência demora tempo a demonstrar. A confiabilidade podes construir desde o **dia 1**.
+
+### A regra mais importante dos primeiros 90 dias
+
+**Nunca prometas o que não podes cumprir.**
+
+Mais vale dizer "preciso de 3 dias" e entregar em 2, do que dizer "entrego amanhã" e atrasar. A confiabilidade é construída através de consistência — não de velocidade.
+
+## Mapa de stakeholders
+
+Nas primeiras 2 semanas, mapeia mentalmente (ou num documento privado) os principais actores internos:
+
+| Tipo | Quem são | Como abordar |
+|---|---|---|
+| **Aliados naturais** | Pessoas com quem vais trabalhar directamente | Reunião individual, interesse genuíno pelo trabalho delas |
+| **Influenciadores informais** | Quem todos ouvem, independentemente do título | Almoço ou conversa informal; aprende com eles |
+| **Gatekeepers** | Quem controla acesso a recursos, informação ou decisores | Respeito, não subversão; pede ajuda explicitamente |
+| **Potenciais detractores** | Quem pode ser ameaçado pela tua chegada | Reconhecimento do expertise deles; parceria, não competição |
+
+## As reuniões de "onboarding" que ninguém menciona
+
+Para além das formais, marca conversas informais com:
+
+**O predecessor (se aplicável):**
+Se o cargo foi ocupado por outra pessoa, descobre o que correu bem e mal — sem julgamentos.
+
+**O "veterano" da equipa:**
+Alguém com 5+ anos na empresa conhece tudo que não está escrito. Vale ouro.
+
+**Alguém de outro departamento:**
+Perspectiva externa sobre como a tua equipa é vista internamente.
+
+## Perguntas que abrem portas
+
+Em vez de falar de ti, faz perguntas que mostram interesse genuíno:
+
+- *"Qual é o maior desafio da equipa neste momento?"*
+- *"O que mudarias se pudesses mudar uma coisa?"*
+- *"Quais foram os momentos altos dos últimos 2 anos aqui?"*
+- *"Quem, além de ti, devo conhecer nos próximos meses?"*
+
+Pessoas que se sentem ouvidas tornam-se aliadas naturais.`,
+      },
+      {
+        id: '24-4',
+        title: 'Primeiras vitórias: como escolher e executar',
+        duration: '25 min',
+        content: `# Primeiras vitórias: como escolher e executar
+
+## O que é uma "vitória rápida"
+
+Uma vitória rápida (quick win) é uma melhoria pequena, visível e real que podes entregar nos primeiros 60-90 dias.
+
+**Características de uma boa vitória rápida:**
+- Resolve um problema **real** que a equipa já sente
+- É **executável** com os recursos que tens agora
+- É **visível** — o gestor e pelo menos alguns colegas sabem que foi você
+- Tem **resultado mensurável** — antes vs. depois
+
+## Como identificar a vitória certa
+
+Nas primeiras semanas, estás a **coleccionar problemas** sem tentar resolvê-los ainda. Toma nota de:
+
+- Reclamações repetidas nas reuniões
+- Processos que toda a gente considera lentos ou ineficientes
+- Tarefas manuais que poderiam ser automatizadas
+- Documentação desactualizada ou inexistente
+- Fricção entre departamentos
+
+Depois, classifica por **impacto** × **esforço**:
+
+| | Baixo esforço | Alto esforço |
+|---|---|---|
+| **Alto impacto** | ✅ Executa primeiro | Planeia para depois |
+| **Baixo impacto** | Faz se sobrares tempo | Ignora |
+
+## Exemplos de vitórias rápidas por área
+
+**Marketing:**
+- Actualizar a biblioteca de templates de apresentação
+- Criar um dashboard de KPIs que não existia
+
+**Tecnologia:**
+- Documentar um processo técnico que vivia "na cabeça" de um colega
+- Automatizar um relatório manual semanal
+
+**Operações:**
+- Criar um SOP (Standard Operating Procedure) para uma tarefa repetitiva
+- Consolidar fornecedores duplicados
+
+**Finanças:**
+- Criar um template de análise de custo que faltava
+- Identificar uma ineficiência fiscal pequena mas real
+
+## Como comunicar a vitória (sem ser arrogante)
+
+Não anuncias a vitória — deixas que seja evidente pelo impacto.
+
+Se alguém perguntar como foi feito:
+> *"Reparei que [problema]. Trabalhei com [colega X] para resolver. O resultado foi [impacto]. Fico feliz por ter ajudado."*
+
+Sempre partilha o crédito. Vitórias em equipa constróem mais capital político do que vitórias individuais.`,
+      },
+      {
+        id: '24-5',
+        title: 'Erros fatais nos primeiros meses e como evitá-los',
+        duration: '25 min',
+        content: `# Erros fatais nos primeiros meses
+
+## Os 8 erros mais comuns (e como evitá-los)
+
+### 1. "Na minha empresa anterior fazíamos assim"
+
+**O erro:** Comparar constantemente com o emprego anterior, implicitamente ou explicitamente.
+
+**O impacto:** Passas a mensagem de que não estás comprometido com esta empresa; pareces não respeitar o contexto actual.
+
+**Como evitar:** Partilha experiências em formato de *aprendizagem*, não de comparação.
+> Em vez de: *"Na [empresa X] fazíamos assim e funcionava melhor"*
+> Diz: *"Em experiências anteriores, vi uma abordagem que resolveu problema parecido. Vale explorar aqui?"*
+
+---
+
+### 2. Ignorar a política interna
+
+**O erro:** Tratar a empresa como se fosse apenas racional — as melhores ideias ganham sempre.
+
+**A realidade:** Todas as empresas têm política. Ignorá-la não a faz desaparecer — faz-te o ingénuo que não a vê.
+
+**Como navegar:** Observa quem influencia decisões *de facto*, não apenas no organograma. Constrói relações com esses influenciadores antes de precisares deles.
+
+---
+
+### 3. Tentar fazer tudo sozinho
+
+**O erro:** Por querer mostrar competência, evitas pedir ajuda.
+
+**O impacto:** Demoras mais; cometes erros evitáveis; as pessoas ao teu redor não constróem relação contigo.
+
+**Como evitar:** Pede ajuda estrategicamente. Um pedido bem feito é sinal de inteligência, não de fraqueza.
+> *"Não quero reinventar a roda — há documentação ou alguém que passou por isto antes que me possas recomendar?"*
+
+---
+
+### 4. Não gerir expectativas com o gestor
+
+**O erro:** Assumir que o gestor sabe o que está a acontecer sem comunicação activa.
+
+**Como evitar:** Reuniões de 1:1 regulares com o gestor nas primeiras semanas. Pergunta explicitamente:
+- *"O que seria sucesso para mim daqui a 30/60/90 dias, no teu ponto de vista?"*
+- *"Há algo sobre a cultura da equipa que devo saber e que não é óbvio?"*
+
+---
+
+### 5. Descuidar a saúde nos primeiros meses
+
+**O erro:** Trabalhar excessivamente para impressionar, comprometendo sono, exercício e relações pessoais.
+
+**O impacto:** Burnout nos primeiros 3-6 meses. Produtividade cai precisamente quando precisas de ser visto como forte.
+
+**Como gerir:** Define limites saudáveis *desde o início*. É muito mais fácil manter do que reduzir depois de estabelecidos.
+
+---
+
+### 6. Assumir que a cultura escrita é a cultura real
+
+**O erro:** Ler os valores da empresa e assumir que é como a empresa funciona de facto.
+
+**O que fazer:** Observa os comportamentos que são recompensados (não os que são valorizados no papel). É a cultura real.
+
+---
+
+### 7. Negligenciar a equipa de suporte
+
+**O erro:** Focar-te nos "decisores" e ignorar administrativos, assistentes, técnicos.
+
+**A realidade:** Estas pessoas têm poder informal enorme. Podem facilitar ou obstruir o teu trabalho de formas invisíveis mas reais.
+
+**O que fazer:** Trata toda a gente com o mesmo respeito e atenção. Ponto.
+
+---
+
+### 8. Não pedir feedback no momento certo
+
+**O erro:** Esperar pela avaliação formal de desempenho (3, 6 ou 12 meses) para perceber como estás a ser visto.
+
+**Como evitar:** Aos 30, 60 e 90 dias, pede feedback explicitamente ao gestor:
+> *"Tenho estado aqui X semanas. O que estou a fazer bem? O que devo ajustar?"*
+
+Gestores adoram colaboradores que pedem feedback — é raro e demonstra maturidade.`,
+      },
+    ],
+  },
+  {
+    id: 25,
+    title: 'Pacote Total de Compensação: Além do Salário',
+    desc: 'Como avaliar e negociar o pacote completo — benefícios, bónus, equity, férias e muito mais. Candidatos Pro sabem que o salário é só uma parte da oferta.',
+    duration: '2h 45min',
+    icon: '💎',
+    isPro: true,
+    color: { bg: 'bg-violet-50', border: 'border-violet-200', badge: 'bg-violet-100 text-violet-700', icon: 'bg-violet-600' },
+    lessons: [
+      {
+        id: '25-1',
+        title: 'O que compõe o pacote total de compensação',
+        duration: '30 min',
+        content: `# O que compõe o pacote total de compensação
+
+## O erro de fixar no salário
+
+A maioria dos candidatos negoceia apenas o salário base e aceita o resto sem questionar.
+
+Resultado: podem perder **20-40% de valor real** em benefícios e compensação variável não negociados.
+
+Um candidato informado avalia o **pacote total de compensação** (Total Compensation ou "Total Comp").
+
+## Os componentes do pacote
+
+### 1. Salário base
+O valor fixo mensal/anual. É o ponto de partida, não o único ponto.
+
+### 2. Remuneração variável
+- **Bónus anual:** tipicamente 10-30% do salário base; condicional a metas
+- **Comissão:** para funções comerciais; pode dobrar ou triplicar o salário
+- **Profit sharing / PLR (Participação nos Lucros):** comum em grandes empresas brasileiras
+
+### 3. Benefícios obrigatórios vs. opcionais
+
+**Obrigatórios no Brasil (CLT):**
+- FGTS, férias + 1/3, 13º salário, vale-transporte
+
+**Opcionais (mas comuns em empresas médias/grandes):**
+- Plano de saúde (e odontológico) — pode valer R$500-2.000/mês/família
+- Vale-alimentação ou refeição (R$500-1.500/mês)
+- Seguro de vida
+- Previdência privada com matching da empresa
+- Auxílio creche, auxílio educação, bolsa de idiomas
+
+### 4. Equity (participação societária)
+Mais comum em startups e empresas de tecnologia.
+
+**Tipos:**
+- **Stock Options:** direito de comprar acções a preço fixo no futuro
+- **RSUs (Restricted Stock Units):** acções que "vencem" (vest) ao longo do tempo
+- **Phantom Shares / SAR:** equivalente financeiro sem participação real
+
+### 5. Benefícios de qualidade de vida
+- Trabalho remoto ou híbrido (tem valor económico real: menos deslocamento, mais tempo)
+- Horário flexível
+- Auxílio home office
+- Dias de folga adicionais além das férias legais
+- Subsídio de ginásio / saúde mental
+- Budget de formação/certificações
+
+### 6. Outros
+- Carro da empresa / ajuda de custo de combustível
+- Estacionamento
+- Telemóvel corporativo
+- Expatriação (para cargos internacionais)
+
+## Como calcular o valor total
+
+Para comparar duas ofertas, converte tudo em valor anual:
+
+\`\`\`
+Salário base anual         R$ 120.000
++ Bónus alvo (20%)         R$  24.000
++ Plano de saúde (família) R$  18.000
++ VA/VR                    R$  12.000
++ Budget formação          R$   5.000
+─────────────────────────────────────
+Total Comp                 R$ 179.000
+\`\`\`
+
+Uma oferta de R$140.000 de salário base num pacote fraco pode valer menos do que R$120.000 num pacote completo.`,
+      },
+      {
+        id: '25-2',
+        title: 'Como comparar duas ofertas de emprego',
+        duration: '35 min',
+        content: `# Como comparar duas ofertas de emprego
+
+## O erro clássico: comparar só salários
+
+Candidatos que comparam apenas salário tomam decisões piores do que quem avalia o pacote completo.
+
+Pior: muitos tomam a oferta com salário mais alto que, no total, vale menos.
+
+## Framework de avaliação
+
+### Dimensão 1: Compensação financeira total
+
+Calcula o **Total Comp anual** de cada oferta (como vimos na aula anterior).
+
+Inclui salário base + variável esperado + benefícios convertidos em valor anual.
+
+### Dimensão 2: Crescimento e aprendizagem
+
+Perguntas a fazer sobre cada empresa:
+- Qual é a velocidade de promoção típica?
+- Terei acesso a projetos desafiadores e visíveis?
+- Há mentoria formal ou informal?
+- Em 2-3 anos, este cargo terá sido um trampolim para onde?
+
+**Regra dos 3 anos:** O cargo vai acelerar ou desacelerar a tua carreira daqui a 3 anos? Às vezes vale ganhar menos hoje para crescer mais amanhã.
+
+### Dimensão 3: Qualidade de vida e fit cultural
+
+- Quantas horas/semana é o ritmo real (não o prometido)?
+- Qual é o estilo de gestão do teu futuro gestor directo?
+- Presença física obrigatória ou flexibilidade real?
+- Qual é a cultura de feedback e desenvolvimento?
+
+### Dimensão 4: Estabilidade e risco
+
+- A empresa é lucrativa ou a queimar caixa?
+- Qual é a runway (tempo de caixa) se for startup?
+- Há risco de reestruturação ou layoffs no horizonte?
+- Qual é a reputação no mercado?
+
+## Template de comparação
+
+| Critério | Peso | Oferta A | Oferta B |
+|---|---|---|---|
+| Salário base | 25% | 8/10 | 7/10 |
+| Pacote total | 20% | 7/10 | 9/10 |
+| Crescimento | 20% | 9/10 | 6/10 |
+| Cultura/fit | 20% | 8/10 | 8/10 |
+| Qualidade de vida | 15% | 6/10 | 9/10 |
+| **Total ponderado** | 100% | **7,6** | **7,7** |
+
+Define os pesos de acordo com o teu momento de vida. No início de carreira, crescimento pesa mais. Com filhos pequenos, qualidade de vida pode pesar mais.
+
+## Red flags numa proposta
+
+- Salário acima do mercado sem explicação clara
+- Pressão para decidir em 24-48h sem extensão possível
+- Recusa em colocar tudo por escrito
+- Vagueza sobre bónus ("depende da performance" sem critérios claros)
+- Plano de saúde sem cobertura para dependentes
+
+## Como pedir mais tempo (sem perder a oferta)
+
+> *"Estou muito entusiasmado com esta oportunidade. Para tomar a decisão responsável, precisaria de [X dias] para concluir a minha avaliação. É possível?"*
+
+A maioria das empresas concede 3-7 dias adicionais sem problema. Quem não concede está a sinalizar algo sobre a cultura.`,
+      },
+      {
+        id: '25-3',
+        title: 'Negociar benefícios: o que é negociável e como pedir',
+        duration: '30 min',
+        content: `# Negociar benefícios: o que é negociável e como pedir
+
+## A mentalidade errada
+
+Muitos candidatos assumem que os benefícios são fixos — "é política da empresa" — e não tentam negociar.
+
+A realidade: **quase tudo é negociável**, dependendo do nível do cargo e do contexto.
+
+## O que costuma ser negociável
+
+### Alta negociabilidade
+- Data de início (1-3 semanas de flexibilidade é comum)
+- Cargo/título (importante para LinkedIn e futuras negociações)
+- Número de dias de home office
+- Budget de formação e certificações
+- Equipamento de trabalho (laptop, monitor, ergonomia)
+- Participação em conferências e eventos profissionais
+
+### Negociabilidade média
+- Salário base (+5-15% em geral sem quebrar a oferta)
+- Bónus alvo e critérios de elegibilidade
+- Plano de benefícios (nível/cobertura em empresas com múltiplas opções)
+- Auxílio home office (valor mensal)
+
+### Menor negociabilidade
+- Benefícios definidos por política global da empresa
+- Equity em startups com cap table muito apertado
+- CLT vs. PJ (tem implicações legais que a empresa não flexibiliza facilmente)
+
+## Como pedir sem soar ganancioso
+
+O segredo é enquadrar o pedido em **valor para a empresa**, não em necessidade pessoal.
+
+**Exemplo — formação:**
+> *"Estou muito alinhado com a oferta. Uma coisa que me seria muito valiosa e que acredito beneficiaria directamente a empresa: um budget anual de formação para manter as certificações actualizadas. Há flexibilidade para incluir isso?"*
+
+**Exemplo — home office:**
+> *"Tenho sido mais produtivo em contexto híbrido. Seria possível ajustarmos para [X dias] em remoto? Entendo que pode haver restrições, mas queria explorar."*
+
+**Exemplo — salário:**
+> *"A oferta está muito próxima do que esperava. Com base na minha pesquisa de mercado e na experiência que trago, conseguiria chegar a [X]? Isso tornaria a decisão muito mais simples para mim."*
+
+## A sequência correcta de negociação
+
+1. **Recebe a proposta por escrito** antes de negociar
+2. **Agradece e demonstra entusiasmo** genuíno pela oportunidade
+3. **Pede tempo** se precisares (24-72h é razoável)
+4. **Identifica os 1-2 pontos** mais importantes para negociar (não tudo de uma vez)
+5. **Apresenta o pedido com argumento** — não só o número
+6. **Aceita o que for razoável** e não queimes a ponte por detalhes menores
+
+## O que nunca fazer
+
+- Dar ultimatos sem intenção de os cumprir
+- Mencionar a empresa concorrente como pressão (a menos que seja real e esteja disposto a ir)
+- Aceitar verbalmente e depois tentar renegociar
+- Negociar via WhatsApp ou chat informal — sempre por email ou chamada formal`,
+      },
+      {
+        id: '25-4',
+        title: 'Equity e Stock Options: o guia para não ser enganado',
+        duration: '30 min',
+        content: `# Equity e Stock Options: o guia completo
+
+## Por que a maioria não entende equity
+
+Stock options e RSUs são apresentados de forma sedutora ("podes ficar rico!") e as empresas raramente explicam a letras miúdas.
+
+Resultado: candidatos aceitam equity sem perceber o que assinaram, o que vale e quando (se alguma vez) conseguem dinheiro.
+
+## O vocabulário essencial
+
+**Cliff:** Período mínimo que tens de ficar na empresa antes de qualquer equity "vencer" (fazer vest). Típico: 1 ano. Se saíres antes do cliff, perdes tudo.
+
+**Vesting:** O processo gradual de ganhar a tua equity ao longo do tempo. Schedule típico: 4 anos com cliff de 1 ano.
+- Ao completar 1 ano: 25% vesta
+- Depois: ~2,1% por mês durante os 3 anos restantes
+
+**Strike price (preço de exercício):** O preço que pagas para comprar as acções quando exerces as opções. Deve ser o valor justo de mercado (FMV) na data de concessão.
+
+**Valuation:** O valor total estimado da empresa. Divide a empresa em partes (shares) — quanto mais baixo o valuation na tua concessão, mais potencial de valorização.
+
+**Dilution (diluição):** Cada nova ronda de investimento cria novas acções, diluindo as tuas. É normal mas tens de saber quanto.
+
+**Liquidation preference:** Investidores têm prioridade no pagamento em caso de venda. Podes ter equity "no papel" que na prática vale zero se a empresa for vendida por valor inferior ao que investidores colocaram.
+
+## As perguntas certas a fazer
+
+Antes de aceitar uma oferta com equity relevante:
+
+1. **Quantas shares me estão a oferecer?** (Número absoluto)
+2. **Qual é o total de shares em circulação?** (Para calcular a tua percentagem)
+3. **Qual é o strike price?** (Preço que pagas para comprar)
+4. **Qual é o valuation actual da empresa?**
+5. **Qual é o schedule de vesting e cliff?**
+6. **Quanto tempo tenho para exercer as opções se sair?** (Comum: 90 dias — pode ser um problema fiscal)
+7. **Houve diluição nas últimas rondas? O que está previsto?**
+8. **Qual é a preferência de liquidação dos investidores?**
+
+## Quando a equity vale o risco
+
+**Vale a pena dar peso significativo à equity quando:**
+- A empresa está em estágio early (seed/Series A) com produto validado
+- Tens confiança no produto, equipa de gestão e mercado
+- A empresa tem caminho claro para liquidez (IPO, M&A) em 5-7 anos
+- A tua percentagem é significativa (> 0,1% para cargos executivos, > 0,01% para sénior ICs)
+
+**Não dês muito peso à equity quando:**
+- A empresa já está em estágio avançado (Series D+) com valuation elevado
+- Não consegues obter respostas claras às perguntas acima
+- A empresa tem histórico de diluição agressiva
+- O salário base é muito abaixo do mercado "compensado" por equity`,
+      },
+      {
+        id: '25-5',
+        title: 'Quando aceitar uma oferta abaixo do mercado (e quando não aceitar)',
+        duration: '20 min',
+        content: `# Quando aceitar uma oferta abaixo do mercado
+
+## A questão mais difícil
+
+Depois de negociar o máximo possível, a empresa não consegue chegar ao teu piso. O que fazer?
+
+A resposta não é sempre "recusa". Há situações em que aceitar faz sentido estratégico.
+
+## Quando faz sentido aceitar abaixo do mercado
+
+### 1. O crescimento compensa
+Se o cargo te vai acelerar 3-5 anos na carreira — por exposure, mentoria, marca da empresa, ou competências únicas — o "custo" temporário pode ser um investimento racional.
+
+**Exemplo:** Aceitar 15% abaixo do mercado num cargo de PM em empresa top-tier que te vai abrir portas que demorarias 5 anos a abrir de outra forma.
+
+### 2. A estabilidade num momento de incerteza
+Após layoff, transição de área ou longa ausência do mercado, às vezes entrar — mesmo abaixo do ideal — restabelece o CV e o rendimento enquanto buscas algo melhor.
+
+### 3. O fit cultural é excepcionalmente raro
+Se encontraste uma empresa onde o ambiente, o produto e as pessoas correspondem ao que procuras de forma rara, o "desconto" pode ser o preço de um lugar onde queres passar os próximos 3-5 anos.
+
+## Quando NÃO deves aceitar abaixo do mercado
+
+- A empresa não tem argumento claro para o gap (apenas "é o que temos")
+- Estás a entrar num cargo de baixo crescimento — o gap não "paga" com aprendizagem
+- O gap é superior a 20% sem compensação não-financeira clara
+- Sentes pressão emocional para aceitar (medo de não ter outra opção) mas tens opções reais
+
+## Como negociar um "revisão em X meses"
+
+Se aceitas com gap mas queres protecção:
+
+> *"Aceito a proposta. Dado o gap relativamente ao mercado, pedia que incluíssemos na carta uma cláusula de revisão salarial formal em 6 meses, condicionada ao atingimento de objectivos que definiremos juntos nos primeiros 30 dias. Consegues incluir isso?"*
+
+Não é garantia — mas coloca em papel a expectativa, o que cria accountability.`,
+      },
+    ],
+  },
+  {
+    id: 26,
+    title: 'GitHub, Portfólio Técnico e Projecto para Devs',
+    desc: 'Para profissionais de tecnologia: como criar um portfólio técnico que impressiona recrutadores e tech leads, o que incluir no GitHub e como projectos pessoais ganham entrevistas.',
+    duration: '3h 30min',
+    icon: '💻',
+    isPro: true,
+    color: { bg: 'bg-gray-50', border: 'border-gray-200', badge: 'bg-gray-100 text-gray-700', icon: 'bg-gray-800' },
+    lessons: [
+      {
+        id: '26-1',
+        title: 'Por que o portfólio técnico vale mais do que o CV',
+        duration: '20 min',
+        content: `# Por que o portfólio técnico vale mais do que o CV
+
+## A diferença entre dizer e mostrar
+
+Qualquer candidato pode escrever "experiência com React, Node.js e AWS". O portfólio técnico **prova** o que o CV apenas afirma.
+
+Para cargos de tecnologia, um portfólio sólido pode:
+- Compensar a ausência de diploma formal
+- Substituir anos de experiência em empresa
+- Abrir processo selectivo que o CV sozinho não abriria
+- Eliminar rounds técnicos em algumas empresas (o entrevistador já viu o teu código)
+
+## O que os recrutadores e tech leads procuram
+
+### O recrutador (não técnico) procura:
+- Sinal de que és activo e comprometido com a área
+- Projetos com nomes e descrições claros
+- Evidência de trabalho real, não apenas tutoriais
+
+### O tech lead / engenheiro sénior procura:
+- Qualidade do código (legibilidade, estrutura, padrões)
+- Documentação (README claro, comentários quando necessário)
+- Historial de commits (frequência e qualidade das mensagens)
+- Soluções para problemas reais, não apenas exercícios
+- Capacidade de completar projetos — não repositórios abandonados
+
+## Os três tipos de portfólio técnico
+
+### 1. GitHub profile
+O standard de facto. Todos os cargos de tecnologia esperam que tenhas um perfil activo.
+
+### 2. Site/portfólio pessoal
+Para devs front-end, designers e full-stack: um site que mostra os projetos em funcionamento, com descrições e links para o código.
+
+### 3. Contribuições open source
+O mais valorizado por tech leads: mostra que sabes trabalhar com código de terceiros, ler issues e criar PRs que passam revisão real.
+
+## A realidade do mercado
+
+Para cargos júnior: **o portfólio frequentemente pesa mais do que o diploma**.
+
+Para cargos pleno/sénior: **o portfólio confirma o que o CV afirma** e diferencia entre candidatos com CVs similares.
+
+Para liderança técnica: contribuições open source e escrita técnica (artigos, talks) pesam mais do que projetos pessoais.`,
+      },
+      {
+        id: '26-2',
+        title: 'GitHub: como estruturar o perfil e os repositórios',
+        duration: '35 min',
+        content: `# GitHub: como estruturar o perfil e os repositórios
+
+## O perfil GitHub como cartão de visita
+
+O primeiro impacto é visual. Um perfil mal configurado perde pontos antes de alguém ler uma linha de código.
+
+### README do perfil
+O GitHub permite um README especial no teu perfil (repositório com o mesmo nome do teu username). Inclui:
+
+\`\`\`markdown
+## Olá, sou [Nome] 👋
+
+[2-3 frases: o que fazes, onde estás profissionalmente, o que procuras]
+
+**Stack principal:** React · Node.js · Python · AWS
+
+**Actualmente a trabalhar em:** [projeto ou empresa]
+**Disponível para:** [oportunidades/freelance/sim ou não]
+
+📫 [email ou LinkedIn]
+\`\`\`
+
+### Contribution graph (o gráfico verde)
+O gráfico de contribuições é a primeira coisa que tech leads notam. Um gráfico vazio não é neutral — é sinal negativo.
+
+**Como ter um gráfico activo mesmo sem projetos públicos:**
+- Faz commits nos teus repos privados (contam)
+- Contribui regularmente — melhor 10 min/dia do que 4h no fim de semana
+- Abre issues e PRs em repos de outros (contribuições open source)
+
+### Pinned repositories
+Escolhe 4-6 repos para destacar. Critérios:
+- Projetos completos (não em construção)
+- Variedade de tecnologias (se aplicável)
+- Os que melhor representam o teu nível actual
+
+## Estrutura de um bom repositório
+
+Cada repo pinado deve ter:
+
+### README.md de qualidade
+Mínimo obrigatório:
+- **O que é este projeto** (1 parágrafo)
+- **Screenshot ou GIF** do produto em funcionamento
+- **Como correr localmente** (passo-a-passo)
+- **Stack tecnológica** usada e por quê
+- **Próximos passos / roadmap** (opcional mas valorizado)
+
+### Mensagens de commit legíveis
+Bad: *"fix"* / *"update"* / *"wip"*
+Good: *"feat: add user authentication with JWT"* / *"fix: resolve race condition in cart sync"*
+
+Usa [Conventional Commits](https://www.conventionalcommits.org/) — é o standard da indústria.
+
+### Estrutura de pastas clara
+Sigue as convenções da tecnologia. Em React, a estrutura esperada é diferente de Python. Divergir sem razão cria fricção desnecessária.
+
+## O que nunca colocar no portfólio
+
+- Tutoriais copiados sem adaptação (to-do list, weather app padrão)
+- Código com credenciais no repositório (chaves API, senhas)
+- Repos abandonados com issues sem resolver e PRs abertos há meses
+- Código sem testes em projetos que pretendem demonstrar "qualidade"`,
+      },
+      {
+        id: '26-3',
+        title: 'Que projetos construir para impressionar',
+        duration: '40 min',
+        content: `# Que projetos construir para impressionar
+
+## A hierarquia de valor dos projetos
+
+Do menos ao mais valioso (para um recrutador técnico):
+
+1. **Tutorial seguido sem adaptação** — quase sem valor
+2. **Tutorial com modificações** — pouco valor
+3. **Projeto pessoal do zero** — valor médio/bom
+4. **Projecto que resolve um problema real (teu ou de outros)** — muito valor
+5. **Contribuição open source aceite** — alto valor
+6. **Projecto com utilizadores reais** — muito alto valor
+
+## A regra de ouro do portfólio
+
+**Constrói o que usarias.** Projectos onde resolveste um problema que tinhas têm autenticidade imediata. A história é mais convincente do que a tecnologia.
+
+## Ideias de projetos por nível
+
+### Júnior (menos de 2 anos de experiência)
+
+**Full-stack:**
+- App de gestão de hábitos com autenticação e persistência
+- Clone funcional de uma app conhecida (Twitter, Trello) — ênfase no "funcional", não apenas visual
+- API REST com CRUD completo, testes e documentação Swagger
+
+**Back-end:**
+- API de processamento de pagamentos com Stripe (sandbox)
+- Sistema de notificações em tempo real com WebSockets
+- CLI tool que resolva um problema específico do teu dia-a-dia
+
+**Front-end:**
+- Dashboard de visualização de dados (com API pública: clima, finanças, GitHub API)
+- App com pesquisa em tempo real e infinite scroll
+- Sistema de design próprio com componentes documentados
+
+### Pleno (2-5 anos de experiência)
+
+**O diferencial aqui é complexidade e decisões de arquitectura.**
+
+- Microserviços com comunicação assíncrona (RabbitMQ, Kafka)
+- Sistema com autenticação OAuth2 completa e refresh tokens
+- Pipeline de dados com transformação, validação e alertas
+- App com testes de integração e E2E (Cypress, Playwright)
+
+### Sénior
+
+**O diferencial é liderança técnica e impacto escalonável.**
+
+- Open source library com documentação completa e testes
+- Infra como código (Terraform, Pulumi) para um stack real
+- Contribuição significativa para projecto com +1000 stars no GitHub
+
+## Como transformar projetos do trabalho em portfólio
+
+Se o teu melhor trabalho é código proprietário que não podes partilhar:
+
+1. Cria uma **versão simplificada** do mesmo problema sem dados da empresa
+2. Escreve um **artigo técnico** sobre o problema e a solução (sem revelar IP)
+3. Extrai um **componente genérico** que resolves e que podes open-sourcear
+
+Sempre pede permissão ao empregador antes de publicar qualquer coisa relacionada com código corporativo.`,
+      },
+      {
+        id: '26-4',
+        title: 'Contribuições open source: como começar do zero',
+        duration: '35 min',
+        content: `# Contribuições open source: como começar do zero
+
+## Por que contribuições open source são tão valorizadas
+
+Contribuir para open source demonstra que sabes:
+- Ler código de terceiros (fundamental no trabalho real)
+- Comunicar claramente (issues, PRs, code reviews)
+- Trabalhar assincronamente com pessoas que não conheces
+- Aceitar e incorporar feedback de código
+
+Nenhuma dessas competências é comprovada por projetos pessoais.
+
+## O medo de contribuir (e como superá-lo)
+
+**"O meu código não é bom o suficiente"** — A maioria das contribuições open source não são código. São documentação, testes, traduções, correção de typos, e relatórios de bugs detalhados.
+
+**"Vão rejeitar o meu PR"** — É parte do processo. Um PR rejeitado com feedback é uma aula grátis de um programador mais experiente.
+
+**"Não sei por onde começar"** — Vês a seguir.
+
+## Por onde começar: o caminho gradual
+
+### Nível 0: Usa e reporta
+1. Usa ferramentas open source no dia-a-dia
+2. Quando encontrares um bug, abre uma issue detalhada com:
+   - Passos para reproduzir
+   - Comportamento esperado vs. actual
+   - Versão da ferramenta e ambiente
+
+Isto já é uma contribuição válida.
+
+### Nível 1: Documentação e typos
+Encontraste um typo na documentação? Um exemplo que não funciona? Uma instrução de instalação desactualizada?
+
+Abre um PR. É simples e é uma contribuição real.
+
+### Nível 2: Good first issues
+No GitHub, filtra por *label: good first issue* ou *label: help wanted* nos projetos que usas.
+
+Estas issues são marcadas propositadamente para novos contribuidores. Os maintainers esperam e querem ajuda.
+
+### Nível 3: Correcção de bugs com teste
+Encontraste um bug, percebeste a causa, e consegues corrigi-lo com um teste que o previne? Este é o PR que impressiona.
+
+### Nível 4: Nova funcionalidade
+Discussão prévia com os maintainers é essencial. Abre uma issue com a proposta antes de escrever código.
+
+## Onde encontrar projetos para contribuir
+
+- **goodfirstissue.dev** — agrega first issues de centenas de projetos
+- **up-for-grabs.net** — similar com mais filtros
+- **Projetos que usas no dia-a-dia** — maior motivação e contexto
+
+## Como mencionar contribuições open source no CV/entrevista
+
+> *"Contribuí para [projeto] com [X] — corrigi um bug que causava [problema] e adicionei teste de regressão. O PR foi aceite após code review com o maintainer principal."*
+
+Se o PR teve impacto mensurável (o projecto tem X stars, Y utilizadores), menciona.`,
+      },
+      {
+        id: '26-5',
+        title: 'O site de portfólio pessoal: o que incluir e o que evitar',
+        duration: '25 min',
+        content: `# O site de portfólio pessoal
+
+## Para quem é essencial vs. opcional
+
+**Essencial:**
+- Devs front-end (o próprio site é uma demonstração)
+- Designers de produto (portfolio visual)
+- Full-stack com projetos com interface
+
+**Opcional mas valorizado:**
+- Back-end / DevOps (o GitHub é suficiente mas um site bem feito diferencia)
+- Data Scientists (com notebooks e visualizações interactivas)
+
+## O que incluir
+
+### Secções obrigatórias
+
+**Hero / Apresentação:**
+- Nome e título (o que fazes, não o teu cargo actual)
+- 2-3 frases que comunicam valor, não experiência
+- Call to action claro (ver projetos / falar comigo / ver CV)
+
+**Projetos:**
+- 3-5 projetos (menos é mais — escolhe os melhores)
+- Para cada: screenshot/demo, descrição do problema resolvido, tecnologias, link para demo e código
+
+**Sobre:**
+- Contexto pessoal breve
+- O que te apaixona tecnicamente
+- O que procuras profissionalmente
+
+**Contacto:**
+- Email, LinkedIn, GitHub — simples e fácil de encontrar
+
+### Secções opcionais (mas que diferenciam)
+- Blog técnico / artigos
+- Talks e apresentações
+- Open source contributions com contexto
+- Testemunhos de colegas ou gestores
+
+## O que evitar
+
+**Tecnicamente:**
+- Site demorado a carregar (ironic fail para dev)
+- Design excessivamente criativo que prejudica a leitura
+- Animações que bloqueiam o conteúdo
+- Mobile experience quebrada
+
+**No conteúdo:**
+- "Tenho uma paixão por tecnologia" — generic
+- Barras de competência ("Proficiência em Python: ████░ 80%") — não comunicam nada real
+- Projectos inacabados ou com links quebrados
+- Datas de projectos muito antigas sem actualização
+
+## Stack recomendada para o site
+
+**Mais rápido:** Astro + Netlify/Vercel (deploy gratuito, performance excelente)
+**Para mostrar React:** Next.js + Vercel
+**Para quem não quer código:** Framer, Notion + Super.so
+
+O conteúdo importa mais do que a stack — não pases semanas a optimizar o site quando podias estar a construir projectos.`,
       },
     ],
   },

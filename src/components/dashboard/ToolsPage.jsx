@@ -646,6 +646,674 @@ function SummaryGenerator() {
   )
 }
 
+// ─── Ferramenta 8: Gerador de Email de Candidatura ───────────────────────────
+function ApplicationEmailGenerator() {
+  const [form, setForm] = useState({ name: '', role: '', company: '', source: '', years: '', achievement: '', specific: '' })
+  const [output, setOutput] = useState('')
+  const [copied, setCopied] = useState(false)
+  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
+
+  const generate = () => {
+    const { name, role, company, source, years, achievement, specific } = form
+    if (!name || !role || !company || !achievement) return
+    setOutput(
+`Assunto: Candidatura — ${role} | ${name}
+
+Olá,
+
+Candidato-me à vaga de ${role}${source ? ` que encontrei no ${source}` : ''}.
+
+${years ? `Em ${years} de experiência na área, ` : ''}${achievement.trim()}. Acredito que esta experiência se alinha diretamente com o perfil que buscam${specific ? `, especialmente ${specific.trim()}` : ''}.
+
+Seguem em anexo o meu CV e carta de motivação. Fico inteiramente disponível para uma conversa quando for conveniente.
+
+Com os melhores cumprimentos,
+${name}`.trim()
+    )
+    setCopied(false)
+  }
+
+  const copy = () => {
+    navigator.clipboard.writeText(output)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  const inp = 'w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
+  const isReady = form.name && form.role && form.company && form.achievement
+
+  return (
+    <div className="space-y-4">
+      <p className="text-slate-500 text-sm">Gera um email de candidatura profissional e personalizado em segundos.</p>
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">O seu nome *</label>
+          <input className={inp} placeholder="Ex: João Silva" value={form.name} onChange={set('name')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Cargo a que se candidata *</label>
+          <input className={inp} placeholder="Ex: Gerente de Marketing" value={form.role} onChange={set('role')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Nome da empresa *</label>
+          <input className={inp} placeholder="Ex: TechCorp" value={form.company} onChange={set('company')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Onde encontrou a vaga</label>
+          <input className={inp} placeholder="Ex: LinkedIn, site da empresa" value={form.source} onChange={set('source')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Anos de experiência</label>
+          <input className={inp} placeholder="Ex: 6 anos" value={form.years} onChange={set('years')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Algo específico da vaga/empresa</label>
+          <input className={inp} placeholder="Ex: a cultura data-driven e o foco em crescimento" value={form.specific} onChange={set('specific')} />
+        </div>
+        <div className="sm:col-span-2">
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">A sua maior conquista relevante (com número) *</label>
+          <input className={inp} placeholder="Ex: liderei campanha que gerou R$800k em receita com ROI de 4x" value={form.achievement} onChange={set('achievement')} />
+        </div>
+      </div>
+      <Btn onClick={generate} variant="primary" size="md" disabled={!isReady}>Gerar email →</Btn>
+      {output && (
+        <div className="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
+          <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-200 bg-white">
+            <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">Email gerado</span>
+            <button onClick={copy} className={`text-xs font-semibold underline ${copied ? 'text-green-600' : 'text-blue-600 hover:text-blue-800'}`}>
+              {copied ? '✓ Copiado!' : 'Copiar'}
+            </button>
+          </div>
+          <pre className="p-4 text-sm text-slate-700 leading-relaxed whitespace-pre-wrap font-sans">{output}</pre>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ─── Ferramenta 9: Checklist de Candidatura ──────────────────────────────────
+const CHECKLIST_ITEMS = [
+  { id: 'cv_pdf', category: 'CV', label: 'CV em PDF com texto seleccionável (não imagem/scan)' },
+  { id: 'cv_ats', category: 'CV', label: 'Palavras-chave da vaga incluídas no CV' },
+  { id: 'cv_results', category: 'CV', label: 'Pelo menos 3 resultados quantificados (com números)' },
+  { id: 'cv_tailored', category: 'CV', label: 'CV adaptado para esta vaga específica' },
+  { id: 'cv_filename', category: 'CV', label: 'Ficheiro nomeado profissionalmente (CV_NomeSobrenome_Cargo.pdf)' },
+  { id: 'cover_impact', category: 'Carta', label: 'Abertura com impacto (não "Venho por este meio...")' },
+  { id: 'cover_specific', category: 'Carta', label: 'Menção específica à empresa/vaga (não genérica)' },
+  { id: 'cover_achievement', category: 'Carta', label: 'Pelo menos uma conquista com número' },
+  { id: 'cover_cta', category: 'Carta', label: 'Chamada à acção clara no final' },
+  { id: 'cover_length', category: 'Carta', label: 'Máximo 1 página (400-500 palavras)' },
+  { id: 'email_subject', category: 'Email', label: 'Assunto específico e profissional' },
+  { id: 'email_body', category: 'Email', label: 'Corpo do email não está vazio ou genérico' },
+  { id: 'email_attachments', category: 'Email', label: 'Anexos confirmados antes de enviar' },
+  { id: 'email_spellcheck', category: 'Email', label: 'Zero erros ortográficos (leu em voz alta ou usou corretor)' },
+  { id: 'research_company', category: 'Pesquisa', label: 'Pesquisou a empresa (site, LinkedIn, notícias recentes)' },
+  { id: 'research_role', category: 'Pesquisa', label: 'Leu a descrição completa da vaga (não só o título)' },
+  { id: 'research_interviewer', category: 'Pesquisa', label: 'Sabe para quem está a enviar (nome do recrutador, se possível)' },
+  { id: 'followup_reminder', category: 'Follow-up', label: 'Anotou a data para fazer follow-up (7-10 dias)' },
+  { id: 'tracker_update', category: 'Follow-up', label: 'Candidatura adicionada ao rastreador de candidaturas' },
+]
+
+const CATEGORY_COLORS = {
+  CV: 'bg-blue-100 text-blue-700',
+  Carta: 'bg-violet-100 text-violet-700',
+  Email: 'bg-orange-100 text-orange-700',
+  Pesquisa: 'bg-emerald-100 text-emerald-700',
+  'Follow-up': 'bg-rose-100 text-rose-700',
+}
+
+function ApplicationChecklist() {
+  const [checked, setChecked] = useState(() => LS.get('nj_checklist', {}))
+  const [company, setCompany] = useState('')
+  const [filter, setFilter] = useState('all')
+
+  const toggle = (id) => {
+    const next = { ...checked, [id]: !checked[id] }
+    setChecked(next)
+    LS.set('nj_checklist', next)
+  }
+
+  const reset = () => {
+    setChecked({})
+    LS.set('nj_checklist', {})
+  }
+
+  const categories = [...new Set(CHECKLIST_ITEMS.map((i) => i.category))]
+  const filtered = filter === 'all' ? CHECKLIST_ITEMS : CHECKLIST_ITEMS.filter((i) => i.category === filter)
+  const total = CHECKLIST_ITEMS.length
+  const done = CHECKLIST_ITEMS.filter((i) => checked[i.id]).length
+  const pct = Math.round((done / total) * 100)
+
+  return (
+    <div className="space-y-4">
+      <p className="text-slate-500 text-sm">Confirma estes {total} itens antes de enviar cada candidatura. Nunca esqueças nada importante.</p>
+
+      <div className="flex items-center gap-3">
+        <input
+          className="flex-1 px-3 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Nome da empresa (para organizar)"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+        />
+        <button onClick={reset} className="text-xs text-slate-400 hover:text-red-400 underline flex-shrink-0">
+          Resetar tudo
+        </button>
+      </div>
+
+      {/* Progresso */}
+      <div className="bg-white border border-slate-200 rounded-xl p-4">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-sm font-bold text-slate-700">
+            {company ? `${company} — ` : ''}Progresso: {done}/{total}
+          </span>
+          <span className={`text-sm font-black ${pct === 100 ? 'text-green-600' : pct >= 70 ? 'text-amber-600' : 'text-slate-400'}`}>
+            {pct === 100 ? '✅ Pronto para enviar!' : `${pct}%`}
+          </span>
+        </div>
+        <div className="w-full bg-slate-100 rounded-full h-2">
+          <div
+            className={`h-2 rounded-full transition-all ${pct === 100 ? 'bg-green-500' : 'bg-blue-500'}`}
+            style={{ width: `${pct}%` }}
+          />
+        </div>
+      </div>
+
+      {/* Filtros */}
+      <div className="flex gap-2 flex-wrap">
+        <button
+          onClick={() => setFilter('all')}
+          className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${filter === 'all' ? 'bg-slate-700 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+        >
+          Todos
+        </button>
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setFilter(cat)}
+            className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${filter === cat ? 'bg-slate-700 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {/* Itens */}
+      <div className="space-y-2">
+        {filtered.map((item) => (
+          <label
+            key={item.id}
+            className={`flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
+              checked[item.id]
+                ? 'bg-green-50 border-green-200'
+                : 'bg-white border-slate-100 hover:border-slate-200'
+            }`}
+          >
+            <input
+              type="checkbox"
+              checked={!!checked[item.id]}
+              onChange={() => toggle(item.id)}
+              className="mt-0.5 w-4 h-4 rounded accent-green-500 flex-shrink-0"
+            />
+            <div className="flex-1 min-w-0">
+              <span className={`text-sm ${checked[item.id] ? 'text-slate-400 line-through' : 'text-slate-700'}`}>
+                {item.label}
+              </span>
+            </div>
+            <span className={`text-xs px-2 py-0.5 rounded-full font-semibold flex-shrink-0 ${CATEGORY_COLORS[item.category]}`}>
+              {item.category}
+            </span>
+          </label>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+// ─── Ferramenta 10: Comparador de Ofertas de Emprego ─────────────────────────
+const OFFER_BENEFITS = [
+  { key: 'health', label: 'Plano de saúde (individual)', values: { none: 0, basic: 300, mid: 700, premium: 1500 } },
+  { key: 'dental', label: 'Plano odontológico', values: { none: 0, yes: 150 } },
+  { key: 'meal', label: 'Vale-alimentação/refeição (R$/mês)', type: 'number' },
+  { key: 'transport', label: 'Vale-transporte (R$/mês)', type: 'number' },
+  { key: 'training', label: 'Budget de formação (R$/ano)', type: 'number' },
+  { key: 'remote', label: 'Home office', values: { none: 0, hybrid: 300, full: 700 } },
+  { key: 'pension', label: 'Previdência privada (matching)', values: { none: 0, partial: 400, full: 800 } },
+  { key: 'gym', label: 'Auxílio saúde/ginásio (R$/mês)', type: 'number' },
+]
+
+function OfferComparator() {
+  const emptyOffer = () => ({
+    company: '', role: '', salary: '', bonus: '', health: 'none', dental: 'none',
+    meal: '', transport: '', training: '', remote: 'none', pension: 'none', gym: '',
+    growth: 5, culture: 5, commute: 5, stability: 5,
+  })
+  const [a, setA] = useState(emptyOffer())
+  const [b, setB] = useState(emptyOffer())
+  const [result, setResult] = useState(null)
+
+  const setField = (setter) => (k) => (e) => setter((o) => ({ ...o, [k]: e.target.value }))
+
+  const calcAnnual = (offer) => {
+    const base = parseFloat(offer.salary || 0) * 12
+    const bonus = parseFloat(offer.bonus || 0)
+    const meal = parseFloat(offer.meal || 0) * 12
+    const transport = parseFloat(offer.transport || 0) * 12
+    const training = parseFloat(offer.training || 0)
+    const gym = parseFloat(offer.gym || 0) * 12
+    const health = OFFER_BENEFITS.find(b => b.key === 'health').values[offer.health] * 12
+    const dental = OFFER_BENEFITS.find(b => b.key === 'dental').values[offer.dental] * 12
+    const remote = OFFER_BENEFITS.find(b => b.key === 'remote').values[offer.remote] * 12
+    const pension = OFFER_BENEFITS.find(b => b.key === 'pension').values[offer.pension] * 12
+    return base + bonus + meal + transport + training + gym + health + dental + remote + pension
+  }
+
+  const calcQuality = (offer) => {
+    return ((parseFloat(offer.growth) + parseFloat(offer.culture) + parseFloat(offer.commute) + parseFloat(offer.stability)) / 4).toFixed(1)
+  }
+
+  const compare = () => {
+    const totalA = calcAnnual(a), totalB = calcAnnual(b)
+    const qualA = parseFloat(calcQuality(a)), qualB = parseFloat(calcQuality(b))
+    const scoreA = totalA * 0.6 + qualA * 10000 * 0.4
+    const scoreB = totalB * 0.6 + qualB * 10000 * 0.4
+    setResult({ totalA, totalB, qualA, qualB, scoreA, scoreB })
+  }
+
+  const fmt = (n) => Math.round(n).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 })
+
+  const inp = 'w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white'
+
+  const OfferForm = ({ offer, setter, label, color }) => (
+    <div className={`bg-white border-2 ${color} rounded-2xl p-4 space-y-3`}>
+      <h3 className="font-black text-slate-800">{label}</h3>
+      <div className="grid grid-cols-2 gap-2">
+        <div>
+          <label className="text-xs font-bold text-slate-500 block mb-1">Empresa</label>
+          <input className={inp} placeholder="Ex: TechCorp" value={offer.company} onChange={setField(setter)('company')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-500 block mb-1">Cargo</label>
+          <input className={inp} placeholder="Ex: Dev Sênior" value={offer.role} onChange={setField(setter)('role')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-500 block mb-1">Salário base (R$/mês)</label>
+          <input className={inp} type="number" placeholder="8000" value={offer.salary} onChange={setField(setter)('salary')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-500 block mb-1">Bónus anual (R$)</label>
+          <input className={inp} type="number" placeholder="12000" value={offer.bonus} onChange={setField(setter)('bonus')} />
+        </div>
+      </div>
+      <div className="grid grid-cols-2 gap-2">
+        <div>
+          <label className="text-xs font-bold text-slate-500 block mb-1">Plano de saúde</label>
+          <select className={inp} value={offer.health} onChange={setField(setter)('health')}>
+            <option value="none">Sem plano</option>
+            <option value="basic">Básico (~R$300/mês)</option>
+            <option value="mid">Intermédio (~R$700/mês)</option>
+            <option value="premium">Premium (~R$1.500/mês)</option>
+          </select>
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-500 block mb-1">Home office</label>
+          <select className={inp} value={offer.remote} onChange={setField(setter)('remote')}>
+            <option value="none">Presencial</option>
+            <option value="hybrid">Híbrido (~R$300/mês economia)</option>
+            <option value="full">100% remoto (~R$700/mês economia)</option>
+          </select>
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-500 block mb-1">VA/VR (R$/mês)</label>
+          <input className={inp} type="number" placeholder="800" value={offer.meal} onChange={setField(setter)('meal')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-500 block mb-1">Budget formação (R$/ano)</label>
+          <input className={inp} type="number" placeholder="3000" value={offer.training} onChange={setField(setter)('training')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-500 block mb-1">Previdência (matching)</label>
+          <select className={inp} value={offer.pension} onChange={setField(setter)('pension')}>
+            <option value="none">Sem previdência</option>
+            <option value="partial">Parcial (~R$400/mês)</option>
+            <option value="full">Total (~R$800/mês)</option>
+          </select>
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-500 block mb-1">Auxílio saúde/gym (R$/mês)</label>
+          <input className={inp} type="number" placeholder="150" value={offer.gym} onChange={setField(setter)('gym')} />
+        </div>
+      </div>
+      <div className="border-t border-slate-100 pt-3 space-y-2">
+        <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Factores qualitativos (1-10)</p>
+        {[
+          { k: 'growth', label: 'Potencial de crescimento' },
+          { k: 'culture', label: 'Fit cultural' },
+          { k: 'commute', label: 'Qualidade de vida / deslocamento' },
+          { k: 'stability', label: 'Estabilidade da empresa' },
+        ].map(({ k, label }) => (
+          <div key={k} className="flex items-center gap-3">
+            <span className="text-xs text-slate-500 w-36 flex-shrink-0">{label}</span>
+            <input type="range" min="1" max="10" value={offer[k]} onChange={setField(setter)(k)} className="flex-1 accent-blue-500" />
+            <span className="text-xs font-bold text-slate-700 w-4">{offer[k]}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+
+  return (
+    <div className="space-y-4">
+      <p className="text-slate-500 text-sm">Preenche os dados de cada oferta para calcular o valor total real e gerar uma recomendação.</p>
+      <div className="grid sm:grid-cols-2 gap-4">
+        <OfferForm offer={a} setter={setA} label="Oferta A" color="border-blue-300" />
+        <OfferForm offer={b} setter={setB} label="Oferta B" color="border-violet-300" />
+      </div>
+      <button onClick={compare} className="w-full py-3 bg-slate-800 text-white font-bold rounded-xl text-sm hover:bg-slate-700 transition-colors">
+        Comparar ofertas →
+      </button>
+      {result && (
+        <div className="space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { label: a.company || 'Oferta A', total: result.totalA, quality: result.qualA, score: result.scoreA, color: 'border-blue-300 bg-blue-50' },
+              { label: b.company || 'Oferta B', total: result.totalB, quality: result.qualB, score: result.scoreB, color: 'border-violet-300 bg-violet-50' },
+            ].map((o, i) => (
+              <div key={i} className={`border-2 ${o.color} rounded-2xl p-4 text-center`}>
+                <div className="font-black text-slate-800 mb-3">{o.label}</div>
+                <div className="text-2xl font-black text-slate-800">{fmt(o.total)}</div>
+                <div className="text-xs text-slate-500 mb-2">Total Comp anual estimado</div>
+                <div className="text-lg font-bold text-slate-700">{o.quality}/10</div>
+                <div className="text-xs text-slate-500">Qualidade de vida</div>
+              </div>
+            ))}
+          </div>
+          <div className={`rounded-2xl p-5 border-2 ${result.scoreA >= result.scoreB ? 'border-blue-400 bg-blue-50' : 'border-violet-400 bg-violet-50'}`}>
+            <div className="font-black text-slate-800 text-lg mb-1">
+              {result.scoreA === result.scoreB ? 'Ofertas muito equivalentes!' : `Recomendação: ${result.scoreA > result.scoreB ? (a.company || 'Oferta A') : (b.company || 'Oferta B')}`}
+            </div>
+            {result.scoreA !== result.scoreB && (
+              <p className="text-slate-600 text-sm">
+                {result.scoreA > result.scoreB
+                  ? `Com score combinado de financeiro + qualidade de vida superior. A diferença de Total Comp é ${fmt(Math.abs(result.totalA - result.totalB))}/ano.`
+                  : `Com score combinado de financeiro + qualidade de vida superior. A diferença de Total Comp é ${fmt(Math.abs(result.totalA - result.totalB))}/ano.`}
+              </p>
+            )}
+            <p className="text-xs text-slate-400 mt-2">O score pondera 60% compensação financeira e 40% factores qualitativos. Ajusta os sliders conforme as tuas prioridades.</p>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ─── Ferramenta 11: Gerador de Seção "Sobre" do LinkedIn ─────────────────────
+function LinkedInAboutGenerator() {
+  const [form, setForm] = useState({ years: '', area: '', role: '', achievement1: '', achievement2: '', skill: '', personality: '', target: '', contact: '' })
+  const [output, setOutput] = useState('')
+  const [copied, setCopied] = useState(false)
+  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
+
+  const generate = () => {
+    const { years, area, role, achievement1, achievement2, skill, personality, target, contact } = form
+    if (!years || !area || !achievement1 || !target) return
+    const lines = []
+    lines.push(`${years} anos em ${area}. ${role ? `Actualmente ${role}. ` : ''}`)
+    lines.push('')
+    lines.push(`O que faço: ${achievement1.trim()}.`)
+    if (achievement2.trim()) lines.push(`Também: ${achievement2.trim()}.`)
+    lines.push('')
+    if (skill.trim()) lines.push(`Especialidade: ${skill.trim()}.`)
+    if (personality.trim()) lines.push(`${personality.trim()}.`)
+    lines.push('')
+    lines.push(`Procuro: ${target.trim()}.`)
+    lines.push('')
+    if (contact.trim()) lines.push(`📩 ${contact.trim()}`)
+    setOutput(lines.join('\n'))
+    setCopied(false)
+  }
+
+  const copy = () => {
+    navigator.clipboard.writeText(output)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  const inp = 'w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
+  const ta = inp + ' resize-none'
+  const isReady = form.years && form.area && form.achievement1 && form.target
+
+  return (
+    <div className="space-y-4">
+      <p className="text-slate-500 text-sm">Gera um texto profissional para a secção "Sobre" do LinkedIn — conciso, impactante e optimizado para pesquisa.</p>
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Anos de experiência *</label>
+          <input className={inp} placeholder="Ex: 7" value={form.years} onChange={set('years')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Área de atuação *</label>
+          <input className={inp} placeholder="Ex: Engenharia de Software, Marketing B2B" value={form.area} onChange={set('area')} />
+        </div>
+        <div className="sm:col-span-2">
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Cargo ou posição actual</label>
+          <input className={inp} placeholder="Ex: Senior Product Manager na TechCorp" value={form.role} onChange={set('role')} />
+        </div>
+        <div className="sm:col-span-2">
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Principal conquista / o que fazes bem *</label>
+          <textarea className={ta} rows={2} placeholder="Ex: Aumentei a taxa de retenção de clientes em 35% redesenhando o processo de onboarding" value={form.achievement1} onChange={set('achievement1')} />
+        </div>
+        <div className="sm:col-span-2">
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Segunda conquista (opcional)</label>
+          <textarea className={ta} rows={2} placeholder="Ex: Construí e liderei equipa de 8 pessoas do zero em contexto de startup" value={form.achievement2} onChange={set('achievement2')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Especialidade técnica</label>
+          <input className={inp} placeholder="Ex: Python, análise de dados e machine learning" value={form.skill} onChange={set('skill')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Traço de personalidade profissional</label>
+          <input className={inp} placeholder="Ex: Apaixonado por resolver problemas complexos com dados" value={form.personality} onChange={set('personality')} />
+        </div>
+        <div className="sm:col-span-2">
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">O que procura agora *</label>
+          <input className={inp} placeholder="Ex: Oportunidades como Head of Product em empresas de growth stage" value={form.target} onChange={set('target')} />
+        </div>
+        <div className="sm:col-span-2">
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Call to action / contacto (opcional)</label>
+          <input className={inp} placeholder="Ex: Fala comigo em joao@email.com ou envia mensagem aqui no LinkedIn" value={form.contact} onChange={set('contact')} />
+        </div>
+      </div>
+      <button onClick={generate} disabled={!isReady} className={`w-full py-3 font-bold rounded-xl text-sm transition-colors ${isReady ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-slate-100 text-slate-400 cursor-not-allowed'}`}>
+        Gerar secção "Sobre" →
+      </button>
+      {output && (
+        <div className="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
+          <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-200 bg-white">
+            <div>
+              <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">Texto gerado</span>
+              <span className={`ml-3 text-xs ${output.length > 2600 ? 'text-red-500' : 'text-slate-400'}`}>{output.length}/2600 caracteres</span>
+            </div>
+            <button onClick={copy} className={`text-xs font-semibold underline ${copied ? 'text-green-600' : 'text-blue-600 hover:text-blue-800'}`}>
+              {copied ? '✓ Copiado!' : 'Copiar'}
+            </button>
+          </div>
+          <pre className="p-4 text-sm text-slate-700 leading-relaxed whitespace-pre-wrap font-sans">{output}</pre>
+          <div className="px-4 py-2 bg-amber-50 border-t border-amber-100">
+            <p className="text-xs text-amber-700">💡 Limite do LinkedIn: 2.600 caracteres. Edita à vontade — este texto é o ponto de partida, não a versão final.</p>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ─── Ferramenta 12: Gerador de Email de Follow-up pós-Entrevista ──────────────
+const FOLLOWUP_TYPES = [
+  { id: 'thankyou', label: 'Agradecimento pós-entrevista', desc: 'Enviado nas 24h após a entrevista' },
+  { id: 'status', label: 'Follow-up de status', desc: 'Quando não obtiveste resposta após 7-10 dias' },
+  { id: 'offer_delay', label: 'Follow-up com proposta em mão', desc: 'Tens outra oferta e precisas de decisão' },
+  { id: 'rejection', label: 'Resposta a uma recusa', desc: 'Deixar a porta aberta para o futuro' },
+]
+
+function FollowUpEmailGenerator() {
+  const [type, setType] = useState('')
+  const [form, setForm] = useState({ name: '', interviewer: '', role: '', company: '', highlight: '', deadline: '', other_company: '' })
+  const [output, setOutput] = useState('')
+  const [copied, setCopied] = useState(false)
+  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
+
+  const generate = () => {
+    const { name, interviewer, role, company, highlight, deadline, other_company } = form
+    if (!name || !role || !company) return
+    const hi = interviewer ? `Olá ${interviewer},` : 'Olá,'
+    let body = ''
+
+    if (type === 'thankyou') {
+      body = `${hi}
+
+Obrigado pelo tempo que dedicou à nossa conversa sobre a posição de ${role}${company ? ` na ${company}` : ''}.
+
+${highlight ? `Fiquei especialmente entusiasmado com ${highlight.trim()}. ` : ''}A conversa reforçou o meu interesse pela vaga e acredito que as minhas competências se alinham bem com o que procuram.
+
+Fico à disposição caso necessitem de informações adicionais e aguardo com expectativa os próximos passos.
+
+Com os melhores cumprimentos,
+${name}`
+    } else if (type === 'status') {
+      body = `${hi}
+
+Espero que esteja bem. Queria fazer um breve follow-up relativamente à vaga de ${role}${company ? ` na ${company}` : ''}, sobre a qual conversámos há alguns dias.
+
+O meu interesse pela posição mantém-se elevado e gostaria de saber se há actualizações sobre o processo de seleção.
+
+Fico ao dispor para qualquer questão adicional.
+
+Com os melhores cumprimentos,
+${name}`
+    } else if (type === 'offer_delay') {
+      body = `${hi}
+
+Espero que esteja bem. Quero ser transparente: recebi uma proposta de outra empresa${other_company ? ` (${other_company})` : ''} com prazo de resposta até ${deadline || '[data]'}.
+
+A minha preferência continua a ser a posição de ${role}${company ? ` na ${company}` : ''}, razão pela qual preferi comunicar directamente antes de tomar qualquer decisão.
+
+Seria possível acelerar o processo de decisão? Agradeço a compreensão e fico ao dispor.
+
+Com os melhores cumprimentos,
+${name}`
+    } else if (type === 'rejection') {
+      body = `${hi}
+
+Obrigado pelo feedback relativamente à candidatura à posição de ${role}${company ? ` na ${company}` : ''}. Embora a notícia não seja a que esperava, agradeço a transparência e o tempo dedicado ao processo.
+
+${highlight ? `Aprendi bastante durante as entrevistas, especialmente ${highlight.trim()}. ` : ''}Gostaria de manter o contacto para eventuais oportunidades futuras, caso seja do vosso interesse.
+
+Desejo à equipa o melhor e espero que possamos cruzar-nos novamente.
+
+Com os melhores cumprimentos,
+${name}`
+    }
+
+    setOutput(body.trim())
+    setCopied(false)
+  }
+
+  const copy = () => {
+    navigator.clipboard.writeText(output)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  const inp = 'w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
+  const isReady = form.name && form.role && form.company && type
+
+  if (!type) {
+    return (
+      <div className="space-y-4">
+        <p className="text-slate-500 text-sm">Escolhe o tipo de email que precisas de enviar.</p>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {FOLLOWUP_TYPES.map((t) => (
+            <button key={t.id} onClick={() => setType(t.id)}
+              className="text-left p-4 bg-white border border-slate-200 rounded-2xl hover:border-blue-400 hover:shadow-md transition-all">
+              <div className="font-bold text-slate-800 text-sm mb-1">{t.label}</div>
+              <div className="text-slate-400 text-xs">{t.desc}</div>
+            </button>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center gap-2">
+        <button onClick={() => { setType(''); setOutput('') }} className="text-slate-400 hover:text-slate-600 text-sm">← Tipos</button>
+        <span className="text-slate-300">|</span>
+        <span className="text-sm text-slate-600 font-semibold">{FOLLOWUP_TYPES.find(t => t.id === type)?.label}</span>
+      </div>
+      <div className="grid sm:grid-cols-2 gap-3">
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">O teu nome *</label>
+          <input className={inp} placeholder="Ex: Ana Santos" value={form.name} onChange={set('name')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Nome do entrevistador</label>
+          <input className={inp} placeholder="Ex: Pedro" value={form.interviewer} onChange={set('interviewer')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Cargo *</label>
+          <input className={inp} placeholder="Ex: Marketing Manager" value={form.role} onChange={set('role')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Empresa *</label>
+          <input className={inp} placeholder="Ex: Empresa X" value={form.company} onChange={set('company')} />
+        </div>
+        {type === 'thankyou' && (
+          <div className="sm:col-span-2">
+            <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Algo específico que te entusiasmou na conversa</label>
+            <input className={inp} placeholder="Ex: a cultura de autonomia da equipa e o projecto de expansão para o Brasil" value={form.highlight} onChange={set('highlight')} />
+          </div>
+        )}
+        {type === 'rejection' && (
+          <div className="sm:col-span-2">
+            <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">O que aprendeste no processo (opcional)</label>
+            <input className={inp} placeholder="Ex: a forma como a equipa aborda problemas de produto" value={form.highlight} onChange={set('highlight')} />
+          </div>
+        )}
+        {type === 'offer_delay' && (
+          <>
+            <div>
+              <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Empresa da outra proposta (opcional)</label>
+              <input className={inp} placeholder="Ex: Empresa Y" value={form.other_company} onChange={set('other_company')} />
+            </div>
+            <div>
+              <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Prazo de resposta</label>
+              <input className={inp} placeholder="Ex: sexta-feira, dia 15" value={form.deadline} onChange={set('deadline')} />
+            </div>
+          </>
+        )}
+      </div>
+      <button onClick={generate} disabled={!isReady} className={`w-full py-3 font-bold rounded-xl text-sm transition-colors ${isReady ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-slate-100 text-slate-400 cursor-not-allowed'}`}>
+        Gerar email →
+      </button>
+      {output && (
+        <div className="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
+          <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-200 bg-white">
+            <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">Email gerado</span>
+            <button onClick={copy} className={`text-xs font-semibold underline ${copied ? 'text-green-600' : 'text-blue-600 hover:text-blue-800'}`}>
+              {copied ? '✓ Copiado!' : 'Copiar'}
+            </button>
+          </div>
+          <pre className="p-4 text-sm text-slate-700 leading-relaxed whitespace-pre-wrap font-sans">{output}</pre>
+          <div className="px-4 py-2 bg-blue-50 border-t border-blue-100">
+            <p className="text-xs text-blue-700">💡 Revê o email antes de enviar. Personaliza com detalhes específicos da conversa para maior impacto.</p>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 // ─── Lista de ferramentas ─────────────────────────────────────────────────────
 const TOOLS = [
   { id: 'star', icon: '⭐', title: 'Construtor de Respostas STAR', desc: 'Estrutura respostas perfeitas para perguntas comportamentais.', badge: 'Entrevistas', component: StarBuilder },
@@ -654,7 +1322,12 @@ const TOOLS = [
   { id: 'headline', icon: '💼', title: 'Gerador de Headline LinkedIn', desc: 'Crie 5 versões do seu título profissional para testar.', badge: 'LinkedIn', component: LinkedInHeadline },
   { id: 'interview', icon: '🎤', title: 'Simulador de Entrevista', desc: 'Pratique perguntas reais de processos seletivos com dicas e exemplos.', badge: 'Entrevistas', component: InterviewSimulator, isNew: true },
   { id: 'tracker', icon: '📌', title: 'Rastreador de Candidaturas', desc: 'Kanban visual para acompanhar todas as suas candidaturas em tempo real.', badge: 'Organização', component: ApplicationTracker, isNew: true },
-  { id: 'summary', icon: '✍️', title: 'Gerador de Sumário Profissional', desc: 'Gere 3 versões do seu sumário para CV e LinkedIn em segundos.', badge: 'CV', component: SummaryGenerator, isNew: true },
+  { id: 'summary', icon: '✍️', title: 'Gerador de Sumário Profissional', desc: 'Gere 3 versões do seu sumário para CV e LinkedIn em segundos.', badge: 'CV', component: SummaryGenerator },
+  { id: 'email', icon: '📧', title: 'Gerador de Email de Candidatura', desc: 'Cria um email de candidatura profissional e personalizado em segundos.', badge: 'CV', component: ApplicationEmailGenerator, isNew: true },
+  { id: 'checklist', icon: '✅', title: 'Checklist de Candidatura', desc: '19 itens para confirmar antes de enviar cada candidatura. Nunca esqueças nada.', badge: 'Organização', component: ApplicationChecklist, isNew: true },
+  { id: 'offercompare', icon: '⚖️', title: 'Comparador de Ofertas de Emprego', desc: 'Compara duas ofertas lado a lado: salário, benefícios e qualidade de vida. Descobre qual vale mais.', badge: 'Negociação', component: OfferComparator, isNew: true },
+  { id: 'about', icon: '🔵', title: 'Gerador de "Sobre" do LinkedIn', desc: 'Cria o texto completo da secção Sobre do LinkedIn — optimizado para pesquisa e impacto.', badge: 'LinkedIn', component: LinkedInAboutGenerator, isNew: true },
+  { id: 'followup', icon: '📨', title: 'Gerador de Email de Follow-up', desc: 'Emails profissionais para após entrevista, follow-up de status, proposta em mão e resposta a recusa.', badge: 'Entrevistas', component: FollowUpEmailGenerator, isNew: true },
 ]
 
 // ─── Página principal ─────────────────────────────────────────────────────────
@@ -687,7 +1360,7 @@ export default function ToolsPage() {
   return (
     <div className="p-6 animate-fade-in">
       <h1 className="text-2xl font-black text-slate-800 mb-2">Ferramentas</h1>
-      <p className="text-slate-500 text-sm mb-6">7 ferramentas interativas para acelerar sua busca de emprego.</p>
+      <p className="text-slate-500 text-sm mb-6">12 ferramentas interativas para acelerar sua busca de emprego.</p>
       <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
         {TOOLS.map((t) => (
           <button key={t.id} onClick={() => setActiveTool(t.id)}
