@@ -1,0 +1,192 @@
+import { useState, useEffect } from 'react'
+import { supabase } from '../../lib/supabase'
+import { Btn, Badge, Modal } from '../ui'
+
+export default function SettingsPage({ user, onLogout, refreshUser }) {
+  const [name, setName] = useState(user.name)
+  const [saved, setSaved] = useState(false)
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
+  const [checkoutStatus, setCheckoutStatus] = useState(null)
+  const [upgradeLoading, setUpgradeLoading] = useState(false)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const status = params.get('checkout')
+    if (status) {
+      setCheckoutStatus(status)
+      window.history.replaceState({}, '', window.location.pathname)
+      if (status === 'success') refreshUser()
+    }
+  }, [])
+
+  const saveName = async () => {
+    const newName = name.trim() || user.name
+    const { error } = await supabase
+      .from('profiles')
+      .update({ name: newName })
+      .eq('id', user.id)
+    if (!error) {
+      setSaved(true)
+      setTimeout(() => setSaved(false), 2000)
+    }
+  }
+
+  const handleUpgrade = async () => {
+    setUpgradeLoading(true)
+    try {
+      const { data, error } = await supabase.functions.invoke('create-checkout', {
+        body: { returnUrl: window.location.href },
+      })
+      if (error) throw error
+      if (data?.url) window.location.href = data.url
+    } catch {
+      alert('Erro ao iniciar checkout. Tente novamente.')
+    }
+    setUpgradeLoading(false)
+  }
+
+  const handleDeleteAccount = async () => {
+    await supabase.auth.signOut()
+  }
+
+  const inp =
+    'flex-1 px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
+
+  return (
+    <div className="p-6 animate-fade-in max-w-xl">
+      <h1 className="text-2xl font-black text-slate-800 mb-6">Configurações</h1>
+
+      {checkoutStatus === 'success' && (
+        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl text-green-800 font-medium text-sm animate-fade-in">
+          🎉 Pagamento processado com sucesso! Plano Pro ativado. Aproveite o acesso total!
+        </div>
+      )}
+      {checkoutStatus === 'cancelled' && (
+        <div className="mb-6 p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-600 text-sm animate-fade-in">
+          Checkout cancelado. Você pode fazer upgrade a qualquer momento.
+        </div>
+      )}
+
+      <div className="space-y-4">
+        {/* Conta */}
+        <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm">
+          <h2 className="font-bold text-slate-700 mb-4">Informações da conta</h2>
+          <div className="space-y-3">
+            <div>
+              <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-1">
+                Nome
+              </label>
+              <div className="flex gap-2">
+                <input value={name} onChange={(e) => setName(e.target.value)} className={inp} />
+                <Btn onClick={saveName} variant="secondary" size="sm">
+                  {saved ? '✓ Salvo' : 'Salvar'}
+                </Btn>
+              </div>
+            </div>
+            <div>
+              <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-1">
+                E-mail
+              </label>
+              <div className="px-3 py-2 bg-slate-50 border border-slate-100 rounded-lg text-sm text-slate-500">
+                {user.email}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Plano */}
+        <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm">
+          <h2 className="font-bold text-slate-700 mb-4">Plano atual</h2>
+          <div className={`rounded-xl p-4 mb-4 ${user.plan === 'pro'
+            ? 'bg-amber-50 border border-amber-200'
+            : 'bg-slate-50 border border-slate-200'}`}>
+            <div className="flex items-center justify-between">
+              <div>
+                <div className={`font-bold ${user.plan === 'pro' ? 'text-amber-700' : 'text-slate-700'}`}>
+                  {user.plan === 'pro' ? '⭐ Plano Pro' : 'Plano Grátis'}
+                </div>
+                <div className={`text-sm ${user.plan === 'pro' ? 'text-amber-600' : 'text-slate-500'}`}>
+                  {user.plan === 'pro'
+                    ? 'Acesso total a todos os módulos e templates'
+                    : 'Acesso a 2 módulos e 3 templates'}
+                </div>
+              </div>
+              {user.plan === 'pro' && (
+                <Badge className="bg-amber-400/20 text-amber-700">Ativo</Badge>
+              )}
+            </div>
+          </div>
+          {user.plan !== 'pro' ? (
+            <Btn
+              onClick={handleUpgrade}
+              variant="primary"
+              size="md"
+              className="w-full"
+              disabled={upgradeLoading}
+            >
+              {upgradeLoading ? 'Redirecionando...' : '⭐ Fazer upgrade para Pro — R$29,90/mês'}
+            </Btn>
+          ) : (
+            <p className="text-xs text-slate-400 text-center">
+              Para cancelar a assinatura, acesse o{' '}
+              <a
+                href="https://billing.stripe.com/p/login/test_xxx"
+                target="_blank"
+                rel="noreferrer"
+                className="underline hover:text-slate-600"
+              >
+                portal de faturamento
+              </a>
+              .
+            </p>
+          )}
+        </div>
+
+        {/* Dados */}
+        <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm">
+          <h2 className="font-bold text-slate-700 mb-4">Dados e privacidade</h2>
+          <div className="space-y-3">
+            <button
+              onClick={() => { localStorage.removeItem('nj_progress'); window.location.reload() }}
+              className="text-sm text-slate-500 hover:text-red-500 transition-colors block"
+            >
+              Reiniciar progresso das aulas
+            </button>
+            <button
+              onClick={() => localStorage.removeItem('nj_chat')}
+              className="text-sm text-slate-500 hover:text-red-500 transition-colors block"
+            >
+              Excluir histórico do Coach IA
+            </button>
+            <div className="pt-2 border-t border-slate-100">
+              {!showDeleteConfirm ? (
+                <button
+                  onClick={() => setShowDeleteConfirm(true)}
+                  className="text-sm text-red-400 hover:text-red-600 transition-colors"
+                >
+                  Excluir conta e todos os dados
+                </button>
+              ) : (
+                <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+                  <p className="text-red-700 text-sm font-semibold mb-3">
+                    Tem certeza? Esta ação é irreversível.
+                  </p>
+                  <div className="flex gap-2">
+                    <Btn variant="danger" size="sm" onClick={handleDeleteAccount}>
+                      Excluir tudo
+                    </Btn>
+                    <Btn variant="secondary" size="sm" onClick={() => setShowDeleteConfirm(false)}>
+                      Cancelar
+                    </Btn>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <Btn onClick={onLogout} variant="danger" size="md">Sair</Btn>
+      </div>
+    </div>
+  )
+}

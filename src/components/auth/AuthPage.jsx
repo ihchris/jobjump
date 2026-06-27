@@ -1,0 +1,186 @@
+import { useState } from 'react'
+import { supabase } from '../../lib/supabase'
+import { Btn, Spinner } from '../ui'
+
+export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
+  const [mode, setMode] = useState(initialMode || 'register')
+  const [form, setForm] = useState({ name: '', email: '', password: '', plan: defaultPlan || 'free' })
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState('')
+
+  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
+
+  const handleSubmit = async () => {
+    setError('')
+    setSuccess('')
+
+    if (mode === 'register') {
+      if (!form.name.trim() || !form.email.trim() || !form.password.trim()) {
+        setError('Preencha todos os campos.')
+        return
+      }
+      if (!form.email.includes('@')) { setError('E-mail inválido.'); return }
+      if (form.password.length < 6) { setError('A senha deve ter pelo menos 6 caracteres.'); return }
+    } else {
+      if (!form.email.trim() || !form.password.trim()) {
+        setError('Preencha todos os campos.')
+        return
+      }
+    }
+
+    setLoading(true)
+
+    if (mode === 'register') {
+      const { error: err } = await supabase.auth.signUp({
+        email: form.email.trim(),
+        password: form.password,
+        options: { data: { name: form.name.trim() } },
+      })
+      if (err) { setError(err.message); setLoading(false); return }
+      if (form.plan === 'pro') {
+        const { data: { session } } = await supabase.auth.getSession()
+        if (session) {
+          const { data } = await supabase.functions.invoke('create-checkout', {
+            body: { returnUrl: window.location.origin },
+          })
+          if (data?.url) { window.location.href = data.url; return }
+        }
+      }
+      setSuccess('Conta criada! Verifique seu e-mail para confirmar o cadastro.')
+    } else {
+      const { error: err } = await supabase.auth.signInWithPassword({
+        email: form.email.trim(),
+        password: form.password,
+      })
+      if (err) {
+        setError('E-mail ou senha incorretos.')
+        setLoading(false)
+        return
+      }
+    }
+
+    setLoading(false)
+  }
+
+  const inp =
+    'w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all'
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
+      <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
+        <div className="text-center mb-8">
+          <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-lg mx-auto mb-3">
+            JJ
+          </div>
+          <h1 className="text-2xl font-black text-slate-800">
+            {mode === 'register' ? 'Crie sua conta' : 'Bem-vindo de volta'}
+          </h1>
+          <p className="text-slate-500 text-sm mt-1">
+            {mode === 'register'
+              ? 'Comece sua jornada para o emprego dos sonhos'
+              : 'Continue de onde parou'}
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          {mode === 'register' && (
+            <input
+              className={inp}
+              placeholder="Nome completo"
+              value={form.name}
+              onChange={set('name')}
+              autoComplete="name"
+            />
+          )}
+          <input
+            className={inp}
+            type="email"
+            placeholder="E-mail"
+            value={form.email}
+            onChange={set('email')}
+            autoComplete="email"
+          />
+          <input
+            className={inp}
+            type="password"
+            placeholder="Senha"
+            value={form.password}
+            onChange={set('password')}
+            autoComplete={mode === 'register' ? 'new-password' : 'current-password'}
+            onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
+          />
+
+          {mode === 'register' && (
+            <div>
+              <label className="text-sm font-semibold text-slate-700 block mb-2">
+                Escolha seu plano:
+              </label>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { v: 'free', label: 'Grátis', desc: '2 módulos · Sempre grátis' },
+                  { v: 'pro', label: 'Pro — R$29,90/mês', desc: 'Tudo incluído' },
+                ].map((p) => (
+                  <div
+                    key={p.v}
+                    onClick={() => setForm((f) => ({ ...f, plan: p.v }))}
+                    className={`p-3 border-2 rounded-xl cursor-pointer transition-all
+                      ${form.plan === p.v
+                        ? 'border-blue-600 bg-blue-50'
+                        : 'border-slate-200 hover:border-slate-300'}`}
+                  >
+                    <div className={`font-bold text-sm ${form.plan === p.v ? 'text-blue-700' : 'text-slate-700'}`}>
+                      {p.label}
+                    </div>
+                    <div className="text-xs text-slate-500 mt-0.5">{p.desc}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {error && (
+            <p className="text-red-500 text-sm bg-red-50 px-3 py-2 rounded-lg">{error}</p>
+          )}
+          {success && (
+            <p className="text-green-700 text-sm bg-green-50 px-3 py-2 rounded-lg">{success}</p>
+          )}
+
+          <Btn
+            onClick={handleSubmit}
+            variant="primary"
+            size="md"
+            className="w-full"
+            disabled={loading}
+          >
+            {loading ? (
+              <Spinner size="w-4 h-4" color="border-white" />
+            ) : mode === 'register' ? (
+              'Criar conta'
+            ) : (
+              'Entrar'
+            )}
+          </Btn>
+        </div>
+
+        <div className="mt-6 text-center text-sm text-slate-500">
+          {mode === 'register' ? 'Já tem conta? ' : 'Ainda não tem conta? '}
+          <button
+            onClick={() => { setMode(mode === 'register' ? 'login' : 'register'); setError(''); setSuccess('') }}
+            className="text-blue-600 font-semibold hover:underline"
+          >
+            {mode === 'register' ? 'Entre aqui' : 'Cadastre-se grátis'}
+          </button>
+        </div>
+        <div className="mt-3 text-center">
+          <button
+            onClick={onBack}
+            className="text-slate-400 text-sm hover:text-slate-600 transition-colors"
+          >
+            ← Voltar ao início
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}

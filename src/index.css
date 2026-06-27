@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { font-family: 'Inter', system-ui, sans-serif; }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: #f1f5f9; }
+  ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+}
+
+@layer utilities {
+  .animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Markdown prose styles */
+.prose h1 { font-size: 1.5rem; font-weight: 800; color: #1e3a5f; margin: 1.25rem 0 0.75rem; }
+.prose h2 { font-size: 1.15rem; font-weight: 700; color: #1e3a5f; margin: 1.2rem 0 0.5rem; padding-bottom: 0.3rem; border-bottom: 2px solid #e2e8f0; }
+.prose h3 { font-size: 1rem; font-weight: 600; color: #334155; margin: 0.9rem 0 0.4rem; }
+.prose p { color: #475569; line-height: 1.75; margin-bottom: 0.75rem; }
+.prose ul, .prose ol { padding-left: 1.5rem; margin-bottom: 0.75rem; }
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose li { color: #475569; line-height: 1.75; margin-bottom: 0.2rem; }
+.prose strong { color: #1e3a5f; font-weight: 600; }
+.prose em { color: #64748b; font-style: italic; }
+.prose code { background: #f1f5f9; border-radius: 4px; padding: 0.1rem 0.35rem; font-size: 0.85em; color: #2563eb; font-family: monospace; }
+.prose pre { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; overflow-x: auto; margin: 0.75rem 0; }
+.prose pre code { background: none; padding: 0; color: #334155; font-size: 0.85rem; }
+.prose blockquote { border-left: 3px solid #2563eb; padding: 0.75rem 1rem; color: #64748b; font-style: italic; margin: 0.75rem 0; background: #f0f7ff; border-radius: 0 6px 6px 0; }
+.prose table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.9rem; }
+.prose th { background: #f1f5f9; padding: 0.5rem 0.75rem; text-align: left; font-weight: 600; color: #334155; border: 1px solid #e2e8f0; }
+.prose td { padding: 0.5rem 0.75rem; border: 1px solid #e2e8f0; color: #475569; }
+
+/* AI Coach chat animation */
+.chat-msg { animation: slideUp 0.25s ease-out; }
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Typing dots */
+.dot-typing span {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #94a3b8;
+  margin: 0 2px;
+  animation: dotB 1.3s infinite ease-in-out;
+}
+.dot-typing span:nth-child(2) { animation-delay: 0.2s; }
+.dot-typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes dotB {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
+}
