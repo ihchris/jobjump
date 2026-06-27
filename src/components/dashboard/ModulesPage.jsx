@@ -3,6 +3,7 @@ import { Btn, Badge, ProgressBar } from '../ui'
 import { MODULES } from '../../data/modules'
 import { renderMarkdown } from '../../utils/markdown'
 import { LS } from '../../utils/storage'
+import { isPaid } from '../../utils/plans'
 
 // ─── Notas por lição ───────────────────────────────────────────────────────
 function LessonNotes({ lessonId }) {
@@ -97,7 +98,7 @@ function LessonView({ mod, lesson, progress, onMarkDone, onBack, onNext }) {
 
 // ─── Vista do módulo ───────────────────────────────────────────────────────
 function ModuleView({ mod, user, progress, onOpenLesson, onBack }) {
-  const locked = mod.isPro && user.plan !== 'pro'
+  const locked = mod.isPro && !isPaid(user.plan)
   const mCompleted = mod.lessons.filter((l) => progress[l.id]).length
   const pct = Math.round((mCompleted / mod.lessons.length) * 100)
 
@@ -239,7 +240,7 @@ function ModuleList({ user, progress, onOpenModule }) {
       ) : (
         <div className="space-y-4">
           {filtered.map((m) => {
-            const locked = m.isPro && user.plan !== 'pro'
+            const locked = m.isPro && !isPaid(user.plan)
             const mCompleted = m.lessons.filter((l) => progress[l.id]).length
             const pct = Math.round((mCompleted / m.lessons.length) * 100)
             return (
@@ -255,8 +256,8 @@ function ModuleList({ user, progress, onOpenModule }) {
                   <div className="flex items-start justify-between gap-2 mb-1">
                     <h3 className="font-bold text-slate-800">{m.title}</h3>
                     {m.isPro && (
-                      <Badge className={user.plan === 'pro' ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-500'}>
-                        {user.plan === 'pro' ? '⭐ Pro' : '🔒 Pro'}
+                      <Badge className={isPaid(user.plan) ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-500'}>
+                        {isPaid(user.plan) ? '⭐ Pro' : '🔒 Pro'}
                       </Badge>
                     )}
                   </div>

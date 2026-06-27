@@ -3,7 +3,7 @@ import { Btn, Badge, Stars } from '../ui'
 import { TESTIMONIALS, FAQ } from '../../data/content'
 
 // ── Nav ───────────────────────────────────────────────────────────────────────
-const LandingNav = ({ onLogin }) => {
+const LandingNav = ({ onLogin, onStart }) => {
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 40)
@@ -29,7 +29,7 @@ const LandingNav = ({ onLogin }) => {
           <button onClick={onLogin} className={`text-sm font-semibold px-4 py-2 rounded-xl transition-colors ${
             scrolled ? 'text-slate-600 hover:text-blue-600' : 'text-blue-100 hover:text-white'
           }`}>Entrar</button>
-          <Btn onClick={onLogin} variant={scrolled ? 'primary' : 'white'} size="sm">Criar conta grátis</Btn>
+          <Btn onClick={onStart} variant={scrolled ? 'primary' : 'white'} size="sm">Criar conta grátis</Btn>
         </div>
       </div>
     </nav>
@@ -355,7 +355,7 @@ const Pricing = ({ onChoosePlan }) => (
         <p className="text-slate-500">Comece grátis. Faça upgrade quando quiser. Cancele a qualquer momento.</p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {/* Free */}
         <div className="rounded-2xl border-2 border-slate-200 p-8 flex flex-col">
           <div className="mb-6">
@@ -395,7 +395,7 @@ const Pricing = ({ onChoosePlan }) => (
             <span className="bg-amber-400 text-amber-900 text-xs font-black px-4 py-1.5 rounded-full shadow-sm">✦ MAIS POPULAR</span>
           </div>
           <div className="mb-6">
-            <div className="font-black text-blue-200 text-xs uppercase tracking-widest mb-3">Pro</div>
+            <div className="font-black text-blue-200 text-xs uppercase tracking-widest mb-3">Pro Mensal</div>
             <div className="flex items-end gap-1 mb-2">
               <span className="text-5xl font-black text-white">R$29</span>
               <span className="text-blue-200 mb-2">,90/mês</span>
@@ -422,6 +422,41 @@ const Pricing = ({ onChoosePlan }) => (
             Começar Pro agora →
           </Btn>
           <p className="text-center text-blue-200 text-xs mt-3">7 dias de teste — se não gostar, devolvemos</p>
+        </div>
+
+        {/* Pro Anual */}
+        <div className="rounded-2xl border-2 border-emerald-500 p-8 relative bg-gradient-to-b from-emerald-600 to-emerald-700 flex flex-col shadow-xl shadow-emerald-600/20">
+          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+            <span className="bg-emerald-300 text-emerald-900 text-xs font-black px-4 py-1.5 rounded-full shadow-sm">✦ ECONOMIZE 33%</span>
+          </div>
+          <div className="mb-6">
+            <div className="font-black text-emerald-200 text-xs uppercase tracking-widest mb-3">Pro Anual</div>
+            <div className="flex items-end gap-1 mb-1">
+              <span className="text-5xl font-black text-white">R$19</span>
+              <span className="text-emerald-200 mb-2">,90/mês</span>
+            </div>
+            <p className="text-emerald-200 text-sm">Cobrado como R$238,80/ano · <span className="line-through opacity-60">R$358,80</span></p>
+          </div>
+          <ul className="space-y-3 mb-8 flex-1">
+            {[
+              'Tudo do plano Pro Mensal',
+              '13 módulos completos (66 lições)',
+              '7 ferramentas interativas',
+              '12 templates com download real',
+              'Coach IA ilimitado 24/7',
+              'Simulador de entrevistas (40+ perguntas)',
+              'Rastreador de candidaturas (Kanban)',
+              'Comunidade + suporte prioritário',
+            ].map((f) => (
+              <li key={f} className="flex items-start gap-2.5 text-sm text-emerald-50">
+                <span className="text-emerald-200 font-bold mt-0.5 flex-shrink-0">✓</span>{f}
+              </li>
+            ))}
+          </ul>
+          <Btn onClick={() => onChoosePlan('annual')} variant="white" size="md" className="w-full font-black">
+            Começar Anual agora →
+          </Btn>
+          <p className="text-center text-emerald-200 text-xs mt-3">7 dias de teste — se não gostar, devolvemos</p>
         </div>
       </div>
 
@@ -548,7 +583,7 @@ const LandingFooter = ({ onStart, onTerms }) => (
 export default function LandingPage({ onStart, onLogin, onTerms }) {
   return (
     <div>
-      <LandingNav onLogin={onLogin} />
+      <LandingNav onLogin={onLogin} onStart={onStart} />
       <Hero onStart={onStart} />
       <HowItWorks onStart={onStart} />
       <Problems onStart={onStart} />

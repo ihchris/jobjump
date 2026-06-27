@@ -1,8 +1,10 @@
 import { Badge } from '../ui'
+import { isPaid, planBadge } from '../../utils/plans'
 
 const TABS = [
   { id: 'home', label: 'Dashboard', icon: '🏠' },
   { id: 'modules', label: 'Módulos', icon: '📚' },
+  { id: 'planner', label: 'Plano Semanal', icon: '📅' },
   { id: 'templates', label: 'Templates', icon: '📁' },
   { id: 'tools', label: 'Ferramentas', icon: '🛠️' },
   { id: 'community', label: 'Comunidade', icon: '👥' },
@@ -48,8 +50,8 @@ export default function Sidebar({ tab, setTab, user, onLogout, mobile, onClose }
           </div>
           <div className="min-w-0">
             <div className="font-semibold text-sm truncate">{user.name}</div>
-            <Badge className={`text-xs ${user.plan === 'pro' ? 'bg-amber-400/20 text-amber-300' : 'bg-white/10 text-blue-300'}`}>
-              {user.plan === 'pro' ? '⭐ Pro' : 'Grátis'}
+            <Badge className={`text-xs ${isPaid(user.plan) ? 'bg-amber-400/20 text-amber-300' : 'bg-white/10 text-blue-300'}`}>
+              {planBadge(user.plan)}
             </Badge>
           </div>
         </div>

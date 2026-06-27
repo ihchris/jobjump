@@ -43,11 +43,15 @@ Deno.serve(async (req) => {
       .eq('id', user.id)
   }
 
-  const { returnUrl } = await req.json()
+  const { returnUrl, plan } = await req.json()
+
+  const priceId = plan === 'annual'
+    ? Deno.env.get('STRIPE_ANNUAL_PRICE_ID')!
+    : Deno.env.get('STRIPE_PRO_PRICE_ID')!
 
   const session = await stripe.checkout.sessions.create({
     customer: customerId,
-    line_items: [{ price: Deno.env.get('STRIPE_PRO_PRICE_ID')!, quantity: 1 }],
+    line_items: [{ price: priceId, quantity: 1 }],
     mode: 'subscription',
     success_url: `${returnUrl}?checkout=success`,
     cancel_url: `${returnUrl}?checkout=cancelled`,

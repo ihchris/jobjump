@@ -79,6 +79,33 @@ function DemoAuthPage({ mode, onAuth, onBack }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [plan, setPlan] = useState('pro')
+  const [acceptedTerms, setAcceptedTerms] = useState(false)
+  const [showTerms, setShowTerms] = useState(false)
+  const [error, setError] = useState('')
+
+  const handleEnter = () => {
+    if (mode === 'register' && !acceptedTerms) {
+      setError('Você precisa aceitar os Termos de Uso para continuar.')
+      return
+    }
+    onAuth(name, email, plan)
+  }
+
+  if (showTerms) {
+    return (
+      <div className="fixed inset-0 z-50 overflow-y-auto bg-white">
+        <TermsOfService onBack={() => setShowTerms(false)} />
+        <div className="sticky bottom-0 bg-white border-t border-slate-200 p-4 flex justify-center">
+          <button
+            onClick={() => { setAcceptedTerms(true); setShowTerms(false) }}
+            className="bg-blue-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-blue-700 transition-colors"
+          >
+            Aceitar e voltar ao cadastro
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
@@ -91,16 +118,38 @@ function DemoAuthPage({ mode, onAuth, onBack }) {
           <h1 className="text-xl font-black text-slate-800">Modo Demo</h1>
           <p className="text-slate-500 text-sm mt-1">Entre sem credenciais reais</p>
         </div>
-        <div className="space-y-3 mb-6">
+        <div className="space-y-3 mb-4">
           <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Seu nome" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
           <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="E-mail (opcional)" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
           <select value={plan} onChange={(e) => setPlan(e.target.value)} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <option value="pro">Plano Pro (demo)</option>
+            <option value="pro">Plano Pro Mensal (demo)</option>
+            <option value="annual">Plano Pro Anual (demo)</option>
             <option value="free">Plano Grátis (demo)</option>
           </select>
         </div>
+        {mode === 'register' && (
+          <label className="flex items-start gap-3 cursor-pointer select-none mb-4">
+            <input
+              type="checkbox"
+              checked={acceptedTerms}
+              onChange={(e) => { setAcceptedTerms(e.target.checked); setError('') }}
+              className="mt-0.5 w-4 h-4 accent-blue-600 flex-shrink-0 cursor-pointer"
+            />
+            <span className="text-sm text-slate-600 leading-snug">
+              Li e aceito os{' '}
+              <button
+                type="button"
+                onClick={() => setShowTerms(true)}
+                className="text-blue-600 font-semibold hover:underline"
+              >
+                Termos de Uso
+              </button>
+            </span>
+          </label>
+        )}
+        {error && <p className="text-red-500 text-sm bg-red-50 px-3 py-2 rounded-lg mb-3">{error}</p>}
         <button
-          onClick={() => onAuth(name, email, plan)}
+          onClick={handleEnter}
           className="w-full bg-blue-600 text-white font-bold py-3 rounded-xl hover:bg-blue-700 transition-colors"
         >
           Entrar no Demo →

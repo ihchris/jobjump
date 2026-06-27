@@ -1,2 +1,12 @@
 Uma coisa a fazer antes de ir ao ar
 Preencha o e-mail real de suporte na Seção 23 (atualmente suporte@jobjump.co) e, se tiver empresa formalizada, adicione razão social e CNPJ no cabeçalho da Seção 1 — isso fortalece ainda mais sua posição em caso de disputa.
+
+1. Executar o SQL no Supabase SQL Editor:
+
+Copia o conteúdo de supabase/migrations/002_community.sql e executa.
+
+2. Ativar Realtime para que posts apareçam instantaneamente:
+
+No painel Supabase → Database → Replication → ativa community_posts na publicação supabase_realtime.
+
+Sem o realtime, tudo funciona normalmente — os posts aparecem no próximo refresh. Com ele, é live.

@@ -3,6 +3,7 @@ import { Btn, ProgressBar } from '../ui'
 import { MODULES } from '../../data/modules'
 import { TIPS } from '../../data/content'
 import { LS } from '../../utils/storage'
+import { isPaid } from '../../utils/plans'
 
 function getStreak(progress) {
   const history = LS.get('nj_streak_history', []) // array of 'YYYY-MM-DD' strings
@@ -32,13 +33,18 @@ const ACHIEVEMENTS = [
   { id: 'first_lesson', icon: '🎯', label: 'Primeira lição', check: (p) => Object.values(p).filter(Boolean).length >= 1 },
   { id: 'five_lessons', icon: '📚', label: '5 lições', check: (p) => Object.values(p).filter(Boolean).length >= 5 },
   { id: 'ten_lessons', icon: '🔥', label: '10 lições', check: (p) => Object.values(p).filter(Boolean).length >= 10 },
+  { id: 'twenty_lessons', icon: '⚡', label: '20 lições', check: (p) => Object.values(p).filter(Boolean).length >= 20 },
   { id: 'module_1', icon: '📄', label: 'Mestre do CV', check: (p, m) => m.find((mod) => mod.id === 1)?.lessons.every((l) => p[l.id]) },
   { id: 'module_2', icon: '✉️', label: 'Cartas Perfeitas', check: (p, m) => m.find((mod) => mod.id === 2)?.lessons.every((l) => p[l.id]) },
+  { id: 'module_3', icon: '💼', label: 'LinkedIn Pro', check: (p, m) => m.find((mod) => mod.id === 3)?.lessons.every((l) => p[l.id]) },
+  { id: 'module_4', icon: '🎯', label: 'Entrevistador', check: (p, m) => m.find((mod) => mod.id === 4)?.lessons.every((l) => p[l.id]) },
+  { id: 'module_14', icon: '🧠', label: 'Mente Forte', check: (p, m) => m.find((mod) => mod.id === 14)?.lessons.every((l) => p[l.id]) },
+  { id: 'module_15', icon: '🇬🇧', label: 'Global Ready', check: (p, m) => m.find((mod) => mod.id === 15)?.lessons.every((l) => p[l.id]) },
 ]
 
 export default function DashHome({ user, progress, setTab, setSelectedModule, setSelectedLesson }) {
   const allLessons = MODULES.flatMap((m) => m.lessons.map((l) => ({ ...l, moduleId: m.id, isPro: m.isPro })))
-  const accessible = allLessons.filter((l) => !l.isPro || user.plan === 'pro')
+  const accessible = allLessons.filter((l) => !l.isPro || isPaid(user.plan))
   const completedCount = Object.values(progress).filter(Boolean).length
   const pct = accessible.length > 0 ? Math.round((completedCount / accessible.length) * 100) : 0
   const tip = TIPS[new Date().getDay() % TIPS.length]
@@ -48,7 +54,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
   const streak = getStreak(progress)
   const proModuleCount = MODULES.length
   const freeModuleCount = MODULES.filter((m) => !m.isPro).length
-  const unlockedModules = user.plan === 'pro' ? proModuleCount : freeModuleCount
+  const unlockedModules = isPaid(user.plan) ? proModuleCount : freeModuleCount
   const earnedAchievements = ACHIEVEMENTS.filter((a) => a.check(progress, MODULES))
 
   const allDone = completedCount === accessible.length && accessible.length > 0
@@ -64,7 +70,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
           { label: 'Progresso', value: `${pct}%`, sub: `${completedCount}/${accessible.length} lições`, color: 'text-blue-600' },
-          { label: 'Módulos', value: `${unlockedModules}/${proModuleCount}`, sub: user.plan === 'pro' ? 'Acesso total' : 'Upgrade para mais', color: 'text-slate-800' },
+          { label: 'Módulos', value: `${unlockedModules}/${proModuleCount}`, sub: isPaid(user.plan) ? 'Acesso total' : 'Upgrade para mais', color: 'text-slate-800' },
           { label: 'Streak', value: `🔥 ${streak}`, sub: streak === 1 ? 'dia seguido' : 'dias seguidos', color: 'text-orange-500' },
           { label: 'Conquistas', value: `${earnedAchievements.length}/${ACHIEVEMENTS.length}`, sub: 'desbloqueadas', color: 'text-violet-600' },
         ].map((s) => (
@@ -139,14 +145,23 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
       )}
 
       {/* Quick access */}
-      <div className="grid sm:grid-cols-2 gap-3">
+      <div className="grid sm:grid-cols-3 gap-3">
+        <button
+          onClick={() => setTab('planner')}
+          className="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md hover:border-blue-200 transition-all text-left group"
+        >
+          <div className="text-2xl mb-2">📅</div>
+          <div className="font-bold text-slate-800 text-sm">Plano Semanal</div>
+          <div className="text-slate-500 text-xs mt-0.5">Metas · Tarefas diárias · Checklist</div>
+          <div className="text-blue-600 text-xs font-semibold mt-2 group-hover:underline">Planear →</div>
+        </button>
         <button
           onClick={() => setTab('tools')}
           className="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md hover:border-blue-200 transition-all text-left group"
         >
           <div className="text-2xl mb-2">🛠️</div>
-          <div className="font-bold text-slate-800 text-sm">Ferramentas interativas</div>
-          <div className="text-slate-500 text-xs mt-0.5">STAR Builder · Calculadora Salarial · ATS Checker</div>
+          <div className="font-bold text-slate-800 text-sm">Ferramentas</div>
+          <div className="text-slate-500 text-xs mt-0.5">STAR · ATS · Email · Checklist</div>
           <div className="text-blue-600 text-xs font-semibold mt-2 group-hover:underline">Abrir →</div>
         </button>
         <button
@@ -155,7 +170,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
         >
           <div className="text-2xl mb-2">🤖</div>
           <div className="font-bold text-slate-800 text-sm">Coach IA</div>
-          <div className="text-slate-500 text-xs mt-0.5">Faz qualquer pergunta sobre sua carreira</div>
+          <div className="text-slate-500 text-xs mt-0.5">Faz qualquer pergunta sobre carreira</div>
           <div className="text-blue-600 text-xs font-semibold mt-2 group-hover:underline">Conversar →</div>
         </button>
       </div>
@@ -177,7 +192,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
         <div className="space-y-3">
           {MODULES.map((m) => {
             const mCompleted = m.lessons.filter((l) => progress[l.id]).length
-            const locked = m.isPro && user.plan !== 'pro'
+            const locked = m.isPro && !isPaid(user.plan)
             const mPct = Math.round((mCompleted / m.lessons.length) * 100)
             return (
               <div

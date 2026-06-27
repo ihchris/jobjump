@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { supabase } from '../../lib/supabase'
 import { Btn, Spinner } from '../ui'
 import { LS } from '../../utils/storage'
+import { isPaid } from '../../utils/plans'
 
 const MAX_MSG_LENGTH = 2000
 const THROTTLE_MS = 2000
@@ -88,7 +89,7 @@ export default function CoachPage({ user }) {
     setLoading(false)
   }
 
-  const isPro = user?.plan === 'pro'
+  const isPro = isPaid(user?.plan)
 
   return (
     <div className="flex flex-col h-[calc(100vh-64px)] md:h-screen animate-fade-in">

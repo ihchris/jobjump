@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { supabase } from '../../lib/supabase'
 import { Btn, Spinner } from '../ui'
+import TermsOfService from '../legal/TermsOfService'
 
 export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
   const [mode, setMode] = useState(initialMode || 'register')
@@ -8,6 +9,8 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState('')
+  const [acceptedTerms, setAcceptedTerms] = useState(false)
+  const [showTerms, setShowTerms] = useState(false)
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
 
@@ -22,7 +25,9 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
       }
       if (!form.email.includes('@')) { setError('E-mail inválido.'); return }
       if (form.password.length < 6) { setError('A senha deve ter pelo menos 6 caracteres.'); return }
+      if (!acceptedTerms) { setError('Você precisa aceitar os Termos de Uso para continuar.'); return }
     } else {
+
       if (!form.email.trim() || !form.password.trim()) {
         setError('Preencha todos os campos.')
         return
@@ -38,11 +43,11 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
         options: { data: { name: form.name.trim() } },
       })
       if (err) { setError(err.message); setLoading(false); return }
-      if (form.plan === 'pro') {
+      if (form.plan === 'pro' || form.plan === 'annual') {
         const { data: { session } } = await supabase.auth.getSession()
         if (session) {
           const { data } = await supabase.functions.invoke('create-checkout', {
-            body: { returnUrl: window.location.origin },
+            body: { returnUrl: window.location.origin, plan: form.plan },
           })
           if (data?.url) { window.location.href = data.url; return }
         }
@@ -65,6 +70,23 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
 
   const inp =
     'w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all'
+
+  if (showTerms) {
+    return (
+      <div className="fixed inset-0 z-50 overflow-y-auto bg-white">
+        <TermsOfService onBack={() => setShowTerms(false)} />
+        <div className="sticky bottom-0 bg-white border-t border-slate-200 p-4 flex justify-center">
+          <Btn
+            variant="primary"
+            size="md"
+            onClick={() => { setAcceptedTerms(true); setShowTerms(false) }}
+          >
+            Aceitar e voltar ao cadastro
+          </Btn>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
@@ -116,10 +138,11 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
               <label className="text-sm font-semibold text-slate-700 block mb-2">
                 Escolha seu plano:
               </label>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-3 gap-3">
                 {[
-                  { v: 'free', label: 'Grátis', desc: '2 módulos · Sempre grátis' },
-                  { v: 'pro', label: 'Pro — R$29,90/mês', desc: 'Tudo incluído' },
+                  { v: 'free',   label: 'Grátis',        desc: '2 módulos · Grátis' },
+                  { v: 'pro',    label: 'Pro Mensal',     desc: 'R$29,90/mês' },
+                  { v: 'annual', label: 'Pro Anual',      desc: 'R$19,90/mês · -33%' },
                 ].map((p) => (
                   <div
                     key={p.v}
@@ -137,6 +160,27 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
                 ))}
               </div>
             </div>
+          )}
+
+          {mode === 'register' && (
+            <label className="flex items-start gap-3 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={acceptedTerms}
+                onChange={(e) => { setAcceptedTerms(e.target.checked); setError('') }}
+                className="mt-0.5 w-4 h-4 accent-blue-600 flex-shrink-0 cursor-pointer"
+              />
+              <span className="text-sm text-slate-600 leading-snug">
+                Li e aceito os{' '}
+                <button
+                  type="button"
+                  onClick={() => setShowTerms(true)}
+                  className="text-blue-600 font-semibold hover:underline"
+                >
+                  Termos de Uso
+                </button>
+              </span>
+            </label>
           )}
 
           {error && (

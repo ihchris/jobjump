@@ -8,6 +8,7 @@ import CommunityPage from './CommunityPage'
 import CoachPage from './CoachPage'
 import ToolsPage from './ToolsPage'
 import SettingsPage from './SettingsPage'
+import PlannerPage from './PlannerPage'
 
 export default function Dashboard({ user, onLogout, refreshUser }) {
   const [tab, setTab] = useState('home')
@@ -73,6 +74,7 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
           {tab === 'tools' && <ToolsPage />}
           {tab === 'community' && <CommunityPage user={user} />}
           {tab === 'coach' && <CoachPage user={user} />}
+          {tab === 'planner' && <PlannerPage user={user} />}
           {tab === 'settings' && (
             <SettingsPage user={user} onLogout={onLogout} refreshUser={refreshUser} />
           )}

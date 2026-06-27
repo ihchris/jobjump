@@ -20,7 +20,7 @@ Deno.serve(async (req) => {
     Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
   )
 
-  const updatePlan = async (customerId: string, plan: 'free' | 'pro') => {
+  const updatePlan = async (customerId: string, plan: 'free' | 'pro' | 'annual') => {
     const { data: profile } = await supabase
       .from('profiles')
       .select('id')
@@ -36,7 +36,9 @@ Deno.serve(async (req) => {
     case 'customer.subscription.updated': {
       const sub = event.data.object as Stripe.Subscription
       const isActive = sub.status === 'active' || sub.status === 'trialing'
-      await updatePlan(sub.customer as string, isActive ? 'pro' : 'free')
+      const priceId = sub.items.data[0]?.price.id
+      const isAnnual = priceId === Deno.env.get('STRIPE_ANNUAL_PRICE_ID')
+      await updatePlan(sub.customer as string, isActive ? (isAnnual ? 'annual' : 'pro') : 'free')
       break
     }
     case 'customer.subscription.deleted': {

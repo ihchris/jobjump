@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Btn, Badge } from '../ui'
 import { TEMPLATES } from '../../data/templates'
 import { TEMPLATE_GENERATORS } from '../../utils/templateGenerators'
+import { isPaid } from '../../utils/plans'
 
 const FORMAT_COLORS = {
   DOCX: 'bg-blue-50 text-blue-600',
@@ -25,7 +26,7 @@ export default function TemplatesPage({ user }) {
   }
 
   const handleDownload = async (t) => {
-    if (t.isPro && user.plan !== 'pro') {
+    if (t.isPro && !isPaid(user.plan)) {
       showToast('🔒 Template exclusivo do Plano Pro. Faça upgrade em Configurações para desbloquear.', true)
       return
     }
@@ -88,7 +89,7 @@ export default function TemplatesPage({ user }) {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {TEMPLATES.filter((t) => t.type === cat).map((t) => {
-              const locked = t.isPro && user.plan !== 'pro'
+              const locked = t.isPro && !isPaid(user.plan)
               const isLoading = downloading === t.id
 
               return (
@@ -106,11 +107,11 @@ export default function TemplatesPage({ user }) {
                       </Badge>
                       {t.isPro && (
                         <Badge className={
-                          user.plan === 'pro'
+                          isPaid(user.plan)
                             ? 'bg-amber-100 text-amber-700 text-xs'
                             : 'bg-slate-100 text-slate-400 text-xs'
                         }>
-                          {user.plan === 'pro' ? '⭐ Pro' : '🔒 Pro'}
+                          {isPaid(user.plan) ? '⭐ Pro' : '🔒 Pro'}
                         </Badge>
                       )}
                     </div>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../../lib/supabase'
 import { Btn, Badge, Modal } from '../ui'
+import { isPaid, planLabel, planDesc } from '../../utils/plans'
 
 export default function SettingsPage({ user, onLogout, refreshUser }) {
   const [name, setName] = useState(user.name)
@@ -58,7 +59,7 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
 
       {checkoutStatus === 'success' && (
         <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl text-green-800 font-medium text-sm animate-fade-in">
-          🎉 Pagamento processado com sucesso! Plano Pro ativado. Aproveite o acesso total!
+          🎉 Pagamento processado com sucesso! {planLabel(user.plan)} ativado. Aproveite o acesso total!
         </div>
       )}
       {checkoutStatus === 'cancelled' && (
@@ -97,26 +98,24 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
         {/* Plano */}
         <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm">
           <h2 className="font-bold text-slate-700 mb-4">Plano atual</h2>
-          <div className={`rounded-xl p-4 mb-4 ${user.plan === 'pro'
+          <div className={`rounded-xl p-4 mb-4 ${isPaid(user.plan)
             ? 'bg-amber-50 border border-amber-200'
             : 'bg-slate-50 border border-slate-200'}`}>
             <div className="flex items-center justify-between">
               <div>
-                <div className={`font-bold ${user.plan === 'pro' ? 'text-amber-700' : 'text-slate-700'}`}>
-                  {user.plan === 'pro' ? '⭐ Plano Pro' : 'Plano Grátis'}
+                <div className={`font-bold ${isPaid(user.plan) ? 'text-amber-700' : 'text-slate-700'}`}>
+                  {planLabel(user.plan)}
                 </div>
-                <div className={`text-sm ${user.plan === 'pro' ? 'text-amber-600' : 'text-slate-500'}`}>
-                  {user.plan === 'pro'
-                    ? 'Acesso total a todos os módulos e templates'
-                    : 'Acesso a 2 módulos e 3 templates'}
+                <div className={`text-sm ${isPaid(user.plan) ? 'text-amber-600' : 'text-slate-500'}`}>
+                  {planDesc(user.plan)}
                 </div>
               </div>
-              {user.plan === 'pro' && (
+              {isPaid(user.plan) && (
                 <Badge className="bg-amber-400/20 text-amber-700">Ativo</Badge>
               )}
             </div>
           </div>
-          {user.plan !== 'pro' ? (
+          {!isPaid(user.plan) ? (
             <Btn
               onClick={handleUpgrade}
               variant="primary"
