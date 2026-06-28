@@ -9,7 +9,7 @@ export const planLabel = (plan) => {
 export const planDesc = (plan) => {
   if (plan === 'annual') return 'Acesso total · faturado anualmente'
   if (plan === 'pro')    return 'Acesso total a todos os módulos e templates'
-  return 'Acesso a 2 módulos e 3 templates'
+  return 'Acesso a 11 módulos e 4 templates'
 }
 
 export const planBadge = (plan) => {

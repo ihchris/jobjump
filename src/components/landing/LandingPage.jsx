@@ -15,9 +15,12 @@ const LandingNav = ({ onLogin, onStart }) => {
       scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100' : 'bg-transparent'
     }`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-black text-sm shadow-sm">JJ</div>
-          <span className={`font-black text-lg transition-colors ${scrolled ? 'text-[#1e3a5f]' : 'text-white'}`}>JobJump</span>
+        <div className="flex items-center">
+          <img
+            src="/logo.png"
+            alt="JobJump"
+            className={`h-9 w-auto transition-all duration-300 ${scrolled ? '' : 'brightness-0 invert'}`}
+          />
         </div>
         <div className={`hidden sm:flex items-center gap-6 text-sm font-medium transition-colors ${scrolled ? 'text-slate-600' : 'text-blue-100'}`}>
           <a href="#como-funciona" className="hover:text-blue-500 transition-colors">Como funciona</a>
@@ -127,7 +130,7 @@ const Hero = ({ onStart }) => (
             </span>
           </h1>
           <p className="text-blue-100/90 text-lg leading-relaxed mb-8 max-w-lg">
-            13 módulos + 7 ferramentas interativas para fazer seu CV passar pelos filtros ATS,
+            40 módulos + 21 ferramentas interativas para fazer seu CV passar pelos filtros ATS,
             arrasar nas entrevistas e negociar o salário que você merece.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mb-6">
@@ -141,7 +144,7 @@ const Hero = ({ onStart }) => (
               Ver planos
             </button>
           </div>
-          <p className="text-blue-300/80 text-sm">Sem cartão de crédito · Acesso imediato · 2 módulos grátis para sempre</p>
+          <p className="text-blue-300/80 text-sm">Sem cartão de crédito · Acesso imediato · 11 módulos grátis para sempre</p>
           {/* Trust row */}
           <div className="flex items-center gap-6 mt-8 pt-8 border-t border-white/10">
             {[['2.400+', 'Formados'], ['89%', 'Mais respostas'], ['3 sem', '1ª entrevista']].map(([n, l]) => (
@@ -254,19 +257,22 @@ const Problems = ({ onStart }) => (
 // ── Módulos ───────────────────────────────────────────────────────────────────
 const ModulesSection = ({ onStart }) => {
   const modules = [
-    { id: 1, icon: '📄', title: 'CV que Passa pelo ATS', free: true, lessons: 6 },
-    { id: 2, icon: '✉️', title: 'Carta de Motivação', free: true, lessons: 5 },
-    { id: 3, icon: '💼', title: 'LinkedIn que Atrai Recrutadores', free: false, lessons: 5 },
-    { id: 4, icon: '🎤', title: 'Entrevistas com Sucesso', free: false, lessons: 5 },
-    { id: 5, icon: '🤝', title: 'Networking Estratégico', free: false, lessons: 5 },
-    { id: 6, icon: '💰', title: 'Negociação Salarial', free: false, lessons: 5 },
-    { id: 7, icon: '🔄', title: 'Transição de Carreira', free: false, lessons: 5 },
-    { id: 8, icon: '🌟', title: 'Marca Pessoal Digital', free: false, lessons: 5 },
-    { id: 9, icon: '🧠', title: 'Organização e Mentalidade', free: false, lessons: 5 },
-    { id: 10, icon: '🌍', title: 'Vagas Internacionais', free: false, lessons: 5 },
-    { id: 11, icon: '🤖', title: 'IA na Busca de Emprego', free: false, lessons: 5 },
-    { id: 12, icon: '⚡', title: 'Freelance e Independência', free: false, lessons: 5 },
-    { id: 13, icon: '🏆', title: 'Liderança e Gestão', free: false, lessons: 5 },
+    { id: 1,  icon: '📄', title: 'CV que Passa pelo ATS',           free: true,  lessons: 6 },
+    { id: 2,  icon: '✉️', title: 'Carta de Motivação',               free: true,  lessons: 5 },
+    { id: 3,  icon: '💼', title: 'LinkedIn que Atrai Recrutadores',  free: true,  lessons: 5 },
+    { id: 11, icon: '🤖', title: 'IA na Busca de Emprego',           free: true,  lessons: 5 },
+    { id: 14, icon: '🧠', title: 'Psicologia da Busca de Emprego',   free: true,  lessons: 5 },
+    { id: 19, icon: '🚑', title: 'Recolocação Após Demissão',        free: true,  lessons: 5 },
+    { id: 20, icon: '💡', title: 'Soft Skills que Decidem',          free: true,  lessons: 5 },
+    { id: 30, icon: '📅', title: 'Plano de Carreira de 5 Anos',      free: true,  lessons: 5 },
+    { id: 4,  icon: '🎤', title: 'Entrevistas com Sucesso',          free: false, lessons: 5 },
+    { id: 5,  icon: '🤝', title: 'Networking Estratégico',           free: false, lessons: 5 },
+    { id: 6,  icon: '💰', title: 'Negociação Salarial',              free: false, lessons: 5 },
+    { id: 7,  icon: '🔄', title: 'Transição de Carreira',            free: false, lessons: 5 },
+    { id: 8,  icon: '🌟', title: 'Marca Pessoal Digital',            free: false, lessons: 5 },
+    { id: 10, icon: '🌍', title: 'Vagas Internacionais',             free: false, lessons: 5 },
+    { id: 12, icon: '⚡', title: 'Freelance e Independência',        free: false, lessons: 5 },
+    { id: 33, icon: '🌿', title: 'Saúde Mental e Burnout',           free: false, lessons: 5 },
   ]
 
   return (
@@ -274,7 +280,7 @@ const ModulesSection = ({ onStart }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
           <Badge className="bg-blue-50 text-blue-600 border border-blue-100 mb-4">📚 Conteúdo completo</Badge>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-800 mb-4">13 módulos. 66 lições. Do zero ao emprego.</h2>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-800 mb-4">40 módulos. Centenas de lições. Do zero ao emprego.</h2>
           <p className="text-slate-500 max-w-xl mx-auto">Cada módulo foi criado por especialistas com experiência real em recrutamento e desenvolvimento de carreira.</p>
         </div>
 
@@ -302,8 +308,8 @@ const ModulesSection = ({ onStart }) => {
 
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <div className="font-black text-slate-800 text-lg">Desbloqueie todos os 13 módulos por R$29,90/mês</div>
-            <div className="text-slate-500 text-sm mt-1">Os 2 primeiros são sempre gratuitos. Cancele quando quiser.</div>
+            <div className="font-black text-slate-800 text-lg">Desbloqueie todos os 40 módulos por R$29,90/mês</div>
+            <div className="text-slate-500 text-sm mt-1">Os 11 primeiros são sempre gratuitos. Cancele quando quiser.</div>
           </div>
           <Btn onClick={onStart} variant="primary" size="md" className="flex-shrink-0">Começar Pro →</Btn>
         </div>
@@ -319,17 +325,17 @@ const FeaturesSection = () => (
       <div className="text-center mb-14">
         <Badge className="bg-white/10 text-blue-200 border border-white/20 mb-4">⚡ Ferramentas Pro</Badge>
         <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">Ferramentas que trabalham por você</h2>
-        <p className="text-blue-200 max-w-xl mx-auto">7 ferramentas interativas que complementam os módulos e geram resultados imediatos.</p>
+        <p className="text-blue-200 max-w-xl mx-auto">21 ferramentas interativas que complementam os módulos e geram resultados imediatos.</p>
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
           { icon: '🔍', title: 'Extrator ATS', desc: 'Cole a vaga e o CV — veja instantaneamente quais palavras-chave estão faltando.', color: 'from-blue-600/20 to-blue-700/20 border-blue-500/30' },
           { icon: '⭐', title: 'Construtor STAR', desc: 'Estruture respostas perfeitas para entrevistas comportamentais em minutos.', color: 'from-violet-600/20 to-violet-700/20 border-violet-500/30' },
-          { icon: '💰', title: 'Calculadora Salarial', desc: 'Descubra a faixa de mercado para seu cargo e calcule o número-âncora ideal.', color: 'from-emerald-600/20 to-emerald-700/20 border-emerald-500/30' },
-          { icon: '🎤', title: 'Simulador de Entrevista', desc: '40+ perguntas reais com dicas e exemplos de resposta para praticar sozinho.', color: 'from-amber-600/20 to-amber-700/20 border-amber-500/30', isNew: true },
-          { icon: '📌', title: 'Rastreador Kanban', desc: 'Acompanhe todas as suas candidaturas num pipeline visual interativo.', color: 'from-rose-600/20 to-rose-700/20 border-rose-500/30', isNew: true },
-          { icon: '✍️', title: 'Gerador de Sumário', desc: 'Gere 3 versões do seu sumário profissional para CV e LinkedIn em segundos.', color: 'from-cyan-600/20 to-cyan-700/20 border-cyan-500/30', isNew: true },
+          { icon: '🎯', title: 'Elevator Pitch', desc: 'Gera 3 versões do seu pitch pessoal — para networking, entrevistas e LinkedIn.', color: 'from-amber-600/20 to-amber-700/20 border-amber-500/30', isNew: true },
+          { icon: '✏️', title: 'Bullets de CV', desc: 'Transforma experiências brutas em bullets poderosos com verbos de impacto e números.', color: 'from-rose-600/20 to-rose-700/20 border-rose-500/30', isNew: true },
+          { icon: '🤝', title: 'Script de Negociação', desc: 'Script completo com 6 momentos da negociação — abertura, o número, pushbacks e fechamento.', color: 'from-emerald-600/20 to-emerald-700/20 border-emerald-500/30', isNew: true },
+          { icon: '📌', title: 'Rastreador Kanban', desc: 'Acompanhe todas as suas candidaturas num pipeline visual interativo.', color: 'from-cyan-600/20 to-cyan-700/20 border-cyan-500/30' },
         ].map((f) => (
           <div key={f.title} className={`relative bg-gradient-to-br ${f.color} border rounded-2xl p-5 backdrop-blur-sm`}>
             {f.isNew && (
@@ -368,17 +374,18 @@ const Pricing = ({ onChoosePlan }) => (
           </div>
           <ul className="space-y-3 mb-8 flex-1">
             {[
-              'Módulo 1: CV e ATS (6 lições)',
-              'Módulo 2: Carta de Motivação (5 lições)',
-              '3 templates básicos para download',
+              '11 módulos gratuitos (CV, LinkedIn, IA, Psicologia, Recolocação…)',
+              '4 templates básicos para download',
               'Coach IA (5 perguntas/dia)',
               'Ferramentas ATS e STAR',
+              'Diagnóstico de carreira personalizado',
+              'Sistema de XP, níveis e conquistas',
             ].map((f) => (
               <li key={f} className="flex items-start gap-2.5 text-sm text-slate-600">
                 <span className="text-green-500 font-bold mt-0.5 flex-shrink-0">✓</span>{f}
               </li>
             ))}
-            {['11 módulos restantes', 'Simulador de entrevistas', 'Rastreador Kanban'].map((f) => (
+            {['29 módulos Pro', 'Simulador de entrevistas avançado', 'Script de Negociação Salarial'].map((f) => (
               <li key={f} className="flex items-start gap-2.5 text-sm text-slate-300">
                 <span className="flex-shrink-0 mt-0.5">✗</span>{f}
               </li>
@@ -404,13 +411,15 @@ const Pricing = ({ onChoosePlan }) => (
           </div>
           <ul className="space-y-3 mb-8 flex-1">
             {[
-              '13 módulos completos (66 lições)',
-              '7 ferramentas interativas',
+              '40 módulos completos (11 grátis + 29 Pro)',
+              '21 ferramentas interativas',
               '12 templates com download real',
               'Coach IA ilimitado 24/7',
+              'Quiz por módulo com XP e conquistas',
+              'Networking CRM + Rastreador de Candidaturas',
+              'Plano Semanal com metas e relatórios',
               'Simulador de entrevistas (40+ perguntas)',
-              'Rastreador de candidaturas (Kanban)',
-              'Gerador de sumário profissional',
+              'Scripts de Negociação + Elevator Pitch',
               'Comunidade + suporte por email',
             ].map((f) => (
               <li key={f} className="flex items-start gap-2.5 text-sm text-blue-50">
@@ -440,12 +449,12 @@ const Pricing = ({ onChoosePlan }) => (
           <ul className="space-y-3 mb-8 flex-1">
             {[
               'Tudo do plano Pro Mensal',
-              '13 módulos completos (66 lições)',
-              '7 ferramentas interativas',
+              '40 módulos completos',
+              '21 ferramentas interativas',
               '12 templates com download real',
               'Coach IA ilimitado 24/7',
-              'Simulador de entrevistas (40+ perguntas)',
-              'Rastreador de candidaturas (Kanban)',
+              'Quiz + XP + conquistas em todos os módulos',
+              'Networking CRM + Plano Semanal',
               'Comunidade + suporte prioritário',
             ].map((f) => (
               <li key={f} className="flex items-start gap-2.5 text-sm text-emerald-50">
@@ -558,15 +567,14 @@ const LandingFooter = ({ onStart, onTerms }) => (
           Ver plano Pro
         </button>
       </div>
-      <p className="text-blue-400 text-sm mt-4">Sem cartão de crédito · Acesso imediato · 2 módulos grátis para sempre</p>
+      <p className="text-blue-400 text-sm mt-4">Sem cartão de crédito · Acesso imediato · 11 módulos grátis para sempre</p>
     </div>
 
     {/* Bottom bar */}
     <div className="border-t border-white/10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-blue-300 text-sm">
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center font-black text-xs">JJ</div>
-          <span className="font-bold text-white">JobJump</span>
+        <div className="flex items-center">
+          <img src="/logo.png" alt="JobJump" className="h-7 w-auto brightness-0 invert" />
         </div>
         <span className="text-blue-400">© 2025 JobJump. Todos os direitos reservados.</span>
         <div className="flex gap-5">

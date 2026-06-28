@@ -92,9 +92,7 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-lg mx-auto mb-3">
-            JJ
-          </div>
+          <img src="/logo.png" alt="JobJump" className="h-14 w-auto mx-auto mb-3" />
           <h1 className="text-2xl font-black text-slate-800">
             {mode === 'register' ? 'Crie sua conta' : 'Bem-vindo de volta'}
           </h1>

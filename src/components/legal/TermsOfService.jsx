@@ -38,8 +38,7 @@ export default function TermsOfService({ onBack }) {
       <div className="bg-white border-b border-slate-200 sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center text-white font-black text-xs">JJ</div>
-            <span className="font-black text-[#1e3a5f]">JobJump</span>
+            <img src="/logo.png" alt="JobJump" className="h-7 w-auto" />
           </div>
           <button
             onClick={onBack}
@@ -85,7 +84,7 @@ export default function TermsOfService({ onBack }) {
             {/* ── 1 ── */}
             <Section id="s1" title="1. Aceitação dos Termos">
               <p>
-                Os presentes Termos de Uso ("Termos") regulam o acesso e a utilização da plataforma JobJump, disponível em <strong>jobjump.co</strong> e nos demais domínios e aplicações associados ("Plataforma"), operada por <strong>JobJump</strong> ("Empresa", "nós", "nosso").
+                Os presentes Termos de Uso ("Termos") regulam o acesso e a utilização da plataforma JobJump, disponível em <strong>www.jobjump.com.br</strong> e nos demais domínios e aplicações associados ("Plataforma"), operada por <strong>JobJump</strong> ("Empresa", "nós", "nosso").
               </p>
               <p>
                 Ao acessar, navegar, criar uma conta ou utilizar qualquer funcionalidade da Plataforma, o usuário ("você", "Usuário") concorda, de forma livre, consciente e expressa, com estes Termos e com nossa <strong>Política de Privacidade</strong>, que constitui parte integrante deste instrumento.
@@ -98,7 +97,7 @@ export default function TermsOfService({ onBack }) {
             {/* ── 2 ── */}
             <Section id="s2" title="2. Definições">
               <ul className="list-disc list-inside space-y-1">
-                <li><strong>Plataforma:</strong> o site jobjump.co e todos os seus recursos, funcionalidades e conteúdos.</li>
+                <li><strong>Plataforma:</strong> o site www.jobjump.com.br e todos os seus recursos, funcionalidades e conteúdos.</li>
                 <li><strong>Usuário:</strong> toda pessoa física que acessa ou utiliza a Plataforma.</li>
                 <li><strong>Conta:</strong> registro individual do Usuário na Plataforma.</li>
                 <li><strong>Plano Gratuito:</strong> modalidade de acesso sem custo, com recursos limitados.</li>
@@ -407,7 +406,7 @@ export default function TermsOfService({ onBack }) {
                 Para dúvidas, reclamações, exercício de direitos de titular de dados ou quaisquer assuntos relacionados a estes Termos, entre em contato pelo e-mail:
               </p>
               <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl font-mono text-sm text-blue-700">
-                suporte@jobjump.co
+                suporte@jobjump.com.br
               </div>
               <p>
                 A Empresa se compromete a responder às solicitações dentro de <strong>5 (cinco) dias úteis</strong>.

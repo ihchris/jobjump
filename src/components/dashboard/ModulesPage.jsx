@@ -1,22 +1,66 @@
 import { useState, useEffect } from 'react'
 import { Btn, Badge, ProgressBar } from '../ui'
 import { MODULES } from '../../data/modules'
+import { QUIZZES } from '../../data/quizzes'
 import { renderMarkdown } from '../../utils/markdown'
 import { LS } from '../../utils/storage'
 import { isPaid } from '../../utils/plans'
+import {
+  addXP, XP_LESSON, XP_MODULE, saveQuizScore,
+  buildGamState, checkNewBadges, getQuizScores,
+} from '../../utils/gamification'
+
+// ─── Certificado de conclusão ─────────────────────────────────────────────
+function downloadCertificate(mod, userName) {
+  const date = new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })
+  const html = `<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Certificado — ${mod.title}</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  .cert { width: 800px; background: white; border: 8px solid #1e3a5f; padding: 60px; text-align: center; position: relative; }
+  .cert::before { content: ''; position: absolute; inset: 10px; border: 2px solid #93c5fd; pointer-events: none; }
+  .logo { font-size: 28px; font-weight: 900; color: #1e3a5f; letter-spacing: -1px; margin-bottom: 8px; }
+  .sub { font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 40px; }
+  .certifica { font-size: 13px; color: #64748b; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 16px; }
+  .nome { font-size: 38px; font-weight: 900; color: #0f172a; margin-bottom: 24px; }
+  .texto { font-size: 15px; color: #475569; line-height: 1.7; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .modulo { font-size: 22px; font-weight: 900; color: #1e3a5f; background: #eff6ff; padding: 16px 32px; border-radius: 12px; display: inline-block; margin-bottom: 32px; }
+  .data { font-size: 13px; color: #94a3b8; margin-bottom: 40px; }
+  .assinatura { border-top: 2px solid #e2e8f0; padding-top: 20px; display: inline-block; margin: 0 auto; }
+  .ass-nome { font-weight: 700; color: #1e3a5f; font-size: 14px; }
+  .ass-cargo { font-size: 12px; color: #94a3b8; }
+  .icon { font-size: 48px; margin-bottom: 16px; }
+  @media print { body { background: white; } .cert { border: 8px solid #1e3a5f; } }
+</style></head><body>
+<div class="cert">
+  <div class="icon">${mod.icon}</div>
+  <div class="logo">JobJump</div>
+  <div class="sub">Coach de Carreira</div>
+  <div class="certifica">Certifica que</div>
+  <div class="nome">${userName || 'Profissional'}</div>
+  <p class="texto">concluiu com sucesso todas as lições do módulo</p>
+  <div class="modulo">${mod.title}</div>
+  <div class="data">Concluído em ${date}</div>
+  <div class="assinatura">
+    <div class="ass-nome">JobJump Academy</div>
+    <div class="ass-cargo">Plataforma de Desenvolvimento de Carreira</div>
+  </div>
+</div>
+<script>window.onload = () => window.print()</script>
+</body></html>`
+
+  const win = window.open('', '_blank')
+  if (win) { win.document.write(html); win.document.close() }
+}
 
 // ─── Notas por lição ───────────────────────────────────────────────────────
 function LessonNotes({ lessonId }) {
   const key = `nj_notes_${lessonId}`
   const [note, setNote] = useState(() => LS.get(key, ''))
   const [saved, setSaved] = useState(false)
-
-  const save = () => {
-    LS.set(key, note)
-    setSaved(true)
-    setTimeout(() => setSaved(false), 1500)
-  }
-
+  const save = () => { LS.set(key, note); setSaved(true); setTimeout(() => setSaved(false), 1500) }
   return (
     <div className="mt-6 bg-amber-50 border border-amber-200 rounded-2xl p-5">
       <div className="flex items-center justify-between mb-2">
@@ -24,10 +68,7 @@ function LessonNotes({ lessonId }) {
           <span className="text-lg">📝</span>
           <span className="font-bold text-amber-800 text-sm">Suas notas</span>
         </div>
-        <button
-          onClick={save}
-          className="text-xs text-amber-700 hover:text-amber-900 font-semibold underline"
-        >
+        <button onClick={save} className="text-xs text-amber-700 hover:text-amber-900 font-semibold underline">
           {saved ? '✓ Salvo' : 'Salvar'}
         </button>
       </div>
@@ -43,12 +84,153 @@ function LessonNotes({ lessonId }) {
   )
 }
 
+// ─── XP Toast ─────────────────────────────────────────────────────────────
+function XPToast({ xp, label, onDone }) {
+  useEffect(() => { const t = setTimeout(onDone, 2200); return () => clearTimeout(t) }, [onDone])
+  return (
+    <div className="fixed bottom-6 right-6 z-50 animate-fade-in bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-sm font-bold">
+      <span className="text-xl">⚡</span>
+      <span>+{xp} XP · {label}</span>
+    </div>
+  )
+}
+
+// ─── Badge Toast ──────────────────────────────────────────────────────────
+function BadgeToast({ badge, onDone }) {
+  useEffect(() => { const t = setTimeout(onDone, 3000); return () => clearTimeout(t) }, [onDone])
+  return (
+    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 animate-fade-in bg-violet-600 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3">
+      <span className="text-2xl">{badge.icon}</span>
+      <div>
+        <div className="text-xs text-violet-200 font-semibold uppercase tracking-wider">Conquista desbloqueada!</div>
+        <div className="font-black text-sm">{badge.label}</div>
+      </div>
+    </div>
+  )
+}
+
+// ─── Quiz ─────────────────────────────────────────────────────────────────
+function ModuleQuiz({ mod, onDone, progress, onXP }) {
+  const questions = QUIZZES[mod.id]
+  const scores    = getQuizScores()
+  const best      = scores[mod.id] ?? -1
+
+  const [current, setCurrent] = useState(0)
+  const [selected, setSelected] = useState(null)
+  const [answers, setAnswers] = useState([])
+  const [finished, setFinished] = useState(false)
+  const [score, setScore] = useState(0)
+
+  if (!questions) return (
+    <div className="text-center py-8">
+      <div className="text-4xl mb-3">📝</div>
+      <p className="text-slate-500 text-sm">Quiz em breve para este módulo.</p>
+      <Btn onClick={onDone} variant="primary" size="sm" className="mt-4">Voltar ao módulo →</Btn>
+    </div>
+  )
+
+  const q = questions[current]
+
+  const choose = (idx) => {
+    if (selected !== null) return
+    setSelected(idx)
+    const correct = idx === q.correct
+    setTimeout(() => {
+      const next = [...answers, correct]
+      setAnswers(next)
+      if (current < questions.length - 1) {
+        setCurrent(current + 1)
+        setSelected(null)
+      } else {
+        const finalScore = next.filter(Boolean).length
+        setScore(finalScore)
+        setFinished(true)
+        const earned = saveQuizScore(mod.id, finalScore)
+        if (finalScore >= 3) onXP(finalScore === 5 ? 50 : 25, finalScore === 5 ? 'Quiz perfeito!' : 'Quiz aprovado!')
+      }
+    }, 900)
+  }
+
+  if (finished) {
+    const stars = score >= 5 ? '⭐⭐⭐' : score >= 3 ? '⭐⭐' : '⭐'
+    const msg   = score === 5 ? 'Perfeito! Você domina este conteúdo.' : score >= 3 ? 'Muito bem! Conteúdo absorvido.' : 'Continue estudando — você consegue melhorar.'
+    return (
+      <div className="text-center py-6 space-y-4 animate-fade-in">
+        <div className="text-4xl">{stars}</div>
+        <div className="text-3xl font-black text-slate-800">{score}/5</div>
+        <p className="text-slate-600 text-sm">{msg}</p>
+        {best >= 0 && best < score && <p className="text-green-600 text-xs font-semibold">🎉 Novo recorde! (anterior: {best}/5)</p>}
+        {best === score && best >= 0 && score < 5 && <p className="text-slate-400 text-xs">Recorde mantido: {best}/5</p>}
+        <div className="flex justify-center gap-3 pt-2">
+          <Btn onClick={() => { setCurrent(0); setSelected(null); setAnswers([]); setFinished(false) }} variant="secondary" size="sm">
+            Refazer
+          </Btn>
+          <Btn onClick={onDone} variant="primary" size="sm">Voltar ao módulo →</Btn>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="space-y-6 animate-fade-in">
+      <div className="flex items-center justify-between">
+        <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Questão {current + 1} de {questions.length}</span>
+        <div className="flex gap-1">{questions.map((_, i) => (
+          <div key={i} className={`w-6 h-1.5 rounded-full transition-colors ${i < current ? 'bg-green-400' : i === current ? 'bg-blue-500' : 'bg-slate-200'}`} />
+        ))}</div>
+      </div>
+      <h3 className="text-base font-bold text-slate-800 leading-relaxed">{q.q}</h3>
+      <div className="space-y-2">
+        {q.opts.map((opt, i) => {
+          let cls = 'border border-slate-200 bg-white text-slate-700 hover:border-blue-400 hover:bg-blue-50'
+          if (selected !== null) {
+            if (i === q.correct) cls = 'border-green-400 bg-green-50 text-green-800'
+            else if (i === selected && selected !== q.correct) cls = 'border-red-400 bg-red-50 text-red-700'
+            else cls = 'border-slate-100 bg-slate-50 text-slate-400'
+          }
+          return (
+            <button key={i} onClick={() => choose(i)}
+              className={`w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all ${cls} ${selected !== null ? 'cursor-default' : 'cursor-pointer'}`}>
+              <span className="font-bold mr-2">{['A', 'B', 'C', 'D'][i]}.</span>{opt}
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
 // ─── Vista da lição ────────────────────────────────────────────────────────
 function LessonView({ mod, lesson, progress, onMarkDone, onBack, onNext }) {
   const done = progress[lesson.id]
+  const [toast, setToast] = useState(null)
+  const [badgeToast, setBadgeToast] = useState(null)
+
+  const handleMarkDone = (id) => {
+    const wasAlreadyDone = progress[id]
+    onMarkDone(id)
+    if (!wasAlreadyDone) {
+      const newXP = addXP(XP_LESSON)
+      setToast({ xp: XP_LESSON, label: 'Lição concluída!' })
+      // check if module is now complete
+      setTimeout(() => {
+        const updatedProgress = { ...progress, [id]: true }
+        if (mod.lessons.every((l) => updatedProgress[l.id])) {
+          addXP(XP_MODULE)
+          setToast({ xp: XP_MODULE, label: `Módulo "${mod.title}" concluído!` })
+        }
+        const state = buildGamState(updatedProgress, MODULES)
+        const newBadges = checkNewBadges(state)
+        if (newBadges.length) setBadgeToast(newBadges[0])
+      }, 300)
+    }
+  }
 
   return (
     <div className="p-6 animate-fade-in">
+      {toast && <XPToast xp={toast.xp} label={toast.label} onDone={() => setToast(null)} />}
+      {badgeToast && <BadgeToast badge={badgeToast} onDone={() => setBadgeToast(null)} />}
+
       <div className="flex items-center gap-3 mb-6">
         <button onClick={onBack} className="text-slate-400 hover:text-slate-600 flex items-center gap-1 text-sm">
           ← Voltar
@@ -63,7 +245,7 @@ function LessonView({ mod, lesson, progress, onMarkDone, onBack, onNext }) {
             <h1 className="text-2xl font-black text-slate-800">{lesson.title}</h1>
             <span className="text-slate-400 text-sm">⏱ {lesson.duration}</span>
           </div>
-          <Btn onClick={() => onMarkDone(lesson.id)} variant={done ? 'success' : 'secondary'} size="sm">
+          <Btn onClick={() => handleMarkDone(lesson.id)} variant={done ? 'success' : 'secondary'} size="sm">
             {done ? '✓ Concluída' : 'Marcar como concluída'}
           </Btn>
         </div>
@@ -80,12 +262,12 @@ function LessonView({ mod, lesson, progress, onMarkDone, onBack, onNext }) {
           </button>
           <div className="flex gap-2">
             {!done && (
-              <Btn onClick={() => { onMarkDone(lesson.id) }} variant="secondary" size="sm">
+              <Btn onClick={() => handleMarkDone(lesson.id)} variant="secondary" size="sm">
                 Marcar concluída
               </Btn>
             )}
             {onNext && (
-              <Btn onClick={() => { if (!done) onMarkDone(lesson.id); onNext() }} variant="primary" size="sm">
+              <Btn onClick={() => { if (!done) handleMarkDone(lesson.id); onNext() }} variant="primary" size="sm">
                 Próxima lição →
               </Btn>
             )}
@@ -97,10 +279,14 @@ function LessonView({ mod, lesson, progress, onMarkDone, onBack, onNext }) {
 }
 
 // ─── Vista do módulo ───────────────────────────────────────────────────────
-function ModuleView({ mod, user, progress, onOpenLesson, onBack }) {
-  const locked = mod.isPro && !isPaid(user.plan)
+function ModuleView({ mod, user, progress, onOpenLesson, onBack, onOpenQuiz }) {
+  const locked     = mod.isPro && !isPaid(user.plan)
   const mCompleted = mod.lessons.filter((l) => progress[l.id]).length
-  const pct = Math.round((mCompleted / mod.lessons.length) * 100)
+  const pct        = Math.round((mCompleted / mod.lessons.length) * 100)
+  const hasQuiz    = !!QUIZZES[mod.id]
+  const scores     = getQuizScores()
+  const bestScore  = scores[mod.id]
+  const allDone    = pct === 100
 
   return (
     <div className="p-6 animate-fade-in">
@@ -160,6 +346,54 @@ function ModuleView({ mod, user, progress, onOpenLesson, onBack }) {
           )
         })}
       </div>
+
+      {/* Quiz CTA */}
+      {hasQuiz && !locked && (
+        <div className={`mt-6 rounded-2xl p-5 border ${allDone ? 'bg-violet-50 border-violet-200' : 'bg-slate-50 border-slate-200'}`}>
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-xl">🧠</span>
+                <span className="font-bold text-slate-800 text-sm">Quiz do Módulo</span>
+                {bestScore !== undefined && (
+                  <span className="text-xs bg-violet-100 text-violet-700 font-bold px-2 py-0.5 rounded-full">
+                    Melhor: {bestScore}/5
+                  </span>
+                )}
+              </div>
+              <p className="text-slate-500 text-xs">
+                {allDone ? 'Teste o que você aprendeu — 5 perguntas, +25-50 XP.' : 'Conclua todas as lições para desbloquear o quiz.'}
+              </p>
+            </div>
+            <Btn
+              onClick={onOpenQuiz}
+              variant={allDone ? 'primary' : 'secondary'}
+              size="sm"
+              disabled={!allDone}
+            >
+              {bestScore !== undefined ? 'Refazer' : 'Iniciar'} Quiz →
+            </Btn>
+          </div>
+        </div>
+      )}
+
+      {/* Certificate */}
+      {allDone && !locked && (
+        <div className="mt-6 rounded-2xl p-5 border bg-gradient-to-r from-amber-50 to-yellow-50 border-amber-200">
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-xl">🏆</span>
+                <span className="font-bold text-amber-800 text-sm">Certificado de Conclusão</span>
+              </div>
+              <p className="text-amber-700 text-xs">Você concluiu todas as lições deste módulo. Baixe seu certificado!</p>
+            </div>
+            <Btn onClick={() => downloadCertificate(mod, user.name)} variant="primary" size="sm" className="flex-shrink-0">
+              Baixar certificado →
+            </Btn>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -182,10 +416,8 @@ function ModuleList({ user, progress, onOpenModule }) {
     const matchSearch = !q || m.title.toLowerCase().includes(q) || m.desc.toLowerCase().includes(q) ||
       m.lessons.some((l) => l.title.toLowerCase().includes(q))
     if (!matchSearch) return false
-
     const completed = m.lessons.filter((l) => progress[l.id]).length
     const pct = Math.round((completed / m.lessons.length) * 100)
-
     if (filter === 'free') return !m.isPro
     if (filter === 'pro') return m.isPro
     if (filter === 'inprogress') return pct > 0 && pct < 100
@@ -198,7 +430,6 @@ function ModuleList({ user, progress, onOpenModule }) {
       <h1 className="text-2xl font-black text-slate-800 mb-2">Módulos de Aprendizagem</h1>
       <p className="text-slate-500 text-sm mb-4">Sua jornada para conseguir o emprego perfeito.</p>
 
-      {/* Search */}
       <div className="relative mb-4">
         <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">🔍</span>
         <input
@@ -212,16 +443,13 @@ function ModuleList({ user, progress, onOpenModule }) {
         )}
       </div>
 
-      {/* Filters */}
       <div className="flex gap-2 mb-6 flex-wrap">
         {FILTERS.map((f) => (
           <button
             key={f.id}
             onClick={() => setFilter(f.id)}
             className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all
-              ${filter === f.id
-                ? 'bg-blue-600 text-white'
-                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+              ${filter === f.id ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
           >
             {f.label}
           </button>
@@ -231,7 +459,6 @@ function ModuleList({ user, progress, onOpenModule }) {
         </span>
       </div>
 
-      {/* Module cards */}
       {filtered.length === 0 ? (
         <div className="text-center py-12 text-slate-400">
           <div className="text-4xl mb-3">🔍</div>
@@ -240,9 +467,10 @@ function ModuleList({ user, progress, onOpenModule }) {
       ) : (
         <div className="space-y-4">
           {filtered.map((m) => {
-            const locked = m.isPro && !isPaid(user.plan)
+            const locked     = m.isPro && !isPaid(user.plan)
             const mCompleted = m.lessons.filter((l) => progress[l.id]).length
-            const pct = Math.round((mCompleted / m.lessons.length) * 100)
+            const pct        = Math.round((mCompleted / m.lessons.length) * 100)
+            const hasQuiz    = !!QUIZZES[m.id]
             return (
               <div
                 key={m.id}
@@ -255,11 +483,14 @@ function ModuleList({ user, progress, onOpenModule }) {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start justify-between gap-2 mb-1">
                     <h3 className="font-bold text-slate-800">{m.title}</h3>
-                    {m.isPro && (
-                      <Badge className={isPaid(user.plan) ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-500'}>
-                        {isPaid(user.plan) ? '⭐ Pro' : '🔒 Pro'}
-                      </Badge>
-                    )}
+                    <div className="flex gap-1 flex-shrink-0">
+                      {hasQuiz && <span className="text-xs bg-violet-100 text-violet-600 font-bold px-1.5 py-0.5 rounded-full">Quiz</span>}
+                      {m.isPro && (
+                        <Badge className={isPaid(user.plan) ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-500'}>
+                          {isPaid(user.plan) ? '⭐ Pro' : '🔒 Pro'}
+                        </Badge>
+                      )}
+                    </div>
                   </div>
                   <p className="text-slate-500 text-sm mb-3 line-clamp-2">{m.desc}</p>
                   <div className="flex items-center gap-4 text-xs text-slate-400 mb-3">
@@ -284,14 +515,17 @@ function ModuleList({ user, progress, onOpenModule }) {
 
 // ─── Componente principal ──────────────────────────────────────────────────
 export default function ModulesPage({ user, progress, setProgress, selectedModule: initModule, selectedLesson: initLesson, setSelectedModule, setSelectedLesson }) {
-  const [view, setView] = useState(initModule ? (initLesson ? 'lesson' : 'module') : 'list')
-  const [mod, setMod] = useState(initModule || null)
+  const [view, setView]     = useState(initModule ? (initLesson ? 'lesson' : 'module') : 'list')
+  const [mod, setMod]       = useState(initModule || null)
   const [lesson, setLesson] = useState(initLesson || null)
+  const [xpToast, setXpToast] = useState(null)
 
-  const openModule = (m) => { setMod(m); setView('module'); setSelectedModule(m) }
-  const openLesson = (l) => { setLesson(l); setView('lesson'); setSelectedLesson(l) }
-  const backToList = () => { setView('list'); setMod(null); setSelectedModule(null) }
-  const backToModule = () => { setView('module'); setLesson(null); setSelectedLesson(null) }
+  const openModule  = (m) => { setMod(m); setView('module'); setSelectedModule(m) }
+  const openLesson  = (l) => { setLesson(l); setView('lesson'); setSelectedLesson(l) }
+  const openQuiz    = ()  => setView('quiz')
+  const backToList  = ()  => { setView('list'); setMod(null); setSelectedModule(null) }
+  const backToMod   = ()  => { setView('module'); setLesson(null); setSelectedLesson(null) }
+
   const markDone = (id) => setProgress((p) => ({ ...p, [id]: !p[id] }))
 
   const getNextLesson = () => {
@@ -303,7 +537,28 @@ export default function ModulesPage({ user, progress, setProgress, selectedModul
   const goNext = () => {
     const next = getNextLesson()
     if (next) openLesson(next)
-    else backToModule()
+    else backToMod()
+  }
+
+  if (view === 'quiz' && mod) {
+    return (
+      <div className="p-6 animate-fade-in max-w-2xl">
+        {xpToast && <XPToast xp={xpToast.xp} label={xpToast.label} onDone={() => setXpToast(null)} />}
+        <div className="flex items-center gap-3 mb-6">
+          <button onClick={backToMod} className="text-slate-400 hover:text-slate-600 flex items-center gap-1 text-sm">← {mod.title}</button>
+        </div>
+        <h1 className="text-xl font-black text-slate-800 mb-1">🧠 Quiz — {mod.title}</h1>
+        <p className="text-slate-500 text-sm mb-6">5 perguntas sobre o que você aprendeu. Tire 5/5 para ganhar +50 XP!</p>
+        <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
+          <ModuleQuiz
+            mod={mod}
+            progress={progress}
+            onDone={backToMod}
+            onXP={(xp, label) => setXpToast({ xp, label })}
+          />
+        </div>
+      </div>
+    )
   }
 
   if (view === 'lesson' && lesson) {
@@ -313,14 +568,23 @@ export default function ModulesPage({ user, progress, setProgress, selectedModul
         lesson={lesson}
         progress={progress}
         onMarkDone={markDone}
-        onBack={backToModule}
+        onBack={backToMod}
         onNext={getNextLesson() ? goNext : null}
       />
     )
   }
 
   if (view === 'module' && mod) {
-    return <ModuleView mod={mod} user={user} progress={progress} onOpenLesson={openLesson} onBack={backToList} />
+    return (
+      <ModuleView
+        mod={mod}
+        user={user}
+        progress={progress}
+        onOpenLesson={openLesson}
+        onBack={backToList}
+        onOpenQuiz={openQuiz}
+      />
+    )
   }
 
   return <ModuleList user={user} progress={progress} onOpenModule={openModule} />

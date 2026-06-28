@@ -3,6 +3,39 @@ import { supabase } from '../../lib/supabase'
 import { Btn, Badge, Modal } from '../ui'
 import { isPaid, planLabel, planDesc } from '../../utils/plans'
 
+function ReferralSection({ userId }) {
+  const [copied, setCopied] = useState(false)
+  const refCode = userId?.substring(0, 8) || 'xxxxxxxx'
+  const refLink = `https://www.jobjump.com.br/?ref=${refCode}`
+  const copy = () => {
+    navigator.clipboard.writeText(refLink)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+  return (
+    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100 p-5 shadow-sm">
+      <h2 className="font-bold text-slate-700 mb-1">Programa de referidos</h2>
+      <p className="text-slate-500 text-sm mb-4">
+        Compartilhe o JobJump com amigos. Por cada amigo que fizer upgrade para Pro através do seu link, envia-nos um email e recebe <strong>1 mês grátis</strong>.
+      </p>
+      <div className="flex gap-2">
+        <div className="flex-1 px-3 py-2 bg-white border border-blue-200 rounded-lg text-sm text-slate-600 font-mono truncate">
+          {refLink}
+        </div>
+        <button
+          onClick={copy}
+          className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors whitespace-nowrap ${copied ? 'bg-green-600 text-white' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+        >
+          {copied ? '✓ Copiado!' : 'Copiar link'}
+        </button>
+      </div>
+      <p className="text-xs text-slate-400 mt-3">
+        Depois de o seu amigo fazer upgrade, envia o email <strong>chrisafonsocontato@gmail.com</strong> com o assunto "Referido — {refCode}" para ativar o seu mês grátis.
+      </p>
+    </div>
+  )
+}
+
 export default function SettingsPage({ user, onLogout, refreshUser }) {
   const [name, setName] = useState(user.name)
   const [saved, setSaved] = useState(false)
@@ -140,6 +173,9 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
             </p>
           )}
         </div>
+
+        {/* Referidos */}
+        <ReferralSection userId={user.id} />
 
         {/* Dados */}
         <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm">

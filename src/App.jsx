@@ -5,6 +5,7 @@ import LandingPage from './components/landing/LandingPage'
 import AuthPage from './components/auth/AuthPage'
 import Dashboard from './components/dashboard/Dashboard'
 import TermsOfService from './components/legal/TermsOfService'
+import PrivacyPolicy from './components/legal/PrivacyPolicy'
 
 // ─── Demo mode (sem Supabase configurado) ─────────────────────────────────
 const DEMO_USER_KEY = 'nj_demo_user'
@@ -24,7 +25,8 @@ function DemoApp() {
   const [prevPage, setPrevPage] = useState('landing')
 
   const goTerms = () => { setPrevPage(page); setPage('terms') }
-  const backFromTerms = () => setPage(prevPage)
+  const goPrivacy = () => { setPrevPage(page); setPage('privacy') }
+  const backFromLegal = () => setPage(prevPage)
 
   const handleDemoAuth = (name, email, plan = 'pro') => {
     const demoUser = { id: 'demo-user', name: name || 'Utilizador Demo', email: email || 'demo@jobjump.co', plan }
@@ -39,7 +41,8 @@ function DemoApp() {
     setPage('landing')
   }
 
-  if (page === 'terms') return <TermsOfService onBack={backFromTerms} />
+  if (page === 'terms') return <TermsOfService onBack={backFromLegal} />
+  if (page === 'privacy') return <PrivacyPolicy onBack={backFromLegal} />
 
   if (page === 'dashboard' && user) {
     return (
@@ -57,6 +60,7 @@ function DemoApp() {
           mode={authMode}
           onAuth={handleDemoAuth}
           onBack={() => setPage('landing')}
+          onPrivacy={goPrivacy}
         />
         <DemoBanner />
       </>
@@ -69,13 +73,14 @@ function DemoApp() {
         onStart={() => { setAuthMode('register'); setPage('auth') }}
         onLogin={() => { setAuthMode('login'); setPage('auth') }}
         onTerms={goTerms}
+        onPrivacy={goPrivacy}
       />
       <DemoBanner />
     </>
   )
 }
 
-function DemoAuthPage({ mode, onAuth, onBack }) {
+function DemoAuthPage({ mode, onAuth, onBack, onPrivacy }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [plan, setPlan] = useState('pro')
@@ -114,7 +119,7 @@ function DemoAuthPage({ mode, onAuth, onBack }) {
           ← Voltar
         </button>
         <div className="text-center mb-8">
-          <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-lg mx-auto mb-3">JJ</div>
+          <img src="/logo.png" alt="JobJump" className="h-14 w-auto mx-auto mb-3" />
           <h1 className="text-xl font-black text-slate-800">Modo Demo</h1>
           <p className="text-slate-500 text-sm mt-1">Entre sem credenciais reais</p>
         </div>
@@ -143,6 +148,14 @@ function DemoAuthPage({ mode, onAuth, onBack }) {
                 className="text-blue-600 font-semibold hover:underline"
               >
                 Termos de Uso
+              </button>
+              {' '}e a{' '}
+              <button
+                type="button"
+                onClick={onPrivacy}
+                className="text-blue-600 font-semibold hover:underline"
+              >
+                Política de Privacidade
               </button>
             </span>
           </label>
@@ -183,7 +196,8 @@ function SupabaseApp() {
   const [loading, setLoading] = useState(true)
 
   const goTerms = () => { setPrevPage(page); setPage('terms') }
-  const backFromTerms = () => setPage(prevPage)
+  const goPrivacy = () => { setPrevPage(page); setPage('privacy') }
+  const backFromLegal = () => setPage(prevPage)
 
   useEffect(() => {
     supabase.auth.getSession().then(async ({ data: { session } }) => {
@@ -237,7 +251,8 @@ function SupabaseApp() {
     )
   }
 
-  if (page === 'terms') return <TermsOfService onBack={backFromTerms} />
+  if (page === 'terms') return <TermsOfService onBack={backFromLegal} />
+  if (page === 'privacy') return <PrivacyPolicy onBack={backFromLegal} />
 
   if (page === 'dashboard' && user) {
     return <Dashboard user={user} onLogout={onLogout} refreshUser={refreshUser} />
@@ -251,7 +266,7 @@ function SupabaseApp() {
       />
     )
   }
-  return <LandingPage onStart={goAuth} onLogin={() => { setAuthMode('login'); setPage('auth') }} onTerms={goTerms} />
+  return <LandingPage onStart={goAuth} onLogin={() => { setAuthMode('login'); setPage('auth') }} onTerms={goTerms} onPrivacy={goPrivacy} />
 }
 
 // ─── Root ──────────────────────────────────────────────────────────────────

@@ -146,7 +146,7 @@ export default function TemplatesPage({ user }) {
         <strong>ℹ️ Sobre os formatos:</strong>
         <ul className="mt-1.5 space-y-1 list-disc list-inside">
           <li><strong>Word (.doc)</strong> — abre no Word, LibreOffice ou Google Docs. Edite e salve como .docx.</li>
-          <li><strong>PDF</strong> — abre nova aba. Clique em "Salvar como PDF" no menu de impressão do browser.</li>
+          <li><strong>PDF</strong> — abre nova aba. Clique em "Salvar como PDF" no menu de impressão do navegador.</li>
           <li><strong>Planilha (.csv)</strong> — abre no Excel, LibreOffice Calc ou Google Sheets.</li>
         </ul>
       </div>

@@ -2,7 +2,7 @@ export const MODULES = [
   {
     id: 1,
     title: 'CV que Passa pelos Filtros ATS',
-    desc: 'Aprende a criar um CV que supera os sistemas automáticos e chega às mãos dos recrutadores.',
+    desc: 'Aprenda a criar um CV que supera os sistemas automáticos e chega às mãos dos recrutadores.',
     duration: '3h 30min',
     icon: '📄',
     isPro: false,
@@ -23,7 +23,7 @@ Hoje em dia, mais de **75% das grandes empresas** e **98% das Fortune 500** usam
 ## Como funciona o processo?
 
 1. **Submetes o CV** → O ATS faz a leitura e extração de dados
-2. **Parsing** → O sistema identifica secções (experiência, educação, competências)
+2. **Parsing** → O sistema identifica seções (experiência, educação, competências)
 3. **Indexação** → O conteúdo é indexado e pesquisável
 4. **Scoring** → Seu CV recebe uma pontuação com base nas palavras-chave
 5. **Ranking** → Os CVs são ordenados por relevância
@@ -54,7 +54,7 @@ De cada 100 CVs submetidos online, em média:
 
 ## Porque são críticas?
 
-O ATS funciona como um motor de pesquisa. O recrutador define critérios (palavras-chave) e o sistema filtra os CVs que as contêm. Sem as palavras certas, és invisível.
+O ATS funciona como um motor de pesquisa. O recrutador defina critérios (palavras-chave) e o sistema filtra os CVs que as contêm. Sem as palavras certas, és invisível.
 
 ## Como encontrar as palavras-chave certas
 
@@ -85,7 +85,7 @@ Recolhe 5-10 ofertas para a mesma função. As palavras que aparecem repetidamen
 2. **Contextualiza** — as palavras devem aparecer em frases com sentido
 3. **Não exageres** — 3-5 instâncias da mesma palavra-chave é suficiente
 4. **Inclui variações** — "gestão de projetos" E "project management" quando relevante
-5. **Prioriza a experiência profissional** — essa secção tem mais peso no ATS`,
+5. **Prioriza a experiência profissional** — essa seção tem mais peso no ATS`,
       },
       {
         id: '1-3',
@@ -261,7 +261,7 @@ O título é a primeira coisa que um recrutador lê. Precisa comunicar cargo + e
 
 ❌ "Busco oportunidade desafiadora onde possa agregar valor à empresa e crescer profissionalmente."
 
-Ninguém escreve o oposto, então isso não diz nada.
+Ninguém escreva o oposto, então isso não diz nada.
 
 ✅ Substitua por um **Resumo profissional** de 3 linhas com suas 2 maiores realizações e o tipo de vaga que busca.
 
@@ -343,7 +343,7 @@ Antes de enviar qualquer CV, confirme:
   {
     id: 2,
     title: 'Carta de Motivação que Abre Portas',
-    desc: 'Escreve cartas que captam a atenção dos recrutadores e te diferenciam de centenas de candidatos.',
+    desc: 'Escreva cartas que captam a atenção dos recrutadores e te diferenciam de centenas de candidatos.',
     duration: '2h 30min',
     icon: '✉️',
     isPro: false,
@@ -520,7 +520,7 @@ Apenas **18% dos candidatos** fazem follow-up. Quem o faz destaca-se significati
 
 ## A candidatura por email ainda existe — e importa muito
 
-Muitas vagas, especialmente em empresas menores, startups e candidaturas espontâneas, ainda são enviadas por email. A forma como você escreve esse email pode ser o fator decisivo.
+Muitas vagas, especialmente em empresas menores, startups e candidaturas espontâneas, ainda são enviadas por email. A forma como você escreva esse email pode ser o fator decisivo.
 
 ## Anatomia do email de candidatura perfeito
 
@@ -638,7 +638,7 @@ a receita entre 40% e 120%.
 → Negociação enterprise (tickets €50k–€500k)
 
 Aberto a oportunidades como Sales Director em SaaS.
-Contacto: [email] | [telefone]
+Contato: [email] | [telefone]
 \`\`\``,
       },
       {
@@ -647,7 +647,7 @@ Contacto: [email] | [telefone]
         duration: '25 min',
         content: `# Experiência e competências que se destacam
 
-## A secção de experiência no LinkedIn
+## A seção de experiência no LinkedIn
 
 ### Fórmula para cada bullet
 **Verbo de ação + O que fizeste + Resultado/Impacto**
@@ -656,11 +656,11 @@ Contacto: [email] | [telefone]
 
 ✅ "Gerenciei orçamento de €800k em campanhas de performance, com ROAS médio de 4.2x"
 
-## A secção de competências
+## A seção de competências
 
 - Adiciona **máximo 50 competências**
 - Pede **endorsements** a colegas e gestores
-- As primeiras 3 aparecem no perfil — escolhe as mais estratégicas
+- As primeiras 3 aparecem no perfil — escolha as mais estratégicas
 
 ## Recomendações
 
@@ -792,7 +792,7 @@ Para headhunters e recrutadores — não vale para candidatos.
 
 ## Quando o Premium faz sentido
 
-✅ **Faz sentido se:**
+✅ **Faça sentido se:**
 - Está em busca ativa de emprego e precisa se candidatar a vagas sem conexão
 - Quer ver quem visitou seu perfil para fazer follow-up estratégico
 - Precisa de InMails para contatar recrutadores de empresas-alvo
@@ -912,7 +912,7 @@ Defeito real + como estás a trabalhar nele.
 
 **Postura:** senta-te direito, ligeiramente inclinado para a frente, ombros relaxados.
 
-**Contacto visual:** 60-70% do tempo, distribui por todos os entrevistadores.
+**Contato visual:** 60-70% do tempo, distribui por todos os entrevistadores.
 
 **Gestos:** gesticula naturalmente, mantém as mãos visíveis, evita tocar no rosto.
 
@@ -956,11 +956,11 @@ Responder "Não, está tudo claro" é um erro grave. Boas perguntas demonstram i
 
 ### O momento certo
 Se perguntarem as expectativas antes de uma oferta:
-> "Estou aberto a discutir compensação. Podem partilhar a banda salarial para este cargo?"
+> "Estou aberto a discutir compensação. Podem compartilhar a banda salarial para este cargo?"
 
 ### Como negociar
 1. Pesquisa o mercado (LinkedIn Salary, Glassdoor, Paylab)
-2. Define seu piso e teto ideal
+2. Defina seu piso e teto ideal
 3. Pede mais do que quer (há margem para baixar)
 4. Justifica com valor, não com necessidades pessoais
 
@@ -968,7 +968,7 @@ Se perguntarem as expectativas antes de uma oferta:
 
 **✅ Forte:** "Com base na minha experiência e o impacto demonstrado, acredito que €35k está alinhado com o mercado e o valor que vou criar."
 
-5. Negocia o pacote completo: salário + bónus + flexibilidade + formação`,
+5. Negocia o pacote completo: salário + bônus + flexibilidade + formação`,
       },
       {
         id: '4-4',
@@ -1005,7 +1005,7 @@ São perguntas desenhadas para revelar pontos fracos, inconsistências ou reaç�
 ### 5. "Que salário esperas?"
 **Armadilha:** dar um número antes de ter a oferta formal.
 **Resposta:** Pede informação primeiro.
-> "Prefiro perceber melhor o âmbito da função antes de falar em números. Podem partilhar a banda salarial que têm em mente?"
+> "Prefiro perceber melhor o âmbito da função antes de falar em números. Podem compartilhar a banda salarial que têm em mente?"
 
 ### 6. "Como te descreveriam seus colegas?"
 **Armadilha:** generalidades sem prova.
@@ -1057,10 +1057,10 @@ Perguntas comuns:
 
 **Framework para product sense:**
 1. Clarifica o objetivo (qual métrica importa?)
-2. Define o usuário (quem usa? dores?)
+2. Defina o usuário (quem usa? dores?)
 3. Gera soluções (3-5 ideias)
 4. Prioriza com critérios (impacto × esforço)
-5. Define métricas de sucesso
+5. Defina métricas de sucesso
 
 ### Marketing e Growth
 **Formato:** Case de crescimento + análise de campanha
@@ -1128,7 +1128,7 @@ Muita gente pensa que networking é distribuir cartões em eventos ou adicionar 
 
 ## O que o networking realmente é
 
-Networking é **construir relações genuínas** com pessoas que partilham interesses e objetivos profissionais. A regra de ouro: **dá antes de pedir**.
+Networking é **construir relações genuínas** com pessoas que compartilham interesses e objetivos profissionais. A regra de ouro: **dá antes de pedir**.
 
 ## Os números que surpreendem
 
@@ -1192,7 +1192,7 @@ Networking é **construir relações genuínas** com pessoas que partilham inter
 
 ## O erro mais comum
 
-Contactar pessoas apenas quando precisamos de algo. As pessoas sentem-se usadas.
+Contatar pessoas apenas quando precisamos de algo. As pessoas sentem-se usadas.
 
 ## O sistema de manutenção
 
@@ -1253,8 +1253,8 @@ Não é enviar CV a 200 empresas. É pesquisar 10-15 empresas onde quer trabalha
 **Mensagem de candidatura espontânea eficaz:**
 > "Olá [Nome], acompanho o crescimento da [Empresa] há algum tempo, especialmente o vosso trabalho em [área específica]. Como [profissional com X anos em Y], acredito que poderia contribuir para [objetivo específico da empresa]. Estaria disponível para uma conversa de 20 minutos sobre possíveis oportunidades?"
 
-### 2. Activar a rede para referências internas
-Mapeia suas conexões LinkedIn dentro das empresas-alvo. Uma mensagem directa pode resultar numa apresentação ao responsável de contratação.
+### 2. Ativar a rede para referências internas
+Mapeia suas conexões LinkedIn dentro das empresas-alvo. Uma mensagem direta pode resultar numa apresentação ao responsável de contratação.
 
 ### 3. Seguir as empresas e pessoas certas
 - Segue os decisores da sua área no LinkedIn
@@ -1338,7 +1338,7 @@ Introvertidos precisam de tempo para recarregar depois de interações sociais i
   {
     id: 6,
     title: 'Negociação Salarial e Proposta de Valor',
-    desc: 'Aprende a pesquisar o mercado, negociar com confiança e maximizar seu pacote de compensação no Brasil.',
+    desc: 'Aprenda a pesquisar o mercado, negociar com confiança e maximizar seu pacote de compensação no Brasil.',
     duration: '3h',
     icon: '💰',
     isPro: true,
@@ -1385,7 +1385,7 @@ Negociar sem dados é negociar de olhos fechados. Os melhores negociadores entra
 1. **Reúne 3 referências mínimas** com cargo, empresa (mesmo anonimizada) e valor
 2. **Identifica a mediana** do mercado, não apenas a média
 3. **Segmenta por tipo de empresa**: startup, PME, multinacional — os valores diferem muito
-4. **Considera o pacote total**: salário + bónus + benefícios + stock options (se aplicável)
+4. **Considere o pacote total**: salário + bônus + benefícios + stock options (se aplicável)
 
 ## Seu número-âncora
 
@@ -1411,7 +1411,7 @@ Esta pergunta aparece em quase todos os processos. A maioria dos candidatos resp
 ### Situação 2: A pergunta aparece cedo na entrevista (ainda não tem a oferta)
 **Estratégia:** Deflexão elegante para obter informação primeiro.
 
-> "Tenho uma expectativa baseada na minha pesquisa de mercado e experiência, mas gostaria de perceber melhor o âmbito completo da função antes. Podem partilhar a banda salarial que têm prevista?"
+> "Tenho uma expectativa baseada na minha pesquisa de mercado e experiência, mas gostaria de perceber melhor o âmbito completo da função antes. Podem compartilhar a banda salarial que têm prevista?"
 
 Se insistirem:
 > "Com base na minha experiência de [X anos] e no mercado para esta função em [cidade], estou a considerar algo na faixa de R$[âncora]. Mas estou aberto a conversar sobre o pacote completo."
@@ -1437,7 +1437,7 @@ Quando receberes a proposta formal por escrito ou chamada:
 > "Obrigado pela proposta! Pode dar-me 24-48 horas para analisar com cuidado?"
 
 **Passo 2 — Pesquisa e decide seu alvo**
-Confirma sua pesquisa de mercado. Define: aceitável, alvo, ideal.
+Confirma sua pesquisa de mercado. Defina: aceitável, alvo, ideal.
 
 **Passo 3 — A contra-proposta**
 > "Após análise, estou muito entusiasmado com a oportunidade. A compensação que vos propunham é de R$[valor deles]. Com base na minha experiência em [X, Y, Z] e no impacto que posso gerar em [área específica], faria mais sentido um valor de R$[seu alvo]. Há possibilidade de nos aproximarmos?"`,
@@ -1450,14 +1450,14 @@ Confirma sua pesquisa de mercado. Define: aceitável, alvo, ideal.
 
 ## Por que usar scripts?
 
-Num momento de tensão emocional, ter frases preparadas evita hesitações, silêncios constrangedores ou concessões impulsivas. Pratica-os até soarem naturais.
+Num momento de tensão emocional, ter frases preparadas evita hesitações, silêncios constrangedores ou concessões impulsivas. Pratique-os até soarem naturais.
 
 ## Script 1: Quando a proposta está muito abaixo do mercado
 
 > "Agradeço muito a proposta e o interesse em tê-me na equipa. Preciso de ser transparente: com base na minha pesquisa de mercado e na minha experiência de [X anos em Y], esperava algo na faixa de R$[valor]. A diferença é significativa. Existe flexibilidade na banda salarial para este cargo?"
 
 **Se disserem que não há margem:**
-> "Compreendo. Há outras componentes do pacote que possam ser ajustadas — bónus, flexibilidade de horário, formação, ou revisão salarial antecipada?"
+> "Compreendo. Há outras componentes do pacote que possam ser ajustadas — bônus, flexibilidade de horário, formação, ou revisão salarial antecipada?"
 
 ## Script 2: Quando a proposta é boa mas quer mais
 
@@ -1473,7 +1473,7 @@ Num momento de tensão emocional, ter frases preparadas evita hesitações, sil�
 
 ## O poder do silêncio
 
-Depois de fazer um pedido ou contra-proposta, **fica em silêncio**. Não preenches o silêncio com concessões. O desconforto do silêncio é partilhado — quem fala primeiro normalmente cede.
+Depois de fazer um pedido ou contra-proposta, **fica em silêncio**. Não preenches o silêncio com concessões. O desconforto do silêncio é compartilhado — quem fala primeiro normalmente cede.
 
 ## Quando aceitar
 
@@ -1493,7 +1493,7 @@ Depois de fazer um pedido ou contra-proposta, **fica em silêncio**. Não preenc
 
 ## O salário é apenas uma parte
 
-Uma proposta de R$8.000 com benefícios robustos pode valer mais do que R$9.500 sem benefícios. Aprende a calcular o valor real do pacote completo.
+Uma proposta de R$8.000 com benefícios robustos pode valer mais do que R$9.500 sem benefícios. Aprenda a calcular o valor real do pacote completo.
 
 ## Benefícios com valor monetário real
 
@@ -1532,7 +1532,7 @@ Uma proposta de R$8.000 com benefícios robustos pode valer mais do que R$9.500 
 ## O que negociar quando o salário não tem margem
 
 Se a empresa não pode subir o salário base, negocia:
-1. **Bónus por performance** — define métricas claras
+1. **Bónus por performance** — defina métricas claras
 2. **Revisão salarial em 6 meses** — em vez de 12
 3. **Formação e certificações** — custeadas pela empresa
 4. **Flexibilidade** — home office, horário flexível
@@ -1672,7 +1672,7 @@ Quase todas as áreas valorizam:
 - **Resolução de problemas sob pressão**
 - **Liderança informal** (sem título)
 
-Faz o inventário dsuas competências transferíveis antes de assumires que começas do zero.`,
+Faça o inventário dsuas competências transferíveis antes de assumires que começas do zero.`,
       },
       {
         id: '7-2',
@@ -1699,7 +1699,7 @@ Oferece seu serviço a preço simbólico em troca de testemunho e portfólio rea
 ONGs precisam de marketers, designers, gestores de projeto. É experiência real em CV.
 
 ### 4. Contribuições open source ou comunitárias
-Em tech: contribui para projetos GitHub. Em outras áreas: escreve para publicações do setor.
+Em tech: contribui para projetos GitHub. Em outras áreas: escreva para publicações do setor.
 
 ### 5. Certificações estratégicas
 Algumas certificações são reconhecidas como prova de conhecimento técnico:
@@ -1739,14 +1739,14 @@ Num processo standard, seu CV fala por si. Numa transição, seu CV tem lacunas 
 ## Os 3 grupos de pessoas a cultivar
 
 ### Grupo 1: Pessoas que já fizeram esta transição
-São seu recurso mais valioso. Sabem exatamente o que esperar, que recursos usar, que armadilhas evitar. Encontra-os no LinkedIn com pesquisa "ex-[área original] agora [nova área]".
+São seu recurso mais valioso. Sabem exatamente o que esperar, que recursos usar, que armadilhas evitar. Encontre-os no LinkedIn com pesquisa "ex-[área original] agora [nova área]".
 
 **Mensagem de abordagem:**
 > "Olá [Nome], vi seu percurso de [área A] para [área B] e admiro muito essa transição. Como alguém a fazer caminho semelhante, adoraria uma conversa de 20 minutos sobre sua experiência. O que te ajudou mais no início?"
 
 ### Grupo 2: Profissionais ativos na nova área
 Não peças emprego — pede perspectiva.
-> "O que define um bom [profissional nesta área] para ti? O que te surpreendeu quando começaste?"
+> "O que defina um bom [profissional nesta área] para ti? O que te surpreendeu quando começaste?"
 
 ### Grupo 3: Recrutadores especializados nesta área
 Explica a transição proativamente. Um recrutador que entende seu caso pode ser um aliado poderoso.
@@ -1930,7 +1930,7 @@ Concentre-se em 1-2 plataformas inicialmente:
 - **LinkedIn**: para a maioria das áreas corporativas (B2B, tech, finanças, RH)
 - **GitHub**: para desenvolvedores
 - **Behance/Dribbble**: para designers
-- **Medium/Substack**: para quem escreve bem e quer audiência mais ampla
+- **Medium/Substack**: para quem escreva bem e quer audiência mais ampla
 - **Instagram/TikTok**: para áreas criativas e B2C
 
 ### 4. Consistência: frequência que você sustenta
@@ -2093,7 +2093,7 @@ LINHA 9: CTA suave ("O que você acha?" / "Alguma vez aconteceu com você?")
 > 2. Adicionei 2-3 palavras-chave da descrição nas minhas experiências
 > 3. Reescrevi o resumo para mencionar o setor da empresa
 >
-> O ATS não é inimigo — é um sistema com regras. Quando você aprende as regras, passa por ele.
+> O ATS não é inimigo — é um sistema com regras. Quando você aprenda as regras, passa por ele.
 >
 > Alguém passou por isso também?
 
@@ -2140,7 +2140,7 @@ Antes de falar, apareça:
 
 ### Nível 3: Palestrante recorrente (mês 6+)
 - Submeta propostas para conferências maiores
-- Crie um pitch de palestra (título + descrição de 200 palavras + o que o público aprende)
+- Crie um pitch de palestra (título + descrição de 200 palavras + o que o público aprenda)
 - Monte um "media kit" com sua bio, foto profissional e temas que domina
 
 ## Criando um pitch de palestra irresistível
@@ -3257,9 +3257,9 @@ O mercado de ferramentas de IA para carreira cresceu muito. Mas nem todas valem 
 ## Preparação para entrevistas
 
 ### Simuladores com IA
-- **Yoodli** (yoodli.ai): pratica entrevistas com feedback em vídeo sobre fala, ritmo, pausas e conteúdo.
+- **Yoodli** (yoodli.ai): pratique entrevistas com feedback em vídeo sobre fala, ritmo, pausas e conteúdo.
 - **Interview Warmup** (Google): perguntas de entrevista por área + análise de resposta. Gratuito.
-- **Pramp**: pratica com parceiro real + IA. Bom para tech. Gratuito.
+- **Pramp**: pratique com parceiro real + IA. Bom para tech. Gratuito.
 - **Huru** (huru.ai): simulador com feedback detalhado. Para inglês.
 
 ## Pesquisa e inteligência de mercado
@@ -3422,7 +3422,7 @@ Exemplo:
 - Proposta PJ: R$15.000/mês
 - Equivalente CLT: R$15.000 × 0,67 = **~R$10.000/mês**
 
-Isso considera: impostos PJ (~15%), INSS (~11%), provisão de férias e 13º, período sem contrato.
+Isso considere: impostos PJ (~15%), INSS (~11%), provisão de férias e 13º, período sem contrato.
 
 ## Como decidir qual modelo faz mais sentido
 
@@ -3587,7 +3587,7 @@ Quando apresentar proposta, sempre apresente 3 opções:
 - **Recomendado:** escopo ideal, preço médio (o que você realmente quer vender)
 - **Premium:** escopo expandido, maior preço
 
-Isso move a conversa de "vou contratar?" para "qual opção?" — e a maioria escolhe a do meio.`,
+Isso move a conversa de "vou contratar?" para "qual opção?" — e a maioria escolha a do meio.`,
       },
       {
         id: '12-4',
@@ -3769,7 +3769,7 @@ Entender essa mudança antes de acontecer é o que separa gestores que prosperam
 | Especialista | Gestor |
 |--------------|--------|
 | Sucesso = seu próprio desempenho | Sucesso = desempenho da equipe |
-| Faz o trabalho | Habilita outros a fazerem o trabalho |
+| Faça o trabalho | Habilita outros a fazerem o trabalho |
 | Conhecimento técnico é o ativo | Comunicação e gestão de pessoas são os ativos |
 | Feedback é algo que você recebe | Feedback é algo que você dá (constantemente) |
 | Soluciona problemas diretamente | Desenvolve pessoas para solucionarem problemas |
@@ -4151,7 +4151,7 @@ Na busca de emprego, manifesta-se de formas específicas:
 
 ## Por que acontece especialmente durante a busca?
 
-A busca de emprego é uma fase de **alta exposição e incerteza**. Você está constantemente sendo avaliado, comparado e (frequentemente) rejeitado. Isso activa o sistema de ameaça do cérebro.
+A busca de emprego é uma fase de **alta exposição e incerteza**. Você está constantemente sendo avaliado, comparado e (frequentemente) rejeitado. Isso ativa o sistema de ameaça do cérebro.
 
 Agravantes comuns:
 - Período de desemprego prolongado (questiona sua autoestima)
@@ -4193,7 +4193,7 @@ A síndrome do impostor não é sinal de fraqueza — é frequentemente sinal de
 
 ## A realidade das rejeições
 
-Se você está em busca activa de emprego, vai ser rejeitado. Muitas vezes. Isso não é falha — é o processo.
+Se você está em busca ativa de emprego, vai ser rejeitado. Muitas vezes. Isso não é falha — é o processo.
 
 Os números reais:
 - Taxa de resposta média para candidaturas online: **2-5%**
@@ -4216,14 +4216,14 @@ Email genérico: "Não seguiremos com a sua candidatura."
 
 **Porquê acontece:** ATS filtrou palavras-chave, perfil não correspondeu a critério eliminatório, vaga preenchida internamente.
 
-**O que fazer:** Pede feedback (raramente respondem, mas vale tentar). Revê se o CV estava optimizado para ATS. Avança.
+**O que fazer:** Pede feedback (raramente respondem, mas vale tentar). Revise se o CV estava otimizado para ATS. Avança.
 
 ### Tipo 3: A rejeição após entrevista
 Depois de uma ou mais entrevistas, um "não" chega.
 
 **Porquê acontece:** Outro candidato com perfil mais específico, decisão interna de não contratar, fit cultural que não funcionou.
 
-**O que fazer:** Pede feedback específico — após entrevistas, há probabilidade maior de resposta. Aprende. Avança.
+**O que fazer:** Pede feedback específico — após entrevistas, há probabilidade maior de resposta. Aprenda. Avança.
 
 ## O protocolo de processamento emocional
 
@@ -4233,9 +4233,9 @@ Rejeições doem. Tentar suprimir a emoção não funciona. O que funciona:
 Permite-te estar frustrado, desapontado ou chateado. Sem julgamento. É uma resposta humana normal.
 
 **Passo 2 — Separa (1 hora depois)**
-Escreve: "Esta rejeição diz o quê sobre mim especificamente?" Se a resposta for vaga ("não sou bom"), questiona a evidência. Se for específica ("preciso melhorar X"), transforma em plano.
+Escreva: "Esta rejeição diz o quê sobre mim especificamente?" Se a resposta for vaga ("não sou bom"), questiona a evidência. Se for específica ("preciso melhorar X"), transforma em plano.
 
-**Passo 3 — Extrai (no dia seguinte)**
+**Passo 3 — Extraia (no dia seguinte)**
 Pergunta: "O que posso aprender daqui que me ajuda na próxima candidatura?"
 
 **Passo 4 — Avança (72 horas depois)**
@@ -4258,7 +4258,7 @@ O que geralmente significam:
 
 Uma técnica usada em psicologia comportamental: **exposição gradual**.
 
-Se as rejeições são muito dolorosas, comece a candidatar-se a vagas que não quer muito. Pratique o processo sem investimento emocional alto. Com o tempo, o sistema nervoso aprende que rejeição é temporária e tolerável.`,
+Se as rejeições são muito dolorosas, comece a candidatar-se a vagas que não quer muito. Pratique o processo sem investimento emocional alto. Com o tempo, o sistema nervoso aprenda que rejeição é temporária e tolerável.`,
       },
       {
         id: '14-3',
@@ -4274,10 +4274,10 @@ A solução é tratar a busca como um trabalho — com horários, métricas e pa
 
 ## O sistema de blocos de tempo
 
-Divide o dia de busca em 4 tipos de actividade:
+Divide o dia de busca em 4 tipos de atividade:
 
 ### Bloco 1: Candidaturas (2-3h pela manhã)
-- Revê vagas identificadas no dia anterior
+- Revise vagas identificadas no dia anterior
 - Adapta CV e carta para 2-3 vagas seleccionadas
 - Envia candidaturas
 
@@ -4312,7 +4312,7 @@ Acompanha estas 4 métricas toda semana:
 Trabalhar 12 horas por dia na busca de emprego não é produtivo — é contraproducente. Pesquisas mostram que a qualidade das candidaturas cai drasticamente após 4-5 horas de trabalho focado.
 
 **Regras de higiene mental:**
-- Define um horário de início e de fim
+- Defina um horário de início e de fim
 - Não verifica emails de recrutadores fora do horário
 - Reserva pelo menos 1 tarde por semana para algo que não seja a busca
 - Dorme 7-8 horas — decisões sob fadiga são piores
@@ -4363,12 +4363,12 @@ Revisão profunda da estratégia. Muitas vezes é aqui que a virada acontece.
 ## Estratégias de sustentabilidade para buscas longas
 
 ### 1. Estrutura financeira primeiro
-O stress financeiro amplifica tudo. Se possível, define quanto tempo pode buscar sem pressão extrema e faz um plano B claro para o cenário de extensão.
+O stress financeiro amplifica tudo. Se possível, defina quanto tempo pode buscar sem pressão extrema e faz um plano B claro para o cenário de extensão.
 
 ### 2. Identidade além do cargo
 Quando a busca se prolonga, é fácil que toda a identidade se torne "alguém que está buscando emprego". Isso é psicologicamente desgastante.
 
-Mantém actividades que te dão sentido independente da busca: voluntariado, um projecto pessoal, desporto, família, criatividade.
+Mantém atividades que te dão sentido independente da busca: voluntariado, um projeto pessoal, esporte, família, criatividade.
 
 ### 3. Revisão estratégica a cada 30 dias
 Em vez de mudar tudo em pânico, faz revisões estruturadas mensais:
@@ -4377,7 +4377,7 @@ Em vez de mudar tudo em pânico, faz revisões estruturadas mensais:
 - Devo ajustar o canal, o CV, a área alvo ou o nível do cargo?
 
 ### 4. Mentoria e suporte
-Pessoas que passaram pelo processo e conseguiram são os melhores recursos. Encontra mentores na tua área no LinkedIn, grupos de recolocação, ou comunidades online.
+Pessoas que passaram pelo processo e conseguiram são os melhores recursos. Encontre mentores na sua área no LinkedIn, grupos de recolocação, ou comunidades online.
 
 ### 5. Celebra marcos intermédios
 Não só o emprego conta como vitória. Celebra:
@@ -4388,7 +4388,7 @@ Não só o emprego conta como vitória. Celebra:
 
 ## A virada que muitos não percebem
 
-Muitas buscas que parecem fracassar nos últimos dias antes da virada resultam em sucesso. O problema: muita gente desiste exactamente quando estava prestes a conseguir.
+Muitas buscas que parecem fracassar nos últimos dias antes da virada resultam em sucesso. O problema: muita gente desiste exatamente quando estava prestes a conseguir.
 
 Os dados de recrutamento mostram que o tempo médio para contratar aumentou nos últimos anos — não porque os candidatos são piores, mas porque os processos são mais longos. A busca exige mais resiliência do que nunca.
 
@@ -4406,16 +4406,16 @@ A busca de emprego prolongada é um factor de stress reconhecido que pode levar 
 
 **Sinais de alerta:**
 - Dificuldade para sair da cama ou iniciar o dia
-- Perda de interesse em actividades que antes davam prazer
+- Perda de interesse em atividades que antes davam prazer
 - Isolamento social crescente
 - Pensamentos repetitivos e negativos sobre si mesmo
 - Dificuldade de concentração ou sono alterado
 
-Se reconhece 3 ou mais destes sinais de forma persistente (2+ semanas), considera procurar apoio profissional — psicólogo, coach ou médico de família.
+Se reconhece 3 ou mais destes sinais de forma persistente (2+ semanas), considere procurar apoio profissional — psicólogo, coach ou médico de família.
 
 ## A importância da rede de suporte
 
-Pesquisas mostram que pessoas em busca de emprego com suporte social activo conseguem emprego **mais rapidamente** e com menos impacto na saúde mental do que as que buscam isoladas.
+Pesquisas mostram que pessoas em busca de emprego com suporte social ativo conseguem emprego **mais rapidamente** e com menos impacto na saúde mental do que as que buscam isoladas.
 
 **Tipos de suporte que ajudam:**
 
@@ -4426,28 +4426,28 @@ Família, amigos próximos — pessoas que te ouvem sem julgamento. Não precisa
 Mentores, ex-colegas, pessoas na área — quem pode rever o CV, fazer introduções, dar feedback sobre entrevistas.
 
 ### Suporte de pares
-Outros em busca de emprego — partilha experiências, valida que é normal, compara estratégias. Grupos de LinkedIn, comunidades online, fóruns.
+Outros em busca de emprego — compartilha experiências, valida que é normal, compara estratégias. Grupos de LinkedIn, comunidades online, fóruns.
 
 ## Como pedir ajuda sem parecer desesperado
 
 Muitas pessoas não pedem ajuda por medo de parecer vulneráveis ou sobrecarregar os outros. Mas a maioria das pessoas quer ajudar — simplesmente não sabe que você precisa.
 
 **Pedidos eficazes:**
-> "Estou em busca activa de novas oportunidades em [área]. Se souberes de alguma vaga ou quiser fazer uma introdução, ficaria muito grato."
+> "Estou em busca ativa de novas oportunidades em [área]. Se souberes de alguma vaga ou quiser fazer uma introdução, ficaria muito grato."
 
 > "Estou a preparar-me para entrevistas em [tipo de empresa]. Teria 20 minutos para me dar feedback sobre como estou a apresentar minha experiência?"
 
-> "Passei por um processo difícil esta semana. Não preciso de soluções — precisava partilhar com alguém de confiança."
+> "Passei por um processo difícil esta semana. Não preciso de soluções — precisava compartilhar com alguém de confiança."
 
 ## Cuidados de bem-estar durante a busca
 
 Parece básico, mas é o que mais é descurado quando a pressão aumenta:
 
-**Exercício físico:** 30 minutos diários de actividade física reduzem cortisol e melhoram humor. Não precisa ser academia — uma caminhada conta.
+**Exercício físico:** 30 minutos diários de atividade física reduzem cortisol e melhoram humor. Não precisa ser academia — uma caminhada conta.
 
-**Exposição social:** Mesmo que não seja networking "útil" para a busca — almoço com amigos, actividade de grupo, desporto colectivo. O isolamento amplifica o stress.
+**Exposição social:** Mesmo que não seja networking "útil" para a busca — almoço com amigos, atividade de grupo, esporte coletivo. O isolamento amplifica o stress.
 
-**Limites de ecrã:** Passar 8 horas a ver LinkedIn gera mais ansiedade do que candidaturas. Define blocos de tempo limitados para redes sociais.
+**Limites de ecrã:** Passar 8 horas a ver LinkedIn gera mais ansiedade do que candidaturas. Defina blocos de tempo limitados para redes sociais.
 
 **Sono consistente:** A privação de sono piora a tomada de decisão, a criatividade e a regulação emocional — tudo que você precisa numa busca de emprego.`,
       },
@@ -4475,7 +4475,7 @@ Não é apenas traduzir as respostas que usas em português. Há diferenças cul
 ## Diferenças culturais por origem da empresa
 
 ### Empresas americanas (EUA)
-- Tom directo e confident — dizer "I don't know" é melhor do que enrolar
+- Tom direto e confident — dizer "I don't know" é melhor do que enrolar
 - Storytelling valorizado — as respostas STAR devem ter arc narrativo claro
 - Entusiasmo é esperado — "I'm really excited about this opportunity" é natural
 - Small talk antes de começar é comum e importante
@@ -4513,12 +4513,12 @@ Para uma entrevista profissional eficaz, o mínimo é **B2**. Abaixo disso, o co
 ## Plano de preparação em 4 semanas
 
 ### Semana 1: Diagnóstico e vocabulário
-- Faz um mock interview consigo mesmo (grava em vídeo)
+- Faça um mock interview consigo mesmo (grava em vídeo)
 - Identifica as principais lacunas (vocabulário, fluência, gramática)
-- Aprende 20 palavras/expressões específicas da tua área em inglês
+- Aprenda 20 palavras/expressões específicas da sua área em inglês
 
 ### Semana 2: Estrutura das respostas
-- Pratica o método STAR em inglês (situação → task → action → result)
+- Pratique o método STAR em inglês (situação → task → action → result)
 - Grava 3 respostas STAR e revê o vocabulário
 
 ### Semana 3: Mock interviews
@@ -4527,15 +4527,15 @@ Para uma entrevista profissional eficaz, o mínimo é **B2**. Abaixo disso, o co
 - Foca em fluência, não em perfeição gramatical
 
 ### Semana 4: Refinamento e confiança
-- Pratica o "Tell me about yourself" até fluir naturalmente
-- Aprende perguntas específicas para fazer ao entrevistador
+- Pratique o "Tell me about yourself" até fluir naturalmente
+- Aprenda perguntas específicas para fazer ao entrevistador
 - Prepara a resposta para "Why do you want to work here?" com pesquisa real sobre a empresa
 
 ## O maior erro: tentar traduzir em tempo real
 
 Candidatos que traduzem do português para o inglês na hora da entrevista ficam lentos, usam construções estranhas e perdem confiança. A solução é **pensar directamente em inglês** — o que vem com prática.
 
-Exercício: durante 2 semanas, muda o idioma do telemóvel, computador e redes sociais para inglês. Ouve podcasts em inglês da tua área. Assiste séries sem legendas em português.`,
+Exercício: durante 2 semanas, muda o idioma do celular, computador e redes sociais para inglês. Ouça podcasts em inglês da sua área. Assista séries sem legendas em português.`,
       },
       {
         id: '15-2',
@@ -4582,14 +4582,14 @@ Esta estrutura é universalmente eficaz e funciona em qualquer cultura empresari
 - ❌ Incluir informações pessoais irrelevantes ("I'm married with 2 kids")
 - ❌ Exceder 2 minutos — a atenção cai depois disso
 - ❌ Ser vago: "I have experience in marketing" (sem números ou conquistas)
-- ❌ Começar com "Well..." ou "Um..." (pausa, respira, começa directo)
+- ❌ Começar com "Well..." ou "Um..." (pausa, respira, começa direto)
 
 ## Prática recomendada
 
-1. Escreve o teu script personalizado usando o template
+1. Escreva o seu script personalizado usando o template
 2. Grava-te a dizer em voz alta
-3. Revê o vídeo: fluência, postura, contacto visual (com câmara)
-4. Pratica até não precisar ler — deve soar natural, não memorizado`,
+3. Revise o vídeo: fluência, postura, contato visual (com câmara)
+4. Pratique até não precisar ler — deve soar natural, não memorizado`,
       },
       {
         id: '15-3',
@@ -4604,7 +4604,7 @@ Dois candidatos com a mesma experiência podem causar impressões muito diferent
 ## Verbos de acção de alto impacto (Action Verbs)
 
 ### Liderança e gestão
-- **Led** (liderança directa): "I led a cross-functional team of 12"
+- **Led** (liderança direta): "I led a cross-functional team of 12"
 - **Spearheaded** (iniciativa pioneira): "I spearheaded the digital transformation initiative"
 - **Orchestrated** (coordenação complexa): "I orchestrated the launch across 5 markets"
 - **Championed** (defesa de causa): "I championed the move to agile methodology"
@@ -4893,7 +4893,7 @@ Não significa ser artificial. Significa estar presente e ser você mesmo de for
 
 ## O erro mais comum
 
-A maioria dos candidatos acha que precisa falar mais para se destacar. O resultado: todos falam ao mesmo tempo, ninguém ouve, o grupo não chega a lugar nenhum — e os avaliadores anotam exatamente isso.
+A maioria dos candidatos acha que precisa falar mais para se destacar. O resultado: todos falam ao mesmo tempo, ninguém ouça, o grupo não chega a lugar nenhum — e os avaliadores anotam exatamente isso.
 
 Os candidatos que passam são os que **facilitam o grupo a chegar a uma boa decisão**, não os que dominam a conversa.
 
@@ -5044,7 +5044,7 @@ Situação: você é o gestor de alguém que está falhando em entregas.
 **Estrutura SBI (Situação-Comportamento-Impacto):**
 > "Na última semana [**Situação**], percebi que os relatórios chegaram com 2 dias de atraso [**Comportamento**]. Isso impactou a reunião com o cliente e gerou retrabalho para a equipa [**Impacto**]. O que aconteceu?"
 
-Escuta a resposta. Depois define expectativa clara e acompanhamento.
+Escuta a resposta. Depois defina expectativa clara e acompanhamento.
 
 ### 3. Negociação com fornecedor
 Situação: precisa renegociar prazo, preço ou condições.
@@ -5059,7 +5059,7 @@ Pergunte antes de propor: *"Qual é o maior constrangimento do vosso lado neste 
 |---|---|
 | Escuta ativa (silêncio estratégico) | Interromper antes de ouvir tudo |
 | Valida emoções antes de resolver | Ir direto à solução sem empatia |
-| Faz perguntas para entender | Assume que já entendeu |
+| Faça perguntas para entender | Assume que já entendeu |
 | Propõe solução concreta | Fica em generalidades |
 | Mantém a calma sob pressão | Fica defensivo ou se desculpa em excesso |
 
@@ -5106,7 +5106,7 @@ Retome a tese principal + chamada à ação clara:
 
 ## Presença executiva durante a apresentação
 
-**Contacto visual:** distribua por todos os avaliadores. 3-5 segundos por pessoa antes de mudar.
+**Contato visual:** distribua por todos os avaliadores. 3-5 segundos por pessoa antes de mudar.
 
 **Voz:** fale mais devagar do que parece necessário. Pausas estratégicas comunicam confiança.
 
@@ -5249,7 +5249,7 @@ Velocidade importa. Muitas decisões são reversíveis — age.
 *Pergunta típica: "Conte sobre uma vez que agiu sem ter todos os dados necessários."*
 
 ### 10. Frugality
-Faz mais com menos. Restrição gera engenhosidade.
+Faça mais com menos. Restrição gera engenhosidade.
 *Pergunta típica: "Conte sobre uma vez que entregou resultado expressivo com poucos recursos."*
 
 ### 11. Earn Trust
@@ -5317,7 +5317,7 @@ Uma startup em seed de 8 pessoas e uma série C de 300 pessoas são mundos compl
 **O que mostrar:**
 - Resultados mensuráveis em contextos de crescimento rápido
 - Que você já viu (e sobreviveu a) caos organizado
-- Que aprende rápido quando entra numa área nova
+- Que aprenda rápido quando entra numa área nova
 
 ## Série B/C (80-500 pessoas)
 
@@ -5421,7 +5421,7 @@ O motivo mais comum de rejeição pós-entrevistas técnicas bem-sucedidas é **
 
 ## O que "culture fit" realmente significa em tech
 
-**Autonomia e ambiguidade:** você consegue trabalhar sem que alguém defina cada passo? Faz perguntas melhores do que pedidos de permissão?
+**Autonomia e ambiguidade:** você consegue trabalhar sem que alguém defina cada passo? Faça perguntas melhores do que pedidos de permissão?
 
 **Velocidade vs. perfeição:** cada empresa tem seu ponto de equilíbrio. Startups cedo valorizam velocidade; Google valoriza robustez. Você sabe identificar e se adaptar?
 
@@ -5537,7 +5537,7 @@ Agende cafés ou conversas de 20 min com líderes sênior de outras áreas. O pr
 Apresente em reuniões de equipa alargadas. Escreva documentos internos sobre o que você aprendeu. Compartilhe aprendizados em canais de Slack/Teams relevantes.
 
 ### 5. Solicite oportunidades de exposição ao seu gestor
-> *"Gostaria de apresentar os resultados do projeto X na próxima reunião de liderança. Faz sentido?"*
+> *"Gostaria de apresentar os resultados do projeto X na próxima reunião de liderança. Faça sentido?"*
 
 Gestores normalmente apoiam — tira trabalho deles e demonstra maturidade.
 
@@ -5776,7 +5776,7 @@ Envie mensagem personalizada para 10 contatos da sua rede mais próxima:
 
 - 5-10 candidaturas por semana (qualidade > quantidade)
 - 3-5 mensagens de networking por dia (LinkedIn, email, WhatsApp)
-- Identificar 2-3 recrutadores especializados na sua área e entrar em contacto
+- Identificar 2-3 recrutadores especializados na sua área e entrar em contato
 
 ### Semana 4: Revisão e ajuste
 
@@ -5792,7 +5792,7 @@ Além de candidatar-se, use o tempo para:
 - **Freelance ou consultoria temporária** — gera renda e preenche o gap no CV
 - **Certificações relevantes** — 4-6 semanas bem investidas
 - **Projetos pessoais** — especialmente para tech e criativas
-- **Mentorias e informational interviews** — aprende e expande rede simultaneamente
+- **Mentorias e informational interviews** — aprenda e expanda rede simultaneamente
 
 ## Como lidar com o gap no CV
 
@@ -5820,7 +5820,7 @@ Durante a busca, é útil separar conscientemente:
 **O que você realizou** (conquistas, impacto) — permanente, independente de onde você trabalhava.
 **Quem você é** (valores, caráter, forma de trabalhar) — intacto.
 
-Exercício: escreva 10 afirmações sobre você que não dependem de nenhuma empresa específica. *"Sou alguém que resolve problemas complexos com dados. Sou alguém que constrói times de alto desempenho. Sou alguém que aprende novas ferramentas rapidamente."*
+Exercício: escreva 10 afirmações sobre você que não dependem de nenhuma empresa específica. *"Sou alguém que resolve problemas complexos com dados. Sou alguém que constrói times de alto desempenho. Sou alguém que aprenda novas ferramentas rapidamente."*
 
 ## Mantendo estrutura e propósito sem trabalho formal
 
@@ -5912,7 +5912,7 @@ Ao final de cada dia:
 - Qual foi o momento de mais energia?
 - Houve alguma reação da qual não me orgulho?
 
-Com o tempo, você vê padrões — quais situações te activam emocionalmente.
+Com o tempo, você vê padrões — quais situações te ativam emocionalmente.
 
 ## Auto-regulação: a pausa estratégica
 
@@ -5973,7 +5973,7 @@ Não é sobre cargo. É sobre a percepção que os outros têm de você — de q
 
 ### 3. Aparência visual
 - Postura de abertura em reuniões (não braços cruzados)
-- Contacto visual distribuído em grupos
+- Contato visual distribuído em grupos
 - Câmara ao nível dos olhos em vídeo
 
 ## Desenvolver presença sem autoridade formal
@@ -6003,7 +6003,7 @@ Não é sobre apps ou técnicas. É sobre a capacidade de tomar decisões contí
 
 | | Urgente | Não urgente |
 |---|---|---|
-| **Importante** | Faz agora | Planeia e protege tempo |
+| **Importante** | Faça agora | Planeia e protege tempo |
 | **Não importante** | Delega | Elimina |
 
 A maioria vive no "urgente/importante" porque não investe no "importante/não urgente" — onde estão desenvolvimento de carreira, relações estratégicas e prevenção de crises.
@@ -6044,7 +6044,7 @@ Estratégias:
 
 ## Por que Portugal é o destino mais procurado por brasileiros
 
-- Idioma partilhado (com diferenças de vocabulário e tom)
+- Idioma compartilhado (com diferenças de vocabulário e tom)
 - Acesso ao mercado europeu (Schengen)
 - Processo de visto mais simples para brasileiros vs. outros países europeus
 - Custo de vida abaixo da média da Europa Ocidental
@@ -6057,7 +6057,7 @@ Estratégias:
 | Salário mínimo (2024) | €820 |
 | Média geral | ~€1.400 |
 | Tech júnior | €1.200–€1.800 |
-| Tech sénior | €2.500–€4.000 |
+| Tech sênior | €2.500–€4.000 |
 | Gestão | €2.000–€5.000+ |
 
 Para brasileiros vindos de salários em reais, os valores em euros são menores numericamente — mas o poder de compra em Portugal é superior, especialmente comparado a São Paulo.
@@ -6219,13 +6219,13 @@ Associe-se a comunidades de brasileiros em Portugal — são fontes de dicas sob
 
 **Idioma:** alemão é essencial para a maioria das posições. Inglês funciona bem em tech e multinacionais.
 
-**Mercado:** maior economia da Europa. Escassez de mão de obra qualificada — alemães procuram profissionais estrangeiros activamente.
+**Mercado:** maior economia da Europa. Escassez de mão de obra qualificada — alemães procuram profissionais estrangeiros ativamente.
 
 **Oportunity Card (desde 2024):** permite entrar sem oferta de emprego para buscar trabalho por 1 ano.
 
 **Salários:** significativamente mais altos que Portugal. Tech sênior: €60k-€100k+/ano bruto.
 
-**Cultura:** pontualidade sagrada. Comunicação directa e focada em factos. Separação clara entre vida profissional e pessoal.
+**Cultura:** pontualidade sagrada. Comunicação direta e focada em factos. Separação clara entre vida profissional e pessoal.
 
 ## Holanda
 
@@ -6233,7 +6233,7 @@ Associe-se a comunidades de brasileiros em Portugal — são fontes de dicas sob
 
 **Mercado:** sede europeia de Netflix, Uber, Booking.com, Adyen. Forte em tech, logística, agricultura e finanças.
 
-**Cultura:** extremamente directa. Feedback honesto e sem rodeios é norma. Work-life balance muito valorizado.
+**Cultura:** extremamente direta. Feedback honesto e sem rodeios é norma. Work-life balance muito valorizado.
 
 ## Irlanda
 
@@ -6293,7 +6293,7 @@ Recrutadores tomam decisões baseadas em confiança. Um portfólio forte encurta
 
 Não precisa de site elaborado. Um MVP pode ser:
 - **Notion público** com 2-3 projetos documentados
-- **LinkedIn:** secção de projetos preenchida + artigos publicados
+- **LinkedIn:** seção de projetos preenchida + artigos publicados
 - **GitHub** com READMEs bem escritos (para tech)
 
 **Regra:** 3 projetos bem documentados valem mais do que 15 mal apresentados.
@@ -6480,7 +6480,7 @@ Entrada típica: MBA de top school ou graduação de universidades de elite + pr
 Maior volume de contratações. Processo rigoroso mas mais acessível que MBB. Além de consultoria, atuam em auditoria, impostos, advisory.
 
 ### Boutiques e especialistas
-Firmas menores com foco em indústria: Roland Berger, Oliver Wyman, A.T. Kearney. Processos mais humanos com acesso mais directo a projetos reais desde cedo.
+Firmas menores com foco em indústria: Roland Berger, Oliver Wyman, A.T. Kearney. Processos mais humanos com acesso mais direto a projetos reais desde cedo.
 
 ## O modelo de carreira
 
@@ -6500,7 +6500,7 @@ Consultores precisam, no dia-a-dia, de:
 - Comunicar análises de forma clara para executivos
 - Trabalhar bem em equipa sob pressão intensa
 
-O processo seletivo replica exactamente essas situações — daí os case interviews.`,
+O processo seletivo replica exatamente essas situações — daí os case interviews.`,
       },
       {
         id: '23-2',
@@ -6660,7 +6660,7 @@ Escreva e pratique em voz alta suas 6 histórias STAR. Grave-se. Reveja. Ajuste.
 
 Os primeiros 6 meses são intensos. Analistas novos trabalham 60-80h/semana em projetos intensos.
 
-O que aprende rapidamente:
+O que aprenda rapidamente:
 - Estruturar qualquer problema em 30 minutos
 - Comunicar insights complexos em linguagem executiva
 - Trabalhar com dados incompletos e tomar decisões
@@ -6678,11 +6678,11 @@ Após cada apresentação ou reunião importante, há debrief. Isso acelera o de
 
 ## Por que muitos saem após 2-4 anos (e para onde vão)
 
-A saída é planejada para a maioria. As consultoras são "aceleradoras de carreira" — você entra, aprende muito rápido, e sai para posição de liderança que normalmente não teria acesso sem esse background.
+A saída é planejada para a maioria. As consultoras são "aceleradoras de carreira" — você entra, aprenda muito rápido, e sai para posição de liderança que normalmente não teria acesso sem esse background.
 
 Destinos comuns de ex-consultores:
 - C-suite em empresas médias
-- Gestores sénior em multinacionais
+- Gestores sênior em multinacionais
 - Fundadores de startups
 - Private equity e venture capital
 - Chief of Staff em empresas de crescimento rápido
@@ -6718,7 +6718,7 @@ Os primeiros 90 dias determinam:
 
 - **Quem és na empresa** — a reputação que constróis é sticky (pegajosa)
 - **Que projetos te são atribuídos** — visibilidade e desafio ou trabalho marginal
-- **O ritmo da tua progressão** — quem entra forte cresce mais rápido
+- **O ritmo da sua progressão** — quem entra forte cresce mais rápido
 - **A rede interna** — as relações que construíres agora valem durante anos
 
 ## O erro mais comum
@@ -6739,22 +6739,22 @@ O framework clássico divide em três fases:
 | Integração | Construir relações, validar hipóteses | Dias 31–60 |
 | Acção | Executar, entregar, liderar | Dias 61–90 |
 
-> **A regra de ouro:** Aprende 2x mais do que falas no primeiro mês. Depois vai aumentando gradualmente a tua voz.`,
+> **A regra de ouro:** Aprenda 2x mais do que falas no primeiro mês. Depois vai aumentando gradualmente a sua voz.`,
       },
       {
         id: '24-2',
-        title: 'O plano de 30-60-90 dias: como criar o teu',
+        title: 'O plano de 30-60-90 dias: como criar o seu',
         duration: '35 min',
         content: `# O plano de 30-60-90 dias
 
 ## Para que serve o plano
 
-O plano de 30-60-90 dias é um documento estratégico que define:
+O plano de 30-60-90 dias é um documento estratégico que defina:
 - O que vais **aprender** em cada fase
 - Quem vais **conhecer** e quando
 - O que vais **entregar** e como medir o sucesso
 
-É uma ferramenta de gestão da tua própria integração.
+É uma ferramenta de gestão da sua própria integração.
 
 ## Estrutura de cada fase
 
@@ -6764,7 +6764,7 @@ O plano de 30-60-90 dias é um documento estratégico que define:
 
 **O que fazer:**
 - Lê toda a documentação disponível (processos, estratégia, relatórios)
-- Marca reuniões de 30 min com cada membro directo da equipa
+- Marca reuniões de 30 min com cada membro direto da equipa
 - Observa reuniões sem pressão de contribuir
 - Mapeia stakeholders: quem são, o que querem, como preferem comunicar
 - Identifica "vitórias rápidas" potenciais — mas não as executes ainda
@@ -6783,13 +6783,13 @@ O plano de 30-60-90 dias é um documento estratégico que define:
 **Objectivo:** Construir relações e validar hipóteses.
 
 **O que fazer:**
-- Começa a contribuir activamente nas reuniões
-- Partilha 1-2 ideias pequenas e testáveis — não revolucionárias
+- Começa a contribuir ativamente nas reuniões
+- Compartilha 1-2 ideias pequenas e testáveis — não revolucionárias
 - Alinha com o gestor sobre prioridades dos próximos 30 dias
-- Expande a rede além da tua equipa directa
+- Expanda a rede além da sua equipa direta
 - Identifica quem são os "influenciadores informais" da empresa
 
-**Entregável desta fase:** Uma análise breve (escrita ou numa reunião com o gestor) do que aprendestes, as tuas hipóteses sobre oportunidades e como planeas contribuir no próximo mês.
+**Entregável desta fase:** Uma análise breve (escrita ou numa reunião com o gestor) do que aprendestes, as suas hipóteses sobre oportunidades e como planeas contribuir no próximo mês.
 
 ---
 
@@ -6798,8 +6798,8 @@ O plano de 30-60-90 dias é um documento estratégico que define:
 **Objectivo:** Executar uma vitória tangível.
 
 **O que fazer:**
-- Lidera ou contribui significativamente num projecto visível
-- Apresenta a tua análise e recomendações (se aplicável)
+- Lidera ou contribui significativamente num projeto visível
+- Apresenta a sua análise e recomendações (se aplicável)
 - Pede feedback explícito ao gestor: "O que devo manter? O que devo ajustar?"
 - Consolida as relações chave
 
@@ -6809,9 +6809,9 @@ O plano de 30-60-90 dias é um documento estratégico que define:
 
 ## Como apresentar o plano ao gestor
 
-Se o teu gestor não mencionou um plano de integração, podes propor o teu:
+Se o seu gestor não mencionou um plano de integração, pode propor o seu:
 
-> *"Queria partilhar consigo o meu plano para os primeiros 90 dias. Preparei um documento que define as minhas prioridades de aprendizagem, as relações que quero construir e os resultados que espero entregar em cada fase. Posso partilhar e receber o seu feedback?"*
+> *"Queria compartilhar consigo o meu plano para os primeiros 90 dias. Preparei um documento que defina as minhas prioridades de aprendizagem, as relações que quero construir e os resultados que espero entregar em cada fase. Posso compartilhar e receber o seu feedback?"*
 
 Isto demonstra proactividade e organização — qualidades que os gestores adoram ver em novos contratados.`,
       },
@@ -6828,11 +6828,11 @@ Credibilidade profissional resulta da combinação de:
 - **Confiabilidade** — cumpres o que prometeste, sem excepções
 - **Integridade** — és consistente e honesto, mesmo quando é difícil
 
-A competência demora tempo a demonstrar. A confiabilidade podes construir desde o **dia 1**.
+A competência demora tempo a demonstrar. A confiabilidade pode construir desde o **dia 1**.
 
 ### A regra mais importante dos primeiros 90 dias
 
-**Nunca prometas o que não podes cumprir.**
+**Nunca prometas o que não pode cumprir.**
 
 Mais vale dizer "preciso de 3 dias" e entregar em 2, do que dizer "entrego amanhã" e atrasar. A confiabilidade é construída através de consistência — não de velocidade.
 
@@ -6843,9 +6843,9 @@ Nas primeiras 2 semanas, mapeia mentalmente (ou num documento privado) os princi
 | Tipo | Quem são | Como abordar |
 |---|---|---|
 | **Aliados naturais** | Pessoas com quem vais trabalhar directamente | Reunião individual, interesse genuíno pelo trabalho delas |
-| **Influenciadores informais** | Quem todos ouvem, independentemente do título | Almoço ou conversa informal; aprende com eles |
+| **Influenciadores informais** | Quem todos ouvem, independentemente do título | Almoço ou conversa informal; aprenda com eles |
 | **Gatekeepers** | Quem controla acesso a recursos, informação ou decisores | Respeito, não subversão; pede ajuda explicitamente |
-| **Potenciais detractores** | Quem pode ser ameaçado pela tua chegada | Reconhecimento do expertise deles; parceria, não competição |
+| **Potenciais detratores** | Quem pode ser ameaçado pela sua chegada | Reconhecimento do expertise deles; parceria, não competição |
 
 ## As reuniões de "onboarding" que ninguém menciona
 
@@ -6858,7 +6858,7 @@ Se o cargo foi ocupado por outra pessoa, descobre o que correu bem e mal — sem
 Alguém com 5+ anos na empresa conhece tudo que não está escrito. Vale ouro.
 
 **Alguém de outro departamento:**
-Perspectiva externa sobre como a tua equipa é vista internamente.
+Perspectiva externa sobre como a sua equipa é vista internamente.
 
 ## Perguntas que abrem portas
 
@@ -6879,7 +6879,7 @@ Pessoas que se sentem ouvidas tornam-se aliadas naturais.`,
 
 ## O que é uma "vitória rápida"
 
-Uma vitória rápida (quick win) é uma melhoria pequena, visível e real que podes entregar nos primeiros 60-90 dias.
+Uma vitória rápida (quick win) é uma melhoria pequena, visível e real que pode entregar nos primeiros 60-90 dias.
 
 **Características de uma boa vitória rápida:**
 - Resolve um problema **real** que a equipa já sente
@@ -6892,7 +6892,7 @@ Uma vitória rápida (quick win) é uma melhoria pequena, visível e real que po
 Nas primeiras semanas, estás a **coleccionar problemas** sem tentar resolvê-los ainda. Toma nota de:
 
 - Reclamações repetidas nas reuniões
-- Processos que toda a gente considera lentos ou ineficientes
+- Processos que toda a gente considere lentos ou ineficientes
 - Tarefas manuais que poderiam ser automatizadas
 - Documentação desactualizada ou inexistente
 - Fricção entre departamentos
@@ -6902,7 +6902,7 @@ Depois, classifica por **impacto** × **esforço**:
 | | Baixo esforço | Alto esforço |
 |---|---|---|
 | **Alto impacto** | ✅ Executa primeiro | Planeia para depois |
-| **Baixo impacto** | Faz se sobrares tempo | Ignora |
+| **Baixo impacto** | Faça se sobrares tempo | Ignora |
 
 ## Exemplos de vitórias rápidas por área
 
@@ -6929,7 +6929,7 @@ Não anuncias a vitória — deixas que seja evidente pelo impacto.
 Se alguém perguntar como foi feito:
 > *"Reparei que [problema]. Trabalhei com [colega X] para resolver. O resultado foi [impacto]. Fico feliz por ter ajudado."*
 
-Sempre partilha o crédito. Vitórias em equipa constróem mais capital político do que vitórias individuais.`,
+Sempre compartilha o crédito. Vitórias em equipa constroem mais capital político do que vitórias individuais.`,
       },
       {
         id: '24-5',
@@ -6945,7 +6945,7 @@ Sempre partilha o crédito. Vitórias em equipa constróem mais capital polític
 
 **O impacto:** Passas a mensagem de que não estás comprometido com esta empresa; pareces não respeitar o contexto actual.
 
-**Como evitar:** Partilha experiências em formato de *aprendizagem*, não de comparação.
+**Como evitar:** Compartilha experiências em formato de *aprendizagem*, não de comparação.
 > Em vez de: *"Na [empresa X] fazíamos assim e funcionava melhor"*
 > Diz: *"Em experiências anteriores, vi uma abordagem que resolveu problema parecido. Vale explorar aqui?"*
 
@@ -6965,7 +6965,7 @@ Sempre partilha o crédito. Vitórias em equipa constróem mais capital polític
 
 **O erro:** Por querer mostrar competência, evitas pedir ajuda.
 
-**O impacto:** Demoras mais; cometes erros evitáveis; as pessoas ao teu redor não constróem relação contigo.
+**O impacto:** Demoras mais; cometes erros evitáveis; as pessoas ao seu redor não constroem relação contigo.
 
 **Como evitar:** Pede ajuda estrategicamente. Um pedido bem feito é sinal de inteligência, não de fraqueza.
 > *"Não quero reinventar a roda — há documentação ou alguém que passou por isto antes que me possas recomendar?"*
@@ -6974,10 +6974,10 @@ Sempre partilha o crédito. Vitórias em equipa constróem mais capital polític
 
 ### 4. Não gerir expectativas com o gestor
 
-**O erro:** Assumir que o gestor sabe o que está a acontecer sem comunicação activa.
+**O erro:** Assumir que o gestor sabe o que está a acontecer sem comunicação ativa.
 
 **Como evitar:** Reuniões de 1:1 regulares com o gestor nas primeiras semanas. Pergunta explicitamente:
-- *"O que seria sucesso para mim daqui a 30/60/90 dias, no teu ponto de vista?"*
+- *"O que seria sucesso para mim daqui a 30/60/90 dias, no seu ponto de vista?"*
 - *"Há algo sobre a cultura da equipa que devo saber e que não é óbvio?"*
 
 ---
@@ -6988,7 +6988,7 @@ Sempre partilha o crédito. Vitórias em equipa constróem mais capital polític
 
 **O impacto:** Burnout nos primeiros 3-6 meses. Produtividade cai precisamente quando precisas de ser visto como forte.
 
-**Como gerir:** Define limites saudáveis *desde o início*. É muito mais fácil manter do que reduzir depois de estabelecidos.
+**Como gerir:** Defina limites saudáveis *desde o início*. É muito mais fácil manter do que reduzir depois de estabelecidos.
 
 ---
 
@@ -7004,7 +7004,7 @@ Sempre partilha o crédito. Vitórias em equipa constróem mais capital polític
 
 **O erro:** Focar-te nos "decisores" e ignorar administrativos, assistentes, técnicos.
 
-**A realidade:** Estas pessoas têm poder informal enorme. Podem facilitar ou obstruir o teu trabalho de formas invisíveis mas reais.
+**A realidade:** Estas pessoas têm poder informal enorme. Podem facilitar ou obstruir o seu trabalho de formas invisíveis mas reais.
 
 **O que fazer:** Trata toda a gente com o mesmo respeito e atenção. Ponto.
 
@@ -7024,7 +7024,7 @@ Gestores adoram colaboradores que pedem feedback — é raro e demonstra maturid
   {
     id: 25,
     title: 'Pacote Total de Compensação: Além do Salário',
-    desc: 'Como avaliar e negociar o pacote completo — benefícios, bónus, equity, férias e muito mais. Candidatos Pro sabem que o salário é só uma parte da oferta.',
+    desc: 'Como avaliar e negociar o pacote completo — benefícios, bônus, equity, férias e muito mais. Candidatos Pro sabem que o salário é só uma parte da oferta.',
     duration: '2h 45min',
     icon: '💎',
     isPro: true,
@@ -7132,12 +7132,12 @@ Perguntas a fazer sobre cada empresa:
 - Há mentoria formal ou informal?
 - Em 2-3 anos, este cargo terá sido um trampolim para onde?
 
-**Regra dos 3 anos:** O cargo vai acelerar ou desacelerar a tua carreira daqui a 3 anos? Às vezes vale ganhar menos hoje para crescer mais amanhã.
+**Regra dos 3 anos:** O cargo vai acelerar ou desacelerar a sua carreira daqui a 3 anos? Às vezes vale ganhar menos hoje para crescer mais amanhã.
 
 ### Dimensão 3: Qualidade de vida e fit cultural
 
 - Quantas horas/semana é o ritmo real (não o prometido)?
-- Qual é o estilo de gestão do teu futuro gestor directo?
+- Qual é o estilo de gestão do seu futuro gestor direto?
 - Presença física obrigatória ou flexibilidade real?
 - Qual é a cultura de feedback e desenvolvimento?
 
@@ -7159,14 +7159,14 @@ Perguntas a fazer sobre cada empresa:
 | Qualidade de vida | 15% | 6/10 | 9/10 |
 | **Total ponderado** | 100% | **7,6** | **7,7** |
 
-Define os pesos de acordo com o teu momento de vida. No início de carreira, crescimento pesa mais. Com filhos pequenos, qualidade de vida pode pesar mais.
+Defina os pesos de acordo com o seu momento de vida. No início de carreira, crescimento pesa mais. Com filhos pequenos, qualidade de vida pode pesar mais.
 
 ## Red flags numa proposta
 
 - Salário acima do mercado sem explicação clara
 - Pressão para decidir em 24-48h sem extensão possível
 - Recusa em colocar tudo por escrito
-- Vagueza sobre bónus ("depende da performance" sem critérios claros)
+- Vagueza sobre bônus ("depende da performance" sem critérios claros)
 - Plano de saúde sem cobertura para dependentes
 
 ## Como pedir mais tempo (sem perder a oferta)
@@ -7245,7 +7245,7 @@ O segredo é enquadrar o pedido em **valor para a empresa**, não em necessidade
 
 ## Por que a maioria não entende equity
 
-Stock options e RSUs são apresentados de forma sedutora ("podes ficar rico!") e as empresas raramente explicam a letras miúdas.
+Stock options e RSUs são apresentados de forma sedutora ("pode ficar rico!") e as empresas raramente explicam a letras miúdas.
 
 Resultado: candidatos aceitam equity sem perceber o que assinaram, o que vale e quando (se alguma vez) conseguem dinheiro.
 
@@ -7253,24 +7253,24 @@ Resultado: candidatos aceitam equity sem perceber o que assinaram, o que vale e 
 
 **Cliff:** Período mínimo que tens de ficar na empresa antes de qualquer equity "vencer" (fazer vest). Típico: 1 ano. Se saíres antes do cliff, perdes tudo.
 
-**Vesting:** O processo gradual de ganhar a tua equity ao longo do tempo. Schedule típico: 4 anos com cliff de 1 ano.
+**Vesting:** O processo gradual de ganhar a sua equity ao longo do tempo. Schedule típico: 4 anos com cliff de 1 ano.
 - Ao completar 1 ano: 25% vesta
 - Depois: ~2,1% por mês durante os 3 anos restantes
 
 **Strike price (preço de exercício):** O preço que pagas para comprar as acções quando exerces as opções. Deve ser o valor justo de mercado (FMV) na data de concessão.
 
-**Valuation:** O valor total estimado da empresa. Divide a empresa em partes (shares) — quanto mais baixo o valuation na tua concessão, mais potencial de valorização.
+**Valuation:** O valor total estimado da empresa. Divide a empresa em partes (shares) — quanto mais baixo o valuation na sua concessão, mais potencial de valorização.
 
-**Dilution (diluição):** Cada nova ronda de investimento cria novas acções, diluindo as tuas. É normal mas tens de saber quanto.
+**Dilution (diluição):** Cada nova ronda de investimento cria novas acções, diluindo as suas. É normal mas tens de saber quanto.
 
-**Liquidation preference:** Investidores têm prioridade no pagamento em caso de venda. Podes ter equity "no papel" que na prática vale zero se a empresa for vendida por valor inferior ao que investidores colocaram.
+**Liquidation preference:** Investidores têm prioridade no pagamento em caso de venda. Pode ter equity "no papel" que na prática vale zero se a empresa for vendida por valor inferior ao que investidores colocaram.
 
 ## As perguntas certas a fazer
 
 Antes de aceitar uma oferta com equity relevante:
 
 1. **Quantas shares me estão a oferecer?** (Número absoluto)
-2. **Qual é o total de shares em circulação?** (Para calcular a tua percentagem)
+2. **Qual é o total de shares em circulação?** (Para calcular a sua percentagem)
 3. **Qual é o strike price?** (Preço que pagas para comprar)
 4. **Qual é o valuation actual da empresa?**
 5. **Qual é o schedule de vesting e cliff?**
@@ -7284,7 +7284,7 @@ Antes de aceitar uma oferta com equity relevante:
 - A empresa está em estágio early (seed/Series A) com produto validado
 - Tens confiança no produto, equipa de gestão e mercado
 - A empresa tem caminho claro para liquidez (IPO, M&A) em 5-7 anos
-- A tua percentagem é significativa (> 0,1% para cargos executivos, > 0,01% para sénior ICs)
+- A sua percentagem é significativa (> 0,1% para cargos executivos, > 0,01% para sênior ICs)
 
 **Não dês muito peso à equity quando:**
 - A empresa já está em estágio avançado (Series D+) com valuation elevado
@@ -7300,7 +7300,7 @@ Antes de aceitar uma oferta com equity relevante:
 
 ## A questão mais difícil
 
-Depois de negociar o máximo possível, a empresa não consegue chegar ao teu piso. O que fazer?
+Depois de negociar o máximo possível, a empresa não consegue chegar ao seu piso. O que fazer?
 
 A resposta não é sempre "recusa". Há situações em que aceitar faz sentido estratégico.
 
@@ -7357,16 +7357,16 @@ Para cargos de tecnologia, um portfólio sólido pode:
 - Compensar a ausência de diploma formal
 - Substituir anos de experiência em empresa
 - Abrir processo selectivo que o CV sozinho não abriria
-- Eliminar rounds técnicos em algumas empresas (o entrevistador já viu o teu código)
+- Eliminar rounds técnicos em algumas empresas (o entrevistador já viu o seu código)
 
 ## O que os recrutadores e tech leads procuram
 
 ### O recrutador (não técnico) procura:
-- Sinal de que és activo e comprometido com a área
+- Sinal de que és ativo e comprometido com a área
 - Projetos com nomes e descrições claros
 - Evidência de trabalho real, não apenas tutoriais
 
-### O tech lead / engenheiro sénior procura:
+### O tech lead / engenheiro sênior procura:
 - Qualidade do código (legibilidade, estrutura, padrões)
 - Documentação (README claro, comentários quando necessário)
 - Historial de commits (frequência e qualidade das mensagens)
@@ -7376,7 +7376,7 @@ Para cargos de tecnologia, um portfólio sólido pode:
 ## Os três tipos de portfólio técnico
 
 ### 1. GitHub profile
-O standard de facto. Todos os cargos de tecnologia esperam que tenhas um perfil activo.
+O standard de facto. Todos os cargos de tecnologia esperam que tenhas um perfil ativo.
 
 ### 2. Site/portfólio pessoal
 Para devs front-end, designers e full-stack: um site que mostra os projetos em funcionamento, com descrições e links para o código.
@@ -7388,7 +7388,7 @@ O mais valorizado por tech leads: mostra que sabes trabalhar com código de terc
 
 Para cargos júnior: **o portfólio frequentemente pesa mais do que o diploma**.
 
-Para cargos pleno/sénior: **o portfólio confirma o que o CV afirma** e diferencia entre candidatos com CVs similares.
+Para cargos pleno/sênior: **o portfólio confirma o que o CV afirma** e diferencia entre candidatos com CVs similares.
 
 Para liderança técnica: contribuições open source e escrita técnica (artigos, talks) pesam mais do que projetos pessoais.`,
       },
@@ -7403,7 +7403,7 @@ Para liderança técnica: contribuições open source e escrita técnica (artigo
 O primeiro impacto é visual. Um perfil mal configurado perde pontos antes de alguém ler uma linha de código.
 
 ### README do perfil
-O GitHub permite um README especial no teu perfil (repositório com o mesmo nome do teu username). Inclui:
+O GitHub permite um README especial no seu perfil (repositório com o mesmo nome do seu username). Inclui:
 
 \`\`\`markdown
 ## Olá, sou [Nome] 👋
@@ -7421,16 +7421,16 @@ O GitHub permite um README especial no teu perfil (repositório com o mesmo nome
 ### Contribution graph (o gráfico verde)
 O gráfico de contribuições é a primeira coisa que tech leads notam. Um gráfico vazio não é neutral — é sinal negativo.
 
-**Como ter um gráfico activo mesmo sem projetos públicos:**
-- Faz commits nos teus repos privados (contam)
+**Como ter um gráfico ativo mesmo sem projetos públicos:**
+- Faça commits nos seus repos privados (contam)
 - Contribui regularmente — melhor 10 min/dia do que 4h no fim de semana
 - Abre issues e PRs em repos de outros (contribuições open source)
 
 ### Pinned repositories
-Escolhe 4-6 repos para destacar. Critérios:
+Escolha 4-6 repos para destacar. Critérios:
 - Projetos completos (não em construção)
 - Variedade de tecnologias (se aplicável)
-- Os que melhor representam o teu nível actual
+- Os que melhor representam o seu nível actual
 
 ## Estrutura de um bom repositório
 
@@ -7473,9 +7473,9 @@ Do menos ao mais valioso (para um recrutador técnico):
 1. **Tutorial seguido sem adaptação** — quase sem valor
 2. **Tutorial com modificações** — pouco valor
 3. **Projeto pessoal do zero** — valor médio/bom
-4. **Projecto que resolve um problema real (teu ou de outros)** — muito valor
+4. **Projecto que resolve um problema real (seu ou de outros)** — muito valor
 5. **Contribuição open source aceite** — alto valor
-6. **Projecto com utilizadores reais** — muito alto valor
+6. **Projecto com usuários reais** — muito alto valor
 
 ## A regra de ouro do portfólio
 
@@ -7493,7 +7493,7 @@ Do menos ao mais valioso (para um recrutador técnico):
 **Back-end:**
 - API de processamento de pagamentos com Stripe (sandbox)
 - Sistema de notificações em tempo real com WebSockets
-- CLI tool que resolva um problema específico do teu dia-a-dia
+- CLI tool que resolva um problema específico do seu dia-a-dia
 
 **Front-end:**
 - Dashboard de visualização de dados (com API pública: clima, finanças, GitHub API)
@@ -7509,21 +7509,21 @@ Do menos ao mais valioso (para um recrutador técnico):
 - Pipeline de dados com transformação, validação e alertas
 - App com testes de integração e E2E (Cypress, Playwright)
 
-### Sénior
+### Sênior
 
 **O diferencial é liderança técnica e impacto escalonável.**
 
 - Open source library com documentação completa e testes
 - Infra como código (Terraform, Pulumi) para um stack real
-- Contribuição significativa para projecto com +1000 stars no GitHub
+- Contribuição significativa para projeto com +1000 stars no GitHub
 
 ## Como transformar projetos do trabalho em portfólio
 
-Se o teu melhor trabalho é código proprietário que não podes partilhar:
+Se o seu melhor trabalho é código proprietário que não pode compartilhar:
 
 1. Cria uma **versão simplificada** do mesmo problema sem dados da empresa
-2. Escreve um **artigo técnico** sobre o problema e a solução (sem revelar IP)
-3. Extrai um **componente genérico** que resolves e que podes open-sourcear
+2. Escreva um **artigo técnico** sobre o problema e a solução (sem revelar IP)
+3. Extraia um **componente genérico** que resolves e que pode open-sourcear
 
 Sempre pede permissão ao empregador antes de publicar qualquer coisa relacionada com código corporativo.`,
       },
@@ -7588,7 +7588,7 @@ Discussão prévia com os maintainers é essencial. Abre uma issue com a propost
 
 > *"Contribuí para [projeto] com [X] — corrigi um bug que causava [problema] e adicionei teste de regressão. O PR foi aceite após code review com o maintainer principal."*
 
-Se o PR teve impacto mensurável (o projecto tem X stars, Y utilizadores), menciona.`,
+Se o PR teve impacto mensurável (o projeto tem X stars, Y usuários), menciona.`,
       },
       {
         id: '26-5',
@@ -7612,12 +7612,12 @@ Se o PR teve impacto mensurável (o projecto tem X stars, Y utilizadores), menci
 ### Secções obrigatórias
 
 **Hero / Apresentação:**
-- Nome e título (o que fazes, não o teu cargo actual)
+- Nome e título (o que fazes, não o seu cargo actual)
 - 2-3 frases que comunicam valor, não experiência
 - Call to action claro (ver projetos / falar comigo / ver CV)
 
 **Projetos:**
-- 3-5 projetos (menos é mais — escolhe os melhores)
+- 3-5 projetos (menos é mais — escolha os melhores)
 - Para cada: screenshot/demo, descrição do problema resolvido, tecnologias, link para demo e código
 
 **Sobre:**
@@ -7625,7 +7625,7 @@ Se o PR teve impacto mensurável (o projecto tem X stars, Y utilizadores), menci
 - O que te apaixona tecnicamente
 - O que procuras profissionalmente
 
-**Contacto:**
+**Contato:**
 - Email, LinkedIn, GitHub — simples e fácil de encontrar
 
 ### Secções opcionais (mas que diferenciam)
@@ -7655,6 +7655,3673 @@ Se o PR teve impacto mensurável (o projecto tem X stars, Y utilizadores), menci
 **Para quem não quer código:** Framer, Notion + Super.so
 
 O conteúdo importa mais do que a stack — não pases semanas a optimizar o site quando podias estar a construir projectos.`,
+      },
+    ],
+  },
+  {
+    id: 27,
+    title: 'IA na Busca de Emprego: Prompts que Funcionam',
+    desc: 'Use ChatGPT e Claude para escrever CVs, cartas, preparar entrevistas e pesquisar empresas em fração do tempo. Inclui prompts prontos para copiar.',
+    duration: '2h 30min',
+    icon: '🤖',
+    isPro: true,
+    color: { bg: 'bg-violet-50', border: 'border-violet-200', badge: 'bg-violet-100 text-violet-700', icon: 'bg-violet-500' },
+    lessons: [
+      {
+        id: '27-1',
+        title: 'Por que usar IA na busca de emprego (e o que ela não substitui)',
+        duration: '20 min',
+        content: `# Por que usar IA na busca de emprego
+
+## A vantagem competitiva que poucos estão a usar
+
+Em 2025, a maioria dos candidatos ainda passa horas a escrever cada carta de motivação do zero, a tentar lembrar as palavras-chave certas e a imaginar o que o recrutador quer ouvir.
+
+A IA não elimina esse trabalho — mas reduz o tempo de horas para minutos, e melhora a qualidade quando usada corretamente.
+
+**O que a IA faz muito bem:**
+- Primeiro rascunho de CVs e cartas de motivação
+- Adaptar um documento para cada vaga em segundos
+- Simular perguntas de entrevista e dar feedback
+- Pesquisar empresas e identificar ângulos de abordagem
+- Reescrever bullets fracos com linguagem mais impactante
+- Traduzir experiências em linguagem que o setor usa
+
+**O que a IA não substitui:**
+- Suas realizações reais (ela não as inventa — você precisa fornecê-las)
+- Sua autenticidade em entrevistas
+- Julgamento sobre cultura e fit
+- Relações humanas e networking genuíno
+
+## Ferramentas recomendadas
+
+| Ferramenta | Melhor para | Plano gratuito? |
+|---|---|---|
+| **ChatGPT** (GPT-4o) | Geração de texto, brainstorming | Sim (limitado) |
+| **Claude** (Anthropic) | Textos longos, análise de CVs | Sim |
+| **Gemini** (Google) | Integrado com Gmail/Docs | Sim |
+| **Copilot** (Microsoft) | Integrado com Word/LinkedIn | Sim |
+
+> Para a maioria dos casos, o ChatGPT gratuito ou Claude gratuito é suficiente.
+
+## Como pensar sobre prompts
+
+Um bom prompt tem 4 elementos:
+
+1. **Papel** — diz à IA quem ela é: "Você é um recrutador sênior..."
+2. **Contexto** — fornece informação: "Esta é a descrição da vaga..."
+3. **Tarefa** — instrução clara: "Escreva um parágrafo de abertura..."
+4. **Restrições** — formato e limites: "em até 3 linhas, tom profissional mas não formal"
+
+A qualidade do output depende 80% da qualidade do input. Prompt fraco = resultado fraco.`,
+      },
+      {
+        id: '27-2',
+        title: 'Prompts para criar e otimizar CVs com IA',
+        duration: '35 min',
+        content: `# Prompts para criar e otimizar CVs com IA
+
+## Prompt 1: Otimizar um bullet de experiência
+
+\`\`\`
+Você é um especialista em CVs para mercado tech/corporativo.
+Reescreva este bullet de experiência para ser mais impactante,
+usando um verbo de ação forte e incluindo resultado quantificado se possível.
+Tom: profissional, direto, orientado a resultados.
+Máximo: 2 linhas.
+
+Bullet original: [cole seu bullet aqui]
+\`\`\`
+
+**Exemplo de uso:**
+- Original: "Trabalhei com equipe de vendas para melhorar processo"
+- IA gera: "Redesenhei o funil de vendas em parceria com time comercial, reduzindo o ciclo de venda de 45 para 28 dias e aumentando a taxa de conversão em 22%"
+
+---
+
+## Prompt 2: Adaptar CV para uma vaga específica
+
+\`\`\`
+Você é um especialista em recrutamento e ATS.
+Vou te dar a descrição de uma vaga e meu CV atual.
+Sua tarefa:
+1. Identifique as 10 palavras-chave mais importantes da vaga
+2. Mostre quais dessas palavras já estão no meu CV
+3. Sugira como incorporar as que faltam, com exemplos concretos
+4. Proponha uma versão melhorada do resumo profissional
+   alinhada com esta vaga específica (máximo 4 linhas)
+
+VAGA: [cole a descrição da vaga]
+
+MEU CV: [cole o texto do seu CV]
+\`\`\`
+
+---
+
+## Prompt 3: Gerar bullets de experiência a partir do zero
+
+\`\`\`
+Você é especialista em escrever CVs de alto impacto.
+Com base nas informações abaixo, gere 5 bullets de experiência
+profissional no formato: Verbo de ação + O que fez + Resultado quantificado.
+
+Cargo: [seu cargo]
+Empresa: [tipo de empresa]
+O que fiz: [descreva em linguagem natural o que você fazia]
+Resultados que obtive: [descreva resultados, mesmo aproximados]
+
+Formato: bullets curtos, máximo 2 linhas cada, iniciando com verbo no passado.
+\`\`\`
+
+---
+
+## Prompt 4: Analisar pontos fracos do seu CV
+
+\`\`\`
+Você é um recrutador sênior com 10 anos de experiência.
+Analise este CV com olho crítico e me diga:
+1. Os 3 pontos mais fracos que me impediriam de ser chamado
+2. O que está faltando que os melhores CVs da minha área têm
+3. Sugestões concretas para corrigir cada ponto fraco
+
+MEU CV: [cole o texto]
+VAGA-ALVO: [descreva o tipo de vaga que procura]
+\`\`\`
+
+## Dica importante: itere, não aceite o primeiro output
+
+A IA raramente acerta de primeira. O fluxo correto:
+1. Gera o primeiro rascunho com o prompt
+2. Avalia o que está bom e o que está genérico
+3. Pede refinamento: "Torna a segunda frase mais específica" ou "Substitui o verbo X por algo mais dinâmico"
+4. Incorpora sua voz e ajusta detalhes que só você conhece`,
+      },
+      {
+        id: '27-3',
+        title: 'Prompts para cartas de motivação que se destacam',
+        duration: '30 min',
+        content: `# Prompts para cartas de motivação que se destacam
+
+## O problema das cartas geradas por IA sem personalização
+
+Recrutadores já reconhecem cartas escritas 100% por IA: são formais demais, genéricas e sem personalidade. A solução é usar IA como co-escritora, não como ghostwriter completa.
+
+**Regra de ouro:** Você fornece os fatos, a IA fornece a estrutura e o polish.
+
+---
+
+## Prompt 1: Carta de motivação completa
+
+\`\`\`
+Você é especialista em cartas de motivação para mercado lusófono
+(Brasil e Portugal).
+
+Escreva uma carta de motivação com estas características:
+- Tom: profissional mas humano (não robótico)
+- Estrutura: gancho inicial impactante → proposta de valor →
+  prova concreta → fit com a empresa → call to action
+- Máximo 300 palavras
+
+INFORMAÇÕES:
+- Meu nome: [nome]
+- Cargo que busco: [cargo]
+- Empresa: [empresa]
+- Por que esta empresa me interessa: [sua razão genuína]
+- Minha maior conquista relevante para esta vaga: [conquista com número]
+- Habilidade que mais me diferencia: [habilidade]
+- Descrição da vaga: [cole ou descreva]
+\`\`\`
+
+---
+
+## Prompt 2: Melhorar uma carta existente
+
+\`\`\`
+Aqui está minha carta de motivação atual.
+Melhore-a seguindo estes critérios:
+1. O primeiro parágrafo deve ser um gancho — algo que faça o recrutador
+   querer continuar a ler. Sem clichês como "venho por meio desta"
+2. Cada parágrafo deve ter uma ideia central clara
+3. Substitua adjetivos vagos ("dedicado", "comprometido")
+   por evidências concretas
+4. Encurte se necessário — máximo 280 palavras
+5. Mantenha meu tom e personalidade
+
+CARTA ATUAL: [cole sua carta]
+\`\`\`
+
+---
+
+## Prompt 3: Primeira linha de impacto (o mais difícil)
+
+\`\`\`
+Preciso de uma primeira frase memorável para minha carta de motivação.
+Não quero clichês. Quero algo que prenda a atenção imediatamente.
+
+Minha situação: [descreva em 2-3 linhas quem você é e o que quer]
+A empresa: [o que a empresa faz, o que te atrai]
+Tom desejado: [direto/criativo/formal-moderno]
+
+Gere 5 opções diferentes de primeira frase.
+\`\`\`
+
+---
+
+## O que nunca delegar à IA
+
+- A razão genuína de querer trabalhar naquela empresa específica
+- Suas histórias e realizações pessoais (invente e é detetável)
+- O tom final — sempre revise e humanize
+- Detalhes culturais e linguísticos específicos do mercado local`,
+      },
+      {
+        id: '27-4',
+        title: 'Preparar entrevistas com IA: role-play e feedback',
+        duration: '30 min',
+        content: `# Preparar entrevistas com IA: role-play e feedback
+
+## Por que treinar com IA funciona
+
+Preparar respostas mentalmente é muito diferente de dizê-las em voz alta. A IA permite praticar centenas de variações de perguntas, receber feedback imediato e treinar até a resposta soar natural.
+
+---
+
+## Prompt 1: Simulador de entrevista completo
+
+\`\`\`
+Você é um entrevistador sênior de [empresa / setor].
+Vou fazer uma entrevista para o cargo de [cargo].
+
+Faça 8 perguntas típicas desta entrevista, uma de cada vez.
+Após cada resposta minha:
+1. Avalie de 1-10 com justificativa
+2. Identifique o que ficou forte
+3. Aponte o que poderia ser melhorado
+4. Dê um exemplo de como poderia responder melhor
+
+Comece com a primeira pergunta.
+\`\`\`
+
+---
+
+## Prompt 2: Feedback na resposta STAR
+
+\`\`\`
+Analise esta resposta que darei para a pergunta
+"Conte sobre um desafio que você enfrentou e como resolveu":
+
+MINHA RESPOSTA: [cole sua resposta]
+
+Avalie:
+1. Está clara a Situação? (contexto)
+2. Está clara a Tarefa? (meu papel)
+3. As Ações são específicas e concretas?
+4. O Resultado é quantificado ou mensurável?
+5. Duração adequada? (ideal: 90-120 segundos falado)
+
+Reescreva a resposta com as melhorias necessárias.
+\`\`\`
+
+---
+
+## Prompt 3: Gerar perguntas difíceis por empresa
+
+\`\`\`
+Estou me preparando para entrevista na [empresa] para o cargo de [cargo].
+
+1. Liste as 10 perguntas mais prováveis nesta entrevista,
+   incluindo técnicas e comportamentais
+2. Inclua 3 perguntas-armadilha comuns neste tipo de processo
+3. Para cada pergunta-armadilha, explique o que o recrutador
+   está realmente avaliando e como responder corretamente
+\`\`\`
+
+---
+
+## Prompt 4: Preparar perguntas para fazer ao entrevistador
+
+\`\`\`
+Estou na fase final de entrevista com [empresa] para [cargo].
+O entrevistador é [cargo do entrevistador].
+
+Gere 8 perguntas inteligentes para eu fazer ao final da entrevista.
+Categorize em: cultura da empresa, crescimento na função,
+desafios da equipe e expectativas de performance.
+As perguntas devem mostrar que pesquisei a empresa e penso
+estrategicamente, não apenas que quero saber salário e benefícios.
+\`\`\``,
+      },
+      {
+        id: '27-5',
+        title: 'Pesquisa de empresas e negociação com ajuda da IA',
+        duration: '25 min',
+        content: `# Pesquisa de empresas e negociação com ajuda da IA
+
+## Antes de qualquer candidatura ou entrevista: pesquise a fundo
+
+Candidatos que pesquisam bem a empresa têm 3x mais chances de avançar nas fases. A IA acelera essa pesquisa de horas para minutos.
+
+---
+
+## Prompt 1: Análise rápida de empresa
+
+\`\`\`
+Faça uma análise da empresa [nome] para me preparar para uma entrevista.
+Inclua:
+1. O que a empresa faz e qual o seu modelo de negócio
+2. Quem são os principais concorrentes
+3. Notícias recentes relevantes (crescimento, produtos, desafios)
+4. Cultura e valores declarados
+5. 3 perguntas inteligentes que posso fazer na entrevista
+   com base nessas informações
+6. Como conectar minha experiência ao momento atual da empresa
+\`\`\`
+
+---
+
+## Prompt 2: Pesquisa salarial e ancoragem
+
+\`\`\`
+Estou me candidatando para [cargo] em [cidade/país]
+com [X anos] de experiência.
+
+Me ajude a pesquisar:
+1. Faixa salarial típica para este cargo neste mercado
+2. Fatores que justificam estar no topo da faixa
+3. Como calcular meu "número âncora" para negociação
+4. O que perguntar à empresa para entender o pacote total
+   (além do salário base)
+\`\`\`
+
+---
+
+## Prompt 3: Preparar argumentos de negociação
+
+\`\`\`
+Recebi uma proposta de [valor] para [cargo] em [empresa].
+Minha expectativa é [valor-alvo].
+
+Com base nas minhas realizações abaixo, me ajude a montar
+3 argumentos sólidos para justificar pedir [valor-alvo]:
+
+MINHAS REALIZAÇÕES:
+- [Realização 1]
+- [Realização 2]
+- [Realização 3]
+
+Os argumentos devem ser quantificados, específicos
+e difíceis de refutar.
+\`\`\`
+
+---
+
+## Uso ético e honesto da IA
+
+A IA é uma ferramenta de amplificação — ela amplifica o que você coloca nela. Se você fornecer realizações reais, ela escreve sobre elas melhor. Se inventar, ela amplifica mentiras.
+
+**Regras simples:**
+- Nunca inclua informações que não são suas
+- Sempre revise o output para confirmar que é verdadeiro
+- A entrevista vai verificar o que está no CV — prepare-se para justificar cada linha
+- Use IA para polir, não para inventar`,
+      },
+    ],
+  },
+  {
+    id: 28,
+    title: 'Sprint de 30 Dias: Do Zero ao Emprego',
+    desc: 'Um método estruturado e intensivo com metas diárias, prioridades claras e sistema de accountability. Para quem precisa se recolocar rápido e com resultado.',
+    duration: '3h 0min',
+    icon: '⚡',
+    isPro: true,
+    color: { bg: 'bg-amber-50', border: 'border-amber-200', badge: 'bg-amber-100 text-amber-700', icon: 'bg-amber-500' },
+    lessons: [
+      {
+        id: '28-1',
+        title: 'A mentalidade do sprint: urgência sem desespero',
+        duration: '25 min',
+        content: `# A mentalidade do sprint: urgência sem desespero
+
+## Por que a maioria das buscas de emprego falha
+
+A maioria das pessoas busca emprego de forma reativa e desorganizada:
+- Manda CV quando lembra
+- Aplica para tudo sem filtro
+- Espera sem seguimento (follow-up)
+- Alterna entre períodos intensos e semanas de inércia
+
+O resultado: meses de busca com poucos resultados, crescente ansiedade e decisões precipitadas por desespero.
+
+## A mentalidade do sprint muda isso
+
+Um sprint é um período de esforço máximo e focado, com duração definida e metas claras. No contexto da busca de emprego:
+
+- **30 dias** de execução disciplinada
+- **Metas diárias** concretas (não "mandar CVs")
+- **Sistema de rastreamento** para saber o que funciona
+- **Review semanal** para ajustar a estratégia
+
+## A diferença entre urgência e desespero
+
+| Urgência | Desespero |
+|---|---|
+| Candidata-se com foco em vagas certas | Candidata-se a tudo sem critério |
+| Personaliza cada candidatura | Envia o mesmo CV para 100 vagas |
+| Faz follow-up profissional | Envia e esquece (ou manda emails diários) |
+| Mantém padrões de qualidade | Aceita a primeira oferta, qualquer oferta |
+| Cuida do bem-estar | Trabalha 18h/dia e entra em colapso |
+
+## A regra da divisão de tempo
+
+No sprint de 30 dias, o tempo se divide em:
+
+**40% — Candidaturas (aplicar e personalizar)**
+**30% — Networking (construir e ativar relações)**
+**20% — Preparação (CV, perfil, prática de entrevista)**
+**10% — Aprendizagem e ajuste (o que está funcionando?)**
+
+## Preparar o ambiente do sprint
+
+Antes de começar os 30 dias:
+1. **Bloqueie tempo diário** — 3-4h mínimas, idealmente de manhã
+2. **Crie o seu CRM** — use o Rastreador de Candidaturas do JobJump
+3. **Defina o seu alvo** — cargo, setor, faixa salarial, geografia
+4. **Documente as suas métricas iniciais** — CV pronto? LinkedIn atualizado? Pitch definido?
+5. **Informe as pessoas próximas** — o apoio social aumenta a consistência`,
+      },
+      {
+        id: '28-2',
+        title: 'Semana 1: Preparar todas as armas antes de disparar',
+        duration: '40 min',
+        content: `# Semana 1: Preparar todas as armas antes de disparar
+
+## O erro mais comum: candidatar-se antes de estar pronto
+
+A maioria das pessoas começa a mandar CVs no primeiro dia de busca. É um erro. Candidatar-se com CV fraco, LinkedIn desatualizado e pitch mal definido é desperdiçar oportunidades que não voltam.
+
+A Semana 1 é a mais trabalhosa do sprint — mas define os resultados das semanas seguintes.
+
+---
+
+## Dia 1 — Diagnóstico e definição de alvo (2-3h)
+
+**Tarefas:**
+- [ ] Escreva em 3 linhas exatamente que cargo você quer, em que tipo de empresa e com que faixa salarial
+- [ ] Liste 20 empresas em que você quer trabalhar (mesmo sem vagas abertas)
+- [ ] Identifique 5 vagas existentes para calibrar o mercado
+- [ ] Analise os requisitos comuns nessas vagas
+
+**Output esperado:** Alvo claro + lista de empresas + gap entre seu perfil atual e o desejado
+
+---
+
+## Dia 2 — CV otimizado (3-4h)
+
+**Tarefas:**
+- [ ] Use a ferramenta ATS do JobJump para analisar seu CV atual
+- [ ] Reescreva bullets fracos com o Gerador de Bullets de CV
+- [ ] Verifique: cada experiência tem pelo menos 1 resultado quantificado?
+- [ ] CV em formato de texto limpo (testável em ATS)
+- [ ] Peça feedback a uma pessoa da sua área
+
+**Métricas:** Score do CV Analyzer acima de 70 antes de avançar
+
+---
+
+## Dia 3 — LinkedIn completo (2-3h)
+
+**Tarefas:**
+- [ ] Foto profissional atualizada
+- [ ] Headline otimizada com o Gerador de Headline do JobJump
+- [ ] Seção "Sobre" completa (mínimo 200 palavras)
+- [ ] Todas as experiências preenchidas com bullets do CV
+- [ ] Open to Work ativado (modo "apenas recrutadores" ou público)
+- [ ] Skills atualizadas com as da sua área
+
+---
+
+## Dia 4 — Pitch pessoal treinado (1-2h)
+
+**Tarefas:**
+- [ ] Use o Gerador de Elevator Pitch do JobJump
+- [ ] Pratique em voz alta as 3 versões
+- [ ] Grave 1 minuto de video de si mesmo respondendo "fale sobre você"
+- [ ] Assista e ajuste o que soou artificial
+
+---
+
+## Dias 5-7 — Primeira rodada de candidaturas (4-6h)
+
+**Tarefas:**
+- [ ] Aplique para 8-12 vagas altamente compatíveis (não quantidade — qualidade)
+- [ ] Para cada candidatura: personalize o primeiro parágrafo da carta
+- [ ] Registre tudo no Rastreador de Candidaturas
+- [ ] Identifique 3 pessoas no LinkedIn que trabalham nas empresas-alvo
+
+**Regra:** Máximo de 2-3 candidaturas por dia. Cada uma bem feita supera 10 genéricas.`,
+      },
+      {
+        id: '28-3',
+        title: 'Semanas 2-3: Volume com qualidade e networking ativo',
+        duration: '35 min',
+        content: `# Semanas 2-3: Volume com qualidade e networking ativo
+
+## A fase de execução: construir pipeline
+
+Nas Semanas 2 e 3, você já tem as armas preparadas. O objetivo agora é:
+1. Manter um volume constante de candidaturas personalizadas
+2. Ativar ativamente a rede de contatos
+3. Acompanhar os processos já iniciados (follow-up)
+4. Ajustar o que não está funcionando
+
+---
+
+## Rotina diária nas Semanas 2-3
+
+### Manhã (1-1,5h): Candidaturas novas
+- Pesquise 3-5 vagas novas relevantes
+- Candidate-se a 2-3 com personalização real
+- Registre no Rastreador
+
+### Tarde (1h): Networking
+- Envie 3-5 mensagens personalizadas no LinkedIn (não genéricas!)
+- Responda mensagens recebidas
+- Comente de forma relevante em posts do setor
+
+### Semanal (2h): Revisão e ajuste
+- Qual a taxa de resposta das candidaturas?
+- Quais tipos de vagas estão gerando mais retorno?
+- O que precisa mudar na estratégia?
+
+---
+
+## As mensagens de networking que funcionam
+
+**❌ O que não funciona:**
+"Olá, estou em busca de emprego. Você conhece alguma vaga?"
+
+**✅ O que funciona:**
+"Olá [Nome], vi que trabalhaste na [empresa] como [cargo]. Estou a pesquisar muito sobre [setor/empresa] e tive uma dúvida específica: [pergunta genuína e curta]. Seria possível trocar 15 minutos?"
+
+---
+
+## Meta semanal mínima para o sprint
+
+| Atividade | Meta semanal |
+|---|---|
+| Candidaturas enviadas | 10-15 vagas |
+| Follow-ups enviados | Todos os processos >5 dias sem resposta |
+| Novas conexões LinkedIn | 15-20 pessoas |
+| Conversas de networking | 2-3 calls/reuniões |
+| Entrevistas obtidas | 1-2 (cresce ao longo do sprint) |
+
+---
+
+## Como fazer follow-up sem parecer desesperado
+
+**5 dias após candidatura:**
+"Olá [Nome], enviei candidatura para [cargo] em [data] e queria confirmar o recebimento. Estou muito animado com a possibilidade e fico à disposição para qualquer informação adicional."
+
+**10 dias após entrevista:**
+"Olá [Nome], foi ótimo conversar sobre a posição de [cargo]. Continuo muito interessado e queria saber se há alguma atualização sobre o processo. Posso ajudar com qualquer informação adicional?"
+
+---
+
+## O mercado oculto: vagas que nunca são publicadas
+
+Estima-se que 70-80% das vagas são preenchidas antes de serem publicadas. Para acessar esse mercado:
+
+1. **Candidaturas espontâneas:** Manda CV direto para o gestor da área (não RH) com contexto claro
+2. **Referências internas:** Alguém na empresa pode indicar você — pesa muito
+3. **LinkedIn proativo:** Recrutadores buscam perfis ativamente — estar bem posicionado é fundamental
+4. **Eventos do setor:** Meetups, conferências e eventos online criam conexões genuínas`,
+      },
+      {
+        id: '28-4',
+        title: 'Semana 4: Entrevistas, negociação e decisão',
+        duration: '35 min',
+        content: `# Semana 4: Entrevistas, negociação e decisão
+
+## A fase de colheita
+
+Se as Semanas 1-3 foram executadas bem, a Semana 4 deve trazer:
+- 3-6 processos seletivos em andamento
+- 1-3 entrevistas marcadas ou confirmadas
+- Pelo menos 1 proposta em negociação (idealmente mais)
+
+---
+
+## Antes de cada entrevista: o ritual de 1h
+
+**45 minutos antes:**
+- [ ] Revise a descrição da vaga e suas anotações sobre a empresa
+- [ ] Prepare 3 histórias STAR relevantes para os requisitos
+- [ ] Liste 5 perguntas inteligentes para fazer ao entrevistador
+- [ ] Confirme logística (link da call, endereço, contacto do recrutador)
+
+**15 minutos antes:**
+- [ ] Abra o local/link com antecedência
+- [ ] Água próxima, ambiente silencioso
+- [ ] Relembre as 3 primeiras frases do seu pitch pessoal
+
+---
+
+## Durante a entrevista: os 5 momentos-chave
+
+**1. Os primeiros 60 segundos** — impressão e energia
+**2. A pergunta "fale sobre você"** — use o pitch de 60s que praticou
+**3. Perguntas comportamentais** — use STAR, seja específico
+**4. Perguntas sobre motivação** — mostre pesquisa genuína sobre a empresa
+**5. Suas perguntas ao final** — use as 5 que preparou; nunca diga "não tenho perguntas"
+
+---
+
+## Negociação: o momento de não deixar dinheiro na mesa
+
+Regras para a Semana 4:
+
+1. **Nunca aceite na hora** — peça sempre "um dia para analisar"
+2. **Negocie sempre** — mesmo que pareça justo, o primeiro número raramente é o máximo
+3. **Use o Script de Negociação do JobJump** como base de preparação
+4. **Pense no pacote total** — salário base + bônus + benefícios + flexibilidade + progressão
+
+**A pergunta mágica antes de decidir:**
+"Qual seria o salário típico para alguém com meu perfil e experiência nesta função?"
+
+Isso transfere o ônus de ancoragem para eles.
+
+---
+
+## Gerenciar múltiplas propostas
+
+Se recebeu mais de uma oferta (objetivo do sprint), use o Comparador de Ofertas do JobJump para comparar lado a lado.
+
+Fatores além do salário:
+- Oportunidade de aprendizagem e crescimento
+- Qualidade da gestão direta
+- Cultura e fit com seus valores
+- Estabilidade da empresa
+- Localização / flexibilidade remota
+- Benefícios de saúde, formação e previdência`,
+      },
+      {
+        id: '28-5',
+        title: 'Quando o sprint acaba: o que fazer se ainda não conseguiu',
+        duration: '25 min',
+        content: `# Quando o sprint acaba: o que fazer se ainda não conseguiu
+
+## Normalizar o processo sem normalizar a inércia
+
+Um sprint de 30 dias executado corretamente quase sempre gera progresso mensurável — mas não necessariamente uma oferta de emprego. O mercado tem variáveis que você não controla: timing, concorrência, orçamento de contratação.
+
+**O que 30 dias bem executados devem gerar:**
+- 30-50 candidaturas personalizadas enviadas
+- 5-15 processos seletivos iniciados
+- 3-8 entrevistas realizadas
+- Uma rede de contatos 30-50% mais ativa
+- Clareza sobre o que funciona e o que não funciona para o seu perfil
+
+Se esses números não foram atingidos, o problema não é o mercado — é a execução. Reveja com honestidade.
+
+---
+
+## O diagnóstico pós-sprint
+
+Responda a estas perguntas:
+
+**Se a taxa de resposta ao CV está abaixo de 10%:**
+- O alvo está bem definido? Está aplicando em vagas para as quais é realmente qualificado?
+- O CV está otimizado para ATS? Use o Analisador de CV do JobJump
+- Está personalizando a candidatura para cada vaga?
+
+**Se está chegando a entrevistas mas não avançando:**
+- O pitch está claro e convincente?
+- Está usando método STAR nas respostas?
+- Está pesquisando a empresa antes de cada entrevista?
+- Peça feedback ao recrutador após cada rejeição
+
+**Se não está conseguindo nenhuma entrevista:**
+- O networking está ativo? (Este canal gera 70-80% dos empregos)
+- Está se candidatando a vagas onde tem 70%+ dos requisitos?
+- O LinkedIn está completo e atualizado?
+
+---
+
+## O sprint 2: ajustar e relançar
+
+Se necessário, faça um segundo sprint com ajustes baseados no diagnóstico:
+
+**Pivô 1: Ampliar o alvo** — se o segmento está muito competitivo, adicione setores adjacentes
+
+**Pivô 2: Mudança de abordagem** — se candidaturas não geram retorno, invista 70% do tempo em networking direto
+
+**Pivô 3: Revisão de posicionamento** — se os feedbacks apontam qualificação insuficiente, priorize projetos ou certificações de curto prazo
+
+---
+
+## Cuidar de si mesmo durante o processo
+
+A busca de emprego é emocionalmente desgastante. Não é fraqueza reconhecer isso.
+
+**Práticas que ajudam:**
+- **Desconecte nos fins de semana** — o acesso constante aumenta ansiedade sem aumentar resultados
+- **Comemore marcos parciais** — primeira entrevista, primeiro feedback, primeira proposta
+- **Mantenha rotina de exercícios e sono** — a clareza mental afeta diretamente a qualidade das entrevistas
+- **Fale sobre o processo** — vergonha isola; comunidade e rede de apoio aceleram
+
+> **Lembre:** Cada rejeição é informação, não sentença. Os candidatos que conseguem emprego mais rápido não são os mais talentosos — são os mais consistentes.`,
+      },
+    ],
+  },
+  {
+    id: 29,
+    title: 'Carreira Após os 40: Como Sêniors Se Reposicionam',
+    desc: 'Estratégias específicas para profissionais com 15+ anos de experiência que buscam recolocação ou transição — sem cair nas armadilhas do etarismo.',
+    duration: '3h 20min',
+    icon: '🧭',
+    isPro: true,
+    color: { bg: 'bg-amber-50', border: 'border-amber-200', badge: 'bg-amber-100 text-amber-700', icon: 'bg-amber-500' },
+    lessons: [
+      {
+        id: '29-1',
+        title: 'O mercado não te exclui — mas você pode se excluir',
+        duration: '35 min',
+        content: `# O mercado não te exclui — mas você pode se excluir
+
+## A realidade do etarismo no Brasil
+
+Etarismo existe. Não vamos fingir que não. Pesquisas mostram que candidatos acima de 45 anos levam, em média, **3x mais tempo** para se recolocar do que candidatos mais jovens para a mesma função.
+
+Mas há um dado que a maioria ignora: **a maioria das dificuldades de profissionais sêniors não vem do mercado — vem de como eles se apresentam ao mercado.**
+
+## As três armadilhas que você precisa evitar
+
+### Armadilha 1: O CV museu
+O CV que lista 25 anos de experiência cronologicamente, começando de 1999, com cargos que não existem mais, em empresas que fecharam, usando ferramentas que já não são relevantes.
+
+**O que fazer:** Seu CV deve ter no máximo 2 páginas. Foque nos últimos 10-12 anos. O que veio antes, a menos que seja extraordinário, fica fora ou em menção mínima.
+
+### Armadilha 2: A mentalidade de "tenho muito para ensinar"
+Profissionais sêniors frequentemente entram em entrevistas com postura de autoridade — o que inconscientemente afasta os recrutadores (que muitas vezes são mais jovens e sentem hierarquia implícita).
+
+**O que fazer:** Entre com curiosidade, não com certeza. Você quer aprender sobre esse ambiente específico tanto quanto quer mostrar o que sabe.
+
+### Armadilha 3: Esconder a idade (e gerar desconfiança)
+Omitir o ano de formação, não colocar datas no CV, evitar qualquer referência temporal — gera desconfiança e, quando a idade aparece, parece que você tentou esconder algo.
+
+**O que fazer:** Seja direto. Sua experiência é um ativo — posicione assim.
+
+## O que o mercado realmente valoriza em profissionais sêniors
+
+- **Execução com autonomia**: você entrega sem precisar de mão na mão
+- **Network estabelecido**: você traz relacionamentos com clientes, parceiros e fornecedores
+- **Visão de negócio**: você entende como as decisões impactam o todo
+- **Estabilidade e comprometimento**: você não vai sumir depois de 6 meses
+- **Capacidade de desenvolver mais jovens**: você multiplica o time
+
+## A pergunta que você precisa responder
+
+Antes de qualquer entrevista, responda: **"Por que EU, especificamente, sou a melhor escolha para ESTE cargo, NESTA empresa, NESTE momento?"**
+
+Não é sobre a sua trajetória. É sobre o que você resolve agora.`,
+      },
+      {
+        id: '29-2',
+        title: 'Como posicionar experiência como diferencial (não como peso)',
+        duration: '40 min',
+        content: `# Como posicionar experiência como diferencial (não como peso)
+
+## O problema da narrativa cronológica
+
+A maioria dos profissionais sêniors conta sua história assim: "Comecei em 1998 como trainee, depois fui analista, depois coordenador, depois gerente, depois diretor..."
+
+Esse modelo tem dois problemas:
+1. É chato e previsível
+2. Coloca ênfase no tempo (que pode ser lido como "velho") em vez de no valor
+
+## A narrativa de impacto
+
+Reescreva sua história como um portfólio de problemas resolvidos:
+
+**Fraco:** "Fui Diretor de Operações da empresa X por 8 anos."
+
+**Forte:** "Reestruturei as operações logísticas de uma empresa com R$1,2 bilhão de faturamento, reduzindo custo operacional em 22% e prazo de entrega em 40% — sem demissões."
+
+A estrutura: **Contexto (escala/complexidade) + Ação (o que você fez) + Resultado (número)**
+
+## Atualizando sua linguagem
+
+Muitos sêniors perdem pontos por usar linguagem antiga ou resistir a termos modernos:
+
+| Evite | Use |
+|-------|-----|
+| "Gestão de pessoal" | "Desenvolvimento e liderança de equipes" |
+| "Reuniões de diretoria" | "Apresentações para C-Level" |
+| "Informatizado" | "Digital / automatizado" |
+| "Fichário / pasta" | "Base de dados / sistema" |
+| "Fax / telex" | Omita. Simplesmente omita. |
+
+## Posicionando a senioridade para cada tipo de empresa
+
+**Startups em crescimento:** Querem você para estruturar o que ainda é caótico. Posicione: "Já passei por essa fase. Sei o que escala e o que quebra."
+
+**Empresas médias em transformação:** Querem maturidade e execução. Posicione: "Implementei mudanças similares. Posso reduzir o tempo de erro."
+
+**Grandes corporações:** Querem alguém que navegue política e complexidade. Posicione: "Operei em ambientes multi-stakeholder com aprovação em múltiplos níveis."
+
+## O princípio da relevância seletiva
+
+Você tem 20 anos de experiência. Não use tudo. Use o que é relevante para ESTA vaga.
+
+Regra prática: **Cada exemplo que você usa em entrevista deve responder a pergunta implícita "por que isso me faz a escolha certa para este cargo específico?"**
+
+Se não responde, não use.`,
+      },
+      {
+        id: '29-3',
+        title: 'Onde encontrar empresas que valorizam sêniors',
+        duration: '35 min',
+        content: `# Onde encontrar empresas que valorizam sêniors
+
+## O paradoxo da vaga publicada
+
+A maioria das vagas publicadas para sêniors é altamente competitiva e frequentemente já tem um candidato interno ou indicado antes de publicar. Isso é especialmente verdade para cargos de liderança.
+
+**Conclusão:** Vagas publicadas são o pior canal para profissionais sêniors. Networking é o melhor.
+
+## Tipos de empresa que buscam ativamente sêniors
+
+### 1. Empresas em momento de profissionalização
+Negócios familiares ou fundados por empreendedores que chegaram a um ponto onde precisam de gestores profissionais. Esses lugares não têm ego de quem contratar — querem resultado.
+
+**Onde encontrar:** Aceleradoras, consultorias de M&A, associações setoriais, eventos de PMEs.
+
+### 2. Empresas internacionais entrando no Brasil
+Precisam de alguém com mercado local, rede de contatos e que entenda a cultura. Você tem vantagem natural.
+
+**Onde encontrar:** AmCham, FACC (Câmara Franco-Brasileira), BRICS Business Council, publicações setoriais internacionais.
+
+### 3. Startups em Série B e C
+Já passaram da fase de caos inicial e precisam estruturar áreas. Procuram sêniors que "já viram esse filme antes."
+
+**Onde encontrar:** Abstartups, Distrito, LinkedIn filtrando por "Série B", grupos de investidores.
+
+### 4. Empresas de Private Equity e fundo de investimento
+Fundos que compraram empresas e precisam implementar gestão profissional rapidamente.
+
+**Onde encontrar:** ABVCAP, sites de PE como Patria, Vinci, Kinea, Advent.
+
+### 5. Consultorias e projetos por deliverable
+Cada vez mais empresas preferem contratar sêniors como consultores para projetos específicos — mais flexibilidade para ambos.
+
+**Onde encontrar:** Plataformas como Toptal, Expert360, consultorias boutique, sua própria rede.
+
+## A estratégia de conteúdo no LinkedIn
+
+Profissionais sêniors que publicam conteúdo de valor no LinkedIn são encontrados — não precisam buscar tanto.
+
+**O que publicar:**
+- Análises setoriais baseadas na sua experiência
+- Lições aprendidas em momentos difíceis (com foco no aprendizado, não na vitimização)
+- Tendências que você antecipou e que aconteceram
+- Perspectivas contra-intuitivas do seu setor
+
+**Frequência:** 1-2 posts por semana é suficiente. Consistência > volume.
+
+## Ativando sua rede de forma estratégica
+
+Sua maior vantagem é uma rede construída ao longo de décadas. Mas ela pode estar adormecida.
+
+**Sequência de ativação:**
+1. Liste 30 pessoas da sua rede que você não fala há mais de 6 meses
+2. Mande mensagem genuína (sem pedir nada) para 5 por semana
+3. Após reconectar, nas próximas semanas, compartilhe algo útil
+4. Só então, se relevante, mencione que está buscando oportunidades
+
+Você não pede favores — você ativa relacionamentos.`,
+      },
+      {
+        id: '29-4',
+        title: 'CV e LinkedIn para profissionais com 15+ anos de experiência',
+        duration: '40 min',
+        content: `# CV e LinkedIn para profissionais com 15+ anos de experiência
+
+## As regras mudam com a senioridade
+
+Tudo que se ensina sobre CV para iniciantes é errado para sêniors. Não coloque tudo. Não seja exaustivo. Seja seletivo e poderoso.
+
+## O CV do sênior: estrutura ideal
+
+### Cabeçalho
+- Nome (fonte legível, não precisa ser enorme)
+- Título profissional: específico e atual (não "Executivo com 20 anos de experiência")
+- Cidade, LinkedIn, email, telefone
+- **NÃO coloque foto** (no Brasil ainda existe preconceito visual consciente e inconsciente)
+- **NÃO coloque data de nascimento**
+
+### Sumário executivo (3-4 linhas)
+A seção mais importante para sêniors. Responde: quem você é, qual problema você resolve, qual é sua proposta de valor.
+
+**Exemplo fraco:** "Profissional com ampla experiência em gestão de operações e logística, com passagem por grandes empresas do setor."
+
+**Exemplo forte:** "Diretor de Operações com track record de reestruturação de supply chains em empresas com faturamento acima de R$500M. Especialista em redução de custo operacional e digitalização de processos — 3 projetos entregues com ROI médio de 280% em 18 meses."
+
+### Experiência (apenas os últimos 10-12 anos)
+Para cada cargo:
+- Empresa + cargo + período (ano de início e fim, sem o mês)
+- 3-5 bullets de realizações, não responsabilidades
+- Formato: Verbo de impacto + o que foi feito + resultado mensurável
+
+### O que fica FORA do CV de sênior
+- Cargos anteriores a 2010-2012 (salvo se extraordinários)
+- Ano de formação (se for antes de 2000, omita)
+- Habilidades básicas como "Pacote Office" (isso é insulto para um sênior)
+- Referências ou "disponível mediante solicitação"
+- Foto, estado civil, filhos, CPF
+
+## LinkedIn para sêniors: os pontos críticos
+
+### Foto profissional atual
+Uma foto de 10 anos atrás é pior do que nenhuma. Invista R$200-400 em um ensaio rápido ou use um fundo neutro em boa iluminação.
+
+### Título: não "Diretor" — o que você FAZ
+Ruim: "Diretor Comercial | Ex-Ambev | Ex-Unilever"
+Bom: "Aceleração Comercial B2B | Especialista em Vendas Complexas e Abertura de Mercados | 3 países, 8 setores"
+
+### A seção "Sobre": sua carta de vendas em 300 palavras
+Estrutura recomendada:
+1. Abertura impactante (resultado que você entregou ou problema que resolve)
+2. Sua proposta de valor específica
+3. 3-4 realizações em formato bullet com números
+4. Quem deve se conectar com você e para quê
+5. CTA: email ou "me mande mensagem"
+
+### Recomendações
+Para sêniors, 3-5 recomendações de ex-gestores, pares ou subordinados carregam muito peso. Peça especificamente para mencionarem resultados concretos que você entregou.`,
+      },
+      {
+        id: '29-5',
+        title: 'Negociando salário quando você tem mais experiência que o gestor',
+        duration: '30 min',
+        content: `# Negociando salário quando você tem mais experiência que o gestor
+
+## A dinâmica delicada da entrevista com gestores mais jovens
+
+É cada vez mais comum que profissionais sêniors sejam entrevistados por gestores mais jovens. Isso cria uma dinâmica delicada que, mal manejada, pode custar a vaga.
+
+**O que o gestor jovem teme:**
+- Que você não respeite a hierarquia
+- Que você seja difícil de gerenciar
+- Que você queira o cargo dele no futuro
+- Que você julgue suas decisões baseado em "antes era assim"
+
+**Como resolver isso na entrevista:**
+- Faça perguntas genuínas sobre como ele trabalha e o que valoriza
+- Demonstre que você quer aprender sobre ESTE ambiente específico
+- Nunca use a frase "na minha época" ou "antes se fazia assim"
+- Mostre que você entrega sem precisar de reconhecimento hierárquico
+
+## A questão salarial: como abordar
+
+Sêniors frequentemente enfrentam dois problemas opostos:
+
+**Problema A:** A empresa quer pagar menos do que você ganhava antes (porque seu histórico é "caro")
+**Problema B:** A empresa tem budget adequado mas você subestima o que pode pedir
+
+### Para o Problema A: Como negociar quando a empresa "não tem budget"
+
+1. **Não revele seu salário anterior** — isso sempre te posiciona mal (se for alto, "caro demais"; se for baixo, âncora baixa)
+2. Peça a faixa da posição primeiro: *"Para não perdermos tempo dos dois lados, você pode me dizer qual é a faixa prevista para esta posição?"*
+3. Se a faixa for abaixo: "Pesquisei e para este nível de responsabilidade o mercado está entre X e Y. Estou aberto à conversa, mas gostaria que chegássemos a uma proposta nessa faixa."
+4. Considere negociar além do salário: bônus por entrega, equity, flexibilidade, PLR, revisão em 6 meses
+
+### Para o Problema B: Como saber quanto você pode pedir
+
+Fontes para pesquisa:
+- Glassdoor e LinkedIn Salary (filtrar por cargo + empresa de porte similar)
+- Grupos de pares da sua área (WhatsApp, Slack de comunidades)
+- Conversar com headhunters — eles conhecem o mercado em tempo real
+- Pesquisas de remuneração de consultorias (Mercer, Hay, Korn Ferry — algumas têm versões gratuitas)
+
+### O script para sêniors
+
+*"Ao longo da minha carreira, aprendi que o alinhamento de expectativas logo no início evita frustrações. Posso compartilhar minha expectativa salarial, mas antes gostaria de entender melhor o escopo total da função e o que vocês esperam entregar nos primeiros 12 meses — isso vai me ajudar a ter uma proposta mais precisa."*
+
+Isso faz duas coisas: posiciona você como alguém que foca em entrega (não em salário) e atrasa a negociação para quando você tem mais informação.
+
+## Quando aceitar menos do que você quer
+
+Às vezes vale: quando a empresa é um salto estratégico de carreira, quando o aprendizado compensa, quando o ambiente é excepcional, ou quando você precisa de velocidade de recolocação.
+
+Mas aceite conscientemente — não por desespero disfarçado. E sempre com data de revisão acordada.`,
+      },
+    ],
+  },
+  {
+    id: 30,
+    title: 'Plano de Carreira de 5 Anos',
+    desc: 'Construa um roteiro concreto para os próximos 5 anos: onde você quer chegar, o que precisa desenvolver e como medir o progresso.',
+    duration: '2h 50min',
+    icon: '🗺️',
+    isPro: false,
+    color: { bg: 'bg-teal-50', border: 'border-teal-200', badge: 'bg-teal-100 text-teal-700', icon: 'bg-teal-500' },
+    lessons: [
+      {
+        id: '30-1',
+        title: 'Autoconhecimento: o que você quer de verdade?',
+        duration: '35 min',
+        content: `# Autoconhecimento: o que você quer de verdade?
+
+## O problema da carreira por default
+
+A maioria das pessoas não escolhe sua carreira — ela acontece. Uma oportunidade surge, você aceita porque precisa, a empresa gosta, você vai subindo, e um dia você olha para o espelho e percebe que está numa carreira que nunca escolheu conscientemente.
+
+Isso não é falha moral. É a realidade de como o mundo funciona. Mas pode ser diferente.
+
+## As quatro dimensões do que você quer
+
+Antes de definir "onde quero estar em 5 anos", você precisa responder a quatro perguntas:
+
+### 1. O que te dá energia?
+Não o que você é bom — o que te dá energia quando você está fazendo. Há uma diferença.
+
+Você pode ser excelente em analisar planilhas mas sair de reuniões de dados completamente esgotado. Isso é um sinal.
+
+**Exercício:** Nas últimas 4 semanas, quais atividades no trabalho você perdeu a noção do tempo fazendo? Quais te deixaram mais animado após terminar?
+
+### 2. O que você quer criar ou resolver?
+Carreira satisfatória tem relação com impacto percebido. Você quer:
+- Construir produtos que milhões usam?
+- Liderar equipes e ver pessoas crescerem?
+- Resolver problemas técnicos complexos?
+- Mudar sistemas ou políticas que afetam muitas pessoas?
+- Construir seu próprio negócio?
+- Ganhar bem e ter tempo para o que realmente importa fora do trabalho?
+
+Não há resposta certa. Mas você precisa saber a sua.
+
+### 3. Qual é o estilo de vida que você quer?
+A carreira é um meio, não um fim. Pergunte-se:
+- Quanto você quer trabalhar? (40h/semana? 60h? 25h?)
+- Onde você quer trabalhar? (Escritório, remoto, híbrido, no mundo?)
+- Com quem você quer trabalhar? (Pequenos times, grandes organizações, de forma independente?)
+- Qual é a sua tolerância a risco e instabilidade?
+
+### 4. Quanto você precisa e quanto você quer ganhar?
+Há o mínimo necessário para sua vida atual. E há o número que mudaria materialmente sua qualidade de vida. Saber os dois evita tanto a acomodação como a ganância sem propósito.
+
+## O exercício dos 3 futuros
+
+Escreva, em 1 página cada, três versões do seu futuro em 5 anos:
+
+**Futuro A: A progressão natural** — se você continuar exatamente como está, sem mudanças deliberadas, onde você estará?
+
+**Futuro B: O que você secretamente quer** — se não houvesse limitações (medo, dinheiro, opinião alheia), o que você faria?
+
+**Futuro C: O alternativo razoável** — se o Futuro B for muito arriscado agora, qual seria uma versão intermediária que seria genuinamente boa?
+
+Seu plano de carreira vai viver entre B e C.
+
+## Por que a clareza interna vem primeiro
+
+Sem saber o que você quer, você vai otimizar métricas que não importam para você — cargo, salário, reconhecimento externo — e acordar em 5 anos com tudo que "deveria" querer mas sem a sensação de que valeu a pena.
+
+O autoconhecimento não é um exercício de filosofia. É o alicerce do plano.`,
+      },
+      {
+        id: '30-2',
+        title: 'Mapeando o mercado: onde seu perfil tem mais valor',
+        duration: '35 min',
+        content: `# Mapeando o mercado: onde seu perfil tem mais valor
+
+## A intersecção que cria valor
+
+Há um princípio simples mas poderoso: **você cria mais valor (e ganha mais) quando suas habilidades naturais encontram um mercado que tem escassez delas.**
+
+O plano de carreira de 5 anos precisa incluir uma análise honesta dessa intersecção.
+
+## Seu inventário de competências
+
+Liste, sem modéstia excessiva, as suas competências nos três níveis:
+
+### Competências técnicas (hard skills)
+O que você sabe fazer com ferramentas, metodologias, sistemas. Seja específico: não "análise de dados" mas "Python para análise de dados, SQL avançado, experiência com dbt e Looker."
+
+### Competências comportamentais (soft skills)
+Não liste "trabalho em equipe" — todo mundo coloca isso. Pense em comportamentos observáveis:
+- "Consigo simplificar problemas complexos para audiências não técnicas"
+- "Funciono bem em ambientes de alta ambiguidade sem precisar de direção constante"
+- "Tenho histórico de construir relacionamentos de confiança com clientes difíceis"
+
+### Competências de domínio (knowledge)
+O conhecimento específico que você acumulou sobre um setor, produto ou contexto: "Conheço profundamente o mercado de saúde suplementar no Brasil, incluindo regulação ANS e dinâmica de operadoras."
+
+## Análise de mercado: onde há demanda
+
+Para cada competência que você identificou, pesquise:
+
+**1. Quais setores mais valorizam isso?**
+Use LinkedIn para buscar vagas com as palavras-chave das suas competências. Observe quais setores concentram mais oportunidades.
+
+**2. Qual é a trajetória de carreira típica?**
+Busque profissionais com perfil similar ao seu, veja onde eles estão em 5-10 anos, quais cargos ocupam, quais empresas os contratam.
+
+**3. Onde há escassez?**
+Setores em transformação geralmente têm escassez de profissionais que unem domínio de negócio com capacidade digital. Essa intersecção paga muito bem.
+
+## Os setores que mais crescem no Brasil (2025-2030)
+
+Com base em tendências estruturais:
+
+- **Saúde digital e healthtech**: digitalização acelerada pós-pandemia, regulação modernizando
+- **Agro e agritechs**: Brasil é potência, mas o setor está em transformação digital profunda
+- **Fintechs e serviços financeiros digitais**: ainda em expansão mesmo após consolidação inicial
+- **ESG e sustentabilidade corporativa**: pressão regulatória e de investidores crescendo
+- **Cibersegurança**: demanda supera oferta de profissionais qualificados em todo o mundo
+- **IA aplicada a negócios**: não IA técnica — profissionais que sabem usar IA para resolver problemas de negócio
+
+## O princípio da mobilidade estratégica
+
+Um bom plano de 5 anos não é um trilho de trem — é um destino com múltiplas rotas possíveis.
+
+Defina: **"Em 5 anos, quero estar em posição de [cargo/função/nível] em [tipo de empresa/setor], com [faixa salarial] e [estilo de trabalho]."**
+
+Deixe a rota em aberto para ajustes — mas o destino precisa ser claro.`,
+      },
+      {
+        id: '30-3',
+        title: 'Construindo o roteiro: metas, milestones e checkpoints',
+        duration: '35 min',
+        content: `# Construindo o roteiro: metas, milestones e checkpoints
+
+## Por que a maioria dos planos de carreira falha
+
+Não por falta de ambição. Por falta de estrutura. Você define uma visão de 5 anos e nunca mais olha para ela.
+
+Um plano que funciona tem três camadas: visão de longo prazo, metas de médio prazo e ações de curto prazo que você pode executar esta semana.
+
+## A estrutura do plano em três horizontes
+
+### Horizonte 1: Os próximos 90 dias (o que você fará)
+Ações concretas, sem ambiguidade. Exemplo:
+- "Fazer 3 entrevistas informais com profissionais da área X"
+- "Completar o curso Y até [data]"
+- "Atualizar CV e publicar 4 posts no LinkedIn"
+- "Candidatar para 10 vagas por semana"
+
+### Horizonte 2: Os próximos 12 meses (onde você quer estar)
+Um estado desejado específico:
+- "Estar num novo cargo com título de Sênior ou Especialista"
+- "Ter completado a certificação Z"
+- "Estar ganhando X% acima do salário atual"
+- "Ter construído rede de 50 contatos ativos na nova área"
+
+### Horizonte 3: Os próximos 5 anos (quem você quer ser)
+Mais sobre identidade e capacidade do que cargo:
+- "Ser referência reconhecida em [especialidade] no Brasil"
+- "Ter liderado um time de pelo menos 15 pessoas"
+- "Estar em posição de gestão sênior com autonomia estratégica"
+- "Ter renda suficiente para [objetivo de vida específico]"
+
+## O mapa de milestones
+
+Entre hoje e o Horizonte 3, mapeie 5-7 marcos que indicam que você está no caminho certo. Esses marcos devem ser:
+- **Específicos**: não "evoluir profissionalmente" mas "receber promoção para gerente"
+- **Verificáveis**: você sabe com certeza quando chegou lá
+- **Distribuídos no tempo**: pelo menos um por ano
+
+## Como escrever metas que funcionam
+
+Use o framework **SMART** mas sem ser mecânico:
+
+| Elemento | O que significa | Exemplo |
+|----------|-----------------|---------|
+| Específica | O que exatamente você quer | "Cargo de Product Manager Sênior" |
+| Mensurável | Como você sabe que chegou lá | "Com salário acima de R$12k" |
+| Alcançável | É desafiador mas possível | Baseado na sua trajetória atual |
+| Relevante | Conecta à sua visão maior | Faz sentido na rota de 5 anos |
+| Temporal | Tem prazo claro | "Até dezembro de 2026" |
+
+## O checkpoint trimestral
+
+A cada 3 meses, reserve 2 horas para se perguntar:
+
+1. Quais ações do Horizonte 1 eu completei?
+2. Estou no caminho para o Horizonte 2?
+3. Meu Horizonte 3 ainda faz sentido ou preciso ajustar?
+4. O que aprendi que muda meu plano?
+
+Planos de carreira não são imutáveis. São documentos vivos. Mas a revisão precisa ser intencional, não contínua — caso contrário você nunca executa, só planeja.`,
+      },
+      {
+        id: '30-4',
+        title: 'Desenvolvimento de competências: o que aprender e como',
+        duration: '30 min',
+        content: `# Desenvolvimento de competências: o que aprender e como
+
+## O erro do aprendizado não estratégico
+
+A maioria das pessoas que quer "se desenvolver" faz cursos aleatoriamente — o que aparece no feed, o que um colega recomendou, o que está em promoção na Black Friday.
+
+Resultado: diplomas e certificações que não agregam à trajetória desejada, e a sensação permanente de que "está estudando" sem nunca se sentir qualificado.
+
+## O gap de competências
+
+Volte ao seu destino de 5 anos. Agora liste as competências que os profissionais que já estão lá possuem.
+
+**Pesquise 10 perfis no LinkedIn** de pessoas com o cargo/função que você quer daqui a 5 anos. Anote:
+- Formação e certificações
+- Experiências anteriores que elas listam
+- Skills que aparecem em comum
+- Empresas onde trabalharam antes
+
+Agora compare com o que você tem hoje. A diferença é o seu **mapa de desenvolvimento.**
+
+## Priorizando o que aprender
+
+Nem todos os gaps têm a mesma urgência. Classifique:
+
+**Crítico (resolve no próximo ano):** Competências que bloqueiam você de entrar no próximo nível. Sem elas, portas não abrem.
+
+**Importante (desenvolver em 1-3 anos):** Competências que diferenciam candidatos medianos de excelentes no nível desejado.
+
+**Complementar (desenvolver em 3-5 anos):** Competências que ampliam seu escopo e possibilidades.
+
+## Como aprender de forma eficiente
+
+### Para competências técnicas
+A hierarquia de eficiência (do mais para o menos):
+1. **Projeto real** com essa tecnologia/método (aprende 10x mais do que ler sobre)
+2. **Trabalho com alguém mais experiente** na competência
+3. **Curso prático com exercícios reais** (não vídeo-aula passiva)
+4. **Livro técnico** (se você aplica enquanto lê)
+5. Vídeos e artigos (base mínima, não suficiente)
+
+### Para competências comportamentais
+Não se desenvolvem em cursos. Se desenvolvem em:
+- **Exposição deliberada** a situações que exigem a competência
+- **Feedback estruturado** de alguém que a tem
+- **Reflexão sistemática** sobre o que aconteceu (não só fazer, mas analisar)
+- **Mentoria** com alguém que desenvolveu essa competência
+
+### O princípio do 70-20-10
+- **70%** do desenvolvimento acontece no trabalho, em projetos desafiadores
+- **20%** acontece com outras pessoas (mentores, pares, feedback)
+- **10%** acontece em cursos e treinamentos formais
+
+A maioria das pessoas inverte isso — passa a maior parte do tempo em cursos e pouco tempo em projetos reais.
+
+## Como encaixar o desenvolvimento na sua rotina
+
+Desenvolvimento de carreira não é um sprint — é uma maratona. O que importa é consistência:
+
+- **30 minutos por dia** de aprendizado direcionado > 8 horas por semana de curso intensivo ocasional
+- Vincule o aprendizado a um projeto real sempre que possível
+- Ensine o que você aprendeu (escreva, apresente, explique) — consolida o conhecimento
+- Revise trimestralmente se o que você está aprendendo ainda faz sentido para o plano`,
+      },
+      {
+        id: '30-5',
+        title: 'Revisando e ajustando o plano anualmente',
+        duration: '35 min',
+        content: `# Revisando e ajustando o plano anualmente
+
+## Por que revisar é tão importante quanto planejar
+
+O mundo muda. Você muda. O mercado de trabalho de 2030 não é o de 2025.
+
+Um plano de 5 anos que você nunca revisa é uma fantasia. Um plano que você revisa sistematicamente é uma ferramenta viva de desenvolvimento.
+
+## A revisão anual: o que olhar
+
+Reserve 3-4 horas por ano (idealmente em dezembro ou no mês do seu aniversário — um momento de transição natural) para responder estas perguntas:
+
+### Olhando para trás (o ano que passou)
+- O que eu planejei fazer e fiz?
+- O que planejei e não fiz? Por quê? (Prioritize a honestidade aqui — "não tive tempo" quase sempre significa "não era prioridade real")
+- O que aconteceu que eu não planejei mas foi importante?
+- Quais competências eu desenvolvi de verdade?
+- Minha rede cresceu? Com as pessoas certas?
+- Estou mais próximo do meu horizonte de 5 anos do que estava?
+
+### Olhando para frente (o próximo ano e o horizonte de 5 anos)
+- O destino de 5 anos ainda faz sentido? O que mudou?
+- Quais são os 3-5 milestones mais importantes para o próximo ano?
+- O que preciso aprender, fazer ou experimentar?
+- Quem eu preciso conhecer ou aprofundar relação?
+
+### Olhando para dentro (quem você é agora)
+- O que mudou nas minhas prioridades de vida?
+- Ainda quero o mesmo que queria quando fiz este plano?
+- Há algo que eu evitei olhar honestamente?
+
+## Sinais de que seu plano precisa de ajuste
+
+**Sinais de que você está no caminho certo:**
+- Sente que está crescendo e sendo desafiado
+- Tem conversas mais ricas com profissionais do destino que almeja
+- Recebe reconhecimento na direção que importa para você
+- A remuneração reflete o valor que você está gerando
+
+**Sinais de que algo precisa mudar:**
+- Passa semanas sem pensar no plano
+- Evita olhar para os marcos porque sabe que está atrasado
+- O destino que definiu não te anima mais quando pensa nele
+- Tomou decisões de carreira por conveniência que foram contra o plano repetidas vezes
+
+## Quando mudar o destino (não só a rota)
+
+Algumas revisões vão revelar que o destino em si mudou. Isso não é fracasso — é crescimento.
+
+**É hora de mudar o destino quando:**
+- O que você queria em 2025 já não ressoa com quem você é em 2026
+- Você descobriu uma área ou função que se encaixa melhor com seus valores e talentos
+- Uma oportunidade inesperada abre um caminho que faz mais sentido
+
+**Não mude o destino quando:**
+- Está difícil (dificuldade não é sinal errado — é parte do processo)
+- Alguém próximo criticou ou questionou sua escolha
+- Uma oportunidade de curto prazo, embora tentadora, desvia do longo prazo
+
+## O plano como bússola, não como GPS
+
+Um GPS recalcula automaticamente. Uma bússola só aponta o norte — você decide o caminho.
+
+Seu plano de carreira de 5 anos é uma bússola. Ele não vai te dizer o caminho exato. Vai te ajudar a saber, a cada decisão, se você está se aproximando ou se afastando de onde quer chegar.
+
+Olhe para ele com frequência. Ajuste quando fizer sentido. Mas nunca o abandone por preguiça ou por medo de constatar que ficou para trás.
+
+Você pode sempre recomeçar — e o plano pode ser refeito. O que não pode ser recuperado é o tempo gasto sem direção.`,
+      },
+    ],
+  },
+  {
+    id: 31,
+    title: 'Entrevistas por Vídeo e Online',
+    desc: 'Tudo sobre entrevistas remotas: setup técnico, presença na câmera, plataformas e one-way interviews — o que separa candidatos medianos de memoráveis.',
+    duration: '2h 20min',
+    icon: '📹',
+    isPro: false,
+    color: { bg: 'bg-cyan-50', border: 'border-cyan-200', badge: 'bg-cyan-100 text-cyan-700', icon: 'bg-cyan-500' },
+    lessons: [
+      {
+        id: '31-1',
+        title: 'Setup técnico que transmite profissionalismo',
+        duration: '25 min',
+        content: `# Setup técnico que transmite profissionalismo
+
+## Por que o setup importa tanto quanto o que você diz
+
+Em entrevistas presenciais, o ambiente é neutro. Em entrevistas por vídeo, o seu espaço fala antes de você abrir a boca. Um fundo bagunçado, iluminação ruim ou áudio com eco comunicam desorganização — independente do que você vai dizer.
+
+A boa notícia: você não precisa de um estúdio. Precisa de atenção a quatro variáveis.
+
+## Os quatro pilares do setup profissional
+
+### 1. Iluminação
+É o fator que mais impacta a qualidade da imagem. Sem boa luz, nenhuma câmera cara resolve.
+
+**Regra de ouro:** Luz natural na frente do rosto, nunca atrás. Sente-se de frente para uma janela. Se a entrevista for à noite, use um ring light ou abajur voltado para você.
+
+**Teste:** Ligue a câmera antes da entrevista. Se seu rosto aparecer escuro ou com sombras duras, ajuste a posição antes.
+
+### 2. Câmera e enquadramento
+Posicione a câmera na altura dos olhos. Câmera apontando para cima (laptop no colo) distorce proporções e é visualmente desconfortável para quem assiste.
+
+Use livros, caixas ou um suporte para elevar o laptop até a altura dos olhos.
+
+**Enquadramento ideal:** Cabeça e ombros visíveis, com um espaço pequeno acima da cabeça. Não muito próximo (parece claustrofóbico) nem muito distante (você some na tela).
+
+### 3. Áudio
+Prioridade máxima. Vídeo ruim é desconfortável; áudio ruim torna a conversa impossível.
+
+- Fones de ouvido com microfone eliminam 80% dos problemas de eco e ruído ambiente
+- Feche janelas se houver trânsito ou obras
+- Desative notificações do celular e computador antes de começar
+- Avise pessoas na casa que você estará em entrevista
+
+### 4. Fundo
+Parede limpa e neutra é a escolha mais segura. Não precisa ser branca — cinza, bege ou azul suave funcionam bem.
+
+Se não tem espaço adequado, use um fundo virtual simples e sólido (disponível no Zoom, Teams e Meet). Evite fundos animados, com logotipos de times ou imagens de praias — passam imagem de pouca seriedade.
+
+## O checklist dos 10 minutos antes da entrevista
+
+- [ ] Testar câmera e microfone
+- [ ] Verificar conexão de internet (prefira cabo ao Wi-Fi se possível)
+- [ ] Fechar abas e aplicativos desnecessários
+- [ ] Silenciar notificações
+- [ ] Ter água na mesa
+- [ ] Ter o CV impresso ou aberto em outra tela
+- [ ] Entrar na sala virtual 5 minutos antes`,
+      },
+      {
+        id: '31-2',
+        title: 'Linguagem corporal e presença na câmera',
+        duration: '25 min',
+        content: `# Linguagem corporal e presença na câmera
+
+## O problema do olhar
+
+O maior erro em entrevistas por vídeo é olhar para a imagem do entrevistador na tela — o que parece natural, mas na câmera aparece como se você estivesse olhando para baixo, evitando contato visual.
+
+**Contato visual em vídeo = olhar para a câmera, não para a tela.**
+
+Isso é contraintuitivo e exige prática. Cole um autocolante sorridente perto da câmera para lembrar de olhar para lá quando estiver falando.
+
+## Postura e energia transmitida
+
+Sente-se ereto, ligeiramente inclinado para frente. Isso comunica engajamento. Reclinar na cadeira comunica desinteresse — mesmo que você esteja totalmente presente.
+
+Mantenha os ombros relaxados, não elevados (tensão é visível). Se gesticula ao falar, certifique-se de que as mãos aparecem no enquadramento — gestos fora de tela parecem estranhos.
+
+## Como gerenciar o silêncio e as pausas
+
+Em vídeo, silêncios parecem mais longos do que são. Não preencha com "ééé" ou "então...". Quando precisar pensar, uma pausa curta e confiante é muito mais profissional.
+
+Técnica: após uma pergunta difícil, diga "boa pergunta, deixa eu pensar por um segundo" — e pense. Isso demonstra reflexão, não insegurança.
+
+## Expressão facial: o desafio do vídeo
+
+Emoções são amplificadas em close. Um sorriso genuíno aparece claramente. Mas uma expressão neutra pode parecer séria ou desinteressada.
+
+Mantenha expressão levemente positiva ao ouvir. Acene levemente com a cabeça quando o entrevistador fala — isso comunica que você está presente e processando.
+
+## Gerenciar distrações durante a entrevista
+
+Se algo acontecer (barulho externo, notificação, alguém entrando no cômodo), não entre em pânico. Trate com naturalidade: "Desculpe pelo barulho, pode continuar." Entrevistadores entendem — eles também fazem entrevistas em casa.
+
+## Prática antes da entrevista real
+
+Grave a si mesmo respondendo as 5 perguntas mais comuns. Assista sem julgamento e observe:
+- Onde você olha?
+- Sua postura está ereta?
+- Você pisca muito ou pouco?
+- Seu tom de voz é variado ou monótono?
+- Você fala muito rápido quando fica nervoso?
+
+Uma sessão de prática gravada vale mais do que 10 entrevistas simuladas sem feedback visual.`,
+      },
+      {
+        id: '31-3',
+        title: 'Zoom, Teams e Meet: diferenças e dicas por plataforma',
+        duration: '20 min',
+        content: `# Zoom, Teams e Meet: diferenças e dicas por plataforma
+
+## Por que conhecer a plataforma antes importa
+
+Entrar numa entrevista e descobrir que não sabe silenciar o microfone, compartilhar a tela ou encontrar o chat é uma fonte desnecessária de ansiedade. 5 minutos de familiarização antes resolve.
+
+## Zoom
+
+A plataforma mais usada para entrevistas em empresas de tecnologia e internacionais.
+
+**Dicas específicas:**
+- Atualize o Zoom antes da entrevista — versões antigas podem ter bugs
+- Ative "Touch up my appearance" (Configurações > Vídeo) para uma aparência ligeiramente mais suavizada
+- Mude seu nome exibido para o nome profissional (não apelidos ou usernames)
+- Familiarize-se com o botão de reação — aceno de mão ou polegar para cima sem interromper
+- Se convidado por link, entre como participante antes — não inicie como host por engano
+
+## Microsoft Teams
+
+Comum em grandes corporações, bancos e multinacionais que usam o ecossistema Microsoft.
+
+**Dicas específicas:**
+- Não precisa ter conta Microsoft para entrar — pode acessar pelo navegador como convidado
+- O botão de microfone e câmera fica na barra inferior — confirme que estão ativos ao entrar
+- O Teams tem "Blur de fundo" nativo (sem precisar de versão paga) — útil se o fundo não for ideal
+- Aviso: a versão web tem limitações. Se possível, instale o app
+
+## Google Meet
+
+Comum em startups, empresas de tecnologia e empresas que usam Google Workspace.
+
+**Dicas específicas:**
+- Funciona bem pelo Chrome sem instalação adicional
+- Ative os legendas automáticas (CC) se tiver dificuldade para ouvir — não aparecem para o entrevistador
+- O Meet tem qualidade de vídeo muito dependente da sua conexão — prefira cabo ou Wi-Fi próximo ao roteador
+
+## Quando a plataforma travar
+
+Tenha sempre um plano B: número de telefone do recrutador ou e-mail. Se a conexão cair, não entre em pânico — mande mensagem imediatamente: "Caiu a conexão, estou reconectando." Entrevistadores esperam isso acontecer eventualmente.`,
+      },
+      {
+        id: '31-4',
+        title: 'One-way interviews: HireVue, Spark Hire e similares',
+        duration: '20 min',
+        content: `# One-way interviews: HireVue, Spark Hire e similares
+
+## O que são e por que existem
+
+One-way interviews (entrevistas unilaterais) são ferramentas onde você grava respostas para perguntas pré-definidas, sem interação ao vivo. O recrutador assiste depois — às vezes junto com IA que analisa tom de voz, expressão e palavras usadas.
+
+Empresas as usam para escalar o processo seletivo, avaliar mais candidatos com menos tempo. Plataformas comuns: HireVue, Spark Hire, Willo, Paradox.
+
+## O que te desnorteia (e como resolver)
+
+A experiência é estranha: você fala para uma câmera sem ninguém respondendo, com contagem regressiva e limite de tempo. Isso gera ansiedade desproporcional à dificuldade real das perguntas.
+
+**Soluções práticas:**
+- Pratique com um cronômetro visível — simule a pressão antes
+- Faça o teste técnico da plataforma (todas oferecem) antes da entrevista real
+- Prepare respostas para as 5 perguntas mais comuns com antecedência — o conteúdo é o que importa
+- Fale olhando para a câmera (não para a própria imagem na tela)
+
+## Estrutura de resposta recomendada
+
+Com limite de tempo (geralmente 90 segundos a 3 minutos por pergunta), a estrutura STAR compactada funciona bem:
+
+1. **Contexto em 1 frase** (onde, quando, qual era a situação)
+2. **O que você fez** (ações específicas, não abstrações)
+3. **Resultado mensurável** (número, percentual, impacto)
+4. **Conexão com a vaga** (como isso é relevante para o cargo)
+
+## Se você travar ou cometer um erro
+
+A maioria das plataformas permite regravar (verifique antes). Se não permitir, continue — uma hesitação é humana e não descredencia. O que descredencia é desistir ou se desculpar excessivamente por um erro pequeno.
+
+## Atenção à análise de IA
+
+Algumas plataformas usam IA para analisar expressão facial, tom de voz e palavras. Isso soa invasivo, mas na prática:
+- Fale com variedade de tom (monotonia é penalizada)
+- Mantenha expressão positiva e engajada
+- Use as palavras-chave da descrição da vaga nas respostas
+- Iluminação boa melhora a leitura de expressões pela IA`,
+      },
+      {
+        id: '31-5',
+        title: 'Erros fatais em entrevistas por vídeo',
+        duration: '10 min',
+        content: `# Erros fatais em entrevistas por vídeo
+
+## Os erros que eliminam candidatos qualificados
+
+Estes não são erros de conteúdo — são erros de forma que distraem o entrevistador e criam impressão negativa antes de você terminar a primeira resposta.
+
+**1. Chegar atrasado à sala virtual**
+Entrar com 2-3 minutos de atraso num ambiente físico é tolerável. Em vídeo, o entrevistador fica olhando para uma tela vazia esperando você. Entre 5 minutos antes.
+
+**2. Fundo caótico ou inadequado**
+Roupas na cadeira, cama desfeita visível, cartazes ou objetos inapropriados ao fundo. Tudo isso entra na percepção do entrevistador, conscientemente ou não.
+
+**3. Iluminação de trás (contraluz)**
+Você aparece como silhueta. O entrevistador não consegue ler suas expressões. Sente-se de frente para a fonte de luz.
+
+**4. Microfone do laptop sem fone**
+O microfone captura eco, sua voz fica abafada, o entrevistador pede para você repetir constantemente. Use fones.
+
+**5. Notificações aparecendo durante a entrevista**
+Um pop-up de mensagem ou notificação sonora durante sua resposta quebra totalmente o fluxo. Modo Não Perturbe obrigatório.
+
+**6. Olhar constantemente para a própria imagem**
+Parece vaidade. Também comunica que você não está olhando para o entrevistador. Minimize sua própria imagem ou cubra com um post-it.
+
+**7. Ler as respostas de um papel ou tela**
+O movimento dos olhos para baixo ou para o lado é visível. Se precisar de notas, use uma folha acima da câmera — os olhos ficam próximos ao nível da câmera.
+
+**8. Ambiente com interrupções**
+Cachorro latindo, criança entrando, campainha. Avise a família, feche a porta, coloque o animal em outro cômodo. Uma interrupção pode ser engraçada. Três interrupções terminam a entrevista.
+
+## O teste definitivo
+
+30 minutos antes de qualquer entrevista por vídeo: ligue a câmera, grave 60 segundos de você falando, assista. Se você aprovaria esse candidato visualmente, está pronto.`,
+      },
+    ],
+  },
+  {
+    id: 32,
+    title: 'Carreira nos EUA e Canadá',
+    desc: 'Do visto ao emprego: como brasileiros conseguem trabalhar nos Estados Unidos e Canadá — vistos, CV norte-americano, entrevistas culturais e estratégia de recolocação.',
+    duration: '3h 30min',
+    icon: '🗽',
+    isPro: true,
+    color: { bg: 'bg-red-50', border: 'border-red-200', badge: 'bg-red-100 text-red-700', icon: 'bg-red-600' },
+    lessons: [
+      {
+        id: '32-1',
+        title: 'Panorama: mercado americano e canadense para brasileiros',
+        duration: '35 min',
+        content: `# Panorama: mercado americano e canadense para brasileiros
+
+## Dois mercados diferentes, duas estratégias diferentes
+
+EUA e Canadá parecem similares mas têm dinâmicas muito diferentes para imigrantes brasileiros.
+
+**Estados Unidos:**
+- Mercado enorme mas altamente competitivo
+- Patrocínio de visto é o grande gargalo — empresas precisam patrocinar ativamente
+- Setores que mais patrocinam: tecnologia, finanças, engenharia, saúde
+- Cidades com mais oportunidades: San Francisco, Nova York, Austin, Seattle, Miami
+
+**Canadá:**
+- Sistema de imigração mais estruturado e receptivo (Express Entry)
+- Você pode chegar já como residente permanente — sem depender de patrocínio
+- Mercado menor mas com crescente demanda por tech, saúde e construção
+- Cidades principais: Toronto, Vancouver, Calgary, Ottawa
+
+## O que separa candidatos brasileiros que conseguem de quem não consegue
+
+**Conseguem:**
+- Inglês fluente (C1+) — não "avançado", fluente mesmo
+- Experiência em empresas reconhecíveis internacionalmente ou projetos com impacto documentado
+- Network nos EUA/Canadá (ex-colegas, comunidades de brasileiros, LinkedIn ativo)
+- Especialização clara — generalistas têm dificuldade maior
+- Proatividade: foram atrás antes de estar no país
+
+**Não conseguem:**
+- Esperam a oferta aparecer sem conexão com o mercado local
+- CV no formato brasileiro
+- Inglês funcional mas não fluente
+- Sem rede de contatos no destino
+
+## As rotas mais comuns para cada perfil
+
+**Para profissionais de tecnologia:**
+Rota mais viável: empresa brasileira com escritório nos EUA → transferência intra-empresa (visto L-1), ou empresa americana com operação no Brasil que já te conhece.
+
+**Para quem quer ir direto:**
+Canadá via Express Entry (para residência permanente) ou busca ativa nos EUA com patrocínio de H-1B.
+
+**Para empreendedores:**
+Visto E-2 (investimento) nos EUA ou Start-up Visa no Canadá.
+
+## Realismo sobre o processo
+
+Isso não é rápido. A timeline realista vai de 6 meses a 2 anos dependendo da rota. Quem entra com expectativa de "vou mandar currículo e sair em 3 meses" quase sempre se frustra.
+
+O processo requer planejamento, paciência e execução consistente. Mas é completamente possível.`,
+      },
+      {
+        id: '32-2',
+        title: 'Vistos de trabalho: H-1B, O-1, L-1 e Express Entry',
+        duration: '40 min',
+        content: `# Vistos de trabalho: H-1B, O-1, L-1 e Express Entry
+
+## Aviso importante
+
+Legislação de vistos muda com frequência. As informações aqui são educacionais — consulte sempre um advogado de imigração para seu caso específico.
+
+## Estados Unidos: os principais vistos de trabalho
+
+### H-1B (Specialty Occupation)
+O mais comum para profissionais de tecnologia, finanças, engenharia e afins.
+
+**Como funciona:** Empresa americana te patrocina. Há um processo de loteria anual (sorteio). Limite de 65.000 vagas/ano + 20.000 para mestres de universidades americanas.
+
+**Realidade:** Chance de passar na loteria está em torno de 30-40% por tentativa. Muitos tentam múltiplos anos.
+
+**Quem tem chance:** Profissionais de tech com salários acima de $100k/ano têm mais chance de ser patrocinados pois o custo do processo para a empresa vale o investimento.
+
+### O-1 (Extraordinary Ability)
+Para profissionais com "habilidade extraordinária" em sua área. Não precisa de loteria.
+
+**Como provar habilidade extraordinária:** Prêmios, publicações, salário acima da média do setor, trabalho em organizações de destaque, contribuições originais reconhecidas, cobertura na mídia.
+
+Mais acessível do que parece para quem tem histórico sólido documentado.
+
+### L-1 (Intracompany Transfer)
+Para quem trabalha numa multinacional com escritório nos EUA e quer ser transferido.
+
+**Requisito:** Trabalhar na empresa há pelo menos 1 ano nos últimos 3 anos.
+
+Esta é a rota mais suave — a empresa já te conhece, o processo é mais previsível.
+
+## Canadá: Express Entry
+
+O sistema de imigração mais organizado do mundo para trabalhadores qualificados.
+
+**Como funciona:** Você cria um perfil no sistema Express Entry com pontos (CRS Score) baseados em:
+- Idade (mais jovem = mais pontos)
+- Nível de educação
+- Proficiência em inglês e/ou francês (IELTS/CELPIP/TEF)
+- Experiência de trabalho
+- Oferta de emprego no Canadá (adiciona pontos significativos)
+- Adaptabilidade (cônjuge com qualificações, parentes no Canadá etc.)
+
+**O processo:** Rounds de convite periódicos (geralmente a cada 2 semanas). Quem atingir o score mínimo recebe convite para residência permanente.
+
+**Score atual (2025):** Varia entre 470-500+ pontos dependendo do round. Verifique o site oficial do IRCC para dados atualizados.
+
+**Dica:** Melhorar o IELTS de 7.0 para 8.0 pode adicionar 30-50 pontos — diferença que decide a aprovação.`,
+      },
+      {
+        id: '32-3',
+        title: 'Resume americano: o que muda completamente do CV brasileiro',
+        duration: '35 min',
+        content: `# Resume americano: o que muda completamente do CV brasileiro
+
+## Resume ≠ Currículo
+
+O resume americano segue convenções muito diferentes. Enviar um currículo no formato brasileiro para uma empresa americana é um sinal imediato de que você não conhece o mercado.
+
+## O que NUNCA incluir num resume americano
+
+- Foto (ilegal perguntar sobre aparência nos EUA — foto pode criar problemas legais para a empresa)
+- Data de nascimento
+- Estado civil
+- Número de filhos
+- CPF, RG ou qualquer número de documento
+- Objetivo profissional (objetivo) — substituído pelo Summary
+- Referências (diga "available upon request" ou simplesmente omita)
+
+## Estrutura do resume americano
+
+**1. Header**
+Nome (grande) + cidade/estado (não endereço completo) + email + telefone com código do país + LinkedIn URL
+
+**2. Summary (opcional mas recomendado)**
+2-3 linhas. Quem você é e o que você entrega. Orientado a resultados, não a trajetória.
+
+**3. Experience**
+Empresa + cargo + período (mês e ano) + 3-5 bullets de realizações por cargo
+Formato dos bullets: verbo de impacto no passado + o que fez + resultado mensurável
+Exemplo: "Led migration of legacy system to cloud infrastructure, reducing operational costs by 34% and improving uptime to 99.9%"
+
+**4. Skills**
+Lista técnica de ferramentas, linguagens, metodologias. Sem avaliação de nível (não escreva "proficient in Excel" — ou você sabe ou não sabe).
+
+**5. Education**
+Universidade + grau + ano de conclusão. Sem notas a menos que sejam excepcionais (GPA 3.8+).
+
+## Tamanho e formato
+
+- **1 página** para menos de 10 anos de experiência
+- **2 páginas** para sêniors — mas nunca mais que isso
+- Fonte: Calibri, Arial, Garamond — nada decorativo
+- Salvar como PDF sempre
+- Nome do arquivo: firstname-lastname-resume.pdf
+
+## Adaptando para ATS americano
+
+Os mesmos princípios de ATS se aplicam, mas com uma diferença: o ATS americano é ainda mais literal. Use exatamente as palavras da job description — "software engineer" vs. "software developer" pode fazer diferença no ranking.
+
+## Traduzindo cargos e empresas brasileiras
+
+Cargos: use equivalentes em inglês e adicione contexto de escala
+- "Gerente" → "Manager"
+- "Analista Sênior" → "Senior Analyst"
+
+Empresas: se não é conhecida nos EUA, adicione contexto
+- "Itaú (largest private bank in Latin America, $100B+ assets)"
+- "iFood (leading food delivery app in Brazil, 50M+ users)"`,
+      },
+      {
+        id: '32-4',
+        title: 'Entrevistas culturais: o que muda para EUA e Canadá',
+        duration: '35 min',
+        content: `# Entrevistas culturais: o que muda para EUA e Canadá
+
+## A cultura de entrevista americana
+
+Americana não é europeia. Não é nem mesmo canadense. Há especificidades.
+
+### Seja direto sobre suas conquistas
+
+No Brasil, modéstia excessiva é comum. Nos EUA, subestimar suas realizações é lido como falta de autoconfiança ou falta de realizações.
+
+"Participei de um projeto que melhorou as métricas" → ruim
+"Liderança de um projeto que aumentou conversão em 28%, gerando $2.1M em receita adicional" → certo
+
+Isso não é arrogância — é clareza. Americanos valorizam candidatos que sabem articular seu impacto.
+
+### Enthusiasm is expected
+
+Americanos esperam entusiasmo visível pela vaga e pela empresa. Uma postura mais reservada (comum no Brasil corporativo formal) pode ser interpretada como desinteresse.
+
+"I'm really excited about this opportunity" não soa falso nos EUA — soa adequado.
+
+### Perguntas sobre "tell me about yourself"
+
+Nos EUA, esta pergunta pede um pitch profissional de 60-90 segundos — não uma autobiografia. Estrutura: cargo atual → background relevante → por que você está interessado nessa oportunidade específica.
+
+## A diferença cultural canadense
+
+O Canadá tem cultura mais próxima da europeia e menos da americana em termos de assertividade. Canadenses valorizam:
+- Humildade com substância (seja humilde, mas tenha resultados para mostrar)
+- Colaboração e trabalho em equipe (mencione frequentemente contribuições coletivas)
+- Diversidade e inclusão (esteja preparado para perguntas sobre como você trabalha com times diversos)
+
+## Perguntas que surpreendem brasileiros
+
+**"What's your biggest weakness?"**
+Não responda "sou perfeccionista". Responda com uma fraqueza real + o que você tem feito para desenvolver.
+
+**"Where do you see yourself in 5 years?"**
+Mostre ambição alinhada com o crescimento da empresa, não um plano de saída.
+
+**"Why are you leaving your current role?"**
+Nunca critique a empresa atual. Foque no que você busca: crescimento, desafio, impacto, missão.
+
+**"Do you have any questions for us?"**
+Sempre tenha 2-3 perguntas preparadas. Não ter perguntas é sinal de desinteresse nos EUA.
+
+## Preparação cultural obrigatória
+
+Antes de qualquer entrevista: pesquise a empresa profundamente — produto, cultura, valores, notícias recentes, missão. Americanos e canadenses esperam que você saiba muito sobre eles antes de aparecer na entrevista.`,
+      },
+      {
+        id: '32-5',
+        title: 'Estratégia de recolocação: por onde começar do Brasil',
+        duration: '45 min',
+        content: `# Estratégia de recolocação: por onde começar do Brasil
+
+## O erro da abordagem passiva
+
+A maioria das pessoas que quer trabalhar nos EUA ou Canadá começa mandando currículos para vagas no LinkedIn de dentro do Brasil. Funciona raramente — a maioria das empresas filtra candidatos fora do país nos primeiros segundos do ATS.
+
+A estratégia eficiente é construtiva, não passiva.
+
+## As três rotas práticas por perfil
+
+### Rota 1: Multinacional com operação no Brasil → transferência
+
+É a rota mais suave e com maior taxa de sucesso.
+
+**Passo a passo:**
+1. Identifique empresas com escritórios nos EUA e operação no Brasil (Accenture, IBM, Deloitte, Amazon, Google, Microsoft, Mercado Livre etc.)
+2. Entre na operação brasileira — seja excelente, construa reputação
+3. Expresse interesse formal em mobility após 1-2 anos
+4. Encontre um sponsor interno no escritório de destino (alguém que defenda sua transferência)
+
+Timeline: 2-4 anos, mas com estabilidade e sem depender de loteria de visto.
+
+### Rota 2: Empresa americana contrata remotamente → relocação posterior
+
+Com a expansão do trabalho remoto, empresas americanas contraram talentos no Brasil remotamente — e depois oferecem relocação.
+
+**Como conseguir:**
+- Plataformas: Toptal, Andela, Remote.com, Torre.co, LinkedIn com filtro "Remote" + localização EUA
+- Você trabalha em dólar do Brasil, demonstra valor, depois negocia relocação
+- Muito comum em tech (backend, ML, DevOps) e design UX
+
+### Rota 3: Canadá via Express Entry (caminho mais direto para residência)
+
+Para quem quer ir direto, sem depender de emprego primeiro.
+
+**Sequência:**
+1. Fazer IELTS e alcançar score alto (7.5+ em cada habilidade)
+2. Ter educação avaliada por WES (World Education Services)
+3. Criar perfil no Express Entry e calcular seu CRS Score
+4. Se score for baixo: buscar oferta de emprego no Canadá (adiciona 50-200 pontos)
+5. Receber convite (ITA) → aplicar para residência permanente
+
+## Construindo sua presença antes de chegar
+
+**LinkedIn em inglês:** Perfil completamente em inglês, headline orientada ao mercado-alvo, conexões nos EUA/Canadá.
+
+**GitHub ativo** (para tech): Contribuições recentes, projetos documentados em inglês.
+
+**Comunidades de brasileiros no exterior:** Grupos no LinkedIn e Slack de brasileiros em tech em São Francisco, Toronto, Vancouver — pessoas que passaram pelo processo são sua maior fonte de informação real.
+
+**Conferências internacionais:** Online e presenciais. Onde você conhece as pessoas que vão indicar você.
+
+## O que resolver antes de sair do Brasil
+
+- Reserva financeira: mínimo 6-12 meses de despesas do destino
+- Inglês: invista agora, não depois
+- Documentos: diploma com apostilamento, certidão de antecedentes criminais, histórico de emprego documentado
+- Imposto: entenda as obrigações fiscais com o Brasil (saída definitiva ou não)`,
+      },
+    ],
+  },
+  {
+    id: 33,
+    title: 'Product Management como Carreira',
+    desc: 'O guia completo para entrar e crescer na área de produto: o que é PM de verdade, como fazer a transição, habilidades essenciais e como se sair bem nos processos seletivos.',
+    duration: '3h 15min',
+    icon: '🧩',
+    isPro: true,
+    color: { bg: 'bg-indigo-50', border: 'border-indigo-200', badge: 'bg-indigo-100 text-indigo-700', icon: 'bg-indigo-600' },
+    lessons: [
+      {
+        id: '33-1',
+        title: 'O que é PM de verdade (e o que não é)',
+        duration: '30 min',
+        content: `# O que é PM de verdade (e o que não é)
+
+## A confusão que atrapalha quem quer entrar na área
+
+Product Management é uma das áreas mais desejadas e mais mal compreendidas do mercado. Muitos querem ser PM por razões erradas — e chegam mal preparados por isso.
+
+## O que PM NÃO é
+
+**PM não é o "CEO do produto"**
+Essa frase é sedutor mas imprecisa. O PM não manda no designer, no engenheiro ou no marketing. Tem influência, não autoridade. Lidera convencendo, não ordenando.
+
+**PM não é gerente de projeto**
+Gerente de projeto garante que o projeto seja entregue dentro do prazo. PM decide *o que* construir e *por quê*. São funções diferentes. Em empresas menores, um profissional pode fazer as duas — mas são atividades distintas.
+
+**PM não é o representante do usuário**
+Você representa o negócio tanto quanto o usuário. Às vezes o que o usuário pede não é o que o negócio precisa construir.
+
+**PM não é dono do roadmap**
+O roadmap é uma consequência das decisões estratégicas — não um documento que o PM cria sozinho e impõe ao time.
+
+## O que PM é
+
+**PM é quem define o problema certo a resolver.**
+Antes de qualquer solução, o PM garante que o time está trabalhando no problema que gera mais valor para o negócio e para o usuário.
+
+**PM é ponte entre negócio, tecnologia e design.**
+Não precisa ser o melhor em nenhum dos três — mas precisa falar a língua de todos e criar contexto compartilhado.
+
+**PM é tomador de decisão com informação incompleta.**
+Você nunca vai ter todos os dados. Vai tomar decisões com 70% da informação que gostaria de ter. Aprender a ser confortável com isso é parte do trabalho.
+
+**PM é comunicador.**
+A maior parte do trabalho é comunicação: com engenharia, com stakeholders, com liderança, com usuários. Quem não comunica bem, não performa bem como PM.
+
+## Os tipos de PM que existem
+
+- **PM de growth:** foco em aquisição, ativação, retenção e monetização
+- **PM de plataforma:** infra e sistemas internos que outros times usam
+- **PM de produto core:** funcionalidades principais do produto
+- **Technical PM:** mais próximo de engenharia, entende profundamente a stack
+- **PM de dados:** foco em analytics, ferramentas de dados, ML products
+
+Saber qual perfil você quer ser ajuda a direcionar o aprendizado e o tipo de empresa que faz sentido buscar.`,
+      },
+      {
+        id: '33-2',
+        title: 'Como entrar na área sem experiência formal',
+        duration: '40 min',
+        content: `# Como entrar na área sem experiência formal
+
+## A barreira circular
+
+"Precisamos de PM com experiência em produto" — mas como ter experiência se nenhuma empresa te contrata sem ela?
+
+Esse problema é real, mas tem solução. PMs surgem de várias áreas: engenharia, design, marketing, dados, atendimento. O que muda é a estratégia de transição para cada perfil.
+
+## As rotas de entrada mais comuns
+
+### De engenharia/tech para PM
+É a transição mais suave. Você já fala a língua do time de desenvolvimento.
+
+**Estratégia:** Peça para participar das discussões de discovery e planejamento. Voluntarie-se para documentar requisitos e facilitar alinhamentos. Quando uma vaga interna de APM ou PM aparecer, você já tem contexto.
+
+### De design/UX para PM
+Você entende o usuário — falta o lado de negócio e dados.
+
+**Estratégia:** Desenvolva habilidades de análise de métricas (SQL básico, Google Analytics, Mixpanel). Aprenda frameworks de priorização (RICE, ICE, MoSCoW). Mostre que você pensa em impacto de negócio, não só em usabilidade.
+
+### De marketing/growth para PM
+Você entende métricas e o funil — falta profundidade técnica e de discovery.
+
+**Estratégia:** Aprenda o básico de como software é construído (sem precisar codar — mas entender sprints, APIs, banco de dados). Faça discovery com usuários além de dados de marketing.
+
+### De outras áreas (RH, financeiro, operações)
+Mais difícil, mas possível — especialmente para PM de domínio específico (ex-financeiro → fintech, ex-saúde → healthtech).
+
+**Estratégia:** Use seu conhecimento de domínio como diferencial. Encontre empresas no seu setor que precisam de PM que entenda o negócio profundamente.
+
+## O portfólio de PM que substitui a experiência formal
+
+Na ausência de título de PM, você pode construir evidências:
+
+**1. Tear-downs de produto**
+Análise crítica de produtos existentes: o que funciona, o que não funciona, o que você mudaria e por quê. Publique no LinkedIn ou Medium.
+
+**2. Case estudos de features hipotéticas**
+"Como eu repaginaria o onboarding do [app X]" — pesquisa de usuário, problema identificado, soluções propostas, métricas de sucesso. Mostra pensamento de PM.
+
+**3. Contribuição em comunidade**
+Grupos de PM no LinkedIn e Slack (Product Managers Brasil, Product School etc.). Participar e contribuir gera visibilidade.
+
+**4. Projetos internos na empresa atual**
+Qualquer iniciativa que você liderou, coordenou ou melhorou — documente como se fosse um case de PM.
+
+## APM Programs: a porta de entrada estruturada
+
+Algumas empresas têm programas específicos de Associate Product Manager (APM) para pessoas em transição:
+
+No Brasil: Nubank (já teve), Mercado Livre, iFood, Loft, QuintoAndar — verifique sites de carreira diretamente.
+
+Internacionalmente: Google APM, Meta RPM, Microsoft PM, LinkedIn PM — altamente competitivos mas transformadores de carreira.`,
+      },
+      {
+        id: '33-3',
+        title: 'Habilidades essenciais: discovery, priorização e stakeholders',
+        duration: '35 min',
+        content: `# Habilidades essenciais: discovery, priorização e stakeholders
+
+## As três competências que fazem a diferença real
+
+Você pode ler todos os livros de produto e ainda não ser um bom PM. As competências que importam se desenvolvem na prática — mas saber o que são e como desenvolvê-las acelera muito.
+
+## 1. Discovery: encontrar o problema certo
+
+Discovery é o processo de entender profundamente o usuário, o mercado e os dados antes de propor qualquer solução.
+
+**O erro mais comum:** Pular o discovery e ir direto à solução. "Vamos criar uma feature de relatórios" sem entender se isso resolve o problema real.
+
+**Como fazer discovery:**
+- **Entrevistas com usuários** (mínimo 5-8 por rodada): perguntas abertas sobre comportamento, não sobre opiniões em soluções
+- **Análise de dados**: onde usuários abandonam? O que correlaciona com retenção? Quais features são usadas vs. ignoradas?
+- **Jobs To Be Done**: qual "trabalho" o usuário está tentando realizar com o produto?
+- **Benchmarking**: como concorrentes resolvem o mesmo problema?
+
+A saída do discovery não é uma solução — é uma definição clara do problema e um conjunto de oportunidades priorizadas.
+
+## 2. Priorização: decidir o que construir agora
+
+Com um backlog infinito e recursos finitos, priorizar é uma das habilidades mais críticas.
+
+**Frameworks principais:**
+
+**RICE:** Reach × Impact × Confidence / Effort
+- Bom para: times com dados quantitativos robustos
+- Pontuação numérica que facilita comparação
+
+**ICE:** Impact × Confidence × Ease
+- Bom para: priorização rápida e iterativa
+- Mais simples, menos rigoroso
+
+**MoSCoW:** Must / Should / Could / Won't
+- Bom para: alinhar expectativas com stakeholders sobre o que entra num ciclo
+
+**Value vs. Effort matrix (2×2):**
+- Fácil de comunicar para lideranças não técnicas
+- Quadrantes: faça agora / planeje / avalie / descarte
+
+O framework importa menos do que a disciplina de tornar explícitos os critérios de decisão.
+
+## 3. Gestão de stakeholders: influenciar sem autoridade
+
+Stakeholders são todas as partes que têm interesse no produto: liderança, time de vendas, suporte, marketing, jurídico, finanças.
+
+**O problema:** Cada um tem uma opinião sobre o que o produto deveria fazer. Seu trabalho não é fazer tudo que pedem — é alinhar todos em torno das prioridades certas.
+
+**Técnicas práticas:**
+
+**Mapa de stakeholders:** Liste todos, classifique por influência (alta/baixa) e interesse (alto/baixo). Gerencie ativamente os de alta influência.
+
+**Comunicação proativa:** Atualizações regulares sobre o roadmap evitam pedidos urgentes no pior momento possível.
+
+**Dizer não estrategicamente:** "Não vamos fazer isso agora porque priorizamos X que tem impacto Y maior. Reavaliamos no próximo ciclo" — é diferente de "não vamos fazer".
+
+**Decisões documentadas:** Um documento simples de "por que decidimos isso" evita revisões infinitas e constrói confiança ao longo do tempo.`,
+      },
+      {
+        id: '33-4',
+        title: 'O processo seletivo para PM: cases e entrevistas',
+        duration: '35 min',
+        content: `# O processo seletivo para PM: cases e entrevistas
+
+## Como funciona o processo seletivo de PM
+
+É um dos processos mais exigentes do mercado. Tipicamente tem 4-6 etapas e pode durar 4-8 semanas.
+
+**Etapas comuns:**
+1. Triagem de CV e LinkedIn
+2. Entrevista de screening com recrutador (cultura, fit, motivação)
+3. Entrevista de produto (cases de produto)
+4. Entrevista de execução (métricas, priorização, roadmap)
+5. Entrevista comportamental (STAR, liderança, conflito)
+6. Case study take-home (às vezes substituindo ou adicionando à etapa 3-4)
+7. Entrevista final com liderança (VP, CPO)
+
+## Os tipos de perguntas de case de produto
+
+### Design de produto
+"Design um produto de [categoria] para [audiência]."
+
+Estrutura recomendada:
+1. Clarificar o contexto (qual empresa? qual estágio? qual objetivo?)
+2. Definir o usuário-alvo
+3. Identificar as principais necessidades (Jobs To Be Done)
+4. Propor 3+ soluções
+5. Priorizar uma com justificativa
+6. Definir métricas de sucesso
+
+### Diagnóstico de métricas
+"A métrica X caiu 20% na última semana. O que você faz?"
+
+Estrutura:
+1. Clarificar a métrica (definição, período, segmento)
+2. Verificar se é dado real ou artefato de medição
+3. Hipóteses por categoria (produto, técnico, externo, competição, sazonalidade)
+4. Priorizar hipóteses e como validar cada uma
+5. Próximos passos
+
+### Priorização de roadmap
+"Você tem 3 features para construir mas só tem tempo para 1. Como decide?"
+
+Mostre critérios explícitos: impacto no usuário, impacto no negócio, esforço, risco, alinhamento estratégico. Não escolha por intuição — mostre o raciocínio.
+
+### Estimativas (às vezes, menos comum no Brasil)
+"Quantos PMs existem no Brasil?" — tipo Fermi estimation.
+Mostre processo: decompor o problema, usar dados que você sabe, chegar a uma ordem de grandeza razoável.
+
+## Preparação para cases: o método prático
+
+**Semanas 1-2:** Aprenda os frameworks. Livros: Cracking the PM Interview (Gayle McDowell), Decode and Conquer (Lewis Lin).
+
+**Semanas 3-4:** Pratique em voz alta. Grave a si mesmo respondendo cases. Assista e critique.
+
+**Semanas 5+:** Prática com parceiro. Comunidades como PM exercises ou grupos de LinkedIn têm candidatos dispostos a praticar juntos.
+
+**Antes de cada empresa:** Pesquise profundamente o produto deles. Qual é a métrica principal? Qual é o maior desafio atual? Isso vai aparecer na entrevista.
+
+## Perguntas comportamentais para PM
+
+"Me conte sobre uma vez que você tomou uma decisão de produto difícil com dados limitados."
+"Como você lidou com uma situação em que engenharia discordou da sua priorização?"
+"Conte sobre um produto que você lançou e que não performou como esperado."
+
+Todas pedem STAR com foco em processo de decisão, não só resultado.`,
+      },
+      {
+        id: '33-5',
+        title: 'Crescimento na carreira: APM → PM → Sênior → Head → CPO',
+        duration: '35 min',
+        content: `# Crescimento na carreira: APM → PM → Sênior → Head → CPO
+
+## A progressão de PM e o que muda em cada nível
+
+Ao contrário de muitas carreiras, em produto a progressão não é só sobre antiguidade — é sobre escopo de impacto e autonomia na tomada de decisão.
+
+## APM / PM Júnior (0-2 anos)
+**Foco:** Execução com supervisão. Entregar features de menor complexidade, aprender discovery, participar do processo sem liderar.
+
+**O que desenvolver:**
+- Escrita de product spec clara e completa
+- Relacionamento com engenharia e design
+- Básico de SQL e analytics
+- Facilitar cerimônias ágeis (sprint planning, retrospectiva)
+
+**Sinal de que está pronto para o próximo nível:** Consegue pegar um problema de produto médio, fazer discovery, propor solução, alinhar stakeholders e entregar — com mínima supervisão.
+
+## PM Pleno (2-5 anos)
+**Foco:** Propriedade completa de uma área ou feature. Discovery autônomo, comunicação com stakeholders, decisões de priorização com embasamento.
+
+**O que desenvolver:**
+- Visão estratégica de produto (não só execução)
+- Influência com lideranças sem autoridade formal
+- Capacidade de articular trade-offs claramente para diferentes audiências
+- Mentoria de PMs mais juniores
+
+## PM Sênior (4-8 anos)
+**Foco:** Área estratégica ou múltiplas áreas. Define direção, influencia roadmap da empresa, é referência de qualidade de decisão.
+
+**Diferencial:** Pensamento de longo prazo. Sabe sacrificar curto prazo por posicionamento estratégico.
+
+## Head / Director of Product (6-12 anos)
+**Foco:** Time de PMs. Contratação, desenvolvimento, cultura de produto, alinhamento com C-Level.
+
+**Transição crítica:** De "fazer produto" para "desenvolver quem faz produto". Líderes que não conseguem largar a execução ficam presos aqui.
+
+## CPO / VP of Product (10+ anos)
+**Foco:** Estratégia de produto da empresa. Visão de longo prazo, alocação de recursos, cultura de produto em escala.
+
+**Realidade:** São poucos cargos, muito competitivos. A maioria dos CPOs tem histórico de criar produtos com impacto de negócio mensurável em escala — não só de gerenciar bem.
+
+## O que acelera a progressão
+
+1. **Impacto documentado e mensurável** — crescimento de métricas que você claramente influenciou
+2. **Empresa em crescimento** — em startup Série B/C a progressão pode ser 2x mais rápida
+3. **Visibilidade com liderança** — quem não é visto, não é lembrado quando há promoção
+4. **Feedback buscado ativamente** — quem espera feedback anual cresce mais devagar
+5. **Network em produto** — indicações de outros PMs são a maior fonte de vagas senior`,
+      },
+    ],
+  },
+  {
+    id: 34,
+    title: 'Saúde Mental e Burnout: Carreira Sustentável',
+    desc: 'Reconhecer e prevenir o burnout, estabelecer limites sem prejudicar a carreira, e como voltar mais forte depois de um colapso — guia honesto e prático.',
+    duration: '2h 30min',
+    icon: '🧠',
+    isPro: false,
+    color: { bg: 'bg-green-50', border: 'border-green-200', badge: 'bg-green-100 text-green-700', icon: 'bg-green-600' },
+    lessons: [
+      {
+        id: '34-1',
+        title: 'Reconhecer burnout antes que ele te reconheça',
+        duration: '30 min',
+        content: `# Reconhecer burnout antes que ele te reconheça
+
+## O que é burnout (e o que não é)
+
+Burnout não é cansaço. Todo mundo fica cansado. Burnout é um estado de esgotamento crônico que afeta como você pensa, sente e performa — e que não some com um fim de semana de descanso.
+
+A OMS reconhece burnout como fenômeno ocupacional com três dimensões:
+1. **Exaustão** — sensação de estar completamente drenado, sem energia mesmo depois de dormir
+2. **Cinismo** — distanciamento mental do trabalho, sensação de que nada importa ou que tudo é inútil
+3. **Ineficácia** — percepção de que você não consegue mais fazer bem nem o básico
+
+## Os sinais que aparecem antes do colapso
+
+**Sinais cognitivos:** dificuldade de concentração, esquecimento frequente, decisões simples exigindo esforço desproporcional, pensamentos circulares sobre o trabalho que não param à noite.
+
+**Sinais emocionais:** irritabilidade desproporcional, sensação de desconexão, ausência de satisfação mesmo quando as coisas vão bem, medo ou ansiedade em relação ao trabalho que antes era inexistente.
+
+**Sinais físicos:** problemas de sono, dores de cabeça frequentes, tensão muscular crônica, queda de imunidade, exaustão física que não melhora com descanso.
+
+**Sinais comportamentais:** procrastinação em tarefas que antes eram automáticas, isolamento social, aumento de consumo de álcool ou cafeína para "funcionar", trabalhar mais horas sem produzir mais.
+
+## Por que profissionais de alto desempenho são especialmente vulneráveis
+
+O paradoxo do burnout: quem mais se compromete, quem mais tem senso de responsabilidade, quem mais se importa — é quem mais arrisca.
+
+Burnout não é fraqueza. É o resultado de colocar mais do que você tem durante tempo demais, sem reposição.
+
+## O que fazer quando você reconhece os sinais
+
+1. **Não minimizar** — "é só uma fase" atrasou o reconhecimento de burnout em milhões de profissionais
+2. **Reduzir carga imediatamente** — mesmo que temporariamente — antes de buscar soluções estruturais
+3. **Buscar apoio** (próxima lição)
+4. **Identificar a causa raiz** — ambiente, ritmo, relação com trabalho ou combinação
+
+Reconhecer cedo é a diferença entre ajuste e colapso.`,
+      },
+      {
+        id: '34-2',
+        title: 'Fronteiras saudáveis no trabalho sem prejudicar a carreira',
+        duration: '30 min',
+        content: `# Fronteiras saudáveis no trabalho sem prejudicar a carreira
+
+## O mito do "sempre disponível"
+
+Existe a crença de que estar sempre disponível é sinal de comprometimento. Na realidade, é frequentemente sinal de gestão de tempo ruim, falta de processos, ou cultura tóxica — e quase sempre leva a desempenho pior no médio prazo.
+
+Profissionais que estabelecem fronteiras claras e as comunicam bem são percebidos como mais confiáveis — porque os outros sabem o que esperar deles.
+
+## Tipos de fronteiras que você pode estabelecer
+
+**Fronteiras de tempo:** não responder mensagens após determinado horário, proteger horários fixos para refeição e descanso, recusar reuniões em blocos de trabalho focado.
+
+**Fronteiras de escopo:** não assumir tarefas além do que você pode entregar com qualidade, comunicar quando uma demanda é irreal antes de comprometer, dizer não com alternativa a pedidos que desviam das suas prioridades.
+
+**Fronteiras emocionais:** não levar problemas do trabalho para casa, não ser responsável pelas emoções das outras pessoas, separar crítica ao trabalho de crítica pessoal.
+
+## Como comunicar fronteiras sem parecer difícil
+
+O framing importa. Compare:
+
+**Framing defensivo:** "Não vou responder mensagens à noite."
+
+**Framing profissional:** "Trabalho focado até as 19h e retomo mensagens na manhã seguinte. Se for urgente, pode me ligar diretamente."
+
+A diferença: o segundo explica o que você faz e oferece um canal de emergência. Você não está se fechando — está sendo previsível.
+
+## O paradoxo da produtividade com fronteiras
+
+Estudos sobre desempenho cognitivo mostram que trabalho acima de 50 horas por semana tem retorno decrescente a partir da 5ª semana consecutiva. Após 8 semanas acima de 55 horas, o output cumulativo é igual ao de quem trabalhou 50 horas.
+
+Fronteiras não comprometem a carreira. Falta de fronteiras compromete a saúde — que compromete a carreira.`,
+      },
+      {
+        id: '34-3',
+        title: 'Quando pedir ajuda e como encontrar suporte',
+        duration: '25 min',
+        content: `# Quando pedir ajuda e como encontrar suporte
+
+## Quando buscar ajuda profissional
+
+Você deve buscar apoio psicológico quando:
+- Os sintomas de burnout ou ansiedade persistem por mais de 2 semanas
+- Você está tomando decisões importantes sob estado emocional comprometido
+- Você usa álcool, medicamentos ou outras substâncias para "funcionar" ou "desligar"
+- Pensamentos negativos sobre si mesmo se tornaram frequentes
+- Você sente que não consegue mais realizar tarefas básicas do trabalho
+
+Não precisa estar em crise para buscar ajuda. Psicoterapia preventiva é tão válida quanto a remediativa.
+
+## Tipos de suporte disponíveis
+
+**Psicoterapia:** A intervenção mais eficaz para burnout, ansiedade e depressão relacionadas ao trabalho. Abordagens com evidência: TCC (Terapia Cognitivo-Comportamental) e ACT (Acceptance and Commitment Therapy).
+
+Acesso: planos de saúde frequentemente cobrem. Plataformas como Vittude, Zenklub e Psicologia Viva têm valores menores. CAPS oferece atendimento público gratuito.
+
+**EAP (Employee Assistance Program):** Muitas empresas oferecem este benefício sem divulgá-lo. É um serviço confidencial de apoio psicológico, jurídico e financeiro. Verifique com o RH.
+
+**Psiquiatria:** Quando há sintomas físicos intensos (insônia severa, ansiedade paralisante, depressão), o psiquiatra avalia se há necessidade de medicação complementar à psicoterapia.
+
+## Conversando com seu gestor sobre saúde mental
+
+Você não é obrigado a revelar diagnóstico. Você pode dizer:
+*"Estou passando por um momento de sobrecarga e preciso ajustar temporariamente minha carga de trabalho. Posso conversar sobre como priorizar o que é mais crítico?"*
+
+Foque no impacto concreto e nas soluções, não nos detalhes pessoais. A maioria dos gestores prefere um ajuste temporário a perder um bom profissional por colapso.`,
+      },
+      {
+        id: '34-4',
+        title: 'Ritmo sustentável vs. sprint constante',
+        duration: '30 min',
+        content: `# Ritmo sustentável vs. sprint constante
+
+## A mentalidade de sprint que destrói carreiras
+
+A cultura de trabalho atual glamoriza o excesso: "hustle culture", orgulhar-se de quantas horas se trabalha. Essa narrativa tem um problema fundamental: carreiras longas e bem-sucedidas raramente são resultado de sprints permanentes.
+
+São resultado de ritmo sustentável com picos pontuais — não de corrida constante sem parar.
+
+## O atleta como modelo
+
+Atletas de elite não treinam no máximo todos os dias. Eles periodizam: dias de alta intensidade seguidos de recuperação ativa. Treinamento sem recuperação gera lesão, não performance.
+
+A carreira funciona da mesma forma. Períodos de alta entrega precisam ser seguidos de recuperação. Quem trata todo período como urgente perde a capacidade de distinguir o que realmente importa.
+
+## Como construir ritmo sustentável na prática
+
+**Semanal:** proteja pelo menos meio dia sem reuniões, separe trabalho focado de trabalho reativo, defina horário de encerramento e cumpra.
+
+**Mensal:** revise sua carga de comprometimentos, reserve tempo para aprendizado, avalie se está trabalhando no que é estrategicamente mais importante.
+
+**Anual:** tire férias reais (desconectado de verdade), faça revisão honesta do bem-estar profissional, ajuste metas se necessário.
+
+## A diferença entre intensidade e urgência perpétua
+
+Intensidade é focar totalmente em algo importante por tempo determinado.
+Urgência perpétua é tratar tudo como igualmente urgente o tempo todo.
+
+A primeira produz resultados extraordinários. A segunda produz exaustão sem resultados proporcionais.
+
+## Longevidade como vantagem competitiva
+
+Um profissional que performa bem por 30 anos supera em impacto cumulativo um que performa excepcionalmente por 5 anos e depois colapsa. Sustentabilidade não é o oposto da ambição — é a condição para ela se realizar.`,
+      },
+      {
+        id: '34-5',
+        title: 'Voltando depois do burnout ou da licença médica',
+        duration: '25 min',
+        content: `# Voltando depois do burnout ou da licença médica
+
+## O retorno é uma etapa do processo
+
+Burnout não tem cura imediata. O retorno ao trabalho após uma crise é uma transição que exige tanta atenção quanto o período de recuperação. Voltar antes de estar pronto — ou voltar para o mesmo ambiente sem nada ter mudado — é receita para recaída.
+
+## Antes de voltar: perguntas que você precisa responder
+
+**O que causou o burnout?** Se foram condições da empresa e nada mudou, voltar é expor-se ao mesmo risco.
+
+**O que mudou em mim?** Quais padrões de comportamento contribuíram? Você está trabalhando nisso?
+
+**Qual é o plano de retorno?** Uma volta gradual é mais eficaz do que retornar full capacity imediatamente.
+
+## Conversando com a empresa sobre o retorno
+
+Você tem direito de negociar o retorno gradual: acordo para retorno progressivo de carga horária, mudança de função ou gestor se a causa foi situacional, flexibilidade temporária de horários.
+
+A empresa tem interesse no seu retorno saudável — um funcionário que volta em colapso parcial não produz e gera custo de afastamento novamente.
+
+## O que você pode dizer (se escolher divulgar)
+
+*"Passei por um período de saúde que resolvi. Voltei com plano claro para garantir que entrego bem daqui para frente."*
+
+Foco no futuro e na solução, não nos detalhes do passado.
+
+## Reconstruindo a confiança profissional
+
+- Comece com tarefas que você domina — reconquistar competência percebida é importante
+- Celebre pequenas entregas (a tendência pós-burnout é minimizar progressos)
+- Mantenha o suporte psicológico durante a fase de retorno — não só durante a crise
+- Construa rituais de transição entre trabalho e descanso
+
+Burnout é uma informação sobre o sistema (você + ambiente). O retorno consciente é uma oportunidade de redesenhar esse sistema.`,
+      },
+    ],
+  },
+  {
+    id: 35,
+    title: 'Storytelling e Comunicação Executiva',
+    desc: 'Comunicar com clareza e impacto para qualquer audiência — de colegas a CEO. Narrativa, estrutura, escrita e presença que avançam carreiras.',
+    duration: '3h 10min',
+    icon: '🎙️',
+    isPro: true,
+    color: { bg: 'bg-orange-50', border: 'border-orange-200', badge: 'bg-orange-100 text-orange-700', icon: 'bg-orange-500' },
+    lessons: [
+      {
+        id: '35-1',
+        title: 'Por que storytelling decide carreiras',
+        duration: '30 min',
+        content: `# Por que storytelling decide carreiras
+
+## O profissional invisível
+
+Há um profissional em toda empresa que entrega consistentemente, é tecnicamente excelente, mas nunca é promovido. Na avaliação de desempenho, seu gestor diz que ele é "ótimo" mas não consegue dar exemplos específicos.
+
+Esse profissional tem um problema de comunicação, não de competência.
+
+## Por que o cérebro responde a histórias
+
+Dados ativam duas áreas do cérebro. Histórias ativam sete áreas adicionais — incluindo as responsáveis por sensações e emoção.
+
+Quando você apresenta resultados como dados, a informação é processada. Quando você conta a história de como descobriu o problema, o que tentou, o que falhou e o que funcionou — a informação é sentida e lembrada.
+
+**Implicação:** Entrevistadores lembram das histórias. Comitês de promoção discutem casos concretos. CEOs mencionam o nome de quem criou clareza.
+
+## Onde storytelling decide o resultado
+
+**Entrevistas:** Cada resposta comportamental é uma história. Quem conta melhor, avança.
+
+**Apresentações para liderança:** A diferença entre "precisamos de budget" e uma história que cria urgência, mostra o custo do não-investimento e propõe solução clara.
+
+**Conversas de promoção:** O colaborador que narra sua trajetória de impacto vs. o que espera que o gestor lembre.
+
+**Alinhamento de stakeholders:** Pessoas que discordam de dados podem concordar com uma história que cria perspectiva compartilhada.
+
+## A habilidade que mais retorna no investimento
+
+Storytelling não é talento inato — é estrutura + prática. Os próximos módulos mostram exatamente como desenvolver.`,
+      },
+      {
+        id: '35-2',
+        title: 'Estruturas de narrativa para entrevistas e apresentações',
+        duration: '40 min',
+        content: `# Estruturas de narrativa para entrevistas e apresentações
+
+## Por que estrutura importa mais do que criatividade
+
+Histórias sem estrutura confundem. A audiência gasta energia tentando entender onde você quer chegar — energia que deveria estar no conteúdo.
+
+Estrutura transforma uma sequência de fatos em narrativa compreensível e memorável.
+
+## As três estruturas mais úteis
+
+### 1. STAR (entrevistas comportamentais)
+
+Distribuição ideal de tempo:
+- Situação: 15% (contexto mínimo)
+- Tarefa: 10% (seu papel específico)
+- Ação: 50% (o que VOCÊ fez — seja específico)
+- Resultado: 25% (número + impacto de negócio + aprendizado)
+
+O erro mais comum: gastar demais em S e T, chegar apressado em A e R.
+
+### 2. Pirâmide de Minto (apresentações executivas)
+
+Comece pela conclusão. Depois justifique.
+
+1. Situação (contexto compartilhado)
+2. Complicação (o problema ou mudança)
+3. Pergunta implícita (o que fazemos agora?)
+4. Resposta/recomendação (sua conclusão primeiro)
+5. Os 3 argumentos que sustentam
+
+Exemplo:
+- "Nossa retenção está em 78% vs. 88% do mercado. Para fechar esse gap, preciso de aprovação para programa de sucesso do cliente. Os três motivos: CAC é 5x maior que custo de retenção, abandono ocorre nos primeiros 60 dias, e concorrentes com NPS>50 têm churn menor."
+
+### 3. Antes e Depois (impacto de projeto)
+
+"Antes de [ação], a situação era [X]. Após [ação], tornou-se [Y]. O que fiz para chegar lá: [3 ações concretas]."
+
+## A regra dos três pontos
+
+Toda apresentação deve ter no máximo três pontos principais. O cérebro humano retém três. Cinco pontos competem na memória. Dez pontos = zero pontos.
+
+Se você tem dez argumentos, escolha os três mais fortes.`,
+      },
+      {
+        id: '35-3',
+        title: 'Falar para líderes: como adaptar a mensagem para o C-Level',
+        duration: '35 min',
+        content: `# Falar para líderes: como adaptar a mensagem para o C-Level
+
+## O maior erro com líderes sêniors
+
+Apresentar o processo em vez do resultado.
+
+Líderes sêniors não querem saber como você chegou lá. Querem saber onde chegou, o que isso significa para o negócio e o que você precisa deles.
+
+## O que líderes valorizam em comunicação
+
+**Clareza acima de completude.** Uma mensagem incompleta que é entendida vale mais que uma completa que confunde.
+
+**Números de negócio, não métricas técnicas.** CFOs não entendem DAU/MAU. Entendem receita, custo, margem. Traduza sempre.
+
+**Implicação, não informação.** Não diga "a taxa de conversão caiu 12%". Diga "a taxa de conversão caiu 12%, o que representa R$800k de receita em risco neste trimestre se não agirmos em 30 dias."
+
+**Recomendação clara.** Líderes ficam frustrados quando recebem análise sem recomendação. Mesmo incerto, diga "minha recomendação é X, com a ressalva de Y."
+
+## A estrutura BLUF (Bottom Line Up Front)
+
+Comece com a conclusão. A primeira frase deve conter o que o líder precisa saber.
+
+Exemplo de email ao CEO:
+> "Precisamos aprovar R$150k em budget adicional até sexta para não atrasar o lançamento Q3. Abaixo os 3 pontos que justificam e 2 alternativas caso budget não seja aprovado."
+
+Se o CEO puder ler só a primeira frase e entender o que é necessário, você comunicou bem.
+
+## Lendo a sala
+
+Sinais de que você perdeu a atenção: olha para o celular, faz perguntas que você já respondeu, interrompe antes de terminar.
+
+O que fazer: pare e pergunte diretamente — "Quero ter certeza que estou indo na direção certa. Qual é a parte mais importante para você nesse contexto?"`,
+      },
+      {
+        id: '35-4',
+        title: 'Comunicação escrita de alto impacto',
+        duration: '30 min',
+        content: `# Comunicação escrita de alto impacto
+
+## Por que a escrita importa mais do que nunca
+
+Em ambientes remotos e híbridos, comunicação escrita é o principal canal de trabalho. Quem escreve bem é percebido como mais inteligente, mais organizado e mais confiável.
+
+## Os princípios da escrita executiva
+
+**Clareza primeiro, elegância depois.** A frase mais clara é sempre melhor que a mais elaborada.
+
+**Uma ideia por parágrafo.** Se tem duas ideias, separe em dois parágrafos.
+
+**Subject line de email = a conclusão.**
+- Ruim: "Reunião de alinhamento sobre projeto X"
+- Bom: "Aprovação necessária para budget Q3 — até sexta-feira"
+
+**Comece com o pedido, não com o contexto.** Emails com contexto no início e pedido no final são lidos pela metade.
+
+## A estrutura do email executivo eficiente
+
+---
+Assunto: [O que você precisa + prazo]
+
+Preciso de [aprovação / decisão / feedback] sobre [X] até [data].
+
+Por quê agora: [1-2 frases]
+Contexto: [3 bullets no máximo]
+Opções:
+• Opção A (minha recomendação): [breve descrição]
+• Opção B: [breve descrição]
+
+Me avisa qual preferem.
+---
+
+## Relatórios que são lidos
+
+Estrutura que funciona:
+1. **Executive Summary** (1 página) — o que aconteceu, o que significa, o que fazer
+2. **Análise detalhada** — para quem quer aprofundar
+3. **Dados brutos** — no anexo
+
+Regra: quem ler só o Executive Summary deve ter tudo que precisa para decidir.
+
+## Erros que destroem credibilidade
+
+- Frases passivas que escondem o responsável ("Foi decidido que...")
+- Jargão em excesso em todo parágrafo
+- Adjetivos sem dado ("crescimento expressivo" — qual número?)
+- Bullets que poderiam ser uma frase`,
+      },
+      {
+        id: '35-5',
+        title: 'Presença em reuniões, palcos e videoconferências',
+        duration: '35 min',
+        content: `# Presença em reuniões, palcos e videoconferências
+
+## O que é presença executiva
+
+Presença executiva não é ser extrovertido. É a capacidade de entrar em um ambiente e ser notado pelos motivos certos — a qualidade do que você diz, a segurança com que se move, a atenção que você gera.
+
+É completamente desenvolvível.
+
+## Presença em reuniões de trabalho
+
+**Fale menos, mas pese mais.** O participante que fala em cada ponto é ruído. Quem fala três vezes com substância é lembrado.
+
+Estratégia: reserve intervenções para os pontos em que você tem algo único a acrescentar. Quando falar, seja direto e conclua com recomendação ou pergunta clara.
+
+**Faça a pergunta que libera o grupo.** Em toda reunião há uma pergunta não feita que bloquearia o avanço. Quem a faz — respeitosamente — demonstra clareza de pensamento e constrói reputação de liderança.
+
+## Apresentações e palcos
+
+**Os primeiros 30 segundos.** A audiência decide se você merece atenção nos primeiros 30 segundos. Comece com afirmação surpreendente, pergunta inesperada ou dado que quebra uma suposição.
+
+Nunca comece com "Bom dia, meu nome é X e hoje vou falar sobre Y."
+
+**Velocidade e pausa.** Falar rápido demais é sinal de nervosismo. Pausas estratégicas — especialmente após afirmação importante — criam peso e deixam o conteúdo assentar.
+
+**Onde olhar.** Em palco, divida em três zonas (esquerda, centro, direita) e alterne. O objetivo é que cada pessoa sinta que você olhou para ela pelo menos uma vez.
+
+## Sobre o nervosismo
+
+Não é fingir confiança — é preparação que gera confiança real. Pratique em voz alta, não mentalmente. O nervosismo é físico — a prática tem que ser física. O objetivo não é eliminar o nervosismo — é usar essa energia como foco.`,
+      },
+    ],
+  },
+  {
+    id: 36,
+    title: 'Carreira em Dados: Analytics, BI e Data Science',
+    desc: 'O mapa completo para construir ou migrar para uma carreira em dados — cargos, habilidades por nível, portfólio que impressiona e como entrar sem formação técnica formal.',
+    duration: '3h 20min',
+    icon: '📊',
+    isPro: true,
+    color: { bg: 'bg-purple-50', border: 'border-purple-200', badge: 'bg-purple-100 text-purple-700', icon: 'bg-purple-600' },
+    lessons: [
+      {
+        id: '36-1',
+        title: 'O ecossistema de dados: áreas, cargos e diferenças',
+        duration: '35 min',
+        content: `# O ecossistema de dados: áreas, cargos e diferenças
+
+## Por que "trabalhar com dados" não é um cargo
+
+"Quero trabalhar com dados" é como dizer "quero trabalhar com saúde." Há dezenas de funções diferentes, com habilidades, perfis e mercados distintos.
+
+## O mapa de cargos em dados
+
+**Analista de Dados:** Responde perguntas de negócio com dados existentes. Cria dashboards e análises. SQL + Excel + BI tool. Perfil: raciocínio analítico com foco em negócio.
+
+**Analista de BI:** Constrói pipelines e dashboards para a empresa toda. SQL avançado + ETL + modelagem dimensional + Power BI/Tableau + dbt. Perfil: gosta de estrutura e arquitetura.
+
+**Engenheiro de Dados:** Constrói a infraestrutura que move e transforma dados. Python + SQL + Spark + Airflow + cloud. **Maior escassez no mercado — salários proporcionalmente mais altos.**
+
+**Cientista de Dados:** Constrói modelos preditivos. Python + estatística + scikit-learn + SQL. Perfil: base matemática/estatística forte.
+
+**Analytics Engineer:** Intersecção de análise e engenharia — SQL + dbt + transformação de dados com qualidade de código. Função crescente e muito demandada.
+
+## Como escolher sua trilha
+
+Responda:
+- Prefere responder perguntas (Analyst) ou construir a estrutura que permite respondê-las (Engineer)?
+- Trabalhar com dados históricos (BI/Analytics) ou prever o futuro (Data Science)?
+- Código leve com muito negócio (Analyst) ou código pesado com menos negócio (Engineer)?
+
+Sua resposta aponta a trilha.`,
+      },
+      {
+        id: '36-2',
+        title: 'Habilidades essenciais por trilha e nível',
+        duration: '40 min',
+        content: `# Habilidades essenciais por trilha e nível
+
+## Para Analista de Dados / Analytics
+
+**Júnior:** SQL básico-intermediário (SELECT, WHERE, GROUP BY, JOIN), Excel avançado (tabelas dinâmicas, XLOOKUP), uma ferramenta de BI básica, comunicação de insight para não-técnicos.
+
+**Pleno:** SQL avançado (window functions, CTEs, performance), Python básico com pandas, estatística descritiva aplicada, narrativa visual com dados.
+
+**Sênior:** Definição de métricas e taxonomia para a empresa, experimentação (A/B testing rigoroso), influência com stakeholders, liderança técnica.
+
+## Para Engenheiro de Dados
+
+**Júnior:** Python (manipulação, APIs, OOP básico), SQL avançado, conceitos de ETL, cloud básico (S3, GCS).
+
+**Pleno:** Airflow ou Prefect, dbt, Spark, Data Warehouse moderno (BigQuery, Snowflake), Git e DevOps básico.
+
+**Sênior:** Arquitetura de data lakehouse, streaming (Kafka, Flink), data quality e observabilidade, otimização de custo de cloud.
+
+## Para Cientista de Dados
+
+**Júnior:** Python (pandas, numpy, scikit-learn), estatística básica (distribuições, testes de hipótese), ML supervisionado, visualização.
+
+**Pleno:** ML avançado (ensemble, feature engineering), experimentação rigorosa, SQL avançado, comunicação de incerteza.
+
+**Sênior:** Deep learning (PyTorch/TensorFlow), MLOps (deploy e monitoramento de modelos), liderança de projetos end-to-end.
+
+## O que estudar primeiro (para quem está começando)
+
+1. **SQL** — denominador comum de tudo. Invista aqui antes de qualquer outra coisa.
+2. **Excel/Sheets** — ainda é a ferramenta mais usada no cotidiano de dados no Brasil.
+3. **Uma ferramenta de BI** — Power BI tem mais vagas no Brasil; Tableau tem mais no mercado internacional.
+4. **Python básico** — depois de SQL, não antes.
+
+Recursos gratuitos: Mode Analytics SQL Tutorial, Kaggle Learn, Khan Academy Statistics.`,
+      },
+      {
+        id: '36-3',
+        title: 'Portfólio de dados que impressiona recrutadores',
+        duration: '35 min',
+        content: `# Portfólio de dados que impressiona recrutadores
+
+## Por que portfólio vale mais que certificação
+
+Certificações dizem que você estudou. Portfólio diz que você sabe fazer. Um projeto real bem documentado vale mais do que 10 certificados.
+
+## O que faz um projeto de dados ser impressionante
+
+**Problema real + dataset real.** Projetos com dados fictícios não convencem. Use dados públicos de fontes confiáveis: Kaggle, IBGE, data.gov.br, Google Dataset Search.
+
+Fraco: "Analisei vendas de dataset genérico e plotei gráficos."
+Forte: "Analisei dados públicos do Ministério da Saúde para identificar padrões de internação por região e propus modelo preditivo de demanda hospitalar."
+
+**Processo completo documentado:** mostre o problema de negócio, de onde vieram os dados, quais análises foram feitas e por quê, o que foi encontrado, qual seria a recomendação.
+
+**Código limpo e comentado:** variáveis descritivas, estrutura em seções, decisões não óbvias documentadas.
+
+## Onde hospedar
+
+- **GitHub:** padrão para código. Todo projeto tem README claro.
+- **Kaggle:** para notebooks com análise exploratória.
+- **Medium/Substack:** análises narrativas — muito valorizado por recrutadores.
+- **Tableau Public / Power BI Reports:** dashboards interativos gratuitos.
+
+## 3 projetos que funcionam para qualquer área
+
+1. **Análise exploratória com insight de negócio** — dataset de e-commerce (Kaggle), pergunta de negócio real, conclusões + recomendações.
+
+2. **Dashboard executivo** — dados financeiros ou de vendas públicos, 4-5 KPIs, filtros por período/região, narrativa visual.
+
+3. **Modelo preditivo simples** — previsão de churn, aprovação de crédito ou demanda. EDA + feature engineering + modelo + métricas + interpretação.
+
+**Dica de diferencial:** use dados brasileiros (IBGE, INEP, Receita Federal). A maioria dos portfólios usa dados americanos. Dados locais chamam atenção de empresas nacionais.`,
+      },
+      {
+        id: '36-4',
+        title: 'Como entrar em dados sem formação técnica',
+        duration: '30 min',
+        content: `# Como entrar em dados sem formação técnica
+
+## Formação formal não é requisito
+
+A maioria dos analistas de dados no Brasil não tem graduação em Estatística ou Ciências da Computação. Veio de Administração, Economia, Marketing, Jornalismo, Psicologia.
+
+O que importa: você sabe usar dados para responder perguntas de negócio? Consegue comunicar o resultado para alguém não técnico?
+
+## Trilha de 6-12 meses para entrar em analytics
+
+**Meses 1-2: SQL e Excel.**
+Foco total. SQL é a habilidade mais importante e mais escassa. Meta: queries com JOINs, GROUP BY e subqueries.
+Recursos: Mode Analytics SQL Tutorial (gratuito), DIO.
+
+**Meses 3-4: Power BI + comunicação com dados.**
+Conectar os dados que você aprendeu a consultar a uma visualização. Qual gráfico para qual pergunta.
+Recursos: Hashtag Treinamentos (YouTube, gratuito).
+
+**Meses 5-6: Python básico + primeiro projeto de portfólio.**
+Pandas para manipulação, visualização com plotly. Primeiro projeto documentado no GitHub.
+
+**Meses 7-12: Segundo projeto + candidaturas + networking.**
+Comunidades: Data Hackers (maior do Brasil), grupos de dados no LinkedIn.
+
+## Usando seu background como diferencial
+
+**Marketing:** entende funil, métricas de aquisição. Analytics de growth e produto valorizam isso.
+**Finanças/Contabilidade:** entende modelagem de negócio, P&L. BI financeiro é natural.
+**RH:** people analytics é área crescente.
+**Operações/Logística:** supply chain analytics tem alta demanda.
+
+Não mude de área — aplique dados à área que você já domina. É muito mais fácil ser analista de dados de marketing com background em marketing.
+
+## Vagas de entrada que aceitam não-técnicos
+
+- Trainee em dados (Ambev, B3, Itaú, Magazine Luiza)
+- Junior Data Analyst em startups
+- Analytics Engineer Junior (SQL forte é suficiente para começar)
+- Analista de BI Junior (menor barreira de entrada)`,
+      },
+      {
+        id: '36-5',
+        title: 'Crescimento e especialização: da análise ao engineering',
+        duration: '40 min',
+        content: `# Crescimento e especialização: da análise ao engineering
+
+## As decisões que moldam sua trajetória
+
+Em algum ponto da carreira em dados, você vai precisar escolher:
+
+1. **Ir mais fundo tecnicamente** (engenharia, ML, pesquisa)
+2. **Ir mais para negócio** (analytics lead, head de dados, CDO)
+3. **Ir para gestão de times** (Data Manager, Head of Analytics)
+4. **Especializar por domínio** (fintech analytics, healthcare data, growth)
+
+## O caminho técnico: de analyst para engineer
+
+A transição de analista para engenheiro de dados é uma das mais procuradas e bem remuneradas.
+
+O que aprender:
+- Python além de pandas: orientação a objetos, testes unitários
+- Orquestração: Airflow, Prefect ou Dagster
+- Data Warehouse moderno: BigQuery, Snowflake ou Databricks
+- dbt: padrão de fato para transformação de dados
+
+Timeline realista: 12-18 meses de aprendizado focado + projetos práticos.
+
+## O caminho de liderança: de sênior para head
+
+Exige habilidades além das técnicas: recrutamento e desenvolvimento de talentos, priorização estratégica de time, influência executiva, demonstração de impacto em termos financeiros.
+
+## Tendências que moldam as oportunidades
+
+**Analytics Engineering:** dbt e ferramentas similares criaram nova disciplina — analistas que sabem construir pipelines confiáveis sem serem engenheiros completos.
+
+**LLMs e dados:** cresce demanda por profissionais que sabem trabalhar com dados não estruturados e construir pipelines para IA generativa.
+
+**Data Governance:** LGPD e qualidade de dados como preocupação estratégica criou perfis especializados.
+
+## Como se posicionar para crescimento acelerado
+
+1. **Especialize-se em algo escasso** — "especialista em experimentação" abre portas que generalistas não abrem.
+2. **Construa visibilidade** — publique análises, contribua em comunidades, fale em meetups.
+3. **Mova-se para empresas data-driven** — você aprende mais onde dados decidem.
+4. **Encontre um mentor técnico** — Data Hackers e PyData Brasil conectam profissionais.`,
+      },
+    ],
+  },
+  {
+    id: 37,
+    title: 'Mentorias de Carreira: Como Encontrar e Aproveitar',
+    desc: 'Como encontrar mentores que realmente importam, abordá-los sem parecer desesperado e extrair o máximo de cada sessão — o atalho mais subestimado na carreira.',
+    duration: '2h 15min',
+    icon: '🤝',
+    isPro: false,
+    color: { bg: 'bg-yellow-50', border: 'border-yellow-200', badge: 'bg-yellow-100 text-yellow-700', icon: 'bg-yellow-500' },
+    lessons: [
+      {
+        id: '37-1',
+        title: 'O que é mentoria real (e o que não é)',
+        duration: '25 min',
+        content: `# O que é mentoria real (e o que não é)
+
+## A confusão sobre o que é mentoria
+
+Mentoria virou palavra da moda. Hoje em dia, qualquer conversa de 30 minutos com alguém mais experiente é chamada de mentoria. Isso diluiu o conceito e criou expectativas erradas.
+
+**Mentoria real é:**
+- Um relacionamento de longo prazo com alguém que investiu tempo em te conhecer
+- Troca genuína (mentor aprende algo com você também)
+- Orientação contextualizada para sua situação específica — não conselhos genéricos
+- Baseada em confiança construída ao longo do tempo
+
+**O que não é mentoria:**
+- Uma conversa única com um palestrante famoso
+- Alguém que responde suas perguntas num evento
+- Um coaching pago pontual (que tem valor, mas é diferente)
+- Alguém que te dá validação sem desafio
+
+## Por que mentoria importa tanto
+
+Pesquisas mostram que profissionais com mentor progridem mais rapidamente, recebem mais promoções, ganham mais e reportam maior satisfação. Mas o efeito não é mágico — vem do acesso a perspectiva que você não consegue sozinho.
+
+Um mentor que passou pelo que você está passando 10 anos antes pode te fazer evitar erros que levariam anos para você perceber. Isso não tem preço.
+
+## Os tipos de mentor que existem
+
+**Mentor de carreira:** Te ajuda a navegar decisões de carreira, promoções, transições.
+
+**Mentor técnico:** Tem profundidade em uma competência específica que você quer desenvolver.
+
+**Sponsor:** Vai além do conselho — te indica ativamente, fala o seu nome quando oportunidades aparecem. Mais raro, mais valioso.
+
+**Peer mentor:** Alguém no mesmo nível mas com perspectiva diferente — troca mais horizontal.
+
+Você pode e deve ter múltiplos mentores para diferentes aspectos da carreira.`,
+      },
+      {
+        id: '37-2',
+        title: 'Como encontrar mentores relevantes para sua carreira',
+        duration: '30 min',
+        content: `# Como encontrar mentores relevantes para sua carreira
+
+## Onde mentores estão (e onde não estão)
+
+**Onde estão:**
+- Na sua rede atual — a maioria das mentorias começa com alguém que você já conhece ou tem conexão em comum
+- LinkedIn — pesquisa por cargo atual ou trajetória semelhante ao que você quer
+- Comunidades da sua área — Slack de profissionais, grupos no LinkedIn, comunidades setoriais
+- Eventos e conferências — tanto presenciais quanto online
+- Programas formais de mentoria (algumas empresas, associações e ONGs oferecem)
+- Ex-colegas que avançaram mais rapidamente
+
+**Onde não estão:**
+- Palestrantes famosos com 100k seguidores que você aborda no DM sem contexto
+- Executivos de Fortune 500 que você nunca teve qualquer tipo de contato
+
+## O critério de seleção do mentor certo
+
+Antes de abordar alguém, responda:
+
+1. **Esta pessoa está onde eu quero estar daqui a 5-10 anos?** (ou passou pelo que estou passando?)
+2. **Temos valores ou interesses em comum além da área?** (facilita conexão genuína)
+3. **Ela tem tempo e energia para investir em mentoria?** (executivos muito ocupados dão conselhos superficiais)
+4. **Tenho algo a oferecer para essa troca?** (perspectiva, habilidade, network em outra área)
+
+## Plataformas e programas formais
+
+**MentorCruise:** plataforma paga com mentores globais, muito boa para tech e produto.
+
+**ADPList:** gratuito, mentores voluntários em tech, design e startups — global.
+
+**Impulso Network:** comunidade brasileira de tech com mentorias.
+
+**Programas de empresas:** muitas organizações têm programas internos. Pesquise com o RH.
+
+**Associações profissionais:** ABRH (RH), ABRAIDI (design), comunidades de marketing, grupos de CFOs etc.
+
+## O erro de buscar o mentor "famoso"
+
+A melhor mentoria raramente vem do CEO mais famoso da sua área. Vem de alguém que está 3-5 anos à frente de você, tem tempo para se engajar e lembra como era estar onde você está. Esse perfil é muito mais acessível e muito mais útil.`,
+      },
+      {
+        id: '37-3',
+        title: 'Como abordar um mentor sem soar desesperado',
+        duration: '25 min',
+        content: `# Como abordar um mentor sem soar desesperado
+
+## Por que a maioria dos pedidos de mentoria é ignorada
+
+"Olá [nome], admiro muito sua trajetória e gostaria muito de ter uma mentoria com você. Poderia me dedicar um pouco do seu tempo?"
+
+Este tipo de mensagem chega dezenas de vezes por semana para profissionais experientes. É genérica, pede sem oferecer, e coloca o trabalho todo no lado do mentor.
+
+## A estrutura de abordagem que funciona
+
+**1. Demonstre que você fez a lição de casa**
+Mencione algo específico sobre o trabalho ou trajetória da pessoa. Não "vi que você trabalha em X" — mas "li seu artigo sobre Y e a perspectiva sobre Z me fez repensar como estou abordando [problema específico]."
+
+**2. Seja específico sobre o que você precisa**
+Não "quero uma mentoria". Mas "estou tomando a decisão de X vs. Y e você passou por situação similar. Posso ter 30 minutos para ouvir sua perspectiva?"
+
+**3. Minimize o custo para o mentor**
+30 minutos é mais fácil de dizer sim do que "uma mentoria". Uma conversa online específica é mais fácil do que um compromisso aberto.
+
+**4. Ofereça algo em troca (quando genuíno)**
+Se você tem uma perspectiva, dado ou conexão que pode ser útil para o mentor, mencione.
+
+**Exemplo de mensagem que funciona:**
+
+"Olá [nome], acompanho seu trabalho em [área específica] há algum tempo — especialmente o que você compartilhou sobre [tema] me foi muito útil quando [contexto pessoal].
+
+Estou num momento de decisão sobre [situação específica] e você passou por algo similar quando [referência à trajetória dela]. Você teria 30 minutos nos próximos 2-3 semanas para uma conversa? Posso me adaptar ao seu horário."
+
+## O que fazer depois da primeira conversa
+
+- Envie um email de agradecimento em até 24 horas com o que foi mais útil
+- Implemente algo do que foi discutido antes do próximo contato
+- No próximo contato: mostre o que você fez com o conselho anterior
+- Não desapareça depois da primeira sessão — mentorias que funcionam têm continuidade`,
+      },
+      {
+        id: '37-4',
+        title: 'Extraindo o máximo de cada sessão',
+        duration: '25 min',
+        content: `# Extraindo o máximo de cada sessão
+
+## O mentorado que não aproveita
+
+Chega sem preparação. Faz perguntas genéricas ("o que você me recomenda para crescer na carreira?"). Espera que o mentor faça o trabalho de identificar o que precisa ser discutido.
+
+O mentor termina a sessão sem saber se foi útil. O mentorado sai com conselhos vagos que não aplica.
+
+## A preparação antes de cada sessão
+
+**15-20 minutos de preparação valem 45 minutos de sessão melhor.**
+
+Antes de cada encontro:
+1. O que eu implementei desde a última sessão? Qual foi o resultado?
+2. Qual é a decisão ou desafio mais importante que estou enfrentando agora?
+3. Quais são as 2-3 perguntas específicas que só esta pessoa pode responder?
+4. Tem algo que quero mostrar (portfólio, análise, plano) para feedback concreto?
+
+## Perguntas que extraem mais valor
+
+Ao invés de: "O que você me recomenda para crescer?"
+Use: "Quando você estava nessa posição, qual foi a decisão que mais acelerou sua progressão?"
+
+Ao invés de: "Como você negociou seu salário?"
+Use: "Você pode me contar o momento exato de uma negociação difícil e como conduziu — o que disse, o que não disse?"
+
+Ao invés de: "Como entro nessa área?"
+Use: "Se você fosse começar hoje com o meu perfil atual, quais seriam seus primeiros 3 movimentos?"
+
+## Durante a sessão
+
+- Tome notas (com permissão)
+- Não interrompa para contar sua história quando o mentor está dando um exemplo — ouça até o fim
+- Quando receber conselho que discorda, explore com curiosidade antes de defender sua posição
+- Ao final: pergunte "tem alguma pergunta que eu deveria ter feito e não fiz?"
+
+## Fechando o ciclo da mentoria
+
+Ao final de um período (3-6 meses), faça uma revisão com o mentor: o que avançou, o que ainda está em aberto, se faz sentido continuar.
+
+Mentorias que terminam naturalmente com gratidão e relato de impacto frequentemente se transformam em sponsorship — o mentor começa a te indicar ativamente.`,
+      },
+      {
+        id: '37-5',
+        title: 'Quando você vira mentor: o ciclo que multiplica',
+        duration: '30 min',
+        content: `# Quando você vira mentor: o ciclo que multiplica
+
+## Por que se tornar mentor acelera sua própria carreira
+
+Ensinar é a forma mais eficiente de aprender. Quando você articula para outra pessoa o que sabe — organizando, simplificando, respondendo perguntas que não esperava — você consolida e aprofunda seu próprio conhecimento.
+
+Além disso, ser mentor constrói reputação de liderança, cria network de pessoas que cresceram com seu apoio, e frequentemente abre portas que o mentorado mais tarde indica.
+
+## Quando você está pronto para mentorar
+
+Você não precisa ser expert para ser mentor. Você precisa estar 3-5 anos à frente de alguém em um aspecto específico.
+
+Se você passou por uma transição de carreira difícil, conseguiu o primeiro emprego numa área competitiva, ou desenvolveu uma habilidade específica — você tem algo para compartilhar com quem está alguns passos atrás.
+
+## Como ser um bom mentor
+
+**Escute antes de aconselhar.** O erro mais comum de novos mentores: dar conselhos antes de entender profundamente a situação. Faça perguntas até ter clareza.
+
+**Compartilhe falhas, não só sucessos.** Histórias de erro e aprendizado são mais úteis do que histórias de sucesso. Remova o verniz.
+
+**Dê feedback difícil com cuidado.** "Você está evitando uma conversa importante" é mais útil do que "você está indo muito bem". Mas entregue com empatia e evidência específica.
+
+**Não resolva o problema pelo mentorado.** Faça perguntas que fazem o mentorado chegar à própria conclusão. Autonomia de pensamento é o maior presente de uma mentoria.
+
+**Saiba quando a mentoria acabou.** Nem toda mentoria dura para sempre. Quando o mentorado cresceu além do que você pode oferecer, comemore e indique mentores mais adequados.
+
+## O efeito multiplicador
+
+Cada profissional que você mentora bem carrega aprendizados e valores que vai transmitir para quem ele mentorar. É uma das poucas formas de impacto que escala além da sua capacidade individual.`,
+      },
+    ],
+  },
+  {
+    id: 38,
+    title: 'Trabalho em Multinacionais',
+    desc: 'O que realmente muda ao trabalhar numa multinacional — cultura, processos seletivos, crescimento, expatriação e como navegar uma organização global.',
+    duration: '2h 50min',
+    icon: '🌐',
+    isPro: true,
+    color: { bg: 'bg-slate-50', border: 'border-slate-200', badge: 'bg-slate-100 text-slate-700', icon: 'bg-slate-600' },
+    lessons: [
+      {
+        id: '38-1',
+        title: 'A cultura multinacional: o que muda de fato',
+        duration: '30 min',
+        content: `# A cultura multinacional: o que muda de fato
+
+## O que é diferente (e o que não é)
+
+Muitos profissionais idealizam o trabalho em multinacional sem entender o que realmente muda. Outros subestimam as diferenças e chegam despreparados.
+
+**O que realmente muda:**
+
+**Estrutura e processos mais formais:** Multinacionais têm políticas globais, frameworks de gestão padronizados, processos de aprovação com mais stakeholders. Há menos improviso — o que pode ser bom (previsibilidade) ou desafiador (burocracia).
+
+**Inglês como língua de trabalho:** Reuniões com stakeholders internacionais, apresentações para HQ, emails para colegas em outros países. O inglês deixa de ser diferencial e vira requisito operacional.
+
+**Diversidade real:** Trabalhar com pessoas de culturas diferentes em projetos colaborativos expõe a formas de pensar e resolver problemas que não aparecem em empresas locais.
+
+**Benefícios e remuneração mais estruturados:** PLR, bônus por performance, planos de saúde abrangentes, programas de desenvolvimento — tendem a ser mais robustos.
+
+**O que não muda:**
+- Política interna existe em qualquer organização (se não maior, diferente)
+- Pressão por resultado — muitas vezes mais intensa devido a metas globais
+- A qualidade da liderança direta ainda é o maior fator de satisfação
+
+## Perfis de multinacional: não são todas iguais
+
+**Multinacional americana:** hierarquia relativamente plana no papel, mas cultura de performance e meritrocracia intensa. Direto ao ponto, menos formalidade, resultados acima de protocolo.
+
+**Multinacional europeia:** mais formal e hierárquica, com valorização de equilíbrio trabalho-vida. Alemãs e escandinavas em especial têm estruturas bem definidas.
+
+**Multinacional asiática (japonesa, coreana):** alta formalidade, hierarquia respeitada, processos longos de decisão por consenso. Exige paciência e adaptação cultural.
+
+## O que você ganha ao trabalhar em multinacional
+
+- Exposição a melhores práticas globais
+- Rede de contatos internacional
+- Marca no CV que abre portas no Brasil e no exterior
+- Possibilidade de expatriação e mobilidade global
+- Desenvolvimento de inglês e competências globais no dia a dia`,
+      },
+      {
+        id: '38-2',
+        title: 'Como entrar numa multinacional: processo seletivo e rede',
+        duration: '35 min',
+        content: `# Como entrar numa multinacional: processo seletivo e rede
+
+## O processo seletivo de multinacionais
+
+É mais longo, mais estruturado e mais exigente do que empresas locais de porte similar. Espere 4-8 semanas e 3-6 etapas.
+
+**Etapas típicas:**
+1. Triagem de CV pelo ATS (mais rigoroso — use palavras-chave da vaga literalmente)
+2. Screening com RH local (fit cultural, inglês, motivação)
+3. Teste online (raciocínio lógico, verbal, perfil comportamental — SHL, Hogan, Korn Ferry são comuns)
+4. Entrevista com gestor da área
+5. Assessment center ou painel (para cargos de liderança)
+6. Entrevista com stakeholders internacionais (às vezes em inglês)
+7. Proposta e negociação
+
+## Onde as vagas aparecem
+
+- Site de carreiras da empresa (sempre o mais atualizado)
+- LinkedIn (vagas publicadas e abordagem direta a recrutadores)
+- Plataformas como Glassdoor, Indeed, Catho para grandes volumes
+- Headhunters especializados em multinacionais (Michael Page, Robert Half, Heidrick & Struggles para sêniors)
+
+## A vantagem do networking interno
+
+Em multinacionais, indicação interna é levada a sério. Candidatos indicados por funcionários passam da triagem com muito mais frequência.
+
+**Estratégia:** Identifique funcionários da empresa no LinkedIn com quem você tem conexão. Uma conversa informal antes de aplicar — para entender a cultura e o que buscam — aumenta muito suas chances de uma indicação.
+
+## Construindo o perfil certo para multinacionais
+
+**Inglês avançado/fluente:** Não apenas "leitura e escrita" — mas conversação e apresentação. Invista antes de candidatar.
+
+**Experiência em projetos que cruzaram departamentos ou países:** Mostra que você funciona em ambientes de alta complexidade.
+
+**Exposição a frameworks e metodologias globais:** Certificações (PMP, CFA, CPA, Scrum), metodologias (OKR, Agile, Six Sigma) são reconhecidas universalmente.
+
+**Soft skills para cultura global:** Adaptabilidade, comunicação intercultural, capacidade de trabalhar em fusos diferentes com autonomia.`,
+      },
+      {
+        id: '38-3',
+        title: 'Inglês como idioma de trabalho: dicas práticas',
+        duration: '25 min',
+        content: `# Inglês como idioma de trabalho: dicas práticas
+
+## A diferença entre inglês "avançado" e inglês de trabalho
+
+Inglês avançado em curso significa que você passou num teste. Inglês de trabalho significa que você consegue:
+- Participar de reunião com 8 pessoas de 4 países sem perder o fio
+- Fazer uma apresentação para HQ sem precisar pausar para traduzir mentalmente
+- Escrever um email que soa profissional e direto, não uma tradução do português
+- Entender sotaques diferentes (inglês indiano, americano, britânico, holandês)
+
+## O que desenvolver para inglês de trabalho real
+
+**Vocabulário de negócios:** Há termos específicos de cada área que não aparecem em cursos gerais. Leia relatórios anuais, notícias de negócios (Bloomberg, FT, WSJ), artigos do seu setor em inglês. Absorção natural é mais eficiente do que decorar vocabulário.
+
+**Reuniões e videoconferências:** O maior desafio para brasileiros. Dicas:
+- Prepare suas 2-3 contribuições antes de cada reunião
+- Pratique as frases de entrada: "I'd like to add...", "Building on what X said...", "I have a quick question about..."
+- Não interrompa para pedir para repetir toda hora — pegue as palavras-chave e complete o contexto
+
+**Emails executivos em inglês:** Mais diretos e curtos que em português. BLUF (Bottom Line Up Front) é padrão. "I am writing to inquire about..." é formal demais para a maioria dos contextos — "Quick question about..." funciona melhor.
+
+**Apresentações:** Pratique em voz alta, não mentalmente. Grave-se. Peça feedback de falante nativo ou de alguém que trabalha em inglês regularmente.
+
+## Como melhorar o inglês no dia a dia sem curso formal
+
+- Consuma conteúdo de interesse pessoal em inglês (série, podcast, livro, YouTube)
+- Escreva notas e to-dos pessoais em inglês
+- Participe de comunidades online internacionais da sua área
+- Encontre um language partner (ADiTalks, Tandem, Speaky)
+- Pratique antes de reuniões com simulação em voz alta`,
+      },
+      {
+        id: '38-4',
+        title: 'Crescimento em multinacional: promoção e mobility',
+        duration: '30 min',
+        content: `# Crescimento em multinacional: promoção e mobility
+
+## Como promoções funcionam em multinacionais
+
+Diferente de empresas locais onde promoção pode ser mais subjetiva, multinacionais geralmente têm ciclos formais de avaliação de desempenho — 1 ou 2 vezes por ano — com critérios definidos.
+
+**O que é avaliado:**
+- Resultado vs. metas (o mais importante)
+- Competências de liderança (mesmo para não-gestores — mostrar que você lidera pelo exemplo)
+- Feedback de 360 graus (pares, subordinados, clientes internos)
+- Potencial de crescimento (não só desempenho atual)
+
+**O que diferencia quem é promovido:**
+- Visibilidade além do seu time imediato (stakeholders de outras áreas te conhecem?)
+- Entregas que impactaram além do seu escopo
+- Ter um sponsor — alguém acima de você que defende seu nome quando a promoção é discutida
+
+## Mobility: crescer dentro da rede global
+
+Transferência internacional é uma das maiores vantagens de multinacionais. Muitas empresas têm programas formais de mobility.
+
+**Como acessar:**
+1. Expresse interesse formalmente ao seu gestor e ao RH — não espere que apareça
+2. Construa visibilidade com stakeholders internacionais (participe de calls, projetos globais)
+3. Entregue resultado excepcional localmente primeiro — mobility vai para quem já provou
+4. Pesquise o processo interno: algumas empresas exigem tempo mínimo no cargo atual
+
+**O que a empresa espera ao investir em mobility:**
+- Que você volte ou aplique o aprendizado global na operação local
+- Que você desenvolva perspectiva global e traga isso para o time
+
+## A armadilha da estabilidade
+
+Multinacionais oferecem estabilidade, benefícios e estrutura. Isso pode ser uma armadilha para quem fica confortável sem crescer.
+
+A cada 2-3 anos, pergunte: "Estou crescendo aqui ou apenas mantendo?" Se a resposta for manter, é hora de buscar um novo desafio — interno ou externo.`,
+      },
+      {
+        id: '38-5',
+        title: 'Expatriação: quando a empresa te manda para outro país',
+        duration: '30 min',
+        content: `# Expatriação: quando a empresa te manda para outro país
+
+## O que é um pacote de expatriação
+
+Quando uma empresa envia um funcionário para trabalhar em outro país por período prolongado (geralmente 1-3 anos), ela oferece um pacote de compensação específico que cobre os custos adicionais da mudança.
+
+**O que um pacote de expat típico inclui:**
+- Ajuda de custo para mudança (transporte de bens, viagem)
+- Moradia subsidiada ou auxílio moradia no país destino
+- Auxílio escolar para filhos (internacional schools são caras)
+- Repatriação ao fim do contrato
+- Ajuste de custo de vida (COLA — Cost of Living Adjustment)
+- Suporte para visto e documentação
+- Mantém ou melhora o salário base
+
+## Como se preparar para uma expatriação
+
+**Antes de aceitar:**
+- Negocie o pacote completo — não só o salário
+- Entenda o que acontece ao fim do período (retorno garantido? Qual cargo?)
+- Avalie o impacto familiar (cônjuge, filhos, vínculos)
+- Pesquise o custo de vida real do destino — não confie só no que a empresa informa
+
+**Nos primeiros meses:**
+- Expectativa vs. realidade: a maioria dos expats passa por choque cultural nos primeiros 3-6 meses
+- Construa rede local fora da empresa — dependência total dos colegas de trabalho isola
+- Aprenda o básico do idioma local mesmo que o inglês seja suficiente para o trabalho
+
+## O impacto na carreira de longo prazo
+
+Experiência de expatriação é altamente valorizada para cargos de liderança global. Ela demonstra:
+- Adaptabilidade cultural
+- Capacidade de performar fora da zona de conforto
+- Perspectiva global de negócios
+
+No entanto, o retorno precisa de gestão ativa. Muitos expats voltam para a empresa sem o mesmo nível de visibilidade que tinham antes — o que foi chamado de "reverse culture shock" organizacional. Mantenha relacionamentos no país de origem durante o período fora.`,
+      },
+    ],
+  },
+  {
+    id: 39,
+    title: 'CLT vs PJ vs MEI: Maximizando Sua Remuneração',
+    desc: 'Entenda de verdade o que cada regime significa, como calcular se vale a pena ir para PJ, o que negociar e como gerenciar as finanças de quem trabalha como pessoa jurídica.',
+    duration: '2h 45min',
+    icon: '💼',
+    isPro: true,
+    color: { bg: 'bg-emerald-50', border: 'border-emerald-200', badge: 'bg-emerald-100 text-emerald-700', icon: 'bg-emerald-600' },
+    lessons: [
+      {
+        id: '39-1',
+        title: 'Entendendo os três regimes: direitos e obrigações',
+        duration: '30 min',
+        content: `# Entendendo os três regimes: direitos e obrigações
+
+## CLT (Consolidação das Leis do Trabalho)
+
+O regime clássico de emprego formal no Brasil.
+
+**Direitos garantidos:**
+- 13º salário
+- Férias de 30 dias + 1/3 adicional
+- FGTS (8% do salário depositado pelo empregador)
+- Aviso prévio (30 dias + 3 dias por ano de empresa, máximo 90)
+- Seguro-desemprego (em caso de demissão sem justa causa)
+- Licença maternidade/paternidade
+- Plano de saúde (comum mas não obrigatório por lei)
+- INSS (descontado do salário, garante aposentadoria e benefícios)
+
+**O que você abre mão em CLT:**
+- Flexibilidade de renda (salário fixo — não sobem facilmente)
+- Possibilidade de otimizar impostos
+
+## PJ (Pessoa Jurídica)
+
+Você abre uma empresa (geralmente LTDA ou SLU) e emite nota fiscal para o contratante. Não tem vínculo empregatício.
+
+**Vantagens:**
+- Renda potencialmente maior (o contratante economiza encargos)
+- Possibilidade de tributação mais baixa dependendo do regime fiscal
+- Maior controle sobre o próprio negócio
+
+**O que você é responsável por:**
+- Pagar o próprio INSS (se quiser manter benefícios previdenciários)
+- Sem FGTS, sem seguro-desemprego, sem 13º, sem férias remuneradas
+- Contabilidade (imposto de renda da empresa + imposto pessoa física)
+- Risco de sazonalidade (o contrato pode ser encerrado)
+
+## MEI (Microempreendedor Individual)
+
+Limite de faturamento anual: R$81.000 (2025). Para serviços: teto mais baixo em algumas categorias.
+
+**Vantagens:**
+- Custo fixo mensal baixo (~R$70/mês cobre INSS, ICMS e ISS)
+- Acesso a CNPJ sem contador obrigatório
+- Benefícios previdenciários (aposentadoria mínima, auxílio-doença)
+
+**Limitação:** Para contratos de serviço exclusivo com uma empresa, MEI pode caracterizar vínculo empregatício (risco jurídico para o contratante). Freelancers com múltiplos clientes têm mais segurança jurídica.`,
+      },
+      {
+        id: '39-2',
+        title: 'Como calcular se vale a pena ir para PJ',
+        duration: '35 min',
+        content: `# Como calcular se vale a pena ir para PJ
+
+## A comparação que a maioria faz errado
+
+"Me oferecem R$8.000 CLT ou R$12.000 PJ. Claramente o PJ é melhor."
+
+Essa comparação ignora os custos ocultos do PJ e os benefícios que você recebe no CLT sem ver no holerite.
+
+## O custo real do CLT (o que você recebe além do salário)
+
+Para um salário de R$8.000 CLT, o custo total para a empresa e os benefícios para você incluem:
+
+- FGTS: 8% = R$640/mês depositado (você recebe se demitido sem justa causa)
+- 13º salário: R$8.000/12 = R$667/mês equivalente
+- Férias + 1/3: R$8.000 × 1,33/12 = R$889/mês equivalente
+- Plano de saúde: valor médio de R$500-800/mês pago pela empresa
+- Vale refeição/alimentação: R$600-1.200/mês (varia muito)
+
+**Total de benefícios adicionais:** ~R$3.000-4.000/mês em valor real
+
+Portanto, R$8.000 CLT equivale a ~R$11.000-12.000 em custo total.
+
+## O custo real do PJ
+
+Para receber R$12.000 líquido como PJ, você precisa faturar mais e pagar:
+
+- Impostos da empresa (Simples Nacional): 6-10% sobre o faturamento (~R$720-1.200/mês)
+- INSS autônomo: 20% sobre até o teto (ou 11% com a DAS do Simples se incluído)
+- Contador: R$200-500/mês
+- Plano de saúde próprio: R$500-1.000/mês
+- Provisão para férias e 13º (se você poupar o equivalente): R$1.500-2.000/mês
+
+**Custo adicional PJ:** ~R$3.000-5.000/mês
+
+## A fórmula simplificada
+
+PJ vale a pena quando: Valor PJ − Custos PJ > Salário CLT + Valor dos benefícios CLT
+
+**Regra prática:** Para ser equivalente a um CLT, o PJ geralmente precisa pagar 30-40% a mais bruto.
+
+CLT R$8.000 → PJ equivalente: R$10.400–R$11.200 bruto mínimo.
+
+Abaixo disso, você está perdendo na comparação com benefícios.`,
+      },
+      {
+        id: '39-3',
+        title: 'Negociando contrato PJ: o que é negociável',
+        duration: '30 min',
+        content: `# Negociando contrato PJ: o que é negociável
+
+## Por que a empresa propõe PJ
+
+Em geral, não é para te prejudicar — é porque:
+1. Reduz encargos trabalhistas (economiza ~30-40% do custo CLT)
+2. Dá mais flexibilidade para encerrar o contrato
+3. Pode ser a estrutura natural da empresa (consultorias, startups enxutas)
+
+Entendendo isso, você sabe o que tem para negociar: a economia que a empresa terá com você.
+
+## O que negociar no contrato PJ
+
+**1. Valor bruto suficiente para cobrir os custos**
+Use o cálculo da lição anterior. Chegue com número fundamentado.
+
+"Meu custo como PJ — impostos, contador, plano de saúde, provisão de férias e 13º — é de aproximadamente R$X. Para que a comparação seja justa com o CLT que me foi oferecido, o valor PJ precisaria ser de R$Y."
+
+**2. Reajuste periódico garantido em contrato**
+Como CLT tem pisos de convenção coletiva e INPC, o PJ precisa ter cláusula de reajuste. Proponha reajuste anual atrelado ao INPC ou ao acordo mútuo.
+
+**3. Prazo de aviso para rescisão**
+O contrato CLT tem aviso prévio legal. O PJ não tem, a menos que você negocie. Proponha prazo mínimo de 30-60 dias de aviso.
+
+**4. Assistência com contador**
+Algumas empresas oferecem isso. Vale pedir — poupa R$200-400/mês.
+
+**5. Verba de home office / equipamento**
+Se não há escritório, a empresa pode fornecer ou subsidiar equipamento e internet.
+
+## O que não é negociável (cuidado jurídico)
+
+Se há exclusividade, horário definido, subordinação e dependência econômica total de uma única empresa — na prática existe vínculo empregatício, independente de como está formalizado.
+
+Isso é risco jurídico para o contratante. Se a empresa insiste em PJ nessas condições, saiba que há risco de reconhecimento de vínculo depois e que a empresa está assumindo esse risco — mas você também.`,
+      },
+      {
+        id: '39-4',
+        title: 'Gestão financeira para quem trabalha como PJ',
+        duration: '30 min',
+        content: `# Gestão financeira para quem trabalha como PJ
+
+## O erro mais caro do PJ: não separar pessoa física de jurídica
+
+O dinheiro da empresa entra na conta PJ. O que sobra depois dos impostos é o lucro — e é aí que você pode distribuir pro-labore ou dividendos. Misturar as contas é o erro número 1.
+
+## A conta bancária PJ
+
+Abra uma conta PJ separada da sua conta pessoal. Bancos digitais como Nubank, Mercado Pago e Inter têm conta PJ gratuita ou de baixo custo.
+
+Todo faturamento entra nessa conta. Pagamento de impostos e despesas da empresa saem dessa conta. O que você "paga para si mesmo" (pro-labore ou distribuição de lucros) transfere para sua conta pessoal.
+
+## Quanto guardar para impostos e obrigações
+
+Essa é a maior dificuldade de quem começa. Você recebe o valor bruto e esquece que parte não é seu.
+
+**Provisão recomendada (Simples Nacional, atividade de serviço):**
+- Impostos (~8-10% do faturamento): separe antes de tudo
+- INSS PJ (se não incluído no DAS): R$800-1.000/mês
+- Contador: R$250-450/mês
+- Reserva para férias + 13º equivalente: 16-17% do que você quer ter por mês
+- Fundo de emergência maior (3-6 meses): PJ não tem seguro-desemprego
+
+**Regra simplificada:** Separe 35-40% do faturamento bruto para obrigações. O restante é o que você efetivamente tem disponível.
+
+## O pró-labore vs. distribuição de lucros
+
+**Pró-labore:** Salário que o sócio paga a si mesmo. Incide INSS e IR pessoa física.
+
+**Distribuição de lucros:** O que sobra depois de pagar os custos e impostos da empresa. Em muitos regimes é isento de IR para pessoa física — essa é a grande vantagem tributária do PJ para quem tem alta renda.
+
+Converse com um contador sobre o mix ideal para a sua situação.`,
+      },
+      {
+        id: '39-5',
+        title: 'Quando voltar para CLT faz sentido',
+        duration: '30 min',
+        content: `# Quando voltar para CLT faz sentido
+
+## PJ não é para sempre — e tudo bem
+
+A decisão CLT/PJ não é permanente. Muitos profissionais alternam entre os regimes ao longo da carreira conforme a situação muda.
+
+## Quando CLT volta a fazer sentido
+
+**1. Você quer estabilidade e previsibilidade**
+PJ tem risco de perda de contrato, sazonalidade, inadimplência de clientes. Se você está num momento de vida que exige previsibilidade (compra de imóvel, filho pequeno, cuidado de familiar), CLT oferece segurança que PJ não tem.
+
+**2. O valor do CLT supera o PJ**
+Considere: empresa pagando plano de saúde excelente, plano de carreira estruturado, bolsa de estudos, stock options ou participação nos lucros robusta. Se o pacote total CLT for competitivo, o PJ pode não valer a burocracia.
+
+**3. Você quer crescer numa empresa específica**
+Crescimento de carreira (promoções, gestão, exposição internacional) frequentemente só é acessível como CLT. PJ está fora das promoções internas e dos programas de desenvolvimento.
+
+**4. A carga administrativa do PJ está pesando**
+Contador, declarações, emissão de notas, gestão de fluxo de caixa irregular. Para quem não gosta de gestão administrativa, isso drena energia que poderia ir para o trabalho em si.
+
+**5. Você quer acessar crédito imobiliário**
+Bancos calculam renda disponível de PJ de forma mais conservadora para financiamento. CLT facilita comprovação de renda formal.
+
+## Como calcular o ponto de equivalência antes de decidir
+
+Antes de qualquer mudança, faça a conta completa:
+- Qual é o custo total do pacote CLT (salário + todos os benefícios em reais)?
+- Qual é a minha renda líquida real como PJ (depois de impostos, contador, benefícios próprios e provisões)?
+- Qual é a diferença?
+- Essa diferença justifica a maior complexidade e risco do PJ?
+
+A resposta muda conforme a vida muda. Revise anualmente.`,
+      },
+    ],
+  },
+  {
+    id: 40,
+    title: 'Design de Carreira: Decisões Difíceis com Clareza',
+    desc: 'Como tomar as decisões de carreira mais difíceis — aceitar ou recusar proposta, quando pedir demissão, como dizer não estrategicamente e construir trajetória não-linear com coerência.',
+    duration: '2h 40min',
+    icon: '🧭',
+    isPro: true,
+    color: { bg: 'bg-rose-50', border: 'border-rose-200', badge: 'bg-rose-100 text-rose-700', icon: 'bg-rose-600' },
+    lessons: [
+      {
+        id: '40-1',
+        title: 'O método de design thinking aplicado à carreira',
+        duration: '30 min',
+        content: `# O método de design thinking aplicado à carreira
+
+## Por que decisões de carreira são tão difíceis
+
+Não é por falta de opções — é por excesso de variáveis intangíveis, medo de arrependimento, e a pressão de que decisões de carreira são "irreversíveis."
+
+Na prática, a maioria das decisões de carreira é mais reversível do que parece. E as poucas que não são merecem um processo de decisão mais estruturado.
+
+## O framework de design thinking para carreira
+
+Criado por Bill Burnett e Dave Evans em Stanford (livro: "Designing Your Life"), adapta o processo de design de produtos para decisões de vida e carreira.
+
+### Princípio 1: Reframe o problema
+
+A maioria das pessoas enquadra o problema errado: "Devo aceitar essa proposta?" quando o problema real é "O que eu quero que minha vida profissional me ofereça nos próximos 3 anos?"
+
+Antes de qualquer decisão específica, defina o que você está tentando otimizar. Segurança? Crescimento? Aprendizado? Dinheiro? Autonomia? Impacto? Poucos conseguem ter tudo — o que você prioriza agora?
+
+### Princípio 2: Prototipe antes de decidir
+
+Em design de produto, você não lança o produto sem testar. Em carreira, a maioria decide sem nenhum teste.
+
+**Protótipos de carreira possíveis:**
+- Conversa exploratória com alguém que tem o cargo/vida que você considera
+- Projeto freelance na área que você quer migrar
+- Curso intensivo + projeto prático antes de comprometer totalmente
+- Período sabático curto (2-4 semanas) para clareza
+
+### Princípio 3: Construa planos paralelos
+
+Em vez de um plano de carreira linear ("faço X, depois Y, depois Z"), construa três planos:
+
+**Plano A:** A progressão natural do que você está fazendo agora.
+**Plano B:** O que você faria se o Plano A ficasse indisponível.
+**Plano C:** O que você faria se dinheiro e reputação não fossem preocupação.
+
+Ter clareza dos três reduz o medo paralisante de tomar a decisão "errada".
+
+### Princípio 4: Ação gera clareza (não o contrário)
+
+A maioria espera ter clareza para agir. Mas clareza frequentemente só vem com ação. Fazer o próximo passo pequeno é mais valioso do que análise infinita.`,
+      },
+      {
+        id: '40-2',
+        title: 'Como avaliar propostas de emprego além do salário',
+        duration: '35 min',
+        content: `# Como avaliar propostas de emprego além do salário
+
+## O viés da âncora salarial
+
+Quando você recebe uma proposta, o número do salário âncora toda a avaliação. Mas salário é só um dos fatores que determinam se você vai estar bem nesse trabalho.
+
+Profissionais que aceitam vagas quase que exclusivamente pelo salário costumam se arrepender nos primeiros 6 meses.
+
+## O modelo de avaliação de 7 dimensões
+
+Avalie cada proposta em 7 dimensões, de 1 a 10:
+
+**1. Compensação total**
+Não só salário: bônus, PLR, benefícios em valor real, equity, reajuste esperado. Calcule o pacote anual completo.
+
+**2. Aprendizado e crescimento**
+Você vai aprender coisas que te tornam mais valioso no mercado? O cargo te expõe a novas habilidades, setores ou perspectivas?
+
+**3. Qualidade da liderança direta**
+Seu gestor direto é o maior determinante da sua experiência. Você já conseguiu se reunir com ele? Que impressão teve? Pergunte sobre seu estilo de gestão.
+
+**4. Missão e propósito da empresa**
+Você acredita no que a empresa faz? Trabalhar para algo em que você não acredita gera conflito de valores que desgasta progressivamente.
+
+**5. Cultura e ambiente de trabalho**
+Como as pessoas se tratam? Qual é o ritmo esperado? O modelo de trabalho (remoto/presencial/híbrido) se encaixa na sua vida?
+
+**6. Estabilidade e perspectiva da empresa**
+Qual é a situação financeira? É uma empresa em crescimento ou em crise? Para startups: qual é a runway e a última rodada de captação?
+
+**7. Fit com seu plano de carreira**
+Esse cargo te aproxima ou te afasta de onde você quer estar em 5 anos?
+
+## Como usar o modelo
+
+Pontue cada dimensão de 1-10. Some. Compare propostas diferentes ou compare a nova proposta com o emprego atual.
+
+Mas use com sabedoria: não é uma fórmula matemática — é uma forma de tornar explícitas as dimensões que o número do salário obscurece.
+
+Qualquer nota abaixo de 5 em Qualidade da Liderança ou Aprendizado merece atenção especial, independente das outras notas.`,
+      },
+      {
+        id: '40-3',
+        title: 'Quando pedir demissão (e quando não pedir)',
+        duration: '30 min',
+        content: `# Quando pedir demissão (e quando não pedir)
+
+## A decisão mais pessoal da carreira
+
+Não há fórmula universal para quando pedir demissão. Há fatores a considerar e perguntas a se fazer com honestidade.
+
+## Sinais de que provavelmente é hora
+
+**1. Você não cresce há mais de 12-18 meses e o ambiente não mudará**
+Se você está fazendo o mesmo trabalho, no mesmo nível, com o mesmo aprendizado (ou nenhum), e não há perspectiva realista de mudança — cada mês que passa é custo de oportunidade.
+
+**2. Você perdeu o respeito pela empresa, pelo produto ou pela liderança**
+Trabalhar intensamente por algo em que você não acredita é insustentável. Não é questão de ser fácil ou difícil — é questão de onde vai sua energia.
+
+**3. A cultura está ativamente prejudicando sua saúde ou seus valores**
+Não é desconforto normal (todo trabalho tem desconforto). É ambiente que te deixa pior — mais ansioso, mais cínico, mais esgotado — de forma sistemática.
+
+**4. Você recebeu uma proposta significativamente melhor**
+Significativamente melhor: não 5-10% de salário a mais. Melhor em múltiplas dimensões que importam para você agora.
+
+## Sinais de que provavelmente não é hora
+
+**1. Você está num momento de alta pressão temporária**
+Lançamento de produto, virada de ano, reestruturação — períodos intensos passam. Decisões tomadas no pico de estresse raramente são as melhores.
+
+**2. Você foge de um problema que vai te seguir**
+Dificuldade com feedback? Conflito com colegas? Procrastinação? Se o problema está em você, vai aparecer no próximo lugar.
+
+**3. Você não tem clareza sobre o que quer em vez**
+"Quero sair" não é um plano. O que você quer ir em vez disso? Sem resposta, você pode trocar um problema por outro.
+
+## O processo de pedir demissão com profissionalismo
+
+- Avise com antecedência adequada (o que seu contrato exige, mais o que for honesto com o volume de trabalho pendente)
+- Ofereça transição de conhecimento genuína
+- Mantenha relacionamentos — o mercado é pequeno`,
+      },
+      {
+        id: '40-4',
+        title: 'Dizer não estrategicamente sem queimar pontes',
+        duration: '25 min',
+        content: `# Dizer não estrategicamente sem queimar pontes
+
+## Por que dizer não é uma habilidade de carreira
+
+Profissionais que não sabem dizer não acabam fazendo tudo mediocremente. Profissionais que sabem dizer não estrategicamente fazem menos coisas com mais qualidade — e são percebidos como mais confiáveis.
+
+Paradoxalmente, dizer não às coisas certas aumenta sua credibilidade. Dizer sim para tudo a diminui.
+
+## Quando dizer não
+
+**Quando o pedido desvia das suas prioridades estabelecidas:** Você tem um conjunto de responsabilidades e projetos. Um pedido novo significa algo existente vai sofrer — seja explícito sobre isso.
+
+**Quando você não tem capacidade de entregar bem:** Um sim que resulta em entrega ruim é pior do que um não honesto. A reputação de confiabilidade vem de comprometimentos que você cumpre, não de quantos você assume.
+
+**Quando vai contra seus valores:** Seja ético, não ativo. "Não me sinto confortável com essa abordagem" é resposta legítima.
+
+## Como dizer não sem queimar a relação
+
+**A estrutura NIAN (Não + Impacto + Alternativa + Quando):**
+
+"Não consigo assumir [X] agora [Não] porque estou com [Y] que vence em [prazo] e adicionando [X] comprometeria a qualidade de ambos [Impacto]. Posso assumir a partir de [data] [Quando] ou, se for urgente, posso fazer a parte [Z] agora e delegar o restante para [pessoa] [Alternativa]."
+
+Essa estrutura mostra:
+- Que você entendeu o pedido
+- Que o problema é capacidade, não disposição
+- Que você está pensando em solução, não apenas rejeitando
+
+## Dizer não a gestores e líderes
+
+Mais delicado, mas essencial para carreira sustentável.
+
+A chave: nunca diga não sem oferecer alternativa e sem ser transparente sobre as trade-offs. "Se eu assumir [X], [Y] vai atrasar ou precisará ser delegado. Qual você prefere que eu priorize?"
+
+Isso transfere a decisão para quem tem autoridade e evita que você seja o único responsável pela escolha.`,
+      },
+      {
+        id: '40-5',
+        title: 'Trajetórias não-lineares: coerência sem rigidez',
+        duration: '40 min',
+        content: `# Trajetórias não-lineares: coerência sem rigidez
+
+## O mito da carreira linear
+
+Existe a ideia de que uma carreira boa parece uma escada: você começa em baixo e vai subindo, um degrau por vez, até chegar ao topo. Qualquer desvio é "dar um passo atrás."
+
+A realidade: a maioria dos profissionais que admira você tem uma trajetória que, vista de perto, tem zigue-zagues, apostas, mudanças de rota e momentos que "não fazem sentido" — até que fazem.
+
+## O que torna uma trajetória não-linear coerente
+
+Trajetória não-linear não é trajetória aleatória. A diferença é a narrativa de fio condutor — a explicação de como cada movimento contribuiu para quem você é hoje.
+
+**Perguntas para encontrar o fio condutor da sua trajetória:**
+- Qual é o tema que aparece em todos os seus trabalhos, mesmo que em áreas diferentes?
+- Que habilidade você carregou de um lugar para o outro?
+- O que aprendeu em cada experiência que informa como você trabalha hoje?
+
+Mesmo uma mudança radical — de finanças para educação, de TI para marketing — pode ser narrada com coerência quando você explica o aprendizado transferível e a motivação genuína.
+
+## Como apresentar trajetória não-linear em entrevistas
+
+A pergunta "me fale sobre sua trajetória" é uma oportunidade de narrativa, não um pedido de autobiografia cronológica.
+
+**Estrutura recomendada:**
+1. O fio condutor (o tema que une tudo)
+2. 2-3 experiências-chave com o que cada uma contribuiu
+3. Como isso te torna a escolha certa para esse cargo agora
+
+Exemplo: "Minha carreira tem um fio condutor de resolução de problemas complexos com times multidisciplinares. Em marketing, aprendi a entender o cliente. Em produto, aprendi a traduzir isso em solução. Em operações, aprendi a escalar. Esse cargo é onde essas três perspectivas convergem de uma forma que eu não via antes."
+
+## Quando fazer uma mudança que "não faz sentido"
+
+Algumas mudanças vão parecer ilógicas para quem está de fora. Como avaliar se vale a pena:
+
+- O aprendizado dessa mudança vai te tornar mais valioso em algum horizonte de 3-5 anos?
+- Você consegue explicar a decisão de forma que soa como escolha deliberada, não fuga?
+- Você está perseguindo algo, não apenas fugindo de algo?
+
+Se sim para as três: vá. Trajetórias não-lineares construídas com intenção costumam ser mais ricas do que as lineares previsíveis.`,
       },
     ],
   },

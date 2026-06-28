@@ -4,60 +4,56 @@ import { MODULES } from '../../data/modules'
 import { TIPS } from '../../data/content'
 import { LS } from '../../utils/storage'
 import { isPaid } from '../../utils/plans'
-
-function getStreak(progress) {
-  const history = LS.get('nj_streak_history', []) // array of 'YYYY-MM-DD' strings
-  const today = new Date().toISOString().split('T')[0]
-  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0]
-
-  const hasProgressToday = Object.values(progress).some(Boolean)
-  if (!hasProgressToday) {
-    const streak = LS.get('nj_streak', 0)
-    return streak
-  }
-
-  if (!history.includes(today)) {
-    const newHistory = [...history.filter((d) => d === yesterday || d === today), today]
-    LS.set('nj_streak_history', newHistory)
-    const hadYesterday = history.includes(yesterday)
-    const prevStreak = LS.get('nj_streak', 0)
-    const newStreak = hadYesterday ? prevStreak + 1 : 1
-    LS.set('nj_streak', newStreak)
-    return newStreak
-  }
-
-  return LS.get('nj_streak', 1)
-}
-
-const ACHIEVEMENTS = [
-  { id: 'first_lesson', icon: '🎯', label: 'Primeira lição', check: (p) => Object.values(p).filter(Boolean).length >= 1 },
-  { id: 'five_lessons', icon: '📚', label: '5 lições', check: (p) => Object.values(p).filter(Boolean).length >= 5 },
-  { id: 'ten_lessons', icon: '🔥', label: '10 lições', check: (p) => Object.values(p).filter(Boolean).length >= 10 },
-  { id: 'twenty_lessons', icon: '⚡', label: '20 lições', check: (p) => Object.values(p).filter(Boolean).length >= 20 },
-  { id: 'module_1', icon: '📄', label: 'Mestre do CV', check: (p, m) => m.find((mod) => mod.id === 1)?.lessons.every((l) => p[l.id]) },
-  { id: 'module_2', icon: '✉️', label: 'Cartas Perfeitas', check: (p, m) => m.find((mod) => mod.id === 2)?.lessons.every((l) => p[l.id]) },
-  { id: 'module_3', icon: '💼', label: 'LinkedIn Pro', check: (p, m) => m.find((mod) => mod.id === 3)?.lessons.every((l) => p[l.id]) },
-  { id: 'module_4', icon: '🎯', label: 'Entrevistador', check: (p, m) => m.find((mod) => mod.id === 4)?.lessons.every((l) => p[l.id]) },
-  { id: 'module_14', icon: '🧠', label: 'Mente Forte', check: (p, m) => m.find((mod) => mod.id === 14)?.lessons.every((l) => p[l.id]) },
-  { id: 'module_15', icon: '🇬🇧', label: 'Global Ready', check: (p, m) => m.find((mod) => mod.id === 15)?.lessons.every((l) => p[l.id]) },
-]
+import {
+  BADGES, LEVELS,
+  getXP, getLevel, getLevelProgress,
+  getStreak, getBestStreak, touchStreak,
+  buildGamState, getAllEarnedBadgeIds, getDiagnosis,
+} from '../../utils/gamification'
 
 export default function DashHome({ user, progress, setTab, setSelectedModule, setSelectedLesson }) {
-  const allLessons = MODULES.flatMap((m) => m.lessons.map((l) => ({ ...l, moduleId: m.id, isPro: m.isPro })))
-  const accessible = allLessons.filter((l) => !l.isPro || isPaid(user.plan))
+  const allLessons    = MODULES.flatMap((m) => m.lessons.map((l) => ({ ...l, moduleId: m.id, isPro: m.isPro })))
+  const accessible    = allLessons.filter((l) => !l.isPro || isPaid(user.plan))
   const completedCount = Object.values(progress).filter(Boolean).length
-  const pct = accessible.length > 0 ? Math.round((completedCount / accessible.length) * 100) : 0
-  const tip = TIPS[new Date().getDay() % TIPS.length]
-  const nextLesson = accessible.find((l) => !progress[l.id])
-  const nextModule = nextLesson ? MODULES.find((m) => m.lessons.some((l) => l.id === nextLesson.id)) : null
+  const pct           = accessible.length > 0 ? Math.round((completedCount / accessible.length) * 100) : 0
+  const tip           = TIPS[new Date().getDay() % TIPS.length]
+  const nextLesson    = accessible.find((l) => !progress[l.id])
+  const nextModule    = nextLesson ? MODULES.find((m) => m.lessons.some((l) => l.id === nextLesson.id)) : null
+  const allDone       = completedCount === accessible.length && accessible.length > 0
+  const hasDiagnosis  = !!getDiagnosis()
 
-  const streak = getStreak(progress)
-  const proModuleCount = MODULES.length
+  // gamification
+  const xp          = getXP()
+  const level       = getLevel(xp)
+  const lvlPct      = getLevelProgress(xp)
+  const streak      = getStreak()
+  const bestStreak  = getBestStreak()
+  const earnedIds   = getAllEarnedBadgeIds()
+  const gamState    = buildGamState(progress, MODULES)
+  const earnedBadges = BADGES.filter((b) => earnedIds.has(b.id))
+
+  useEffect(() => { touchStreak() }, [])
+
+  const proModuleCount  = MODULES.length
   const freeModuleCount = MODULES.filter((m) => !m.isPro).length
   const unlockedModules = isPaid(user.plan) ? proModuleCount : freeModuleCount
-  const earnedAchievements = ACHIEVEMENTS.filter((a) => a.check(progress, MODULES))
 
-  const allDone = completedCount === accessible.length && accessible.length > 0
+  const followUpAlerts = (() => {
+    const cards = LS.get('nj_tracker', [])
+    const activeStatuses = new Set(['applied', 'screening', 'interview'])
+    const parsePtBr = (str) => {
+      if (!str) return null
+      const [d, m, y] = str.split('/')
+      if (!d || !m || !y) return null
+      return new Date(+y, +m - 1, +d)
+    }
+    return cards.filter((c) => {
+      if (!activeStatuses.has(c.col)) return false
+      const d = parsePtBr(c.date)
+      if (!d) return false
+      return Math.floor((Date.now() - d.getTime()) / 86400000) >= 7
+    })
+  })()
 
   return (
     <div className="p-6 space-y-6 animate-fade-in">
@@ -66,13 +62,34 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
         <p className="text-slate-500 text-sm mt-1">Aqui está seu progresso até agora.</p>
       </div>
 
+      {/* XP / Level card */}
+      <div className={`${level.bg} rounded-2xl p-5 border border-slate-100`}>
+        <div className="flex items-center justify-between mb-3">
+          <div>
+            <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Nível {level.level}</div>
+            <div className={`text-2xl font-black ${level.color}`}>{level.label}</div>
+          </div>
+          <div className="text-right">
+            <div className={`text-3xl font-black ${level.color}`}>{xp} XP</div>
+            {level.level < 6 && (
+              <div className="text-xs text-slate-500">próximo: {LEVELS[level.level].min} XP</div>
+            )}
+          </div>
+        </div>
+        <ProgressBar pct={lvlPct} />
+        <div className="flex justify-between text-xs text-slate-400 mt-1.5">
+          <span>{level.min} XP</span>
+          {level.level < 6 && <span>{LEVELS[level.level].min} XP</span>}
+        </div>
+      </div>
+
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
           { label: 'Progresso', value: `${pct}%`, sub: `${completedCount}/${accessible.length} lições`, color: 'text-blue-600' },
           { label: 'Módulos', value: `${unlockedModules}/${proModuleCount}`, sub: isPaid(user.plan) ? 'Acesso total' : 'Upgrade para mais', color: 'text-slate-800' },
           { label: 'Streak', value: `🔥 ${streak}`, sub: streak === 1 ? 'dia seguido' : 'dias seguidos', color: 'text-orange-500' },
-          { label: 'Conquistas', value: `${earnedAchievements.length}/${ACHIEVEMENTS.length}`, sub: 'desbloqueadas', color: 'text-violet-600' },
+          { label: 'Conquistas', value: `${earnedBadges.length}/${BADGES.length}`, sub: 'desbloqueadas', color: 'text-violet-600' },
         ].map((s) => (
           <div key={s.label} className="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm">
             <div className="text-slate-400 text-xs font-medium mb-1">{s.label}</div>
@@ -95,6 +112,20 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
         </div>
       </div>
 
+      {/* Diagnosis CTA */}
+      {!hasDiagnosis && (
+        <div className="bg-gradient-to-r from-violet-600 to-blue-600 rounded-2xl p-5 text-white">
+          <div className="flex items-center gap-4">
+            <span className="text-4xl flex-shrink-0">🗺️</span>
+            <div className="flex-1">
+              <div className="font-black text-base mb-0.5">Faça o Diagnóstico de Carreira</div>
+              <div className="text-violet-200 text-xs mb-3">6 perguntas · Roteiro personalizado · +30 XP</div>
+              <Btn onClick={() => setTab('diagnosis')} variant="white" size="sm">Iniciar agora →</Btn>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Next lesson CTA */}
       {nextLesson && nextModule && !allDone && (
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-5 text-white">
@@ -111,38 +142,39 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
         </div>
       )}
 
-      {/* Completion banner */}
       {allDone && (
         <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl p-5 text-white text-center">
           <div className="text-4xl mb-2">🏆</div>
           <div className="font-black text-xl mb-1">Parabéns, {user.name?.split(' ')[0]}!</div>
-          <div className="text-green-100 text-sm">Concluíste todos os módulos disponíveis. Aplica o que aprendeste!</div>
+          <div className="text-green-100 text-sm">Você concluiu todos os módulos disponíveis. Aplique o que você aprendeu!</div>
         </div>
       )}
 
-      {/* Achievements */}
-      {earnedAchievements.length > 0 && (
-        <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm">
-          <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Conquistas desbloqueadas</div>
-          <div className="flex flex-wrap gap-2">
-            {ACHIEVEMENTS.map((a) => {
-              const earned = earnedAchievements.some((e) => e.id === a.id)
-              return (
-                <div
-                  key={a.id}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all
-                    ${earned
-                      ? 'bg-violet-50 text-violet-700 border-violet-200'
-                      : 'bg-slate-50 text-slate-300 border-slate-100'}`}
-                >
-                  <span>{a.icon}</span>
-                  <span>{a.label}</span>
-                </div>
-              )
-            })}
-          </div>
+      {/* Badges */}
+      <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm">
+        <div className="flex items-center justify-between mb-3">
+          <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Conquistas</div>
+          <span className="text-xs text-slate-400">{earnedBadges.length}/{BADGES.length}</span>
         </div>
-      )}
+        <div className="flex flex-wrap gap-2">
+          {BADGES.map((b) => {
+            const earned = earnedIds.has(b.id)
+            return (
+              <div
+                key={b.id}
+                title={b.desc}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all cursor-default
+                  ${earned
+                    ? 'bg-violet-50 text-violet-700 border-violet-200'
+                    : 'bg-slate-50 text-slate-300 border-slate-100'}`}
+              >
+                <span>{earned ? b.icon : '🔒'}</span>
+                <span>{b.label}</span>
+              </div>
+            )
+          })}
+        </div>
+      </div>
 
       {/* Quick access */}
       <div className="grid sm:grid-cols-3 gap-3">
@@ -165,15 +197,45 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
           <div className="text-blue-600 text-xs font-semibold mt-2 group-hover:underline">Abrir →</div>
         </button>
         <button
-          onClick={() => setTab('coach')}
-          className="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md hover:border-blue-200 transition-all text-left group"
+          onClick={() => setTab('diagnosis')}
+          className="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:shadow-md hover:border-violet-200 transition-all text-left group"
         >
-          <div className="text-2xl mb-2">🤖</div>
-          <div className="font-bold text-slate-800 text-sm">Coach IA</div>
-          <div className="text-slate-500 text-xs mt-0.5">Faz qualquer pergunta sobre carreira</div>
-          <div className="text-blue-600 text-xs font-semibold mt-2 group-hover:underline">Conversar →</div>
+          <div className="text-2xl mb-2">🗺️</div>
+          <div className="font-bold text-slate-800 text-sm">Diagnóstico</div>
+          <div className="text-slate-500 text-xs mt-0.5">Roteiro personalizado de módulos</div>
+          <div className="text-violet-600 text-xs font-semibold mt-2 group-hover:underline">{hasDiagnosis ? 'Ver roteiro →' : 'Iniciar →'}</div>
         </button>
       </div>
+
+      {/* Follow-up alerts */}
+      {followUpAlerts.length > 0 && (
+        <div className="bg-orange-50 border border-orange-200 rounded-2xl p-4">
+          <div className="flex items-start gap-3">
+            <span className="text-2xl">⏰</span>
+            <div className="flex-1 min-w-0">
+              <div className="font-bold text-orange-800 text-sm mb-1">
+                {followUpAlerts.length} candidatura{followUpAlerts.length > 1 ? 's' : ''} sem atualização há +7 dias
+              </div>
+              <div className="space-y-1 mb-2">
+                {followUpAlerts.slice(0, 3).map((c) => (
+                  <div key={c.id} className="text-xs text-orange-700">
+                    · {c.company} — {c.role} <span className="text-orange-400">({c.date})</span>
+                  </div>
+                ))}
+                {followUpAlerts.length > 3 && (
+                  <div className="text-xs text-orange-400">e mais {followUpAlerts.length - 3}...</div>
+                )}
+              </div>
+              <button
+                onClick={() => setTab('tools')}
+                className="text-xs font-semibold text-orange-700 underline hover:text-orange-900"
+              >
+                Abrir Rastreador de Candidaturas →
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Tip */}
       <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">

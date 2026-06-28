@@ -48,78 +48,78 @@ const ago = (ms) => new Date(now - ms).toISOString()
 const SEED_POSTS = [
   {
     id: 'seed_1', user_id: 'seed', user_name: 'Maria S.', category: 'vitoria',
-    content: '🎉 Consegui! Depois de 4 meses de busca, assinei contrato hoje como Analista de Marketing. O que mudou: apliquei o método STAR em todas as respostas e ajustei o CV com o verificador ATS. De 3 respostas em 3 meses passei a 8 entrevistas em 3 semanas. Não desistam!',
+    content: 'pessoal assinei contrato hoje 🥲 analista de marketing, empresa de tecnologia aqui em sp. foram 4 meses muito pesados, muito silêncio de recrutador, muito questionando minha própria competência. o que funcionou mesmo: reescrevi o cv inteiro com foco em ATS e parei de improvisar nas entrevistas. treinei as respostas em voz alta igual maluca. de quase nenhum retorno passei pra 3 entrevistas numa semana. aguentem.',
     likes_count: 47, comments_count: 2, created_at: ago(2 * 3600000),
     comments: [
-      { id: 'sc1', user_name: 'João F.', content: 'INCRÍVEL! Parabéns! Que empresa foi?', created_at: ago(1 * 3600000) },
-      { id: 'sc2', user_name: 'Ana O.', content: 'Que notícia maravilhosa! 🙌 Merecido!', created_at: ago(40 * 60000) },
+      { id: 'sc1', user_name: 'João F.', content: 'merecidíssimo!! que área de marketing? startup?', created_at: ago(1 * 3600000) },
+      { id: 'sc2', user_name: 'Ana O.', content: 'que alívio hein 😭 feliz demais por você', created_at: ago(40 * 60000) },
     ],
   },
   {
     id: 'seed_2', user_id: 'seed', user_name: 'Pedro L.', category: 'dica',
-    content: '💡 Dica que mudou meu jogo: para cada candidatura, procuro no LinkedIn pessoas do departamento para o qual me candidatei e mando mensagem curta dizendo que apliquei. Em 40% dos casos, a pessoa passou meu nome internamente. Taxa de retorno foi de 8% para 35%. Qualidade > volume.',
+    content: 'compartilhando uma coisa que tá funcionando pra mim: quando aplico pra uma vaga, procuro alguém do time no linkedin e mando uma mensagem curta dizendo que me candidatei e por que me interessa. bem direta mesmo, sem enrolação. umas 4 de cada 10 vezes a pessoa passa meu nome internamente. minha taxa de resposta das aplicações subiu muito. demorei a ter coragem de fazer isso mas vale.',
     likes_count: 89, comments_count: 1, created_at: ago(5 * 3600000),
     comments: [
-      { id: 'sc3', user_name: 'Carla M.', content: 'Estratégia incrível! Vou começar hoje. Já pensou em criar um template de mensagem para partilhar aqui?', created_at: ago(3 * 3600000) },
+      { id: 'sc3', user_name: 'Carla M.', content: 'fiz isso semana passada e funcionou!! você compartilha a mensagem que manda? to curiosa pra ver o tom que você usa', created_at: ago(3 * 3600000) },
     ],
   },
   {
     id: 'seed_3', user_id: 'seed', user_name: 'Lucas R.', category: 'vitoria',
-    content: 'Negociei salário pela primeira vez! Recebi oferta de R$7.000, pedi R$9.500 com base em pesquisa de mercado e ficou em R$8.800 + vale-refeição maior. R$1.800 de diferença mensal = quase R$22k por ano. Nunca mais aceito a primeira oferta sem negociar.',
+    content: 'NEGOCIEI 🎉 recebi proposta de R$7k e ia aceitar na hora porque estava precisando. mas dei uma respirada, pesquisei mercado, e mandei uma contraproposta com justificativa. ficou em R$8,8k + benefícios melhores. foi desconfortável, coração acelerado a hora toda. mas valeu. ficava deixando dinheiro na mesa todo processo sem saber.',
     likes_count: 118, comments_count: 3, created_at: ago(8 * 3600000),
     comments: [
-      { id: 'sc4', user_name: 'Maria S.', content: 'Que resultado! Qual foi a abordagem que funcionou melhor?', created_at: ago(6 * 3600000) },
-      { id: 'sc5', user_name: 'Lucas R.', content: 'Ancoragem alta com dados de mercado (Glassdoor + pesquisa salarial). Deixei eles falarem o número primeiro e só depois apresentei a contraproposta com justificativa.', created_at: ago(5.5 * 3600000) },
-      { id: 'sc6', user_name: 'João F.', content: 'Que inspiração. Tenho entrevista amanhã e estava pensando em aceitar qualquer oferta 😅 Não vou mais!', created_at: ago(4 * 3600000) },
+      { id: 'sc4', user_name: 'Maria S.', content: 'parabéns!! você perguntou a faixa salarial antes de dar seu número ou foi direto na contraproposta?', created_at: ago(6 * 3600000) },
+      { id: 'sc5', user_name: 'Lucas R.', content: 'pedi pra eles falarem a faixa antes de dar meu número — esse detalhe fez diferença. pesquisei no glassdoor e num relatório da área pra saber que minha âncora era razoável. quando falei o número, já tinha a justificativa pronta.', created_at: ago(5.5 * 3600000) },
+      { id: 'sc6', user_name: 'João F.', content: 'cara tenho entrevista semana que vem e ia aceitar qualquer coisa 😅 mensagem salva', created_at: ago(4 * 3600000) },
     ],
   },
   {
     id: 'seed_4', user_id: 'seed', user_name: 'Carla M.', category: 'vitoria',
-    content: 'Mudei de área — de Direito para Marketing de Conteúdo. Levou 8 meses, mas hoje estou contratada. O segredo: construí portfólio paralelo (blog + redes sociais) enquanto ainda estava no emprego anterior. O CV híbrido focado em transferência de competências foi o que abriu as portas.',
+    content: 'hoje começo como analista de conteúdo. um ano atrás eu era advogada. todo mundo disse que era impossível, que ia ter que começar do zero, que ia ganhar menos. algumas dessas coisas eram verdade. o que funcionou: montei portfólio real (blog + perfil na área) sem esperar permissão de ninguém, e aprendi a contar minha experiência jurídica como diferencial — não como problema.',
     likes_count: 73, comments_count: 2, created_at: ago(18 * 3600000),
     comments: [
-      { id: 'sc7', user_name: 'Ana O.', content: 'Estou tentando sair de RH para UX. Como foi construir esse portfólio paralelo sem tempo livre?', created_at: ago(14 * 3600000) },
-      { id: 'sc8', user_name: 'Carla M.', content: '1h por dia antes do trabalho. No início parece pouco, mas em 6 meses tinha material suficiente para mostrar evolução real.', created_at: ago(12 * 3600000) },
+      { id: 'sc7', user_name: 'Ana O.', content: 'isso me deu esperança. tô tentando ir de rh pra ux e sinto que ninguém acredita. como você fazia o portfólio com emprego em paralelo? sumia de casa de madrugada? 😅', created_at: ago(14 * 3600000) },
+      { id: 'sc8', user_name: 'Carla M.', content: '1h de manhã antes do trabalho. parece nada mas em 6 meses tinha material pra mostrar evolução real. o mais difícil foi parar de perfeccionar e começar a publicar mesmo imperfeito.', created_at: ago(12 * 3600000) },
     ],
   },
   {
     id: 'seed_5', user_id: 'seed', user_name: 'João F.', category: 'duvida',
-    content: 'Alguém tem experiência com "home assignments" em processos tech? Recebi um desafio de 5 horas antes mesmo da 1ª entrevista. Vale a pena fazer? Como as empresas avaliam? Quero entender se é prática normal ou red flag.',
+    content: 'galera, alguém já fez "home assignment" em processo tech? recebi um antes mesmo da primeira conversa com a empresa, estimativa de 5h. tô na dúvida se vale a pena fazer ou se é red flag. como vocês avaliam?',
     likes_count: 22, comments_count: 2, created_at: ago(26 * 3600000),
     comments: [
-      { id: 'sc9', user_name: 'Lucas R.', content: '5h é razoável. O que avaliam: código limpo, estrutura, README explicando suas decisões. Trate como projeto real — é uma entrevista disfarçada.', created_at: ago(24 * 3600000) },
-      { id: 'sc10', user_name: 'Pedro L.', content: 'Red flag seria: +8h, pedido muito específico para negócio real, sem entrevista depois. 5h com context técnico claro é normal em empresas sérias.', created_at: ago(22 * 3600000) },
+      { id: 'sc9', user_name: 'Lucas R.', content: '5h tá dentro do razoável. o que geralmente avaliam: código limpo, README mostrando como você raciocinou, estrutura que indica que você sabe o que tá fazendo. trata como miniatura de projeto real. é uma entrevista disfarçada.', created_at: ago(24 * 3600000) },
+      { id: 'sc10', user_name: 'Pedro L.', content: 'red flag seria: mais de 8h, pedido muito específico pra resolver problema real do negócio deles, sem entrevista depois. 5h com contexto técnico claro = normal em empresa séria.', created_at: ago(22 * 3600000) },
     ],
   },
   {
     id: 'seed_6', user_id: 'seed', user_name: 'Sofia T.', category: 'desafio',
-    content: '🎯 [Desafio da semana] Minha vitória: depois de 2 semanas enviando 10 candidaturas/dia sem retorno, mudei para 3 candidaturas muito bem adaptadas. Essa semana tive 2 respostas. Demorei para aprender, mas Qualidade > Quantidade é real.',
+    content: 'minha resposta pro desafio: passei 2 semanas mandando cv pra tudo que aparecia, sem retorno nenhum. resolvi parar, escolher 3 vagas por semana e adaptar tudo do zero pra cada uma. resultado: 2 respostas essa semana. não é escala, mas funciona. demorei pra aceitar isso.',
     likes_count: 41, comments_count: 1, created_at: ago(3 * 24 * 3600000),
     comments: [
-      { id: 'sc11', user_name: 'Ana O.', content: 'Eu precisava ler isso hoje. Estava no mesmo ciclo de enviar muito e receber pouco. Vou mudar a abordagem!', created_at: ago(2.5 * 24 * 3600000) },
+      { id: 'sc11', user_name: 'Ana O.', content: 'precisava ver isso hoje mesmo, tô exatamente nesse ciclo. obg por compartilhar', created_at: ago(2.5 * 24 * 3600000) },
     ],
   },
   {
     id: 'seed_7', user_id: 'seed', user_name: 'Rafa M.', category: 'duvida',
-    content: 'Quero tentar mercado europeu, especialmente Portugal. Por onde começar a ser visível para recrutadores de lá? Meu perfil do LinkedIn está todo em português do Brasil — preciso mudar?',
+    content: 'alguém conseguiu emprego em portugal sem ter morado lá antes? tô pesquisando faz meses e fico em dúvida sobre como deixar o linkedin atrativo pra recrutadores de lá. meu perfil tá em pt-br — preciso mudar o idioma? colocar que estou aberto a relocação onde?',
     likes_count: 31, comments_count: 2, created_at: ago(4 * 24 * 3600000),
     comments: [
-      { id: 'sc12', user_name: 'Carla M.', content: 'O módulo 21 aqui aborda exatamente isso! Adaptar LinkedIn para mercado europeu, vistos, diferenças culturais... cobre tudo.', created_at: ago(3.8 * 24 * 3600000) },
-      { id: 'sc13', user_name: 'Pedro L.', content: 'Dica rápida: adiciona "Open to Work" visível para recrutadores e coloca "Available for relocation to Portugal/Europe" no headline. Atrai bastante atenção.', created_at: ago(3.5 * 24 * 3600000) },
+      { id: 'sc12', user_name: 'Carla M.', content: 'tem um módulo inteiro aqui sobre isso (mercado europeu), fala de linkedin, vistos, diferenças culturais na candidatura... me ajudou muito quando tava na mesma dúvida', created_at: ago(3.8 * 24 * 3600000) },
+      { id: 'sc13', user_name: 'Pedro L.', content: 'coloca "open to work" visível pra recrutadores e no headline adiciona algo como "available for relocation to Portugal". funcionou pra mim — recrutadores de lá começaram a aparecer.', created_at: ago(3.5 * 24 * 3600000) },
     ],
   },
   {
     id: 'seed_8', user_id: 'seed', user_name: 'Ana O.', category: 'dica',
-    content: '📋 Lição aprendida da pior forma: mantenha um rastreador de candidaturas desde o primeiro dia. Eu deixava tudo em e-mails e perdia o controlo. Quando comecei a usar uma planilha (empresa | cargo | data | status | próximo passo | contacto), consegui ver padrões — quais empresas e canais davam mais retorno.',
+    content: 'aprendi da forma difícil: mantém um rastreador desde o primeiro dia de busca. ficava tudo perdido nos meus e-mails e esquecia de fazer followup. comecei a usar uma planilha simples (empresa, cargo, quando mandei, status, próximo passo, com quem falei) e percebi que certos canais não estavam me dando retorno nenhum. mudei o foco e a diferença foi imediata.',
     likes_count: 56, comments_count: 0, created_at: ago(5 * 24 * 3600000),
     comments: [],
   },
   {
     id: 'seed_9', user_id: 'seed', user_name: 'Bruno K.', category: 'dica',
-    content: 'Descobri que o título do LinkedIn importa mais do que pensei. Mudei de "Analista de Dados" para "Data Analyst | Python · SQL · Power BI | Transformando dados em decisões" e o número de visualizações do perfil triplicou em 2 semanas. Palavras-chave técnicas + proposta de valor = visibilidade.',
+    content: 'mudança simples que fez diferença no linkedin: troquei meu headline de "Analista de Dados" pra "Data Analyst | Python · SQL · Power BI | ajudando empresas a tomar decisões com dados". parece besteira mas as visualizações do perfil subiram muito em duas semanas. palavras-chave técnicas + o que você faz de verdade = recrutador te acha.',
     likes_count: 67, comments_count: 1, created_at: ago(6 * 24 * 3600000),
     comments: [
-      { id: 'sc14', user_name: 'Sofia T.', content: 'Fui fazer o mesmo agora. Que formato usaste para o headline? Separou as skills com · mesmo?', created_at: ago(5.5 * 24 * 3600000) },
+      { id: 'sc14', user_name: 'Sofia T.', content: 'fui fazer o meu agora 😅 você separou as skills com · mesmo? funcionou no mobile também?', created_at: ago(5.5 * 24 * 3600000) },
     ],
   },
 ]
@@ -655,7 +655,7 @@ export default function CommunityPage({ user }) {
         <div className="text-center text-slate-400 py-12">
           <div className="text-5xl mb-3">💬</div>
           <div className="font-semibold text-slate-600">Ainda não há publicações aqui.</div>
-          <div className="text-sm mt-1">Seja o primeiro a partilhar nesta categoria!</div>
+          <div className="text-sm mt-1">Seja o primeiro a compartilhar nesta categoria!</div>
           <button
             onClick={() => { setComposerCategory(category === 'all' ? 'geral' : category); setComposerOpen(true) }}
             className="mt-4 text-sm text-blue-600 font-semibold hover:underline"
@@ -682,7 +682,7 @@ export default function CommunityPage({ user }) {
       {!supabaseConfigured && (
         <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-center">
           <p className="text-amber-700 text-sm">
-            <strong>Modo Demo:</strong> As publicações são locais. Configure o Supabase para activar a comunidade partilhada entre todos os utilizadores com atualizações em tempo real.
+            <strong>Modo Demo:</strong> As publicações são locais. Configure o Supabase para ativar a comunidade compartilhada entre todos os usuários com atualizações em tempo real.
           </p>
         </div>
       )}
