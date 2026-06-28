@@ -170,19 +170,49 @@ function WeeklySummary({ weekKey, days }) {
 }
 
 // ─── Tarefas diárias ──────────────────────────────────────────────────────────
-const DAILY_TEMPLATES = [
-  'Candidatar a 2 vagas',
-  'Enviar 1 mensagem de networking',
-  'Fazer 1 lição do curso',
-  'Actualizar rastreador de candidaturas',
-  'Rever pipeline de candidaturas',
-]
+const PRIORITY = {
+  high: { label: 'Alta', color: 'text-red-500', bg: 'bg-red-50', dot: '🔴' },
+  medium: { label: 'Média', color: 'text-yellow-500', bg: 'bg-yellow-50', dot: '🟡' },
+  low: { label: 'Baixa', color: 'text-slate-400', bg: 'bg-slate-50', dot: '⚪' },
+}
 
-function DayColumn({ day, weekKey, onSave }) {
+const TEMPLATE_SETS = {
+  active: {
+    label: '🔥 Busca ativa (disponível)',
+    tasks: [
+      { text: 'Candidatar a 3 vagas novas', priority: 'high' },
+      { text: 'Enviar 2 mensagens de networking', priority: 'high' },
+      { text: 'Fazer 1 lição do curso', priority: 'medium' },
+      { text: 'Atualizar rastreador de candidaturas', priority: 'medium' },
+      { text: 'Pesquisar 3 empresas-alvo', priority: 'low' },
+    ],
+  },
+  employed: {
+    label: '💼 Ainda empregado',
+    tasks: [
+      { text: 'Candidatar a 1 vaga estratégica', priority: 'high' },
+      { text: 'Enviar 1 mensagem de networking', priority: 'high' },
+      { text: 'Fazer 1 lição do curso', priority: 'medium' },
+      { text: 'Atualizar LinkedIn com conquista recente', priority: 'low' },
+    ],
+  },
+  interview: {
+    label: '🎯 Em fase de entrevistas',
+    tasks: [
+      { text: 'Preparar respostas STAR para entrevista', priority: 'high' },
+      { text: 'Pesquisar a empresa a fundo', priority: 'high' },
+      { text: 'Enviar follow-up para entrevista anterior', priority: 'high' },
+      { text: 'Fazer 1 lição de preparação para entrevistas', priority: 'medium' },
+    ],
+  },
+}
+
+function DayColumn({ day, weekKey, onSave, focusMode }) {
   const storageKey = `nj_day_${weekKey}_${day.key}`
   const [tasks, setTasks] = useState(() => LS.get(storageKey, []))
   const [input, setInput] = useState('')
   const [adding, setAdding] = useState(false)
+  const [newPriority, setNewPriority] = useState('medium')
 
   const save = (updated) => {
     setTasks(updated)
@@ -190,10 +220,15 @@ function DayColumn({ day, weekKey, onSave }) {
     onSave?.()
   }
 
-  const addTask = (text) => {
+  const addTask = (text, priority = newPriority) => {
     const t = text.trim()
     if (!t) return
-    save([...tasks, { id: Date.now(), text: t, done: false }])
+    const sorted = [...tasks, { id: Date.now(), text: t, done: false, priority }]
+      .sort((a, b) => {
+        const order = { high: 0, medium: 1, low: 2 }
+        return (order[a.priority] ?? 1) - (order[b.priority] ?? 1)
+      })
+    save(sorted)
     setInput('')
     setAdding(false)
   }
@@ -201,14 +236,11 @@ function DayColumn({ day, weekKey, onSave }) {
   const toggle = (id) => save(tasks.map((t) => t.id === id ? { ...t, done: !t.done } : t))
   const remove = (id) => save(tasks.filter((t) => t.id !== id))
 
-  const fillRoutine = () => {
-    const newTasks = DAILY_TEMPLATES.map((text, i) => ({ id: Date.now() + i, text, done: false }))
-    save(newTasks)
-  }
-
   const doneCount = tasks.filter((t) => t.done).length
   const donePct = tasks.length > 0 ? Math.round(doneCount / tasks.length * 100) : 0
   const allDone = tasks.length > 0 && donePct === 100
+
+  if (focusMode && !day.isToday) return null
 
   return (
     <div className={`rounded-2xl border p-3 flex flex-col gap-2 min-h-[180px] transition-all ${
@@ -244,23 +276,27 @@ function DayColumn({ day, weekKey, onSave }) {
       )}
 
       <div className="flex-1 space-y-1">
-        {tasks.map((task) => (
-          <div key={task.id} className="flex items-start gap-1.5 group">
-            <input
-              type="checkbox"
-              checked={task.done}
-              onChange={() => toggle(task.id)}
-              className="mt-0.5 flex-shrink-0 accent-blue-500"
-            />
-            <span className={`text-xs flex-1 leading-relaxed ${task.done ? 'line-through text-slate-400' : 'text-slate-700'}`}>
-              {task.text}
-            </span>
-            <button
-              onClick={() => remove(task.id)}
-              className="text-slate-200 hover:text-red-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
-            >✕</button>
-          </div>
-        ))}
+        {tasks.map((task) => {
+          const p = PRIORITY[task.priority] || PRIORITY.medium
+          return (
+            <div key={task.id} className="flex items-start gap-1.5 group">
+              <input
+                type="checkbox"
+                checked={task.done}
+                onChange={() => toggle(task.id)}
+                className="mt-0.5 flex-shrink-0 accent-blue-500"
+              />
+              <span className="text-xs flex-shrink-0 mt-0.5" title={p.label}>{p.dot}</span>
+              <span className={`text-xs flex-1 leading-relaxed ${task.done ? 'line-through text-slate-400' : 'text-slate-700'}`}>
+                {task.text}
+              </span>
+              <button
+                onClick={() => remove(task.id)}
+                className="text-slate-200 hover:text-red-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
+              >✕</button>
+            </div>
+          )
+        })}
       </div>
 
       {adding ? (
@@ -277,33 +313,27 @@ function DayColumn({ day, weekKey, onSave }) {
             className="w-full text-xs border border-slate-200 rounded-lg px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
           <div className="flex gap-1">
+            {['high', 'medium', 'low'].map(p => (
+              <button
+                key={p}
+                onClick={() => setNewPriority(p)}
+                className={`flex-1 text-xs py-1 rounded-lg transition-colors ${newPriority === p ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'}`}
+              >
+                {PRIORITY[p].dot} {PRIORITY[p].label}
+              </button>
+            ))}
+          </div>
+          <div className="flex gap-1">
             <button onClick={() => addTask(input)} className="flex-1 bg-blue-600 text-white text-xs py-1 rounded-lg hover:bg-blue-700">
               Adicionar
             </button>
             <button onClick={() => { setAdding(false); setInput('') }} className="text-xs text-slate-400 px-2">✕</button>
           </div>
-          <div className="space-y-0.5">
-            {DAILY_TEMPLATES.map((t) => (
-              <button key={t} onClick={() => addTask(t)} className="w-full text-left text-xs text-slate-400 hover:text-blue-600 py-0.5 truncate">
-                + {t}
-              </button>
-            ))}
-          </div>
         </div>
       ) : (
-        <div className="flex items-center gap-2">
-          <button onClick={() => setAdding(true)} className="text-xs text-slate-400 hover:text-blue-600 text-left flex-1">
-            + Adicionar tarefa
-          </button>
-          {tasks.length === 0 && (
-            <button
-              onClick={fillRoutine}
-              className="text-xs text-blue-400 hover:text-blue-600 border border-blue-200 hover:border-blue-400 px-1.5 py-0.5 rounded-md transition-colors whitespace-nowrap"
-            >
-              Rotina
-            </button>
-          )}
-        </div>
+        <button onClick={() => setAdding(true)} className="text-xs text-slate-400 hover:text-blue-600 text-left">
+          + Adicionar tarefa
+        </button>
       )}
     </div>
   )
@@ -474,11 +504,60 @@ function ExportModal({ weekKey, days, onClose }) {
   )
 }
 
+// ─── Templates por perfil ────────────────────────────────────────────────────
+function TemplateApplier({ weekKey, days, onApplied }) {
+  const [showTemplates, setShowTemplates] = useState(false)
+
+  const applyTemplate = (set) => {
+    days.forEach((day, i) => {
+      const storageKey = `nj_day_${weekKey}_${day.key}`
+      const existing = LS.get(storageKey, [])
+      if (existing.length > 0) return
+      const tasks = set.tasks.map((t, j) => ({ id: Date.now() + i * 100 + j, ...t, done: false }))
+      LS.set(storageKey, tasks)
+    })
+    setShowTemplates(false)
+    onApplied()
+  }
+
+  if (!showTemplates) {
+    return (
+      <button
+        onClick={() => setShowTemplates(true)}
+        className="text-xs font-semibold text-slate-500 hover:text-slate-700 border border-slate-200 hover:border-slate-300 px-3 py-1.5 rounded-xl transition-colors bg-white"
+      >
+        📋 Templates
+      </button>
+    )
+  }
+
+  return (
+    <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4" onClick={() => setShowTemplates(false)}>
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-5 space-y-3" onClick={e => e.stopPropagation()}>
+        <div className="font-bold text-slate-800">Templates de rotina semanal</div>
+        <p className="text-slate-400 text-xs">Preenche dias vazios com tarefas recomendadas para o seu momento.</p>
+        {Object.entries(TEMPLATE_SETS).map(([key, set]) => (
+          <button
+            key={key}
+            onClick={() => applyTemplate(set)}
+            className="w-full text-left p-3 bg-slate-50 hover:bg-blue-50 border border-slate-100 hover:border-blue-200 rounded-xl transition-colors"
+          >
+            <div className="font-semibold text-sm text-slate-800">{set.label}</div>
+            <div className="text-xs text-slate-400 mt-0.5">{set.tasks.length} tarefas por dia (dias vazios)</div>
+          </button>
+        ))}
+        <button onClick={() => setShowTemplates(false)} className="w-full text-xs text-slate-400 py-2">Cancelar</button>
+      </div>
+    </div>
+  )
+}
+
 // ─── Página principal ──────────────────────────────────────────────────────────
 export default function PlannerPage({ user }) {
   const [monday, setMonday] = useState(() => getMondayOf(new Date()))
   const [refreshKey, setRefreshKey] = useState(0)
   const [showExport, setShowExport] = useState(false)
+  const [focusMode, setFocusMode] = useState(false)
 
   const weekKey = toKey(monday)
   const days = getWeekDays(monday)
@@ -495,6 +574,7 @@ export default function PlannerPage({ user }) {
     const d = new Date(monday)
     d.setDate(d.getDate() - 7)
     setMonday(d)
+    setFocusMode(false)
   }
 
   const nextWeek = () => {
@@ -502,6 +582,7 @@ export default function PlannerPage({ user }) {
     const d = new Date(monday)
     d.setDate(d.getDate() + 7)
     setMonday(d)
+    setFocusMode(false)
   }
 
   const handleSave = useCallback(() => setRefreshKey(k => k + 1), [])
@@ -517,30 +598,37 @@ export default function PlannerPage({ user }) {
           <h1 className="text-2xl font-black text-slate-800">Plano Semanal</h1>
           <p className="text-slate-500 text-sm mt-1">Organiza a sua busca com metas e tarefas diárias.</p>
         </div>
-        <div className="flex items-center gap-2 self-start">
+        <div className="flex items-center gap-2 self-start flex-wrap">
+          <TemplateApplier weekKey={weekKey} days={days} onApplied={handleSave} />
+          <button
+            onClick={() => setFocusMode(f => !f)}
+            className={`text-xs font-semibold px-3 py-1.5 rounded-xl transition-colors border ${focusMode ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300'}`}
+          >
+            🎯 {focusMode ? 'Modo foco ativo' : 'Modo foco'}
+          </button>
           <button
             onClick={() => setShowExport(true)}
             className="text-xs font-semibold text-slate-500 hover:text-slate-700 border border-slate-200 hover:border-slate-300 px-3 py-1.5 rounded-xl transition-colors bg-white"
           >
-            Exportar relatório
+            Exportar
           </button>
-        <div className="flex items-center gap-1 bg-white border border-slate-200 rounded-xl px-2 py-1.5">
-          <button
-            onClick={prevWeek}
-            className="w-7 h-7 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-colors text-lg"
-          >‹</button>
-          <span className="text-xs font-semibold text-slate-600 whitespace-nowrap px-1">
-            {fmt(monday)} – {fmt(weekEnd)}
-            {isCurrentWeek && <span className="ml-1.5 text-blue-500">· Esta semana</span>}
-          </span>
-          <button
-            onClick={nextWeek}
-            className={`w-7 h-7 flex items-center justify-center rounded-lg transition-colors text-lg ${
-              isCurrentWeek ? 'text-slate-200 cursor-default' : 'text-slate-400 hover:text-slate-700 hover:bg-slate-100'
-            }`}
-            disabled={isCurrentWeek}
-          >›</button>
-        </div>
+          <div className="flex items-center gap-1 bg-white border border-slate-200 rounded-xl px-2 py-1.5">
+            <button
+              onClick={prevWeek}
+              className="w-7 h-7 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-colors text-lg"
+            >‹</button>
+            <span className="text-xs font-semibold text-slate-600 whitespace-nowrap px-1">
+              {fmt(monday)} – {fmt(weekEnd)}
+              {isCurrentWeek && <span className="ml-1.5 text-blue-500">· Esta semana</span>}
+            </span>
+            <button
+              onClick={nextWeek}
+              className={`w-7 h-7 flex items-center justify-center rounded-lg transition-colors text-lg ${
+                isCurrentWeek ? 'text-slate-200 cursor-default' : 'text-slate-400 hover:text-slate-700 hover:bg-slate-100'
+              }`}
+              disabled={isCurrentWeek}
+            >›</button>
+          </div>
         </div>
       </div>
 
@@ -551,15 +639,28 @@ export default function PlannerPage({ user }) {
       <div>
         <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Metas desta semana</div>
         <GoalTracker weekKey={weekKey} />
-        <p className="text-xs text-slate-400 mt-2">Clica nos +/− para atualizar o progresso. Metas resetam automaticamente toda segunda-feira.</p>
+        <p className="text-xs text-slate-400 mt-2">Clique nos +/− para atualizar. As metas resetam toda segunda-feira.</p>
       </div>
 
       {/* Calendário semanal */}
       <div>
-        <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Tarefas do dia</div>
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+        <div className="flex items-center justify-between mb-3">
+          <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+            {focusMode ? 'Hoje — tarefas do dia' : 'Tarefas por dia'}
+          </div>
+          <div className="text-xs text-slate-400">
+            🔴 alta &nbsp; 🟡 média &nbsp; ⚪ baixa
+          </div>
+        </div>
+        <div className={focusMode ? 'block max-w-sm' : 'grid grid-cols-2 sm:grid-cols-5 gap-3'}>
           {days.map((day) => (
-            <DayColumn key={`${weekKey}-${day.key}`} day={day} weekKey={weekKey} onSave={handleSave} />
+            <DayColumn
+              key={`${weekKey}-${day.key}`}
+              day={day}
+              weekKey={weekKey}
+              onSave={handleSave}
+              focusMode={focusMode}
+            />
           ))}
         </div>
       </div>
@@ -577,8 +678,8 @@ export default function PlannerPage({ user }) {
           <div>
             <div className="font-bold text-amber-800 text-sm mb-1">Dica de produtividade</div>
             <p className="text-amber-700 text-sm">
-              Quem defina metas semanais claras envia 3× mais candidaturas e tem 2× mais entrevistas do que quem busca sem estrutura.
-              Dedica 15 minutos toda segunda-feira a planear a semana.
+              Quem define metas semanais claras envia 3× mais candidaturas e tem 2× mais entrevistas.
+              Dedique 15 minutos toda segunda-feira para planejar a semana.
             </p>
           </div>
         </div>

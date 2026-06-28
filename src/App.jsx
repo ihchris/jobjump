@@ -12,7 +12,7 @@ const DEMO_USER_KEY = 'nj_demo_user'
 
 function DemoBanner() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-amber-500 text-white text-xs text-center py-2 px-4">
+    <div className="w-full bg-amber-500 text-white text-xs text-center py-2 px-4 flex-shrink-0">
       ⚠️ <strong>Modo Demo</strong> — configure o arquivo <code className="bg-amber-600 px-1 rounded">.env.local</code> com as credenciais do Supabase para ativar autenticação e pagamentos reais.
     </div>
   )
@@ -46,10 +46,12 @@ function DemoApp() {
 
   if (page === 'dashboard' && user) {
     return (
-      <>
-        <Dashboard user={user} onLogout={onLogout} refreshUser={() => {}} />
+      <div className="flex flex-col h-[100dvh]">
+        <div className="flex-1 min-h-0">
+          <Dashboard user={user} onLogout={onLogout} refreshUser={() => {}} />
+        </div>
         <DemoBanner />
-      </>
+      </div>
     )
   }
 

@@ -23,7 +23,7 @@ export default function Sidebar({ tab, setTab, user, onLogout, mobile, onClose }
   const pct   = getLevelProgress(xp)
 
   return (
-    <div className={`flex flex-col bg-[#1e3a5f] text-white ${mobile ? 'fixed inset-y-0 left-0 z-50 w-[280px] shadow-2xl sidebar-slide-in' : 'w-64 min-h-screen'}`}>
+    <div className={`flex flex-col bg-[#1e3a5f] text-white ${mobile ? 'fixed inset-y-0 left-0 z-50 w-[280px] shadow-2xl sidebar-slide-in' : 'w-64 h-full'}`}>
       <div className="p-5 border-b border-white/10">
         <div className="flex items-center gap-3">
           <div>
