@@ -11325,4 +11325,712 @@ Se sim para as três: vá. Trajetórias não-lineares construídas com intençã
       },
     ],
   },
+  {
+    id: 41,
+    title: 'Gestão Financeira para Profissionais',
+    desc: 'Controle seu dinheiro, construa reservas e invista de forma inteligente para ter mais liberdade e segurança na carreira.',
+    duration: '3h 10min',
+    icon: '💰',
+    isPro: true,
+    color: { bg: 'bg-emerald-50', border: 'border-emerald-200', badge: 'bg-emerald-100 text-emerald-700', icon: 'bg-emerald-500' },
+    lessons: [
+      {
+        id: '41-1',
+        title: 'Orçamento pessoal: a base de tudo',
+        duration: '30 min',
+        content: `# Orçamento pessoal: a base de tudo
+
+## Por que a maioria dos profissionais não tem controle financeiro?
+
+Não é falta de dinheiro — é falta de consciência. A maioria das pessoas não sabe exatamente quanto ganha, quanto gasta e para onde vai cada real. Essa desinformação cria ansiedade, dívidas e dependência de um único empregador.
+
+## A Regra 50-30-20
+
+A estrutura mais simples e eficaz para organizar as finanças:
+
+| Categoria | % da renda | O que inclui |
+|-----------|-----------|-------------|
+| **Necessidades** | 50% | Moradia, alimentação, transporte, saúde, contas básicas |
+| **Desejos** | 30% | Lazer, restaurantes, assinaturas, viagens, presentes |
+| **Poupança/Investimentos** | 20% | Fundo de emergência, previdência, investimentos |
+
+> **Na prática**: Se você ganha R$5.000 líquidos: R$2.500 em necessidades, R$1.500 em desejos, R$1.000 em investimentos.
+
+## Como montar seu orçamento em 4 passos
+
+### Passo 1: Mapeie a entrada
+Liste todas as fontes de renda: salário líquido, freelances, renda passiva.
+
+### Passo 2: Mapeie as saídas
+Divida em fixas (aluguel, parcelas, assinaturas) e variáveis (supermercado, lazer, saúde).
+
+### Passo 3: Classifique cada gasto
+Para cada item, pergunte: é necessidade, desejo ou investimento?
+
+### Passo 4: Ajuste e monitore
+Se seus gastos excedem 50% em necessidades ou sobra menos que 20% para investir, algo precisa mudar.
+
+## A mentalidade correta
+
+> "Não é sobre quanto você ganha — é sobre a diferença entre o que você ganha e o que você gasta."
+
+Profissionais de alta renda frequentemente têm menos patrimônio do que profissionais de renda média que vivem abaixo de seus meios. O conceito de **lifestyle inflation** (inflação de estilo de vida) destrói fortunas — a cada aumento salarial, despesas sobem na mesma proporção.
+
+## Ferramenta prática
+
+**Planilha de Orçamento Mensal:**
+1. Abra uma planilha (Google Sheets funciona perfeitamente)
+2. Coluna A: categoria de gasto
+3. Coluna B: valor orçado
+4. Coluna C: valor real
+5. Coluna D: diferença
+
+Revisar mensalmente em 30 minutos transforma completamente sua relação com o dinheiro.`,
+      },
+      {
+        id: '41-2',
+        title: 'Fundo de emergência: sua proteção profissional',
+        duration: '25 min',
+        content: `# Fundo de emergência: sua proteção profissional
+
+## O que é e por que é fundamental para a carreira?
+
+O fundo de emergência não é apenas uma questão financeira — é uma questão de liberdade profissional.
+
+**Sem fundo de emergência:**
+- Você aceita qualquer emprego por pressão financeira
+- Não consegue negociar salário com confiança (não pode se dar ao luxo de perder o emprego)
+- Uma demissão se torna catástrofe, não transição
+
+**Com fundo de emergência:**
+- Você pode recusar propostas abaixo do valor que merece
+- Uma demissão vira oportunidade de transição com calma
+- Você tem tempo para encontrar o emprego certo, não apenas o primeiro
+
+## Qual o tamanho ideal?
+
+| Situação | Recomendação |
+|---------|-------------|
+| Emprego estável + CLT | 6 meses de gastos |
+| Autônomo / freelancer | 9-12 meses de gastos |
+| PJ ou empreendedor | 12 meses de gastos |
+| Com dependentes | +2-3 meses adicionais |
+
+## Onde guardar o fundo de emergência?
+
+**Critérios obrigatórios:**
+- **Liquidez imediata** — saque em D+0 ou D+1
+- **Sem risco de perda** — não na bolsa de valores
+- **Rentabilidade acima da poupança**
+
+**Melhores opções (2024):**
+1. **CDB com liquidez diária** (rendimento de ~100% do CDI)
+2. **Tesouro Selic** (seguro, rende ~100% da Selic, resgate em D+1)
+3. **Conta remunerada** (alguns bancos digitais pagam 100% CDI com liquidez total)
+
+❌ **Evitar:** Poupança (rendimento abaixo da inflação), ações, fundos com prazo de resgate.
+
+## Como construir o fundo partindo do zero
+
+### Método acelerado:
+1. Calcule 6x seus gastos mensais (ex: R$4.000/mês × 6 = R$24.000)
+2. Corte gastos supérfluos temporariamente
+3. Destine 30-40% da renda ao fundo até completar
+4. Depois volte para 20% em investimentos de longo prazo
+
+### Timeline realista:
+- Renda R$3.000, meta R$18.000 → 15 meses poupando 20%
+- Renda R$5.000, meta R$30.000 → ~15 meses poupando 25%`,
+      },
+      {
+        id: '41-3',
+        title: 'Investimentos para quem não é especialista',
+        duration: '35 min',
+        content: `# Investimentos para quem não é especialista
+
+## O mito da complexidade
+
+A indústria financeira tem interesse em parecer complexa. A realidade: para a maioria dos profissionais, uma estratégia simples supera estratégias sofisticadas no longo prazo.
+
+## O pilar mais importante: começar cedo
+
+**O poder dos juros compostos:**
+- Investindo R$500/mês a 10% ao ano:
+  - Por 10 anos: ~R$95.000
+  - Por 20 anos: ~R$340.000
+  - Por 30 anos: ~R$980.000
+
+O tempo é o ativo mais valioso. Cada ano que passa sem investir custa caro.
+
+## Renda Fixa: o ponto de partida
+
+Para quem está começando ou tem perfil conservador:
+
+| Produto | Rentabilidade típica | Liquidez | Risco |
+|---------|---------------------|----------|-------|
+| CDB 100% CDI | ~10-12% a.a. | D+0 a D+1 | Baixo (FGC até R$250k) |
+| Tesouro Selic | ~10-11% a.a. | D+1 | Muito baixo |
+| LCI/LCA | ~9-11% a.a. isento IR | Varia | Baixo (FGC) |
+
+## Previdência Privada: para a aposentadoria
+
+**PGBL vs VGBL:**
+- **PGBL**: dedução fiscal de até 12% da renda bruta anual no IR → ideal para quem declara IR completo
+- **VGBL**: não há dedução, mas no resgate só incide IR sobre os rendimentos → melhor para quem faz declaração simplificada
+
+**Dica prática:** Muitas empresas oferecem previdência com "match" (a empresa bota o mesmo que você). Se a sua empresa oferece, aproveite — é salário indireto.
+
+## Renda Variável: construindo patrimônio
+
+Para quem tem fundo de emergência formado e horizonte de 5+ anos:
+
+- **Fundos de Índice (ETFs)**: BOVA11 (Ibovespa) e IVVB11 (S&P 500 em BRL) — diversificação barata e automática
+- **FIIs (Fundos de Investimento Imobiliário)**: renda passiva mensal, isenção de IR nos proventos para pessoa física
+- **Ações**: mais complexo, mas maior potencial de retorno
+
+## A estratégia simples que funciona
+
+1. **Fundo de emergência** completo em renda fixa com liquidez
+2. **PGBL/VGBL** para previdência (especialmente se há match da empresa)
+3. **ETFs** para exposição ao mercado global com baixo custo
+4. **FIIs** para geração de renda passiva mensal
+5. Revisão anual, não diária — não fique olhando a carteira todo dia`,
+      },
+      {
+        id: '41-4',
+        title: 'CLT vs PJ: o que vale mais para você?',
+        duration: '40 min',
+        content: `# CLT vs PJ: o que vale mais para você?
+
+## A pergunta errada vs. a pergunta certa
+
+**Pergunta errada:** "CLT ou PJ é melhor?"
+**Pergunta certa:** "Dado meu salário, situação de vida e perfil, o que gera mais resultado financeiro e qualidade de vida para mim?"
+
+## O que você perde no PJ
+
+Ao sair do regime CLT, você deixa de ter:
+- **FGTS** (8% do salário bruto depositado pelo empregador)
+- **13º salário** (equivale a +8,33% por mês)
+- **Férias remuneradas + 1/3** (equivale a +11,11% por mês)
+- **Seguro-desemprego** (em caso de demissão)
+- **Hora extra** e outros direitos trabalhistas
+
+Somando: você "perde" cerca de **27-30% em benefícios** ao migrar para PJ.
+
+## O que você ganha no PJ
+
+- **Salário líquido maior** (tributação pode ser menor)
+- **Deduções fiscais** (despesas da empresa: computador, celular, internet, cursos)
+- **Flexibilidade** para trabalhar com múltiplos clientes
+- **Autonomia** sobre horário e local de trabalho
+
+## Como calcular o ponto de equilíbrio
+
+Para que o PJ valha mais financeiramente, você precisa compensar os ~27-30% que perde em benefícios CLT:
+
+**Fórmula simplificada:**
+> PJ bruto mínimo = CLT bruto × 1.40
+
+Exemplo: CLT de R$10.000 → PJ de no mínimo R$14.000 para equivaler.
+
+## Custos ocultos do PJ que muitos esquecem
+
+| Custo | Valor estimado/mês |
+|-------|-------------------|
+| Contabilidade | R$150-350 |
+| Plano de saúde próprio | R$300-800 |
+| Previdência privada (INSS facultativo) | R$200-600 |
+| Férias (auto-impostas) | R$salário/12 |
+
+## Quando o PJ faz sentido
+
+✅ Salário PJ consideravelmente maior (40%+ acima do CLT equivalente)
+✅ Você tem disciplina financeira para guardar o equivalente a FGTS, férias, 13º
+✅ Trabalha para múltiplos clientes ou tem alta demanda de mercado
+✅ A empresa é sólida e não há risco de vínculo empregatício camuflado (pejotização)
+
+## Quando o CLT faz sentido
+
+✅ Diferença de salário pequena (menos de 30%)
+✅ Empresa com bons benefícios (plano de saúde premium, previdência com match)
+✅ Momento de vida com necessidade de estabilidade (financiamento, família)
+✅ Você não tem disciplina para "guardar" o equivalente aos benefícios`,
+      },
+    ],
+  },
+  {
+    id: 42,
+    title: 'Comunicação Digital e Presença Online',
+    desc: 'Domine a etiqueta digital, comunique-se com impacto em ambientes remotos e construa uma presença online que abre portas.',
+    duration: '2h 45min',
+    icon: '💻',
+    isPro: true,
+    color: { bg: 'bg-violet-50', border: 'border-violet-200', badge: 'bg-violet-100 text-violet-700', icon: 'bg-violet-500' },
+    lessons: [
+      {
+        id: '42-1',
+        title: 'Etiqueta digital no ambiente profissional',
+        duration: '30 min',
+        content: `# Etiqueta digital no ambiente profissional
+
+## Por que a etiqueta digital importa mais do que nunca
+
+Com equipes remotas e híbridas, sua comunicação digital é sua presença. Você é percebido da mesma forma que sua escrita, sua câmera e seu comportamento nas ferramentas digitais.
+
+## Email profissional: as regras que ninguém te ensinou
+
+### Assunto do email
+- **Seja específico**: "Reunião de alinhamento sobre projeto X — 5/jan às 14h" > "Reunião"
+- **Inclua ação esperada quando necessário**: [AÇÃO NECESSÁRIA], [PARA REVISÃO], [FYI]
+- **Nunca deixe em branco**
+
+### Corpo do email
+**Estrutura que funciona:**
+1. **Contexto** (1-2 linhas): Por que você está escrevendo?
+2. **Conteúdo** (essencial): O que você precisa comunicar?
+3. **Ação** (clara e específica): O que você precisa do destinatário?
+4. **Prazo** (quando aplicável): Até quando?
+
+### Tempo de resposta esperado
+| Canal | Expectativa profissional |
+|-------|------------------------|
+| Email | 24-48h úteis |
+| Slack/Teams (mensagem) | 2-4h em horário comercial |
+| WhatsApp profissional | 4-8h |
+| Ligação | Retorno no mesmo dia |
+
+### O que nunca fazer em emails profissionais
+❌ Responder todos (Reply All) desnecessariamente
+❌ Escrever em caixa alta (parece que está gritando)
+❌ Encaminhar emails sem contexto
+❌ Cobrar resposta em menos de 24h sem urgência real
+❌ Enviar áudios longos quando email seria mais eficiente
+
+## Mensageiros corporativos (Slack, Teams, WhatsApp)
+
+### Boas práticas
+- Use threads para manter conversas organizadas
+- Defina status (disponível/ocupado/ausente)
+- Use @ com critério — cada notificação custa atenção de alguém
+- Mensagens de trabalho têm horário — respeite o período não comercial
+- Prefira mensagens de texto a áudios longos no contexto profissional
+
+### A regra do contexto único
+Ao iniciar uma mensagem, inclua tudo que o destinatário precisa saber para responder sem precisar perguntar de volta. "Oi, tudo bem?" seguido de esperar resposta para depois fazer a pergunta real desperdiça o tempo de todos.`,
+      },
+      {
+        id: '42-2',
+        title: 'Reuniões remotas de alto impacto',
+        duration: '25 min',
+        content: `# Reuniões remotas de alto impacto
+
+## A epidemia de reuniões inúteis
+
+Estudos mostram que profissionais passam em média 30-40% do seu tempo em reuniões, e mais da metade dessas reuniões poderiam ser um email. No ambiente remoto, isso ficou ainda pior.
+
+## Antes da reunião: pergunte se ela precisa existir
+
+A reunião deve acontecer quando:
+- É necessário **tomar uma decisão** que requer debate em tempo real
+- É necessário **construir relacionamento** ou alinhar emocionalmente
+- O tema é **complexo demais** para resolver assincronamente
+- **Brainstorming criativo** que se beneficia de interação ao vivo
+
+A reunião pode ser substituída quando:
+- É apenas **compartilhamento de informação** → email/documento
+- É **atualização de status** → ferramenta de gestão de projeto
+- É **aprovação simples** → mensagem direta
+
+## Como facilitar uma reunião remota eficaz
+
+### Antes
+1. **Agenda** com horários por tópico → distribuir com pelo menos 24h de antecedência
+2. **Objetivo claro**: qual é a decisão ou output esperado?
+3. **Leitura prévia**: compartilhe materiais relevantes antes, não durante
+
+### Durante
+1. **Inicie no horário** — sempre. Isso comunica respeito
+2. **Câmera ligada** como padrão (especialmente para discussões importantes)
+3. **Designar facilitador e anotador** — papéis separados
+4. **Parking lot**: anote pontos fora do escopo para tratar depois
+5. **Termine com clareza**: quem faz o quê, até quando?
+
+### Depois
+- **Ata em até 24h** com decisões, ações e responsáveis
+- **Acompanhe os action items** — a reunião só valeu se gerou ação real
+
+## Presença em reuniões: como ser lembrado(a)
+
+- **Fale antes dos 10 minutos**: participantes que não contribuem no início tendem a permanecer invisíveis
+- **Prepare 1-2 contribuições** antes de entrar
+- **Faça perguntas inteligentes**: mostra engajamento e pensamento crítico
+- **Câmera ligada**: presença visual aumenta engajamento percebido em 40%`,
+      },
+      {
+        id: '42-3',
+        title: 'Construindo presença digital profissional',
+        duration: '35 min',
+        content: `# Construindo presença digital profissional
+
+## Por que sua presença digital é seu currículo do século XXI
+
+Antes de qualquer entrevista, recrutadores, clientes e parceiros buscam seu nome no Google. O que aparecer — ou não aparecer — já forma uma impressão antes do primeiro contato.
+
+## Os 3 pilares da presença digital profissional
+
+### 1. LinkedIn (o mais importante)
+O LinkedIn é o pilar central da presença digital profissional. Já cobrimos isso em profundidade no módulo 3, mas os pontos-chave para presença ativa:
+- Perfil 100% completo com foto, headline e "Sobre" poderosos
+- Publicar 2-3x por semana com conteúdo relevante para sua área
+- Engajar genuinamente nos posts de outros (comentários que agregam, não apenas "ótimo post!")
+- Conexões com propósito, não em massa
+
+### 2. Portfólio / Site pessoal
+Para áreas criativas, tech, marketing, consultoria e comunicação, um site pessoal é diferencial significativo.
+
+**O que incluir:**
+- Bio profissional (curta e clara)
+- Projetos com contexto (problema → solução → resultado)
+- Formas de contato
+- Publicações, palestras ou mídia (se houver)
+
+**Plataformas simples para criar:**
+- **Desenvolvedores**: GitHub Pages + portfólio custom
+- **Design/Criativo**: Behance ou portfólio em Notion/Squarespace
+- **Outros profissionais**: Notion, Carrd, ou WordPress simples
+
+### 3. Consistência entre plataformas
+Seu nome, foto e mensagem principal devem ser consistentes no LinkedIn, GitHub, portfólio e qualquer plataforma profissional. Inconsistência gera confusão e reduz credibilidade.
+
+## Criação de conteúdo para construir autoridade
+
+Você não precisa criar conteúdo viral. Você precisa ser consistente e genuíno:
+
+**Tipos de conteúdo que funcionam:**
+- **O que aprendi com**: situações reais, livros, projetos, erros
+- **Dicas práticas**: o que funciona na sua área que outros podem aplicar
+- **Perspectivas**: sua visão sobre tendências do setor
+- **Bastidores**: como você trabalha, decide, resolve problemas
+
+**Frequência ideal:** 2-3x por semana no LinkedIn. Qualidade > quantidade.
+
+## O que evitar na presença digital profissional
+
+❌ Opiniões políticas polarizadas (a menos que seja sua área de atuação)
+❌ Reclamações sobre empregadores ou clientes (mesmo que anônimas)
+❌ Fotos ou conteúdos pessoais que contradizem sua imagem profissional
+❌ Inatividade total — perfil abandonado passa imagem negativa`,
+      },
+      {
+        id: '42-4',
+        title: 'Comunicação escrita de alto impacto',
+        duration: '35 min',
+        content: `# Comunicação escrita de alto impacto
+
+## A habilidade mais subestimada no mercado
+
+Comunicação escrita clara e eficaz é cada vez mais rara e cada vez mais valorizada. Num mundo de trabalho remoto e assíncrono, sua escrita representa você.
+
+## O framework BLUF (Bottom Line Up Front)
+
+Adotado originalmente pelas forças armadas americanas, o BLUF é o padrão de ouro para comunicação profissional eficaz:
+
+**Estrutura:**
+1. **Conclusão ou pedido primeiro** (não construa suspense — as pessoas estão ocupadas)
+2. **Contexto** (por que isso é importante?)
+3. **Detalhes** (para quem precisar)
+
+**Exemplo sem BLUF:**
+> "Olá, como você sabe, estamos trabalhando no projeto X desde outubro. Após várias reuniões e análises que fizemos nas últimas semanas considerando múltiplos fatores como custo, tempo e impacto... [3 parágrafos depois] ...então minha recomendação é aprovar o orçamento de R$50.000."
+
+**Com BLUF:**
+> "Recomendo aprovar o orçamento de R$50.000 para o projeto X. [Contexto: o projeto aumentará a receita em 20% com payback em 8 meses.] [Detalhes disponíveis no documento anexo.]"
+
+## Pirâmide da escrita eficaz
+
+Escreva do mais importante para o menos importante:
+
+- **Topo** → Conclusão / Decisão / Pedido
+- **Meio** → Argumento principal / Justificativa
+- **Base** → Evidências e detalhes
+- **Fundo** → Contexto de fundo (opcional)
+
+Escreva de cima para baixo — mais importante primeiro. Leitores ocupados param de ler — garanta que o essencial está no início.
+
+## Clareza: o valor mais raro
+
+**Princípio da máquina de suco:**
+Imagine que cada frase precisa passar por uma máquina que extrai apenas o suco (o significado real). Se uma frase inteira vira zero suco, corte.
+
+**Frases para eliminar:**
+- "Conforme conversado anteriormente..." → delete
+- "No sentido de que..." → substitua por "porque"
+- "Em função do fato de que..." → substitua por "porque"
+- "No que diz respeito a..." → delete e seja direto
+- Qualquer frase passiva quando o ativo é possível
+
+## Revisão em 3 passos
+
+1. **Primeira revisão**: leia em voz alta — você percebe o que os olhos pulam
+2. **Segunda revisão**: corte 20% das palavras — quase sempre é possível sem perder significado
+3. **Terceira revisão**: verifique se a ação esperada está clara e específica`,
+      },
+    ],
+  },
+  {
+    id: 43,
+    title: 'Inteligência Artificial para Profissionais',
+    desc: 'Domine IA generativa para turbinar sua produtividade, construir diferenciais de carreira e posicionar-se no mercado do futuro.',
+    duration: '3h 00min',
+    icon: '🤖',
+    isPro: true,
+    color: { bg: 'bg-cyan-50', border: 'border-cyan-200', badge: 'bg-cyan-100 text-cyan-700', icon: 'bg-cyan-500' },
+    lessons: [
+      {
+        id: '43-1',
+        title: 'IA generativa: o que é e por que muda tudo',
+        duration: '30 min',
+        content: `# IA generativa: o que é e por que muda tudo
+
+## O que é IA generativa?
+
+IA Generativa é uma categoria de Inteligência Artificial capaz de **criar conteúdo novo** — texto, imagem, código, áudio, vídeo — a partir de instruções em linguagem natural.
+
+Diferente da IA tradicional (que classifica spam ou recomenda filmes), a IA generativa **produz** algo que não existia antes.
+
+## Os modelos que estão transformando o mercado
+
+| Modelo | Empresa | Uso principal |
+|--------|---------|--------------|
+| ChatGPT (GPT-4) | OpenAI | Texto, código, análise |
+| Claude | Anthropic | Texto, análise, raciocínio |
+| Gemini | Google | Texto, multimodal |
+| Copilot | Microsoft | Texto, código, Office |
+| Midjourney / DALL-E | MJ Inc / OpenAI | Imagens |
+| Stable Diffusion | Stability AI | Imagens (open source) |
+
+## Por que isso muda tudo para profissionais?
+
+**Antes:** Habilidades técnicas específicas eram vantagem competitiva.
+**Agora:** A capacidade de usar IA para amplificar qualquer habilidade é o novo diferencial.
+
+Um analista que usa IA produz 3-5x mais em menos tempo. Um redator que usa IA experimenta 10x mais variações. Um gestor que usa IA toma decisões com dados que antes levariam dias para reunir.
+
+## O que a IA não substitui (ainda)
+
+- **Julgamento e senso crítico**: saber qual output da IA é bom ou ruim
+- **Relacionamento humano**: empatia, confiança, negociação
+- **Criatividade estratégica**: conectar pontos de formas não óbvias
+- **Ética e responsabilidade**: decidir o que deve ou não ser feito
+- **Contexto organizacional**: entender a política e cultura de uma organização
+
+> A IA não vai substituir você — mas alguém que usa IA bem pode.
+
+## Mito vs. Realidade
+
+| Mito | Realidade |
+|------|-----------|
+| "IA vai acabar com meu emprego" | IA vai transformar seu emprego — quem adapta ganha |
+| "IA sabe tudo" | IA frequentemente inventa informações com confiança (alucinações) |
+| "Só técnicos precisam de IA" | IA beneficia qualquer área — juridico, RH, vendas, financeiro |
+| "Preciso saber programar para usar IA" | As melhores ferramentas usam linguagem natural |`,
+      },
+      {
+        id: '43-2',
+        title: 'Prompt engineering: o novo superpoder',
+        duration: '40 min',
+        content: `# Prompt engineering: o novo superpoder
+
+## O que é um prompt?
+
+Um prompt é a instrução que você dá a um modelo de IA. A qualidade do seu prompt determina 80% da qualidade da resposta.
+
+> "Lixo entra, lixo sai" — vale para IA tanto quanto para qualquer sistema.
+
+## Por que prompt engineering é uma habilidade profissional
+
+Profissionais que sabem escrever prompts eficazes:
+- Completam tarefas em minutos que levavam horas
+- Obtêm resultados de alta qualidade sem precisar corrigir repetidamente
+- Usam IA como um colaborador inteligente, não uma calculadora
+
+## O framework dos 5 elementos de um bom prompt
+
+### 1. Papel (Role)
+Diga à IA quem ela é nesse contexto:
+> "Você é um recrutador sênior com 15 anos de experiência em tech..."
+
+### 2. Contexto (Context)
+Forneça informação de fundo relevante:
+> "...Estou preparando meu CV para uma vaga de Product Manager numa fintech de médio porte..."
+
+### 3. Tarefa (Task)
+Seja específico sobre o que você quer:
+> "...Revise meu resumo profissional abaixo e sugira melhorias para torná-lo mais impactante..."
+
+### 4. Formato (Format)
+Especifique como quer a resposta:
+> "...Responda com: [1] análise do que está funcionando, [2] 3 problemas identificados, [3] versão reescrita com explicação das mudanças..."
+
+### 5. Restrições (Constraints)
+Defina limites relevantes:
+> "...Mantenha no máximo 5 linhas. Use linguagem ativa. Não use jargões de RH."
+
+## Exemplos práticos por situação profissional
+
+### Para preparar entrevistas:
+> "Você é um entrevistador sênior de [empresa/área]. Faça-me 10 perguntas comportamentais para a vaga de [cargo]. Após cada pergunta que eu responder, dê feedback específico sobre o que ficou bom, o que faltou e como melhorar."
+
+### Para análise de dados:
+> "Analise os dados abaixo sobre [tema]. Identifique: (1) 3 insights principais, (2) anomalias ou dados que chamam atenção, (3) próximas perguntas que devo investigar. Apresente em bullets concisos."
+
+### Para negociação:
+> "Vou negociar salário amanhã. A empresa ofereceu R$8.000 e quero R$10.000. Simule ser o recrutador e faça a oferta. Eu responderei e você reagirá como um recrutador real faria. Depois dê feedback sobre minha estratégia."
+
+## Técnicas avançadas
+
+### Chain of Thought
+> "Resolva isso passo a passo, mostrando seu raciocínio em cada etapa antes de chegar à conclusão."
+
+### Few-Shot Prompting
+Forneça exemplos do que você quer antes de pedir:
+> "Aqui estão 3 exemplos do formato que quero: [exemplo 1], [exemplo 2], [exemplo 3]. Agora faça o mesmo para [seu caso]."
+
+### Iterar e refinar
+Raramente o primeiro prompt dá o melhor resultado. Trate como conversa — dê feedback à IA: "Ficou muito formal, torne mais direto" ou "Aprofunde o ponto 2".`,
+      },
+      {
+        id: '43-3',
+        title: 'IA aplicada à sua área: casos práticos',
+        duration: '45 min',
+        content: `# IA aplicada à sua área: casos práticos
+
+## A IA que transforma cada área profissional
+
+### Marketing e Comunicação
+**O que a IA faz melhor:**
+- Geração e variação de copies (anúncios, emails, posts)
+- Briefing de conteúdo e pauta editorial
+- Análise de sentimento de comentários e reviews
+- Geração de imagens para campanhas (Midjourney, DALL-E)
+- Tradução e adaptação de conteúdo para diferentes mercados
+
+**Caso prático:**
+> Prompt: "Crie 5 variações de headline para anúncio de [produto] para [público]. Uma formal, uma descontraída, uma que apela ao medo de perda, uma focada em benefício e uma como pergunta."
+
+### Tecnologia e Desenvolvimento
+**O que a IA faz melhor:**
+- Geração, revisão e documentação de código
+- Debugging — explicar o erro e sugerir correções
+- Code review para encontrar problemas
+- Geração de testes unitários
+- Tradução entre linguagens de programação
+
+**Ferramentas específicas:** GitHub Copilot, Cursor, Claude, ChatGPT Code Interpreter
+
+### Vendas e Negócios
+**O que a IA faz melhor:**
+- Pesquisa de prospects e personalização de outreach
+- Geração de scripts de prospecção adaptados ao perfil
+- Análise de objeções e preparação de respostas
+- Geração de propostas comerciais
+- Resumo de reuniões e criação de follow-ups
+
+**Caso prático:**
+> Prompt: "Pesquisei que [empresa prospect] está [situação específica]. Crie um email de prospecção de 150 palavras conectando essa situação com o valor de [seu produto/serviço]. Tom: consultivo, não vendedor."
+
+### RH e Gestão de Pessoas
+**O que a IA faz melhor:**
+- Criação e revisão de job descriptions
+- Geração de perguntas para entrevistas por competências
+- Estruturação de planos de desenvolvimento individual
+- Análise de pesquisas de clima organizacional
+- Criação de políticas e comunicados internos
+
+### Financeiro e Análise
+**O que a IA faz melhor:**
+- Análise e interpretação de relatórios
+- Criação de análises comparativas
+- Geração de narrativas para apresentações de dados
+- Modelagem financeira simples e projeções
+- Revisão de contratos e documentos
+
+### Direito e Compliance
+**O que a IA faz melhor (com supervisão humana obrigatória):**
+- Resumo e estruturação de documentos longos
+- Identificação de cláusulas de risco
+- Pesquisa inicial de jurisprudência
+- Geração de primeiros rascunhos de documentos padrão
+
+> ⚠️ **Importante para todas as áreas**: IA comete erros e alucina. Nunca use output de IA sem revisão crítica para documentos importantes, dados financeiros ou decisões jurídicas.`,
+      },
+      {
+        id: '43-4',
+        title: 'Ética, limites e futuro da IA no trabalho',
+        duration: '45 min',
+        content: `# Ética, limites e futuro da IA no trabalho
+
+## O que é uma alucinação de IA?
+
+Modelos de IA são treinados para produzir texto que parece correto e coerente — não para ser factualmente preciso. Isso significa que podem gerar informações falsas com total confiança e fluidez.
+
+**Exemplos de alucinações documentadas:**
+- Citar artigos científicos que não existem (com autores e títulos plausíveis)
+- Inventar datas, estatísticas e citações
+- Descrever eventos históricos incorretamente
+- Dar conselhos jurídicos ou médicos incorretos
+
+**Como mitigar:**
+1. Sempre verifique fatos, datas e dados críticos em fontes primárias
+2. Nunca use IA para pesquisa legal ou médica sem revisão especializada
+3. Pergunte à IA: "Você tem certeza? Quais são as fontes?" — ela vai sinalizar incerteza muitas vezes
+4. Para dados numéricos, prefira calculadoras ou dados diretos de relatórios
+
+## A linha ética do uso de IA no trabalho
+
+### O que é ético:
+✅ Usar IA para melhorar a comunicação de experiências e habilidades reais
+✅ Usar IA para pesquisar, sintetizar e estruturar informações
+✅ Usar IA como assistente de revisão e refinamento
+✅ Usar IA para automatizar tarefas repetitivas
+
+### O que é antiético:
+❌ Inventar experiências, qualificações ou resultados com ajuda de IA
+❌ Usar IA para responder testes técnicos em processos seletivos
+❌ Atribuir a si mesmo trabalho totalmente gerado por IA sem contribuição real
+❌ Usar IA para criar deepfakes ou conteúdo enganoso
+
+## Como posicionar-se num mercado com IA
+
+### Habilidades que continuarão valendo:
+1. **Julgamento crítico**: saber o que é bom, o que está errado
+2. **Criatividade estratégica**: conectar pontos de forma não óbvia
+3. **Comunicação humana**: empatia, confiança, negociação
+4. **Conhecimento de domínio**: IA precisa de humanos para validar outputs em áreas especializadas
+5. **Liderança e influência**: motivar, desenvolver, tomar decisões difíceis
+
+### O que fazer agora:
+1. **Experimente**: crie conta gratuita no Claude, ChatGPT ou Gemini e use diariamente
+2. **Documente**: anote os prompts que funcionam para você — construa um "prompt book"
+3. **Compartilhe**: ensinar outros é a melhor forma de fixar o aprendizado e construir autoridade
+4. **Especialize**: seja a referência de IA aplicada na sua área específica
+
+## O futuro do trabalho com IA
+
+**Horizonte de 2-5 anos:**
+- IA como "colaborador padrão" em todas as ferramentas de trabalho
+- Profissionais que não usam IA ficam em desvantagem de produtividade
+- Novas funções emergentes: AI trainer, prompt specialist, AI ethics officer
+
+**O que não vai mudar:**
+- A necessidade de profissionais que entendem o negócio em profundidade
+- O valor de relacionamentos humanos genuínos
+- A importância de liderança e visão estratégica
+- A necessidade de julgamento ético e responsabilidade
+
+> A IA é a ferramenta mais poderosa que surgiu no mercado de trabalho em décadas. Os profissionais que aprendem a usá-la bem agora estão construindo uma vantagem que levará anos para outros alcançarem.`,
+      },
+    ],
+  },
 ]

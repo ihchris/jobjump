@@ -2731,6 +2731,683 @@ function RoleQuestionSimulator() {
   )
 }
 
+// ─── Ferramenta 25: Calculadora CLT vs PJ ────────────────────────────────────
+function CLTPJCalculator() {
+  const [form, setForm] = useState({ clt: '', pj: '', beneficios: '', despesas: '' })
+  const [result, setResult] = useState(null)
+  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
+
+  const calcular = () => {
+    const cltBruto = parseFloat(form.clt) || 0
+    const pjBruto = parseFloat(form.pj) || 0
+    const beneficiosCLT = parseFloat(form.beneficios) || 0
+    const despesasPJ = parseFloat(form.despesas) || 0
+
+    // CLT: INSS progressivo + IR estimado
+    const inss = Math.min(cltBruto * 0.14, 908.85)
+    const baseIR = cltBruto - inss
+    let ir = 0
+    if (baseIR > 4664.68) ir = (baseIR - 4664.68) * 0.275 - 869.36
+    else if (baseIR > 3751.06) ir = (baseIR - 3751.06) * 0.225 - 636.13
+    else if (baseIR > 2826.66) ir = (baseIR - 2826.66) * 0.15 - 354.8
+    else if (baseIR > 2259.21) ir = (baseIR - 2259.21) * 0.075
+    ir = Math.max(0, ir)
+    const cltLiquido = cltBruto - inss - ir + beneficiosCLT
+    const fgts = cltBruto * 0.08
+    const decimoTerceiro = cltBruto / 12
+    const ferias = cltBruto / 12 * (1 + 1/3)
+    const totalCLT = cltLiquido + fgts + decimoTerceiro + ferias
+
+    // PJ: Simesples Nacional estimado ~6% + despesas
+    const impostosPJ = pjBruto * 0.06
+    const pjLiquido = pjBruto - impostosPJ - despesasPJ
+
+    setResult({ cltBruto, pjBruto, cltLiquido, pjLiquido, totalCLT, inss, ir, fgts, decimoTerceiro, ferias, impostosPJ, despesasPJ, beneficiosCLT })
+  }
+
+  const fmt = (v) => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+  const inp = 'w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
+
+  return (
+    <div className="space-y-4">
+      <div className="bg-blue-50 border border-blue-100 rounded-xl p-3 text-xs text-blue-700">
+        <strong>Como usar:</strong> Informe o salário bruto CLT e o valor bruto PJ para comparar o que você realmente recebe em cada regime.
+      </div>
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Salário Bruto CLT (R$)</label>
+          <input type="number" className={inp} placeholder="Ex: 8000" value={form.clt} onChange={set('clt')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Valor Bruto PJ / mês (R$)</label>
+          <input type="number" className={inp} placeholder="Ex: 12000" value={form.pj} onChange={set('pj')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Benefícios CLT / mês (R$)</label>
+          <input type="number" className={inp} placeholder="VR + VT + plano de saúde... Ex: 1200" value={form.beneficios} onChange={set('beneficios')} />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Despesas PJ / mês (R$)</label>
+          <input type="number" className={inp} placeholder="Contabilidade + plano de saúde próprio... Ex: 800" value={form.despesas} onChange={set('despesas')} />
+        </div>
+      </div>
+      <Btn onClick={calcular} variant="primary" size="md" disabled={!form.clt || !form.pj}>Calcular comparativo →</Btn>
+      {result && (
+        <div className="space-y-4">
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div className="bg-white border border-slate-200 rounded-xl p-4">
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Regime CLT</p>
+              <div className="space-y-1.5 text-sm">
+                <div className="flex justify-between"><span className="text-slate-600">Salário bruto</span><span className="font-semibold">{fmt(result.cltBruto)}</span></div>
+                <div className="flex justify-between text-red-600"><span>- INSS</span><span>- {fmt(result.inss)}</span></div>
+                <div className="flex justify-between text-red-600"><span>- IR</span><span>- {fmt(result.ir)}</span></div>
+                <div className="flex justify-between text-green-600"><span>+ Benefícios</span><span>+ {fmt(result.beneficiosCLT)}</span></div>
+                <div className="border-t border-slate-100 pt-1.5 flex justify-between font-bold text-slate-800"><span>Líquido mensal</span><span>{fmt(result.cltLiquido)}</span></div>
+                <div className="border-t border-slate-100 pt-1.5 mt-2 space-y-1">
+                  <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold mb-1">Benefícios anuais proporcionais</p>
+                  <div className="flex justify-between text-xs text-slate-600"><span>FGTS (8%)</span><span>{fmt(result.fgts)}/mês</span></div>
+                  <div className="flex justify-between text-xs text-slate-600"><span>13º salário</span><span>{fmt(result.decimoTerceiro)}/mês</span></div>
+                  <div className="flex justify-between text-xs text-slate-600"><span>Férias + 1/3</span><span>{fmt(result.ferias)}/mês</span></div>
+                </div>
+                <div className="border-t border-slate-100 pt-1.5 flex justify-between font-bold text-blue-700 text-base"><span>Custo total real</span><span>{fmt(result.totalCLT)}</span></div>
+              </div>
+            </div>
+            <div className="bg-white border border-slate-200 rounded-xl p-4">
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Regime PJ</p>
+              <div className="space-y-1.5 text-sm">
+                <div className="flex justify-between"><span className="text-slate-600">Valor bruto PJ</span><span className="font-semibold">{fmt(result.pjBruto)}</span></div>
+                <div className="flex justify-between text-red-600"><span>- Impostos (~6% Simples)</span><span>- {fmt(result.impostosPJ)}</span></div>
+                <div className="flex justify-between text-red-600"><span>- Despesas mensais</span><span>- {fmt(result.despesasPJ)}</span></div>
+                <div className="border-t border-slate-100 pt-1.5 flex justify-between font-bold text-slate-800"><span>Líquido mensal</span><span>{fmt(result.pjLiquido)}</span></div>
+                <div className="mt-4 bg-amber-50 border border-amber-100 rounded-lg p-3">
+                  <p className="text-xs text-amber-700 font-semibold mb-1">Lembre-se: no PJ você paga por conta própria:</p>
+                  <ul className="text-xs text-amber-700 space-y-0.5 list-disc list-inside">
+                    <li>Plano de saúde</li>
+                    <li>Previdência privada (aposentadoria)</li>
+                    <li>Contabilidade (~R$150-350/mês)</li>
+                    <li>Férias e 13º (não garantidos)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={`rounded-xl p-4 text-center ${result.pjLiquido > result.totalCLT ? 'bg-green-50 border border-green-200' : 'bg-blue-50 border border-blue-200'}`}>
+            <p className="text-sm font-bold text-slate-700 mb-1">
+              {result.pjLiquido > result.totalCLT
+                ? `PJ vale mais: você ganha ${fmt(result.pjLiquido - result.totalCLT)} a mais por mês`
+                : result.totalCLT > result.pjLiquido
+                  ? `CLT vale mais: você ganha ${fmt(result.totalCLT - result.pjLiquido)} a mais por mês (considerando todos os benefícios)`
+                  : 'Os dois regimes são equivalentes neste cenário'}
+            </p>
+            <p className="text-xs text-slate-500">Cálculo estimado. Consulte um contador para análise personalizada.</p>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ─── Ferramenta 26: Gerador de Carta de Referência ────────────────────────────
+function ReferenceLetter() {
+  const [form, setForm] = useState({ candidato: '', referente: '', cargo: '', empresa: '', tempo: '', qualidades: '', resultado: '', tipo: 'formal' })
+  const [output, setOutput] = useState('')
+  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
+
+  const gerar = () => {
+    if (!form.candidato || !form.referente || !form.cargo) return
+    const hoje = new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })
+    const carta = form.tipo === 'formal'
+      ? `${hoje}
+
+À quem possa interessar,
+
+Escrevo esta carta para recomendar com entusiasmo ${form.candidato} para qualquer oportunidade profissional que venha a buscar.
+
+Tive o privilégio de trabalhar com ${form.candidato.split(' ')[0]} por ${form.tempo || 'um período significativo'} na empresa ${form.empresa || '[Empresa]'}, onde exerceu a função de ${form.cargo}. Durante esse período, pude observar de perto seu desenvolvimento e contribuições.
+
+${form.candidato.split(' ')[0]} demonstrou consistentemente ${form.qualidades || 'excelente competência técnica, proatividade e capacidade de trabalho em equipe'}. ${form.resultado ? `Um exemplo notável foi quando ${form.resultado}.` : ''}
+
+É um(a) profissional que se destaca pela sua integridade, comprometimento e capacidade de entregar resultados mesmo em situações desafiadoras. Não tenho dúvidas de que será um ativo valioso para qualquer equipe ou organização.
+
+Recomendo ${form.candidato.split(' ')[0]} sem qualquer reserva e coloco-me à disposição para fornecer informações adicionais.
+
+Atenciosamente,
+
+${form.referente}
+[Cargo] | [Empresa] | [E-mail] | [Telefone]`
+      : `${hoje}
+
+Prezados(as),
+
+É com grande prazer que escrevo em apoio à candidatura de ${form.candidato}.
+
+Trabalhei com ${form.candidato.split(' ')[0]} por ${form.tempo || 'vários meses'} em ${form.empresa || '[Empresa]'}, onde atuou como ${form.cargo}. Desde o início, chamou atenção pela sua ${form.qualidades || 'dedicação, criatividade e vontade de aprender'}.
+
+${form.resultado ? `Durante nossa colaboração, ${form.resultado}. Esse resultado reflete muito bem a postura proativa e o comprometimento que ${form.candidato.split(' ')[0]} traz para tudo que faz.` : `${form.candidato.split(' ')[0]} sempre demonstrou uma postura proativa e grande comprometimento com os resultados da equipe.`}
+
+Tenho plena confiança de que ${form.candidato.split(' ')[0]} trará contribuições significativas para o seu time. Recomendo-o(a) com confiança.
+
+Com os melhores cumprimentos,
+${form.referente}
+[E-mail] | [LinkedIn]`
+    setOutput(carta)
+  }
+
+  const inp = 'w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
+  const ta = inp + ' resize-none'
+  return (
+    <div className="space-y-4">
+      <div className="grid sm:grid-cols-2 gap-3">
+        {[
+          { k: 'candidato', label: 'Nome do candidato', placeholder: 'Ex: Ana Souza' },
+          { k: 'referente', label: 'Seu nome (quem escreve)', placeholder: 'Ex: Carlos Lima' },
+          { k: 'cargo', label: 'Cargo do candidato', placeholder: 'Ex: Analista de Marketing' },
+          { k: 'empresa', label: 'Empresa onde trabalharam juntos', placeholder: 'Ex: Tech Corp' },
+          { k: 'tempo', label: 'Tempo de convivência', placeholder: 'Ex: 2 anos e 3 meses' },
+        ].map(({ k, label, placeholder }) => (
+          <div key={k}>
+            <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">{label}</label>
+            <input className={inp} placeholder={placeholder} value={form[k]} onChange={set(k)} />
+          </div>
+        ))}
+        <div>
+          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Estilo da carta</label>
+          <select className={inp} value={form.tipo} onChange={set('tipo')}>
+            <option value="formal">Formal (para empresas grandes)</option>
+            <option value="calido">Caloroso (para startups / cultura aberta)</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Principais qualidades (separe por vírgula)</label>
+        <input className={inp} placeholder="Ex: liderança, resolução de problemas, comunicação excepcional" value={form.qualidades} onChange={set('qualidades')} />
+      </div>
+      <div>
+        <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Resultado ou conquista marcante (opcional)</label>
+        <textarea className={ta} rows={2} placeholder="Ex: liderou o projeto X que gerou 30% de aumento de receita..." value={form.resultado} onChange={set('resultado')} />
+      </div>
+      <Btn onClick={gerar} variant="primary" size="md" disabled={!form.candidato || !form.referente || !form.cargo}>Gerar carta →</Btn>
+      {output && (
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">Carta gerada</span>
+            <button onClick={() => navigator.clipboard.writeText(output)} className="text-xs text-blue-600 hover:text-blue-800 underline">Copiar</button>
+          </div>
+          <pre className="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap font-sans">{output}</pre>
+          <p className="text-xs text-slate-400">Personalize com os dados reais antes de usar. Substitua os campos entre colchetes.</p>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ─── Ferramenta 27: Analisador de Gap de Habilidades ──────────────────────────
+function SkillsGapAnalyzer() {
+  const [cargo, setCargo] = useState('')
+  const [skills, setSkills] = useState('')
+  const [result, setResult] = useState(null)
+
+  const CARGO_SKILLS = {
+    'Analista de Dados': {
+      essenciais: ['SQL', 'Python', 'Excel', 'Power BI ou Tableau', 'Estatística básica'],
+      diferenciais: ['Machine Learning', 'Spark', 'dbt', 'Airflow', 'Cloud (AWS/GCP/Azure)'],
+    },
+    'Product Manager': {
+      essenciais: ['Roadmap', 'Priorização (ICE/RICE)', 'Análise de métricas', 'Comunicação executiva', 'SQL básico'],
+      diferenciais: ['Discovery de produto', 'A/B testing', 'OKR', 'Figma', 'Gestão de stakeholders'],
+    },
+    'Desenvolvedor Front-end': {
+      essenciais: ['HTML/CSS', 'JavaScript', 'React', 'Git', 'APIs REST'],
+      diferenciais: ['TypeScript', 'Testes (Jest/Cypress)', 'Next.js', 'Performance web', 'Acessibilidade'],
+    },
+    'Desenvolvedor Back-end': {
+      essenciais: ['Linguagem (Python/Java/Node)', 'APIs REST', 'SQL', 'Git', 'Docker'],
+      diferenciais: ['Microserviços', 'Kubernetes', 'Cloud', 'CI/CD', 'Mensageria (Kafka/RabbitMQ)'],
+    },
+    'Marketing Digital': {
+      essenciais: ['Google Ads', 'Meta Ads', 'Analytics', 'SEO básico', 'Email marketing'],
+      diferenciais: ['CRM (HubSpot/RD)', 'Growth hacking', 'Copywriting avançado', 'Automação', 'Data Studio'],
+    },
+    'Vendas B2B': {
+      essenciais: ['Prospecção', 'SPIN Selling', 'CRM (Salesforce/Pipedrive)', 'Negociação', 'Comunicação persuasiva'],
+      diferenciais: ['Social Selling', 'MEDDIC', 'Account Based Marketing', 'Forecasting', 'Gestão de pipeline'],
+    },
+    'Recursos Humanos': {
+      essenciais: ['CLT e legislação', 'Recrutamento e seleção', 'Folha de pagamento', 'Treinamento e desenvolvimento', 'HRBP'],
+      diferenciais: ['People Analytics', 'DISC/MBTI', 'D&I', 'OKR aplicado a pessoas', 'Employer branding'],
+    },
+    'UX/UI Designer': {
+      essenciais: ['Figma', 'Pesquisa com usuários', 'Wireframes', 'Prototipagem', 'Design Systems'],
+      diferenciais: ['Motion design', 'Testes de usabilidade', 'Acessibilidade', 'DesignOps', 'Métricas UX'],
+    },
+    'Gestor / Liderança': {
+      essenciais: ['Gestão de times', 'OKR/KPI', 'Feedback', 'Comunicação executiva', 'Resolução de conflitos'],
+      diferenciais: ['Coaching', 'Gestão financeira', 'Storytelling executivo', 'Gestão de mudança', 'Desenvolvimento de pessoas'],
+    },
+    'Financeiro / Controladoria': {
+      essenciais: ['Excel avançado', 'Contabilidade', 'Fluxo de caixa', 'DRE/Balanço', 'SAP ou ERP'],
+      diferenciais: ['Power BI', 'Python para finanças', 'M&A básico', 'IFRS', 'Valuation'],
+    },
+  }
+
+  const analisar = () => {
+    if (!cargo || !skills) return
+    const info = CARGO_SKILLS[cargo]
+    if (!info) return
+    const mySkills = skills.toLowerCase().split(/[,;\n]+/).map((s) => s.trim()).filter(Boolean)
+    const checkSkill = (s) => mySkills.some((ms) => s.toLowerCase().split(/\s+/).some((word) => ms.includes(word.toLowerCase())))
+
+    const essenciaisOk = info.essenciais.filter(checkSkill)
+    const essenciasFaltando = info.essenciais.filter((s) => !checkSkill(s))
+    const diferenciaisOk = info.diferenciais.filter(checkSkill)
+    const diferenciaisFaltando = info.diferenciais.filter((s) => !checkSkill(s))
+    const score = Math.round(((essenciaisOk.length * 2 + diferenciaisOk.length) / (info.essenciais.length * 2 + info.diferenciais.length)) * 100)
+
+    setResult({ essenciaisOk, essenciasFaltando, diferenciaisOk, diferenciaisFaltando, score })
+  }
+
+  const inp = 'w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
+  return (
+    <div className="space-y-4">
+      <div>
+        <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Cargo que você deseja</label>
+        <select className={inp} value={cargo} onChange={(e) => setCargo(e.target.value)}>
+          <option value="">Selecione o cargo...</option>
+          {Object.keys(CARGO_SKILLS).map((c) => <option key={c} value={c}>{c}</option>)}
+        </select>
+      </div>
+      <div>
+        <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Suas habilidades atuais (separe por vírgula)</label>
+        <textarea className={inp + ' resize-none'} rows={3} placeholder="Ex: SQL, Python, Excel, Power BI, comunicação, liderança de equipes..." value={skills} onChange={(e) => setSkills(e.target.value)} />
+      </div>
+      <Btn onClick={analisar} variant="primary" size="md" disabled={!cargo || !skills}>Analisar gap →</Btn>
+      {result && (
+        <div className="space-y-4">
+          <div className={`rounded-xl p-4 text-center ${result.score >= 70 ? 'bg-green-50 border border-green-200' : result.score >= 40 ? 'bg-amber-50 border border-amber-200' : 'bg-red-50 border border-red-200'}`}>
+            <p className="text-3xl font-black text-slate-800">{result.score}%</p>
+            <p className="text-sm text-slate-600 mt-1">
+              {result.score >= 70 ? 'Perfil forte para esta vaga — foque nos diferenciais' : result.score >= 40 ? 'Perfil em desenvolvimento — algumas lacunas importantes' : 'Ainda há caminho a percorrer — priorize as essenciais'}
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div>
+              <p className="text-xs font-bold text-green-700 uppercase tracking-wider mb-2">Habilidades essenciais que você TEM ({result.essenciaisOk.length}/{result.essenciaisOk.length + result.essenciasFaltando.length})</p>
+              {result.essenciaisOk.map((s) => <div key={s} className="flex items-center gap-2 text-sm text-slate-700 mb-1"><span className="text-green-500">✓</span>{s}</div>)}
+              {result.essenciasFaltando.length > 0 && (
+                <>
+                  <p className="text-xs font-bold text-red-600 uppercase tracking-wider mb-2 mt-3">Essenciais que FALTAM</p>
+                  {result.essenciasFaltando.map((s) => <div key={s} className="flex items-center gap-2 text-sm text-slate-700 mb-1"><span className="text-red-400">✗</span>{s}</div>)}
+                </>
+              )}
+            </div>
+            <div>
+              <p className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-2">Diferenciais que você TEM ({result.diferenciaisOk.length}/{result.diferenciaisOk.length + result.diferenciaisFaltando.length})</p>
+              {result.diferenciaisOk.map((s) => <div key={s} className="flex items-center gap-2 text-sm text-slate-700 mb-1"><span className="text-blue-500">✓</span>{s}</div>)}
+              {result.diferenciaisFaltando.length > 0 && (
+                <>
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 mt-3">Diferenciais para desenvolver</p>
+                  {result.diferenciaisFaltando.map((s) => <div key={s} className="flex items-center gap-2 text-sm text-slate-500 mb-1"><span className="text-slate-300">○</span>{s}</div>)}
+                </>
+              )}
+            </div>
+          </div>
+          {result.essenciasFaltando.length > 0 && (
+            <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
+              <p className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-2">Prioridade de aprendizado</p>
+              <ol className="space-y-1">
+                {result.essenciasFaltando.map((s, i) => (
+                  <li key={s} className="text-sm text-slate-700">
+                    <span className="font-bold text-blue-600">{i + 1}.</span> {s} — <span className="text-slate-500">habilidade essencial: priorize agora</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ─── Ferramenta 28: Perguntas para Fazer ao Entrevistador ─────────────────────
+function InterviewQuestionsGenerator() {
+  const [area, setArea] = useState('')
+  const [tipo, setTipo] = useState('')
+  const [selected, setSelected] = useState([])
+  const [copied, setCopied] = useState(false)
+
+  const PERGUNTAS = {
+    role: {
+      label: 'Sobre o cargo',
+      icon: '🎯',
+      perguntas: [
+        'Como seria um dia típico neste cargo nos primeiros 3 meses?',
+        'Quais são as métricas de sucesso para esta posição no primeiro ano?',
+        'Que tipo de decisões esta pessoa toma autonomamente vs. precisa de aprovação?',
+        'Quais são os maiores desafios que a pessoa neste cargo enfrenta hoje?',
+        'Como é a curva de aprendizado esperada para este papel?',
+        'O que a pessoa anterior neste cargo fez bem? O que poderia ter feito melhor?',
+      ],
+    },
+    equipe: {
+      label: 'Sobre a equipe',
+      icon: '👥',
+      perguntas: [
+        'Com quem eu trabalharia mais de perto? Qual é o perfil da equipe?',
+        'Como a equipe toma decisões? Mais colaborativo ou diretivo?',
+        'Como é o processo de feedback dentro do time?',
+        'Há alguma mudança de equipe ou estrutura planejada para os próximos meses?',
+        'Como o time lida com discordâncias ou conflitos internos?',
+        'O que une a equipe além do trabalho — quais são os valores praticados no dia a dia?',
+      ],
+    },
+    empresa: {
+      label: 'Sobre a empresa',
+      icon: '🏢',
+      perguntas: [
+        'Quais são os maiores desafios estratégicos que a empresa enfrenta agora?',
+        'Onde a empresa quer estar em 2-3 anos? Como esta área contribui para isso?',
+        'Como a empresa se diferencia da concorrência na prática?',
+        'Como foi a empresa durante períodos difíceis (ex: pandemia, crise do setor)?',
+        'Quais são os valores que as pessoas que ficam na empresa têm em comum?',
+        'Como está a saúde financeira da empresa? Há planos de investimento?',
+      ],
+    },
+    crescimento: {
+      label: 'Sobre crescimento',
+      icon: '📈',
+      perguntas: [
+        'Como a empresa investe no desenvolvimento dos colaboradores?',
+        'Existem programas de mentoria ou acesso a cursos e certificações?',
+        'Qual é a trajetória típica de alguém que entra neste cargo e performa bem?',
+        'Com que frequência há conversas de carreira com o gestor?',
+        'Há orçamento para treinamentos e conferências?',
+        'Existe plano de carreira estruturado ou é mais emergente?',
+      ],
+    },
+    cultura: {
+      label: 'Sobre cultura e ambiente',
+      icon: '🌱',
+      perguntas: [
+        'Como você descreveria a cultura da empresa em 3 palavras?',
+        'O que mais te mantém nesta empresa?',
+        'Qual foi o maior aprendizado que você teve aqui?',
+        'Como a empresa lida com erros — punitivo ou aprendizado?',
+        'Qual é a política de trabalho remoto/híbrido de longo prazo?',
+        'Como é o equilíbrio entre vida pessoal e trabalho na prática, não no discurso?',
+      ],
+    },
+    proximos_passos: {
+      label: 'Sobre próximos passos',
+      icon: '⏭️',
+      perguntas: [
+        'Quais são os próximos passos do processo seletivo e o prazo previsto?',
+        'Há mais alguma informação que eu possa fornecer para ajudar na decisão?',
+        'Quando posso esperar uma resposta?',
+        'Há alguma dúvida sobre meu perfil que não tenha ficado clara?',
+      ],
+    },
+  }
+
+  const toggleSelect = (cat, idx) => {
+    const key = `${cat}-${idx}`
+    setSelected((prev) => prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key])
+  }
+
+  const copySelected = () => {
+    const lines = selected.map((key) => {
+      const [cat, idx] = key.split('-')
+      return `• ${PERGUNTAS[cat].perguntas[parseInt(idx)]}`
+    })
+    navigator.clipboard.writeText(lines.join('\n'))
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  return (
+    <div className="space-y-4">
+      <div className="bg-blue-50 border border-blue-100 rounded-xl p-3 text-xs text-blue-700">
+        <strong>Dica:</strong> Selecione 3-5 perguntas das categorias mais relevantes para a entrevista. Fazer boas perguntas demonstra interesse genuíno e ajuda você a avaliar se a empresa é certa para você.
+      </div>
+      <div className="space-y-3">
+        {Object.entries(PERGUNTAS).map(([cat, { label, icon, perguntas }]) => (
+          <div key={cat} className="border border-slate-200 rounded-xl overflow-hidden">
+            <div className="bg-slate-50 px-4 py-3 flex items-center gap-2">
+              <span>{icon}</span>
+              <span className="font-semibold text-sm text-slate-700">{label}</span>
+            </div>
+            <div className="divide-y divide-slate-100">
+              {perguntas.map((p, idx) => {
+                const key = `${cat}-${idx}`
+                const isSelected = selected.includes(key)
+                return (
+                  <button key={idx} onClick={() => toggleSelect(cat, idx)}
+                    className={`w-full text-left px-4 py-3 text-sm transition-colors flex items-start gap-3 ${isSelected ? 'bg-blue-50 text-blue-800' : 'text-slate-700 hover:bg-slate-50'}`}>
+                    <span className={`mt-0.5 flex-shrink-0 w-4 h-4 rounded border text-xs flex items-center justify-center ${isSelected ? 'bg-blue-600 border-blue-600 text-white' : 'border-slate-300'}`}>
+                      {isSelected ? '✓' : ''}
+                    </span>
+                    {p}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+      {selected.length > 0 && (
+        <div className="sticky bottom-0 bg-white border-t border-slate-200 pt-3 flex items-center justify-between">
+          <span className="text-sm text-slate-600"><strong>{selected.length}</strong> pergunta{selected.length !== 1 ? 's' : ''} selecionada{selected.length !== 1 ? 's' : ''}</span>
+          <button onClick={copySelected} className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${copied ? 'bg-green-600 text-white' : 'bg-blue-600 text-white hover:bg-blue-700'}`}>
+            {copied ? '✓ Copiado!' : 'Copiar selecionadas →'}
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ─── Ferramenta 29: Gerador de Bio Profissional ───────────────────────────────
+function PersonalBioGenerator() {
+  const [form, setForm] = useState({ nome: '', cargo: '', empresa: '', especialidade: '', conquista: '', missao: '', anos: '', idioma: 'pt' })
+  const [output, setOutput] = useState({ curta: '', media: '', longa: '' })
+  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
+  const [copied, setCopied] = useState('')
+
+  const gerar = () => {
+    if (!form.nome || !form.cargo) return
+    const n = form.nome.split(' ')[0]
+    const tempo = form.anos ? `${form.anos} anos de experiência` : 'vasta experiência'
+
+    const curta = `${form.nome} é ${form.cargo}${form.empresa ? ` na ${form.empresa}` : ''} com ${tempo} em ${form.especialidade || 'sua área'}. ${form.conquista ? form.conquista + '.' : ''} ${form.missao || 'Apaixonado(a) por transformar desafios em resultados.'}`
+
+    const media = `${form.nome} é ${form.cargo}${form.empresa ? ` na ${form.empresa}` : ''}, com ${tempo} atuando em ${form.especialidade || 'projetos de alto impacto'}.\n\n${form.conquista ? `Entre as principais conquistas, destaca-se: ${form.conquista}.\n\n` : ''}${form.missao || `${n} acredita que profissionais de excelência transformam não apenas resultados, mas também as pessoas ao seu redor.`}`
+
+    const longa = `${form.nome} é ${form.cargo}${form.empresa ? ` na ${form.empresa}` : ''}, com ${tempo} de atuação em ${form.especialidade || 'sua área de expertise'}.\n\nAo longo da carreira, ${n} desenvolveu sólida experiência em ${form.especialidade || 'gestão e liderança'}${form.conquista ? `, com destaque para: ${form.conquista}` : ''}.\n\n${form.missao ? `Sua missão profissional é: ${form.missao}` : `${n} é reconhecido(a) pela capacidade de entregar resultados consistentes, construir relacionamentos genuínos e desenvolver soluções criativas para problemas complexos.`}\n\nConecte-se para trocar ideias sobre ${form.especialidade || 'tendências do mercado'} e oportunidades de colaboração.`
+
+    setOutput({ curta, media, longa })
+  }
+
+  const copy = (text, key) => {
+    navigator.clipboard.writeText(text)
+    setCopied(key)
+    setTimeout(() => setCopied(''), 2000)
+  }
+
+  const inp = 'w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
+  const VERSOES = [
+    { key: 'curta', label: 'Bio Curta — Twitter/Instagram (até 160 char)', text: output.curta },
+    { key: 'media', label: 'Bio Média — Email/Portfólio', text: output.media },
+    { key: 'longa', label: 'Bio Longa — LinkedIn/Speaker', text: output.longa },
+  ]
+
+  return (
+    <div className="space-y-4">
+      <div className="grid sm:grid-cols-2 gap-3">
+        {[
+          { k: 'nome', label: 'Nome completo', placeholder: 'Ex: Marina Costa' },
+          { k: 'cargo', label: 'Cargo / Título profissional', placeholder: 'Ex: Head de Produto' },
+          { k: 'empresa', label: 'Empresa atual (opcional)', placeholder: 'Ex: Nubank' },
+          { k: 'anos', label: 'Anos de experiência', placeholder: 'Ex: 8' },
+          { k: 'especialidade', label: 'Especialidade / Área de foco', placeholder: 'Ex: fintech, growth, UX...' },
+        ].map(({ k, label, placeholder }) => (
+          <div key={k}>
+            <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">{label}</label>
+            <input className={inp} placeholder={placeholder} value={form[k]} onChange={set(k)} />
+          </div>
+        ))}
+      </div>
+      <div>
+        <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Conquista de destaque</label>
+        <input className={inp} placeholder="Ex: Lancei produto que alcançou 500k usuários em 6 meses" value={form.conquista} onChange={set('conquista')} />
+      </div>
+      <div>
+        <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Missão ou propósito profissional (opcional)</label>
+        <input className={inp} placeholder="Ex: Ajudo empresas a construir produtos que as pessoas amam usar" value={form.missao} onChange={set('missao')} />
+      </div>
+      <Btn onClick={gerar} variant="primary" size="md" disabled={!form.nome || !form.cargo}>Gerar bios →</Btn>
+      {output.curta && (
+        <div className="space-y-3">
+          {VERSOES.map(({ key, label, text }) => (
+            <div key={key} className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">{label}</span>
+                <button onClick={() => copy(text, key)} className={`text-xs font-bold px-2 py-1 rounded transition-colors ${copied === key ? 'bg-green-100 text-green-700' : 'text-blue-600 hover:text-blue-800 underline'}`}>
+                  {copied === key ? '✓ Copiado' : 'Copiar'}
+                </button>
+              </div>
+              <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap">{text}</p>
+              {key === 'curta' && <p className="text-xs text-slate-400 mt-1">{text.length} caracteres</p>}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ─── Ferramenta 30: Planejador de Networking Semanal ──────────────────────────
+function WeeklyNetworkingPlanner() {
+  const WEEK_KEY = 'nj_networking_week'
+  const [meta, setMeta] = useState(() => LS.get(WEEK_KEY + '_meta', { conexoes: 5, mensagens: 10, posts: 2 }))
+  const [tarefas, setTarefas] = useState(() => LS.get(WEEK_KEY + '_tasks', []))
+  const [nova, setNova] = useState({ tipo: 'conexao', contato: '', acao: '', dia: 'Segunda' })
+  const [semana] = useState(() => {
+    const d = new Date()
+    const inicio = new Date(d.setDate(d.getDate() - d.getDay() + 1))
+    return inicio.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long' })
+  })
+
+  const saveMeta = (k, v) => {
+    const next = { ...meta, [k]: parseInt(v) || 0 }
+    setMeta(next)
+    LS.set(WEEK_KEY + '_meta', next)
+  }
+
+  const addTarefa = () => {
+    if (!nova.contato || !nova.acao) return
+    const next = [...tarefas, { ...nova, id: Date.now(), done: false }]
+    setTarefas(next)
+    LS.set(WEEK_KEY + '_tasks', next)
+    setNova({ tipo: 'conexao', contato: '', acao: '', dia: 'Segunda' })
+  }
+
+  const toggleDone = (id) => {
+    const next = tarefas.map((t) => t.id === id ? { ...t, done: !t.done } : t)
+    setTarefas(next)
+    LS.set(WEEK_KEY + '_tasks', next)
+  }
+
+  const del = (id) => {
+    const next = tarefas.filter((t) => t.id !== id)
+    setTarefas(next)
+    LS.set(WEEK_KEY + '_tasks', next)
+  }
+
+  const done = tarefas.filter((t) => t.done).length
+  const pct = tarefas.length ? Math.round((done / tarefas.length) * 100) : 0
+
+  const TIPOS = { conexao: { label: 'Conexão', color: 'bg-blue-100 text-blue-700' }, mensagem: { label: 'Mensagem', color: 'bg-green-100 text-green-700' }, post: { label: 'Publicação', color: 'bg-purple-100 text-purple-700' }, followup: { label: 'Follow-up', color: 'bg-amber-100 text-amber-700' }, reuniao: { label: 'Reunião', color: 'bg-red-100 text-red-700' } }
+  const DIAS = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta']
+  const inp = 'px-3 py-2 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
+
+  return (
+    <div className="space-y-5">
+      <div className="flex items-center justify-between">
+        <div>
+          <h3 className="font-bold text-slate-800">Semana de {semana}</h3>
+          <p className="text-xs text-slate-500">Plano de networking semanal</p>
+        </div>
+        {tarefas.length > 0 && (
+          <div className="text-right">
+            <p className="text-2xl font-black text-slate-800">{pct}%</p>
+            <p className="text-xs text-slate-500">{done}/{tarefas.length} feitas</p>
+          </div>
+        )}
+      </div>
+
+      <div className="grid grid-cols-3 gap-3">
+        {[{ k: 'conexoes', label: 'Meta de conexões', icon: '🤝' }, { k: 'mensagens', label: 'Meta de mensagens', icon: '💬' }, { k: 'posts', label: 'Meta de posts', icon: '📝' }].map(({ k, label, icon }) => (
+          <div key={k} className="bg-slate-50 rounded-xl p-3 text-center">
+            <p className="text-lg mb-1">{icon}</p>
+            <input type="number" min="0" max="50" className="w-full text-center text-lg font-black text-slate-800 bg-transparent border-0 focus:outline-none" value={meta[k]} onChange={(e) => saveMeta(k, e.target.value)} />
+            <p className="text-xs text-slate-500">{label}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="border border-slate-200 rounded-xl p-4 space-y-3">
+        <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Adicionar tarefa de networking</p>
+        <div className="grid sm:grid-cols-2 gap-2">
+          <select className={inp} value={nova.tipo} onChange={(e) => setNova((n) => ({ ...n, tipo: e.target.value }))}>
+            {Object.entries(TIPOS).map(([k, { label }]) => <option key={k} value={k}>{label}</option>)}
+          </select>
+          <select className={inp} value={nova.dia} onChange={(e) => setNova((n) => ({ ...n, dia: e.target.value }))}>
+            {DIAS.map((d) => <option key={d} value={d}>{d}</option>)}
+          </select>
+          <input className={inp} placeholder="Contato (nome ou empresa)" value={nova.contato} onChange={(e) => setNova((n) => ({ ...n, contato: e.target.value }))} />
+          <input className={inp} placeholder="Ação (ex: enviar mensagem de conexão)" value={nova.acao} onChange={(e) => setNova((n) => ({ ...n, acao: e.target.value }))} />
+        </div>
+        <button onClick={addTarefa} disabled={!nova.contato || !nova.acao} className="w-full py-2 bg-blue-600 text-white text-sm font-bold rounded-xl hover:bg-blue-700 disabled:opacity-40 transition-colors">
+          Adicionar tarefa →
+        </button>
+      </div>
+
+      {tarefas.length > 0 && (
+        <div className="space-y-2">
+          <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Tarefas da semana</p>
+          {DIAS.map((dia) => {
+            const tarefasDia = tarefas.filter((t) => t.dia === dia)
+            if (!tarefasDia.length) return null
+            return (
+              <div key={dia} className="border border-slate-100 rounded-xl overflow-hidden">
+                <div className="bg-slate-50 px-4 py-2 text-xs font-bold text-slate-600 uppercase tracking-wider">{dia}</div>
+                {tarefasDia.map((t) => (
+                  <div key={t.id} className={`flex items-center gap-3 px-4 py-3 border-t border-slate-100 ${t.done ? 'bg-green-50' : 'bg-white'}`}>
+                    <button onClick={() => toggleDone(t.id)} className={`w-5 h-5 rounded border flex-shrink-0 flex items-center justify-center text-xs transition-colors ${t.done ? 'bg-green-500 border-green-500 text-white' : 'border-slate-300 hover:border-green-400'}`}>
+                      {t.done ? '✓' : ''}
+                    </button>
+                    <div className="flex-1 min-w-0">
+                      <span className={`inline-block text-xs px-2 py-0.5 rounded-full font-semibold mr-2 ${TIPOS[t.tipo].color}`}>{TIPOS[t.tipo].label}</span>
+                      <span className={`text-sm ${t.done ? 'line-through text-slate-400' : 'text-slate-700'}`}>{t.contato} — {t.acao}</span>
+                    </div>
+                    <button onClick={() => del(t.id)} className="text-slate-300 hover:text-red-400 text-xs transition-colors">✕</button>
+                  </div>
+                ))}
+              </div>
+            )
+          })}
+        </div>
+      )}
+      {tarefas.length === 0 && (
+        <div className="text-center py-8 text-slate-400">
+          <p className="text-2xl mb-2">📅</p>
+          <p className="text-sm">Nenhuma tarefa ainda. Adicione ações de networking acima.</p>
+        </div>
+      )}
+    </div>
+  )
+}
+
 // ─── Lista de ferramentas ─────────────────────────────────────────────────────
 const TOOLS = [
   { id: 'star', icon: '⭐', title: 'Construtor de Respostas STAR', desc: 'Estrutura respostas perfeitas para perguntas comportamentais.', badge: 'Entrevistas', component: StarBuilder },
@@ -2757,6 +3434,12 @@ const TOOLS = [
   { id: 'interview-timer', icon: '⏱️', title: 'Temporizador de Entrevista', desc: 'Pratique respostas cronometradas (30s a 3 min). Banco de 20 perguntas reais + checklist de auto-avaliação.', badge: 'Entrevistas', component: InterviewTimer, isNew: true },
   { id: 'strengths-mapper', icon: '💪', title: 'Mapeador de Pontos Fortes', desc: 'Selecione seus top 5 pontos fortes e receba exemplos prontos de como articulá-los em entrevistas com impacto.', badge: 'Entrevistas', component: StrengthsMapper, isNew: true },
   { id: 'cover-letter', icon: '✉️', title: 'Gerador de Carta de Apresentação', desc: 'Gera uma carta de apresentação personalizada e profissional em segundos com base nas suas conquistas.', badge: 'CV', component: CoverLetterGenerator, isNew: true },
+  { id: 'clt-pj', icon: '🧮', title: 'Calculadora CLT vs PJ', desc: 'Compare o salário líquido real em CLT e PJ, incluindo INSS, IR, FGTS, 13º, férias e benefícios.', badge: 'Negociação', component: CLTPJCalculator, isNew: true },
+  { id: 'reference-letter', icon: '📜', title: 'Gerador de Carta de Referência', desc: 'Cria cartas de referência profissionais em 2 estilos — formal e caloroso — prontas para personalizar.', badge: 'CV', component: ReferenceLetter, isNew: true },
+  { id: 'skills-gap', icon: '🗺️', title: 'Analisador de Gap de Habilidades', desc: 'Informe o cargo desejado e suas habilidades atuais. Descubra o que falta e o que priorizar no desenvolvimento.', badge: 'Carreira', component: SkillsGapAnalyzer, isNew: true },
+  { id: 'interview-questions', icon: '❓', title: 'Perguntas para Fazer ao Entrevistador', desc: 'Banco de 30+ perguntas inteligentes organizadas por categoria. Selecione as melhores para cada entrevista.', badge: 'Entrevistas', component: InterviewQuestionsGenerator, isNew: true },
+  { id: 'personal-bio', icon: '🪪', title: 'Gerador de Bio Profissional', desc: 'Gera 3 versões da sua bio: curta (Twitter), média (portfólio) e longa (LinkedIn/Speaker) — prontas para usar.', badge: 'LinkedIn', component: PersonalBioGenerator, isNew: true },
+  { id: 'networking-planner', icon: '📆', title: 'Planejador de Networking Semanal', desc: 'Organize e acompanhe suas ações de networking da semana: conexões, mensagens, posts e follow-ups.', badge: 'Organização', component: WeeklyNetworkingPlanner, isNew: true },
 ]
 
 // ─── Página principal ─────────────────────────────────────────────────────────
@@ -2789,7 +3472,7 @@ export default function ToolsPage() {
   return (
     <div className="p-6 animate-fade-in">
       <h1 className="text-2xl font-black text-slate-800 mb-2">Ferramentas</h1>
-      <p className="text-slate-500 text-sm mb-6">24 ferramentas interativas para acelerar a sua busca de emprego.</p>
+      <p className="text-slate-500 text-sm mb-6">30 ferramentas interativas para acelerar a sua busca de emprego.</p>
       <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
         {TOOLS.map((t) => (
           <button key={t.id} onClick={() => setActiveTool(t.id)}
