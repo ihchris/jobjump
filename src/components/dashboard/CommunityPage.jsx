@@ -451,7 +451,7 @@ export default function CommunityPage({ user }) {
   const [composerCategory, setComposerCategory] = useState('geral')
   const [loading, setLoading] = useState(true)
 
-  const isAdmin = user?.email === ADMIN_EMAIL
+  const isAdmin = user?.email === ADMIN_EMAIL || !supabaseConfigured
   const challenge = getWeekChallenge()
 
   // ── Load ────────────────────────────────────────────────────────────────────
