@@ -140,6 +140,7 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
               user={user} progress={progress} setProgress={saveProgress}
               selectedModule={selectedModule} selectedLesson={selectedLesson}
               setSelectedModule={setSelectedModule} setSelectedLesson={setSelectedLesson}
+              onGoToDiagnosis={() => setTab('diagnosis')}
             />
           )}
           {tab === 'diagnosis' && (
