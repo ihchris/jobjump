@@ -12,7 +12,7 @@ import {
 } from '../../utils/gamification'
 
 export default function DashHome({ user, progress, setTab, setSelectedModule, setSelectedLesson }) {
-  const allLessons    = MODULES.flatMap((m) => m.lessons.map((l) => ({ ...l, moduleId: m.id, isPro: m.isPro })))
+  const allLessons    = MODULES.flatMap((m) => m.lessons.map((l) => ({ ...l, moduleId: m.id, isPro: m.isPro || !!l.isPro })))
   const accessible    = allLessons.filter((l) => !l.isPro || isPaid(user.plan))
   const completedCount = Object.values(progress).filter(Boolean).length
   const pct           = accessible.length > 0 ? Math.round((completedCount / accessible.length) * 100) : 0

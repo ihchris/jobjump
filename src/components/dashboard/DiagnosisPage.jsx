@@ -46,7 +46,7 @@ function buildRoadmap(answers) {
   if (urgency === 'medium')     add([5, 8, 6], 10)
 
   // por desafio
-  if (challenge === 'cv')       add([1, 2, 11, 27], 20)
+  if (challenge === 'cv')       add([1, 2, 11], 20)
   if (challenge === 'interview') add([4, 16, 15, 35], 20)
   if (challenge === 'network')  add([5, 37, 3], 20)
   if (challenge === 'salary')   add([6, 25, 39], 20)

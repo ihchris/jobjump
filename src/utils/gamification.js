@@ -114,7 +114,7 @@ export const saveDiagnosis = (d)  => { LS.set(KEY_DIAGNOSIS, d); addXP(XP_DIAGNO
 export const buildGamState = (progress, modules) => {
   const lessonsCount     = Object.values(progress).filter(Boolean).length
   const completedModules = modules
-    .filter((m) => m.lessons.every((l) => progress[l.id]))
+    .filter((m) => m.lessons.filter((l) => !l.isPro).every((l) => progress[l.id]))
     .map((m) => m.id)
 
   return {

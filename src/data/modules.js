@@ -3022,8 +3022,8 @@ Se você vai para um país com custo de vida maior, planeje:
   {
     id: 11,
     title: 'IA na Busca de Emprego',
-    desc: 'Use ferramentas de inteligência artificial para escrever CVs, preparar entrevistas e encontrar vagas com muito mais eficiência.',
-    duration: '3h',
+    desc: 'Use ferramentas de inteligência artificial para escrever CVs, preparar entrevistas e encontrar vagas com muito mais eficiência. Versão Pro inclui uma biblioteca de prompts prontos para copiar.',
+    duration: '4h 05min',
     icon: '🤖',
     isPro: false,
     color: { bg: 'bg-violet-50', border: 'border-violet-200', badge: 'bg-violet-100 text-violet-700', icon: 'bg-violet-500' },
@@ -3101,7 +3101,18 @@ Aqui está meu CV:
 
 Aqui está a vaga para a qual estou me candidatando:
 [cole a vaga aqui]"
-\`\`\``,
+\`\`\`
+
+## Anatomia de um bom prompt
+
+Um bom prompt tem 4 elementos:
+
+1. **Papel** — diz à IA quem ela é: "Você é um recrutador sênior..."
+2. **Contexto** — fornece informação: "Esta é a descrição da vaga..."
+3. **Tarefa** — instrução clara: "Escreva um parágrafo de abertura..."
+4. **Restrições** — formato e limites: "em até 3 linhas, tom profissional mas não formal"
+
+A qualidade do output depende 80% da qualidade do input. Prompt fraco = resultado fraco. Este framework vale para qualquer prompt que você usar nas lições Pro deste módulo — CVs, cartas de motivação, simulações de entrevista e negociação.`,
       },
       {
         id: '11-2',
@@ -3346,6 +3357,320 @@ Isso é honesto, profissional e cada vez mais normalizado.
 Empresas já estão usando IA para triagem de CVs. Em breve, haverá entrevistas iniciais conduzidas por IA. A linha entre "uso ético" e "uso excessivo" vai continuar evoluindo.
 
 O que não muda: **autenticidade, competência real e reputação** continuam sendo os ativos mais duráveis na carreira. Use a IA para amplificar o que você já é — não para criar uma versão fabricada de si mesmo.`,
+      },
+      {
+        id: '11-6',
+        title: 'Prompts para criar e otimizar CVs com IA',
+        duration: '35 min',
+        isPro: true,
+        content: `# Prompts para criar e otimizar CVs com IA
+
+## Prompt 1: Otimizar um bullet de experiência
+
+\`\`\`
+Você é um especialista em CVs para mercado tech/corporativo.
+Reescreva este bullet de experiência para ser mais impactante,
+usando um verbo de ação forte e incluindo resultado quantificado se possível.
+Tom: profissional, direto, orientado a resultados.
+Máximo: 2 linhas.
+
+Bullet original: [cole seu bullet aqui]
+\`\`\`
+
+**Exemplo de uso:**
+- Original: "Trabalhei com equipe de vendas para melhorar processo"
+- IA gera: "Redesenhei o funil de vendas em parceria com time comercial, reduzindo o ciclo de venda de 45 para 28 dias e aumentando a taxa de conversão em 22%"
+
+---
+
+## Prompt 2: Adaptar CV para uma vaga específica
+
+\`\`\`
+Você é um especialista em recrutamento e ATS.
+Vou te dar a descrição de uma vaga e meu CV atual.
+Sua tarefa:
+1. Identifique as 10 palavras-chave mais importantes da vaga
+2. Mostre quais dessas palavras já estão no meu CV
+3. Sugira como incorporar as que faltam, com exemplos concretos
+4. Proponha uma versão melhorada do resumo profissional
+   alinhada com esta vaga específica (máximo 4 linhas)
+
+VAGA: [cole a descrição da vaga]
+
+MEU CV: [cole o texto do seu CV]
+\`\`\`
+
+---
+
+## Prompt 3: Gerar bullets de experiência a partir do zero
+
+\`\`\`
+Você é especialista em escrever CVs de alto impacto.
+Com base nas informações abaixo, gere 5 bullets de experiência
+profissional no formato: Verbo de ação + O que fez + Resultado quantificado.
+
+Cargo: [seu cargo]
+Empresa: [tipo de empresa]
+O que fiz: [descreva em linguagem natural o que você fazia]
+Resultados que obtive: [descreva resultados, mesmo aproximados]
+
+Formato: bullets curtos, máximo 2 linhas cada, iniciando com verbo no passado.
+\`\`\`
+
+---
+
+## Prompt 4: Analisar pontos fracos do seu CV
+
+\`\`\`
+Você é um recrutador sênior com 10 anos de experiência.
+Analise este CV com olho crítico e me diga:
+1. Os 3 pontos mais fracos que me impediriam de ser chamado
+2. O que está faltando que os melhores CVs da minha área têm
+3. Sugestões concretas para corrigir cada ponto fraco
+
+MEU CV: [cole o texto]
+VAGA-ALVO: [descreva o tipo de vaga que procura]
+\`\`\`
+
+## Dica importante: itere, não aceite o primeiro output
+
+A IA raramente acerta de primeira. O fluxo correto:
+1. Gera o primeiro rascunho com o prompt
+2. Avalia o que está bom e o que está genérico
+3. Pede refinamento: "Torna a segunda frase mais específica" ou "Substitui o verbo X por algo mais dinâmico"
+4. Incorpora sua voz e ajusta detalhes que só você conhece`,
+      },
+      {
+        id: '11-7',
+        title: 'Prompts para cartas de motivação que se destacam',
+        duration: '30 min',
+        isPro: true,
+        content: `# Prompts para cartas de motivação que se destacam
+
+## O problema das cartas geradas por IA sem personalização
+
+Recrutadores já reconhecem cartas escritas 100% por IA: são formais demais, genéricas e sem personalidade. A solução é usar IA como co-escritora, não como ghostwriter completa.
+
+**Regra de ouro:** Você fornece os fatos, a IA fornece a estrutura e o polish.
+
+---
+
+## Prompt 1: Carta de motivação completa
+
+\`\`\`
+Você é especialista em cartas de motivação para mercado lusófono
+(Brasil e Portugal).
+
+Escreva uma carta de motivação com estas características:
+- Tom: profissional mas humano (não robótico)
+- Estrutura: gancho inicial impactante → proposta de valor →
+  prova concreta → fit com a empresa → call to action
+- Máximo 300 palavras
+
+INFORMAÇÕES:
+- Meu nome: [nome]
+- Cargo que busco: [cargo]
+- Empresa: [empresa]
+- Por que esta empresa me interessa: [sua razão genuína]
+- Minha maior conquista relevante para esta vaga: [conquista com número]
+- Habilidade que mais me diferencia: [habilidade]
+- Descrição da vaga: [cole ou descreva]
+\`\`\`
+
+---
+
+## Prompt 2: Melhorar uma carta existente
+
+\`\`\`
+Aqui está minha carta de motivação atual.
+Melhore-a seguindo estes critérios:
+1. O primeiro parágrafo deve ser um gancho — algo que faça o recrutador
+   querer continuar a ler. Sem clichês como "venho por meio desta"
+2. Cada parágrafo deve ter uma ideia central clara
+3. Substitua adjetivos vagos ("dedicado", "comprometido")
+   por evidências concretas
+4. Encurte se necessário — máximo 280 palavras
+5. Mantenha meu tom e personalidade
+
+CARTA ATUAL: [cole sua carta]
+\`\`\`
+
+---
+
+## Prompt 3: Primeira linha de impacto (o mais difícil)
+
+\`\`\`
+Preciso de uma primeira frase memorável para minha carta de motivação.
+Não quero clichês. Quero algo que prenda a atenção imediatamente.
+
+Minha situação: [descreva em 2-3 linhas quem você é e o que quer]
+A empresa: [o que a empresa faz, o que te atrai]
+Tom desejado: [direto/criativo/formal-moderno]
+
+Gere 5 opções diferentes de primeira frase.
+\`\`\`
+
+---
+
+## O que nunca delegar à IA
+
+- A razão genuína de querer trabalhar naquela empresa específica
+- Suas histórias e realizações pessoais (invente e é detetável)
+- O tom final — sempre revise e humanize
+- Detalhes culturais e linguísticos específicos do mercado local`,
+      },
+      {
+        id: '11-8',
+        title: 'Preparar entrevistas com IA: role-play e feedback',
+        duration: '30 min',
+        isPro: true,
+        content: `# Preparar entrevistas com IA: role-play e feedback
+
+## Por que treinar com IA funciona
+
+Preparar respostas mentalmente é muito diferente de dizê-las em voz alta. A IA permite praticar centenas de variações de perguntas, receber feedback imediato e treinar até a resposta soar natural.
+
+---
+
+## Prompt 1: Simulador de entrevista completo
+
+\`\`\`
+Você é um entrevistador sênior de [empresa / setor].
+Vou fazer uma entrevista para o cargo de [cargo].
+
+Faça 8 perguntas típicas desta entrevista, uma de cada vez.
+Após cada resposta minha:
+1. Avalie de 1-10 com justificativa
+2. Identifique o que ficou forte
+3. Aponte o que poderia ser melhorado
+4. Dê um exemplo de como poderia responder melhor
+
+Comece com a primeira pergunta.
+\`\`\`
+
+---
+
+## Prompt 2: Feedback na resposta STAR
+
+\`\`\`
+Analise esta resposta que darei para a pergunta
+"Conte sobre um desafio que você enfrentou e como resolveu":
+
+MINHA RESPOSTA: [cole sua resposta]
+
+Avalie:
+1. Está clara a Situação? (contexto)
+2. Está clara a Tarefa? (meu papel)
+3. As Ações são específicas e concretas?
+4. O Resultado é quantificado ou mensurável?
+5. Duração adequada? (ideal: 90-120 segundos falado)
+
+Reescreva a resposta com as melhorias necessárias.
+\`\`\`
+
+---
+
+## Prompt 3: Gerar perguntas difíceis por empresa
+
+\`\`\`
+Estou me preparando para entrevista na [empresa] para o cargo de [cargo].
+
+1. Liste as 10 perguntas mais prováveis nesta entrevista,
+   incluindo técnicas e comportamentais
+2. Inclua 3 perguntas-armadilha comuns neste tipo de processo
+3. Para cada pergunta-armadilha, explique o que o recrutador
+   está realmente avaliando e como responder corretamente
+\`\`\`
+
+---
+
+## Prompt 4: Preparar perguntas para fazer ao entrevistador
+
+\`\`\`
+Estou na fase final de entrevista com [empresa] para [cargo].
+O entrevistador é [cargo do entrevistador].
+
+Gere 8 perguntas inteligentes para eu fazer ao final da entrevista.
+Categorize em: cultura da empresa, crescimento na função,
+desafios da equipe e expectativas de performance.
+As perguntas devem mostrar que pesquisei a empresa e penso
+estrategicamente, não apenas que quero saber salário e benefícios.
+\`\`\``,
+      },
+      {
+        id: '11-9',
+        title: 'Pesquisa de empresas e negociação com ajuda da IA',
+        duration: '25 min',
+        isPro: true,
+        content: `# Pesquisa de empresas e negociação com ajuda da IA
+
+## Antes de qualquer candidatura ou entrevista: pesquise a fundo
+
+Candidatos que pesquisam bem a empresa têm 3x mais chances de avançar nas fases. A IA acelera essa pesquisa de horas para minutos.
+
+---
+
+## Prompt 1: Análise rápida de empresa
+
+\`\`\`
+Faça uma análise da empresa [nome] para me preparar para uma entrevista.
+Inclua:
+1. O que a empresa faz e qual o seu modelo de negócio
+2. Quem são os principais concorrentes
+3. Notícias recentes relevantes (crescimento, produtos, desafios)
+4. Cultura e valores declarados
+5. 3 perguntas inteligentes que posso fazer na entrevista
+   com base nessas informações
+6. Como conectar minha experiência ao momento atual da empresa
+\`\`\`
+
+---
+
+## Prompt 2: Pesquisa salarial e ancoragem
+
+\`\`\`
+Estou me candidatando para [cargo] em [cidade/país]
+com [X anos] de experiência.
+
+Me ajude a pesquisar:
+1. Faixa salarial típica para este cargo neste mercado
+2. Fatores que justificam estar no topo da faixa
+3. Como calcular meu "número âncora" para negociação
+4. O que perguntar à empresa para entender o pacote total
+   (além do salário base)
+\`\`\`
+
+---
+
+## Prompt 3: Preparar argumentos de negociação
+
+\`\`\`
+Recebi uma proposta de [valor] para [cargo] em [empresa].
+Minha expectativa é [valor-alvo].
+
+Com base nas minhas realizações abaixo, me ajude a montar
+3 argumentos sólidos para justificar pedir [valor-alvo]:
+
+MINHAS REALIZAÇÕES:
+- [Realização 1]
+- [Realização 2]
+- [Realização 3]
+
+Os argumentos devem ser quantificados, específicos
+e difíceis de refutar.
+\`\`\`
+
+---
+
+## Uso ético e honesto da IA
+
+A IA é uma ferramenta de amplificação — ela amplifica o que você coloca nela. Se você fornecer realizações reais, ela escreve sobre elas melhor. Se inventar, ela amplifica mentiras.
+
+**Regras simples:**
+- Nunca inclua informações que não são suas
+- Sempre revise o output para confirmar que é verdadeiro
+- A entrevista vai verificar o que está no CV — prepare-se para justificar cada linha
+- Use IA para polir, não para inventar`,
       },
     ],
   },
@@ -7655,375 +7980,6 @@ Se o PR teve impacto mensurável (o projeto tem X stars, Y usuários), menciona.
 **Para quem não quer código:** Framer, Notion + Super.so
 
 O conteúdo importa mais do que a stack — não pases semanas a optimizar o site quando podias estar a construir projectos.`,
-      },
-    ],
-  },
-  {
-    id: 27,
-    title: 'IA na Busca de Emprego: Prompts que Funcionam',
-    desc: 'Use ChatGPT e Claude para escrever CVs, cartas, preparar entrevistas e pesquisar empresas em fração do tempo. Inclui prompts prontos para copiar.',
-    duration: '2h 30min',
-    icon: '🤖',
-    isPro: true,
-    color: { bg: 'bg-violet-50', border: 'border-violet-200', badge: 'bg-violet-100 text-violet-700', icon: 'bg-violet-500' },
-    lessons: [
-      {
-        id: '27-1',
-        title: 'Por que usar IA na busca de emprego (e o que ela não substitui)',
-        duration: '20 min',
-        content: `# Por que usar IA na busca de emprego
-
-## A vantagem competitiva que poucos estão a usar
-
-Em 2025, a maioria dos candidatos ainda passa horas a escrever cada carta de motivação do zero, a tentar lembrar as palavras-chave certas e a imaginar o que o recrutador quer ouvir.
-
-A IA não elimina esse trabalho — mas reduz o tempo de horas para minutos, e melhora a qualidade quando usada corretamente.
-
-**O que a IA faz muito bem:**
-- Primeiro rascunho de CVs e cartas de motivação
-- Adaptar um documento para cada vaga em segundos
-- Simular perguntas de entrevista e dar feedback
-- Pesquisar empresas e identificar ângulos de abordagem
-- Reescrever bullets fracos com linguagem mais impactante
-- Traduzir experiências em linguagem que o setor usa
-
-**O que a IA não substitui:**
-- Suas realizações reais (ela não as inventa — você precisa fornecê-las)
-- Sua autenticidade em entrevistas
-- Julgamento sobre cultura e fit
-- Relações humanas e networking genuíno
-
-## Ferramentas recomendadas
-
-| Ferramenta | Melhor para | Plano gratuito? |
-|---|---|---|
-| **ChatGPT** (GPT-4o) | Geração de texto, brainstorming | Sim (limitado) |
-| **Claude** (Anthropic) | Textos longos, análise de CVs | Sim |
-| **Gemini** (Google) | Integrado com Gmail/Docs | Sim |
-| **Copilot** (Microsoft) | Integrado com Word/LinkedIn | Sim |
-
-> Para a maioria dos casos, o ChatGPT gratuito ou Claude gratuito é suficiente.
-
-## Como pensar sobre prompts
-
-Um bom prompt tem 4 elementos:
-
-1. **Papel** — diz à IA quem ela é: "Você é um recrutador sênior..."
-2. **Contexto** — fornece informação: "Esta é a descrição da vaga..."
-3. **Tarefa** — instrução clara: "Escreva um parágrafo de abertura..."
-4. **Restrições** — formato e limites: "em até 3 linhas, tom profissional mas não formal"
-
-A qualidade do output depende 80% da qualidade do input. Prompt fraco = resultado fraco.`,
-      },
-      {
-        id: '27-2',
-        title: 'Prompts para criar e otimizar CVs com IA',
-        duration: '35 min',
-        content: `# Prompts para criar e otimizar CVs com IA
-
-## Prompt 1: Otimizar um bullet de experiência
-
-\`\`\`
-Você é um especialista em CVs para mercado tech/corporativo.
-Reescreva este bullet de experiência para ser mais impactante,
-usando um verbo de ação forte e incluindo resultado quantificado se possível.
-Tom: profissional, direto, orientado a resultados.
-Máximo: 2 linhas.
-
-Bullet original: [cole seu bullet aqui]
-\`\`\`
-
-**Exemplo de uso:**
-- Original: "Trabalhei com equipe de vendas para melhorar processo"
-- IA gera: "Redesenhei o funil de vendas em parceria com time comercial, reduzindo o ciclo de venda de 45 para 28 dias e aumentando a taxa de conversão em 22%"
-
----
-
-## Prompt 2: Adaptar CV para uma vaga específica
-
-\`\`\`
-Você é um especialista em recrutamento e ATS.
-Vou te dar a descrição de uma vaga e meu CV atual.
-Sua tarefa:
-1. Identifique as 10 palavras-chave mais importantes da vaga
-2. Mostre quais dessas palavras já estão no meu CV
-3. Sugira como incorporar as que faltam, com exemplos concretos
-4. Proponha uma versão melhorada do resumo profissional
-   alinhada com esta vaga específica (máximo 4 linhas)
-
-VAGA: [cole a descrição da vaga]
-
-MEU CV: [cole o texto do seu CV]
-\`\`\`
-
----
-
-## Prompt 3: Gerar bullets de experiência a partir do zero
-
-\`\`\`
-Você é especialista em escrever CVs de alto impacto.
-Com base nas informações abaixo, gere 5 bullets de experiência
-profissional no formato: Verbo de ação + O que fez + Resultado quantificado.
-
-Cargo: [seu cargo]
-Empresa: [tipo de empresa]
-O que fiz: [descreva em linguagem natural o que você fazia]
-Resultados que obtive: [descreva resultados, mesmo aproximados]
-
-Formato: bullets curtos, máximo 2 linhas cada, iniciando com verbo no passado.
-\`\`\`
-
----
-
-## Prompt 4: Analisar pontos fracos do seu CV
-
-\`\`\`
-Você é um recrutador sênior com 10 anos de experiência.
-Analise este CV com olho crítico e me diga:
-1. Os 3 pontos mais fracos que me impediriam de ser chamado
-2. O que está faltando que os melhores CVs da minha área têm
-3. Sugestões concretas para corrigir cada ponto fraco
-
-MEU CV: [cole o texto]
-VAGA-ALVO: [descreva o tipo de vaga que procura]
-\`\`\`
-
-## Dica importante: itere, não aceite o primeiro output
-
-A IA raramente acerta de primeira. O fluxo correto:
-1. Gera o primeiro rascunho com o prompt
-2. Avalia o que está bom e o que está genérico
-3. Pede refinamento: "Torna a segunda frase mais específica" ou "Substitui o verbo X por algo mais dinâmico"
-4. Incorpora sua voz e ajusta detalhes que só você conhece`,
-      },
-      {
-        id: '27-3',
-        title: 'Prompts para cartas de motivação que se destacam',
-        duration: '30 min',
-        content: `# Prompts para cartas de motivação que se destacam
-
-## O problema das cartas geradas por IA sem personalização
-
-Recrutadores já reconhecem cartas escritas 100% por IA: são formais demais, genéricas e sem personalidade. A solução é usar IA como co-escritora, não como ghostwriter completa.
-
-**Regra de ouro:** Você fornece os fatos, a IA fornece a estrutura e o polish.
-
----
-
-## Prompt 1: Carta de motivação completa
-
-\`\`\`
-Você é especialista em cartas de motivação para mercado lusófono
-(Brasil e Portugal).
-
-Escreva uma carta de motivação com estas características:
-- Tom: profissional mas humano (não robótico)
-- Estrutura: gancho inicial impactante → proposta de valor →
-  prova concreta → fit com a empresa → call to action
-- Máximo 300 palavras
-
-INFORMAÇÕES:
-- Meu nome: [nome]
-- Cargo que busco: [cargo]
-- Empresa: [empresa]
-- Por que esta empresa me interessa: [sua razão genuína]
-- Minha maior conquista relevante para esta vaga: [conquista com número]
-- Habilidade que mais me diferencia: [habilidade]
-- Descrição da vaga: [cole ou descreva]
-\`\`\`
-
----
-
-## Prompt 2: Melhorar uma carta existente
-
-\`\`\`
-Aqui está minha carta de motivação atual.
-Melhore-a seguindo estes critérios:
-1. O primeiro parágrafo deve ser um gancho — algo que faça o recrutador
-   querer continuar a ler. Sem clichês como "venho por meio desta"
-2. Cada parágrafo deve ter uma ideia central clara
-3. Substitua adjetivos vagos ("dedicado", "comprometido")
-   por evidências concretas
-4. Encurte se necessário — máximo 280 palavras
-5. Mantenha meu tom e personalidade
-
-CARTA ATUAL: [cole sua carta]
-\`\`\`
-
----
-
-## Prompt 3: Primeira linha de impacto (o mais difícil)
-
-\`\`\`
-Preciso de uma primeira frase memorável para minha carta de motivação.
-Não quero clichês. Quero algo que prenda a atenção imediatamente.
-
-Minha situação: [descreva em 2-3 linhas quem você é e o que quer]
-A empresa: [o que a empresa faz, o que te atrai]
-Tom desejado: [direto/criativo/formal-moderno]
-
-Gere 5 opções diferentes de primeira frase.
-\`\`\`
-
----
-
-## O que nunca delegar à IA
-
-- A razão genuína de querer trabalhar naquela empresa específica
-- Suas histórias e realizações pessoais (invente e é detetável)
-- O tom final — sempre revise e humanize
-- Detalhes culturais e linguísticos específicos do mercado local`,
-      },
-      {
-        id: '27-4',
-        title: 'Preparar entrevistas com IA: role-play e feedback',
-        duration: '30 min',
-        content: `# Preparar entrevistas com IA: role-play e feedback
-
-## Por que treinar com IA funciona
-
-Preparar respostas mentalmente é muito diferente de dizê-las em voz alta. A IA permite praticar centenas de variações de perguntas, receber feedback imediato e treinar até a resposta soar natural.
-
----
-
-## Prompt 1: Simulador de entrevista completo
-
-\`\`\`
-Você é um entrevistador sênior de [empresa / setor].
-Vou fazer uma entrevista para o cargo de [cargo].
-
-Faça 8 perguntas típicas desta entrevista, uma de cada vez.
-Após cada resposta minha:
-1. Avalie de 1-10 com justificativa
-2. Identifique o que ficou forte
-3. Aponte o que poderia ser melhorado
-4. Dê um exemplo de como poderia responder melhor
-
-Comece com a primeira pergunta.
-\`\`\`
-
----
-
-## Prompt 2: Feedback na resposta STAR
-
-\`\`\`
-Analise esta resposta que darei para a pergunta
-"Conte sobre um desafio que você enfrentou e como resolveu":
-
-MINHA RESPOSTA: [cole sua resposta]
-
-Avalie:
-1. Está clara a Situação? (contexto)
-2. Está clara a Tarefa? (meu papel)
-3. As Ações são específicas e concretas?
-4. O Resultado é quantificado ou mensurável?
-5. Duração adequada? (ideal: 90-120 segundos falado)
-
-Reescreva a resposta com as melhorias necessárias.
-\`\`\`
-
----
-
-## Prompt 3: Gerar perguntas difíceis por empresa
-
-\`\`\`
-Estou me preparando para entrevista na [empresa] para o cargo de [cargo].
-
-1. Liste as 10 perguntas mais prováveis nesta entrevista,
-   incluindo técnicas e comportamentais
-2. Inclua 3 perguntas-armadilha comuns neste tipo de processo
-3. Para cada pergunta-armadilha, explique o que o recrutador
-   está realmente avaliando e como responder corretamente
-\`\`\`
-
----
-
-## Prompt 4: Preparar perguntas para fazer ao entrevistador
-
-\`\`\`
-Estou na fase final de entrevista com [empresa] para [cargo].
-O entrevistador é [cargo do entrevistador].
-
-Gere 8 perguntas inteligentes para eu fazer ao final da entrevista.
-Categorize em: cultura da empresa, crescimento na função,
-desafios da equipe e expectativas de performance.
-As perguntas devem mostrar que pesquisei a empresa e penso
-estrategicamente, não apenas que quero saber salário e benefícios.
-\`\`\``,
-      },
-      {
-        id: '27-5',
-        title: 'Pesquisa de empresas e negociação com ajuda da IA',
-        duration: '25 min',
-        content: `# Pesquisa de empresas e negociação com ajuda da IA
-
-## Antes de qualquer candidatura ou entrevista: pesquise a fundo
-
-Candidatos que pesquisam bem a empresa têm 3x mais chances de avançar nas fases. A IA acelera essa pesquisa de horas para minutos.
-
----
-
-## Prompt 1: Análise rápida de empresa
-
-\`\`\`
-Faça uma análise da empresa [nome] para me preparar para uma entrevista.
-Inclua:
-1. O que a empresa faz e qual o seu modelo de negócio
-2. Quem são os principais concorrentes
-3. Notícias recentes relevantes (crescimento, produtos, desafios)
-4. Cultura e valores declarados
-5. 3 perguntas inteligentes que posso fazer na entrevista
-   com base nessas informações
-6. Como conectar minha experiência ao momento atual da empresa
-\`\`\`
-
----
-
-## Prompt 2: Pesquisa salarial e ancoragem
-
-\`\`\`
-Estou me candidatando para [cargo] em [cidade/país]
-com [X anos] de experiência.
-
-Me ajude a pesquisar:
-1. Faixa salarial típica para este cargo neste mercado
-2. Fatores que justificam estar no topo da faixa
-3. Como calcular meu "número âncora" para negociação
-4. O que perguntar à empresa para entender o pacote total
-   (além do salário base)
-\`\`\`
-
----
-
-## Prompt 3: Preparar argumentos de negociação
-
-\`\`\`
-Recebi uma proposta de [valor] para [cargo] em [empresa].
-Minha expectativa é [valor-alvo].
-
-Com base nas minhas realizações abaixo, me ajude a montar
-3 argumentos sólidos para justificar pedir [valor-alvo]:
-
-MINHAS REALIZAÇÕES:
-- [Realização 1]
-- [Realização 2]
-- [Realização 3]
-
-Os argumentos devem ser quantificados, específicos
-e difíceis de refutar.
-\`\`\`
-
----
-
-## Uso ético e honesto da IA
-
-A IA é uma ferramenta de amplificação — ela amplifica o que você coloca nela. Se você fornecer realizações reais, ela escreve sobre elas melhor. Se inventar, ela amplifica mentiras.
-
-**Regras simples:**
-- Nunca inclua informações que não são suas
-- Sempre revise o output para confirmar que é verdadeiro
-- A entrevista vai verificar o que está no CV — prepare-se para justificar cada linha
-- Use IA para polir, não para inventar`,
       },
     ],
   },
