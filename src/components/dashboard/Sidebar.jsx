@@ -62,6 +62,23 @@ export default function Sidebar({ tab, setTab, user, onLogout, mobile, onClose }
         ))}
       </nav>
 
+      {/* Upgrade CTA — só para free */}
+      {!isPaid(user.plan) && (
+        <div className="px-4 pb-3">
+          <button
+            onClick={() => { setTab('settings'); if (mobile) onClose() }}
+            className="w-full bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white rounded-xl px-4 py-3 text-left flex items-center gap-3 transition-all shadow-lg shadow-orange-900/30 group"
+          >
+            <span className="text-xl">⭐</span>
+            <div className="flex-1 min-w-0">
+              <div className="font-bold text-sm leading-tight">Upgrade para Pro</div>
+              <div className="text-[11px] text-white/80 mt-0.5">Todos os módulos desbloqueados</div>
+            </div>
+            <span className="text-white/70 group-hover:text-white transition-colors">→</span>
+          </button>
+        </div>
+      )}
+
       <div className="p-4 border-t border-white/10">
         {/* XP / Level mini bar */}
         <div className="px-1 mb-3">

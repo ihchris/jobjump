@@ -112,6 +112,25 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
         </div>
       </div>
 
+      {/* Upgrade CTA — só para free */}
+      {!isPaid(user.plan) && (
+        <button
+          onClick={() => setTab('settings')}
+          className="w-full bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 rounded-2xl p-5 text-left flex items-center gap-4 transition-all shadow-md shadow-orange-100 group"
+        >
+          <span className="text-4xl flex-shrink-0">⭐</span>
+          <div className="flex-1">
+            <div className="font-black text-white text-base leading-tight">Desbloqueie todos os módulos Pro</div>
+            <div className="text-white/80 text-xs mt-0.5">
+              {MODULES.filter((m) => m.isPro).length} módulos exclusivos · Templates · Coach IA ilimitado
+            </div>
+          </div>
+          <div className="flex-shrink-0 bg-white/20 group-hover:bg-white/30 transition-colors text-white font-bold text-sm px-4 py-2 rounded-xl">
+            Ver planos →
+          </div>
+        </button>
+      )}
+
       {/* Diagnosis CTA */}
       {!hasDiagnosis && (
         <div className="bg-gradient-to-r from-violet-600 to-blue-600 rounded-2xl p-5 text-white">
