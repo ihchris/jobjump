@@ -78,13 +78,16 @@ const STEPS = [
     id: 'goal',
     question: 'Qual é o seu objetivo principal agora?',
     icon: '🎯',
-    options: [
-      { value: 'first_job',     label: 'Conseguir o primeiro emprego', icon: '🚀' },
-      { value: 'new_company',   label: 'Mudar de empresa (mesma área)', icon: '🏢' },
-      { value: 'career_change', label: 'Mudar de área ou função', icon: '🔀' },
-      { value: 'abroad',        label: 'Trabalhar no exterior ou remoto internacional', icon: '🌍' },
-      { value: 'promotion',     label: 'Crescer na empresa atual', icon: '📈' },
-    ],
+    getOptions: (answers) => {
+      const hasJob = ['employed', 'freelancer'].includes(answers.status)
+      return [
+        ...(hasJob ? [] : [{ value: 'first_job',   label: 'Conseguir um novo emprego',              icon: '🚀' }]),
+        ...(hasJob ?    [{ value: 'new_company',   label: 'Mudar de empresa (mesma área)',           icon: '🏢' }] : []),
+        { value: 'career_change', label: 'Mudar de área ou função',                                   icon: '🔀' },
+        { value: 'abroad',        label: 'Trabalhar no exterior ou remoto internacional',             icon: '🌍' },
+        ...(hasJob ?    [{ value: 'promotion',     label: 'Crescer na empresa atual',                 icon: '📈' }] : []),
+      ]
+    },
   },
   {
     id: 'area',
@@ -261,7 +264,7 @@ export default function DiagnosisPage({ user, onNavigateModule }) {
         <div className="text-3xl mb-3">{currentStep.icon}</div>
         <h2 className="text-lg font-black text-slate-800 mb-4">{currentStep.question}</h2>
         <div className="space-y-2">
-          {currentStep.options.map((opt) => (
+          {(currentStep.getOptions ? currentStep.getOptions(answers) : currentStep.options).map((opt) => (
             <button
               key={opt.value}
               onClick={() => select(opt.value)}

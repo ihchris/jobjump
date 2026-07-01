@@ -96,10 +96,10 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
   const sidebarProps = { tab, setTab: goTab, user, onLogout }
 
   return (
-    <div className="flex h-[100dvh] overflow-hidden bg-slate-50">
+    <div className="flex h-full overflow-hidden bg-slate-50">
       {showOnboarding && <OnboardingModal onDone={finishOnboarding} />}
 
-      <div className="hidden md:block flex-shrink-0">
+      <div className="hidden md:block flex-shrink-0 h-full">
         <Sidebar {...sidebarProps} />
       </div>
 
@@ -140,6 +140,7 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
               user={user} progress={progress} setProgress={saveProgress}
               selectedModule={selectedModule} selectedLesson={selectedLesson}
               setSelectedModule={setSelectedModule} setSelectedLesson={setSelectedLesson}
+              onGoToDiagnosis={() => setTab('diagnosis')}
             />
           )}
           {tab === 'diagnosis' && (

@@ -11327,6 +11327,9860 @@ Se sim para as três: vá. Trajetórias não-lineares construídas com intençã
   },
   {
     id: 41,
+    title: 'Certificações que Aceleram Carreiras',
+    desc: 'Quais certificações realmente abrem portas, quanto valem no salário e como se preparar sem desperdiçar tempo e dinheiro.',
+    duration: '3h 20min',
+    icon: '🏅',
+    isPro: true,
+    color: { bg: 'bg-yellow-50', border: 'border-yellow-200', badge: 'bg-yellow-100 text-yellow-700', icon: 'bg-yellow-500' },
+    lessons: [
+      {
+        id: '41-1',
+        title: 'Certificações valem a pena? Como medir o ROI real',
+        duration: '30 min',
+        content: `# Certificações valem a pena? Como medir o ROI real
+
+## O problema com certificações
+
+Existe muita desinformação sobre certificações: algumas pessoas acham que qualquer certificado é sinônimo de aumento salarial; outras acham que nenhuma vale nada. A verdade é mais sutil.
+
+Uma certificação vale a pena quando:
+- O mercado a reconhece como sinal de competência (recrutadores a conhecem e valorizam)
+- Existe escassez de profissionais certificados na área
+- O custo de obtê-la é recuperável no prazo de 12-24 meses via salário ou acesso a vagas melhores
+
+Uma certificação **não** vale a pena quando:
+- É de instituição desconhecida no mercado
+- O conteúdo pode ser demonstrado com portfólio ou projetos reais
+- O mercado já está saturado de profissionais com essa certificação
+
+## Como calcular o ROI antes de investir
+
+**Fórmula simples:**
+
+1. Pesquise 20 vagas que pedem ou valorizam a certificação no LinkedIn Jobs
+2. Compare o salário médio dessas vagas com vagas equivalentes sem a exigência
+3. Estime o tempo de estudo (horas) e o custo do exame
+4. Calcule: (ganho salarial mensal estimado × 12) ÷ (custo total + horas × seu custo/hora)
+
+Se o resultado for > 2, a certificação tem ROI positivo.
+
+## Categorias de certificações com maior retorno no mercado atual
+
+### Cloud Computing
+AWS, Azure e Google Cloud são as três com maior demanda. Profissionais certificados ganham em média 25-40% mais que equivalentes sem certificação.
+
+### Gestão de Projetos
+PMP e Scrum (PSM ou CSM) têm reconhecimento global. O PMP exige experiência prévia; Scrum não.
+
+### Marketing e Analytics
+Google Ads, Google Analytics 4, Meta Blueprint e HubSpot têm menor custo e abrem portas em marketing digital.
+
+### Dados e BI
+Microsoft Power BI, Tableau Desktop Specialist e Google Data Analytics (Coursera) são bem reconhecidos.
+
+## O erro mais comum
+
+Acumular certificações sem aprofundar em nenhuma. Uma certificação avançada numa área específica vale mais que cinco introdutórias em áreas diferentes. Foque em aprofundar, não em colecionar.`,
+      },
+      {
+        id: '41-2',
+        title: 'AWS, Azure e Google Cloud: o mapa das certificações em nuvem',
+        duration: '40 min',
+        content: `# AWS, Azure e Google Cloud: o mapa das certificações em nuvem
+
+## Por que cloud é a área de certificações com maior ROI
+
+A adoção de cloud computing continua acelerando. Há escassez real de profissionais certificados — especialmente em níveis intermediário e avançado — o que mantém os salários altos e a demanda consistente.
+
+## AWS (Amazon Web Services)
+
+A mais popular e reconhecida globalmente.
+
+**Trilha recomendada:**
+1. **AWS Cloud Practitioner** — Fundacional, não técnico. Para quem está começando ou vem de áreas de negócio. Custo: ~$100. Tempo de preparo: 40-60h.
+2. **AWS Solutions Architect Associate** — O mais valorizado do mercado para arquitetos e engenheiros. Custo: ~$150. Tempo: 80-120h.
+3. **AWS Developer Associate** ou **SysOps Administrator** — Especialização após o Solutions Architect.
+
+**Recursos gratuitos:** AWS Skill Builder, Canal Freecodacamp no YouTube, Udemy (compre em promoção, sempre há cupons).
+
+## Microsoft Azure
+
+Domina o mercado corporativo e de empresas tradicionais (bancos, seguradoras, indústria).
+
+**Trilha:**
+1. **AZ-900: Azure Fundamentals** — Ponto de entrada. Custo: ~$165.
+2. **AZ-104: Azure Administrator** — Para profissionais de infraestrutura.
+3. **AZ-204: Azure Developer** — Para desenvolvedores que trabalham com Azure.
+
+**Dica:** Microsoft oferece vouchers gratuitos em eventos e learning challenges. Fique atento às promoções do Microsoft Learn.
+
+## Google Cloud
+
+Menos popular que AWS e Azure no mercado brasileiro, mas com demanda crescente em startups e empresas de tecnologia.
+
+**Trilha:**
+1. **Cloud Digital Leader** — Fundacional, sem técnico.
+2. **Associate Cloud Engineer** — Equivalente ao Solutions Architect Associate da AWS.
+
+## Como escolher entre as três
+
+| Critério | AWS | Azure | Google Cloud |
+|---------|-----|-------|-------------|
+| Mercado BR geral | ★★★★★ | ★★★★☆ | ★★★☆☆ |
+| Corporativo/enterprise | ★★★★☆ | ★★★★★ | ★★★☆☆ |
+| Startups/tech | ★★★★★ | ★★★☆☆ | ★★★★☆ |
+| Vagas disponíveis | Mais | Médio | Menos |
+
+**Regra prática:** comece pela cloud que a empresa onde você quer trabalhar (ou já trabalha) utiliza.
+
+## Estratégia de estudo comprovada
+
+1. Faça um curso estruturado (Udemy ou A Cloud Guru)
+2. Use o free tier para praticar na plataforma real — teoria sem prática não passa no exame
+3. Faça simulados até tirar 80%+ consistentemente (Whizlabs, ExamTopics)
+4. Agende o exame antes de "estar pronto" — o prazo cria urgência`,
+      },
+      {
+        id: '41-3',
+        title: 'PMP, Scrum e Agile: certificações de gestão que o mercado paga',
+        duration: '35 min',
+        content: `# PMP, Scrum e Agile: certificações de gestão que o mercado paga
+
+## O cenário de gestão de projetos
+
+Gestão de projetos está passando por uma bifurcação: de um lado, metodologias ágeis dominam startups e times de produto; do outro, PMI e metodologias tradicionais ainda são exigidos em grandes corporações, setor público e projetos de infraestrutura.
+
+A boa notícia: existem certificações para os dois mundos, e profissionais com ambas são raros e muito valorizados.
+
+## PMP — Project Management Professional
+
+O mais reconhecido globalmente. Emitido pelo PMI (Project Management Institute).
+
+**Pré-requisitos:**
+- 3 anos de experiência em gestão de projetos (com diploma) ou 5 anos (sem diploma)
+- 35 horas de treinamento formal em PM
+
+**Processo:**
+1. Candidatura online + aprovação pelo PMI (pode levar 2-4 semanas)
+2. Exame de 180 questões (em inglês ou português)
+3. Custo: ~$405 para membros PMI / ~$555 sem filiação. Filiação ao PMI ($139/ano) quase sempre vale a pena.
+
+**Como estudar:** PMBOK Guide (7ª edição) + simulados. O exame mudou para formato híbrido (predictive + agile), então não ignore a parte ágil.
+
+**Impacto salarial:** Em média, profissionais com PMP ganham 20-25% mais que equivalentes sem certificação, segundo survey do PMI.
+
+## Scrum: PSM vs CSM
+
+Para quem quer se especializar em metodologias ágeis:
+
+**PSM I (Professional Scrum Master) — Scrum.org**
+- Sem pré-requisitos
+- Exame online, 80 questões em inglês, 60 minutos
+- Custo: $150
+- Reconhecido como mais rigoroso que o CSM
+- Validade: vitalícia (sem renovação)
+
+**CSM (Certified ScrumMaster) — Scrum Alliance**
+- Exige treinamento de 2 dias com instrutor credenciado
+- Custo total: R$ 2.000–5.000 (incluindo curso)
+- Renovação a cada 2 anos
+- Mais popular no Brasil corporativo
+
+**Qual escolher:** PSM I tem melhor custo-benefício se você já tem experiência. CSM é melhor para quem precisa do treinamento do zero e quer o networking do curso.
+
+## CAPM — para quem não tem experiência ainda
+
+Se você ainda não tem 3 anos de experiência para o PMP, o **CAPM (Certified Associate in Project Management)** é a porta de entrada. Exige apenas 23 horas de treinamento e nenhuma experiência profissional.
+
+## Certificações ágeis além do Scrum
+
+- **PMI-ACP** — Agile Certified Practitioner. Cobre Scrum, Kanban, XP, SAFe. Recomendado para gestores com experiência ágil.
+- **SAFe certifications** — Para quem trabalha com escalada ágil em grandes empresas.
+- **Kanban Management Professional** — Para especialistas em fluxo de trabalho.
+
+## Combinação vencedora
+
+PMP + PSM I é a combinação que maximiza empregabilidade: cobre tanto o mercado tradicional quanto o ágil. Faça o PSM I primeiro (mais rápido e barato) e depois o PMP quando tiver os pré-requisitos.`,
+      },
+      {
+        id: '41-4',
+        title: 'Marketing, dados e negócios: certificações que custam pouco e abrem muito',
+        duration: '35 min',
+        content: `# Marketing, dados e negócios: certificações que custam pouco e abrem muito
+
+## Certificações de Marketing Digital
+
+### Google
+
+**Google Analytics 4 (GA4)**
+- Gratuita no Skillshop
+- Essencial para qualquer profissional de marketing, produto ou dados
+- Renovação anual
+
+**Google Ads**
+- Gratuita, dividida por especialização (Search, Display, Video, Shopping)
+- Exige 80%+ para aprovação
+- Renovação anual
+
+**Dica:** recrutadores de marketing verificam essas certificações no LinkedIn. Adicioná-las ao perfil aumenta visibilidade nas buscas.
+
+### Meta Blueprint
+
+- Certificações pagas ($150-$300) mas reconhecidas no mercado de performance
+- Meta Certified Media Buying Professional é a mais valorizada
+- Gratuito: os cursos de Blueprint (só os exames são pagos)
+
+### HubSpot Academy
+
+- Totalmente gratuito
+- HubSpot Marketing, Sales, Content Marketing, Inbound
+- Renovação anual
+- Reconhecido em empresas que usam HubSpot (muitas PMEs e startups)
+
+### RD University (Rock Content)
+
+- Foco no mercado brasileiro de marketing de conteúdo e inbound
+- Gratuito e muito reconhecido por agências nacionais
+
+## Certificações de Dados
+
+### Google Data Analytics Professional Certificate (Coursera)
+
+- ~$200 no total (ou ~6 meses no ritmo normal, pago por mês)
+- Cobre Excel, SQL, Tableau, R
+- Reconhecido pelo Google e cada vez mais aceito pelo mercado
+- Substitui parcialmente um curso técnico de curta duração
+
+### Microsoft Power BI Data Analyst (PL-300)
+
+- Custo: ~$165
+- Altamente demandado no Brasil corporativo
+- Prova em português disponível
+
+### Tableau Desktop Specialist
+
+- Custo: ~$250
+- Para quem trabalha com visualização de dados
+- Mais reconhecido em consultorias e empresas internacionais
+
+## Certificações de Negócios e Vendas
+
+### HubSpot Sales Software
+
+- Gratuito
+- Valorizado por startups e empresas com stack HubSpot
+
+### Salesforce Administrator (ADM-201)
+
+- Custo: ~$200
+- Muito demandado em operações de vendas e CRM
+- Empresa com Salesforce quase sempre valoriza a certificação
+
+### LGPD e Privacidade de Dados
+
+- Exin Privacy and Data Protection Foundation
+- Custo: ~$200
+- Demanda crescendo com regulamentação
+- Abre portas em compliance, jurídico e TI
+
+## Estratégia por perfil
+
+**Analista de Marketing:** GA4 + Google Ads + HubSpot (tudo gratuito para começar)
+
+**Analista de Dados:** Google Data Analytics + Power BI PL-300
+
+**Gestor de Projetos em Tech:** PSM I + AWS Cloud Practitioner
+
+**Profissional de Vendas:** HubSpot Sales + Salesforce ADM
+
+A regra: comece pelas gratuitas para validar o interesse, depois invista nas pagas quando souber que quer se aprofundar na área.`,
+      },
+    ],
+  },
+  {
+    id: 42,
+    title: 'Carreira em Vendas: Do SDR ao VP Comercial',
+    desc: 'O mapa completo da carreira em vendas B2B: papéis, salários, como entrar sem experiência e como crescer até a liderança.',
+    duration: '3h 40min',
+    icon: '📈',
+    isPro: true,
+    color: { bg: 'bg-green-50', border: 'border-green-200', badge: 'bg-green-100 text-green-700', icon: 'bg-green-500' },
+    lessons: [
+      {
+        id: '42-1',
+        title: 'O ecossistema de vendas B2B: papéis, senioridade e remuneração',
+        duration: '35 min',
+        content: `# O ecossistema de vendas B2B: papéis, senioridade e remuneração
+
+## Por que vendas é uma das carreiras com maior potencial de ganho
+
+Vendas é uma das poucas carreiras onde o teto salarial é determinado pelo seu desempenho, não pela hierarquia. Um bom vendedor ganha mais que seu gestor. Um excelente vendedor pode ganhar mais que o CEO de empresas pequenas.
+
+O modelo de remuneração variável — onde parte do salário vem de comissões e bônus por metas — cria esse efeito. É também o que torna a carreira mais exigente: você é medido objetivamente todos os meses.
+
+## O funil de papéis em vendas B2B
+
+### SDR — Sales Development Representative
+
+O ponto de entrada. O SDR faz prospecção ativa: pesquisa potenciais clientes (leads), faz contato inicial (cold email, LinkedIn, cold call) e qualifica se há interesse real. Não fecha vendas — passa o lead qualificado para o AE.
+
+- **Salário médio BR:** R$ 3.500–6.000 fixo + variável de R$ 1.000–3.000
+- **Perfil:** comunicação, resiliência, organização, aprendizado rápido
+- **Tempo médio no cargo:** 12-18 meses antes de virar AE
+
+### BDR — Business Development Representative
+
+Similar ao SDR, mas foca em contas maiores (enterprise) e estratégias de outbound mais sofisticadas. O BDR trabalha com ciclos mais longos e contas com ticket maior.
+
+### AE — Account Executive (Executivo de Vendas)
+
+O fechador. Recebe os leads qualificados pelo SDR e conduz o processo até o contrato assinado. É o papel central da operação comercial.
+
+- **Salário médio BR:** R$ 5.000–10.000 fixo + variável de R$ 3.000–15.000
+- **Ciclo de vendas:** de 2 semanas (SMB) a 6+ meses (enterprise)
+- **Métricas:** MRR gerado, taxa de conversão, ACV (Annual Contract Value)
+
+### CSM — Customer Success Manager
+
+Não é tecnicamente "vendas", mas está na fronteira: o CSM cuida da retenção, expansão e satisfação dos clientes após a venda. Em SaaS, CSMs geram expansão de receita (upsell, cross-sell).
+
+- **Salário médio BR:** R$ 5.000–9.000 fixo + variável por retenção/expansão
+
+### Sales Manager / Head de Vendas
+
+Lidera o time. Define metas, treina SDRs e AEs, analisa pipeline, contrata e demite. A transição de vendedor para gestor exige habilidades completamente diferentes — muitos excelentes vendedores são gestores mediocres.
+
+- **Salário médio BR:** R$ 10.000–20.000 fixo + variável por performance do time
+
+### VP de Vendas / CCO
+
+Liderança estratégica. Define a estratégia comercial, estrutura o time, representa vendas no C-level.
+
+- **Salário médio BR:** R$ 20.000–50.000+ fixo + bônus e equity
+
+## A variável da verticalização
+
+Além da hierarquia, a carreira em vendas pode se especializar por:
+- **Segmento de mercado:** SMB (pequenas empresas), Mid-Market, Enterprise
+- **Setor:** SaaS, indústria, serviços financeiros, healthtech
+- **Modelo:** inbound (recebe leads), outbound (prospecção ativa), field sales (presencial)
+
+Especialistas em enterprise ou em setores complexos (saúde, jurídico, financeiro) conseguem remuneração significativamente mais alta.`,
+      },
+      {
+        id: '42-2',
+        title: 'Como entrar em vendas B2B sem experiência',
+        duration: '30 min',
+        content: `# Como entrar em vendas B2B sem experiência
+
+## A boa notícia
+
+Vendas é uma das poucas áreas que contrata por potencial mais do que por currículo. Empresas de SaaS em crescimento precisam de SDRs constantemente e treinam do zero. Você não precisa de experiência prévia em vendas — precisa demonstrar os comportamentos certos.
+
+## O que recrutadores de vendas avaliam em candidatos sem experiência
+
+**1. Comunicação:** Você articula bem? É claro, direto, sem enrolação? Consegue adaptar o discurso para o interlocutor?
+
+**2. Resiliência:** Vendas é rejeição constante. Recrutadores tentam identificar se você desiste fácil ou se mantém a energia após o "não".
+
+**3. Organização e método:** SDRs fazem muitas tarefas repetitivas (sequências de prospecção, follow-ups). Caos é inimigo do resultado.
+
+**4. Curiosidade sobre o produto/mercado:** Candidatos que pesquisaram a empresa, entendem o problema que o produto resolve e já têm opiniões sobre o mercado se destacam.
+
+**5. Histórico de metas:** Não precisa ser em vendas. Atingiu metas no esporte? Foi o melhor da turma? Bateu target em estágio em outra área? Tudo conta como evidência de orientação a resultado.
+
+## Estratégia para entrar sem experiência
+
+### 1. Mire em startups de SaaS em estágio inicial ou de crescimento
+
+Essas empresas contratam SDRs em volume, treinam, e a progressão é mais rápida. Evite empresas com operações comerciais estagnadas no início — você quer um ambiente onde aprender rápido é possível.
+
+### 2. Pesquise a empresa antes da candidatura
+
+Encontre o produto, entenda quem é o cliente ideal (ICP), identifique uma dor que o produto resolve. Candidatos que aparecem na entrevista com essa análise feita são raros e memoráveis.
+
+### 3. Demonstre a mentalidade certa no CV e na carta
+
+Use métricas de qualquer origem: "aumentei engajamento da turma em 40%", "atingi 120% da meta no estágio de marketing", "conquistei 50 clientes para o projeto universitário de X". Resultado + número = linguagem de vendas.
+
+### 4. Simule uma prospecção na entrevista
+
+Alguns processos pedem pitch ao vivo ou cold call simulada. Mesmo que não peçam, você pode oferecer: "posso fazer uma prospecção simulada do produto de vocês?" Isso demonstra coragem e preparo.
+
+### 5. Plataformas para procurar vagas de SDR/BDR
+
+- LinkedIn (filtre por "SDR", "Sales Development", "Pré-vendas")
+- Gupy (muitas vagas de inside sales em SaaS nacional)
+- Revelo (especializado em tech e startups)
+- VAGAS.com.br
+- Diretamente no site das empresas: RD Station, Totvs, Salesforce BR, HubSpot BR, Omie, Conta Azul
+
+## O que esperar nos primeiros meses
+
+- Muita ligação, muito email, muito "não"
+- Treinamento intenso no produto e no processo
+- Métricas claras: número de tentativas de contato, taxas de conversão, reuniões agendadas
+- Feedback constante — a maioria das empresas tem coaching semanal de SDRs
+
+Encare os primeiros 3-6 meses como a melhor escola de comunicação, persuasão e resiliência que existe.`,
+      },
+      {
+        id: '42-3',
+        title: 'Entrevistas em vendas: como se sair bem nas simulações e cases',
+        duration: '35 min',
+        content: `# Entrevistas em vendas: como se sair bem nas simulações e cases
+
+## Por que processos seletivos de vendas são diferentes
+
+Em vendas, a entrevista é ela mesma um teste de vendas. O recrutador avalia como você vende — a si mesmo. Todo candidato que diz "sou boa pessoa, aprendo rápido" sem demonstrar isso está falhando o teste básico.
+
+## Etapas comuns do processo seletivo em vendas
+
+### 1. Triagem por RH
+Perguntas comportamentais, fit cultural, expectativa salarial. Seja direto e concreto.
+
+### 2. Entrevista com o gestor de vendas
+Aqui as perguntas ficam específicas. Exemplos:
+- "Me venda essa caneta/produto/serviço"
+- "Qual sua maior conquista com números?"
+- "Como você lida com uma meta muito agressiva?"
+- "Descreva sua semana ideal de trabalho"
+
+### 3. Role-play ou cold call simulada
+O momento de maior ansiedade para candidatos sem experiência. Veja abaixo como se preparar.
+
+### 4. Case ou desafio prático
+Especialmente para AE e posições sênior. Pode incluir análise de pipeline, estratégia de abordagem de uma conta específica, ou apresentação de plano de vendas.
+
+## Como se preparar para o role-play
+
+O role-play mais comum: você é o SDR, o entrevistador é o prospect. Você precisa fazer uma cold call convincente.
+
+**Estrutura de uma cold call eficaz:**
+
+1. **Abertura rápida:** "Oi [Nome], aqui é [Seu nome] da [Empresa]. Você tem 30 segundos?"
+2. **Por que estou ligando:** "[Empresa] ajuda [perfil de cliente] a resolver [problema específico]. Vi que vocês [gatilho de personalização — crescimento, nova contratação, expansão]."
+3. **Pergunta de qualificação:** "Isso é algo que vocês estão enfrentando?"
+4. **Objetivo:** Agendar reunião, não vender o produto na cold call
+
+**Erros a evitar no role-play:**
+- Falar demais no início — deixe o prospect falar
+- Desistir ao primeiro obstáculo — lide com objeções com curiosidade
+- Parecer um robô lendo script — seja natural mesmo com estrutura
+
+## Como responder "me venda essa caneta"
+
+Não descreva a caneta. Pergunte primeiro: "Antes de falar sobre a caneta, posso te fazer uma pergunta? Quando foi a última vez que você precisou anotar algo e não tinha com o quê?" Venda a solução do problema, não o produto.
+
+## Questões comportamentais mais comuns e como responder
+
+**"Como você lida com rejeição?"**
+Use o método STAR. Dê um exemplo real onde você recebeu um "não", o que sentiu, o que fez e o resultado.
+
+**"Você é mais competitivo ou colaborativo?"**
+Não caia na armadilha de escolher um lado. A resposta honesta: competitivo com metas e resultados, colaborativo com o time. Dê evidências dos dois.
+
+**"Qual foi sua maior meta e como foi alcançá-la?"**
+Se não tem experiência em vendas, adapte: meta em projeto, em esporte, em outro trabalho. O que importa é a estrutura: meta → ação → obstáculo → resultado.
+
+## Negociação de salário em vendas
+
+Sempre negocie. O gestor de vendas respeita quem negocia — é literalmente a habilidade que ele contratou. Pesquise o mercado, tenha um número fundamentado e não aceite a primeira oferta sem pelo menos uma contra-proposta.`,
+      },
+      {
+        id: '42-4',
+        title: 'Crescer em vendas: de SDR a AE e depois para liderança',
+        duration: '40 min',
+        content: `# Crescer em vendas: de SDR a AE e depois para liderança
+
+## A progressão típica e como acelerá-la
+
+A trajetória padrão em inside sales:
+
+**SDR → AE:** 12-18 meses
+**AE júnior → AE pleno/sênior:** 18-24 meses
+**AE sênior → Team Lead / Manager:** 24-36 meses
+
+Mas esses são os tempos médios. Profissionais que batem meta consistentemente e desenvolvem outras habilidades (mentorar pares, participar de contratações, sugerir melhorias de processo) progridem mais rápido.
+
+## O que separa SDRs que viram AE rápido dos que ficam estagnados
+
+**SDRs que viram AE em 12 meses:**
+- Batem meta de reuniões agendadas consistentemente (90%+ do target)
+- Pedem para participar das reuniões de fechamento que agendaram — aprendem o ciclo completo
+- Documentam o que funciona e compartilham com o time
+- Estabelecem relação de mentoria com AEs de alta performance
+
+**SDRs que ficam presos:**
+- Batem meta às vezes, erram às vezes — inconsistência
+- Trabalham só a parte do processo que é "deles" — não entendem o funil completo
+- Reclamam do processo em vez de propor melhorias
+- Esperam que o gestor defina o próximo passo na carreira
+
+## A transição de AE para gestor de vendas
+
+Esta é a transição mais difícil da carreira comercial. As habilidades que fazem um ótimo vendedor são diferentes das que fazem um ótimo gestor.
+
+**Como vendedor:** seu resultado depende do que você faz diretamente
+**Como gestor:** seu resultado depende do que seu time faz
+
+O erro mais comum: ex-AEs excelentes que viram managers e continuam "fechando pelos outros" em vez de ensinar a fechar. Isso não escala e cria dependência.
+
+**Habilidades que um manager de vendas precisa desenvolver:**
+- Diagnóstico de performance (identificar por que alguém não está batendo meta)
+- Coaching de habilidades específicas (não "faça igual a mim", mas "o que especificamente você pode ajustar?")
+- Contratação (identificar potencial em entrevistas)
+- Gestão de pipeline (forecast de receita, análise de funil)
+- Motivação em escala (o que motiva cada pessoa do time é diferente)
+
+## Como se preparar para liderança antes de ser promovido
+
+Não espere o título para desenvolver as habilidades de gestão:
+
+1. **Peça para mentorar novos SDRs** — mesmo informalmente
+2. **Apresente análises de processo** — "analisei nossas taxas de conversão e encontrei um padrão"
+3. **Participe de entrevistas de candidatos** quando possível
+4. **Leia sobre gestão comercial:** Predictable Revenue, The Sales Acceleration Formula, SPIN Selling
+
+## Carreira em vendas fora do Brasil
+
+Para quem tem inglês fluente, vendas é uma das carreiras com mais vagas remotas bem remuneradas internacionalmente. Empresas de SaaS americanas e europeias contratam SDRs e AEs no Brasil pagando em dólar ou euro.
+
+Plataformas específicas: Remote.com, We Work Remotely (filtre por "sales"), AngelList, LinkedIn filtrando por "Remote" + vagas internacionais.
+
+O diferencial: domínio de inglês em vendas vai além do inglês cotidiano — comunicação persuasiva, storytelling e negociação em outra língua é raro e muito valorizado.`,
+      },
+    ],
+  },
+  {
+    id: 43,
+    title: 'Produtividade e Visibilidade no Trabalho Remoto',
+    desc: 'Como performar, ser notado e crescer na carreira quando o escritório é virtual — sem abrir mão da saúde e do foco.',
+    duration: '3h 10min',
+    icon: '🏠',
+    isPro: false,
+    color: { bg: 'bg-teal-50', border: 'border-teal-200', badge: 'bg-teal-100 text-teal-700', icon: 'bg-teal-500' },
+    lessons: [
+      {
+        id: '43-1',
+        title: 'Setup e rotina de alta performance no home office',
+        duration: '30 min',
+        content: `# Setup e rotina de alta performance no home office
+
+## O problema do home office mal estruturado
+
+Trabalhar em casa sem estrutura cria o pior dos dois mundos: você não descansa (o trabalho invade a vida pessoal) e não produz bem (a vida pessoal invade o trabalho). O resultado é exaustão sem resultado.
+
+A alta performance remota exige intenção — não acontece por acidente.
+
+## O setup físico mínimo viável
+
+Você não precisa de um escritório de R$ 10.000. Precisa de:
+
+**Essencial:**
+- Cadeira com suporte lombar (invista aqui primeiro — coluna é produtividade)
+- Mesa na altura certa (cotovelos a 90° com o teclado)
+- Iluminação natural ou boa iluminação artificial (luz fria aumenta foco)
+- Fone de ouvido com cancelamento de ruído ou microfone externo
+
+**Diferencial nas videochamadas:**
+- Câmera na altura dos olhos (não notebook apoiado em livros — use suporte)
+- Fundo limpo ou virtual profissional
+- Boa iluminação na frente do rosto (não contra a janela)
+
+A qualidade da sua presença em videochamadas é um sinal de profissionalismo que as pessoas percebem mesmo sem articular.
+
+## Estrutura de rotina que funciona
+
+### Ritual de início
+
+Crie um marcador que sinalize ao seu cérebro que o trabalho começou:
+- Tomar café e ler as prioridades do dia
+- Revisar o calendário e bloquear o tempo para trabalho profundo
+- Colocar o fone ou sentar na mesa de trabalho (não no sofá)
+
+O objetivo é imitar o "efeito comutação" — a transição física de ir ao escritório ajuda o cérebro a mudar de modo. Sem ela, você precisa criar a sua.
+
+### Blocos de trabalho profundo
+
+O trabalho mais importante (aquele que requer concentração real) deve ser feito em blocos de 90-120 minutos sem interrupção. Notificações desligadas, Slack em modo não-perturbe, telefone virado.
+
+Identifique qual é o seu período de pico — manhã cedo, tarde ou noite — e proteja esse tempo para trabalho profundo. Reuniões e tarefas menores vão para o resto do dia.
+
+### Ritual de término
+
+Tão importante quanto o ritual de início. Defina um horário de encerramento e respeite-o:
+- Escreva as 3 prioridades de amanhã
+- Feche as abas do trabalho
+- Saia fisicamente do ambiente de trabalho se possível
+
+Sem ritual de término, o trabalho nunca termina de verdade.
+
+## Gestão de energia, não só de tempo
+
+Produtividade não é sobre quantas horas você trabalha — é sobre o que você faz quando sua energia está alta.
+
+**Nível de energia alto:** trabalho criativo, estratégico, difícil
+**Nível de energia médio:** reuniões, emails, revisões
+**Nível de energia baixo:** tarefas administrativas, organização
+
+Mapear e respeitar esses ciclos é mais poderoso que qualquer técnica de produtividade.
+
+## Armadilhas comuns do home office
+
+**Nunca pausar:** trabalhar 8 horas sem pausa produz menos que 6 horas com pausas estratégicas. Use técnica Pomodoro (25/5) ou pausas de 10 min a cada 90 min.
+
+**Trabalhar de pijama:** pequeno truque com efeito real — se trocar de roupa muda como você se sente, use isso a seu favor.
+
+**Checar email/Slack continuamente:** cada interrupção custa ~23 minutos de recuperação de foco. Defina horários para verificar comunicação (ex: 9h, 12h, 15h, 17h).`,
+      },
+      {
+        id: '43-2',
+        title: 'Comunicação assíncrona que constrói reputação',
+        duration: '30 min',
+        content: `# Comunicação assíncrona que constrói reputação
+
+## Por que comunicação escrita é a habilidade mais subvalorizada no remoto
+
+No escritório, muito da sua reputação é construída presencialmente: como você se porta em reuniões, as conversas de corredor, a forma como você reage sob pressão. No remoto, isso desaparece.
+
+O que sobra é o texto. Cada mensagem no Slack, cada email, cada documento compartilhado é uma janela para como você pensa e trabalha. Comunicadores assíncronos excelentes constroem reputação muito mais rápido do que quem ignora isso.
+
+## Os princípios da comunicação assíncrona eficaz
+
+### 1. Escreva com autonomia no receptor
+
+Cada mensagem deve ter tudo que o receptor precisa para agir sem ter que te perguntar mais nada. Antes de enviar, pergunte: "A pessoa consegue resolver isso com o que escrevi, ou vai precisar voltar para mim?"
+
+**Ruim:** "Oi, você pode dar uma olhada naquilo?"
+**Bom:** "Oi Carla, preciso da sua revisão no relatório de Q2 (link). Especificamente quero sua opinião sobre a metodologia da seção 3. Prazo: quinta até as 17h. Se tiver dúvida, me avisa."
+
+### 2. Use estrutura nas mensagens longas
+
+Para comunicações complexas, estruture com:
+- **Contexto:** o que está acontecendo (1-2 frases)
+- **Problema ou decisão:** o que você precisa
+- **Opções ou proposta:** não jogue o problema sem oferecer um caminho
+- **Próximo passo:** quem faz o quê até quando
+
+### 3. Adapte o nível de detalhe ao canal
+
+| Canal | Nível de detalhe |
+|-------|----------------|
+| Slack/Teams | Conciso, direto, informal |
+| Email | Estruturado, completo |
+| Documento | Exaustivo, referenciável |
+| Comentário em tarefa | Específico ao contexto |
+
+Escrever um email longo onde cabe uma mensagem de Slack sinaliza desorganização. Usar Slack para decisões complexas que precisam de documentação cria confusão.
+
+### 4. O princípio do "escreva para o futuro"
+
+Comunicação assíncrona boa é aquela que, daqui a 3 meses, outra pessoa consegue ler e entender o que foi decidido e por quê. Isso é especialmente importante em documentos de decisão e tickets de projeto.
+
+## Boas práticas específicas por canal
+
+### Slack / Teams
+
+- Use threads para manter contexto agrupado
+- @mencione só quem realmente precisa ver
+- Reaja com emojis para confirmar recebimento sem criar ruído
+- Status atualizado comunica disponibilidade sem precisar responder
+
+### Email
+
+- Assunto específico: "Aprovação necessária: proposta cliente X até sexta" > "Proposta"
+- Uma decisão ou pedido por email — não agrupe temas não relacionados
+- Responda dentro de 24h em dias úteis, mesmo que seja só para confirmar recebimento
+
+### Documentos colaborativos (Notion, Google Docs)
+
+- Sempre deixe data e autor no topo
+- Use comentários para dúvidas específicas, não para discussões gerais
+- "Status" visível: rascunho, em revisão, aprovado, arquivado
+
+## Como sua comunicação escrita constrói (ou destrói) reputação
+
+Gestores remotos avaliam colaboradores em grande parte pela qualidade da comunicação escrita. Quem escreve com clareza é percebido como mais inteligente, mais organizado e mais confiável — independentemente de se isso é "justo" ou não.
+
+Invista 5-10 minutos por semana lendo materiais sobre escrita profissional. É o ROI mais alto que você pode ter no remoto.`,
+      },
+      {
+        id: '43-3',
+        title: 'Visibilidade remota: como ser visto sem estar no escritório',
+        duration: '30 min',
+        content: `# Visibilidade remota: como ser visto sem estar no escritório
+
+## O problema da invisibilidade remota
+
+"Fora da vista, fora da mente" é um risco real no trabalho remoto. Profissionais que entregam resultados mas têm baixa visibilidade são preteridos em promoções, projetos estratégicos e aumentos. Não porque entregam menos — mas porque quem decide simplesmente não pensa neles.
+
+Visibilidade não é autopromoção vazia. É garantir que seu trabalho e seu impacto sejam conhecidos pelas pessoas certas.
+
+## Os três tipos de visibilidade no remoto
+
+### 1. Visibilidade de resultado (o que você entregou)
+
+A mais fácil de construir e a mais ignorada. Muitas pessoas entregam coisas excelentes mas nunca comunicam o impacto.
+
+**Práticas:**
+- Atualize status de projetos proativamente — não espere ser perguntado
+- Quando um resultado importante sair, mencione em canal relevante: "Fechamos o relatório de Q2. Destaque: reduzimos tempo de processamento em 30%"
+- Em reuniões de time, compartilhe o que você concluiu essa semana antes de detalhar o que está fazendo
+
+### 2. Visibilidade de pensamento (como você pensa sobre problemas)
+
+Mais poderosa e mais rara. Mostra que você não é só executor — você tem perspectiva.
+
+**Práticas:**
+- Em reuniões, faça pelo menos uma pergunta ou contribuição substantiva
+- Compartilhe artigos ou insights relevantes no canal do time com seu comentário (não só o link)
+- Escreva um documento curto de "o que aprendi" após um projeto ou situação difícil
+
+### 3. Visibilidade relacional (quem te conhece e como te percebe)
+
+No escritório isso acontece naturalmente. No remoto, é intencional.
+
+**Práticas:**
+- Agende 1:1 informais com colegas além do seu gestor direto — 15-20 min de conversa sem pauta
+- Em reuniões grandes, ligue a câmera e participe — presença visual importa
+- Quando alguém fizer bom trabalho, reconheça publicamente no canal do time
+
+## Estratégias práticas de visibilidade
+
+### Weekly update assíncrono
+
+Toda sexta, envie uma mensagem curta para seu gestor (ou no canal do time) com:
+- 3 coisas que você concluiu essa semana
+- 1 obstáculo que você resolveu
+- 1 prioridade da próxima semana
+
+Parece simples. É poderoso porque a maioria não faz. Em 3 meses, você cria um histórico de performance que fala por si na época de avaliação.
+
+### Aparecer em canais estratégicos
+
+Identifique os canais onde decisões importantes são discutidas e onde líderes participam. Contribua com qualidade — não quantidade. Uma contribuição relevante por semana vale mais que 20 mensagens genéricas.
+
+### Mentorias e projetos transversais
+
+Projetos que cruzam times são oportunidades de visibilidade exponencial: você aparece para múltiplos gestores ao mesmo tempo. Seja proativo em levantar a mão para esses projetos.
+
+## O equilíbrio: visibilidade sem ser irritante
+
+Há uma linha entre construir visibilidade e parecer que você só se importa com aparecer. A diferença está no foco: visibilidade que parte do valor que você gera é autêntica. Visibilidade que é performance sem substância é percebida rapidamente e prejudica a reputação.
+
+Regra prática: se você está construindo visibilidade mas não está entregando resultados, inverta a ordem.`,
+      },
+      {
+        id: '43-4',
+        title: 'Reuniões eficientes e fronteiras saudáveis no remoto',
+        duration: '30 min',
+        content: `# Reuniões eficientes e fronteiras saudáveis no remoto
+
+## O paradoxo das reuniões no remoto
+
+O trabalho remoto deveria reduzir reuniões — afinal, sem escritório, a comunicação é mais intencional. Na prática, muitas equipes remotas têm mais reuniões do que antes, porque os gestores usam chamadas para compensar a falta de visibilidade sobre o time.
+
+O resultado: dias fragmentados em blocos de 30-60 minutos entre chamadas, sem tempo para trabalho profundo.
+
+## Como ser o profissional que torna reuniões mais eficientes
+
+**Antes da reunião:**
+- Nunca aceite convite sem pauta. Se não houver pauta, pergunte: "Qual é o objetivo da reunião e o que precisa ser decidido?"
+- Se você convocou, envie a pauta e materiais de leitura prévia com pelo menos 24h de antecedência
+- Defina o resultado esperado — não "discutir X" mas "decidir Y" ou "alinhar Z"
+
+**Durante a reunião:**
+- Inicie com os pontos mais críticos, não com aquecimento social prolongado
+- Atribua um facilitador — mesmo em reuniões pequenas
+- Documente decisões e próximos passos ao vivo, não depois
+- Termine 5 minutos antes para que as pessoas possam se preparar para a próxima chamada
+
+**Após a reunião:**
+- Envie resumo com decisões + responsáveis + prazos em até 1 hora
+- Crie o hábito de follow-up em 1 semana para itens com prazo
+
+## Tipos de reuniões e quando cada uma faz sentido
+
+| Situação | Use reunião | Use assíncrono |
+|---------|------------|----------------|
+| Decisão complexa com múltiplos stakeholders | ✅ | |
+| Atualização de status | | ✅ documento/canal |
+| Sessão de brainstorming | ✅ | |
+| Aprovação de documento | | ✅ comentário no doc |
+| Feedback sobre trabalho | ✅ (sensível) | ✅ (rotineiro) |
+| Check-in semanal de time | ✅ curto (30 min) | |
+
+## Estabelecendo fronteiras saudáveis
+
+O maior risco do home office para carreira de longo prazo não é a produtividade — é o burnout por ausência de fronteiras.
+
+### Fronteiras de tempo
+
+- Defina horário de início e fim e comunique para o time
+- Coloque no calendário blocos de "não disponível" para almoço, exercício, família
+- Desative notificações de trabalho fora do horário (não só silenciar — desativar)
+
+### Fronteiras de espaço
+
+Quando possível, trabalhe em espaço dedicado. Se não for possível, pelo menos use um objeto físico como sinal: fone de ouvido = trabalho, sem fone = off.
+
+### Fronteiras de expectativa
+
+A armadilha mais sutil: a cultura da disponibilidade imediata. Responder mensagens às 22h cria expectativa de que você sempre responde às 22h. Uma vez criada, é difícil desfazer.
+
+Defina suas normas cedo: "Respondo mensagens de 9h-18h em dias úteis. Para urgências reais, me ligue."
+
+## Quando o remoto vira problema de carreira
+
+Sinais de que sua relação com o remoto precisa ser recalibrada:
+- Você trabalha mais horas do que no escritório mas sente que entrega menos
+- Há semanas em que você não tem nenhuma conversa com colega que não seja reunião formal
+- Você aceita qualquer horário de reunião porque sente que "precisa ser disponível"
+- Domingos à noite você abre o laptop "só para verificar uma coisa"
+
+Nesses casos, o problema não é produtividade — é estrutura e fronteiras. Redesenhe antes que o burnout redesenhe por você.`,
+      },
+    ],
+  },
+  {
+    id: 44,
+    title: 'Carreira em Marketing Digital',
+    desc: 'As especialidades de marketing digital que mais crescem, como entrar, como se especializar e como construir um portfólio que abre portas.',
+    duration: '3h 30min',
+    icon: '📣',
+    isPro: true,
+    color: { bg: 'bg-pink-50', border: 'border-pink-200', badge: 'bg-pink-100 text-pink-700', icon: 'bg-pink-500' },
+    lessons: [
+      {
+        id: '44-1',
+        title: 'O mapa de marketing digital: especialidades, salários e demanda',
+        duration: '35 min',
+        content: `# O mapa de marketing digital: especialidades, salários e demanda
+
+## Por que marketing digital é uma das carreiras com maior demanda no Brasil
+
+Toda empresa precisa de marketing digital. Mas há escassez crônica de profissionais com domínio real de ferramentas e dados — a maioria do mercado tem conhecimento superficial de tudo e profundidade em nada.
+
+Profissionais com especialização genuína têm poder de negociação alto e progressão rápida.
+
+## As principais especialidades e o que cada uma envolve
+
+### SEO — Search Engine Optimization
+
+Fazer com que sites apareçam no Google organicamente. Envolve estratégia de conteúdo, análise técnica de sites, link building e análise de dados.
+
+- **Perfil:** analítico, paciente (resultados levam 3-6 meses), curioso
+- **Ferramentas:** SEMrush, Ahrefs, Google Search Console, Screaming Frog
+- **Salário médio BR:** R$ 4.000–10.000 (especialistas seniores chegam a R$ 15.000+)
+- **Demanda:** alta e crescente — SEO é canal de longo prazo e toda empresa quer reduzir dependência de ads pagos
+
+### Paid Media / Mídia Paga
+
+Gestão de anúncios no Google Ads, Meta Ads, LinkedIn Ads, TikTok Ads. É operacional e estratégico — você gere orçamento e otimiza campanhas para maximizar resultado.
+
+- **Perfil:** orientado a dados, ágil para testar hipóteses, confortável com matemática de negócio (ROAS, CPA, LTV)
+- **Ferramentas:** Google Ads, Meta Business Manager, Google Analytics 4, Data Studio
+- **Salário médio BR:** R$ 4.500–12.000
+- **Diferencial:** especialização em um nicho (e-commerce, B2B, apps) acelera progressão
+
+### Growth Marketing
+
+Foca em crescimento acelerado do negócio através de experimentos. O growth marketer pensa em funil completo: aquisição, ativação, retenção, receita, referência.
+
+- **Perfil:** produto + marketing + dados. Curioso, experimental, orientado a métricas
+- **Ferramentas:** Mixpanel, Amplitude, Hotjar, Google Analytics, SQL básico
+- **Salário médio BR:** R$ 6.000–18.000 — um dos mais altos em marketing
+- **Demanda:** muito alta em startups e scale-ups
+
+### Email Marketing e CRM
+
+Estratégia de relacionamento via email, automações de marketing, segmentação de base. Mais estratégico do que parece — impacta diretamente receita.
+
+- **Ferramentas:** RD Station, HubSpot, Mailchimp, ActiveCampaign, Klaviyo (e-commerce)
+- **Salário médio BR:** R$ 4.000–9.000
+
+### Content Marketing / Marketing de Conteúdo
+
+Estratégia de criação de conteúdo para atrair, educar e converter. Abrange blog, vídeo, podcast, redes sociais, SEO.
+
+- **Perfil:** escritor, estrategista, curioso sobre o negócio do cliente
+- **Salário médio BR:** R$ 3.500–8.000 como analista; R$ 8.000–15.000 como head de conteúdo
+
+### Analytics e BI de Marketing
+
+Profissional que transforma dados de marketing em decisões. Cada vez mais valorizado conforme as empresas amadurecem em maturidade de dados.
+
+- **Ferramentas:** GA4, BigQuery, Looker Studio, SQL, Python (diferencial)
+- **Salário médio BR:** R$ 6.000–15.000
+
+## Como escolher sua especialização
+
+Não existe especialidade "melhor" — existe a certa para o seu perfil:
+- Ama escrever e criar: Content Marketing, SEO
+- Ama números e otimização: Paid Media, Analytics
+- Ama experimentos e velocidade: Growth
+- Ama automação e relacionamento: CRM/Email
+
+Escolha uma para se aprofundar nos primeiros 2 anos. A generalização vem depois, sobre uma base sólida.`,
+      },
+      {
+        id: '44-2',
+        title: 'SEO e Growth: como construir credibilidade nas especialidades mais demandadas',
+        duration: '35 min',
+        content: `# SEO e Growth: como construir credibilidade nas especialidades mais demandadas
+
+## SEO como carreira
+
+### O que um profissional de SEO faz no dia a dia
+
+Diferente do que muitos imaginam, SEO vai muito além de "escrever com palavras-chave". Um SEO pleno ou sênior trabalha com:
+
+- **SEO técnico:** velocidade de página, estrutura de URLs, schema markup, Core Web Vitals, crawlability
+- **SEO on-page:** otimização de títulos, meta descriptions, hierarquia de headings, conteúdo semântico
+- **SEO off-page:** link building, digital PR, menções de marca
+- **Estratégia de conteúdo:** pesquisa de palavras-chave, mapeamento de intenção de busca, calendário editorial
+- **Análise:** monitoramento de rankings, tráfego orgânico, conversões, Search Console
+
+### Trilha de aprendizado em SEO
+
+**Nível 1 – Fundamentos (2-3 meses):**
+- Google Search Essentials (documentation oficial do Google)
+- Curso SEO da Moz ou Ahrefs (ambos têm conteúdo gratuito excelente)
+- Crie um blog ou site próprio para praticar
+
+**Nível 2 – Ferramentas (3-6 meses):**
+- Google Search Console (gratuito, essencial)
+- Ubersuggest ou SEMrush Free Trial para pesquisa de palavras-chave
+- Screaming Frog SEO Spider (gratuito até 500 URLs)
+
+**Nível 3 – Especialização:**
+- SEO técnico: curso de JavaScript SEO
+- Link building: estratégias de digital PR e guest posting
+- Internacional: SEO em inglês abre mercado remoto global
+
+### Como construir portfólio em SEO
+
+O portfólio em SEO é evidence-based: mostre dados de crescimento de tráfego.
+
+- Crie um site ou blog sobre um nicho que você conhece
+- Otimize para palavras-chave de cauda longa com menos concorrência
+- Documente o crescimento com screenshots do Google Search Console
+- Em 3-6 meses de trabalho consistente, você terá resultados reais para mostrar
+
+## Growth Marketing como carreira
+
+### O que diferencia growth de marketing tradicional
+
+Marketing tradicional pensa em campanhas e branding. Growth pensa em experimentos e métricas de negócio. Um growth marketer pergunta: "Qual hipótese vou testar essa semana para aumentar a conversão em X%?"
+
+A mentalidade de growth é a de produto: hipótese → experimento → análise → aprendizado → próxima hipótese.
+
+### Habilidades que um growth marketer precisa desenvolver
+
+**Dados:** SQL básico para extrair dados, Google Analytics 4, ferramentas de analytics de produto (Mixpanel, Amplitude). Não precisa ser cientista de dados — mas precisa ser autossuficiente para responder perguntas básicas sem depender de um analista.
+
+**Produto:** entender como os usuários interagem com o produto, onde abandonam, o que os faz voltar. Trabalho próximo com PM e UX.
+
+**Canais:** testes em diferentes canais de aquisição. Growth não é especialista em um canal — é bom o suficiente em vários para identificar onde estão as oportunidades.
+
+**Frameworks:** AARRR (Acquisition, Activation, Retention, Referral, Revenue), ICE Score para priorização de experimentos, North Star Metric.
+
+### Como entrar em growth sem experiência
+
+1. Leia o livro "Hacking Growth" (Sean Ellis e Morgan Brown) — é o manual da área
+2. Faça o curso "Growth Hacking" da Rock Content ou Reforge (mais avançado, em inglês)
+3. Documente experimentos que você fez — mesmo em projetos pessoais, freelances ou no emprego atual
+4. Vá para startups em crescimento: growth é mais fácil de aprender no ambiente certo do que em qualquer curso`,
+      },
+      {
+        id: '44-3',
+        title: 'Paid Media: como dominar o canal de maior impacto imediato',
+        duration: '30 min',
+        content: `# Paid Media: como dominar o canal de maior impacto imediato
+
+## Por que paid media é a especialidade com resultado mais mensurável
+
+Diferente de SEO ou branding, paid media tem resultado imediato e completamente mensurável. Você gasta R$ 1.000 e sabe exatamente quantas vendas gerou. Isso torna a área ao mesmo tempo muito objetiva (seu resultado fala por si) e muito estressante (não há onde se esconder).
+
+Para quem gosta de dados e de ver resultados rápidos, é a especialidade mais satisfatória de marketing.
+
+## As plataformas e o que você precisa dominar em cada uma
+
+### Google Ads
+
+A plataforma mais complexa e com maior volume de budget no mercado B2B e e-commerce.
+
+**Tipos de campanhas:**
+- **Search:** anúncios de texto que aparecem na pesquisa Google. É o coração do Google Ads — exige domínio de palavras-chave, match types e estratégias de lance.
+- **Performance Max:** campanha automatizada que usa IA do Google para otimizar em todos os canais. Cada vez mais usada, mas exige boa alimentação de criativos e dados de conversão.
+- **Display e YouTube:** branding e remarketing. Menor conversão direta, mas importante para funil completo.
+
+**O que você precisa aprender:**
+1. Estrutura de campanha → grupo de anúncios → anúncios
+2. Pesquisa de palavras-chave e match types (broad, phrase, exact)
+3. Configuração de conversões (sem isso, você não consegue otimizar)
+4. Estratégias de lance: tCPA, tROAS, Maximize Conversions
+5. Análise e otimização: Search Terms Report, Quality Score, Ad Auction Insights
+
+### Meta Ads (Facebook e Instagram)
+
+Indispensável para B2C, e-commerce e geração de leads.
+
+**O que diferencia Meta Ads:**
+- A segmentação por interesses e comportamentos é única
+- O criativo (imagem/vídeo) é 80% do resultado — saber testar criativos é a habilidade mais valiosa
+- Retargeting: atingir quem já visitou seu site, assistiu ao seu vídeo, interagiu com seu perfil
+
+**Habilidades-chave:**
+- Configuração do Pixel e Conversions API
+- Estrutura de teste A/B de criativos
+- Análise de métricas: CPM, CTR, CPC, CPL, ROAS
+
+### LinkedIn Ads
+
+Mais caro por clique, mas o mais eficaz para B2B enterprise (empresas maiores, ticket alto).
+
+## Como construir experiência em paid media sem dinheiro próprio
+
+**Opção 1:** Ofereça gestão gratuita ou com desconto para um negócio local ou amigo. Você aprende na prática e constrói case real.
+
+**Opção 2:** Plataformas como Google Ads e Meta oferecem créditos para novos anunciantes. Use para experimentos.
+
+**Opção 3:** Freelance em plataformas como 99Freelas ou Workana — empresas pequenas pagam pouco, mas o aprendizado é real.
+
+## Métricas essenciais que todo especialista em paid media precisa dominar
+
+| Métrica | O que significa | Por que importa |
+|---------|----------------|----------------|
+| ROAS | Receita ÷ Custo de anúncio | Retorno direto do investimento |
+| CPA | Custo por aquisição/conversão | Eficiência do custo |
+| CTR | Cliques ÷ Impressões | Qualidade do criativo/copy |
+| CPM | Custo por mil impressões | Custo de atingir audiência |
+| LTV | Valor do cliente ao longo do tempo | Contexto para avaliar o CPA |
+
+A regra de ouro: CPA < LTV. Se você gasta R$ 100 para adquirir um cliente que vale R$ 300, o negócio faz sentido.`,
+      },
+      {
+        id: '44-4',
+        title: 'Portfólio e personal brand para profissionais de marketing',
+        duration: '30 min',
+        content: `# Portfólio e personal brand para profissionais de marketing
+
+## O paradoxo do profissional de marketing sem marketing pessoal
+
+É comum encontrar profissionais de marketing excelentes tecnicamente que não sabem vender a si mesmos. Seu LinkedIn é genérico, seu portfólio é um documento Word com descrições de campanhas, e na entrevista explicam resultados sem dados concretos.
+
+A ironia: marketing é a área onde o portfólio e a presença digital mais diferenciam candidatos.
+
+## O que um bom portfólio de marketing deve ter
+
+### 1. Resultados, não atividades
+
+**Ruim:** "Gerenciei campanhas de Google Ads para cliente do setor de saúde"
+**Bom:** "Gerenciei R$ 50k/mês em Google Ads para clínica médica. Reduzi CPA de R$ 180 para R$ 95 em 3 meses através de reestruturação de campanhas e testes de copy. Resultado: +65% de consultas agendadas."
+
+Se você não tem os números exatos, use aproximações ou percentuais de variação.
+
+### 2. Processo, não só resultado
+
+Mostre como você pensa:
+- Qual era o problema ou oportunidade?
+- Que hipótese você levantou?
+- O que você fez e por quê?
+- Qual foi o resultado?
+- O que você faria diferente?
+
+Essa estrutura demonstra maturidade analítica, não só execução.
+
+### 3. Variedade de contextos
+
+Um portfólio com cases de diferentes segmentos (e-commerce, SaaS, B2B, varejo) ou diferentes canais mostra versatilidade. Se você só tem um tipo de case, documente bem o processo para compensar a limitação de escopo.
+
+## Onde hospedar seu portfólio
+
+- **Notion:** limpo, fácil de atualizar, pode ser compartilhado como link. Ideal para a maioria dos profissionais.
+- **Site próprio:** mais impressionante, mas exige mais trabalho. Use Framer, Webflow ou WordPress.
+- **LinkedIn:** não é portfólio, mas é onde recrutadores vão primeiro. Otimize a seção "Em destaque" com links e documentos.
+- **Google Drive:** simples, mas funcional para compartilhar cases em PDF.
+
+## Como construir presença digital como profissional de marketing
+
+Você não precisa ser influencer. Você precisa ser reconhecível como especialista.
+
+### LinkedIn como canal principal
+
+Poste 1-2 vezes por semana sobre o que você aprende, casos que viveu (sem dados confidenciais) ou análises de campanhas que você observa. Formato que funciona: "Analisei 50 anúncios de [nicho] e encontrei esse padrão..." ou "Erro que vejo todo dia em campanhas de Google Ads:..."
+
+Profissionais de marketing que têm presença relevante no LinkedIn recebem convites de recrutadores passivamente.
+
+### Newsletter ou blog (opcional mas poderoso)
+
+Para quem quer construir autoridade de forma mais sólida. Uma newsletter semanal ou quinzenal sobre sua especialização cria audiência própria e posiciona você como referência. Ferramentas gratuitas: Substack, LinkedIn Newsletter.
+
+## Preparação para entrevistas de marketing
+
+**O que recrutadores de marketing sempre perguntam:**
+
+1. "Descreva uma campanha que você gerenciou do início ao fim" → Tenha 2-3 cases na ponta da língua com métricas
+2. "Como você mediria o sucesso dessa iniciativa?" → Demonstre que pensa em métricas antes de executar
+3. "O que você faria nos primeiros 30/60/90 dias?" → Mostre que você pesquisou a empresa e tem perspectiva
+4. "Qual campanha recente você admira e por quê?" → Demonstra que você acompanha o mercado
+
+A diferença entre quem consegue a vaga e quem não consegue, na maioria dos casos, é a especificidade: candidatos com números reais vencem candidatos com descrições genéricas.`,
+      },
+    ],
+  },
+  {
+    id: 45,
+    title: 'Trabalho na Austrália e Nova Zelândia',
+    desc: 'Vistos, mercado de trabalho, como se candidatar e como construir uma carreira do outro lado do mundo.',
+    duration: '3h 20min',
+    icon: '🦘',
+    isPro: true,
+    color: { bg: 'bg-orange-50', border: 'border-orange-200', badge: 'bg-orange-100 text-orange-700', icon: 'bg-orange-500' },
+    lessons: [
+      {
+        id: '45-1',
+        title: 'Vistos de trabalho: WHV, Skilled Migrant e caminhos para residência',
+        duration: '40 min',
+        content: `# Vistos de trabalho: WHV, Skilled Migrant e caminhos para residência
+
+## Por que Austrália e Nova Zelândia são destinos relevantes para brasileiros
+
+Austrália e Nova Zelândia combinam alta qualidade de vida, inglês como idioma, mercado de trabalho robusto e caminhos viáveis de imigração permanente. Para brasileiros com inglês intermediário-avançado e disposição para aventura, são os destinos com melhor relação entre facilidade de entrada e qualidade de vida.
+
+## Austrália: os principais vistos de trabalho
+
+### Working Holiday Visa (WHV) — Subclasse 417
+
+**Elegibilidade:** Brasileiros de 18 a 35 anos (mudou de 30 para 35 em 2023)
+**Duração:** 1 ano, renovável para 2º e 3º ano com condições
+**O que permite:** trabalhar para qualquer empregador australiano (máximo 6 meses por empregador no mesmo setor), estudar até 4 meses
+**Custo:** ~AUD 635
+
+**Como conseguir o 2º ano (WHV2):**
+Trabalhar pelo menos 3 meses (88 dias) em trabalho regional específico: colheita, construção, mineração, saúde ou cuidados em regiões designadas. Exige documentação do empregador.
+
+**Como conseguir o 3º ano (WHV3):**
+Trabalhar 6 meses adicionais em regiões específicas ou em setores prioritários (saúde, construção, cuidados com idosos).
+
+### Skilled Nominated Visa (Subclasse 190)
+
+Para profissionais qualificados que querem residência permanente. Exige:
+- Ter ocupação na lista de skilled occupations (SOL) da Austrália
+- Pontuação mínima no sistema de pontos (Skills Assessment + idade + inglês + experiência)
+- Nomeação por um estado australiano
+
+### Employer Sponsored (Subclasse 482)
+
+Uma empresa australiana te contrata e patrocina o visto. O caminho mais direto para quem tem habilidades escassas no mercado australiano.
+
+**Ocupações mais demandadas atualmente:**
+- TI: desenvolvedores, engenheiros de software, cloud architects
+- Saúde: enfermeiros, médicos, fisioterapeutas
+- Engenharia: civil, elétrica, mecânica
+- Educação: professores (especialmente matemática e ciências)
+- Construção: engenheiros e gestores de obras
+
+## Nova Zelândia: os principais vistos
+
+### Working Holiday Visa NZ
+
+**Elegibilidade:** Brasileiros de 18 a 35 anos
+**Duração:** 12 meses (sem possibilidade de renovação automática)
+**Custo:** ~NZD 208
+
+Mercado menor que a Austrália, mas muito receptivo e com custo de vida relativamente menor.
+
+### Skilled Migrant Category (SMC)
+
+Sistema de pontos para residência permanente. Avalia idade, qualificação, experiência e oferta de emprego.
+
+### Accredited Employer Work Visa (AEWV)
+
+Empregador credenciado patrocina o visto. Caminho mais rápido para trabalho qualificado.
+
+## Planejamento recomendado para brasileiros
+
+**Fase 1 (6-12 meses antes):** Fortaleça o inglês, pesquise o mercado da sua área, comece o processo de reconhecimento de qualificações se necessário.
+
+**Fase 2 (3-6 meses antes):** Solicite o WHV, organize documentos, crie perfil no LinkedIn otimizado para o mercado australiano/neozelandês.
+
+**Fase 3 (chegada):** Primeiros meses podem incluir trabalho regional para qualificar para WHV2, networking local, candidaturas a vagas na sua área.
+
+**Fase 4 (12-24 meses):** Com experiência local e network, candidatura a posições qualificadas e início do processo de residência permanente se for o objetivo.`,
+      },
+      {
+        id: '45-2',
+        title: 'Mercado de trabalho: setores em alta e realidade para brasileiros',
+        duration: '35 min',
+        content: `# Mercado de trabalho: setores em alta e realidade para brasileiros
+
+## Austrália: setores com maior demanda
+
+### Tecnologia da Informação
+
+Austrália tem escassez crônica de profissionais de TI. Os mais demandados:
+- Desenvolvedores (Python, JavaScript, Java, .NET)
+- Cloud engineers e DevOps (AWS e Azure dominam)
+- Cybersecurity analysts
+- Data scientists e ML engineers
+
+**Salários:** AUD 80.000–150.000/ano para profissionais com 3-7 anos de experiência.
+
+Sydney e Melbourne têm os maiores hubs de tech, mas Brisbane e Perth crescem. Remote working após COVID permitiu mais flexibilidade geográfica.
+
+### Saúde e Cuidados (Healthcare & Aged Care)
+
+Setor com maior escassez e mais rápido processo de imigração. Enfermeiros registrados no Brasil precisam passar pelo reconhecimento AHPRA (Australian Health Practitioner Regulation Agency) — processo que leva 3-9 meses mas abre portas para residência permanente acelerada.
+
+**Salários enfermagem:** AUD 70.000–95.000/ano.
+
+### Construção e Infraestrutura
+
+Austrália tem investimento massivo em infraestrutura urbana e mineração. Engenheiros civis, gerentes de obras e técnicos de construção são muito demandados, especialmente em Queensland, Western Australia e South Australia.
+
+### Agropecuária e Processamento de Alimentos
+
+Não exige qualificação formal, é a principal opção para quem usa o WHV, e permite qualificar para o 2º e 3º ano do visto. Regiões: Queensland (cana-de-açúcar, frutas), Victoria (laticínios), South Australia (vinhos).
+
+**Realidade financeira:** salário mínimo australiano é ~AUD 23/hora (2024). Trabalhos rurais frequentemente pagam mais (peça ato, empreitada). Um mês de trabalho rural disciplinado gera AUD 3.000–5.000 líquidos.
+
+## Nova Zelândia: setores em alta
+
+NZ é menor (5 milhões de pessoas), mas com mercado de trabalho aquecido em:
+- Agricultura e horticultura (especialmente Hawke's Bay, Bay of Plenty)
+- TI em Auckland e Wellington
+- Saúde em todo o país
+- Hotelaria e turismo em Queenstown e Rotorua
+
+## A realidade financeira para brasileiros
+
+**Custo de vida Austrália:**
+- Aluguel Sydney: AUD 2.000–3.000/mês (quarto compartilhado: AUD 900–1.400)
+- Alimentação: AUD 400–600/mês preparando em casa
+- Transporte público: AUD 150–200/mês
+
+**Custo de vida Nova Zelândia:**
+- Aluguel Auckland: NZD 1.500–2.500/mês (compartilhado: NZD 700–1.100)
+- Alimentação: NZD 350–500/mês
+
+**O math para quem vai no WHV:**
+Salário mínimo australiano: AUD 23/h × 38h/semana = AUD 874 bruto/semana. Após imposto (~15-22% dependendo da situação), ~AUD 700-750 líquido. Em Sydney, sobra pouco. No interior ou com trabalho rural, custo de vida menor e possibilidade de pagar ato (piece rate) gera poupança real.
+
+## O choque que brasileiros não esperam
+
+**Burocracia:** ABN (Australian Business Number), Tax File Number, conta bancária, aluguel — tudo exige documentação e tempo. Reserve 2-4 semanas para resolver a base administrativa.
+
+**Networking funciona diferente:** australianos são amigáveis mas diferenciam claramente "colega de trabalho" de "amigo". Networking profissional é mais formal que no Brasil — invista no LinkedIn e em eventos profissionais da sua área.
+
+**Reconhecimento de qualificações:** diplomas brasileiros frequentemente precisam de avaliação por órgãos reconhecedores australianos (AQF, Engineers Australia, AHPRA). Pesquise isso antes de ir para sua área específica.`,
+      },
+      {
+        id: '45-3',
+        title: 'CV australiano e candidatura: o que muda do padrão brasileiro',
+        duration: '25 min',
+        content: `# CV australiano e candidatura: o que muda do padrão brasileiro
+
+## O que muda no formato do CV
+
+O CV australiano (chamado de "resume" para posições profissionais) segue convenções diferentes do brasileiro:
+
+### O que NÃO incluir
+- **Foto:** não incluir — pode ser percebido como tentativa de influenciar por aparência
+- **Idade ou data de nascimento:** proteção contra discriminação etária
+- **Estado civil ou número de filhos**
+- **Número de RG ou CPF**
+
+### O que incluir
+- **Nome e contato:** email profissional, LinkedIn, telefone com código do país (+61 para Austrália)
+- **Professional Summary:** 3-4 linhas descrevendo quem você é e o que oferece. Direto ao ponto.
+- **Work Experience:** cronologia reversa, bullet points com resultados quantificados
+- **Education:** nome do curso, instituição, ano de conclusão
+- **Skills:** técnicas relevantes para a vaga
+- **References:** "Available upon request" ou 2 referências com contato (ex-gestores idealmente)
+
+### Tamanho
+- **Graduate/Entry level:** 1-2 páginas máximo
+- **Profissional experiente:** 2-3 páginas. Australianos são práticos — não valorizam CVs longos.
+
+## Adaptação do conteúdo para o mercado australiano
+
+**Quantifique tudo:** "Managed a team" vira "Managed a team of 8 across 3 projects, delivering $2M in annual revenue." Australianos são diretos e orientados a resultado.
+
+**Use inglês australiano:** "organise" não "organize", "colour" não "color". Pequeno detalhe que mostra atenção.
+
+**Adapte seus títulos:** Se o título no Brasil era "Analista de Sistemas Pleno", use o equivalente australiano: "Mid-level Systems Analyst" ou pesquise como a função é chamada no mercado local.
+
+## Como encontrar vagas
+
+**Plataformas principais:**
+- **SEEK.com.au** — maior plataforma de emprego da Austrália. Indispensável.
+- **LinkedIn** — especialmente para posições profissionais e tech
+- **Indeed Australia** — bom complemento ao SEEK
+- **Gumtree** — bom para trabalhos casuais e regionais
+- **WorkforceAustralia.gov.au** — vagas do governo
+
+**Para Nova Zelândia:**
+- **SEEK.co.nz**
+- **TradeMe Jobs** — muito usado para todos os níveis
+- **LinkedIn NZ**
+
+## O processo seletivo australiano
+
+Diferente do Brasil, a Austrália tem menos etapas geralmente:
+1. Candidatura online (CV + cover letter)
+2. Entrevista por telefone ou vídeo (screening)
+3. Entrevista presencial ou por vídeo (comportamental + técnica)
+4. Referências (checagem de ex-empregadores — leve a sério)
+5. Oferta
+
+**Cover letter:** No Brasil é opcional; na Austrália é frequentemente obrigatória e lida. Máximo de 1 página. Estrutura: por que essa empresa, por que essa vaga, o que você traz de específico.
+
+**Selection criteria:** Vagas do governo australiano exigem respostas escritas a critérios específicos. É uma habilidade à parte — pesquise o formato "STAR" aplicado a selection criteria.
+
+## Referências profissionais: o detalhe que brasileiros subestimam
+
+Na Austrália, verificação de referências é séria e frequente. Prepare:
+- 2-3 ex-gestores que falam inglês (ou que podem ser contactados por escrito)
+- Avise-os antes de colocar seus contatos
+- Se suas referências são brasileiras, explique o contexto no processo — a maioria dos empregadores aceita`,
+      },
+      {
+        id: '45-4',
+        title: 'Vida profissional e networking do outro lado do mundo',
+        duration: '20 min',
+        content: `# Vida profissional e networking do outro lado do mundo
+
+## A cultura de trabalho australiana
+
+Entender a cultura de trabalho local acelera enormemente a integração e a progressão na carreira.
+
+### O que é diferente do Brasil
+
+**Hierarquia mais horizontal:** Em empresas australianas, é normal chamar o CEO pelo primeiro nome. Formalidade excessiva é vista como sinal de insegurança, não de respeito.
+
+**Comunicação direta:** Australianos valorizam clareza e honestidade. "Não sei, mas descubro" é resposta aceitável. Enrolar ou dizer o que a pessoa quer ouvir é mal visto.
+
+**Pontualidade real:** Se a reunião é às 9h, é às 9h. "5 minutos de atraso" não é aceitável como no Brasil.
+
+**Fair go:** Conceito cultural australiano de igualdade de oportunidades. Profissionais que trabalham bem e demonstram comprometimento são respeitados independentemente de origem ou sotaque.
+
+**Vida pessoal é levada a sério:** Hora de sair é hora de sair. Fazer hora extra sem necessidade não é visto como dedicação — é visto como má gestão do tempo. Work-life balance é valorizado genuinamente.
+
+## Como fazer networking na Austrália e NZ
+
+### LinkedIn
+
+No mercado australiano, LinkedIn é a ferramenta de networking profissional mais importante. Mantenha o perfil em inglês, completo e com foto profissional.
+
+Conecte-se com brasileiros que já estão lá (comunidades de expats são receptivas) e com profissionais locais da sua área. Mensagem de conexão personalizada tem taxa de aceitação muito maior que a padrão.
+
+### Meetups e eventos profissionais
+
+Meetup.com tem grupos ativos em todas as cidades australianas para praticamente qualquer área: tech, marketing, finanças, empreendedorismo. Participar regularmente do mesmo evento constrói relacionamentos genuínos em 2-3 meses.
+
+### Comunidades de brasileiros
+
+- **Brasileiros na Austrália** (grupos do Facebook) — informações práticas, vagas, indicações
+- **Brazilian Professionals in Australia** (LinkedIn) — foco profissional
+- Grupos específicos por cidade e área de atuação
+
+### Como abordar profissionais para networking
+
+O "coffee chat" é culturalmente aceito na Austrália: pedir 20-30 minutos de conversa com alguém da sua área para aprender sobre o mercado local. Taxa de aceitação surpreendentemente alta — australianos são receptivos se a abordagem for genuína e o pedido for específico.
+
+Mensagem modelo: "Hi [Name], I recently moved to Australia from Brazil and I'm exploring opportunities in [área]. I came across your profile and your experience in [empresa/área] really caught my attention. Would you be open to a quick 20-minute coffee chat to share your perspective on the [setor] market here? No pressure at all if you're too busy."
+
+## Certificações e reconhecimento de qualificações
+
+Para algumas áreas, o diploma brasileiro precisa ser reconhecido. Verifique com antecedência:
+
+- **Engenharia:** Engineers Australia (assessoria de qualificações)
+- **Saúde:** AHPRA para médicos, enfermeiros, fisioterapeutas
+- **Arquitetura:** Architects Accreditation Council of Australia
+- **Contabilidade:** CPA Australia ou Chartered Accountants ANZ
+
+Esse processo pode levar de 3 a 12 meses e tem custo. Inicie antes de viajar.`,
+      },
+    ],
+  },
+  {
+    id: 46,
+    title: 'Fast-Track: Crescimento Acelerado nos Primeiros Anos',
+    desc: 'Como profissionais jovens conseguem promoções e responsabilidades em metade do tempo — sem jogo político, com estratégia.',
+    duration: '3h 20min',
+    icon: '🚀',
+    isPro: true,
+    color: { bg: 'bg-violet-50', border: 'border-violet-200', badge: 'bg-violet-100 text-violet-700', icon: 'bg-violet-500' },
+    lessons: [
+      {
+        id: '46-1',
+        title: 'A mentalidade de crescimento acelerado: o que diferencia quem sobe rápido',
+        duration: '30 min',
+        content: `# A mentalidade de crescimento acelerado: o que diferencia quem sobe rápido
+
+## O mito do talento natural
+
+Quando vemos um profissional de 26 anos gerenciando um time ou de 28 anos como sócio de consultoria, a tendência é atribuir ao talento. Na maioria dos casos, é estratégia.
+
+Profissionais que crescem em metade do tempo não são necessariamente mais inteligentes — eles fazem escolhas diferentes.
+
+## As três diferenças fundamentais
+
+### 1. Eles resolvem problemas de um nível acima do cargo
+
+Um analista que pensa como gerente chama atenção. Um gerente que pensa como diretor avança mais rápido.
+
+Crescimento acelerado começa quando você para de executar tarefas e começa a pensar em sistemas. Em vez de "como faço essa tarefa?", você pensa "por que essa tarefa existe, o que ela resolve, e como o processo poderia ser melhor?"
+
+Isso não significa ignorar suas responsabilidades atuais — significa fazer seu trabalho e trazer perspectiva adicional.
+
+### 2. Eles tratam seu gestor como um parceiro, não como um chefe
+
+Profissionais que crescem rápido entendem que o gestor quer ser bem-sucedido e que sua missão é contribuir para esse sucesso. Eles antecipam o que o gestor precisa, comunicam proativamente o status do trabalho e trazem soluções junto com os problemas.
+
+A relação com o gestor direto é o fator mais determinante da velocidade de progressão. Um gestor que acredita em você e te defende internamente abre portas que nenhuma performance isolada abre.
+
+### 3. Eles gerenciam sua reputação ativamente
+
+No início de carreira, a maioria das pessoas não pensa em reputação — pensa em fazer bem o trabalho. Isso é necessário mas não suficiente.
+
+Reputação é a soma das percepções sobre quem você é e o que você entrega. Ela é construída em interações cotidianas: como você age quando está sob pressão, como você fala sobre colegas quando eles não estão presentes, como você reage a críticas, como você celebra o sucesso do time.
+
+Profissionais que crescem rápido gerenciam essas interações com consciência.
+
+## O erro que atrasa mais carreiras jovens
+
+Esperar que a organização reconheça seu valor automaticamente.
+
+Sistemas de promoção são imperfeitos. Pessoas que entregam bem mas têm baixa visibilidade são frequentemente preteridas por pessoas que entregam razoavelmente bem mas são visíveis e articuladas.
+
+Crescimento acelerado exige que você faça as duas coisas: entregar excelência E garantir que as pessoas certas saibam que você está entregando.
+
+## Como identificar se você está no caminho certo
+
+Sinais positivos:
+- Seu gestor te inclui em projetos estratégicos ou reuniões além do seu nível
+- Pessoas de outras áreas te consultam para resolver problemas
+- Seu gestor te dá feedback de desenvolvimento regularmente (não só crítica quando erra)
+- Você recebe responsabilidades novas antes de "estar pronto"
+
+Sinais de alerta:
+- Você trabalha muito mas seu gestor nunca menciona promoção
+- Suas ideias nunca chegam a implementação
+- Você está sempre "se preparando" mas nunca é considerado pronto
+- Há um teto implícito que ninguém verbaliza`,
+      },
+      {
+        id: '46-2',
+        title: 'Como se tornar indispensável nos primeiros 6 meses',
+        duration: '35 min',
+        content: `# Como se tornar indispensável nos primeiros 6 meses
+
+## Por que os primeiros 6 meses definem os próximos 3 anos
+
+A reputação que você constrói nos primeiros meses de um emprego é surpreendentemente persistente. Não porque as pessoas sejam inflexíveis — mas porque a primeira impressão cria o filtro pelo qual o resto das suas ações é interpretado.
+
+Um começo forte cria crédito que você usa por anos. Um começo fraco cria um déficit que leva o dobro do tempo para reverter.
+
+## O plano de 90 dias estratégico
+
+### Dias 1-30: Aprender mais do que agir
+
+O erro mais comum de quem quer crescer rápido é agir cedo demais. Nos primeiros 30 dias, sua missão é entender:
+
+- Como o negócio funciona e ganha dinheiro
+- Quais são as prioridades reais do time (não apenas as declaradas)
+- Quem são os "influenciadores internos" — pessoas sem título formal mas com credibilidade
+- Quais são os problemas crônicos que ninguém resolve
+- Como seu gestor mede sucesso para a sua função
+
+Faça muitas perguntas. Profissionais que fazem as perguntas certas nos primeiros meses são percebidos como mais inteligentes do que os que fingem que sabem.
+
+### Dias 31-60: Entregar resultados rápidos e visíveis
+
+Identifique uma ou duas melhorias que você pode implementar rapidamente — "quick wins" que demonstram competência e valor sem requerer grandes recursos.
+
+Características de um bom quick win:
+- Resolve um problema que incomoda alguém que importa
+- Pode ser completado em 2-4 semanas
+- O resultado é mensurável ou claramente perceptível
+- Você pode executar com os recursos que já tem
+
+### Dias 61-90: Posicionar-se para mais responsabilidade
+
+Com credibilidade inicial construída, comece a:
+- Pedir para participar de projetos além do seu escopo atual
+- Compartilhar perspectivas em reuniões (não só executar tarefas)
+- Agendar 1:1 com pessoas de outras áreas para entender como se conectam ao seu trabalho
+
+## Habilidades que tornam um profissional júnior indispensável
+
+### Confiabilidade absoluta
+
+A habilidade mais subestimada. Fazer o que disse que ia fazer, quando disse que ia fazer, sem precisar de lembretes. Soa básico — é raro.
+
+Em organizações, muito do caos operacional vem de pessoas que não entregam ou entregam com atraso sem avisar. Quem é confiável se destaca quase automaticamente.
+
+**Como construir reputação de confiabilidade:**
+- Só comprometa prazos que você vai cumprir
+- Se algo vai atrasar, comunique com antecedência (não no dia do prazo)
+- Nunca entregue trabalho incompleto sem aviso prévio
+
+### Habilidade de sintetizar e comunicar
+
+Saber fazer algo é um pré-requisito. Conseguir explicar o que fez, por que fez e o que significa é o que te diferencia.
+
+Pratique comunicar resultados em 3 níveis:
+- **Para o time:** detalhes técnicos, processo, aprendizados
+- **Para o gestor:** resultado, impacto, próximos passos
+- **Para líderes:** implicação para o negócio, em uma frase
+
+### Visão de processo
+
+Profissionais que não só executam mas também observam como o processo poderia ser melhor são muito mais valiosos. Toda vez que você executa uma tarefa repetitiva, pergunte: "Existe forma mais eficiente de fazer isso?"
+
+Documente a melhoria, apresente para o gestor com dados simples. Se implementada, é uma vitória visível. Se não implementada, você mostrou que pensa além da execução.`,
+      },
+      {
+        id: '46-3',
+        title: 'Visibilidade estratégica: como ser notado por quem decide',
+        duration: '25 min',
+        content: `# Visibilidade estratégica: como ser notado por quem decide
+
+## A diferença entre visibilidade e autopromoção
+
+Visibilidade estratégica é sobre garantir que seu trabalho seja conhecido pelas pessoas certas. Autopromoção é sobre parecer melhor do que você é.
+
+A distinção é importante: visibilidade construída sobre resultados reais é admirada. Visibilidade construída sobre percepção sem substância é percebida rapidamente e prejudica a reputação.
+
+## Quem são as "pessoas certas" para construir visibilidade
+
+**Seu gestor direto:** o influenciador mais importante da sua carreira. Ele te nomeia para projetos, te defende em discussões de promoção, fala sobre você quando você não está na sala.
+
+**O gestor do seu gestor:** visibilidade nesse nível acontece em projetos estratégicos, apresentações para a liderança e situações onde você demonstra maturidade além do esperado.
+
+**Pares influentes de outras áreas:** em organizações com progressão baseada em colaboração, ter aliados em outras áreas multiplica oportunidades.
+
+**Especialistas internos reconhecidos:** conectar-se com as pessoas que são referência interna na sua área acelera aprendizado e associa sua reputação à deles.
+
+## Estratégias práticas de visibilidade
+
+### Apresente em reuniões de liderança
+
+Quando tiver oportunidade de apresentar um projeto ou resultado para um público além do seu time imediato, prepare muito mais do que você acha necessário. Essas janelas de visibilidade são raras e impactam desproporcionalmente.
+
+Dicas:
+- Foque no "e daí?" — o que o resultado significa para o negócio
+- Antecipe perguntas difíceis e prepare respostas
+- Seja conciso — líderes valorizam quem respeita o tempo deles
+
+### Documente e compartilhe aprendizados
+
+Depois de projetos significativos, escreva um documento curto de "o que aprendemos" e compartilhe com o time. Isso demonstra pensamento sistêmico, gera valor para colegas e cria artefatos que associam seu nome a resultados.
+
+### Seja o conector
+
+Quando você percebe que a pessoa A precisa falar com a pessoa B, faça a introdução. Conectores têm visibilidade natural porque aparecem em múltiplas redes simultaneamente. E as pessoas lembram de quem as conectou.
+
+### Peça projetos de alta visibilidade explicitamente
+
+"Estou interessado em ter mais exposição a projetos estratégicos. Existe algo em que eu possa contribuir nos próximos meses?" É uma conversa que a maioria evita por medo de parecer arrogante. Na prática, gestores geralmente apreciam essa proatividade.
+
+## O que evitar
+
+**Tomar crédito pelo trabalho de outros:** destrói confiança de forma irreversível. Sempre atribua contribuições corretamente.
+
+**Falar mal de colegas para parecer melhor:** a pessoa com quem você fala vai suspeitar que você faz o mesmo com ela.
+
+**Visibilidade sem entrega:** se a visibilidade chega antes dos resultados, cria expectativa que a realidade não sustenta. Inverta a ordem sempre.`,
+      },
+      {
+        id: '46-4',
+        title: 'Negociando promoção e aumento antes do "prazo certo"',
+        duration: '30 min',
+        content: `# Negociando promoção e aumento antes do "prazo certo"
+
+## Desmistificando o "ainda é cedo"
+
+Organizações têm ciclos formais de promoção (anual, semestral) e critérios implícitos de tempo mínimo em cada cargo. Muitos profissionais aceitam esses ciclos como lei natural.
+
+Não são. São defaults — e defaults podem ser questionados por quem tem evidência.
+
+A promoção antecipada existe quando dois fatores se combinam: você demonstrou que entrega em nível acima do cargo atual, e a organização tem interesse em reter você.
+
+## Como construir o caso para promoção
+
+A negociação de promoção não começa na conversa com o gestor. Começa meses antes, na construção deliberada de evidências.
+
+**Documentação de resultados:** Mantenha um registro pessoal (não compartilhado) dos seus resultados com impacto e métricas. Quando chegar a hora da conversa, você não vai depender de memória.
+
+**Evidência de escopo acima do cargo:** Identifique as responsabilidades do nível acima do seu e comece a assumi-las gradualmente — com a aprovação do gestor, não em silêncio.
+
+**Feedback de pares e stakeholders:** Solicite feedback de pessoas além do gestor. Múltiplas fontes de evidência positiva fortalecem o caso.
+
+## A conversa com o gestor
+
+**Timing:** Não faça em época de crise ou estresse do time. Melhor após um resultado importante ou no início de um ciclo de avaliação.
+
+**Abertura:** "Queria ter uma conversa sobre minha trajetória aqui e o que precisaria acontecer para uma progressão para [nível/cargo]. Pode ser agora ou podemos agendar?"
+
+**Estrutura da conversa:**
+1. "Nos últimos X meses, fiz [resultados específicos com números]"
+2. "Sinto que estou operando em nível acima do meu cargo atual em [exemplos específicos]"
+3. "Quero entender o que precisaria acontecer para avançar para [próximo nível] e em que prazo"
+
+Não faça ultimatos. Faça perguntas e ouça.
+
+## O que fazer com a resposta
+
+**Se positiva:** Peça que o gestor seja específico sobre critérios e prazo. Documente por escrito (email de follow-up para confirmar o alinhamento).
+
+**Se "ainda não é a hora":** Pergunte o que especificamente está faltando. Peça feedback concreto. Defina uma revisão em 3-6 meses.
+
+**Se a resposta for vaga ou evasiva repetidamente:** É um sinal importante. A organização pode não ter espaço para sua progressão, ou o gestor pode não estar te apoiando internamente. Avalie se é hora de buscar crescimento em outro lugar.
+
+## Quando mudar de empresa é a melhor estratégia de carreira
+
+Para muitos profissionais, a mudança de empresa a cada 2-3 anos acelera mais a carreira do que permanecer — especialmente no início. Os motivos:
+- Cada mudança pode significar salto de 20-40% salarial
+- Nova empresa = nova oportunidade de posicionamento sem histórico limitante
+- Exposição a diferentes culturas, processos e perspectivas
+
+A decisão de ficar vs. sair deve ser baseada em: crescimento, remuneração e aprendizado. Se dois dos três estão comprometidos, é hora de avaliar opções externas.`,
+      },
+    ],
+  },
+  {
+    id: 47,
+    title: 'Carreira em Finanças: de Analista a CFO',
+    desc: 'O mapa completo do setor financeiro — áreas, papéis, remuneração, e como construir uma carreira de alto impacto em finanças.',
+    duration: '3h 40min',
+    icon: '💹',
+    isPro: true,
+    color: { bg: 'bg-emerald-50', border: 'border-emerald-200', badge: 'bg-emerald-100 text-emerald-700', icon: 'bg-emerald-500' },
+    lessons: [
+      {
+        id: '47-1',
+        title: 'O ecossistema de finanças: áreas, papéis e remuneração no Brasil',
+        duration: '35 min',
+        content: `# O ecossistema de finanças: áreas, papéis e remuneração no Brasil
+
+## Por que finanças tem das carreiras mais diversas e mal compreendidas
+
+"Trabalhar em finanças" pode significar coisas completamente diferentes: desde analista de FP&A numa empresa de varejo (muito diferente de glamour) até analista de M&A num banco de investimento (muito mais intenso do que aparece nos filmes). Entender o mapa é o primeiro passo.
+
+## As principais áreas de finanças e o que cada uma faz
+
+### Finanças Corporativas (Corporate Finance)
+
+Trabalha dentro de empresas não-financeiras gerenciando o dinheiro do negócio.
+
+**FP&A — Financial Planning & Analysis:**
+- Planejamento orçamentário, previsões financeiras, análise de variância
+- Parceiro de negócio dos líderes de outras áreas
+- O trabalho mais analítico e estratégico dentro de finanças corporativas
+- **Salário BR:** R$ 6.000–18.000 dependendo do nível e tamanho da empresa
+
+**Controladoria:**
+- Contabilidade gerencial, relatórios financeiros, compliance
+- Mais técnico e operacional que FP&A
+- **Salário BR:** R$ 5.000–15.000
+
+**Tesouraria:**
+- Gestão de caixa, hedge cambial, relacionamento com bancos
+- Demandada em empresas com operações internacionais
+- **Salário BR:** R$ 5.000–14.000
+
+**CFO e Finance Leadership:**
+- Responsável por toda estratégia financeira da empresa
+- Reporta ao CEO e ao Conselho
+- **Salário BR:** R$ 30.000–150.000+ dependendo do tamanho da empresa
+
+### Mercado Financeiro e Investment Banking
+
+**Investment Banking (M&A, ECM, DCM):**
+- Assessoria em fusões e aquisições, ofertas de ações (IPO), emissão de dívida
+- Trabalho intensíssimo (80-100h/semana no início), mas remuneração altíssima
+- **Salário BR:** R$ 8.000–15.000 fixo + bônus de R$ 15.000–50.000 para analistas
+- **Players:** Itaú BBA, BTG Pactual, XP, Goldman Sachs, JP Morgan, Morgan Stanley, Bradesco BBI
+
+**Private Equity (PE):**
+- Compra, melhora e vende empresas privadas
+- Entrada mais difícil — geralmente requer passagem por IB primeiro
+- Remuneração potencialmente muito alta (participação nos lucros do fundo — "carry")
+
+**Gestão de Ativos (Asset Management):**
+- Gestão de portfólios de ações, renda fixa, multimercado
+- Funções: gestor de fundos, analista sell-side ou buy-side
+- **Players:** Itaú Asset, Bradesco Asset, XP Asset, Kinea, Verde, SPX
+
+**Venture Capital:**
+- Investe em startups em estágio inicial
+- Mercado menor, muito disputado
+- Remuneração menor que PE mas exposição ao ecossistema de startups
+
+### Fintechs e Bancos Digitais
+
+Nubank, Inter, C6, PicPay, Stone — cresceram enormemente e criaram demanda por:
+- Analistas de risco de crédito
+- Analistas de produto financeiro
+- Cientistas de dados financeiros
+- Analistas de capital e regulatório
+
+Remuneração competitiva com benefícios de startup (equity).
+
+## Qual área escolher
+
+| Se você quer... | Vá para... |
+|----------------|-----------|
+| Impacto no negócio com menos pressão de mercado | FP&A / Finanças corporativas |
+| Alta remuneração e ritmo intenso | Investment Banking |
+| Mercado de capitais e análise de empresas | Gestão de Ativos / Equity Research |
+| Inovação e crescimento acelerado | Fintech |
+| Retornos muito altos no longo prazo | Private Equity / VC |`,
+      },
+      {
+        id: '47-2',
+        title: 'Investment Banking: como entrar na área mais concorrida de finanças',
+        duration: '40 min',
+        content: `# Investment Banking: como entrar na área mais concorrida de finanças
+
+## O que é Investment Banking de verdade
+
+Investment Banking (IB) é a área que assessora empresas e governos em transações financeiras grandes e complexas:
+
+- **M&A (Mergers & Acquisitions):** assessoria na compra, venda ou fusão de empresas
+- **ECM (Equity Capital Markets):** IPOs e ofertas subsequentes de ações
+- **DCM (Debt Capital Markets):** emissão de debêntures, bonds, CRIs, CRAs
+- **Restructuring:** reestruturação financeira de empresas em dificuldade
+
+O analista de IB faz os modelos financeiros (valuation, LBO, DCF), prepara materiais de apresentação (pitchbooks, CIMs) e executa o trabalho operacional das transações.
+
+## A realidade do trabalho
+
+Não romantize. IB é genuinamente intenso:
+- Analistas trabalham 80-100 horas por semana
+- Prazos são imprevisíveis e urgentes
+- Os primeiros 2 anos são de aprendizado acelerado mas baixa autonomia
+- Burnout é comum — a rotatividade no primeiro e segundo ano é alta
+
+Por outro lado: você aprende em 2 anos de IB o que levaria 10 anos em outras funções. O network que você constrói e o conhecimento adquirido são excepcionais.
+
+## Como entrar no Investment Banking
+
+### A porta principal: programa de analistas direto da universidade
+
+Bancos como BTG Pactual, Itaú BBA, Goldman Sachs, JP Morgan e XP contratam analistas diretamente de universidades top (FGV, Insper, USP, PUC-SP, Mackenzie). O processo começa 6-12 meses antes da formatura.
+
+**Processo seletivo típico:**
+1. Triagem por CV (GPA, atividades extracurriculares, estágios)
+2. Testes de raciocínio lógico e matemático
+3. Entrevistas comportamentais + técnicas (accounting, valuation, finanças)
+4. Estágio de verão (Summer Internship) ou programa de trainee
+
+### O que você precisa saber tecnicamente
+
+**Contabilidade e análise de demonstrativos:**
+- DRE, Balanço Patrimonial, Fluxo de Caixa — leitura e análise profunda
+- Conexão entre os três demonstrativos (fundamental para modelagem)
+
+**Valuation:**
+- DCF (Discounted Cash Flow) — o mais fundamental
+- Múltiplos de mercado (EV/EBITDA, P/E, EV/Revenue)
+- Análise de transações precedentes
+- LBO (Leveraged Buyout) — para quem quer PE
+
+**Excel avançado:**
+- Modelagem financeira com shortcuts, sem mouse
+- Construção de modelos três demonstrativos integrados
+
+### Para quem não foi para universidades top
+
+**Estágio em boutique de M&A ou advisory:**
+Existem boutiques menores (assessorias independentes de M&A) que são menos concorridas que os grandes bancos mas oferecem experiência real em transações.
+
+**Certificações como sinal:**
+CFA Level 1 e 2 demonstram conhecimento técnico e são respeitados no mercado.
+
+**Pós-graduação:**
+MBA em finanças (especialmente FGV, Insper, ou exterior) pode reposicionar quem vem de carreiras diferentes.
+
+## O que fazer quando estiver no IB
+
+Os primeiros 2 anos são de execução e aprendizado. A partir do terceiro ano (como associate), começa a ter mais autonomia. As trajetórias típicas após 2-3 anos de IB:
+
+- **Ficar e crescer** para VP, Director, MD
+- **Private Equity ou VC** — o caminho mais comum para quem sai de IB
+- **Posição de CFO em startup ou empresa de crescimento**
+- **MBA internacional** (Harvard, Wharton, London Business School) como acelerador`,
+      },
+      {
+        id: '47-3',
+        title: 'FP&A e Finance Business Partnering: a carreira de finanças corporativas',
+        duration: '30 min',
+        content: `# FP&A e Finance Business Partnering: a carreira de finanças corporativas
+
+## Por que FP&A é a área de finanças com melhor qualidade de vida e alto impacto
+
+FP&A (Financial Planning & Analysis) é a função dentro das empresas que conecta finanças à estratégia do negócio. O analista/gestor de FP&A não é um contador — é um parceiro de negócio que usa dados financeiros para guiar decisões.
+
+É uma das poucas áreas de finanças onde você:
+- Trabalha com horários razoáveis (exceto em fechamento e planejamento)
+- Tem impacto real na estratégia da empresa
+- Desenvolve habilidades de liderança e comunicação além do técnico
+- Pode crescer até CFO sem passar por IB
+
+## O que um profissional de FP&A faz no dia a dia
+
+**Planejamento e orçamento:**
+- Construção do budget anual e forecasts mensais/trimestrais
+- Consolidação de inputs de todas as áreas da empresa
+- Análise de premissas e sensibilidade
+
+**Análise de variância:**
+- Comparação do real vs. budget vs. forecast
+- Identificação e explicação de desvios
+- Recomendações de ação para gestores de área
+
+**Business Partnering:**
+- Reuniões regulares com líderes de outras áreas (marketing, vendas, operações)
+- Tradução de dados financeiros em insights de negócio
+- Suporte à tomada de decisão: "vale a pena lançar esse produto?", "qual o break-even dessa iniciativa?"
+
+**Reporting:**
+- Preparação de relatórios gerenciais para C-level e Board
+- Dashboards e visualizações de performance
+
+## A evolução de carreira em FP&A
+
+**Analista de FP&A:** executa análises, constrói modelos, alimenta relatórios
+**Analista Sênior / Especialista:** análises mais complexas, liderança de projetos específicos
+**Gerente de FP&A:** lidera analistas, responsável por processos de planejamento, ponto focal com áreas de negócio
+**Controller / Head de FP&A:** responsável por toda função, reporta ao CFO
+**CFO:** o destino final para os que desenvolvem liderança estratégica
+
+## Habilidades técnicas essenciais para FP&A
+
+**Excel avançado:** tabelas dinâmicas, fórmulas complexas (ÍNDICE/CORRESP, SOMASES, etc.), construção de modelos financeiros robustos. Excel ainda é o padrão na maioria das empresas.
+
+**Power BI ou Tableau:** visualização de dados financeiros. Cada vez mais exigido em empresas maduras.
+
+**SQL básico:** para extrair dados diretamente de sistemas sem depender de TI. Diferencial crescente.
+
+**SAP, Oracle ou outros ERPs:** familiaridade com pelo menos um sistema ERP é esperada em empresas de médio/grande porte.
+
+## O perfil certo para FP&A
+
+FP&A é ideal para quem:
+- É analítico mas também gosta de se comunicar e influenciar
+- Prefere entender o negócio holisticamente em vez de se especializar em uma função técnica
+- Quer crescer para liderança sem necessariamente ir para vendas ou operações
+- Gosta de contar histórias com dados (data storytelling)
+
+Não é ideal para quem prefere trabalho técnico isolado sem interação com stakeholders.`,
+      },
+      {
+        id: '47-4',
+        title: 'CFA, CPA e outras certificações de finanças que o mercado valoriza',
+        duration: '35 min',
+        content: `# CFA, CPA e outras certificações de finanças que o mercado valoriza
+
+## CFA — Chartered Financial Analyst
+
+O mais prestigioso da área de investimentos globalmente. Emitido pelo CFA Institute (EUA).
+
+**O que cobre:**
+- Ética e padrões profissionais
+- Análise de ações, renda fixa, derivativos, portfólios
+- Economia, estatística, finanças corporativas
+- Gestão de portfólios e planejamento de riqueza
+
+**Estrutura:**
+- 3 níveis (Level 1, 2, 3) — cada um com exame independente
+- Taxa de aprovação histórica: ~40% no Level 1, ~45% no Level 2, ~52% no Level 3
+- Tempo de estudo recomendado: 300h+ por nível
+- Custo total (3 exames): US$ 2.000–4.000
+
+**Quem deve buscar:**
+Profissionais de gestão de ativos, research de ações, gestão de portfólios, wealth management. Em IB e PE, o CFA é menos valorizado que a experiência prática — mas demonstra rigor analítico.
+
+**O diferencial no mercado brasileiro:**
+CFA holders são raros no Brasil (menos de 2.000). Quem passa pelos 3 níveis tem vantagem significativa em posições de gestão de investimentos e análise de risco.
+
+## CPA — Certified Public Accountant (EUA)
+
+Para profissionais que querem trabalhar com contabilidade e auditoria em padrão americano ou internacional.
+
+**Relevância no Brasil:** Alta para quem trabalha em Big 4 (Deloitte, PwC, EY, KPMG) com clientes internacionais ou quer trabalhar fora. Menor relevância para finanças corporativas domésticas.
+
+## CRC — Conselho Regional de Contabilidade
+
+Obrigatório para exercer a profissão de contador no Brasil. Se sua área é contabilidade/auditoria no mercado brasileiro, o CRC é necessário — não é diferencial, é pré-requisito.
+
+## CFP — Certified Financial Planner
+
+Para planejamento financeiro pessoal e assessoria de investimentos. Reconhecido pela PLANEJAR no Brasil.
+
+**Quem deve buscar:** Assessores de investimentos (XP, BTG, Rico, etc.), gerentes de banco private, planejadores financeiros independentes.
+
+**Processo:** Curso credenciado + exame + experiência mínima. Custo total: R$ 3.000–8.000.
+
+**Diferencial:** Com o crescimento de assessores independentes de investimento no Brasil, o CFP virou quase obrigatório para quem quer se posicionar como consultor sério.
+
+## ANCORD e ANBIMA — Certificações do Mercado Brasileiro
+
+Para distribuição de produtos financeiros no Brasil:
+
+**CEA (Certificação de Especialista em Investimentos ANBIMA):**
+- Para gerentes de banco e assessores que vendem produtos de investimento
+- Exigida pela CVM para algumas funções
+- Custo: ~R$ 300. Taxa de aprovação: ~40%
+
+**ANCORD:**
+- Para agentes autônomos de investimento
+- Habilitação para atuar como assessor independente
+
+## A estratégia de certificações por objetivo de carreira
+
+| Objetivo | Certificações recomendadas |
+|---------|--------------------------|
+| Gestão de investimentos/asset management | CFA |
+| Assessoria de investimentos (BR) | CEA → CFP |
+| Auditoria/contabilidade | CRC + CPA (se internacional) |
+| Finanças corporativas | CFA Level 1 + Excel avançado |
+| Mercado de capitais | CFA + conhecimento do mercado brasileiro (ANBIMA) |
+
+**A regra geral:** Uma certificação reconhecida + experiência relevante = combinação poderosa. Certificações sem experiência são menos valorizadas. Experiência sem certificação em algumas áreas (gestão de ativos) cria limitações regulatórias.`,
+      },
+    ],
+  },
+  {
+    id: 48,
+    title: 'Entrar em Tech Sem Ser Dev: Os Papéis Ocultos',
+    desc: 'As carreiras em tecnologia que pagam bem, crescem rápido e não exigem programação — e como fazer a transição.',
+    duration: '3h 30min',
+    icon: '💼',
+    isPro: true,
+    color: { bg: 'bg-indigo-50', border: 'border-indigo-200', badge: 'bg-indigo-100 text-indigo-700', icon: 'bg-indigo-500' },
+    lessons: [
+      {
+        id: '48-1',
+        title: 'Os papéis em tech que não exigem código (e pagam muito bem)',
+        duration: '35 min',
+        content: `# Os papéis em tech que não exigem código (e pagam muito bem)
+
+## O mito de que tech = programação
+
+Quando as pessoas pensam em "trabalhar em tech", geralmente imaginam desenvolvedores escrevendo código. Mas empresas de tecnologia têm dezenas de funções não-técnicas — e muitas delas são tão bem remuneradas e têm tanta progressão quanto as funções de engenharia.
+
+A diferença: quem está fora de tech não sabe que esses papéis existem. Quem está dentro compete menos, porque a maioria dos candidatos vem de outras áreas de tech, não de fora.
+
+## Os papéis principais e o que cada um faz
+
+### Product Manager (PM) / Gerente de Produto
+
+O PM é responsável pelo produto: define o que será construído, por quê e para quem. Trabalha com engenharia, design e negócio para priorizar e entregar features que resolvem problemas reais dos usuários.
+
+**Não precisa saber código.** Precisa entender problemas, dados, usuários e negócio.
+
+- **Salário BR:** R$ 8.000–25.000 (seniores e Staff PMs chegam a R$ 30.000+)
+- **Demanda:** altíssima em startups e scale-ups
+- **Background de entrada:** marketing, engenharia, design, negócios — qualquer área com habilidade analítica e comunicação forte
+
+### UX Designer / Product Designer
+
+Projeta a experiência do usuário: pesquisa como usuários pensam e se comportam, cria wireframes e protótipos, define a interface e fluxos do produto.
+
+**Não precisa saber código.** Precisa saber ferramentas de design (Figma é o padrão) e ter sensibilidade para comportamento humano.
+
+- **Salário BR:** R$ 6.000–18.000
+- **Entrada:** portfólio é mais importante que diploma
+
+### Customer Success Manager (CSM)
+
+Garante que clientes B2B tenham sucesso usando o produto. Reduz churn, gera expansão, é a voz do cliente dentro da empresa.
+
+- **Salário BR:** R$ 5.000–12.000 + variável
+- **Entrada:** vendas, atendimento, gestão de projetos, qualquer área com comunicação e orientação ao cliente
+
+### Business Analyst (BA) / Analista de Negócios
+
+Faz a ponte entre negócio e tecnologia: levanta requisitos, documenta processos, especifica funcionamentos para os devs. Em algumas empresas, se sobrepõe com o PM.
+
+- **Salário BR:** R$ 5.000–14.000
+- **Entrada:** administração, processos, gestão de projetos
+
+### Data Analyst (Analista de Dados)
+
+Extrai insights de dados para guiar decisões de negócio. Usa SQL, Excel, Power BI ou Tableau. Diferente do Data Scientist (que constrói modelos) e do Data Engineer (que constrói pipelines).
+
+**SQL básico + Excel avançado é suficiente para entrar.** Programação é diferencial, não requisito.
+
+- **Salário BR:** R$ 5.000–15.000
+- **Entrada:** finanças, marketing, operações — qualquer área com afinidade por dados
+
+### Scrum Master / Agile Coach
+
+Facilita o processo ágil do time de desenvolvimento. Não toma decisões de produto — remove impedimentos, facilita cerimônias, ajuda o time a ser mais eficiente.
+
+- **Salário BR:** R$ 7.000–18.000
+- **Certificação PSM I** ajuda a entrada
+
+### Solutions Engineer / Pre-sales
+
+Trabalha com o time de vendas para demonstrar o produto tecnicamente para potenciais clientes. É o "vendedor técnico" — explica como o produto resolve o problema do cliente.
+
+- **Salário BR:** R$ 8.000–20.000 fixo + variável
+- **Entrada:** qualquer área com comunicação + interesse em produto
+
+## O que todas essas funções têm em comum
+
+Todas exigem:
+- Comunicação clara (escrita e verbal)
+- Capacidade de entender problemas complexos
+- Conforto com dados (não precisa ser cientista, mas não pode ter medo de números)
+- Curiosidade sobre como produtos e tecnologia funcionam
+
+Nenhuma exige que você saiba programar.`,
+      },
+      {
+        id: '48-2',
+        title: 'Product Management: a carreira mais disputada em tech',
+        duration: '35 min',
+        content: `# Product Management: a carreira mais disputada em tech
+
+## Por que Product Management atrai tanto interesse
+
+PM é uma das carreiras mais atraentes em tech por um motivo simples: é onde estratégia e execução se encontram. O PM define o que é construído, mas não é responsável pelo código — é responsável pelo resultado.
+
+É uma função de liderança sem autoridade formal: você precisa influenciar engenheiros, designers e executivos sem ter poder hierárquico sobre nenhum deles. Isso exige comunicação, credibilidade e clareza excepcionais.
+
+A remuneração reflete isso: PMs seniores em scale-ups e big techs são dos profissionais mais bem pagos fora da engenharia.
+
+## O que diferencia PMs bons de PMs médios
+
+**PMs médios:**
+- Gerenciam backlog e facilitam cerimônias
+- Executam roadmap definido pela liderança
+- Focam em entrega de features
+
+**PMs bons:**
+- Definem o problema antes de pensar na solução
+- Questionam o roadmap baseado em dados e insight do usuário
+- Medem o impacto real do que entregam
+- Comunicam estratégia com clareza para todos os níveis
+
+A pergunta que separa os dois: "Por que estamos construindo isso?" O PM bom responde com dados e raciocínio. O PM médio responde com "porque foi pedido."
+
+## Skills essenciais para Product Management
+
+### Entendimento do usuário
+
+PM começa pelo usuário. Você precisa saber conduzir pesquisa qualitativa (entrevistas), analisar dados quantitativos de comportamento e sintetizar os dois em insights acionáveis.
+
+**Ferramentas:** Hotjar (heatmaps), Mixpanel ou Amplitude (analytics de produto), UserTesting ou Maze (testes de usabilidade).
+
+### Priorização
+
+Com mais demandas do que capacidade, priorização é a habilidade central do PM. Frameworks úteis:
+- **RICE:** Reach × Impact × Confidence ÷ Effort
+- **ICE Score:** Impact × Confidence × Ease
+- **MoSCoW:** Must have, Should have, Could have, Won't have
+
+### Comunicação e escrita
+
+PMs escrevem muito: PRDs (Product Requirements Documents), memos de estratégia, comunicados de release, análises de dados. Escrever com clareza é habilidade insubstituível.
+
+### SQL e dados
+
+Você não precisa ser analista de dados, mas precisa conseguir responder perguntas básicas sozinho. "Quantos usuários fizeram X nos últimos 30 dias?" não pode depender de um analista.
+
+## Como entrar em PM sem experiência prévia em produto
+
+**Opção 1: Transição interna**
+Se você trabalha em uma empresa com time de produto, construa relacionamento com PMs, entenda o produto profundamente, e proponha assumir tarefas de produto incrementalmente.
+
+**Opção 2: APM Programs (Associate PM)**
+Google, Microsoft, Meta e outras big techs têm programas específicos para pessoas sem experiência em PM. Competitivos, mas existem.
+
+**Opção 3: Startups em estágio inicial**
+Em startups early-stage, os papéis são fluidos. Você pode assumir responsabilidades de produto vindo de outras funções (marketing, operações, customer success).
+
+**Opção 4: Cursos e side projects**
+Cursos como PM3, Product School, ou Reforge (mais avançado) ensinam o framework. Combine com um projeto pessoal real (app, produto interno) para ter portfólio.
+
+## O portfólio de PM
+
+Diferente de design ou engenharia, não existe um portfólio visual óbvio. O que você pode apresentar:
+- Case studies escritos de problemas que você resolveu (mesmo em outras áreas)
+- Análise de produto de uma empresa existente ("como eu melhoraria X")
+- Documentos de estratégia ou PRDs de projetos reais ou conceituais
+- Resultados de produtos ou iniciativas que você liderou`,
+      },
+      {
+        id: '48-3',
+        title: 'Customer Success e Implementation: a porta mais acessível para tech',
+        duration: '30 min',
+        content: `# Customer Success e Implementation: a porta mais acessível para tech
+
+## Por que Customer Success é a melhor porta de entrada para tech
+
+De todas as funções não-técnicas em tecnologia, Customer Success é a de entrada mais acessível. Motivos:
+
+- Volume alto de vagas (toda empresa SaaS precisa de CSMs)
+- Não exige diploma específico ou experiência prévia em tech
+- Habilidades transferíveis de outras áreas (atendimento, vendas, gestão de projetos)
+- Uma vez dentro, as portas para PM, Sales, Solutions e outras funções abrem naturalmente
+
+O Customer Success nasceu com o modelo SaaS: quando software é vendido por assinatura, a receita recorrente depende de clientes renovando. O CSM é o responsável por garantir que isso aconteça.
+
+## O que Customer Success realmente faz
+
+**Onboarding:** Novos clientes precisam entender e usar o produto. O CSM guia esse processo.
+
+**Adoção:** Monitorar se o cliente está usando o produto de forma que gere valor real. Clientes que não usam não renovam.
+
+**QBRs (Quarterly Business Reviews):** Reuniões periódicas com stakeholders do cliente para revisar resultados e alinhar próximos passos.
+
+**Renovação:** Garantir que o contrato seja renovado — geralmente com ajuda de vendas, mas o CSM prepara o terreno.
+
+**Expansão:** Identificar oportunidades de upsell e cross-sell no portfólio existente.
+
+**Churn:** Intervir quando um cliente mostra sinais de desistência — queda de uso, reclamações, questões comerciais.
+
+## Métricas que um CSM gerencia
+
+- **NRR (Net Revenue Retention):** Receita retida incluindo expansão. >100% significa que a base cresce mesmo sem novos clientes.
+- **Churn Rate:** % de receita ou clientes perdidos num período
+- **Health Score:** pontuação de saúde de cada cliente baseada em uso e engajamento
+- **NPS (Net Promoter Score):** satisfação e probabilidade de indicação
+
+## Implementation Manager / Consultant
+
+Um passo acima do CSM em complexidade técnica. O Implementation Manager implementa o produto no cliente — conecta sistemas, configura fluxos, treina usuários.
+
+- Mais técnico que CSM, mas ainda sem necessidade de código
+- Exige entendimento profundo do produto e capacidade de adaptação a diferentes contextos de cliente
+- **Salário BR:** R$ 6.000–15.000
+- Boa porta para Solutions Engineer ou PM posteriormente
+
+## Como se candidatar a posições de Customer Success em tech
+
+**CV:** Destaque experiências de resolução de problemas para clientes, gestão de relacionamentos, comunicação clara e orientação a resultado. Qualquer experiência em atendimento, consultoria, vendas ou gestão de projetos é relevante.
+
+**Empresas para mirar:** Startups SaaS B2B em crescimento têm mais vagas e processo seletivo mais acessível. Exemplos no Brasil: RD Station, Totvs, Omie, Conta Azul, Stone, Salesforce BR, HubSpot BR.
+
+**O que demonstrar na entrevista:**
+- Empatia com o cliente sem perder o foco no resultado do negócio
+- Capacidade de lidar com situações difíceis (cliente insatisfeito, problema crítico)
+- Curiosidade genuína sobre o produto e o problema que ele resolve
+- Organização para gerenciar múltiplos clientes simultaneamente`,
+      },
+      {
+        id: '48-4',
+        title: 'Como fazer a transição para tech vindo de área não-técnica',
+        duration: '30 min',
+        content: `# Como fazer a transição para tech vindo de área não-técnica
+
+## O mapa da transição
+
+A maioria das transições para tech não acontece em um salto — acontece em etapas. Entender onde você está e qual é o próximo passo realista é mais útil do que tentar pular direto para o destino final.
+
+**Etapas comuns:**
+
+1. **Aprender o vocabulário:** Entender como produtos digitais funcionam, o que é agile, o que é backlog, o que é sprint, o que são métricas de produto. Você não precisa saber fazer — precisa saber o que é.
+
+2. **Criar pontos de contato com tech:** Projetos no trabalho atual que envolvam sistemas ou times de TI, freelances, projetos pessoais.
+
+3. **Entrada lateral:** Primeiro emprego em tech em função adjacente (CS, BA, operations) que não exige background técnico.
+
+4. **Evolução interna:** De CS para PM, de BA para PM, de operations para growth — as transições internas são mais fáceis do que externas.
+
+## Por área de origem: o caminho mais natural
+
+**Marketing → Growth Marketing, Product Marketing, Analytics**
+Marketing digital tem muito overlap com funções de tech. SEO e Paid Media já trabalham com dados e ferramentas digitais. O passo natural é crescer para growth ou analytics.
+
+**Vendas → Customer Success, Solutions Engineer, Sales Ops**
+Experiência com clientes e fechamento de negócios é muito valorizada em CS e Solutions. O conhecimento do ciclo de vendas é transferível diretamente.
+
+**Finanças e Contabilidade → Data Analyst, Finance em startup, FP&A em tech**
+Afinidade com números e Excel facilita a entrada em analytics. Startups em crescimento precisam de profissionais de finanças e preferem quem entende o modelo SaaS.
+
+**RH e People → People Ops, HRBP em tech, Talent Acquisition tech**
+Empresas de tech têm desafios únicos de RH. Profissionais de pessoas com interesse genuíno em tecnologia têm vantagem.
+
+**Direito e Compliance → Legal Ops, Privacy/Compliance em tech, RegTech**
+Com LGPD e regulamentação crescente de tech, profissionais de direito com interesse em tecnologia têm alta demanda.
+
+**Gestão e Administração → Operations, Chief of Staff, Scrum Master**
+Habilidades de gestão e processo são muito valorizadas em operações de empresas tech em crescimento.
+
+## Recursos para acelerar a transição
+
+**Cursos de produto:**
+- PM3 (Brasil, muito bom para mercado nacional)
+- Product School (EUA, certificação reconhecida internacionalmente)
+- Reforge (avançado, em inglês)
+
+**SQL básico (para analytics e PM):**
+- Mode Analytics SQL Tutorial (gratuito)
+- Khan Academy SQL (gratuito)
+- DataCamp
+
+**UX para não-designers:**
+- Google UX Design Certificate (Coursera, ~6 meses)
+- Interaction Design Foundation
+
+**Comunidades brasileiras de tech não-técnico:**
+- Product Guru's (Slack de product managers)
+- Comunidade da Awari, PM3
+- Grupos de Customer Success no LinkedIn
+
+## O erro mais comum na transição
+
+Esperar estar "pronto" antes de se candidatar. Você vai se sentir pronto quando tiver feito a transição — não antes.
+
+A estratégia: se candidate para posições em que você atende 70% dos requisitos. Se esperar atender 100%, nunca vai se candidatar. E muitas vezes o candidato que consegue a vaga não é o mais qualificado — é o mais claro sobre o valor que traz e mais determinado a aprender o que falta.`,
+      },
+    ],
+  },
+  {
+    id: 49,
+    title: 'Primeiro Emprego e Estágio: Do Zero ao Contratado',
+    desc: 'O guia completo para estudantes e recém-formados: como conseguir estágio, primeiro emprego e se destacar no início da carreira.',
+    duration: '2h 50min',
+    icon: '🎓',
+    isPro: false,
+    color: { bg: 'bg-sky-50', border: 'border-sky-200', badge: 'bg-sky-100 text-sky-700', icon: 'bg-sky-500' },
+    lessons: [
+      {
+        id: '49-1',
+        title: 'Como montar um CV sem experiência que realmente funciona',
+        duration: '25 min',
+        content: `# Como montar um CV sem experiência que realmente funciona
+
+## O problema do CV sem experiência
+
+A armadilha: "não tenho experiência, então não tenho o que colocar no CV." Isso raramente é verdade. O problema é que muitos estudantes não sabem reconhecer o que têm como relevante.
+
+## O que colocar quando não tem emprego formal
+
+**Projetos acadêmicos:** Trabalhos de conclusão, iniciação científica, projetos de disciplinas práticas. Descreva o problema, o que você fez e o resultado.
+
+**Atividades extracurriculares:** Empresa júnior, atlética, diretório acadêmico, voluntariado, projetos sociais. Trate como experiência real — porque é.
+
+**Projetos pessoais:** App que você criou, blog, canal, negócio próprio mesmo que pequeno, trabalho freelance.
+
+**Cursos e certificações:** Google, HubSpot, Coursera, LinkedIn Learning. Mostre que você aprende de forma autônoma.
+
+**Experiências informais:** Ajudou o comércio da família? Organizou evento? Liderou projeto em grupo? Tudo conta quando descrito com impacto.
+
+## Estrutura ideal para CV de estudante/recém-formado
+
+1. **Dados de contato** + LinkedIn atualizado
+2. **Objetivo profissional** (3 linhas: quem você é, o que busca, o que oferece)
+3. **Educação** — coloque antes da experiência se não tem emprego formal
+4. **Projetos e experiências** (acadêmicos, voluntários, pessoais)
+5. **Habilidades técnicas** (ferramentas, idiomas, certificações)
+6. **Atividades extracurriculares**
+
+## Quantifique sempre que possível
+
+"Participei de empresa júnior" → "Gerenciei projeto de consultoria para 2 clientes da área de varejo, entregando análise de precificação que resultou em aumento de 15% na margem."
+
+Parece muito para uma experiência de empresa júnior? Não é — é descrever o que realmente aconteceu com precisão.
+
+## Erros fatais no CV de estudante
+
+- Objetivo genérico: "Busco oportunidade para agregar à empresa e crescer profissionalmente." Isso não diz nada.
+- Foto inadequada (selfie, foto de festa, foto muito casual)
+- Email não profissional (gatinho2002@hotmail.com)
+- Listar habilidades sem contexto: "Excel avançado" quando é intermediário
+- Mais de 2 páginas sem experiência suficiente para justificar`,
+      },
+      {
+        id: '49-2',
+        title: 'Onde e como encontrar estágios que valem a pena',
+        duration: '25 min',
+        content: `# Onde e como encontrar estágios que valem a pena
+
+## Plataformas principais para estágio no Brasil
+
+**Nube (nube.com.br):** Maior banco de estágios do Brasil. Todas as áreas, todos os estados.
+
+**Ciee (ciee.org.br):** Segundo maior. Forte em empresas públicas e tradicionais.
+
+**Gupy:** Usado por empresas médias e grandes para todos os processos seletivos incluindo estágio.
+
+**LinkedIn:** Cada vez mais relevante para estágios em startups e empresas de tech.
+
+**Programas diretos das empresas:** Bradesco, Itaú, Ambev, Natura, Vale, Embraer, Google, Amazon — todas têm programas próprios de estágio com inscrições anuais. Pesquise "programa de estágio [empresa] 2025" e cadastre-se diretamente.
+
+## Como se destacar no processo seletivo de estágio
+
+Processos de estágio costumam ter: triagem de CV → testes online (lógica, inglês, personalidade) → dinâmica de grupo → entrevista individual.
+
+**Testes online:** Pratique raciocínio lógico com apps como Brilll, Khan Academy. Inglês: Duolingo e séries legendadas. Não há atalho — pratique.
+
+**Dinâmica de grupo:** O avaliador observa como você se comporta em grupo, não quem grita mais. Contribua com ideias, ouça os outros, facilite quando o grupo travar. Liderança não é volume.
+
+**Entrevista:** Prepare respostas para "fale sobre você", "por que essa empresa", "qual seu maior desafio". Use o método STAR mesmo sem experiência formal — adapte para projetos e situações acadêmicas.
+
+## A estratégia que funciona: candidatura direta
+
+Além das plataformas, mande mensagem direta no LinkedIn para gestores ou profissionais das empresas que você quer. Não peça emprego — peça uma conversa.
+
+"Oi [Nome], sou estudante de [curso] na [universidade] e admiro muito o trabalho da [empresa] em [área específica]. Seria possível uma conversa de 15 minutos para entender melhor como é trabalhar aí e o que buscam em estagiários?"
+
+Taxa de resposta surpreendentemente alta — e quando uma vaga abre, você já é conhecido.
+
+## Estágio remunerado vs. não remunerado
+
+No Brasil, todo estágio deve ter bolsa-auxílio (mínimo legal varia por estado) + vale-transporte. Estágio sem remuneração alguma é ilegal.
+
+Priorize estágios onde você vai aprender habilidades transferíveis, trabalhar perto de profissionais experientes e ter responsabilidades reais — não fazer café e xerox.`,
+      },
+      {
+        id: '49-3',
+        title: 'Os primeiros 90 dias no estágio ou primeiro emprego',
+        duration: '25 min',
+        content: `# Os primeiros 90 dias no estágio ou primeiro emprego
+
+## A mentalidade certa para começar
+
+O primeiro emprego ou estágio é uma escola paga. Você está lá para aprender, não para provar que já sabe tudo. Profissionais que chegam humildes e curiosos progridem muito mais do que os que chegam querendo impressionar.
+
+Isso não significa ser passivo — significa ser ativo no aprendizado antes de ser ativo nas opiniões.
+
+## O que fazer nos primeiros 30 dias
+
+**Observe mais do que fala.** Entenda como as coisas funcionam, quem são as referências internas, qual é o ritmo do time, o que é valorizado.
+
+**Faça perguntas de qualidade.** "Pode me explicar por que fazemos X dessa forma?" é muito melhor que "por que não fazemos de outro jeito?" — demonstra curiosidade sem arrogância.
+
+**Entregue o básico com excelência.** Tarefas simples entregues com atenção ao detalhe constroem reputação mais rápido que projetos ambiciosos mal executados.
+
+**Anote tudo.** Processos, nomes, acrônimos da empresa, como o sistema funciona. Você vai precisar dessas informações e mostrar que anotou demonstra profissionalismo.
+
+## Erros que estudantes cometem no primeiro emprego
+
+**Chegar atrasado.** No estágio, pontualidade é básica — não tem flexibilidade de quem já provou valor.
+
+**Celular durante o trabalho.** Em reuniões e ao trabalhar em equipe, celular na mesa e visível envia mensagem errada.
+
+**Não perguntar quando não entende.** O custo de entregar errado é muito maior que o custo de perguntar.
+
+**Comparar com "na faculdade a gente fazia de outro jeito".** Guarde isso para quando tiver mais contexto.
+
+**Não se apresentar proativamente.** Nos primeiros dias, apresente-se para todas as pessoas com quem vai trabalhar. Não espere ser apresentado formalmente.
+
+## Como se destacar genuinamente
+
+Entregue antes do prazo quando possível. Não faça só o que foi pedido — pense um passo além: "entreguei o relatório; identifiquei também um padrão nos dados que pode ser relevante, posso compartilhar?"
+
+Peça feedback ativamente. Ao final de cada semana ou projeto, pergunte: "O que eu poderia ter feito melhor?" Gestores adoram estagiários que buscam feedback — é raro.`,
+      },
+      {
+        id: '49-4',
+        title: 'Da empresa júnior ao emprego: como alavancar experiências acadêmicas',
+        duration: '25 min',
+        content: `# Da empresa júnior ao emprego: como alavancar experiências acadêmicas
+
+## Por que empresa júnior é o melhor ativo do estudante
+
+Empresa júnior é a experiência acadêmica com maior retorno profissional. Você aprende consultoria, gestão de projetos, vendas, relacionamento com cliente — na prática, com risco real (cliente de verdade, projeto de verdade).
+
+Profissionais que passaram por empresa júnior são consistentemente preferidos em processos seletivos de consultorias, empresas de tech e startups.
+
+## Como descrever empresa júnior no CV
+
+Não escreva apenas o cargo. Descreva o impacto:
+
+❌ "Membro do time de projetos da Empresa Júnior de Administração"
+
+✅ "Consultora da [Nome da EJ] — conduzi 3 projetos de consultoria estratégica para PMEs do setor de serviços, gerenciando clientes da prospecção à entrega. Projeto de reestruturação de processos gerou redução de 20% no tempo de atendimento ao cliente."
+
+## Outras experiências acadêmicas que abrem portas
+
+**Iniciação Científica (IC):** Demonstra capacidade de pesquisa, metodologia, escrita técnica. Muito valorizado em consultorias e empresas que trabalham com dados.
+
+**Monitoria:** Mostra domínio de conteúdo e habilidade de ensinar — valorizado em treinamento corporativo, educação, e como sinal de inteligência.
+
+**Organização de eventos (semanas acadêmicas, congressos):** Gestão de projetos na prática — orçamento, fornecedores, equipe, prazo.
+
+**Competições acadêmicas (casos, hackathons, olimpíadas):** Processos seletivos adoram candidatos que competiram e se destacaram.
+
+## Como usar o LinkedIn durante a faculdade
+
+Crie o perfil no primeiro semestre, não na véspera de se formar. Conecte-se com professores, colegas de empresa júnior, profissionais que encontrar em eventos.
+
+Publique sobre projetos acadêmicos, artigos interessantes com sua opinião, aprendizados de estágio. Você não precisa ter audiência — precisa ter presença que recrutadores encontrem quando pesquisarem seu nome.
+
+## A transição de estagiário para CLT
+
+Muitas empresas convertem estagiários de destaque em funcionários CLT. Para maximizar essa chance:
+- Demonstre interesse explícito em continuar ("estou adorando trabalhar aqui e me vejo construindo carreira nessa área")
+- Entregue consistentemente acima do esperado nos últimos 3 meses de estágio
+- Construa relacionamento além do gestor imediato — quando a decisão de conversão chega, múltiplas pessoas precisam te conhecer e apoiar`,
+      },
+    ],
+  },
+  {
+    id: 50,
+    title: 'Comunicação Profissional do Zero',
+    desc: 'Como escrever emails, conduzir reuniões, dar feedback e se comunicar com clareza em qualquer ambiente de trabalho.',
+    duration: '2h 40min',
+    icon: '✉️',
+    isPro: false,
+    color: { bg: 'bg-cyan-50', border: 'border-cyan-200', badge: 'bg-cyan-100 text-cyan-700', icon: 'bg-cyan-500' },
+    lessons: [
+      {
+        id: '50-1',
+        title: 'Email profissional: estrutura, tom e erros que custam credibilidade',
+        duration: '25 min',
+        content: `# Email profissional: estrutura, tom e erros que custam credibilidade
+
+## Por que email ainda importa
+
+Apesar do Slack, Teams e WhatsApp, email continua sendo o canal formal de comunicação profissional. Um email mal escrito para um cliente, gestor ou executivo pode prejudicar sua reputação de forma desproporcional ao erro cometido.
+
+## Estrutura de um email profissional eficaz
+
+**Assunto:** Específico e acionável.
+- ❌ "Reunião"
+- ✅ "Confirmação de reunião — Projeto X — Quinta 14h"
+- ✅ "Aprovação necessária: proposta para Cliente Y até sexta"
+
+**Saudação:** Adapte ao contexto.
+- Formal/cliente externo: "Prezado(a) [Nome],"
+- Interno/colega: "Oi [Nome]," ou "Olá [Nome],"
+- Nunca: "Bom dia/tarde/noite" como única saudação (a hora de leitura é imprevisível)
+
+**Corpo:** Uma ideia por email. Estruture em parágrafos curtos. Máximo 5-7 linhas por parágrafo.
+
+**Call to action claro:** O que você precisa do destinatário? Quando?
+- "Pode confirmar sua presença até quarta?"
+- "Aguardo sua aprovação para prosseguir."
+
+**Assinatura:** Nome, cargo, empresa, telefone. Configure uma vez e esqueça.
+
+## Tom: o equilíbrio entre formal e humano
+
+Emails muito formais soam frios e distantes. Emails muito informais podem parecer pouco profissionais. O alvo é **claro e humano**.
+
+❌ "Venho por meio do presente comunicado solicitar..."
+✅ "Estou escrevendo para pedir..."
+
+❌ "Espero que este email te encontre bem" (genérico e vazio)
+✅ Vá direto ao ponto ou faça uma referência específica: "Vi que o projeto foi aprovado — ótima notícia!"
+
+## Os 7 erros mais comuns
+
+1. **Responder apenas para o remetente quando deveria ser "responder a todos"** (e vice-versa)
+2. **Esquecer o anexo** após mencionar que está enviando em anexo
+3. **Tom agressivo quando irritado** — escreva, salve como rascunho, releia depois de 1h
+4. **CC excessivo** — copie apenas quem precisa ser informado
+5. **Assunto vago ou sem assunto**
+6. **Parágrafos enormes** sem quebras
+7. **Erros de ortografia em emails importantes** — use o corretor, releia antes de enviar`,
+      },
+      {
+        id: '50-2',
+        title: 'Reuniões que funcionam: como participar e como liderar',
+        duration: '25 min',
+        content: `# Reuniões que funcionam: como participar e como liderar
+
+## Como participar de reuniões de forma que constrói reputação
+
+A maioria das pessoas vai a reuniões em modo passivo — ouve, concorda, sai. Profissionais que avançam na carreira participam de forma que agrega e que é notada.
+
+**Prepare-se:** Leia a pauta com antecedência. Chegue com pelo menos uma pergunta ou contribuição preparada.
+
+**Contribua com qualidade, não quantidade:** Uma observação precisa vale mais que cinco vagas. "Esse dado contradiz o que vimos no relatório de março — vale investigar antes de decidir" é contribuição de alto valor.
+
+**Tome notas visíveis:** Mostrar que você está registrando sinaliza engajamento. Também garante que você vai lembrar o que foi decidido.
+
+**Não domine nem desapareça:** Grupos têm pessoas que falam demais e pessoas que não falam nada. Os dois extremos reduzem credibilidade.
+
+## Como liderar uma reunião eficaz
+
+**Envie pauta com antecedência:** "Reunião sobre [tema]" não é pauta. Pauta é: "1) Decisão sobre fornecedor X (20 min) 2) Atualização do cronograma — quem fala: Ana (10 min) 3) Próximos passos (5 min)."
+
+**Comece pontualmente:** Esperar retardatários punish quem chegou na hora.
+
+**Mantenha o foco:** Quando a conversa deriva, redirecione: "Boa discussão — vamos registrar esse ponto para depois. Voltando ao item 2..."
+
+**Termine com clareza:** Antes de encerrar: "Decisões tomadas: [X]. Próximos passos: [Y] faz [Z] até [data]."
+
+**Envie resumo:** Email de follow-up em até 1h com decisões e responsáveis. Isso diferencia reuniões que geram ação de reuniões que geram conversas.
+
+## Reuniões por vídeo: etiqueta específica
+
+- Câmera ligada quando possível — presença visual importa
+- Microfone mutado quando não estiver falando
+- Fundo limpo ou virtual profissional
+- Não cheque email ou redes durante a call — é perceptível`,
+      },
+      {
+        id: '50-3',
+        title: 'Como dar e receber feedback sem drama',
+        duration: '20 min',
+        content: `# Como dar e receber feedback sem drama
+
+## Por que feedback é uma habilidade de carreira
+
+Profissionais que sabem dar feedback claro fazem os times ao redor deles melhores. Profissionais que sabem receber feedback aprendem mais rápido. As duas habilidades, juntas, são diferenciais raros e muito valorizados em lideranças.
+
+## Como dar feedback eficaz
+
+**O modelo SBI (Situação - Comportamento - Impacto):**
+
+- **Situação:** "Na reunião de ontem com o cliente..."
+- **Comportamento:** "...quando o cliente fez uma objeção, você interrompeu antes dele terminar..."
+- **Impacto:** "...e percebi que ele ficou na defensiva pelo resto da reunião, o que dificultou o fechamento."
+
+Esse modelo é específico, factual e conectado ao impacto — sem julgamento de caráter.
+
+**O que evitar:**
+- Generalizações: "você sempre faz isso"
+- Feedback em público sobre comportamento pessoal
+- Feedback em email (conversas difíceis são presenciais ou por vídeo)
+- Acumular e explodir: dê feedback próximo ao evento, não meses depois
+
+## Como receber feedback sem se defender
+
+A reação instintiva ao feedback crítico é se defender. É humana e contraproducente.
+
+Quando receber feedback:
+1. **Ouça completamente** sem interromper
+2. **Agradeça** genuinamente: "Obrigado por falar — sei que não é fácil dar esse retorno"
+3. **Clarifique se não entendeu:** "Pode me dar um exemplo específico?"
+4. **Reflita antes de responder:** "Deixa eu pensar sobre isso"
+
+Você não precisa concordar com todo feedback. Mas precisa ouvir e considerar antes de descartar.
+
+## Como pedir feedback proativamente
+
+"O que eu poderia ter feito diferente nessa apresentação?" é melhor que "o que você achou?"
+
+Perguntas específicas geram respostas específicas. Perguntas abertas geram "foi bom" — que não te ajuda a crescer.`,
+      },
+      {
+        id: '50-4',
+        title: 'Comunicação assertiva: como falar o que precisa sem conflito',
+        duration: '20 min',
+        content: `# Comunicação assertiva: como falar o que precisa sem conflito
+
+## Os três estilos de comunicação
+
+**Passivo:** evita conflito a qualquer custo, concorda quando discorda, não expressa necessidades. Resultado: ressentimento acumulado, invisibilidade profissional.
+
+**Agressivo:** impõe opinião, interrompe, invalida os outros. Resultado: conflitos, reputação negativa, pessoas que evitam trabalhar junto.
+
+**Assertivo:** expressa opinião e necessidades com clareza e respeito. Resultado: relações profissionais saudáveis, respeito mútuo, problemas resolvidos.
+
+A comunicação assertiva não é ser grosseiro. É ser claro.
+
+## Frases assertivas para situações comuns
+
+**Quando discorda:**
+❌ "Tá, pode ser..." (passivo)
+❌ "Isso está errado." (agressivo)
+✅ "Tenho uma perspectiva diferente. Posso compartilhar?"
+
+**Quando está sobrecarregado:**
+❌ Aceita calado e entrega mal
+❌ "Não posso fazer isso, já tenho muito trabalho!"
+✅ "Posso pegar isso, mas precisa sair algo da minha lista. O que você prefere que eu priorize?"
+
+**Quando algo te incomodou:**
+❌ Guardar e ferver internamente
+❌ "Você foi muito desrespeitoso!"
+✅ "Quando você [comportamento específico], eu me senti [impacto]. Podemos alinhar como evitar isso?"
+
+**Quando não sabe algo:**
+❌ Fingir que sabe
+✅ "Não sei, mas descubro e te retorno até [prazo]."
+
+## Comunicação assertiva com hierarquia
+
+Ser assertivo com gestores e seniores é onde a maioria tem mais dificuldade. A chave: discorde com dados e perguntas, não com opiniões.
+
+"Entendo a lógica, mas tenho uma dúvida: os dados de março mostram [X]. Como você vê essa discrepância?" é muito mais eficaz — e seguro — do que "acho que você está errado."`,
+      },
+    ],
+  },
+  {
+    id: 51,
+    title: 'Carreira em RH e People Management',
+    desc: 'O mapa completo da carreira em Recursos Humanos: recrutamento, T&D, HRBP, People Ops e como chegar ao CHRO.',
+    duration: '3h 20min',
+    icon: '👥',
+    isPro: true,
+    color: { bg: 'bg-rose-50', border: 'border-rose-200', badge: 'bg-rose-100 text-rose-700', icon: 'bg-rose-500' },
+    lessons: [
+      {
+        id: '51-1',
+        title: 'O ecossistema de RH: especialidades, salários e o que cada área faz',
+        duration: '30 min',
+        content: `# O ecossistema de RH: especialidades, salários e o que cada área faz
+
+## Por que RH mudou radicalmente na última década
+
+RH tradicional era burocrático: folha de pagamento, admissão, demissão, normas. RH moderno é estratégico: atrai e retém talentos, desenvolve lideranças, constrói cultura, usa dados para decisões.
+
+Essa transformação criou papéis completamente novos e tornou obsoletos outros. Saber onde está o futuro da área é fundamental para construir uma carreira sólida.
+
+## As principais especialidades de RH
+
+### Talent Acquisition (Recrutamento e Seleção)
+
+Atrai e contrata os melhores talentos. Em empresas maduras, é muito mais que postar vagas — envolve employer branding, estratégia de sourcing, análise de mercado de talentos.
+
+- **Salário BR:** R$ 4.000–12.000 (headhunters seniores ganham muito mais via comissão)
+- **Ferramentas:** LinkedIn Recruiter, Gupy, Greenhouse, Lever
+
+### T&D — Treinamento e Desenvolvimento
+
+Desenvolve habilidades dos colaboradores: programas de onboarding, trilhas de aprendizagem, lideranças. Cada vez mais usa e-learning e microlearning.
+
+- **Salário BR:** R$ 4.500–12.000
+
+### HRBP — HR Business Partner
+
+O mais estratégico dos papéis de RH. O HRBP atua como consultor interno de RH para uma área específica do negócio (ex: HRBP de Tecnologia, HRBP de Vendas). Entende profundamente o negócio e usa práticas de pessoas para ajudar a atingir metas.
+
+- **Salário BR:** R$ 8.000–20.000
+- **Pré-requisito:** experiência prévia em outras áreas de RH + entendimento de negócio
+
+### People Analytics
+
+Usa dados para decisões de RH: turnover, engajamento, performance, predição de saída. Papel novo e muito demandado em empresas maduras.
+
+- **Salário BR:** R$ 7.000–18.000
+- **Skills:** SQL, Power BI ou Tableau, estatística básica
+
+### Compensation & Benefits (C&B)
+
+Estrutura remuneração e benefícios: faixas salariais, planos de equity, pacotes de benefícios, benchmark de mercado.
+
+- **Salário BR:** R$ 6.000–16.000
+
+### People Ops / HR Operations
+
+Garante que os processos de RH funcionem: sistemas de HRIS, folha de pagamento, compliance trabalhista. Mais operacional, mas essencial.
+
+### CHRO — Chief Human Resources Officer
+
+Liderança máxima de RH. Reporta ao CEO, senta no comitê executivo, define estratégia de pessoas.
+
+- **Salário BR:** R$ 30.000–80.000+
+
+## RH em startups vs. empresas tradicionais
+
+Em startups early-stage, o primeiro profissional de RH faz tudo: recruta, cria processos, gere benefícios, constrói cultura. É caótico e muito rico de aprendizado.
+
+Em grandes empresas, cada especialidade é separada. Você vai mais fundo em menos coisas — o que é bom para se tornar referência em uma área.`,
+      },
+      {
+        id: '51-2',
+        title: 'Talent Acquisition moderno: recrutamento que vai além de postar vagas',
+        duration: '30 min',
+        content: `# Talent Acquisition moderno: recrutamento que vai além de postar vagas
+
+## O recrutador moderno não espera candidatos — vai atrás deles
+
+Recrutamento reativo (postar vaga e esperar) é insuficiente para posições estratégicas e altamente disputadas. Talent Acquisition moderna inclui:
+
+**Sourcing ativo:** Buscar candidatos passivos — pessoas que não estão procurando emprego mas são excelentes. LinkedIn Recruiter, Boolean search no Google, GitHub para devs, portfólios, comunidades especializadas.
+
+**Employer Branding:** Construir a reputação da empresa como boa empregadora. Conteúdo no LinkedIn, resposta a reviews no Glassdoor, presença em eventos. Candidatos pesquisam a empresa antes de aceitar — o que eles encontram importa.
+
+**Candidate Experience:** Como o candidato se sente durante o processo seletivo. Um processo longo, sem feedback, com comunicação ruim, afasta talentos bons — que têm opções.
+
+## As etapas de um processo seletivo bem estruturado
+
+1. **Job analysis:** Entender com o gestor o que realmente é necessário — não só o que está na JD histórica
+2. **Sourcing:** Onde estão esses profissionais? Como chegar até eles?
+3. **Triagem:** CV + fit básico. Rápida, critérios claros.
+4. **Entrevista de RH:** Cultura, valores, expectativas, fit
+5. **Entrevista técnica/com gestor:** Competências específicas
+6. **Assessment (quando relevante):** Testes técnicos, case, referências
+7. **Oferta e negociação**
+8. **Onboarding:** O recrutamento não termina com a contratação — o novo funcionário precisa ser integrado bem
+
+## Métricas que todo recrutador precisa acompanhar
+
+- **Time to fill:** Dias entre abertura da vaga e contratação
+- **Time to hire:** Dias entre primeiro contato com o candidato e aceitação da oferta
+- **Offer acceptance rate:** % de ofertas aceitas — baixo indica problema de competitividade ou processo
+- **Quality of hire:** Performance dos contratados nos primeiros 6-12 meses
+- **Candidate NPS:** Como os candidatos avaliam a experiência, mesmo os não contratados
+
+## Ferramentas essenciais para recrutadores modernos
+
+**ATS (Applicant Tracking System):** Gupy, Greenhouse, Lever, Workday. Organiza o pipeline de candidatos.
+
+**LinkedIn Recruiter:** Ferramenta paga do LinkedIn para sourcing ativo. Indispensável em empresas que contratam volume.
+
+**Boolean search:** Técnica de busca avançada no Google e LinkedIn. Exemplo: site:linkedin.com + "data scientist" + "São Paulo" + "Python". Acha perfis que a busca simples não encontra.`,
+      },
+      {
+        id: '51-3',
+        title: 'HRBP: como se tornar parceiro estratégico de negócio',
+        duration: '30 min',
+        content: `# HRBP: como se tornar parceiro estratégico de negócio
+
+## O que é ser um HRBP de verdade
+
+HRBP (HR Business Partner) é o papel de RH com maior potencial de impacto e mais difícil de executar bem. A diferença entre um HRBP bom e um ruim:
+
+**HRBP operacional (comum):** Atende demandas do gestor reativas — "preciso contratar alguém", "tenho um problema de performance com um funcionário". Executa processos.
+
+**HRBP estratégico (raro):** Entende o negócio tão bem quanto o gestor. Antecipa problemas de pessoas antes de virarem crises. Usa dados para propor ações. Senta nas reuniões de planejamento estratégico da área.
+
+## As competências que separam os dois
+
+**Entendimento de negócio:** Um HRBP de vendas precisa entender o ciclo de vendas, as métricas da área (pipeline, conversion rate, CAC), os desafios do time. Sem isso, fica sempre reagindo.
+
+**Diagnóstico organizacional:** Identificar quando um problema de "performance individual" é na verdade problema de processo, liderança, ou estrutura. Resolver o sintoma sem tratar a causa é ineficácia disfarçada de produtividade.
+
+**Facilitação de conversas difíceis:** O HRBP frequentemente media conflitos entre líderes, facilita conversas de feedback que o gestor não consegue ter, apoia desligamentos e reestruturações.
+
+**Dados de pessoas:** Usar analytics para embasar recomendações. "Nossa área tem turnover 40% acima da média da empresa nos últimos 6 meses — o padrão de saídas indica problema na liderança do time Y" é muito mais poderoso que intuição.
+
+## Como construir a carreira de HRBP
+
+A trajetória mais comum:
+1. Começa em T&D, recrutamento ou generalista de RH
+2. Desenvolve entendimento de negócio — voluntariamente participa de projetos além de RH
+3. Transição para HRBP júnior ou generalista sênior
+4. HRBP pleno atendendo uma área
+5. HRBP sênior atendendo áreas maiores ou mais estratégicas
+6. HR Director ou CHRO
+
+O atalho: trabalhar em empresas que tratam RH como estratégico desde o início. Em empresas onde RH é visto como departamento pessoal, dificilmente você vai desenvolver as habilidades de HRBP real.`,
+      },
+      {
+        id: '51-4',
+        title: 'People Analytics: usando dados para decisões de pessoas',
+        duration: '20 min',
+        content: `# People Analytics: usando dados para decisões de pessoas
+
+## Por que People Analytics é o futuro do RH
+
+Decisões de RH historicamente eram baseadas em intuição e experiência. People Analytics muda isso: usa dados para responder perguntas como:
+
+- Quais características dos candidatos contratados preveem alta performance?
+- Quais fatores predizem que um funcionário vai sair nos próximos 6 meses?
+- Qual é o ROI dos programas de treinamento?
+- Quais gestores têm times com maior engajamento e por quê?
+
+Organizações que usam analytics em decisões de pessoas têm menor turnover, maior engajamento e processos de contratação mais eficientes.
+
+## Os níveis de maturidade em People Analytics
+
+**Descritivo (nível 1):** O que aconteceu? Dashboards de headcount, turnover, absenteísmo. A maioria das empresas está aqui.
+
+**Diagnóstico (nível 2):** Por que aconteceu? Cruzar dados de engajamento com dados de performance para entender relações.
+
+**Preditivo (nível 3):** O que vai acontecer? Modelos que predizem risco de saída, potencial de performance.
+
+**Prescritivo (nível 4):** O que devemos fazer? Recomendações baseadas em dados para ações específicas.
+
+## Habilidades para entrar em People Analytics
+
+**Imprescindível:** Excel avançado, lógica de análise de dados, comunicação de insights para não-analistas.
+
+**Diferencial:** SQL para extrair dados de sistemas de RH, Power BI ou Tableau para visualização.
+
+**Avançado:** Python ou R para modelos preditivos, estatística aplicada.
+
+## Como começar mesmo sem experiência em analytics
+
+1. Aprenda SQL (Mode Analytics Tutorial — gratuito)
+2. Obtenha a certificação Google Data Analytics (Coursera)
+3. Construa um projeto pessoal: analise dados públicos de RH (o Kaggle tem datasets de RH) e publique a análise
+4. Proponha iniciativas de analytics na empresa atual — mesmo pequenas`,
+      },
+    ],
+  },
+  {
+    id: 52,
+    title: 'Síndrome do Impostor e Autoconfiança Profissional',
+    desc: 'Como reconhecer e superar a síndrome do impostor, construir autoconfiança real e parar de sabotar sua própria carreira.',
+    duration: '2h 50min',
+    icon: '🧠',
+    isPro: false,
+    color: { bg: 'bg-purple-50', border: 'border-purple-200', badge: 'bg-purple-100 text-purple-700', icon: 'bg-purple-500' },
+    lessons: [
+      {
+        id: '52-1',
+        title: 'O que é a síndrome do impostor e por que afeta os mais competentes',
+        duration: '25 min',
+        content: `# O que é a síndrome do impostor e por que afeta os mais competentes
+
+## A definição
+
+Síndrome do impostor é a experiência persistente de acreditar que você não é tão competente quanto os outros percebem, e que em algum momento as pessoas vão "descobrir" que você não merece o lugar que ocupa.
+
+O termo foi criado em 1978 pelas psicólogas Pauline Clance e Suzanne Imes. Desde então, estudos mostram que afeta cerca de 70% das pessoas em algum momento da vida — incluindo CEOs, acadêmicos renomados, atletas olímpicos.
+
+## O paradoxo central
+
+A síndrome do impostor tende a ser inversamente proporcional à incompetência. Ou seja: pessoas realmente incompetentes raramente sentem síndrome do impostor — elas não têm autoconsciência suficiente para isso (é o chamado Efeito Dunning-Kruger).
+
+Quem sente síndrome do impostor geralmente é quem: tem alta autoconsciência, se importa com qualidade, está em ambientes desafiadores, e tem padrões elevados para si mesmo.
+
+## Como ela se manifesta no trabalho
+
+- Atribuir sucesso à sorte, ao timing, ou à ajuda dos outros — nunca à própria competência
+- Medo desproporcional de cometer erros
+- Dificuldade em aceitar elogios ("obrigado, mas foi fácil", "qualquer um faria")
+- Trabalhar excessivamente para "compensar" a suposta incompetência
+- Evitar novas oportunidades por medo de ser "exposto"
+- Comparar seu "interior" (dúvidas, medos, esforço) com o "exterior" dos outros (confiança aparente, facilidade)
+
+## Por que afeta mais mulheres e grupos sub-representados
+
+Ambientes onde você é minoria (mulher em tech, negro em consultoria, jovem entre seniores) amplificam a síndrome. Quando você não vê pessoas como você em posições de referência, é mais difícil se imaginar como legítimo.
+
+Isso não significa que homens brancos não sentem síndrome do impostor — sentem. Mas as condições estruturais de alguns grupos amplificam o efeito.
+
+## O primeiro passo: nomear
+
+Reconhecer a síndrome do impostor quando ela acontece — "isso é a síndrome do impostor falando, não é fato" — já reduz seu poder. Você não precisa acreditar em cada pensamento que tem sobre si mesmo.`,
+      },
+      {
+        id: '52-2',
+        title: 'Técnicas práticas para superar o impostor no dia a dia',
+        duration: '25 min',
+        content: `# Técnicas práticas para superar o impostor no dia a dia
+
+## 1. O arquivo de evidências
+
+Crie um documento (ou pasta física) onde você registra evidências concretas da sua competência:
+- Elogios que recebeu (copie o email, a mensagem)
+- Resultados que entregou com dados
+- Feedbacks positivos de gestores, clientes, colegas
+- Conquistas que você costuma minimizar
+
+Quando a voz do impostor falar ("você não merece isso"), abra o arquivo. Evidência é mais forte que crença.
+
+## 2. Reframing de atribuição
+
+Exercício: quando você atribui um sucesso à sorte ou a fatores externos, pergunte-se:
+- "O que eu fiz que contribuiu para esse resultado?"
+- "Se outra pessoa estivesse no meu lugar sem minhas habilidades, teria o mesmo resultado?"
+
+Atribuição externa crônica é o mecanismo central da síndrome. Quebrá-la deliberadamente reconstrói a relação com seu próprio valor.
+
+## 3. Falar sobre isso com pessoas de confiança
+
+A síndrome do impostor se alimenta do segredo. Quando você conta para um colega ou mentor que está sentindo que não merece estar onde está, dois efeitos acontecem:
+
+Primeiro: a pessoa frequentemente diz "eu também sinto isso" — e você percebe que não está sozinho.
+
+Segundo: ouvir de alguém de fora como eles te percebem vs. como você se percebe cria dissonância que enfraquece a voz do impostor.
+
+## 4. Distinguir "não sei" de "não sou capaz"
+
+Síndrome do impostor transforma lacunas de conhecimento em falhas de caráter. "Não sei Python ainda" vira "não sou suficientemente técnico".
+
+Treine a separação: "Ainda não sei X. Posso aprender." É diferente de "Não tenho capacidade para X."
+
+## 5. Agir apesar do medo
+
+A autoconfiança não vem antes da ação — vem depois. Você não vai se sentir confiante para fazer a apresentação antes de fazê-la. Você vai se sentir confiante depois de ter feito, mesmo que imperfeita.
+
+A fórmula invertida: ação → evidência → confiança. Não: confiança → ação.`,
+      },
+      {
+        id: '52-3',
+        title: 'Autoconfiança vs. arrogância: como se posicionar com autoridade',
+        duration: '20 min',
+        content: `# Autoconfiança vs. arrogância: como se posicionar com autoridade
+
+## A confusão que paralisa
+
+Muitas pessoas com síndrome do impostor têm medo de parecer arrogantes se expressarem confiança. Então ficam no extremo oposto: minimizam conquistas, pedem desculpa por opiniões, se qualificam excessivamente.
+
+A diferença entre autoconfiança e arrogância:
+
+**Autoconfiança:** "Tenho essa perspectiva baseada em [experiência/dado]. Estou aberto a aprender mais sobre isso."
+
+**Arrogância:** "Tenho essa perspectiva e qualquer visão diferente está errada."
+
+Autoconfiança inclui abertura. Arrogância exclui.
+
+## Linguagem que sinaliza (in)segurança
+
+**Linguagem que mina sua autoridade:**
+- "Talvez eu esteja errado, mas..."
+- "Desculpa incomodar, mas..."
+- "Isso pode ser besteira, mas..."
+- "Eu acho que... não sei..."
+
+**Linguagem que comunica com autoridade:**
+- "Na minha perspectiva..."
+- "Com base no que vi em [projeto/dado]..."
+- "Minha recomendação é..."
+- "Tenho uma visão diferente — posso compartilhar?"
+
+Você pode ser questionável e humilde sem se anular. A qualificação excessiva antes de falar já cria expectativa negativa no ouvinte.
+
+## Como se posicionar em reuniões
+
+O teste: quantas vezes você teve uma ideia em uma reunião, ficou com ela, e alguém disse a mesma ideia depois e recebeu todo o crédito?
+
+A razão é quase sempre síndrome do impostor: "e se for uma ideia ruim?", "provavelmente alguém já pensou nisso".
+
+Treine a regra dos 3 segundos: quando tiver uma contribuição, fale nos primeiros 3 segundos depois de ter o impulso. Quanto mais você espera, mais o impostor encontra motivos para calar.`,
+      },
+      {
+        id: '52-4',
+        title: 'Quando buscar ajuda: terapia, mentoria e comunidade como aliados',
+        duration: '20 min',
+        content: `# Quando buscar ajuda: terapia, mentoria e comunidade como aliados
+
+## A síndrome do impostor severa precisa de suporte estruturado
+
+Técnicas de autoajuda funcionam para síndrome do impostor leve a moderada. Quando ela é severa — impede você de aceitar promoções, paralisa tomada de decisão, causa ansiedade crônica, afeta saúde — o suporte profissional é necessário.
+
+## Terapia cognitivo-comportamental (TCC)
+
+A abordagem com mais evidência científica para síndrome do impostor. A TCC trabalha exatamente o mecanismo central: identificar pensamentos automáticos negativos, questionar sua validade, substituir por crenças mais funcionais.
+
+Não precisa ter "problema sério" para ir à terapia. Desenvolvimento profissional é razão suficiente.
+
+## Mentoria como espelho
+
+Um mentor que te conhece bem e te diz com frequência o que ele vê em você — não o que você acha que ele deveria ver — é um dos antídotos mais poderosos para a síndrome do impostor.
+
+A diferença do mentor para o amigo: o mentor tem contexto profissional e credibilidade para que o feedback seja crível. Quando seu amigo diz "você é muito bom", você pode minimizar. Quando um executivo que te conhece diz o mesmo, é mais difícil descartar.
+
+## Comunidades de pares
+
+Grupos onde pessoas no mesmo nível de carreira falam abertamente sobre dúvidas e medos normalizam a experiência. Saber que o colega que parece seguro também sente síndrome do impostor muda como você interpreta a sua.
+
+Comunidades online (Slack, Discord, grupos do LinkedIn) por área, gênero, ou fase de carreira costumam ser espaços seguros para essas conversas.
+
+## O objetivo não é eliminar o impostor — é conviver
+
+A meta não é se tornar alguém sem dúvida ou medo. É desenvolver a capacidade de agir apesar deles. Os profissionais mais bem-sucedidos que você admira provavelmente ainda sentem síndrome do impostor — eles simplesmente aprenderam a não deixar que ela vete suas escolhas.`,
+      },
+    ],
+  },
+  {
+    id: 53,
+    title: 'Equity, Stock Options e Remuneração em Startups',
+    desc: 'Como funciona equity, como avaliar uma oferta com stock options, o que negociar e quando equity realmente vale a pena.',
+    duration: '2h 40min',
+    icon: '📊',
+    isPro: true,
+    color: { bg: 'bg-amber-50', border: 'border-amber-200', badge: 'bg-amber-100 text-amber-700', icon: 'bg-amber-500' },
+    lessons: [
+      {
+        id: '53-1',
+        title: 'O que é equity e como funciona na prática',
+        duration: '30 min',
+        content: `# O que é equity e como funciona na prática
+
+## Por que entender equity é essencial se você trabalha ou quer trabalhar em startups
+
+Equity é participação na empresa. Quando uma startup oferece equity, ela está dizendo: "Parte da sua compensação é uma fatia do que a empresa vai valer no futuro."
+
+Isso pode significar nada (se a empresa não crescer ou fechar), ou pode significar muito — há histórias de funcionários de startups que ficaram milionários após um IPO ou aquisição.
+
+O problema é que a maioria dos profissionais aceita equity sem entender o que está aceitando.
+
+## As formas mais comuns de equity
+
+### Stock Options (Opções de Ações)
+
+O modelo mais comum em startups. Você recebe o **direito** de comprar ações da empresa por um preço fixo (strike price ou exercise price) no futuro.
+
+**Como funciona:**
+1. A empresa te concede 10.000 opções com strike price de R$ 1/ação
+2. Após o vesting (explicado abaixo), você pode exercer as opções — pagar R$ 1/ação e receber ações reais
+3. Se a empresa valer R$ 10/ação quando você exercer, cada opção vale R$ 9 de lucro
+4. Se a empresa valer menos que R$ 1, suas opções não valem nada ("underwater")
+
+### RSUs (Restricted Stock Units)
+
+Mais comuns em empresas maiores e pré-IPO. Em vez de uma opção de compra, você recebe ações diretamente — mas com restrições de quando pode vendê-las.
+
+### Phantom Shares / Participação nos Lucros
+
+Comum no Brasil onde emissão de ações para funcionários tem burocracia maior. Você não recebe ação real — recebe direito a um valor equivalente ao que teria se tivesse ações, em caso de evento de liquidez.
+
+## Vesting: o calendário que determina tudo
+
+Vesting é o calendário de tempo que você precisa ficar na empresa para ter direito ao equity.
+
+**Cliff:** Período inicial sem direito a nada. Geralmente 1 ano. Se você sair antes de 1 ano, perde tudo.
+
+**Vesting schedule:** Após o cliff, as opções vencem progressivamente. O mais comum é 4 anos com cliff de 1 ano:
+- Mês 12: 25% vested (o cliff)
+- Meses 13-48: 1/48 por mês
+- Mês 48: 100% vested
+
+**Aceleração:** Algumas empresas incluem aceleração em caso de aquisição — você recebe o equity antecipadamente se a empresa for comprada.
+
+## O que ninguém te conta: dilution
+
+Quando a startup capta novas rodadas de investimento, emite novas ações — o que dilui a participação de todos. Suas 10.000 opções que representavam 0,5% da empresa podem virar 0,2% depois de rodadas de Series A, B, C.
+
+Isso não é necessariamente ruim — se a empresa cresce em valor, 0,2% de algo grande vale mais que 0,5% de algo pequeno. Mas é importante entender que o percentual que você assinou não é o percentual final.`,
+      },
+      {
+        id: '53-2',
+        title: 'Como avaliar uma oferta com equity: o que perguntar antes de assinar',
+        duration: '25 min',
+        content: `# Como avaliar uma oferta com equity: o que perguntar antes de assinar
+
+## As perguntas que você deve fazer sempre
+
+Antes de aceitar qualquer oferta com equity, obtenha respostas para estas perguntas. Se a empresa se recusar a responder, é sinal de alerta.
+
+**1. Quantas opções você está recebendo?**
+Número absoluto sem contexto não significa nada. 10.000 opções em uma empresa com 1 bilhão de ações é diferente de 10.000 opções em uma empresa com 10 milhões de ações.
+
+**2. Qual é o total de ações fully diluted?**
+"Fully diluted" inclui todas as ações existentes + todas as opções emitidas (mesmo as não exercidas). Divida suas opções pelo total fully diluted para saber seu percentual real.
+
+**3. Qual é a avaliação atual da empresa (valuation)?**
+Com o percentual e o valuation atual, você pode calcular o valor teórico do seu equity hoje. Mas lembre: startups são ilíquidas — você não pode vender agora.
+
+**4. Qual é o strike price?**
+Quanto você vai pagar por ação quando exercer. Quanto menor o strike price em relação ao valor atual da ação, melhor.
+
+**5. Existe preferência de liquidação (liquidation preference)?**
+Investidores frequentemente têm preferência de liquidação — em caso de venda, eles recebem primeiro (geralmente 1x-2x o investimento). Em saídas menores, funcionários podem não receber nada mesmo com equity.
+
+**6. Qual é o vesting schedule e existe cliff?**
+Padrão: 4 anos com cliff de 1 ano. Qualquer coisa muito diferente disso, questione.
+
+**7. Quanto tempo tenho para exercer as opções após sair?**
+O padrão antigo era 90 dias. Empresas mais modernas oferecem 5-10 anos. 90 dias pode criar uma situação impossível — você pode ter que pagar muito para exercer ou perder tudo.
+
+## Como calcular o valor esperado do seu equity
+
+Equity em startup tem valor esperado, não valor certo. Para estimar:
+
+1. Valor atual das suas opções = (preço atual da ação − strike price) × número de opções
+2. Probabilidade de evento de liquidez × múltiplo esperado de crescimento
+3. Impacto da diluição em rodadas futuras
+
+Exemplo simplificado: você tem opções que valem R$ 50.000 hoje. A empresa está crescendo 3x ao ano e planeja IPO em 3 anos. Se crescer como esperado, suas opções podem valer R$ 400.000+ — mas há risco real de a empresa não chegar lá.
+
+## O equity não substitui salário de mercado
+
+Regra prática: nunca aceite salário significativamente abaixo do mercado em troca de equity, a menos que esteja em momento muito early-stage (seed/pré-seed) com co-fundadores. O equity pode não valer nada. O salário abaixo de mercado é certo.
+
+A equação: aceite um pequeno desconto no salário por equity alto em empresa com tracção clara. Não aceite um grande desconto por equity em empresa que ainda não provou nada.`,
+      },
+      {
+        id: '53-3',
+        title: 'Negociando equity: o que você pode e deve pedir',
+        duration: '25 min',
+        content: `# Negociando equity: o que você pode e deve pedir
+
+## Equity é negociável — mais do que você imagina
+
+A maioria dos profissionais não negocia equity porque não sabe que pode ou porque não entende o que pedir. Empresas esperam negociação — especialmente para posições seniores e estratégicas.
+
+## O que negociar
+
+**Número de opções/ações:** O mais óbvio. Peça mais do que a oferta inicial. A empresa tem uma faixa — a oferta inicial geralmente não é o máximo disponível.
+
+**Strike price:** O strike price é definido pelo 409A valuation (avaliação independente). Você não negocia o strike price, mas pode negociar o timing da concessão — quanto antes você recebe, menor o strike price tende a ser.
+
+**Vesting schedule:** Peça aceleração em caso de demissão sem justa causa (involuntary termination). Se a empresa te demitir, você deveria ter o vest acelerado do que já estava prestes a vestar.
+
+**Janela de exercício:** Peça pelo menos 5 anos após saída para exercer as opções (vs. os 90 dias padrão). Isso é especialmente importante em early-stage onde você pode não ter dinheiro para exercer agora.
+
+**Refresh grants:** Em empresas que ficam privadas por muitos anos, pergunte se existe política de refresh — concessões adicionais de equity para reter funcionários após o cliff original.
+
+## Como abordar a negociação de equity
+
+"Estou muito animado com a oportunidade. Antes de assinar, tenho algumas perguntas sobre o pacote de equity e gostaria de entender se há flexibilidade em alguns pontos."
+
+Perguntas que abrem espaço:
+- "Existe faixa para o equity dessa posição? Estou avaliando se o pacote reflete a senioridade do papel."
+- "Em relação ao vesting, é possível incluir aceleração dupla em caso de demissão após aquisição?"
+- "Qual é a política de exercício após saída — 90 dias é o padrão ou há flexibilidade?"
+
+## Quando não negociar (ou ser cuidadoso)
+
+Em empresas muito grandes (FANG, unicórnios estabelecidos), os pacotes são mais padronizados e há menos flexibilidade. Negocie o salário base com mais ênfase nesses casos.
+
+Em early-stage pré-revenue, a empresa pode não ter caixa para pagar mercado — aí o equity é genuinamente a compensação diferida. Avalie o risco e o upside com cuidado.`,
+      },
+      {
+        id: '53-4',
+        title: 'Impostos e aspectos legais do equity no Brasil',
+        duration: '20 min',
+        content: `# Impostos e aspectos legais do equity no Brasil
+
+## O cenário tributário brasileiro para equity
+
+O tratamento tributário de equity no Brasil é menos maduro e mais complexo que nos EUA. A legislação ainda está evoluindo, e a interpretação pode variar. Sempre consulte um contador especializado antes de exercer opções.
+
+## Os principais momentos de tributação
+
+**No exercício das opções (compra das ações):**
+Historicamente, a Receita Federal brasileira considerava o ganho no exercício (diferença entre valor de mercado e strike price) como rendimento do trabalho — tributado até 27,5% de IR na fonte.
+
+Decisões judiciais recentes têm questionado isso, defendendo que seja tributado como ganho de capital (15-22,5%) apenas na venda das ações. O tema ainda está em litígio.
+
+**Na venda das ações:**
+Ganho de capital é tributado de 15% a 22,5% dependendo do valor do ganho. Se as ações forem vendidas por valor maior que o custo de aquisição (strike price + o que você declarou no exercício), a diferença é ganho de capital.
+
+## Phantom Shares e PPSA no Brasil
+
+Muitas startups brasileiras usam phantom shares ou PPSA (Plano de Participação Societária Associada) em vez de opções reais de ações para contornar burocracia. Nesses casos:
+
+- O funcionário não recebe ação real — recebe o direito a um pagamento equivalente
+- Na liquidez, recebe em dinheiro (não ações)
+- Tributação tende a ser como rendimento do trabalho (27,5% IRRF)
+
+A desvantagem do phantom: sem ação real, você não pode se beneficiar de eventuais regimes mais favoráveis de ganho de capital.
+
+## O que fazer antes de exercer opções
+
+1. Entenda o regime tributário aplicável ao seu caso específico
+2. Consulte contador especializado em equity — não é caro e evita surpresas de dezenas de milhares de reais em impostos inesperados
+3. Verifique se a empresa tem parecer jurídico sobre o tratamento tributário — empresas sérias têm
+4. Avalie o custo total: strike price + impostos potenciais. Você tem esse dinheiro disponível?
+
+## Perguntas a fazer ao RH/jurídico da startup
+
+- "Qual é o tratamento tributário que a empresa aplica ao exercício das opções?"
+- "A empresa tem opinião legal sobre isso que posso ver?"
+- "Em caso de aquisição, como funciona o pagamento — cash ou ações do adquirente?"`,
+      },
+    ],
+  },
+  {
+    id: 54,
+    title: 'Trabalho no Reino Unido e Irlanda',
+    desc: 'Vistos, mercado de trabalho, como se candidatar e construir carreira em dois dos destinos mais acessíveis para brasileiros na Europa.',
+    duration: '3h 10min',
+    icon: '🇬🇧',
+    isPro: true,
+    color: { bg: 'bg-red-50', border: 'border-red-200', badge: 'bg-red-100 text-red-700', icon: 'bg-red-500' },
+    lessons: [
+      {
+        id: '54-1',
+        title: 'Reino Unido: vistos e o mercado pós-Brexit',
+        duration: '35 min',
+        content: `# Reino Unido: vistos e o mercado pós-Brexit
+
+## O sistema de pontos pós-Brexit
+
+Após o Brexit (2021), o Reino Unido implementou um sistema de imigração baseado em pontos, igual para cidadãos da UE e de fora da UE. Isso na prática facilitou para brasileiros — antes eram tratados diferente dos europeus, agora as regras são as mesmas.
+
+## Skilled Worker Visa (o principal visto de trabalho)
+
+**Requisitos:**
+- Oferta de emprego de empregador licenciado pelo Home Office
+- A vaga deve ser em ocupação elegível (lista específica)
+- Salário mínimo: £26.200/ano (2024) ou o salário da ocupação, o que for maior
+- Inglês em nível B1 (IELTS, TOEFL, ou diploma em inglês)
+
+**Processo:**
+1. Receba oferta de emprego + Certificate of Sponsorship do empregador
+2. Solicite o visto online (£719 para até 3 anos + NHS surcharge de ~£1.035/ano)
+3. Processamento: 3-8 semanas
+
+**Caminho para residência permanente:** Após 5 anos no Skilled Worker Visa, você pode solicitar Indefinite Leave to Remain (ILR) — equivalente à residência permanente.
+
+## Youth Mobility Scheme (Working Holiday britânico)
+
+**Elegibilidade:** Brasileiros de 18-30 anos (mudou em 2024 — antes não havia acordo Brasil-UK, mas o governo britânico anunciou abertura do esquema para brasileiros)
+
+**Duração:** 2 anos
+**O que permite:** trabalhar para qualquer empregador, estudar
+**Vantagem:** Sem necessidade de sponsor — você chega e busca emprego
+
+Verifique o status atual desse acordo pois as regras podem ter sido atualizadas.
+
+## Setores com maior demanda no Reino Unido
+
+**Saúde (NHS):** Enfermeiros, médicos, fisioterapeutas, radiologistas. O NHS tem programa específico de recrutamento internacional. Caminho de imigração facilitado.
+
+**Tecnologia:** Londres é o maior hub de tech da Europa — fintech, healthtech, startups. Demanda alta para desenvolvedores, engenheiros de dados, PMs.
+
+**Finanças:** Londres é capital financeira global. Bancos, seguradoras, gestoras de fundos.
+
+**Engenharia:** Civil, estrutural, mecânica — especialmente fora de Londres.
+
+**Construção:** Especialmente gestores e técnicos de construção.
+
+## Salários e custo de vida
+
+**Salários médios (2024):**
+- Desenvolvedor sênior: £60.000–£90.000/ano
+- Enfermeiro: £28.000–£42.000/ano
+- Analista financeiro: £45.000–£70.000/ano
+- Gerente de projetos: £40.000–£65.000/ano
+
+**Custo de vida Londres:**
+- Aluguel (quarto compartilhado): £900–£1.500/mês
+- Alimentação: £300–£500/mês
+- Transporte (Oyster card): £150–£200/mês
+
+Londres é cara. Cidades como Manchester, Birmingham, Edinburgh e Bristol têm custo de vida 20-35% menor com salários apenas 15-20% menores — relação custo-benefício melhor para quem está construindo poupança.`,
+      },
+      {
+        id: '54-2',
+        title: 'Irlanda: o atalho europeu mais acessível para brasileiros',
+        duration: '30 min',
+        content: `# Irlanda: o atalho europeu mais acessível para brasileiros
+
+## Por que a Irlanda é especialmente atraente para brasileiros
+
+**Língua:** Inglês como idioma oficial — sem barreira de idioma diferente de Brexit/UK
+**Tamanho:** 5 milhões de habitantes — mercado menor, mas mais fácil de construir network
+**Localização:** Porta de entrada para a UE — cidadania irlandesa dá direito de trabalhar em todos os 27 países
+**Tech hub:** Dublin é sede europeia de Google, Meta, Apple, Amazon, Airbnb, LinkedIn — demanda alta em tech
+**Comunidade brasileira:** Grande e bem estabelecida, facilita integração
+
+## Critical Skills Employment Permit
+
+O principal visto de trabalho para qualificados.
+
+**Requisitos:**
+- Oferta de emprego em ocupação da Critical Skills list
+- Salário mínimo €38.000/ano (€30.000 para PhDs e certas ocupações)
+- Sem necessidade de demonstrar que nenhum cidadão europeu poderia fazer o trabalho (diferente de outros vistos europeus)
+
+**Vantagem enorme:** Após 2 anos, você pode solicitar residência permanente (Stamp 4) sem precisar renovar o permit. Após 5 anos de residência, elegível para cidadania irlandesa — e com ela, passaporte europeu.
+
+## General Employment Permit
+
+Para ocupações não na Critical Skills list.
+- Salário mínimo €34.000/ano
+- Mais restrições — empregador precisa demonstrar que não havia candidato europeu disponível
+
+## Setores em alta na Irlanda
+
+**Tech e multinacionais:** Dublin concentra os escritórios europeus de quase todas as big techs americanas. Demanda alta para engenharia de software, dados, produto, marketing digital, finanças.
+
+**Saúde:** HIQA (Health Information and Quality Authority) — processo similar ao NMBI (Nursing and Midwifery Board of Ireland) para enfermeiros.
+
+**Farmacêutico e biotecnologia:** Irlanda tem enorme cluster farmacêutico — Pfizer, Johnson & Johnson, Allergan têm operações grandes lá.
+
+**Construção e engenharia:** Boom imobiliário e de infraestrutura cria demanda constante.
+
+## Vida prática na Irlanda
+
+**PPS Number:** Equivalente ao CPF/NIF — necessário para trabalhar, abrir conta, acessar serviços. Solicite logo após chegar.
+
+**Custo de vida Dublin:**
+- Aluguel (quarto compartilhado): €900–€1.400/mês
+- Transporte (Leap Card): €100–€150/mês
+- Alimentação: €300–€450/mês
+
+Dublin tem problema sério de moradia — comece a procurar apartamento antes de chegar, e considere cidades alternativas como Cork, Limerick, Galway onde o custo de vida é significativamente menor.`,
+      },
+      {
+        id: '54-3',
+        title: 'CV britânico e irlandês: o que muda e como se candidatar',
+        duration: '25 min',
+        content: `# CV britânico e irlandês: o que muda e como se candidatar
+
+## Diferenças do CV para UK e Irlanda
+
+**Sem foto:** Assim como na Austrália, não inclua foto no CV.
+
+**Sem data de nascimento, estado civil, nacionalidade** no topo (embora a nacionalidade seja relevante e frequentemente perguntada no formulário de candidatura — não no CV).
+
+**Tamanho:** 2 páginas para profissionais experientes, 1 página para entry-level.
+
+**Personal Statement:** 3-4 linhas no topo do CV resumindo quem você é e o que oferece. Diferente do objetivo profissional brasileiro — é mais pitch do que objetivo.
+
+**Experiências:** Bullet points com verbos de ação + resultados quantificados. Mesma lógica do CV australiano.
+
+**References:** "Available on request" ou dois referees com contato.
+
+## O que colocar no formulário de candidatura
+
+Empresas britânicas e irlandesas frequentemente pedem formulário online além do CV. Inclui:
+- Direito de trabalho no Reino Unido/Irlanda (sim/não, tipo de visto)
+- Perguntas de equidade e diversidade (opcionais, não afetam candidatura)
+- Perguntas de "supporting information" — equivalente à carta de motivação
+
+Seja específico: "Por que essa empresa?" deve ter resposta que demonstra pesquisa real.
+
+## Plataformas de emprego
+
+**Reino Unido:**
+- Indeed UK
+- Reed.co.uk
+- Totaljobs
+- LinkedIn
+- CV-Library
+- Sector-specific: TechCityUK para tech, eFinancialCareers para finanças, NHS Jobs para saúde
+
+**Irlanda:**
+- IrishJobs.ie
+- Jobs.ie
+- Indeed Ireland
+- LinkedIn
+- EURES (empregos em toda UE)
+
+## O processo seletivo típico
+
+UK e Irlanda tendem a ter processos mais curtos que o Brasil:
+1. CV + formulário
+2. Entrevista por telefone ou vídeo (30-45 min)
+3. Entrevista presencial ou vídeo mais longa (às vezes 2 etapas)
+4. Verificação de referências
+5. Oferta
+
+**Competency-based interviews** são o padrão: "Tell me about a time when you..." — o método STAR (Situation, Task, Action, Result) é o framework esperado. Prepare 6-8 histórias cobrindo diferentes competências antes de qualquer entrevista.`,
+      },
+      {
+        id: '54-4',
+        title: 'Integração profissional e cultura de trabalho britânica e irlandesa',
+        duration: '20 min',
+        content: `# Integração profissional e cultura de trabalho britânica e irlandesa
+
+## Cultura de trabalho britânica
+
+**Understatement:** Britânicos dizem o que pensam de forma indireta. "That's quite interesting" pode significar discordância. "We might want to reconsider" pode significar "isso está errado". Adapte-se à comunicação implícita.
+
+**Fila e ordem:** A cultura de fila britânica é real e extend para reuniões — interromper é mal visto. Espere a abertura para falar.
+
+**Humor no ambiente de trabalho:** Britânicos usam humor (frequentemente irônico e seco) no trabalho de forma mais intensa que brasileiros. Não leve muito a sério — é parte da cultura de rapport.
+
+**After-work pub:** O pub após o trabalho é evento social importante. Participar (mesmo sem beber álcool) é parte de construir relacionamentos. Declinar constantemente pode criar distância.
+
+**Pontualidade:** Reuniões começam na hora. Chegar 5 minutos adiantado é normal.
+
+## Cultura de trabalho irlandesa
+
+Mais próxima da cultura americana (influência das multinacionais) com elemento mais informal que o UK. Irlandeses são geralmente mais diretos e calorosos que britânicos.
+
+**Craic:** Termo irlandês para conversa animada, humor, diversão social. Fazer craic é socialmente valorizado — humor e leveza são bem-vindos no trabalho.
+
+**Pub também importante:** Assim como no UK, o pub tem papel social. Guinness é o ícone cultural — pelo menos saiba o que é.
+
+## Como construir network em UK e Irlanda
+
+**LinkedIn:** Indispensável nos dois países. Conecte-se com recrutadores, profissionais da sua área, membros de grupos de expats brasileiros.
+
+**Meetup.com:** Ativo nas grandes cidades — eventos técnicos, de negócios, de networking.
+
+**Comunidades brasileiras:** Brazilian Workers in London (Facebook), Brasileiros em Dublin (grupos variados) — redes de apoio para primeiros meses e indicações de emprego.
+
+**Professional associations:** CIPD para RH no UK, Engineers Ireland para engenharia na Irlanda. Participar de eventos e groups profissionais locais acelera networking.
+
+## Reconhecimento de qualificações
+
+Medicina, enfermagem, engenharia e outras profissões regulamentadas precisam de reconhecimento:
+- **UK:** General Medical Council (médicos), NMC (enfermeiros), Engineering Council
+- **Irlanda:** CORU (saúde), Engineers Ireland, Law Society of Ireland
+
+Inicie o processo antes de chegar — pode levar 3-12 meses.`,
+      },
+    ],
+  },
+  {
+    id: 55,
+    title: 'Carreira em E-commerce e Varejo Digital',
+    desc: 'As funções, habilidades e trilhas de carreira no setor de maior crescimento do varejo brasileiro e mundial.',
+    duration: '3h 10min',
+    icon: '🛒',
+    isPro: true,
+    color: { bg: 'bg-orange-50', border: 'border-orange-200', badge: 'bg-orange-100 text-orange-700', icon: 'bg-orange-500' },
+    lessons: [
+      {
+        id: '55-1',
+        title: 'O ecossistema de e-commerce: funções, empresas e salários',
+        duration: '30 min',
+        content: `# O ecossistema de e-commerce: funções, empresas e salários
+
+## Por que e-commerce é uma das carreiras com mais oportunidades no Brasil
+
+O e-commerce brasileiro cresceu de R$ 53 bilhões em 2018 para mais de R$ 185 bilhões em 2023. Mercado Livre, Shopee, Amazon, Magazine Luiza, Americanas, Natura, Grupo Boticário — todos competem por profissionais especializados.
+
+E não é só as grandes marcas: mais de 1,7 milhão de pequenas empresas vendem online no Brasil — todas precisam de profissionais de e-commerce.
+
+## As principais funções no e-commerce
+
+### Gestão de E-commerce / E-commerce Manager
+
+Responsável pela operação completa da loja virtual: sortimento, preço, campanhas, UX, performance de vendas.
+
+- **Salário BR:** R$ 7.000–20.000
+- **Skills:** análise de dados, gestão de fornecedores, conhecimento de plataformas (VTEX, Shopify, Magento)
+
+### Analista de Marketplace
+
+Gestão de contas em marketplaces (Mercado Livre, Shopee, Amazon). Otimização de anúncios, pricing, fulfillment, relacionamento com plataforma.
+
+- **Salário BR:** R$ 3.500–8.000
+- **Uma das entradas mais acessíveis no e-commerce**
+
+### Category Manager
+
+Responsável por uma categoria de produtos: definição de sortimento, pricing, relação com fornecedores, performance de vendas.
+
+- **Salário BR:** R$ 7.000–15.000
+- **Vem geralmente de compras, varejo ou negócios**
+
+### Performance / Growth
+
+Responsável por aquisição e conversão — campanhas de Google Shopping, Meta Ads, afiliados, CRO (Conversion Rate Optimization).
+
+- **Salário BR:** R$ 5.000–14.000
+
+### CRM e Retenção
+
+Estratégia de relacionamento com clientes existentes — email marketing, SMS, push, programa de fidelidade. Em e-commerce, retenção é tão importante quanto aquisição.
+
+- **Salário BR:** R$ 4.500–10.000
+
+### Supply Chain e Logística de E-commerce
+
+Gestão de estoque, fulfillment, transportadoras, experiência de entrega. Em e-commerce, logística é diferencial competitivo real.
+
+- **Salário BR:** R$ 5.000–15.000
+
+## As principais plataformas de e-commerce no Brasil
+
+- **VTEX:** Plataforma enterprise — usada por grandes varejistas. Muito valorizado no mercado.
+- **Shopify:** Crescendo rápido no Brasil — especialmente em DTC (Direct to Consumer) e marcas independentes.
+- **Tray / Nuvemshop:** Para PMEs — mais acessíveis e com muita demanda.
+- **SAP Commerce Cloud / Oracle Commerce:** Enterprise tradicional.
+
+Ter experiência ou certificação em VTEX especificamente é um diferencial real — é a plataforma dominante no enterprise brasileiro.`,
+      },
+      {
+        id: '55-2',
+        title: 'Marketplace: como dominar Mercado Livre, Shopee e Amazon',
+        duration: '30 min',
+        content: `# Marketplace: como dominar Mercado Livre, Shopee e Amazon
+
+## Por que gestão de marketplace é uma especialidade valiosa
+
+Marketplaces representam mais de 70% das vendas de e-commerce no Brasil. Gerenciar uma conta de marketplace profissionalmente é uma habilidade escassa e muito demandada — tanto por marcas que vendem nesses canais quanto pelos próprios marketplaces.
+
+## Mercado Livre: o gigante brasileiro
+
+**O que um analista de Mercado Livre faz:**
+- Criação e otimização de anúncios (título, descrição, fotos, bullet points)
+- Precificação estratégica — incluindo ferramentas de repricing
+- Gestão de reputação (respostas a perguntas e reclamações impactam ranking)
+- Mercado Ads — o sistema de anúncios patrocinados do ML
+- Fulfillment MELI (FULL) — gestão de estoque no armazém do Mercado Livre
+
+**O que determina o ranking no Mercado Livre:**
+- Reputação do vendedor (cor: verde → amarelo → laranja → vermelho)
+- Relevância do anúncio para a busca
+- Histórico de vendas
+- Velocidade de resposta a perguntas
+- Nível MercadoLíder (mais vendas = melhor posicionamento)
+
+**Certificação:** Mercado Livre tem certificação de publicidade (Mercado Ads) — reconhecida por agências e empresas que vendem na plataforma.
+
+## Amazon Brasil: crescendo rápido
+
+Amazon opera no Brasil desde 2012 mas acelerou fortemente. O mercado ainda é menor que o ML, mas com crescimento alto e menos concorrência — especialmente em algumas categorias.
+
+**Amazon Seller Central:** Interface para vendedores. O analista de Amazon gerencia listings, Buy Box, FBA (Fulfillment by Amazon), Sponsored Products.
+
+**A lógica do Buy Box:** Em Amazon, múltiplos vendedores competem pelo mesmo produto. Quem "ganha" o Buy Box (aparece como vendedor principal) tem vantagem enorme. Depende de: preço, shipping time, performance do vendedor.
+
+## Shopee: o desafiante de crescimento acelerado
+
+Shopee veio de Singapura e cresceu agressivamente no Brasil desde 2019. Tem base forte em produtos de menor valor e compradores mais sensíveis a preço.
+
+Menor barreira de entrada que ML e Amazon — bom para quem está começando a aprender marketplace.
+
+## Como entrar na área de marketplace sem experiência
+
+1. **Venda algo você mesmo:** Abra uma conta no Mercado Livre ou Shopee, venda produtos de nicho. O aprendizado prático é incomparável.
+2. **Freelance para pequenos sellers:** Muitos vendedores de marketplace pagam por gestão de conta sem precisar contratar CLT. Plataforma: WorkAna, Freelancer.com.
+3. **Agências de marketplace:** Empresas especializadas em gestão de contas para marcas. Boa escola com múltiplos clientes simultaneamente.`,
+      },
+      {
+        id: '55-3',
+        title: 'CRO e UX para e-commerce: como converter mais sem gastar mais em ads',
+        duration: '25 min',
+        content: `# CRO e UX para e-commerce: como converter mais sem gastar mais em ads
+
+## O que é CRO e por que é estratégico
+
+CRO (Conversion Rate Optimization) é a disciplina de aumentar o percentual de visitantes que realizam uma compra. É a alavanca mais poderosa de e-commerce porque não exige mais investimento em tráfego — só melhora o aproveitamento do tráfego existente.
+
+**O math:** Se você tem 10.000 visitas/mês e taxa de conversão de 1%, vende 100 unidades. Se CRO aumenta para 2%, você vende 200 unidades com o mesmo tráfego — dobrou a receita sem gastar mais em ads.
+
+## Os principais pontos de atrito em e-commerce
+
+**Página de produto:**
+- Fotos de baixa qualidade ou insuficientes
+- Descrição que não responde as dúvidas do cliente
+- Falta de avaliações/reviews
+- CTA (botão de comprar) sem destaque visual
+- Informações de entrega e devolução ausentes ou difíceis de encontrar
+
+**Checkout:**
+- Cadastro obrigatório antes de comprar
+- Muitas etapas
+- Poucas formas de pagamento
+- Falta de sinais de segurança (SSL, selos)
+- Surpresas no final (frete alto que aparece só no checkout)
+
+**Mobile:**
+Com mais de 60% das compras online feitas no celular no Brasil, experiência mobile ruim é o maior matador de conversão. Botões pequenos, formulários difíceis, carregamento lento.
+
+## Como fazer CRO na prática
+
+**1. Mapeamento de calor (Heatmaps):** Hotjar e Microsoft Clarity (gratuito) mostram onde usuários clicam, como scrollam, onde param. Identifica onde há interesse e onde há desistência.
+
+**2. Gravações de sessão:** Ver usuários reais navegando revela problemas que nenhum dado agregado mostra.
+
+**3. Testes A/B:** Testar versão A vs. versão B de um elemento (botão, título, foto, ordem de informações) com tráfego dividido. Google Optimize (substituído pelo GA4 Experiments) ou ferramentas pagas como VWO.
+
+**4. Funil de checkout:** Google Analytics 4 permite configurar funnel report — você vê exatamente em qual etapa do checkout os usuários abandonam.
+
+## KPIs essenciais de CRO
+
+- **Taxa de conversão:** Pedidos ÷ Sessões (média BR: 1-3% dependendo da categoria)
+- **Taxa de abandono de carrinho:** Nacional média de ~70-80%
+- **Ticket médio:** Valor médio por pedido
+- **Taxa de rejeição (bounce rate):** % que sai sem interagir — alto bounce em produto indica problema de relevância ou experiência`,
+      },
+      {
+        id: '55-4',
+        title: 'Supply chain e logística: o diferencial oculto do e-commerce',
+        duration: '25 min',
+        content: `# Supply chain e logística: o diferencial oculto do e-commerce
+
+## Por que logística decidiu o e-commerce brasileiro
+
+Prazo de entrega e custo de frete são os dois maiores fatores de decisão de compra no Brasil — superando até preço em muitas categorias. Empresas que dominam logística têm vantagem competitiva real que não é facilmente copiada.
+
+## As funções de supply chain em e-commerce
+
+**Analista de Logística:** Monitora performance de transportadoras, negocia contratos, resolve problemas de entrega, analisa KPIs.
+
+**Gestor de Estoque:** Controla entrada e saída de produtos, evita rupturas e excessos, faz previsão de demanda.
+
+**Coordenador de Fulfillment:** Responsável pela operação do armazém — recebimento, picking, packing, expedição.
+
+**Supply Chain Analyst:** Visão mais estratégica — análise de fornecedores, otimização de custos logísticos, projetos de melhoria.
+
+## Modalidades de fulfillment
+
+**Fulfillment próprio:** A empresa tem seu armazém. Maior controle, maior investimento inicial.
+
+**Fulfillment terceirizado (3PL):** Operador logístico armazena e despacha em nome da empresa. Escalável, menor capital imobilizado.
+
+**Dropshipping:** Fornecedor despacha diretamente para o cliente final. Zero estoque próprio, menor controle de prazo e qualidade.
+
+**Fulfillment dos marketplaces:**
+- Mercado Livre FULL
+- Amazon FBA (Fulfilled by Amazon)
+- Shopee Fulfillment
+
+Usar fulfillment dos marketplaces dá acesso a envio mais rápido e melhora o ranking nos resultados de busca — muitas vezes compensa o custo.
+
+## KPIs de logística que todo profissional de e-commerce deve conhecer
+
+- **On-time delivery rate:** % de pedidos entregues no prazo prometido. Meta: >95%
+- **WISMO (Where Is My Order):** Volume de contatos de clientes perguntando sobre entrega — alto indica problema de rastreamento ou comunicação
+- **Taxa de avaria/extravio:** % de pedidos com problema físico ou perda
+- **Custo de frete por pedido:** Importante para pricing e margens
+- **Lead time:** Tempo entre pedido e entrega
+
+## Certificações e cursos relevantes
+
+- **CSCMP (Council of Supply Chain Management Professionals):** Referência global em supply chain
+- **APICS CPIM:** Certificação em gestão de produção e estoque
+- Cursos de VTEX, SAP e Oracle para sistemas de gestão de e-commerce`,
+      },
+    ],
+  },
+  {
+    id: 56,
+    title: 'Inteligência Emocional e Gestão de Conflitos',
+    desc: 'Como desenvolver inteligência emocional, lidar com situações difíceis no trabalho e construir relações profissionais mais sólidas.',
+    duration: '2h 50min',
+    icon: '🤝',
+    isPro: false,
+    color: { bg: 'bg-emerald-50', border: 'border-emerald-200', badge: 'bg-emerald-100 text-emerald-700', icon: 'bg-emerald-500' },
+    lessons: [
+      {
+        id: '56-1',
+        title: 'O que é inteligência emocional e por que determina carreiras',
+        duration: '25 min',
+        content: `# O que é inteligência emocional e por que determina carreiras
+
+## O conceito e por que importa
+
+Daniel Goleman popularizou o conceito de Inteligência Emocional (IE) nos anos 90 com a tese de que IE prevê sucesso profissional mais do que QI. Pesquisas desde então confirmaram: para lideranças e funções que exigem colaboração, IE é o fator diferenciador.
+
+IE não é "ser emotivo" ou "ser simpático". É a capacidade de reconhecer, entender e gerenciar emoções — as suas e as dos outros — de forma que apoie objetivos e relacionamentos.
+
+## Os 4 pilares da inteligência emocional
+
+**1. Autoconsciência:** Reconhecer suas próprias emoções em tempo real e entender como elas afetam seu comportamento e decisões. "Estou irritado agora — isso está afetando como estou ouvindo essa pessoa."
+
+**2. Autorregulação:** Gerenciar impulsos e emoções. Não suprimir — reconhecer e escolher como responder. A diferença entre reagir e responder.
+
+**3. Empatia:** Reconhecer e compreender as emoções dos outros. Não é concordar — é entender a perspectiva do outro sem julgamento.
+
+**4. Habilidades sociais:** Usar a consciência emocional para gerenciar relacionamentos, influenciar, comunicar e colaborar eficazmente.
+
+## Como IE se manifesta (ou não) no trabalho
+
+**Alta IE:**
+- Recebe crítica sem se defender automaticamente
+- Mantém calma sob pressão e prazos
+- Percebe quando um colega está sobrecarregado antes de ele pedir ajuda
+- Adapta o estilo de comunicação ao interlocutor
+- Influencia sem autoridade formal
+
+**Baixa IE:**
+- Reage defensivamente a qualquer feedback
+- Estoura sob pressão e depois lamenta
+- Não percebe como seu comportamento afeta os outros
+- Conflitos que poderiam ser prevenidos explodem
+- Dificuldade em construir alianças e confiança
+
+## Por que gestores com alta IE retêm mais talentos
+
+Pesquisas da Gallup mostram que 70% do engajamento de um funcionário é determinado pelo gestor direto. E os comportamentos que mais afetam engajamento — reconhecimento, comunicação, desenvolvimento — são todos dependentes de IE.
+
+Profissionais saem de gestores, não de empresas. E gestores com baixa IE criam ambientes onde as pessoas entregam menos e saem mais cedo.`,
+      },
+      {
+        id: '56-2',
+        title: 'Conflitos no trabalho: como resolver sem destruir relacionamentos',
+        duration: '25 min',
+        content: `# Conflitos no trabalho: como resolver sem destruir relacionamentos
+
+## A verdade sobre conflitos
+
+Conflito não é sinal de ambiente ruim — é inevitável em qualquer grupo de pessoas com perspectivas diferentes trabalhando juntas. O que diferencia ambientes saudáveis dos tóxicos não é ausência de conflito — é como os conflitos são resolvidos.
+
+Evitar conflito cronicamente cria problemas piores: ressentimento acumulado, problemas não resolvidos, decisões ruins por falta de debate real.
+
+## Os estilos de resposta ao conflito
+
+**Evitação:** Ignora o problema. Funciona para conflitos triviais. Desastroso para conflitos importantes.
+
+**Acomodação:** Cede ao outro. Preserva relacionamento no curto prazo, mas cria ressentimento e desequilíbrio.
+
+**Competição:** Precisa "ganhar". Resolve o conflito imediato mas destrói confiança.
+
+**Compromisso:** Ambos cedem um pouco. Rápido, mas frequentemente deixa ambos parcialmente insatisfeitos.
+
+**Colaboração:** Explora o interesse de ambos para encontrar solução que atenda os dois. Leva mais tempo mas gera melhores resultados e preserva a relação.
+
+Para conflitos importantes e relacionamentos que importam, colaboração é o alvo.
+
+## Processo para resolver conflito diretamente
+
+**Passo 1: Escolha o momento certo.** Nunca resolva conflito quando estiver emocional ou em público. Peça uma conversa privada quando ambos estiverem calmos.
+
+**Passo 2: Comece com curiosidade, não acusação.** "Quero entender melhor o que aconteceu na reunião de ontem. Como você viu aquela situação?" — em vez de "você me interrompeu e foi muito desrespeitoso."
+
+**Passo 3: Ouça completamente.** Antes de defender sua perspectiva, certifique que entendeu a do outro. "Se entendi bem, você sentiu que..." Faça perguntas. Não interrompa.
+
+**Passo 4: Compartilhe sua perspectiva sem atacar.** Use "eu" em vez de "você": "Quando aconteceu X, eu me senti Y" em vez de "você fez X e foi errado."
+
+**Passo 5: Foque no futuro.** "O que podemos fazer diferente para que isso não se repita?" é mais produtivo do que analisar quem tinha razão.
+
+## Quando escalon é necessário
+
+Escalone para o gestor quando:
+- O conflito afeta a entrega de trabalho do time
+- Tentativas diretas de resolução falharam repetidamente
+- O comportamento viola políticas da empresa (assédio, discriminação)
+- Há desequilíbrio de poder que impede resolução direta`,
+      },
+      {
+        id: '56-3',
+        title: 'Como lidar com gestores difíceis e pessoas tóxicas',
+        duration: '20 min',
+        content: `# Como lidar com gestores difíceis e pessoas tóxicas
+
+## Tipos de gestores difíceis e como lidar com cada um
+
+**O microgestor:**
+Verifica constantemente, não delega, questiona cada decisão. Causa: geralmente insegurança ou experiência ruim anterior com times.
+
+Estratégia: Elimine a necessidade de verificação sendo proativo. Envie atualizações antes de serem pedidas. "Vou fazer X dessa forma e te avisar quando concluir — alguma preferência diferente?" Dê ao gestor informação suficiente para não precisar pedir.
+
+**O ausente:**
+Nunca disponível, não dá direção, decisões travam esperando aprovação.
+
+Estratégia: Estruture pedidos com opções já elaboradas. "Preciso de sua aprovação para seguir. Analisei duas abordagens [A e B]. Prefiro A pelos motivos X e Y. Você concorda ou prefere B?" Reduza o esforço cognitivo que ele precisa fazer.
+
+**O que muda de ideia constantemente:**
+Direções mudam, prioridades se invertem, o que era urgente ontem não importa hoje.
+
+Estratégia: Documente tudo por escrito. Após alinhamentos verbais, envie email de confirmação: "Conforme conversamos, vou priorizar X e adiar Y. Me avisa se mudou algo." Crie registro que você pode referenciar quando a história mudar.
+
+**O que toma crédito:**
+Apresenta ideias da equipe como próprias, não reconhece contribuições.
+
+Estratégia: Deixe registros em canais visíveis (emails com gestores em cópia, documentos compartilhados com autoria clara). Construa relacionamento direto com o gestor do seu gestor para que sua contribuição seja conhecida além de uma camada.
+
+## Pessoas tóxicas: quando é o ambiente, não o indivíduo
+
+Às vezes o "colega difícil" é produto de um ambiente disfuncional. Antes de focar na pessoa, avalie: outros também têm problemas com ela? A liderança tolera o comportamento? Há estrutura que incentiva a competição destrutiva?
+
+Se o ambiente é sistematicamente tóxico e a liderança não endereça, o problema não tem solução interna. Sua energia é melhor investida em planejar a saída do que em tentar mudar o imutável.
+
+## Protegendo sua saúde mental
+
+Trabalhar em ambiente difícil tem custo real. Sinais de que você está sendo afetado além do aceitável:
+- Pensa no trabalho fora do horário constantemente
+- Sintomas físicos de estresse (insônia, dores, irritabilidade)
+- Mudança de humor notada por pessoas próximas
+- Perda de prazer em atividades que antes gostava
+
+Esses são sinais para agir — mudar o ambiente, buscar suporte ou planejar saída — não para empurrar mais.`,
+      },
+      {
+        id: '56-4',
+        title: 'Construindo alianças e influência sem autoridade formal',
+        duration: '20 min',
+        content: `# Construindo alianças e influência sem autoridade formal
+
+## Influência vs. autoridade
+
+Autoridade formal é dada pelo cargo: você pode ordenar porque é o chefe. Influência é conquistada: pessoas seguem porque confiam e respeitam.
+
+A maior parte do trabalho profissional depende de influência, não de autoridade. Você precisa que o time de TI priorize seu projeto, que a área jurídica aprove sua iniciativa, que o colega de outra equipe colabore — sem ter nenhuma autoridade sobre eles.
+
+Profissionais que sabem influenciar sem autoridade são excepcionalmente valorizados.
+
+## Os fundamentos da influência
+
+**Credibilidade técnica:** Você conhece seu assunto? As pessoas confiam no seu julgamento? Credibilidade técnica é a base — sem ela, influência é superficial.
+
+**Confiabilidade relacional:** Você faz o que diz? É honesto mesmo quando é inconveniente? Cumpre compromissos? Confiança leva tempo para construir e segundos para destruir.
+
+**Orientação para o outro:** Pessoas que pensam no que a outra parte precisa, não só no que elas precisam, têm influência natural. "Como posso tornar isso mais fácil para você?" abre mais portas que qualquer técnica de persuasão.
+
+## Táticas práticas de influência
+
+**Construa antes de precisar.** Relacionamentos construídos antes de uma necessidade específica são muito mais efetivos do que aqueles construídos só quando você precisa de algo.
+
+**Encontre interesses em comum.** Antes de pedir algo, entenda o que a outra pessoa valoriza. Enquadre seu pedido em termos do interesse dela, não do seu.
+
+**Coalização:** Para iniciativas importantes, construa apoio de múltiplas pessoas antes de apresentar formalmente. Quando você chega com "já conversei com Ana, Carlos e Beatriz, e todos acham que faz sentido", o peso é diferente de você sozinho defendendo.
+
+**Reconhecimento público:** Celebrar contribuições dos outros — especialmente os que não têm visibilidade — cria aliados genuínos e capital de influência que você pode usar quando precisar.`,
+      },
+    ],
+  },
+  {
+    id: 57,
+    title: 'Trabalho com Propósito: ESG e Terceiro Setor',
+    desc: 'Como construir uma carreira com impacto social e ambiental — em ONGs, fundações, ESG corporativo, impacto social e negócios de impacto.',
+    duration: '3h 0min',
+    icon: '🌱',
+    isPro: true,
+    color: { bg: 'bg-green-50', border: 'border-green-200', badge: 'bg-green-100 text-green-700', icon: 'bg-green-500' },
+    lessons: [
+      {
+        id: '57-1',
+        title: 'O mapa de carreiras em impacto: terceiro setor, ESG e negócios de impacto',
+        duration: '30 min',
+        content: `# O mapa de carreiras em impacto: terceiro setor, ESG e negócios de impacto
+
+## O espectro de carreiras com propósito
+
+"Trabalhar com propósito" não é um tipo único de carreira — é um espectro. Em um extremo, ONGs tradicionais totalmente sem fins lucrativos. No outro, empresas convencionais com programas de ESG. No meio, negócios de impacto, fundações, consultorias de sustentabilidade.
+
+Entender onde você quer estar nesse espectro é o primeiro passo.
+
+## Terceiro Setor: ONGs, Institutos e Fundações
+
+**O que é:** Organizações sem fins lucrativos que operam com missão social, ambiental, cultural ou educacional.
+
+**Financiamento:** Doações de pessoa física, grants de fundações (nacionais e internacionais), parcerias com governo (convênios, OSC), recursos de empresas (patrocínio e investimento social privado).
+
+**Funções disponíveis:**
+- Captação de recursos (fundraising) — uma das mais demandadas e bem remuneradas
+- Gestão de projetos e programas
+- Monitoramento e Avaliação (M&A) — medir impacto
+- Comunicação e marketing social
+- Gestão financeira e administrativa
+- Relações institucionais e advocacy
+
+**Salários:** Variáveis. Grandes institutos (Lemann, Itaú Social, Natura, Vale) pagam próximo ao mercado. ONGs menores e de base comunitária pagam significativamente menos. Não romantize — baixo salário não é sinônimo de alto impacto.
+
+## ESG Corporativo
+
+ESG (Environmental, Social and Governance) é a agenda de sustentabilidade das empresas tradicionais. Cresceu enormemente com pressão de investidores, reguladores e consumidores.
+
+**Funções:**
+- Analista/Gerente de ESG — mede, reporta e melhora indicadores ambientais, sociais e de governança
+- Sustainability Manager — estratégia de sustentabilidade da empresa
+- Relações com Investidores com foco ESG — comunica a agenda para o mercado de capitais
+- Compliance e Governança — especialmente após Lei das S.A. e regulamentações de disclosure
+
+**Salários:** Comparáveis ao mercado corporativo — R$ 6.000–20.000+ dependendo do nível.
+
+## Negócios de Impacto
+
+Empresas que têm missão social/ambiental no DNA e modelo de negócio — não como filantropia, mas como parte da proposta de valor.
+
+Exemplos: Movile (impacto em logística e inclusão), Bemol, Yunus Social Business, Anjos do Brasil.
+
+**Diferença do terceiro setor:** Geram receita própria, não dependem exclusivamente de doações. **Diferença do ESG corporativo:** O impacto é central ao modelo, não complementar.`,
+      },
+      {
+        id: '57-2',
+        title: 'Captação de recursos: a habilidade mais valiosa do terceiro setor',
+        duration: '30 min',
+        content: `# Captação de recursos: a habilidade mais valiosa do terceiro setor
+
+## Por que captação é tão estratégica
+
+Uma ONG sem recursos não tem impacto, independente de quão boa seja sua missão. Captação de recursos (fundraising) é a função que garante a sustentabilidade financeira — e por isso é uma das mais valorizadas e menos compreendidas do setor.
+
+Profissionais de captação com resultados comprovados têm alta empregabilidade e, em grandes organizações, remuneração competitiva.
+
+## As modalidades de captação
+
+### Pessoa Física (individual giving)
+
+Doações de indivíduos. Inclui:
+- **Doação regular:** Mensalistas, membros. Sustentabilidade financeira da organização.
+- **Doação pontual:** Campanhas específicas, eventos, datas comemorativas.
+- **Legado:** Doação testamentária — menos comum no Brasil, mas crescendo.
+
+**Canais:** email marketing, social media, crowdfunding (Benfeitoria, Catarse), telemarketing, face-to-face.
+
+### Empresas (corporate philanthropy)
+
+Parcerias com empresas — patrocínio, investimento social, lei de incentivos fiscais.
+
+**Leis de incentivo fiscal no Brasil:**
+- Lei Rouanet (cultura)
+- Lei do Esporte
+- Lei da Criança e Adolescente (ECA)
+- PRONAS/PRONON (saúde)
+- Lei Paulo Gustavo
+
+Essas leis permitem que empresas deduzam doações do IR — reduzindo o custo real da doação. O profissional de captação que domina esses mecanismos tem vantagem enorme.
+
+### Fundações e Grants
+
+Fundações internacionais (Ford, Rockefeller, Bill & Melinda Gates, Oak Foundation) e nacionais (Fundação Lemann, Instituto República, BNDES) financiam projetos por meio de editais (calls for proposals).
+
+**Habilidade central:** Escrever proposals convincentes. É uma habilidade técnica específica — clareza sobre o problema, evidência de que sua intervenção funciona, orçamento detalhado, plano de mensuração de impacto.
+
+### Governo (convênios e contratos)
+
+Organizações da Sociedade Civil (OSCs) podem firmar parcerias com governo federal, estadual e municipal para execução de políticas públicas. Regulamentado pela Lei 13.019/2014 (Marco Regulatório das OSC).
+
+## Como entrar em captação
+
+Captação não tem formação específica — vem de marketing, jornalismo, administração, relações públicas. O que importa:
+
+- Excelente comunicação escrita (para proposals e campanhas)
+- Orientação a resultado e metas (captação é medida em R$ captado)
+- Capacidade de construir relacionamentos de longo prazo
+- Entendimento do contexto social da organização
+
+**Certificação:** CFRE (Certified Fund Raising Executive) é a certificação internacional de referência. Menos conhecida no Brasil, mas crescendo.`,
+      },
+      {
+        id: '57-3',
+        title: 'ESG corporativo: como construir carreira na agenda mais quente das empresas',
+        duration: '30 min',
+        content: `# ESG corporativo: como construir carreira na agenda mais quente das empresas
+
+## Por que ESG explodiu como área de carreira
+
+Três forças impulsionaram ESG:
+
+**Pressão de investidores:** Fundos ESG cresceram exponencialmente. Investidores institucionais exigem disclosure de riscos ambientais, sociais e de governança. BlackRock, o maior gestor de ativos do mundo, tornou ESG requisito.
+
+**Regulação:** TCFD, CSRD na Europa, e no Brasil o Banco Central e CVM exigem cada vez mais disclosure de sustentabilidade. Empresas de capital aberto precisam de profissionais que entendam essas exigências.
+
+**Consumidores e talentos:** Consumidores preferem marcas com posição clara em ESG. Profissionais — especialmente os mais jovens — preferem trabalhar em empresas com propósito.
+
+## O que um profissional de ESG faz
+
+**Medição e reporte:**
+- Coletar dados de consumo de energia, água, emissões de carbono, resíduos
+- Calcular pegada de carbono (Scope 1, 2 e 3)
+- Elaborar Relatório de Sustentabilidade (GRI, SASB, TCFD)
+- Responder a questionários de investidores (CDP, DJSI, ISE da B3)
+
+**Estratégia:**
+- Definir metas de sustentabilidade (net zero, redução de água, diversidade)
+- Identificar riscos e oportunidades relacionados a ESG
+- Integrar critérios ESG na cadeia de valor (fornecedores)
+
+**Stakeholder engagement:**
+- Comunicar agenda ESG para investidores, clientes, ONGs, governo
+- Relações com certificadoras (LEED, FSC, B Corp)
+
+## Habilidades para trabalhar com ESG
+
+**Técnicas:**
+- Metodologias de reporte: GRI (Global Reporting Initiative), SASB, TCFD
+- Cálculo de carbono: GHG Protocol é o padrão global
+- Análise de materialidade: identificar quais temas ESG são relevantes para o negócio
+- Dados e Excel/Power BI para gestão de indicadores
+
+**Comportamentais:**
+- Influência interna (ESG é transversal — você depende de outras áreas para coletar dados)
+- Comunicação para públicos muito diferentes (engenheiros, diretores, investidores)
+- Pensamento sistêmico
+
+## Como entrar em ESG
+
+ESG ainda é área nova — a maioria dos profissionais de ESG vem de outras áreas:
+- Engenharia ambiental ou química (mais técnico)
+- Administração e finanças (governança e relacionamento com investidores)
+- Jornalismo e comunicação (reporte e comunicação)
+- Direito (compliance regulatório)
+
+**Certificações relevantes:**
+- GRI Certified Training (aprende a fazer relatório GRI)
+- ISAE 3000 (auditoria de informações de sustentabilidade)
+- CDP training (para resposta a questionários de investidores)`,
+      },
+      {
+        id: '57-4',
+        title: 'Negócios de impacto e empreendedorismo social: como entrar e crescer',
+        duration: '20 min',
+        content: `# Negócios de impacto e empreendedorismo social: como entrar e crescer
+
+## O que é um negócio de impacto
+
+Negócio de impacto é uma empresa que tem missão social ou ambiental central ao seu modelo de negócio — não como ação de responsabilidade social periférica. O impacto é a razão de existir, e o modelo de negócio é o mecanismo de sustentabilidade.
+
+Exemplos brasileiros: Insecta Shoes (moda sustentável), Morada da Floresta (turismo), Muda Minha Cidade (participação cidadã), RESiDENCIA (habitação social).
+
+## Diferenças práticas de trabalhar em negócio de impacto vs. startup convencional
+
+**Semelhanças:** Ambiente ágil, múltiplos chapéus, recursos escassos, ritmo acelerado.
+
+**Diferenças:**
+- O "norte verdadeiro" é impacto + sustentabilidade financeira, não só crescimento
+- Investimento vem de fundos de impacto (diferente de VCs convencionais) — com métricas de impacto além das financeiras
+- Salários geralmente abaixo do mercado, compensados por propósito e missão (mas não sempre)
+- Comunidade de impacto é menor e mais colaborativa que o ecossistema de startups
+
+## Como encontrar oportunidades em negócios de impacto
+
+**Plataformas:**
+- Pipe Social (maior hub de impacto do Brasil) — tem vagas e mapeamento de organizações
+- Sistema B (empresas B certificadas no Brasil)
+- GIFE (Grupo de Institutos, Fundações e Empresas)
+- Instituto de Cidadania Empresarial
+
+**Aceleradoras de impacto:**
+Muitas contratam para os programas e têm vagas nas empresas aceleradas:
+- Artemisia (negócios de impacto para baixa renda)
+- SITAWI
+- Yunus Negócios Sociais Brasil
+- ACE Ventures (impacto em tech)
+
+## A decisão de propósito vs. remuneração
+
+Não existe resposta certa. Algumas reflexões:
+
+Propósito sustenta no longo prazo quando combinado com remuneração mínimamente digna. Propósito sem sustentabilidade financeira pessoal cria burnout — você não consegue impactar o mundo se não consegue pagar suas contas.
+
+O mito do "sacrifício necessário" prejudica o setor: organizações de impacto que pagam mal atraem menos talentos e têm menos impacto. Cobrar salário justo não é contradição com missão social.
+
+Avalie: a organização trata seus funcionários com os mesmos valores que aplica à missão? Se pregam inclusão externamente mas têm cultura interna excludente, algo está errado.`,
+      },
+    ],
+  },
+  {
+    id: 58,
+    title: 'Carreira em Logística e Supply Chain',
+    desc: 'Do analista ao diretor: o mapa completo da carreira em supply chain, logística e operações — uma das mais aquecidas do Brasil.',
+    duration: '3h 20min',
+    icon: '🚚',
+    isPro: true,
+    color: { bg: 'bg-slate-50', border: 'border-slate-200', badge: 'bg-slate-100 text-slate-700', icon: 'bg-slate-600' },
+    lessons: [
+      {
+        id: '58-1',
+        title: 'O mapa de supply chain: áreas, funções e oportunidades',
+        duration: '30 min',
+        content: `# O mapa de supply chain: áreas, funções e oportunidades
+
+## Por que supply chain é uma das carreiras com mais demanda no Brasil
+
+Eventos dos últimos anos — pandemia, crise de chips, inflação global — mostraram ao mundo empresarial que supply chain é estratégico, não apenas operacional. Empresas que antes viam logística como custo agora a veem como vantagem competitiva.
+
+No Brasil, o setor de logística representa ~12% do PIB. A digitalização acelerada (e-commerce, automação de armazéns, roteirização inteligente) criou demanda por profissionais que combinam operação e tecnologia.
+
+## As principais áreas
+
+### Planejamento e Demanda
+
+Prevê quanto a empresa vai vender e quanto precisa produzir/comprar. S&OP (Sales & Operations Planning) integra previsão de vendas com capacidade de produção e estoque.
+
+- **Salário BR:** R$ 6.000–16.000
+- **Skills:** Excel avançado, ferramentas de planejamento (SAP APO, Oracle Demand Management)
+
+### Compras e Procurement
+
+Negociação e gestão de fornecedores. Vai muito além de "comprar mais barato" — gestão de risco de fornecedor, SLAs, contratos, inovação via fornecedores.
+
+- **Salário BR:** R$ 5.000–18.000 (gestores de grandes categorias ganham mais)
+
+### Logística e Distribuição
+
+Operação de transporte (inbound e outbound), gestão de transportadoras, roteirização, last-mile.
+
+- **Salário BR:** R$ 4.500–14.000
+
+### Gestão de Armazém (WMS/Fulfillment)
+
+Operação de CD (Centro de Distribuição): recebimento, armazenagem, picking, packing, expedição. Cada vez mais automatizado.
+
+- **Salário BR:** R$ 4.000–12.000
+
+### Supply Chain Analytics / S&OP
+
+Análise de dados para decisões de supply chain. Uso de Python, SQL, Power BI para otimização de rotas, previsão de demanda, análise de estoque.
+
+- **Salário BR:** R$ 7.000–18.000 — crescendo rápido
+
+### Diretor / VP de Supply Chain
+
+Liderança estratégica de toda a cadeia. Assento no comitê executivo das maiores empresas.
+
+- **Salário BR:** R$ 25.000–70.000+
+
+## Setores com maior demanda
+
+- **Varejo e e-commerce:** Magazine Luiza, Mercado Livre, Amazon, Carrefour, Grupo Pão de Açúcar
+- **Indústria de bens de consumo:** Ambev, Nestlé, Unilever, P&G, JBS
+- **Farmacêutico:** Distribuidoras de medicamentos com regulação rigorosa
+- **Automotivo:** Toyota, VW, GM — supply chain complexa e bem remunerada
+- **Agronegócio:** Cargill, Bunge, Louis Dreyfus — logística de commodities`,
+      },
+      {
+        id: '58-2',
+        title: 'S&OP e planejamento de demanda: a função mais estratégica de supply chain',
+        duration: '30 min',
+        content: `# S&OP e planejamento de demanda: a função mais estratégica de supply chain
+
+## O que é S&OP e por que é estratégico
+
+S&OP (Sales & Operations Planning) é o processo que alinha o que a empresa planeja vender com o que ela consegue produzir e distribuir. É o encontro entre a visão comercial e a realidade operacional.
+
+Sem S&OP: vendas promete ao cliente o que operações não consegue entregar. Estoques explodem em uns lugares e faltam em outros. Custos de urgência e ineficiência sobem.
+
+Com S&OP bem executado: decisões integradas, menos ruptura, menos excesso de estoque, melhor serviço ao cliente.
+
+## O ciclo mensal de S&OP
+
+**Semana 1 — Revisão de demanda:** Time comercial atualiza previsão de vendas para os próximos 12-18 meses com base em pipeline, sazonalidade, dados de mercado.
+
+**Semana 2 — Revisão de supply:** Operações avalia se consegue atender a demanda prevista. Identifica restrições de capacidade, prazo de fornecedores, gargalos.
+
+**Semana 3 — Reunião de reconciliação:** Comercial e operações alinham onde há gaps e definem como resolver (produzir mais? ajustar previsão? aceitar ruptura em um SKU para priorizar outro?)
+
+**Semana 4 — Executive S&OP:** Diretores e C-level aprovam o plano consensado. Decisões estratégicas são tomadas.
+
+## Previsão de demanda: a arte e a ciência
+
+Previsão de demanda combina dados históricos com fatores qualitativos (promoções futuras, lançamentos, sazonalidade, contexto de mercado).
+
+**Métodos quantitativos:**
+- Média móvel (simples e exponencial)
+- Decomposição de séries temporais (tendência + sazonalidade + irregularidade)
+- Regressão — usando variáveis correlacionadas (temperatura, economia)
+- Machine Learning — cada vez mais usado em grandes empresas
+
+**Métricas de acuracidade:**
+- MAPE (Mean Absolute Percentage Error): % médio de erro da previsão
+- Forecast Bias: se a previsão tende a ser sistematicamente alta ou baixa
+
+## Ferramentas de planejamento
+
+**Enterprise:** SAP IBP, Oracle Demand Management, Blue Yonder (JDA)
+**Mid-market:** Logility, Kinaxis, o9 Solutions
+**Acessíveis:** Excel com Power Query + Power BI para visualização
+
+Profissionais que dominam SAP IBP especificamente têm alta empregabilidade em grandes corporações.`,
+      },
+      {
+        id: '58-3',
+        title: 'Compras e procurement: muito além de negociar preço',
+        duration: '30 min',
+        content: `# Compras e procurement: muito além de negociar preço
+
+## A evolução de compras para procurement estratégico
+
+Compras tradicional: "compre pelo menor preço." Procurement moderno: gestão estratégica da cadeia de fornecedores com objetivo de criar valor além de redução de custo.
+
+Essa mudança criou profissionais muito mais valorizados — e muito mais raros.
+
+## O que procurement estratégico faz
+
+**Gestão de categorias:** Agrupa fornecimentos similares e desenvolve estratégia de mercado para cada categoria (não compra caneta como compra servidor de TI).
+
+**Desenvolvimento de fornecedores:** Ajuda fornecedores-chave a melhorarem qualidade, capacidade e inovação. Relação de longo prazo, não transacional.
+
+**Gestão de risco de fornecedor:** Identifica dependências críticas (single source), avalia estabilidade financeira dos fornecedores, cria planos de contingência.
+
+**Inovação via fornecedores:** As melhores empresas usam a rede de fornecedores como fonte de inovação — não só para produzir o que foi especificado, mas para co-criar melhorias.
+
+**Sustentabilidade na cadeia:** ESG exige que as empresas garantam que seus fornecedores também atendem padrões ambientais e sociais.
+
+## Negociação em compras: o que realmente funciona
+
+**Preparação:** Pesquise o fornecedor antes de negociar. Quem são os concorrentes deles? Qual é a saúde financeira? Quais outros clientes eles têm? Informação é poder em negociação.
+
+**TCO (Total Cost of Ownership):** Não negocie só preço de compra — considere custo de manutenção, suporte, treinamento, risco de ruptura. O mais barato nem sempre tem menor TCO.
+
+**Múltiplos fornecedores:** Ter alternativas reais é a melhor posição de negociação. "Tenho outra proposta competitiva" só funciona se for verdade.
+
+**BATNA:** Best Alternative To a Negotiated Agreement. Antes de qualquer negociação, saiba qual é sua alternativa se não fechar. Quem tem melhor BATNA tem mais poder.
+
+## Certificações de procurement
+
+- **CPM (Certified Purchasing Manager):** ISM, referência americana
+- **CPSM (Certified Professional in Supply Management):** ISM, mais moderno que o CPM
+- **CIPP (Certified International Procurement Professional):** Mais acessível e crescendo no Brasil
+- **APICS CSCP (Certified Supply Chain Professional):** Visão mais ampla de supply chain
+
+Certificações ISM são as mais reconhecidas globalmente.`,
+      },
+      {
+        id: '58-4',
+        title: 'Logística do futuro: automação, dados e como se manter relevante',
+        duration: '20 min',
+        content: `# Logística do futuro: automação, dados e como se manter relevante
+
+## As tecnologias que estão transformando supply chain
+
+**WMS (Warehouse Management System):** Software que gerencia operações de armazém. Profissionais que dominam WMSs como SAP EWM, Manhattan, Infor têm alta demanda.
+
+**TMS (Transportation Management System):** Roteirização, gestão de fretes, rastreamento. Oracle TMS, SAP TM, Omnitracs são líderes.
+
+**Robótica e automação:** Armazéns automatizados (Amazon Robotics, Autostore) estão crescendo no Brasil — mais lentos que EUA/Europa, mas chegando. Profissionais que entendem operação automatizada têm vantagem.
+
+**IoT e rastreamento:** Sensores em caminhões, armazéns e produtos permitem visibilidade em tempo real da cadeia. Temperatura, localização, condição — tudo monitorado.
+
+**Inteligência Artificial:** Previsão de demanda com ML, otimização de rotas com AI, detecção de anomalias em estoque. Ferramentas como Blue Yonder e o9 já usam IA extensivamente.
+
+**Blockchain:** Para rastreabilidade de cadeia (alimentos, farmacêutico, luxo). Ainda em adoção, mas crescendo em setores regulados.
+
+## O perfil do profissional de supply chain do futuro
+
+Não é só operacional. É analítico, orientado a dados, confortável com tecnologia, com visão sistêmica do negócio.
+
+A equação valorizada: **domínio operacional (sabe como as coisas funcionam na prática) + habilidade analítica (consegue transformar dados em decisões) + visão estratégica (entende como supply chain impacta o negócio como um todo).**
+
+## Como se manter relevante
+
+1. **Aprenda SQL e Power BI** — visualização de KPIs de supply chain é muito valorizada
+2. **Entenda ao menos um sistema ERP (SAP ou Oracle)** — empresas médias e grandes usam; profissionais que sabem navegá-los têm vantagem
+3. **Mantenha-se atualizado em tendências:** Council of Supply Chain Management Professionals (CSCMP), MIT Center for Transportation & Logistics, Gartner Supply Chain
+4. **Busque projetos de melhoria de processo** — kaizen, lean manufacturing, six sigma em supply chain demonstram pensamento de melhoria contínua`,
+      },
+    ],
+  },
+  {
+    id: 59,
+    title: 'Carreira em Inteligência Artificial e Machine Learning',
+    desc: 'O roteiro completo para entrar e crescer na área mais aquecida da tecnologia: IA, ML e dados no mercado brasileiro.',
+    duration: '3h 40min',
+    icon: '🤖',
+    isPro: true,
+    color: { bg: 'bg-violet-50', border: 'border-violet-200', badge: 'bg-violet-100 text-violet-700', icon: 'bg-violet-600' },
+    lessons: [
+      {
+        id: '59-1',
+        title: 'O mapa de carreiras em IA e ML',
+        duration: '30 min',
+        content: `# O mapa de carreiras em IA e ML
+
+## Por que IA é a carreira do momento
+
+O mercado de IA no Brasil cresce em ritmo acelerado. Com a chegada de grandes players como Google, Microsoft, Meta e dezenas de startups nativas de IA, a demanda por profissionais qualificados excede em muito a oferta — gerando salários acima da média do setor de tecnologia.
+
+## As principais funções
+
+### Machine Learning Engineer
+Cria, treina e coloca modelos de ML em produção. Combina habilidades de engenharia de software com fundamentos de ML.
+- **Salário BR:** R$ 12.000–30.000+
+- **Skills:** Python, PyTorch/TensorFlow, MLOps, APIs de serving
+
+### Data Scientist
+Investiga dados, formula hipóteses, constrói modelos para gerar insights de negócio.
+- **Salário BR:** R$ 9.000–22.000
+- **Skills:** Python, estatística, SQL, storytelling com dados
+
+### AI/ML Research Scientist
+Pesquisa novos algoritmos e avanços teóricos. Trabalha em empresas grandes ou laboratórios.
+- **Salário BR:** R$ 18.000–50.000 (com PhD/publicações)
+
+### AI Product Manager
+Gerencia produtos com componentes de IA. Traduz necessidades de negócio em especificações para times de ML.
+- **Salário BR:** R$ 12.000–25.000
+
+### MLOps Engineer
+Infraestrutura para escalar e operar modelos de ML em produção.
+- **Salário BR:** R$ 13.000–28.000
+
+## Como entrar na área partindo do zero
+
+1. **Matemática e estatística:** Álgebra linear, cálculo, probabilidade — Khan Academy e 3Blue1Brown são excelentes pontos de partida
+2. **Python:** A linguagem dominante em IA/ML
+3. **Fundamentos de ML:** Curso de Andrew Ng no Coursera (gratuito para assistir) é o melhor ponto de entrada
+4. **Projetos práticos:** Kaggle, GitHub, e projetos próprios com dados reais
+5. **Especialização:** Escolha NLP, visão computacional, RL ou MLOps — especialistas são mais valorizados que generalistas`,
+      },
+      {
+        id: '59-2',
+        title: 'Fundamentos técnicos que todo profissional de IA precisa dominar',
+        duration: '35 min',
+        content: `# Fundamentos técnicos que todo profissional de IA precisa dominar
+
+## Matemática essencial (sem pânico)
+
+Você não precisa ser PhD em matemática para trabalhar com ML. Mas precisa de:
+
+**Álgebra linear:** Vetores, matrizes, multiplicação de matrizes, decomposição SVD. Tudo em ML é operação matricial.
+
+**Cálculo:** Derivadas e gradientes — você precisa entender intuitivamente como o gradiente descendente funciona para otimizar modelos.
+
+**Probabilidade e estatística:** Distribuições, Bayes, intervalos de confiança, testes de hipótese. ML é estatística em escala.
+
+## Python para ML: o essencial
+
+\`\`\`python
+# Stack básica
+import numpy as np       # Operações numéricas
+import pandas as pd      # Manipulação de dados
+import matplotlib.pyplot as plt  # Visualização
+import seaborn as sns    # Visualização estatística
+from sklearn import ...  # Algoritmos de ML clássicos
+import torch             # Deep learning (PyTorch)
+\`\`\`
+
+**NumPy e Pandas** são obrigatórios. Sem domínio dessas bibliotecas, você vai lutar em todo projeto.
+
+## Algoritmos de ML clássicos que você precisa conhecer
+
+- **Regressão Linear e Logística:** A base de tudo. Entenda profundamente antes de partir para deep learning.
+- **Árvores de Decisão e Random Forest:** Robustos, interpretáveis, muito usados em produção.
+- **Gradient Boosting (XGBoost, LightGBM):** Domina competições e é amplamente usado em empresas.
+- **K-Means e DBSCAN:** Clustering para segmentação.
+- **Redes Neurais:** MLP, CNN, RNN/LSTM, Transformers.
+
+## Deep Learning e LLMs
+
+O mercado hoje exige conhecimento de **Large Language Models (LLMs)**:
+- Como usar APIs de LLMs (OpenAI, Anthropic, Google)
+- Fine-tuning e RAG (Retrieval-Augmented Generation)
+- Prompt engineering avançado
+- LangChain e frameworks de orquestração
+
+Profissionais que sabem construir aplicações com LLMs têm altíssima demanda em 2024-2025.
+
+## MLOps: colocar em produção é diferente de treinar
+
+**Pipeline de ML em produção:**
+1. Coleta e processamento de dados (ETL)
+2. Feature engineering e feature store
+3. Treinamento e validação do modelo
+4. Registro de experimentos (MLflow, W&B)
+5. Serving (REST API, batch, edge)
+6. Monitoramento de drift e performance
+
+Muitos data scientists sabem treinar modelos mas não sabem colocá-los em produção. Dominar MLOps é diferencial real.`,
+      },
+      {
+        id: '59-3',
+        title: 'Como montar portfolio de IA e conseguir seu primeiro emprego na área',
+        duration: '30 min',
+        content: `# Como montar portfolio de IA e conseguir seu primeiro emprego na área
+
+## Por que portfolio é obrigatório em IA/ML
+
+Diplomas e cursos não convencem recrutadores técnicos em IA. Código rodando, notebooks documentados e projetos com impacto real são o que abre portas.
+
+## Projetos que impressionam recrutadores
+
+**Nível entrada:**
+- Análise exploratória de dados (EDA) com insights de negócio reais — não só gráficos bonitos
+- Modelo de classificação ou regressão com dataset real, com discussão de métricas e limitações
+- Dashboard interativo com Streamlit ou Gradio
+
+**Nível intermediário:**
+- Aplicação end-to-end: coleta de dados → modelo → API → frontend
+- Projeto de NLP: classificação de sentimentos, chatbot, sumarização
+- Projeto de visão computacional: detecção de objetos, classificação de imagens
+
+**Nível avançado:**
+- Fine-tuning de LLM para caso de uso específico
+- Sistema RAG (pergunta-resposta sobre documentos)
+- Solução para problema de negócio real (com dados reais e impacto mensurável)
+
+## Como documentar seus projetos
+
+Um projeto no GitHub com README ruim é invisível. Estrutura de README que funciona:
+1. **O problema:** Qual problema de negócio isso resolve?
+2. **A solução:** Sua abordagem técnica em linguagem acessível
+3. **Resultados:** Métricas, comparação com baseline, impacto
+4. **Como rodar:** Instruções claras para qualquer pessoa reproduzir
+
+## Kaggle como trampolim
+
+Kaggle é a maior comunidade de ML do mundo. Estratégia:
+- **Competitions:** Mesmo sem ganhar, ter notebooks bem documentados e classificação acima de 50% demonstra competência
+- **Notebooks:** Escreva análises detalhadas — os melhores ganham medalhas e visibilidade
+- **Perfil:** Recrutadores verificam perfis do Kaggle
+
+## Empresas que mais contratam IA no Brasil
+
+- **Big Techs:** Google, Meta, Amazon, Microsoft (centros de desenvolvimento em SP)
+- **Fintechs:** Nubank, PicPay, C6, Itaú (maior time de dados da AL)
+- **Startups de IA:** Crescendo muito — Neoway, Konduto, Semantix, Olist
+- **Consultorias:** McKinsey, BCG, Accenture (Analytics practices)
+- **Setores tradicionais digitalizando:** Bradesco, Ambev, Embraer`,
+      },
+      {
+        id: '59-4',
+        title: 'Tendências e futuro da carreira em IA',
+        duration: '25 min',
+        content: `# Tendências e futuro da carreira em IA
+
+## O que está transformando o mercado agora
+
+**Generative AI:** ChatGPT, Gemini, Claude e modelos de imagem mudaram a expectativa das empresas. Toda empresa agora quer "fazer algo com IA generativa" — profissionais que sabem implementar têm demanda explosiva.
+
+**AI Engineering:** Nova categoria de profissional que combina engenharia de software com uso de APIs de IA. Não treina modelos do zero — constrói aplicações usando modelos existentes via API.
+
+**Multimodal AI:** Modelos que entendem texto, imagem, áudio e vídeo simultaneamente. Futuro próximo da maioria das aplicações.
+
+**Edge AI:** IA rodando em dispositivos (celular, IoT) em vez de servidores. Demanda por profissionais que otimizam modelos para hardware limitado.
+
+## Certificações que valem a pena
+
+- **Google Professional Machine Learning Engineer:** Muito reconhecido, foca em ML na GCP
+- **AWS Machine Learning Specialty:** Para quem usa infraestrutura AWS
+- **DeepLearning.AI Specializations:** Andrew Ng — referência mundial, reconhecido pelo mercado
+- **Hugging Face Courses:** Gratuitos e focados em NLP e Transformers modernos
+
+## Salários e progressão de carreira
+
+| Nível | Experiência | Salário BR |
+|-------|-------------|------------|
+| Júnior | 0-2 anos | R$ 7.000–12.000 |
+| Pleno | 2-5 anos | R$ 12.000–20.000 |
+| Sênior | 5+ anos | R$ 20.000–35.000 |
+| Staff/Principal | 8+ anos | R$ 35.000–60.000+ |
+
+Empresas americanas contratando remotamente pagam em dólar — multiplicador de 5-6x no salário efetivo.
+
+## Como se manter atualizado
+
+IA muda a cada semana. Estratégia para acompanhar:
+- **Papers:** ArXiv.org (área cs.LG e cs.AI) — mesmo lendo só os abstracts você sabe o que está acontecendo
+- **Newsletters:** The Batch (DeepLearning.AI), Import AI, The AI Index
+- **Twitter/X:** Seguir Yann LeCun, Andrej Karpathy, Jeremy Howard
+- **Comunidades BR:** Data Hackers (maior comunidade de dados do Brasil), Slack e Discord de ML Brasil`,
+      },
+    ],
+  },
+  {
+    id: 60,
+    title: 'Freelance e Trabalho Independente',
+    desc: 'Como construir uma carreira freelance sólida: clientes, precificação, contratos e como escalar sua renda.',
+    duration: '3h 00min',
+    icon: '💼',
+    isPro: false,
+    color: { bg: 'bg-amber-50', border: 'border-amber-200', badge: 'bg-amber-100 text-amber-700', icon: 'bg-amber-600' },
+    lessons: [
+      {
+        id: '60-1',
+        title: 'Como começar: plataformas, nicho e primeiros clientes',
+        duration: '30 min',
+        content: `# Como começar: plataformas, nicho e primeiros clientes
+
+## Freelance no Brasil: o mercado
+
+Mais de 25 milhões de brasileiros trabalham como autônomos ou freelancers. Com a pandemia, esse número cresceu e a aceitação de trabalho remoto freelance explodiu — incluindo clientes internacionais pagando em dólar.
+
+## Escolha seu nicho (não tente ser generalista)
+
+O erro mais comum de quem começa: tentar fazer tudo para todo mundo. Clientes pagam mais por especialistas.
+
+**Nichos com boa demanda:**
+- Desenvolvimento web (especialmente React, Node, WordPress)
+- Design gráfico e UI/UX
+- Redação e copywriting
+- Tradução (especialmente PT-EN e EN-PT)
+- Marketing digital e gestão de tráfego pago
+- Edição de vídeo e motion
+- Consultoria em finanças pessoais para PMEs
+- Automações e RPA (Make, Zapier)
+
+## Plataformas para começar
+
+**Nacionais:**
+- **Workana:** Maior plataforma da América Latina. Boa para projetos em português.
+- **99Freelas:** Alternativa com projetos variados
+- **Freelancer.com BR:** Projetos menores, boa para portfólio inicial
+
+**Internacionais (pagamento em dólar):**
+- **Upwork:** Mais profissional, projetos maiores, processo de aprovação mais rigoroso
+- **Fiverr:** Você cria "gigs" com preço fixo. Bom para serviços padronizados.
+- **Toptal:** Apenas top 3% — para quem já tem experiência sólida
+
+## Conseguindo os primeiros clientes
+
+**Estratégia 1: Rede pessoal**
+Sua rede existente (ex-colegas, amigos, LinkedIn) é o caminho mais rápido para os primeiros clientes. Muitos freelancers experientes conseguem 80% de clientes por indicação.
+
+**Estratégia 2: Portfólio antes do cliente**
+Faça projetos fictícios ou pro bono para construir portfólio. Um designer pode criar conceitos para marcas que ele admira — sem cliente real, mas com trabalho real para mostrar.
+
+**Estratégia 3: Preço de entrada**
+No começo, preço abaixo do mercado + entrega excelente = avaliações positivas = mais clientes. Isso não é para sempre — é estratégia temporária de construção de reputação.`,
+      },
+      {
+        id: '60-2',
+        title: 'Precificação: como cobrar o que você vale',
+        duration: '25 min',
+        content: `# Precificação: como cobrar o que você vale
+
+## O erro mais caro do freelancer
+
+Cobrar barato demais. É contraintuitivo, mas preço baixo afasta bons clientes — eles associam preço a qualidade. O freelancer que cobra muito barato trabalha mais, ganha menos e atrai clientes problemáticos.
+
+## Modelos de cobrança
+
+**Por hora:** Transparente, fácil de ajustar. Mas não incentiva eficiência — quanto mais rápido você trabalha, menos ganha.
+
+**Por projeto (valor fixo):** Melhor para você à medida que fica mais eficiente. Requer boa estimativa de escopo.
+
+**Por resultado:** Raro mas poderoso — você cobra uma % do resultado gerado (ex: 10% do aumento de vendas). Exige histórico e confiança do cliente.
+
+**Retainer (mensal):** Cliente paga valor fixo mensal por disponibilidade e serviços recorrentes. Ideal para estabilidade de renda.
+
+## Como calcular seu preço mínimo
+
+Freelancer não é CLT. Você precisa cobrir:
+- Suas despesas pessoais e profissionais
+- Impostos (MEI, Simples ou Carnê-Leão)
+- Férias, 13°, INSS — você paga por conta própria
+- Períodos sem projeto (buffer de 20-30%)
+- Equipamentos, software, internet, coworking
+
+**Fórmula básica:**
+(Despesas mensais × 1.3) ÷ horas faturáveis por mês = sua taxa mínima por hora
+
+## Como aumentar seu preço
+
+1. **Especialize-se** — generalistas competem com todo mundo. Especialistas competem com poucos.
+2. **Construa casos de sucesso** — resultados mensuráveis justificam preços maiores
+3. **Peça referências** — cada cliente satisfeito é canal de aquisição
+4. **Aumente gradualmente** — 15-20% a cada novo cliente é sustentável
+5. **Pacotes e escopo bem definido** — evita scope creep e discussões de preço
+
+## Negociando sem baixar o preço
+
+Quando o cliente pede desconto, antes de baixar o preço, reduza o escopo. "Posso fazer por esse valor se entregarmos apenas X e Y, sem Z." Isso mantém sua margem e educa o cliente sobre o valor do seu trabalho.`,
+      },
+      {
+        id: '60-3',
+        title: 'Contratos, finanças e como escalar seu freelance',
+        duration: '25 min',
+        content: `# Contratos, finanças e como escalar seu freelance
+
+## Por que você PRECISA de contrato
+
+Mesmo para amigos e "clientes confiáveis". O contrato não é desconfiança — é profissionalismo e proteção mútua.
+
+**O que todo contrato freelance deve ter:**
+- Escopo detalhado do que será entregue (e o que NÃO está incluso)
+- Cronograma e datas de entrega
+- Valor total e condições de pagamento
+- Política de revisões (quantas estão inclusas)
+- O que acontece se o cliente cancelar
+- Direitos autorais e propriedade intelectual
+- Foro de resolução de conflitos
+
+**Ferramentas:** Bonsai, AND.CO, ou simplesmente um documento Word com assinatura digital (DocuSign, Clicksign).
+
+## Finanças do freelancer
+
+**MEI:** Para faturamento até R$ 81.000/ano. Mais simples, menor carga tributária. Limitações: não pode ter sócio, não pode ser contratado como MEI em algumas situações.
+
+**Simples Nacional (LTDA ou SLU):** Para quem fatura mais ou precisa de flexibilidade. Exige contador.
+
+**Carnê-Leão:** Se você não abrir CNPJ, paga como pessoa física. Alíquotas chegam a 27,5% — o menos vantajoso.
+
+**Separação de finanças:** Conta bancária separada para o negócio desde o primeiro dia. Nubank PJ, C6 PJ, Inter PJ — todos gratuitos.
+
+## Como escalar além das suas horas
+
+O teto do freelancer solo é o número de horas que você tem. Para escalar:
+
+**Subcontratação:** Pega projetos maiores e subcontrata parte do trabalho. Você gerencia, outros executam.
+
+**Produtos digitais:** Cursos, templates, presets, ebooks — venda uma vez, receba múltiplas vezes.
+
+**Agência:** Transforme seu freelance em empresa com time fixo ou pool de freelancers.
+
+**Nichos de alto valor:** Menos clientes, preços muito mais altos. Um consultor de estratégia pode ganhar mais com 3 clientes do que um designer generalista com 20.`,
+      },
+    ],
+  },
+  {
+    id: 61,
+    title: 'Carreira em Segurança da Informação',
+    desc: 'Do analista de SOC ao pentester: o mapa completo de cybersecurity no Brasil, com salários, certificações e trilha de entrada.',
+    duration: '3h 20min',
+    icon: '🔒',
+    isPro: true,
+    color: { bg: 'bg-slate-50', border: 'border-slate-200', badge: 'bg-slate-100 text-slate-700', icon: 'bg-slate-700' },
+    lessons: [
+      {
+        id: '61-1',
+        title: 'O ecossistema de cybersecurity: funções e oportunidades',
+        duration: '30 min',
+        content: `# O ecossistema de cybersecurity: funções e oportunidades
+
+## Por que segurança da informação nunca vai faltar emprego
+
+Ataques de ransomware, vazamentos de dados, fraudes digitais — a superfície de ataque cresce toda semana. A LGPD (Lei Geral de Proteção de Dados) criou obrigação legal para empresas investirem em segurança. O resultado: escassez crônica de profissionais e salários competitivos.
+
+## As principais áreas
+
+### Blue Team (Defesa)
+Protege a organização contra ataques.
+
+**Analista de SOC (Security Operations Center):**
+Monitora alertas de segurança, investiga incidentes, responde a ameaças em tempo real.
+- **Salário BR:** R$ 4.000–10.000 (entrada acessível)
+
+**Analista de Segurança:**
+Define políticas, avalia riscos, implementa controles.
+- **Salário BR:** R$ 6.000–16.000
+
+**Incident Response:**
+Especialista em resposta a incidentes — entra em ação quando o ataque já aconteceu.
+- **Salário BR:** R$ 10.000–22.000
+
+### Red Team (Ataque Simulado)
+Simula ataques para encontrar vulnerabilidades antes dos criminosos.
+
+**Penetration Tester (Pentester):**
+Testa sistemas, aplicações e redes com permissão para encontrar falhas.
+- **Salário BR:** R$ 8.000–25.000
+
+**Red Team Operator:**
+Operações avançadas de simulação de adversário.
+- **Salário BR:** R$ 15.000–35.000+
+
+### Gestão e Conformidade
+
+**CISO (Chief Information Security Officer):**
+Liderança estratégica de segurança.
+- **Salário BR:** R$ 30.000–80.000+
+
+**GRC Analyst (Governance, Risk, Compliance):**
+Frameworks de conformidade (ISO 27001, NIST, LGPD).
+- **Salário BR:** R$ 5.000–14.000
+
+## Empresas que mais contratam
+
+- Bancos e fintechs (Itaú, Bradesco, Nubank, PicPay) — regulados pelo BACEN, obrigados a investir
+- Consultorias de segurança (Cipher, Tempest, ISH)
+- Big Techs com centros no Brasil
+- Qualquer empresa de grande porte pós-LGPD`,
+      },
+      {
+        id: '61-2',
+        title: 'Certificações essenciais e como estudar',
+        duration: '30 min',
+        content: `# Certificações essenciais e como estudar
+
+## O papel das certificações em cybersecurity
+
+Diferente de outras áreas de TI, cybersecurity tem certificações muito valorizadas — porque demonstram não só conhecimento teórico mas habilidades práticas e comprometimento com a área.
+
+## Trilha de certificações
+
+### Para quem está começando
+
+**CompTIA Security+**
+- A mais recomendada para entrada no mercado
+- Aborda fundamentos de segurança de forma abrangente
+- Reconhecida globalmente, inclusive pelo governo americano (DoD 8570)
+- Custo: ~US$ 370 (voucher)
+
+**CompTIA Network+**
+- Recomendada antes do Security+ se você não tem base de redes
+- Fundamentos de redes que são pré-requisito para entender segurança
+
+### Nível intermediário
+
+**CEH (Certified Ethical Hacker) — EC-Council**
+- Foco em técnicas de hacking ético
+- Muito valorizado no Brasil, especialmente em empresas que querem pentester
+- Custo: ~US$ 950 + curso oficial
+
+**eJPT (eLearnSecurity Junior Penetration Tester)**
+- Mais acessível, 100% prático, muito boa relação custo-benefício
+- Excelente para demonstrar habilidades práticas de pentest
+- Custo: ~US$ 200
+
+### Nível avançado
+
+**OSCP (Offensive Security Certified Professional)**
+- A certificação mais respeitada em pentest/red team
+- Exame 100% prático: 24h de pentest em laboratório, 24h de relatório
+- Custo: ~US$ 1.499 (inclui 90 dias de lab)
+- Quem tem OSCP no currículo raramente fica desempregado
+
+**CISSP (Certified Information Systems Security Professional)**
+- Para gestores e arquitetos de segurança (requer 5 anos de experiência)
+- O "MBA" de segurança da informação
+
+## Onde estudar (gratuito e pago)
+
+**Gratuito:**
+- TryHackMe.com — laboratórios práticos, ótimo para iniciantes
+- HackTheBox.eu — mais avançado, comunidade ativa
+- PentesterLab, OverTheWire (wargames)
+
+**Pago:**
+- INE (ine.com) — melhor plataforma para eLearnSecurity
+- TCM Security — excelente custo-benefício
+- Offensive Security — para OSCP
+
+## Estudar sem gastar
+
+CTFs (Capture The Flag) são competições de segurança com desafios práticos. Participar de CTFs é gratuito, educativo e impressiona recrutadores. Plataformas: CTFtime.org, PicoCTF, HackTheBox Starting Point.`,
+      },
+      {
+        id: '61-3',
+        title: 'Como construir seu laboratório e portfólio em segurança',
+        duration: '20 min',
+        content: `# Como construir seu laboratório e portfólio em segurança
+
+## Por que você precisa de um home lab
+
+Em segurança, prática supera teoria. Ter um laboratório onde você pode atacar e defender sistemas reais (em ambiente controlado) acelera o aprendizado muito mais que qualquer curso.
+
+## Como montar seu lab sem gastar muito
+
+**Opção 1: Virtualização local**
+- Software gratuito: VirtualBox (gratuito) ou VMware Workstation Player
+- VMs para praticar: Kali Linux (atacante), Metasploitable, VulnHub machines
+- Um computador com 16GB RAM é suficiente para começar
+
+**Opção 2: Plataformas online**
+- TryHackMe e HackTheBox têm labs na nuvem — sem precisar de hardware
+- Ideal para quem não tem máquina potente
+
+**Opção 3: Home server barato**
+- Um mini PC ou Raspberry Pi rodando Proxmox pode hospedar múltiplas VMs
+- Investimento: R$ 800–2.000 com Proxmox (gratuito)
+
+## O que praticar no laboratório
+
+**Fundamentos de rede:**
+Instale Wireshark e capture tráfego da sua própria rede. Entenda os protocolos na prática.
+
+**Máquinas vulneráveis:**
+VulnHub.com tem centenas de VMs propositalmente vulneráveis para você praticar. Comece com as marcadas "easy" e evolua.
+
+**Active Directory:**
+A maioria das empresas usa Windows AD. Montar um lab de AD (um Windows Server + duas VMs Windows) e praticar ataques comuns (Kerberoasting, Pass-the-Hash) é altamente valorizado.
+
+## Como documentar seu portfólio
+
+**Write-ups:** Após resolver uma máquina do HackTheBox ou CTF, escreva um relatório detalhando sua abordagem. Publicar no Medium ou Blog pessoal demonstra comunicação técnica — habilidade muito valorizada.
+
+**GitHub:** Ferramentas e scripts que você criou, projetos de automação de segurança.
+
+**LinkedIn:** Compartilhe conquistas (nova certificação, CTF ganho, write-up publicado). A comunidade de segurança no LinkedIn é ativa no Brasil.`,
+      },
+    ],
+  },
+  {
+    id: 62,
+    title: 'Negociação de Salário e Pacote de Benefícios',
+    desc: 'Scripts, estratégias e táticas para negociar sua remuneração com confiança — em qualquer momento da carreira.',
+    duration: '2h 30min',
+    icon: '💰',
+    isPro: false,
+    color: { bg: 'bg-green-50', border: 'border-green-200', badge: 'bg-green-100 text-green-700', icon: 'bg-green-600' },
+    lessons: [
+      {
+        id: '62-1',
+        title: 'Pesquisa salarial: saiba quanto você vale antes de negociar',
+        duration: '20 min',
+        content: `# Pesquisa salarial: saiba quanto você vale antes de negociar
+
+## Por que pesquisa salarial é o primeiro passo
+
+Negociar sem saber o mercado é negociar às cegas. Você pode pedir muito pouco (deixando dinheiro na mesa) ou muito (parecendo fora da realidade). A pesquisa transforma a negociação em conversa baseada em fatos.
+
+## Fontes confiáveis de dados salariais
+
+**Plataformas de emprego:**
+- **Glassdoor.com.br:** Salários reportados por funcionários. Busque por cargo + empresa + cidade.
+- **LinkedIn Salary Insights:** Disponível para assinantes Premium. Dados de salários reais.
+- **Levels.fyi:** Para tecnologia — altamente detalhado, especialmente para empresas americanas com operação no Brasil.
+
+**Pesquisas especializadas:**
+- **Robert Half Guia Salarial:** Publicado anualmente, por área e nível
+- **PageGroup Salary Survey**
+- **Catho Pesquisa Salarial**
+- **LHH/Talent Group** para cargos executivos
+
+**Recrutadores:**
+Fale com headhunters da sua área. Eles têm dados de mercado em tempo real e interesse em te ajudar a entender o valor de mercado.
+
+## Como usar os dados que você coletou
+
+Monte uma tabela simples:
+
+| Fonte | Cargo | Localização | Faixa Salarial |
+|-------|-------|-------------|----------------|
+| Glassdoor | Analista de Marketing Pleno | São Paulo | R$ 5.000–8.000 |
+| Robert Half | Marketing Analyst | SP | R$ 5.500–9.000 |
+| LinkedIn | Marketing | BR | R$ 4.800–8.500 |
+
+**Seu número alvo:** Use o terço superior da faixa para o que você vai pedir. Você é o produto sendo vendido — se posicione como premium, não como commodity.
+
+## Fatores que justificam pedir acima da média
+
+- Habilidades raras ou certificações específicas
+- Experiência em empresa reconhecida no mercado
+- Resultados mensuráveis anteriores
+- Demanda maior que oferta na sua especialidade
+- Oferta competitiva que você tem (ou pode criar)`,
+      },
+      {
+        id: '62-2',
+        title: 'Scripts e táticas para a negociação real',
+        duration: '25 min',
+        content: `# Scripts e táticas para a negociação real
+
+## A regra de ouro: quem fala primeiro perde
+
+Quando o recrutador pergunta "qual é sua expectativa salarial?", o candidato que dá um número primeiro limita sua margem. Quando a empresa dá um número primeiro, o candidato tem uma âncora para negociar acima.
+
+**Se te pedirem um número primeiro:**
+*"Antes de dar um número, gostaria de entender melhor o escopo completo da posição e os benefícios incluídos. Mas com base na minha pesquisa de mercado, estou buscando algo entre R$ X e R$ Y."*
+
+Use uma faixa, não um número exato. O topo da sua faixa deve ser o que você quer receber.
+
+## Scripts para cada situação
+
+**Quando a oferta vem abaixo do esperado:**
+*"Obrigado pela oferta — estou muito animado com a oportunidade. Com base na pesquisa que fiz e na minha experiência em [X e Y], estava esperando algo mais próximo de R$ [número]. Há flexibilidade para ajustarmos?"*
+
+**Quando dizem "não há orçamento":**
+*"Entendo. Além do salário base, o que mais compõe o pacote? Bônus, equity, benefícios flexíveis? Gostaria de entender o valor total da remuneração."*
+
+**Quando você tem oferta concorrente:**
+*"Tenho muito interesse nessa posição e prefiro essa empresa. Mas tenho uma oferta de R$ [X] que preciso considerar. Há alguma possibilidade de chegar próximo a esse valor para eu poder escolher aqui?"*
+
+## O que você pode negociar além do salário
+
+- **Bônus anual:** % do salário, critérios de pagamento
+- **Equity/Stock Options:** Para startups e empresas de tecnologia
+- **Home office:** Dias de trabalho remoto por semana
+- **Plano de saúde:** Extensão para dependentes, cobertura dental
+- **Auxílio educação:** Cursos, certificações, idiomas
+- **PLR:** Participação nos lucros e resultados
+- **Férias:** Acima do mínimo legal em algumas empresas
+- **Data de início:** Flexibilidade para cumprir aviso prévio com tranquilidade
+
+## Após receber a oferta final
+
+Sempre peça a oferta por escrito antes de aceitar. E nunca aceite na hora — um prazo de 24-48h para "refletir" é profissional e esperado. Use esse tempo para avaliar o pacote completo.`,
+      },
+      {
+        id: '62-3',
+        title: 'Negociando reajuste salarial no emprego atual',
+        duration: '20 min',
+        content: `# Negociando reajuste salarial no emprego atual
+
+## O momento certo para pedir aumento
+
+**Maus momentos:** Após projeto mal-sucedido, quando a empresa está cortando custos, logo após chegada de novo gestor.
+
+**Bons momentos:**
+- Após entrega de resultado significativo
+- Quando você assumiu novas responsabilidades
+- Em ciclos de avaliação de performance
+- Quando você tem uma oferta externa (com cuidado)
+
+## Como preparar sua argumentação
+
+Nunca peça aumento com base em necessidade pessoal ("preciso pagar aluguel"). Negocie com base em valor entregado e mercado.
+
+**Prepare sua lista de resultados:**
+Documente especificamente o que você entregou desde o último reajuste:
+- Projetos concluídos com impacto mensurável
+- Novas responsabilidades assumidas
+- Habilidades desenvolvidas
+- Problemas que você resolveu
+
+**Pesquisa de mercado:**
+Mostre dados de que sua remuneração atual está abaixo do mercado para o que você faz.
+
+## O script para conversar com o gestor
+
+*"Tenho muito orgulho do que entreguei nos últimos [X meses], especialmente [resultado específico]. Pesquisei o mercado e percebi que estou abaixo da faixa para o que faço e o nível de responsabilidade que tenho. Gostaria de conversar sobre ajustar minha remuneração para [valor]. Você tem disponibilidade para essa conversa?"*
+
+## E se disserem não?
+
+Peça clareza sobre o que você precisa alcançar para conseguir o reajuste. Estabeleça critérios objetivos. Se depois de atingir esses critérios ainda não houver movimento, a empresa está mostrando como valoriza (ou não) seu trabalho — e você tem informação valiosa para decidir seus próximos passos.`,
+      },
+    ],
+  },
+  {
+    id: 63,
+    title: 'Carreira em Recursos Humanos e People',
+    desc: 'Do recrutamento ao People Analytics: as funções, habilidades e trilhas de carreira para quem quer trabalhar com gente.',
+    duration: '3h 00min',
+    icon: '👥',
+    isPro: false,
+    color: { bg: 'bg-pink-50', border: 'border-pink-200', badge: 'bg-pink-100 text-pink-700', icon: 'bg-pink-600' },
+    lessons: [
+      {
+        id: '63-1',
+        title: 'As funções de RH: muito além de contratação',
+        duration: '25 min',
+        content: `# As funções de RH: muito além de contratação
+
+## A evolução do RH para People & Culture
+
+RH tradicional: administração de pessoal, folha de pagamento, conformidade trabalhista. RH moderno: parceiro estratégico que atrai, desenvolve e retém talentos como vantagem competitiva.
+
+O movimento de renomear o departamento de "Recursos Humanos" para "People & Culture" ou "People Experience" reflete essa mudança — e cria funções mais valorizadas e interessantes.
+
+## As principais áreas
+
+### Talent Acquisition (Recrutamento e Seleção)
+Atrai e seleciona candidatos. Vai muito além de triagem de currículos — inclui employer branding, estratégia de sourcing, entrevista estruturada, candidate experience.
+- **Salário BR:** R$ 3.500–12.000 (Recrutador Jr. a Talent Acquisition Manager)
+
+### People Business Partner (HRBP)
+Elo entre o time de pessoas e as áreas de negócio. Entende profundamente o negócio e usa práticas de gestão de pessoas para atingir objetivos estratégicos.
+- **Salário BR:** R$ 8.000–18.000
+
+### L&D (Learning & Development)**
+Treinamento, desenvolvimento de lideranças, universidades corporativas, gestão do conhecimento.
+- **Salário BR:** R$ 5.000–15.000
+
+### People Analytics
+Usa dados para tomar decisões sobre pessoas: previsão de turnover, eficácia de treinamentos, análise de equidade salarial.
+- **Salário BR:** R$ 8.000–20.000
+
+### Remuneração e Benefícios (Comp & Ben)
+Estrutura salarial, política de benefícios, equity, PLR. Cada vez mais estratégico com guerra por talentos.
+- **Salário BR:** R$ 7.000–18.000
+
+### Departamento Pessoal (DP)
+Folha de pagamento, admissão, demissão, férias, ESOCIAL. Área mais técnica e regulatória.
+- **Salário BR:** R$ 2.500–7.000`,
+      },
+      {
+        id: '63-2',
+        title: 'Recrutamento moderno: sourcing, entrevista e candidate experience',
+        duration: '25 min',
+        content: `# Recrutamento moderno: sourcing, entrevista e candidate experience
+
+## Por que recrutamento mudou completamente
+
+Com plataformas digitais, os melhores candidatos recebem múltiplas abordagens por semana. Candidatos passivos (que não estão ativamente procurando emprego) são os mais cobiçados — e eles não respondem a mensagens genéricas.
+
+## Sourcing estratégico
+
+**LinkedIn Recruiter:** A ferramenta principal. Permite filtros avançados, ver candidatos passivos, enviar InMails. Conhecer Boolean Search (operadores AND, OR, NOT) multiplica sua eficiência.
+
+**GitHub:** Para recrutamento técnico, o perfil do GitHub revela muito mais que o currículo.
+
+**Comunidades online:** Slack de tecnologia, grupos de Facebook de profissionais, Discord de nichos específicos. Candidatos ativos nessas comunidades são frequentemente os mais engajados.
+
+**Eventos e meetups:** Presença em eventos da área cria pipeline de candidatos quentes.
+
+## Entrevista estruturada vs. não-estruturada
+
+Entrevistas não-estruturadas (papo livre, "conte-me sobre você") têm baixa validade preditiva. A pessoa que impressiona na entrevista não é necessariamente a que vai performar melhor no trabalho.
+
+**Entrevista estruturada por competências:**
+Perguntas iguais para todos os candidatos, critérios de avaliação definidos antes. "Descreva uma situação em que você teve que influenciar sem ter autoridade direta." Avalia competências específicas relevantes para o cargo.
+
+**Scorecards:** Cada entrevistador avalia as mesmas dimensões com nota. Reduz viés e cria decisão baseada em dados.
+
+## Candidate Experience: por que importa
+
+Candidatos falam sobre suas experiências de processo seletivo. Um processo ruim:
+- Afasta candidatos da sua empresa (eles rejeitam a oferta ou desistem)
+- Prejudica employer brand (Glassdoor, LinkedIn, boca a boca)
+- Pode viralizar negativamente nas redes
+
+Processos de qualidade: comunicação proativa, feedback real (mesmo para reprovados), respeito ao tempo do candidato, etapas com propósito claro.`,
+      },
+      {
+        id: '63-3',
+        title: 'People Analytics: decisões sobre pessoas baseadas em dados',
+        duration: '20 min',
+        content: `# People Analytics: decisões sobre pessoas baseadas em dados
+
+## O que é People Analytics
+
+É a aplicação de análise de dados à gestão de pessoas. Em vez de tomar decisões sobre contratação, promoção, remuneração e retenção com base em intuição, usam-se dados para embasar e validar essas decisões.
+
+## Casos de uso mais comuns
+
+**Previsão de turnover:**
+Quais funcionários têm maior probabilidade de pedir demissão nos próximos 90 dias? Com dados históricos, é possível criar modelos preditivos que permitem intervenção proativa.
+
+**Eficácia de recrutamento:**
+Quais fontes de candidatos (LinkedIn, indicação, site de emprego) produzem os melhores performers? Qual é o tempo médio de contratação por área? Taxa de aprovação por etapa?
+
+**Análise de clima e engajamento:**
+Pesquisas de eNPS (Employee Net Promoter Score) e pulse surveys gerando dashboards em tempo real em vez de relatórios anuais.
+
+**Equidade salarial:**
+Há diferenças de remuneração por gênero, raça ou outra característica não relacionada ao desempenho? Análise estatística identifica e permite corrigir.
+
+## Ferramentas para começar
+
+**Excel/Google Sheets:** Ainda muito usado. Profissionais de People Analytics precisam dominar pivot tables e funções avançadas.
+
+**Power BI ou Tableau:** Visualização de dados de RH — dashboards de headcount, turnover, custo de contratação.
+
+**Python ou R:** Para análises mais avançadas — modelos preditivos, processamento de dados de clima.
+
+**HCMs com analytics:** Workday, SAP SuccessFactors, Oracle HCM Cloud têm módulos de analytics nativos.
+
+## Como entrar em People Analytics
+
+O caminho mais comum: analista de RH generalista que aprende Power BI e começa a criar dashboards. A combinação de conhecimento de RH + habilidade analítica é rara e muito valorizada.`,
+      },
+    ],
+  },
+  {
+    id: 64,
+    title: 'Carreira Internacional: Trabalhar Fora do Brasil',
+    desc: 'Como conseguir emprego em Portugal, EUA, Canadá e outros países — vistos, CVs internacionais e estratégias que funcionam.',
+    duration: '3h 30min',
+    icon: '✈️',
+    isPro: true,
+    color: { bg: 'bg-sky-50', border: 'border-sky-200', badge: 'bg-sky-100 text-sky-700', icon: 'bg-sky-600' },
+    lessons: [
+      {
+        id: '64-1',
+        title: 'Destinos e estratégias: onde brasileiros têm mais oportunidade',
+        duration: '30 min',
+        content: `# Destinos e estratégias: onde brasileiros têm mais oportunidade
+
+## Por que trabalhar fora nunca foi tão acessível
+
+A digitalização e a pandemia normalizaram o trabalho remoto internacional. Hoje você pode trabalhar para empresa americana morando no Brasil (recebendo em dólar) ou emigrar com oferta de emprego já garantida.
+
+## Portugal: o caminho mais acessível
+
+**Por que Portugal?**
+- Sem barreira de idioma
+- Visto de nômade digital (D8) e visto de trabalho (D3 para qualificados)
+- Comunidade brasileira estabelecida
+- Gateway para Europa e outros mercados
+
+**Como conseguir emprego em Portugal:**
+- LinkedIn com perfil em português europeu
+- Candidatura direta em empresas portuguesas (idealista.pt, net-empregos.com)
+- Agências de recrutamento especializadas em mobilidade
+- Salários menores que outros países europeus, mas custo de vida menor também
+
+**Áreas com mais demanda para brasileiros:** TI, engenharia, saúde, turismo e hotelaria
+
+## EUA e Canadá: mais difícil, mas salários muito maiores
+
+**Vistos para trabalho nos EUA:**
+- **H-1B:** Visa de trabalho por especialidade. Sorteio anual — altamente competitivo
+- **L-1:** Transferência interna de funcionário de multinacional. Mais acessível
+- **O-1:** Para pessoas com "habilidades extraordinárias" — artistas, atletas, especialistas reconhecidos
+- **EB-1/EB-2 NIW:** Green card por mérito extraordinário (longo processo)
+
+**Canadá — mais acessível que EUA:**
+- **Express Entry:** Sistema de pontos que avalia educação, experiência, idioma
+- **Provincial Nominee Programs (PNPs):** Províncias como Ontario e British Columbia têm programas para atrair profissionais qualificados
+- **Work Permit via LMIA:** Empresa canadense patrocina — exige que empregador prove que não encontrou canadense para a vaga
+
+## Trabalho remoto internacional: o caminho mais rápido
+
+Trabalhar remotamente para empresa estrangeira sem sair do Brasil:
+- Recebe em dólar ou euro
+- Sem necessidade de visto
+- Impostos: você paga no Brasil (Carnê-Leão + IRPF)
+- Plataformas: Deel, Remote.com facilitam contratação internacional
+
+Plataformas de busca: LinkedIn (filter by remote), Indeed.com, Wellfound (startups), WeWorkRemotely.com`,
+      },
+      {
+        id: '64-2',
+        title: 'CV internacional: diferenças e como adaptar',
+        duration: '25 min',
+        content: `# CV internacional: diferenças e como adaptar
+
+## O CV brasileiro não funciona em outros países
+
+O formato padrão de currículo no Brasil é muito diferente do que é esperado nos EUA, Europa e Canadá. Enviar um currículo brasileiro para empresa estrangeira é um erro crítico.
+
+## EUA e Canadá: Resume (não CV)
+
+**Formato:**
+- **1 página apenas** para quem tem menos de 10 anos de experiência. 2 páginas máximo para executivos seniores.
+- **Sem foto** — fotos em currículo são consideradas inadequadas (podem criar viés)
+- **Sem data de nascimento, estado civil ou outros dados pessoais**
+- **Formato reverse-chronological** — experiência mais recente primeiro
+
+**O que incluir:**
+- Nome e contato (email, LinkedIn, telefone, cidade — não precisa de endereço completo)
+- Summary/Objective (2-3 linhas sobre quem você é profissionalmente)
+- Work Experience com bullet points de realizações, não de responsabilidades
+- Education
+- Skills (técnicas e ferramentas relevantes)
+
+**A diferença crítica:** No Brasil, o currículo lista o que você fez. No EUA, o resume lista o que você CONQUISTOU. Cada bullet point deve ter um verbo de ação e, idealmente, um número: "Increased sales by 32% in Q3 2023 by implementing new outreach strategy."
+
+## Portugal e Europa: CV Europass e adaptações
+
+**Formato Europass:** Padrão europeu aceito em toda a UE. Disponível gratuitamente em europass.europa.eu.
+
+**Diferenças da Europa:**
+- Foto é aceitável (especialmente Portugal, Espanha, Alemanha)
+- Mais detalhado que o americano — 2-3 páginas são normais
+- Pode incluir: data de nascimento, nacionalidade, idiomas com nível (A1-C2)
+- Referências: "Disponível mediante solicitação"
+
+## Idioma do currículo
+
+**Regra geral:** Candidate-se no idioma da vaga. Se o anúncio está em inglês, seu currículo deve ser em inglês. Se está em português europeu, adapte ao português de Portugal.
+
+**Inglês:** Peça a um nativo ou revisor profissional para revisar seu currículo antes de enviar. Erros gramaticais em inglês eliminam candidatos imediatamente.`,
+      },
+      {
+        id: '64-3',
+        title: 'Entrevista em inglês e como construir rede no exterior',
+        duration: '25 min',
+        content: `# Entrevista em inglês e como construir rede no exterior
+
+## Preparando-se para entrevistar em inglês
+
+A barreira do idioma é real mas superável. O segredo: praticar especificamente para entrevistas, não inglês geral.
+
+**Frases e estruturas mais usadas:**
+
+*Apresentação:* "I'm [nome], a [cargo] with [X] years of experience in [área]. I've worked mainly in [contexto] and I'm particularly skilled at [competência]."
+
+*Método STAR em inglês:*
+- "In my previous role at [empresa], I was faced with [situação]..."
+- "My task was to [objetivo]..."
+- "I decided to [ação] because [razão]..."
+- "As a result, [resultado mensurável]."
+
+*Perguntas para o entrevistador (essencial nos EUA):*
+- "What does success look like in the first 90 days?"
+- "What are the biggest challenges the team is currently facing?"
+- "How would you describe the team culture?"
+
+## Onde praticar inglês para entrevistas
+
+- **Pramp.com:** Prática de entrevistas técnicas com profissionais reais
+- **Interviewing.io:** Simulações com engenheiros de Big Techs
+- **Speeko:** App para desenvolver fala em inglês
+- Grupos no Meetup.com para conversation practice
+- Toastmasters (clube de oratória internacional, tem grupos no Brasil)
+
+## Construindo rede internacional
+
+**LinkedIn em inglês:**
+Atualize seu perfil inteiramente para o inglês se está buscando vagas no exterior. Use palavras-chave em inglês que recrutadores internacionais buscam.
+
+**Comunidades online:**
+- Reddit: r/cscareerquestions, r/IWantOut (emigração)
+- Slack de comunidades técnicas internacionais
+- Discord de nichos específicos (design, marketing, startups)
+
+**Alumni networks:**
+Se você estudou em universidade com reconhecimento internacional ou tem MBA, a rede de ex-alunos é poderosa para conexões no exterior.
+
+**Conferências internacionais:**
+Online ou presenciais, conferências da sua área são oportunidade de conhecer pessoas de outros países e ser visto como profissional de nível internacional.`,
+      },
+    ],
+  },
+  {
+    id: 65,
+    title: 'LinkedIn: Estratégia Completa para Atrair Recrutadores',
+    desc: 'Como transformar seu perfil do LinkedIn em um ímã de oportunidades e usar a plataforma estrategicamente para avançar na carreira.',
+    duration: '2h 40min',
+    icon: '🔵',
+    isPro: false,
+    color: { bg: 'bg-blue-50', border: 'border-blue-200', badge: 'bg-blue-100 text-blue-700', icon: 'bg-blue-600' },
+    lessons: [
+      {
+        id: '65-1',
+        title: 'Perfil otimizado: as seções que recrutadores realmente olham',
+        duration: '25 min',
+        content: `# Perfil otimizado: as seções que recrutadores realmente olham
+
+## Como o algoritmo do LinkedIn funciona
+
+O LinkedIn tem um sistema de busca interno usado por recrutadores. Quando um recrutador pesquisa "analista de marketing São Paulo", o algoritmo ranqueia perfis por relevância. Seu perfil precisa ser otimizado para aparecer nessas buscas.
+
+## Foto e banner: a primeira impressão
+
+**Foto:**
+- Rosto visível, expressão amigável, fundo neutro
+- Roupas profissionais (mas não necessariamente terno — adequadas à sua área)
+- Boa iluminação — não precisa ser fotógrafo profissional, mas precisa ter qualidade
+- Selfie ruim é pior que sem foto — invista em uma boa foto
+
+**Banner:**
+- Área dourada ignorada pela maioria. Use para comunicar sua área ou valor
+- Fundo com texto simples ("Engenharia de Software | Python | AWS") já diferencia
+
+## Headline: o campo mais importante
+
+A headline aparece em buscas, resultados de pesquisa e ao lado do seu nome em comentários. Não desperdice com só o cargo atual.
+
+**Ruim:** "Analista de Dados Pleno no Banco XYZ"
+**Bom:** "Analista de Dados | Python • SQL • Power BI | Transformando dados em decisões de negócio"
+
+Use palavras-chave da sua área. Pense: "O que o recrutador que eu quero conhecer está buscando?"
+
+## About (Resumo): conte sua história em 3 parágrafos
+
+**Parágrafo 1:** Quem você é e o que você faz (não o cargo — o valor que entrega)
+**Parágrafo 2:** Suas especialidades e principais conquistas
+**Parágrafo 3:** O que você busca e como te contatar
+
+Escreva na primeira pessoa. Seja específico — "aumentei receita em 40%" é melhor que "profissional com resultados".
+
+## Experiências: realizações, não responsabilidades
+
+Cada posição deve ter bullet points de O QUE VOCÊ CONQUISTOU, não o que fazia todo dia.
+
+❌ "Responsável pela gestão de campanhas de marketing digital"
+✅ "Gerenciei portfólio de campanhas de R$ 500K/mês, atingindo ROI médio de 4x e reduzindo CAC em 23%"
+
+## Competências (Skills): escolha com estratégia
+
+As 3 primeiras skills aparecem no perfil sem o usuário clicar. Coloque as mais relevantes para o cargo que busca. Peça endossos de colegas para as skills mais importantes.`,
+      },
+      {
+        id: '65-2',
+        title: 'Conteúdo no LinkedIn: como construir autoridade e visibilidade',
+        duration: '20 min',
+        content: `# Conteúdo no LinkedIn: como construir autoridade e visibilidade
+
+## Por que postar no LinkedIn funciona
+
+A maioria dos usuários só consome conteúdo — nunca cria. Quem posta regularmente ganha visibilidade desproporcional. Um post com 100 curtidas pode atingir 10.000 visualizações de profissionais relevantes.
+
+## Tipos de conteúdo que funcionam
+
+**Aprendizado compartilhado:**
+"Aprendi X nesse projeto e quero compartilhar porque pode ajudar outros [profissionais da área]..."
+Funciona porque demonstra crescimento, humildade e valor para a rede.
+
+**Insight de área:**
+"Depois de [X anos em Y área], percebi que [insight contraintuitivo ou relevante]..."
+Demonstra expertise sem arrogância.
+
+**Caso de sucesso (com resultados):**
+"Esse projeto foi desafiador. Aqui está o que aconteceu e o que aprendi..."
+Concreto, humano e memorável.
+
+**Carrosséis (documentos PDF):**
+Formato de "slides" que o LinkedIn promove muito bem. Listas e passo a passos funcionam ótimo.
+
+## O que evitar
+
+- Conteúdo de autoajuda genérica sem conexão com sua área profissional
+- Reclamações sobre trabalho ou empregadores
+- Posts copiados de outros sem perspectiva própria
+- Frequência muito alta sem qualidade (1-2 posts por semana de qualidade > 1 por dia medíocre)
+
+## Frequência e consistência
+
+**Frequência recomendada para iniciantes:** 2 posts por semana durante 3 meses. Após esse período você entende o que ressoa com sua rede e pode ajustar.
+
+**Melhores horários:** Terça a quinta, entre 7h-9h ou 12h-13h. Mas o mais importante é consistência — postar no mesmo horário regularmente ajuda o algoritmo.
+
+## Engajamento: o multiplicador de alcance
+
+Comentar em posts de outros (comentários thoughtful, não só "ótimo post!") aumenta sua visibilidade para a rede de quem você comentou. É uma forma de aparecer para pessoas que não te seguem.`,
+      },
+      {
+        id: '65-3',
+        title: 'Usando o LinkedIn ativamente para conseguir oportunidades',
+        duration: '20 min',
+        content: `# Usando o LinkedIn ativamente para conseguir oportunidades
+
+## Pesquisa de vagas: além de "buscar emprego"
+
+**Configurar alertas de vagas:** Crie alertas para cargo + localização + tipo de emprego. Vagas novas chegam no seu email — você aplica entre os primeiros candidatos, o que aumenta as chances.
+
+**Filtros avançados:** Use filtros por data de publicação (últimas 24h), nível de experiência, tipo de contrato e empresa para encontrar vagas relevantes.
+
+**"Easy Apply" vs. aplicação no site da empresa:** Easy Apply é mais rápido, mas muitas empresas preferem aplicação pelo site delas — que pode ter perguntas customizadas que diferem candidatos.
+
+## Abordagem de recrutadores: o script que funciona
+
+Recrutadores recebem muitas mensagens. Diferencie a sua:
+
+**Não funciona:** "Olá, estou em busca de oportunidades na área de marketing. Poderia me ajudar?"
+
+**Funciona:**
+*"Olá [nome], vi que você trabalha com recrutamento para [tipo de empresa/área]. Tenho [X anos] de experiência em [especialidade] e estou explorando oportunidades em [tipo de empresa]. Você está recrutando para posições de [cargo] ou poderia me indicar se há alguém na sua rede que trabalhe com essa área?"*
+
+Específico, breve e oferece algo (sua especialidade) em vez de só pedir.
+
+## Conexão estratégica (não aleatória)
+
+**Qualidade > quantidade:** Uma rede de 500 pessoas relevantes para sua área vale mais que 5.000 conexões aleatórias.
+
+**Mensagem de conexão personalizada:** Sempre adicione mensagem ao convite. "Trabalho com [área] e admiro seu conteúdo sobre [tópico]. Gostaria de ter você na minha rede." — taxa de aceitação muito maior.
+
+## Open to Work: usar ou não?
+
+O banner verde "Open to Work" é visível para recrutadores mesmo sem ele aparecer publicamente. Configure para "Recrutadores apenas" se está empregado e não quer que seu empregador atual veja.
+
+Se está desempregado e quer máxima visibilidade, ative publicamente — não há estigma nisso em 2024.`,
+      },
+    ],
+  },
+  {
+    id: 66,
+    title: 'Entrevista Técnica para Desenvolvedores',
+    desc: 'Como se preparar e se sair bem em entrevistas técnicas: algoritmos, system design, live coding e perguntas comportamentais.',
+    duration: '3h 20min',
+    icon: '💻',
+    isPro: true,
+    color: { bg: 'bg-indigo-50', border: 'border-indigo-200', badge: 'bg-indigo-100 text-indigo-700', icon: 'bg-indigo-600' },
+    lessons: [
+      {
+        id: '66-1',
+        title: 'Algoritmos e estruturas de dados: o que realmente cai nas entrevistas',
+        duration: '35 min',
+        content: `# Algoritmos e estruturas de dados: o que realmente cai nas entrevistas
+
+## A realidade das entrevistas técnicas
+
+Empresas como Google, Meta, Amazon e startups de tecnologia usam problemas de algoritmos para avaliar raciocínio lógico, capacidade de resolver problemas e comunicação técnica. Não é sobre memorizar soluções — é sobre demonstrar processo de pensamento.
+
+## As estruturas de dados mais cobradas
+
+**Arrays e Strings:**
+- Two pointers, sliding window, prefix sum
+- Problemas com strings: palíndromos, anagramas, substrings
+
+**Hash Maps e Hash Sets:**
+- Lookups em O(1) — dois sum, contagem de frequência, anagramas
+
+**Linked Lists:**
+- Reverse, detectar ciclo, merge de listas ordenadas
+
+**Árvores (Trees):**
+- Binary trees, BST, DFS (preorder, inorder, postorder), BFS
+- LCA (Lowest Common Ancestor), validação de BST
+
+**Grafos:**
+- BFS e DFS, Dijkstra (caminhos mais curtos), detecção de ciclos, topological sort
+
+**Heaps e Priority Queues:**
+- K-ésimo maior elemento, merge de K listas ordenadas
+
+**Dynamic Programming:**
+- Reconhecer quando usar DP, subproblemas sobrepostos, memoização vs. tabulação
+
+## Complexidade de tempo e espaço
+
+Saber a complexidade Big-O de sua solução é obrigatório. O entrevistador vai perguntar. Pratique analisar:
+- Loop simples: O(n)
+- Loop aninhado: O(n²)
+- Busca binária: O(log n)
+- BFS/DFS em grafo: O(V + E)
+
+## Como praticar
+
+**LeetCode:** A plataforma padrão. Para empresas FAANG, foque nos problemas "Medium". Para empresas menores, foque nos "Easy" e comece com "Medium".
+
+**Plano de estudo recomendado:**
+- **Semanas 1-2:** Arrays, Strings, Hash Maps (fundamentos)
+- **Semanas 3-4:** Linked Lists, Stacks, Queues
+- **Semanas 5-6:** Trees e Binary Search
+- **Semanas 7-8:** Grafos e Dynamic Programming básico
+
+**Neetcode.io:** Melhor organização de LeetCode com vídeos explicativos — altamente recomendado.`,
+      },
+      {
+        id: '66-2',
+        title: 'System Design: como pensar e comunicar arquiteturas',
+        duration: '30 min',
+        content: `# System Design: como pensar e comunicar arquiteturas
+
+## O que é system design interview
+
+Para posições de desenvolvedor sênior e acima, entrevistas de system design avaliam sua capacidade de projetar sistemas distribuídos escaláveis. "Como você projetaria o Twitter?" ou "Como você desenharia um sistema de URL shortener?"
+
+Não há resposta certa única. O entrevistador avalia seu processo, as perguntas que você faz, as trade-offs que você identifica e como você comunica decisões técnicas.
+
+## Framework para responder perguntas de system design
+
+**Passo 1 — Clarificar requisitos (5 min):**
+"Antes de começar, posso fazer algumas perguntas para entender melhor o escopo?"
+- Escala: quantos usuários? Qual volume de dados? Latência esperada?
+- Features: quais são as funcionalidades essenciais para esse exercício?
+- Restrições: há requisitos específicos de disponibilidade ou consistência?
+
+**Passo 2 — Estimativa de escala (3 min):**
+Calcule em voz alta: "Se temos 100M usuários e cada um faz 10 leituras/dia, isso dá ~11.000 QPS. Pico provavelmente 3x isso = ~33.000 QPS..."
+
+**Passo 3 — Design de alto nível (10-15 min):**
+Comece com os componentes principais: clientes, load balancer, servidores, banco de dados, cache.
+
+**Passo 4 — Deep dive em componentes críticos (10-15 min):**
+Explore as partes mais complexas ou interessantes do sistema.
+
+**Passo 5 — Identificar trade-offs e melhorias:**
+"Essa abordagem tem limitação de X. Para resolver, poderíamos usar Y, mas isso aumentaria a complexidade de Z..."
+
+## Conceitos fundamentais para estudar
+
+- **Escalabilidade:** Horizontal vs. vertical scaling, sharding, particionamento
+- **Consistência:** CAP theorem, eventual consistency, strong consistency
+- **Caching:** Redis, Memcached, cache invalidation, cache aside vs. write-through
+- **Bancos de dados:** SQL vs. NoSQL, quando usar cada um, indexação
+- **Mensageria:** Kafka, RabbitMQ, event-driven architecture
+- **CDN e Load Balancing**
+- **APIs:** REST, GraphQL, gRPC
+
+## Recursos para estudo
+
+- **System Design Interview (livro):** Alex Xu — o mais recomendado
+- **Grokking System Design (Educative.io)**
+- **YouTube:** ByteByteGo, Gaurav Sen`,
+      },
+      {
+        id: '66-3',
+        title: 'Live coding e perguntas comportamentais para devs',
+        duration: '25 min',
+        content: `# Live coding e perguntas comportamentais para devs
+
+## Live Coding: como performar sob pressão
+
+Live coding é diferente de resolver problemas sozinho. Você está sendo observado enquanto pensa. Isso causa pressão extra — e os melhores candidatos sabem gerenciar isso.
+
+**O que o entrevistador realmente avalia:**
+1. Processo de pensamento (não só a solução)
+2. Como você lida com ambiguidade
+3. Comunicação enquanto programa
+4. Como você testa e valida seu código
+
+**Técnica de think aloud:**
+Verbaliza seu raciocínio continuamente. "Estou pensando em usar um hash map aqui para ter lookup em O(1)... mas preciso verificar se isso funciona para casos de borda como..."
+
+**Antes de codar:**
+- Clarifica o problema com perguntas
+- Trabalhe através de exemplos concretos
+- Discuta a abordagem antes de começar a escrever
+- Mencione a complexidade esperada
+
+**Durante o código:**
+- Escreva funções com nomes descritivos
+- Comente intenções, não o óbvio
+- Se travar, diga "Estou pensando..." e continue em voz alta
+
+**Após terminar:**
+- "Vou agora verificar com esses casos de teste..."
+- Trace através do código com exemplos
+- Identifique possíveis edge cases
+
+## Perguntas comportamentais para desenvolvedores
+
+As perguntas comportamentais em entrevistas de dev são frequentemente sobre:
+
+**Conflito técnico:**
+"Conte uma situação em que você discordou de uma decisão técnica do time. O que você fez?"
+Mostre que você defende seu ponto com dados e argumentos, mas aceita decisões do time e as executa bem.
+
+**Refactoring difícil / débito técnico:**
+"Como você decide o que refatorar vs. deixar como está?"
+Demonstre raciocínio de trade-off: impacto de negócio, risco, tempo disponível.
+
+**Trabalho sob deadline:**
+"Conte uma vez em que você precisou entregar algo importante com muito pouco tempo. Como você priorizou?"
+Foco em comunicação proativa com stakeholders, priorização de funcionalidades, qualidade vs. velocidade.
+
+**Aprendendo nova tecnologia:**
+"Como você aprende novas tecnologias? Dê um exemplo recente."
+Demonstre autonomia, curiosidade e método (documentação oficial, projetos práticos, comunidade).`,
+      },
+    ],
+  },
+  {
+    id: 67,
+    title: 'Carreira em Product Design e UX',
+    desc: 'Como entrar e crescer na área de design de produto: portfolio, habilidades, processo e trilha de carreira.',
+    duration: '3h 10min',
+    icon: '🎨',
+    isPro: false,
+    color: { bg: 'bg-rose-50', border: 'border-rose-200', badge: 'bg-rose-100 text-rose-700', icon: 'bg-rose-600' },
+    lessons: [
+      {
+        id: '67-1',
+        title: 'Product Design vs. UX vs. UI: entendendo as diferenças e o mercado',
+        duration: '25 min',
+        content: `# Product Design vs. UX vs. UI: entendendo as diferenças e o mercado
+
+## As terminologias que confundem quem está entrando
+
+O mercado de design digital usa termos de forma inconsistente. Uma empresa pode chamar a mesma função de "UX Designer", outra de "Product Designer" e outra de "UI/UX Designer". Entender o que cada um significa na prática é essencial.
+
+## UX Design (User Experience Design)
+
+Foco na experiência completa do usuário. Inclui:
+- Pesquisa com usuários (entrevistas, testes de usabilidade, surveys)
+- Arquitetura de informação (como o conteúdo é organizado)
+- Wireframes e protótipos de baixa fidelidade
+- Testes A/B e métricas de usabilidade
+
+UX Designer puro raramente existe em empresas menores — geralmente acumulado com UI.
+
+## UI Design (User Interface Design)
+
+Foco no visual e interação:
+- Design de componentes visuais (botões, cards, formulários)
+- Tipografia, cores, espaçamento
+- Design systems e style guides
+- Animações e microinterações
+- Handoff para desenvolvimento
+
+## Product Designer (o mais valorizado)
+
+Cobre UX + UI + pensamento de produto:
+- Entende o problema de negócio e como o design o resolve
+- Colabora com PM na definição de features
+- Conduz pesquisa e traduz insights em soluções
+- Cria desde pesquisa até protótipos de alta fidelidade
+- **Salário BR:** R$ 6.000–22.000
+
+## O mercado de design no Brasil
+
+- **Startups e fintechs:** Maior concentração de vagas. Nubank, iFood, Creditas, QuintoAndar, Loft — todas têm times grandes de design.
+- **Big Techs:** Google, Meta, Amazon contratam designers no Brasil
+- **Agências digitais:** Entrada mais acessível, variedade de projetos
+- **Freelance:** Muito viável — plataformas como 99designs, Dribbble, Behance conectam com clientes
+
+**Salários por nível:**
+- Júnior: R$ 3.000–6.000
+- Pleno: R$ 6.000–12.000
+- Sênior: R$ 12.000–22.000
+- Lead/Principal: R$ 18.000–35.000`,
+      },
+      {
+        id: '67-2',
+        title: 'Ferramentas e processo: o que todo designer de produto precisa saber',
+        duration: '25 min',
+        content: `# Ferramentas e processo: o que todo designer de produto precisa saber
+
+## Figma: a ferramenta dominante
+
+Figma é o padrão da indústria. Se você não sabe Figma, aprenda Figma — não há alternativa relevante no mercado de produto (Sketch está em declínio, Adobe XD foi descontinuado).
+
+**O que você precisa dominar no Figma:**
+- Auto Layout (essencial para criar layouts responsivos e componentes reutilizáveis)
+- Componentes e Variantes (base de qualquer design system)
+- Prototipagem (interações, transições, hover states)
+- Dev Mode (handoff para desenvolvedores)
+- Variables e Tokens (para design systems avançados)
+
+**Recursos gratuitos:** Canal do Figma no YouTube é excelente. Figma tem tutoriais oficiais. DesignCourse no YouTube.
+
+## O processo de design de produto
+
+**Duplo Diamante:**
+Um dos frameworks mais usados em design de produto.
+
+*Diamante 1 — Descoberta:*
+- Pesquisa exploratória (entrevistas, observação)
+- Identificação de problemas reais dos usuários
+- Definição do problema a ser resolvido
+
+*Diamante 2 — Entrega:*
+- Geração de soluções (ideação, crazy 8s, sketching)
+- Prototipagem e testes
+- Implementação e medição
+
+## Pesquisa com usuários: o diferencial do bom designer
+
+**Entrevistas qualitativas:**
+Objetivo: entender o "por que" por trás de comportamentos. Não pergunte "você usaria isso?" (as pessoas dizem sim mesmo que não usariam). Pergunte sobre comportamentos passados: "Me conte a última vez que você [ação relevante]..."
+
+**Testes de usabilidade:**
+Observe usuários tentando completar tarefas no seu produto. Insights em 5 usuários revelam ~85% dos problemas de usabilidade.
+
+**Ferramentas:** Maze, UserTesting, Hotjar, Microsoft Clarity (gratuito)
+
+## Design Systems: o que são e por que importam
+
+Design system é uma coleção de componentes reutilizáveis, diretrizes e padrões que permite times criar produtos de forma consistente e eficiente.
+
+Conhecer design systems (e idealmente ter contribuído ou criado um) é diferencial grande para posições sênior. Materiais de referência: Google Material Design, Apple Human Interface Guidelines, Atlassian Design System.`,
+      },
+      {
+        id: '67-3',
+        title: 'Portfolio de design: o que funciona para conseguir emprego',
+        duration: '20 min',
+        content: `# Portfolio de design: o que funciona para conseguir emprego
+
+## Por que a maioria dos portfolios falha
+
+O erro mais comum: portfolios que mostram só telas bonitas sem contexto. Recrutadores e design leaders não querem ver "artes" — querem entender como você pensa, como você resolve problemas e qual impacto seu trabalho teve.
+
+## O que um case de portfolio deve conter
+
+Cada case (projeto) no seu portfolio deve contar uma história:
+
+1. **O problema:** Qual era o desafio de negócio ou usuário?
+2. **Meu papel:** O que especificamente você fez? (Especialmente em projetos de time)
+3. **O processo:** Como você abordou o problema? Pesquisa, ideação, iterações.
+4. **As decisões:** Por que você escolheu essa solução e não outra? Quais trade-offs?
+5. **O resultado:** Qual foi o impacto? Métricas se possível (taxa de conversão, NPS, tempo de tarefa).
+6. **Aprendizados:** O que você faria diferente?
+
+## Quantos cases e quais escolher
+
+3-5 cases de qualidade superam 10 cases superficiais. Escolha projetos que:
+- Mostram diversidade de habilidades (pesquisa, ideação, UI, prototipagem)
+- Têm resultado mensurável
+- Representam o tipo de trabalho que você quer fazer
+
+Se não tem projetos reais, crie projetos pessoais: redesenhe um app que você usa, crie solução para problema que você observou na sua vida.
+
+## Plataformas para hospedar portfolio
+
+**Notion:** Rápido, flexível, gratuito. Boa opção para começar.
+**Behance:** Grande audiência, boa descoberta orgânica.
+**Dribbble:** Mais focado em UI. Bom para visibilidade de design visual.
+**Site próprio:** Webflow, Framer ou Squarespace para designers que querem mais controle.
+**PDF:** Muitas empresas pedem portfolio em PDF para processo seletivo.
+
+## Apresentando seu portfolio em entrevistas
+
+Prepare-se para apresentar um case em 5-10 minutos. Pratique a narrativa: problema → processo → solução → resultado. Antecipe perguntas: "Por que você escolheu essa abordagem?", "O que testou antes de chegar nisso?", "O que mudaria hoje?"`,
+      },
+    ],
+  },
+  {
+    id: 68,
+    title: 'Carreira em DevOps, SRE e Cloud',
+    desc: 'Como entrar e crescer na área que une desenvolvimento e operações: ferramentas, certificações e o que o mercado realmente quer.',
+    duration: '3h 30min',
+    icon: '☁️',
+    isPro: true,
+    color: { bg: 'bg-cyan-50', border: 'border-cyan-200', badge: 'bg-cyan-100 text-cyan-700', icon: 'bg-cyan-600' },
+    lessons: [
+      {
+        id: '68-1',
+        title: 'DevOps vs. SRE vs. Cloud Engineer: funções e diferenças',
+        duration: '25 min',
+        content: `# DevOps vs. SRE vs. Cloud Engineer: funções e diferenças
+
+## O que é DevOps na prática
+
+DevOps não é um cargo — é uma cultura e conjunto de práticas que une desenvolvimento (Dev) e operações (Ops) para entregar software mais rápido e com mais confiabilidade.
+
+Na prática, o profissional de DevOps:
+- Constrói e mantém pipelines de CI/CD (integração e entrega contínua)
+- Automatiza infraestrutura com código (Infrastructure as Code)
+- Monitora sistemas e responde a incidentes
+- Implementa práticas de segurança (DevSecOps)
+- Facilita a colaboração entre times de dev e infra
+
+**Salário BR:** R$ 9.000–25.000
+
+## SRE (Site Reliability Engineering)
+
+Criado pelo Google. O SRE aplica engenharia de software aos problemas de operações.
+
+Foco principal: confiabilidade. Usa SLIs (Service Level Indicators), SLOs (Service Level Objectives) e error budgets para balancear velocidade de feature com estabilidade.
+
+**O que diferencia SRE de DevOps:** SRE é mais específico em como atingir confiabilidade. É engenharia rigorosa de sistemas distribuídos.
+
+**Salário BR:** R$ 12.000–30.000+
+
+## Cloud Engineer
+
+Foco em projetar, construir e gerenciar infraestrutura em nuvem (AWS, GCP, Azure).
+
+Subáreas:
+- **Cloud Architect:** Projeta a arquitetura
+- **Cloud Engineer:** Implementa e mantém
+- **FinOps:** Otimização de custos de cloud
+
+**Salário BR:** R$ 10.000–28.000
+
+## As três clouds principais
+
+**AWS (Amazon Web Services):** Maior market share (~32%). Mais vagas. EC2, S3, Lambda, RDS, EKS são serviços core que você precisa conhecer.
+
+**GCP (Google Cloud Platform):** Forte em dados e ML. BigQuery, Kubernetes Engine, Vertex AI.
+
+**Azure (Microsoft):** Dominante em empresas enterprise que já usam produtos Microsoft. Active Directory, Azure DevOps.`,
+      },
+      {
+        id: '68-2',
+        title: 'Ferramentas essenciais e como aprender DevOps na prática',
+        duration: '30 min',
+        content: `# Ferramentas essenciais e como aprender DevOps na prática
+
+## O stack de ferramentas de DevOps
+
+**Controle de versão:**
+Git é obrigatório. GitHub, GitLab ou Bitbucket para hospedagem e colaboração.
+
+**Containers:**
+- **Docker:** Containerização de aplicações. Absolutamente essencial — nenhuma empresa séria de tech roda sem containers hoje.
+- **Kubernetes (K8s):** Orquestração de containers. O padrão da indústria para rodar containers em produção em escala.
+
+**Infrastructure as Code (IaC):**
+- **Terraform:** O mais usado para provisionamento de infraestrutura. Suporta AWS, GCP, Azure e dezenas de outros providers.
+- **Ansible:** Automação de configuração de servidores.
+- **Pulumi:** Alternativa ao Terraform usando linguagens de programação reais.
+
+**CI/CD:**
+- **GitHub Actions:** Gratuito para repos públicos, muito popular.
+- **GitLab CI:** Integrado ao GitLab.
+- **Jenkins:** Ainda muito usado em empresas maiores.
+- **ArgoCD:** GitOps para Kubernetes.
+
+**Monitoramento e Observabilidade:**
+- **Prometheus + Grafana:** Stack open-source mais popular para métricas
+- **ELK Stack (Elasticsearch, Logstash, Kibana):** Para logs
+- **Datadog, New Relic:** Soluções SaaS completas
+- **Jaeger, Zipkin:** Distributed tracing
+
+## Trilha de aprendizado recomendada
+
+**Nível 1 (3-6 meses):**
+Linux fundamentals → Git → Docker → básico de uma cloud (AWS ou GCP)
+
+**Nível 2 (6-12 meses):**
+Kubernetes → Terraform → CI/CD (GitHub Actions ou GitLab CI) → Monitoring básico
+
+**Nível 3 (12-18 meses):**
+GitOps (ArgoCD) → Service Mesh (Istio) → Chaos Engineering → FinOps
+
+## Onde praticar
+
+- **KodeKloud:** Melhor plataforma de labs práticos para DevOps e K8s
+- **Linux Foundation:** Cursos e certificações oficiais
+- **Criar seu próprio lab:** Use conta gratuita de AWS/GCP para criar projetos reais
+- **GitHub:** Todo projeto que você cria deve ir para o GitHub — é seu portfolio`,
+      },
+      {
+        id: '68-3',
+        title: 'Certificações de cloud e como se posicionar no mercado',
+        duration: '25 min',
+        content: `# Certificações de cloud e como se posicionar no mercado
+
+## As certificações que o mercado valoriza
+
+### AWS
+**AWS Certified Cloud Practitioner (CLF-C02)**
+- Nível iniciante. Boa para quem quer entender cloud sem especialização técnica profunda.
+- Duração de estudo: 1-2 meses
+
+**AWS Certified Solutions Architect – Associate (SAA-C03)**
+- A certificação AWS mais popular no mercado. Sólida para DevOps e cloud engineers.
+- Duração de estudo: 2-4 meses
+
+**AWS Certified DevOps Engineer – Professional**
+- Nível avançado. Muito valorizado. Requer experiência prática.
+
+### Kubernetes
+**CKA (Certified Kubernetes Administrator)**
+- Exame 100% prático (2h com acesso ao cluster real)
+- Uma das certificações mais respeitadas em DevOps
+
+**CKAD (Certified Kubernetes Application Developer)**
+- Para devs que precisam entender K8s além do básico
+
+### HashiCorp
+**Terraform Associate**
+- Certificação de Terraform cada vez mais pedida em vagas de DevOps e Cloud.
+
+## Dicas para o processo seletivo em DevOps/SRE
+
+**Take-home challenges:** Muitas empresas dão um desafio técnico para fazer em casa. Típico: "Configure um pipeline CI/CD para essa aplicação" ou "Escreva Terraform para provisionar essa infraestrutura."
+
+**Mostre sua infra como código:** Ter repositórios no GitHub com projetos de IaC (Terraform modules, Dockerfiles, K8s manifests, GitHub Actions workflows) é seu portfolio prático.
+
+**Discuss trade-offs:** Em entrevistas de system design e infra, os melhores candidatos discutem trade-offs. "Usaria EKS aqui por X, mas poderia usar ECS se Y fossem considerações..."
+
+## Salários e crescimento
+
+| Nível | Experiência | Salário BR | Remoto (USD) |
+|-------|-------------|------------|--------------|
+| Júnior | 0-2 anos | R$ 7.000–12.000 | $60K–90K |
+| Pleno | 2-5 anos | R$ 12.000–20.000 | $90K–130K |
+| Sênior | 5+ anos | R$ 20.000–35.000 | $130K–180K |`,
+      },
+    ],
+  },
+  {
+    id: 69,
+    title: 'Carreira em Engenharia de Dados',
+    desc: 'Pipelines, data warehouses e arquiteturas modernas de dados: o que você precisa saber para entrar e crescer como Data Engineer.',
+    duration: '3h 20min',
+    icon: '🗄️',
+    isPro: true,
+    color: { bg: 'bg-emerald-50', border: 'border-emerald-200', badge: 'bg-emerald-100 text-emerald-700', icon: 'bg-emerald-600' },
+    lessons: [
+      {
+        id: '69-1',
+        title: 'O que faz um Engenheiro de Dados e por que a área está em alta',
+        duration: '25 min',
+        content: `# O que faz um Engenheiro de Dados e por que a área está em alta
+
+## O problema que a Engenharia de Dados resolve
+
+Data Scientists e analistas precisam de dados limpos, organizados e acessíveis para trabalhar. Sem dados confiáveis, nenhuma análise ou modelo de ML é válido. O Engenheiro de Dados é quem constrói e mantém a infraestrutura que torna isso possível.
+
+## O que um Data Engineer faz no dia a dia
+
+- **Constrói pipelines de dados (ETL/ELT):** Extrai dados de fontes diversas (bancos de dados, APIs, arquivos), transforma e carrega em destinos para análise
+- **Arquiteta data warehouses e data lakes:** Projeta como dados são armazenados e organizados para consulta eficiente
+- **Garante qualidade dos dados:** Validações, testes de dados, alertas quando dados quebram
+- **Gerencia plataforma de dados:** Ferramentas, infraestrutura, otimização de custos e performance
+- **Colabora com analytics e DS:** Entende as necessidades dos consumidores dos dados e cria soluções escaláveis
+
+## Diferença entre Data Engineer, Data Scientist e Data Analyst
+
+| Papel | Foco | Skills principais |
+|-------|------|-------------------|
+| Data Engineer | Infraestrutura e pipelines | Python, SQL, Spark, ferramentas de cloud |
+| Data Scientist | Modelagem e ML | Python, estatística, ML frameworks |
+| Data Analyst | Análise e relatórios | SQL, Power BI/Tableau, Excel |
+
+## Salários e demanda no Brasil
+
+- **Júnior:** R$ 6.000–10.000
+- **Pleno:** R$ 10.000–18.000
+- **Sênior:** R$ 18.000–30.000+
+
+A demanda supera a oferta — engenheiros de dados sênior com experiência em cloud são ativamente disputados por fintechs, varejistas digitais e big techs.`,
+      },
+      {
+        id: '69-2',
+        title: 'Stack técnica: o que aprender e em que ordem',
+        duration: '30 min',
+        content: `# Stack técnica: o que aprender e em que ordem
+
+## A base obrigatória
+
+**SQL avançado:** Engenharia de dados é fundamentalmente SQL. CTEs, window functions, query optimization, índices. Sem SQL forte, você não tem base.
+
+**Python:** Para scripts de ETL, automação, processamento de dados. Libraries essenciais: Pandas, SQLAlchemy, requests.
+
+**Git:** Controle de versão para pipelines e código de dados.
+
+## A stack moderna de dados
+
+### Ingestão e ETL
+**Apache Airflow:** O orquestrador mais usado. Cria DAGs (Directed Acyclic Graphs) para agendar e monitorar pipelines. Muito pedido em vagas.
+
+**dbt (data build tool):** Revolucionou transformações de dados. Escreve SQL modular, testável e documentado. Em 2024, conhecer dbt é quase obrigatório para posições modernas.
+
+**Fivetran / Airbyte:** Ferramentas de ingestão de dados de fontes externas para o data warehouse. Centenas de conectores pré-construídos.
+
+### Armazenamento
+**Data Warehouse:**
+- **BigQuery (GCP):** Serverless, performance excelente, pricing por query
+- **Snowflake:** Multi-cloud, mais usado em empresas enterprise
+- **Redshift (AWS):** Integrado ao ecossistema AWS
+
+**Data Lake:**
+- **Amazon S3 / GCS / Azure Blob:** Armazenamento de objetos para dados brutos
+- **Delta Lake / Apache Iceberg:** Formato de tabela que traz transações ACID para data lakes
+
+### Processamento em Larga Escala
+**Apache Spark:** Para processar volumes que não cabem na memória de um servidor. PySpark é a versão Python.
+
+**Kafka:** Para dados em tempo real (streaming). Cada vez mais common.
+
+## Trilha recomendada
+
+**Meses 1-3:** SQL avançado + Python + conceitos de ETL básico
+
+**Meses 4-6:** Airflow + dbt + um data warehouse (BigQuery ou Snowflake têm free tier)
+
+**Meses 7-9:** Cloud (AWS ou GCP) + Spark básico
+
+**Meses 10-12:** Streaming (Kafka) + data quality (Great Expectations) + monitoramento`,
+      },
+      {
+        id: '69-3',
+        title: 'Portfolio de dados e como conseguir seu primeiro emprego',
+        duration: '25 min',
+        content: `# Portfolio de dados e como conseguir seu primeiro emprego
+
+## Por que projetos práticos são obrigatórios
+
+Certificados em engenharia de dados valem menos que projetos rodando em produção ou bem documentados no GitHub. O recrutador técnico quer ver que você sabe construir pipelines de verdade.
+
+## Projetos que impressionam
+
+**Projeto 1 — Pipeline completo (obrigatório):**
+Construa um pipeline end-to-end: ingestão de dados de uma API pública → transformação → carregamento em BigQuery ou Snowflake → visualização em Looker Studio ou Metabase.
+
+Sugestões de fontes de dados: API do IBGE, dados abertos do governo (dados.gov.br), API do Spotify, dados do Kaggle.
+
+**Projeto 2 — dbt + Airflow:**
+Pegue o projeto acima e adicione: transformações com dbt (modelos em camadas: staging → intermediate → marts) + Airflow para orquestrar o pipeline.
+
+**Projeto 3 — Streaming com Kafka:**
+Consuma dados de uma fonte em tempo real, processe com Kafka e exiba em dashboard atualizado em tempo real. Demonstra habilidades de streaming — cada vez mais valorizadas.
+
+## Documentação é parte do produto
+
+Um pipeline sem documentação é um pipeline que só você sabe usar. No seu portfolio:
+- README claro explicando o propósito, arquitetura e como rodar
+- Diagrama de arquitetura (draw.io é gratuito)
+- Documentação das transformações (dbt gera documentação automaticamente)
+
+## Onde buscar vagas
+
+- **LinkedIn:** Palavras-chave: "Data Engineer", "Engenheiro de Dados", "Analytics Engineer"
+- **Gupy:** Muitas empresas brasileiras postam aqui
+- **Lever / Greenhouse:** Startups estrangeiras com operação no Brasil
+- Comunidades: **Data Hackers** (maior comunidade de dados do Brasil), canal no Slack com vagas
+
+## Certificações que valem
+
+- **Google Professional Data Engineer:** Reconhecida, foco em GCP
+- **dbt Certified Analytics Engineer:** Gratuita, muito valorizada por quem usa dbt
+- **AWS Data Analytics Specialty**`,
+      },
+    ],
+  },
+  {
+    id: 70,
+    title: 'Carreira em Consultoria de Gestão',
+    desc: 'Como entrar nas grandes consultorias (McKinsey, BCG, Bain e outras), ace o case interview e construir carreira no setor.',
+    duration: '3h 40min',
+    icon: '📊',
+    isPro: true,
+    color: { bg: 'bg-blue-50', border: 'border-blue-200', badge: 'bg-blue-100 text-blue-700', icon: 'bg-blue-500' },
+    lessons: [
+      {
+        id: '70-1',
+        title: 'O mundo das consultorias: tipos, funções e como funciona a carreira',
+        duration: '30 min',
+        content: `# O mundo das consultorias: tipos, funções e como funciona a carreira
+
+## As categorias de consultoria
+
+**MBB (McKinsey, BCG, Bain):**
+As três mais prestiqiosas globalmente. Focadas em estratégia de alto nível para C-suite. Processo seletivo extremamente rigoroso. Salários de topo.
+
+**Big 4 (Deloitte, PwC, EY, KPMG):**
+Consultoria + auditoria + tax. Mais vagas, processo um pouco menos competitivo que MBB. Divisões de consultoria (Advisory, Strategy) competem com MBB em alguns segmentos.
+
+**Boutiques estratégicas:**
+Roland Berger, Oliver Wyman, A.T. Kearney, Alvarez & Marsal. Especializadas por indústria ou tipo de engajamento.
+
+**Consultorias de tecnologia:**
+Accenture, Capgemini, IBM Consulting. Implementação de sistemas ERP, transformação digital.
+
+**Independentes:**
+Consultores solos e boutiques menores. Geralmente saídas de MBB/Big 4.
+
+## Como funciona a hierarquia em MBB
+
+- **Analista (Analyst/Business Analyst):** Recém-formado. 2-3 anos.
+- **Consultor Júnior (Associate):** Após analista ou MBA. 2-3 anos.
+- **Gerente de Projetos (Engagement Manager):** Lidera time em projetos.
+- **Sócio (Principal/Associate Partner):** Gestão de contas e desenvolvimento de negócios.
+- **Sócio Pleno (Partner/Director):** Dono parcial do negócio.
+
+## Salários no Brasil
+
+- **Analista MBB:** R$ 12.000–18.000 + bônus
+- **Consultor MBB:** R$ 20.000–35.000 + bônus + benefícios
+- **Big 4 Consultant:** R$ 8.000–16.000 (entrada)
+- **Manager Big 4:** R$ 15.000–28.000
+
+## Por que consultoria é uma escola valiosa
+
+Mesmo quem sai após 2-3 anos (o que é normal — "up or out") sai com:
+- Capacidade analítica refinada
+- Exposição a múltiplas indústrias
+- Rede de ex-consultores em posições de liderança
+- Habilidade de estruturar e comunicar problemas complexos`,
+      },
+      {
+        id: '70-2',
+        title: 'Case Interview: como se preparar e o que as consultorias avaliam',
+        duration: '35 min',
+        content: `# Case Interview: como se preparar e o que as consultorias avaliam
+
+## O que é a case interview
+
+A entrevista de caso é o formato de processo seletivo exclusivo de consultorias. Você recebe um problema de negócio e precisa estruturá-lo e resolvê-lo em voz alta com o entrevistador.
+
+Não é sobre ter a resposta certa — é sobre demonstrar como você pensa, estrutura problemas e lida com ambiguidade.
+
+## Tipos de case
+
+**Estimativas (Guesstimatics):**
+"Quantas bolas de golfe cabem num Boeing 747?"
+Avalia raciocínio matemático e capacidade de estruturar estimativas.
+
+**Cases de negócio:**
+"Nosso cliente é uma varejista de moda com queda de 20% na margem nos últimos 2 anos. Como você ajudaria?"
+O mais comum — análise estruturada de problema de negócio.
+
+**Cases de M&A e estratégia:**
+"Nosso cliente está considerando adquirir uma empresa. Como você avalia se faz sentido?"
+
+## Framework para cases de negócio
+
+**MECE (Mutually Exclusive, Collectively Exhaustive):** O princípio fundamental de consultoria. Ao estruturar um problema, os elementos devem ser:
+- **Mutuamente exclusivos:** sem sobreposição
+- **Coletivamente exaustivos:** cobrem todo o espaço do problema
+
+**Estrutura básica para problema de rentabilidade:**
+- Receita (preço × volume) — está caindo?
+  - Preço: mudamos preço? Concorrência mudou?
+  - Volume: perdemos clientes? Mercado encolheu?
+- Custo (fixo + variável) — está subindo?
+  - Custos fixos: overhead, aluguel, salários
+  - Custos variáveis: matéria-prima, logística
+
+**Estrutura para entrada em novo mercado:**
+- Atratividade do mercado (tamanho, crescimento, margens)
+- Competitividade (estrutura do mercado, barreiras de entrada)
+- Capacidade do cliente (competências, recursos)
+- Fit estratégico
+
+## Como praticar
+
+**Livros:** "Case in Point" (Cosentino) e "The McKinsey Way" são referências.
+
+**Victor Cheng (caseinterview.com):** Material gratuito excelente.
+
+**Parceiro de prática:** Encontre alguém também se preparando. Pratique casos juntos — roleplay com feedback é insubstituível.
+
+**PrepLounge:** Plataforma para prática de cases com outros candidatos, incluindo coaches de ex-consultores.`,
+      },
+      {
+        id: '70-3',
+        title: 'Comunicação e entregáveis em consultoria: o padrão McKinsey',
+        duration: '25 min',
+        content: `# Comunicação e entregáveis em consultoria: o padrão McKinsey
+
+## O princípio da pirâmide (Barbara Minto)
+
+A comunicação em consultoria segue o "Princípio da Pirâmide": comece pela conclusão, depois apresente os argumentos que a sustentam, depois os dados que sustentam os argumentos.
+
+**Estrutura:**
+\`\`\`
+CONCLUSÃO (o que você quer que o cliente faça)
+  ↓
+Argumento 1 → Argumento 2 → Argumento 3
+  ↓               ↓               ↓
+Dados         Dados           Dados
+\`\`\`
+
+Na maioria das comunicações, as pessoas constroem até a conclusão. Em consultoria, começa-se pela conclusão. Isso respeita o tempo do executivo e demonstra clareza de pensamento.
+
+## Slides de consultoria: o padrão
+
+Cada slide deve ter:
+1. **Título orientado a ação:** Não "Análise de Vendas" — mas "As vendas caíram 20% por perda de clientes corporativos, não por preço"
+2. **Uma mensagem principal:** Se você precisar de dois slides, faça dois slides
+3. **Dados que suportam exatamente a mensagem do título**
+
+## Recomendações: o deliverable final
+
+Em consultoria, o cliente paga pela recomendação — não pelo diagnóstico. Um bom entregável:
+1. Define claramente o problema
+2. Analisa causas raiz com dados
+3. Apresenta opções com trade-offs
+4. Recomenda a melhor opção com justificativa
+5. Propõe próximos passos claros e responsáveis
+
+## Habilidades além do técnico
+
+O consultor de sucesso não é só analítico — é excelente em:
+- **Gestão de stakeholders:** Lidar com executivos de diferentes níveis, interesses e perspectivas
+- **Facilitação de workshops:** Extrair insights de grupos e alinhar times
+- **Comunicação executiva:** Adaptar mensagem para C-level (curta, direta, orientada a decisão)
+- **Gerenciamento de relacionamento:** O cliente precisa confiar em você, não só respeitar sua análise`,
+      },
+    ],
+  },
+  {
+    id: 71,
+    title: 'Mudança de Carreira: Como Transicionar com Sucesso',
+    desc: 'Estratégias práticas para mudar de área sem começar do zero — transferindo habilidades, construindo credibilidade e conseguindo a primeira vaga.',
+    duration: '2h 50min',
+    icon: '🔄',
+    isPro: false,
+    color: { bg: 'bg-teal-50', border: 'border-teal-200', badge: 'bg-teal-100 text-teal-700', icon: 'bg-teal-600' },
+    lessons: [
+      {
+        id: '71-1',
+        title: 'Mapeando suas habilidades transferíveis',
+        duration: '25 min',
+        content: `# Mapeando suas habilidades transferíveis
+
+## O mito de "começar do zero"
+
+Mudar de área não significa descartar tudo que você construiu. Suas habilidades, experiências e perspectiva acumuladas são ativos — o segredo é identificar quais se transferem e como comunicá-las para a nova área.
+
+## Categorias de habilidades transferíveis
+
+**Habilidades funcionais universais:**
+- Gestão de projetos e prazos
+- Comunicação escrita e oral
+- Análise de dados e tomada de decisão
+- Liderança e influência sem autoridade
+- Gestão de relacionamentos e stakeholders
+- Resolução de problemas complexos
+
+**Habilidades técnicas adaptáveis:**
+- Excel e análise de dados → transfere para quase qualquer área
+- Apresentações e storytelling → valioso em vendas, marketing, consultoria
+- Conhecimento jurídico → valioso em compliance, RH, contratos
+- Conhecimento financeiro → valioso em gestão, startups, qualquer área de negócio
+
+## Exercício: Mapa de Habilidades
+
+Faça uma lista de tudo que você sabe fazer bem — não o cargo, mas as habilidades:
+1. Liste 20-30 habilidades (técnicas e comportamentais)
+2. Para cada uma, avalie o nível (básico / intermediário / avançado)
+3. Pesquise a nova área desejada: quais dessas habilidades são valorizadas?
+4. Identifique o gap: o que você ainda precisa aprender?
+
+## O ativo oculto: perspectiva de outra área
+
+Um profissional que vem de fora traz perspectiva que os "nativos" da área não têm. Um engenheiro que vai para produto traz rigor técnico. Um jornalista que vai para marketing traz narrativa. Um contador que vai para analytics traz precisão com dados. Valorize e comunique essa perspectiva diferente.
+
+## Exemplos de transições bem-sucedidas
+
+- **Jornalismo → UX Research:** Ambos exigem entrevistas, análise de narrativas, síntese de informação
+- **Direito → Product Management:** Ambos exigem análise, comunicação precisa, gestão de stakeholders
+- **Ensino → Treinamento Corporativo (L&D):** Transferência quase direta
+- **Engenharia → Vendas Técnicas (Sales Engineer):** Conhecimento técnico + habilidade de comunicar para não-técnicos`,
+      },
+      {
+        id: '71-2',
+        title: 'Estratégia para ganhar experiência e credibilidade na nova área',
+        duration: '25 min',
+        content: `# Estratégia para ganhar experiência e credibilidade na nova área
+
+## O paradoxo da mudança de carreira
+
+Para conseguir emprego na nova área, você precisa de experiência. Para ter experiência, você precisa de emprego. Como quebrar esse ciclo?
+
+## 5 formas de ganhar experiência antes do emprego formal
+
+**1. Projetos paralelos (side projects):**
+Faça na prática o que quer fazer profissionalmente. Quer ser designer? Crie projetos de design. Quer ser data analyst? Analise dados públicos e publique insights. Quer ser dev? Construa apps.
+
+**2. Freelance e voluntariado:**
+Ofereça seus serviços na nova área por valores abaixo do mercado (ou de graça para ONGs). Cada projeto vira case do portfolio.
+
+**3. Contribuição em projetos open source:**
+Para tecnologia especialmente — contribuir em projetos open source no GitHub demonstra habilidade real.
+
+**4. Cursos com projetos reais:**
+Bootcamps e cursos com projetos aplicados (não só teoria) geram portfolio junto com o aprendizado.
+
+**5. Função híbrida na empresa atual:**
+Às vezes a melhor transição começa dentro da empresa onde você já trabalha. Volunteer para projetos que tocam a área de destino. Construa credibilidade internamente antes de buscar externamente.
+
+## Construindo credibilidade pública
+
+**Escreva sobre o processo de aprendizado:**
+"Semana 3 aprendendo Python" ou "O que aprendi ao redesenhar esse app do zero" — conteúdo sobre sua transição humaniza e cria audiência de pessoas na mesma situação.
+
+**Participe de comunidades:**
+Meetups, grupos do LinkedIn, comunidades no Discord/Slack da nova área. Presença consistente cria conexões que geram oportunidades.
+
+**Networking na nova área:**
+Converse com pessoas que já fazem o que você quer fazer. Peça uma conversa de 20 minutos para entender a área. Essas conversas frequentemente geram indicações quando surge uma vaga.`,
+      },
+      {
+        id: '71-3',
+        title: 'Posicionando sua candidatura e superando objeções',
+        duration: '20 min',
+        content: `# Posicionando sua candidatura e superando objeções
+
+## Como comunicar sua transição no currículo
+
+Não esconda a mudança de carreira — reframe como ponto positivo.
+
+**Summary/Objetivo:** Seja direto sobre a transição: "Profissional de [área anterior] em transição para [nova área], trazendo [habilidades transferíveis específicas]. Atualmente desenvolvendo expertise em [X e Y] através de [projetos/cursos]."
+
+**Seção de projetos:** Crie uma seção "Projetos" antes de "Experiência" para destacar o trabalho prático na nova área — mesmo que não seja emprego formal.
+
+**Habilidades:** Liste as habilidades da nova área que você desenvolveu, com nível honesto.
+
+## A objeção mais comum: "Você não tem experiência"
+
+**Resposta preparada:**
+"É verdade que não tenho histórico formal em [nova área], mas nos últimos [X meses] estive desenvolvendo ativamente essas habilidades através de [projetos/cursos/freelance]. Aqui está o que construí: [exemplos concretos]. Além disso, minha experiência em [área anterior] me traz [perspectiva específica] que será útil porque [razão concreta]."
+
+## Tipos de empresa que são mais abertos a transicionadores
+
+- **Startups em crescimento:** Precisam de pessoas versáteis, valorizam aprendizado rápido
+- **Empresas que já contrataram transicionadores:** Peça no LinkedIn para identificar exemplos
+- **Empresas com programas de reskilling:** Algumas grandes empresas têm programas formais de transição interna
+- **Empresas em transformação digital:** Precisam de pessoas que entendam tanto o negócio quanto a tecnologia
+
+## Seja paciente com o timeline
+
+Transições de carreira raramente acontecem em 30 dias. O timeline realista:
+- 3-6 meses para desenvolver habilidades básicas e portfolio inicial
+- 6-12 meses até o primeiro emprego formal na nova área
+- 1-2 anos para atingir o nível salarial anterior
+
+Isso é normal e vale o investimento para uma carreira mais alinhada com seus objetivos.`,
+      },
+    ],
+  },
+  {
+    id: 72,
+    title: 'Carreira em Direito Empresarial e Jurídico',
+    desc: 'Do estágio ao sócio: como construir carreira em direito corporativo, contratos, compliance e as novas frentes do mercado jurídico.',
+    duration: '3h 10min',
+    icon: '⚖️',
+    isPro: true,
+    color: { bg: 'bg-slate-50', border: 'border-slate-200', badge: 'bg-slate-100 text-slate-700', icon: 'bg-slate-600' },
+    lessons: [
+      {
+        id: '72-1',
+        title: 'O mercado jurídico além dos tribunais: áreas e oportunidades',
+        duration: '25 min',
+        content: `# O mercado jurídico além dos tribunais: áreas e oportunidades
+
+## A transformação do mercado jurídico
+
+O direito empresarial moderno vai muito além de litígios e tribunais. As áreas mais aquecidas no mercado brasileiro atual são preventivas e de assessoria — empresas precisam de advogados que evitem problemas, não só que os resolvam depois.
+
+## As principais áreas
+
+### Direito Societário e M&A
+Fusões, aquisições, reestruturações, governança corporativa. Uma das áreas mais bem remuneradas — especialmente em bancas de alto volume de transações.
+- **Salário (advogado pleno em banca top):** R$ 15.000–35.000+
+
+### Direito Contratual (Contratos)
+Redação, negociação e análise de contratos comerciais, de fornecimento, de tecnologia, de serviços. Toda empresa precisa.
+- **Salário (in-house pleno):** R$ 8.000–18.000
+
+### Compliance e Governança
+Com LGPD, anticorrupção (Lei 12.846), regulações setoriais — compliance explodiu. DPO (Data Protection Officer) é função nova e escassa.
+- **Salário (Compliance Manager):** R$ 12.000–25.000
+
+### Direito Trabalhista Empresarial
+Assessoria preventiva a empresas — não defesa em reclamação trabalhista, mas estruturar contratos, políticas, relações sindicais para evitar passivos.
+- **Salário:** R$ 7.000–18.000
+
+### Direito Tributário
+Planejamento fiscal, contencioso tributário, recuperação de créditos. Altamente técnico e muito bem remunerado.
+- **Salário (tributarista sênior):** R$ 18.000–50.000+
+
+### Jurídico In-House (Departamento Jurídico de Empresa)
+Advogado como funcionário da empresa — não em banca. Crescente preferência de muitos advogados pela estabilidade e trabalho com negócio.
+
+## Legaltech: o futuro da profissão
+
+Automação de documentos, due diligence por IA, contratos inteligentes (smart contracts), plataformas de resolução de disputas online. Advogados que entendem tecnologia têm vantagem competitiva crescente.`,
+      },
+      {
+        id: '72-2',
+        title: 'Bancas vs. In-House: como decidir e como entrar',
+        duration: '25 min',
+        content: `# Bancas vs. In-House: como decidir e como entrar
+
+## Trabalhar em banca de advocacia
+
+**O que é:** Escritório de advocacia prestando serviços para múltiplos clientes.
+
+**Vantagens:**
+- Exposição a múltiplos clientes, indústrias e tipos de trabalho
+- Formação técnica mais rápida e profunda
+- Possibilidade de se tornar sócio
+- Rede de clientes que você leva para sempre
+
+**Desvantagens:**
+- Horários extensos (70-80h/semana em bancas de elite não é raro)
+- Pressão de faturamento/billing
+- Hierarquia rígida — anos de associado antes de qualquer promoção
+- Salário de entrada menor que parece comparado às horas trabalhadas
+
+**Bancas de destaque no Brasil:** Pinheiro Neto, Machado Meyer, Tozzini Freire, Mattos Filho, Demarest, Lefosse, BMA.
+
+## Trabalhar in-house (jurídico interno)
+
+**O que é:** Advogado como funcionário de uma empresa não-jurídica.
+
+**Vantagens:**
+- Melhor equilíbrio trabalho-vida
+- Visão do negócio de dentro
+- Salário competitivo com benefícios de empresa
+- Posição de parceiro estratégico do negócio
+
+**Desvantagens:**
+- Menor especialização técnica
+- Pode ficar distante da prática pura do direito
+- Crescimento hierárquico mais lento
+
+**Como entrar in-house:** Geralmente requer experiência prévia em banca. A maioria das empresas quer advogados que "já sabem o básico" — formos de bancas. Exceções: empresas de tecnologia que contratam recém-formados para posições de contrato e compliance.
+
+## A trilha clássica
+
+1. **Estágio em banca de médio ou grande porte** (durante a faculdade)
+2. **Advogado associado** (2-5 anos, especialização técnica)
+3. **Sócio associado ou gerente jurídico in-house** (5-10 anos)
+4. **Sócio ou Diretor Jurídico** (10+ anos)`,
+      },
+      {
+        id: '72-3',
+        title: 'Compliance, LGPD e as novas fronteiras do direito',
+        duration: '20 min',
+        content: `# Compliance, LGPD e as novas fronteiras do direito
+
+## O boom de compliance
+
+Compliance (conformidade regulatória) explodiu após:
+- **Lei Anticorrupção (12.846/2013):** Responsabilidade objetiva de empresas por atos de corrupção
+- **LGPD (Lei 13.709/2018):** Proteção de dados pessoais, seguindo o GDPR europeu
+- **Compliance setorial:** BACEN para bancos, ANVISA para saúde, ANATEL para telecom
+
+Toda empresa de médio e grande porte precisa de função de compliance. A demanda supera muito a oferta de profissionais qualificados.
+
+## DPO (Data Protection Officer): a função mais nova e escassa
+
+A LGPD criou a obrigação de ter um DPO (Encarregado de Dados). Responsabilidades:
+- Ponto de contato com a ANPD (autoridade regulatória)
+- Orientação interna sobre proteção de dados
+- Avaliação de impacto de projetos que envolvem dados pessoais
+- Treinamento de colaboradores sobre LGPD
+
+**Salário DPO:** R$ 10.000–25.000 dependendo do porte da empresa.
+
+**Como se preparar:** Cursos de especialização em LGPD (IAPP CIPP/E é a certificação internacional de referência), prática em projetos de adequação à LGPD.
+
+## ESG e Direito Ambiental Corporativo
+
+Investidores globais exigem relatórios ESG (Environmental, Social, Governance). Isso cria demanda por:
+- Advogados que entendem regulação ambiental e podem assessorar projetos de sustentabilidade
+- Profissionais que constroem frameworks de governança corporativa
+- Especialistas em due diligence ESG em M&A
+
+## Arbitragem: crescimento acelerado no Brasil
+
+O Brasil se tornou um dos maiores mercados de arbitragem do mundo. Câmaras como CAM-CCBC, CAMARB e ICC têm volumes crescentes.
+
+Arbitragem permite honorários muito maiores que litígios judiciais e é mais previsível em timing. Especialização em arbitragem comercial e de investimentos é trilha de alta remuneração.`,
+      },
+    ],
+  },
+  {
+    id: 73,
+    title: 'Trabalho Remoto: Como Conseguir e Prosperar',
+    desc: 'Estratégias para encontrar vagas remotas (inclusive internacionais), produtividade em casa e como se destacar em times distribuídos.',
+    duration: '2h 40min',
+    icon: '🏠',
+    isPro: false,
+    color: { bg: 'bg-green-50', border: 'border-green-200', badge: 'bg-green-100 text-green-700', icon: 'bg-green-500' },
+    lessons: [
+      {
+        id: '73-1',
+        title: 'Encontrando vagas remotas no Brasil e no exterior',
+        duration: '25 min',
+        content: `# Encontrando vagas remotas no Brasil e no exterior
+
+## O mercado de trabalho remoto após 2020
+
+A pandemia normalizou o trabalho remoto em escala global. Hoje, profissionais brasileiros competem — e vencem — vagas em empresas americanas, europeias e globais sem sair do país. Para quem tem habilidades valorizadas, isso é uma revolução salarial: receber em dólar ou euro multiplicado por 5-6x.
+
+## Plataformas especializadas em vagas remotas
+
+**Internacionais:**
+- **Remote.co:** Curado, empresas que têm cultura de remote-first
+- **We Work Remotely:** Uma das maiores, ótima para tecnologia e design
+- **RemoteOK:** Muito ativo, vagas de startups internacionais
+- **Wellfound (AngelList):** Startups em geral, muitas vagas remotas
+- **Toptal:** Top 3% de profissionais — alta barreira de entrada, altos salários
+- **Gun.io:** Para desenvolvedores freelance seniores
+
+**Nacionais/regionais:**
+- **Remoto.io:** Agregador de vagas remotas em português
+- **LinkedIn:** Filtrar por "Remoto" nas buscas
+- **GitHub Jobs:** Para desenvolvedores
+
+## Áreas com mais oportunidades remotas internacionais
+
+**Muito alta demanda:**
+- Desenvolvimento de software (frontend, backend, fullstack, mobile)
+- Design (UX/UI, Product Design)
+- Marketing digital e Growth
+- Customer Success e Support
+
+**Crescendo:**
+- Engenharia de dados e Analytics
+- Product Management
+- Copywriting em inglês
+- Finanças e Contabilidade (para empresas com operação no Brasil)
+
+## Como se candidatar para vagas internacionais
+
+1. **Currículo em inglês** adaptado para o formato americano (ver módulo de carreira internacional)
+2. **LinkedIn em inglês** com headline e about otimizados
+3. **Portfólio público** acessível por link
+4. **Email profissional** (não @hotmail.com)
+5. **Referências disponíveis** — empresas internacionais pedem frequentemente`,
+      },
+      {
+        id: '73-2',
+        title: 'Produtividade e comunicação em times remotos',
+        duration: '20 min',
+        content: `# Produtividade e comunicação em times remotos
+
+## O desafio único do trabalho remoto
+
+Trabalho remoto exige autodisciplina que o ambiente de escritório força por padrão. Sem a estrutura física — hora de chegada, colegas ao redor, reuniões presenciais — você precisa criar estrutura própria.
+
+## Configurando seu ambiente de trabalho
+
+**Espaço dedicado:** Não trabalhe da cama ou do sofá. Ter um espaço específico para trabalho cria separação mental entre trabalho e descanso. Não precisa ser escritório separado — pode ser uma cadeira e mesa específica.
+
+**Equipamentos que fazem diferença:**
+- Monitor externo: aumenta produtividade 20-30%
+- Cadeira ergonômica: prevenção de lesões e conforto para longas horas
+- Fone com cancelamento de ruído: essencial para calls em ambientes com barulho
+- Boa webcam e microfone: sua presença em calls é sua imagem em times remotos
+
+**Internet:** Tenha backup (4G de celular) para casos de queda. Nada destrói credibilidade em time remoto como "caiu minha internet" repetidamente.
+
+## Gerenciando seu tempo sem supervisão
+
+**Técnica Pomodoro:** 25 minutos de trabalho focado + 5 minutos de pausa. Mantém foco e evita fadiga mental.
+
+**Time blocking:** Reserve blocos de tempo no calendário para trabalho profundo (deep work) sem interrupções. Comunique disponibilidade para o time.
+
+**Assincronia por padrão:** Em times distribuídos com fusos diferentes, a comunicação assíncrona (por escrito, sem resposta imediata esperada) é mais saudável que constante disponibilidade. Ferramentas: Notion, Loom, documentação em texto.
+
+## Comunicação em times distribuídos
+
+**Over-communicate:** No escritório, outros veem que você está trabalhando. No remoto, você precisa comunicar ativamente o que está fazendo, qualquer bloqueio que encontrou, e quando algo está pronto.
+
+**Escrita clara:** Em times remotos, a maior parte da comunicação é escrita. Escreva mensagens claras, com contexto suficiente, sem ambiguidade.
+
+**Câmera ligada em calls importantes:** Construir conexão humana é mais difícil remotamente. Câmera ligada em calls cria presença e confiança.`,
+      },
+      {
+        id: '73-3',
+        title: 'Aspectos legais e financeiros do trabalho remoto internacional',
+        duration: '20 min',
+        content: `# Aspectos legais e financeiros do trabalho remoto internacional
+
+## Como receber pagamento do exterior
+
+**Wise (antigo TransferWise):** Melhor opção para a maioria. Conta em múltiplas moedas, receba em dólar/euro na conta americana/européia, converta quando quiser. Taxa de câmbio próxima ao comercial.
+
+**Deel:** Plataforma de payroll internacional. Muitas empresas americanas usam o Deel para pagar freelancers e contractors brasileiros. Você recebe em dólar na plataforma e saca para conta bancária ou Wise.
+
+**PayPal:** Funciona mas tem taxas altas de câmbio. Use só se não houver alternativa.
+
+**Remessa Online:** Para receber transferências internacionais no Brasil com taxa competitiva.
+
+## Aspectos tributários (importante!)
+
+Receita do exterior é tributável no Brasil. Como pessoa física:
+
+**Carnê-Leão:** Se você recebe como PF (pessoa física) de fonte estrangeira, deve recolher mensalmente via Carnê-Leão. Alíquotas progressivas de 7,5% a 27,5%.
+
+**CNPJ (PJ):** Abrir empresa (MEI se caber no limite, ou LTDA/SLU) pode reduzir a carga tributária. Sobre o pró-labore paga IRPF, sobre os dividendos (atualmente) não paga. Consulte um contador especializado em contratos internacionais.
+
+**Declaração anual:** Rendimentos do exterior devem ser declarados no IRPF anual, na ficha "Rendimentos Recebidos de Pessoa Física e do Exterior".
+
+## Contratos de contractor vs. CLT
+
+Empresas estrangeiras geralmente contratam brasileiros como **contractors** (prestadores de serviço), não como CLT. Isso significa:
+- Sem benefícios CLT (FGTS, férias remuneradas, 13°, INSS patronal)
+- Você é responsável pelo seu INSS (contribuição como autônomo ou MEI)
+- Maior flexibilidade e geralmente salário bruto maior
+- Risco: sem proteção trabalhista
+
+A tendência do mercado é que o salário de contractor compensa com folga os benefícios perdidos — mas faça a conta para a sua situação específica.`,
+      },
+    ],
+  },
+  {
+    id: 74,
+    title: 'Networking Estratégico: Construa e Ative sua Rede',
+    desc: 'Como construir conexões profissionais genuínas e estratégicas que geram oportunidades ao longo de toda a sua carreira.',
+    duration: '2h 30min',
+    icon: '🤝',
+    isPro: false,
+    color: { bg: 'bg-orange-50', border: 'border-orange-200', badge: 'bg-orange-100 text-orange-700', icon: 'bg-orange-500' },
+    lessons: [
+      {
+        id: '74-1',
+        title: 'A mentalidade certa sobre networking: dar antes de pedir',
+        duration: '20 min',
+        content: `# A mentalidade certa sobre networking: dar antes de pedir
+
+## Por que a maioria das pessoas faz networking errado
+
+Networking com mentalidade transacional — "o que essa pessoa pode fazer por mim?" — é perceptível e repelente. As melhores redes profissionais são construídas ao longo de anos, baseadas em relações genuínas de troca de valor.
+
+## A lei da reciprocidade
+
+Quando você entrega valor para alguém sem pedir nada em troca, cria uma dívida social que as pessoas naturalmente querem retribuir. Isso não é manipulação — é como relações humanas funcionam.
+
+**Formas de dar valor antes de pedir:**
+- Compartilhe um artigo relevante para o interesse da pessoa
+- Apresente duas pessoas que você acha que deveriam se conhecer
+- Recomende o trabalho de alguém para sua rede
+- Responda perguntas da sua área com generosidade
+- Ofereça feedback honesto quando alguém pede
+
+## Networking vs. relacionamento profissional
+
+"Networking" tem uma conotação artificial — o evento com crachá onde você troca cartões com estranhos. Isso funciona mal.
+
+O que funciona bem: construir **relacionamentos profissionais autênticos** ao longo do tempo. Com ex-colegas, ex-professores, clientes, fornecedores, pessoas que você conhece em eventos mas com quem mantém contato.
+
+## Como manter contatos ao longo do tempo
+
+A maioria das pessoas perde contato com pessoas valiosas simplesmente por não manter presença. Estratégias simples:
+- **Check-in periódico:** Uma mensagem a cada 3-6 meses ("Vi essa notícia e lembrei de você")
+- **Celebrar conquistas:** Parabenize quando a pessoa muda de emprego ou é promovida
+- **Compartilhar conteúdo relevante:** Um artigo que você sabe que ela se interessaria
+- **Convidar para eventos:** Conferências, webinars, almoços`,
+      },
+      {
+        id: '74-2',
+        title: 'Onde e como fazer networking que funciona',
+        duration: '20 min',
+        content: `# Onde e como fazer networking que funciona
+
+## Os melhores lugares para construir rede profissional
+
+**Dentro da sua empresa atual:**
+O networking mais ignorado. Colegas de outras áreas, pessoas de hierarquias diferentes, ex-colegas que mudaram de empresa. Sua rede interna atual é sua rede externa futura.
+
+**Eventos e conferências da área:**
+Meetups, conferências, workshops. Foco: qualidade de conexões, não quantidade de cartões distribuídos. Ter 3 conversas reais vale mais que 20 apertos de mão.
+
+**Comunidades online:**
+Slack de profissionais da área, grupos do LinkedIn, Discord, Telegram. Muitas comunidades ativas no Brasil:
+- Data Hackers (dados e ML)
+- Nerds do Produto (product management)
+- Marketing Sem Gravata
+- Comunidade Java BR, Python Brasil (tech)
+
+**Cursos e formações:**
+Colegas de MBA, bootcamp ou especialização são rede natural — vocês passaram por experiência intensa juntos.
+
+**LinkedIn:**
+Funciona bem para networking quando a abordagem é personalizada (ver módulo de LinkedIn).
+
+## Script para se apresentar em eventos
+
+**Ruim:** "Oi, eu sou [nome], trabalho com [cargo]."
+
+**Bom:** "Oi, eu sou [nome]. Trabalho com [área] na [empresa/contexto]. Estou particularmente interessado em [tópico do evento]. Você tem trabalhado com isso?"
+
+A diferença: você cria abertura para conversa em vez de finalizá-la.
+
+## Pedindo uma conversa (café virtual ou presencial)
+
+Use quando quiser aprender com alguém ou explorar oportunidades:
+
+"Olá [nome], acompanho seu trabalho em [área] e tenho muito interesse em aprender mais sobre [tópico específico]. Você teria disponibilidade para uma conversa de 20-30 minutos? Não precisa ser presencial — fico feliz de fazer por video."
+
+**Chave:** Seja específico sobre o que quer aprender. Pedidos vagos ("gostaria de conversar") têm baixa taxa de resposta.`,
+      },
+      {
+        id: '74-3',
+        title: 'Ativando sua rede para conseguir oportunidades',
+        duration: '20 min',
+        content: `# Ativando sua rede para conseguir oportunidades
+
+## Quando e como pedir ajuda
+
+Muitas pessoas acumulam rede mas nunca a ativam. Seja por vergonha, receio de parecer oportunista ou simplesmente não saber como pedir.
+
+**Quando pedir ajuda é legítimo:**
+- Quando você manteve contato genuíno (não some e aparece só quando precisa)
+- Quando o pedido é específico e razoável
+- Quando você está disposto a fazer o mesmo pela pessoa
+
+## Como pedir indicação para vaga específica
+
+"Oi [nome], vi que a [empresa] está com uma vaga aberta de [cargo] e que você trabalha lá. Serei candidato por interesse genuíno na empresa e acredito ter o perfil pela minha experiência em [X]. Você estaria disposto a me indicar internamente ou me dar contexto sobre a cultura e o time?"
+
+Seja específico sobre a vaga. Não peça para a pessoa "ficar de olho" em vagas em geral.
+
+## Como pedir introdução para terceiro
+
+"Oi [nome], vi que você conhece [pessoa X] que trabalha com [área] na [empresa]. Estou explorando oportunidades nessa direção e adoraria uma breve conversa com ela. Você se sentira confortável em fazer uma introdução rápida por email?"
+
+Facilite ao máximo: escreva o email de introdução que a pessoa só precisa encaminhar com "Ei [X], gostaria de te apresentar o [seu nome]..."
+
+## A regra de ouro: retribua
+
+Sempre que alguém te ajuda, retribua — mesmo que não imediatamente, mesmo que não para a mesma pessoa. O networking saudável é um sistema circulatório de valor, não um jogo de soma zero.
+
+Quando você for bem-sucedido, lembre de quem te ajudou. Recomende publicamente. Seja a pessoa que conecta outros. Assim a rede cresce e se fortalece para todos.`,
+      },
+    ],
+  },
+  {
+    id: 75,
+    title: 'Reinvenção de Carreira após os 40',
+    desc: 'Estratégias práticas para profissionais experientes que querem mudar de área, atualizar habilidades ou encontrar novo propósito profissional.',
+    duration: '2h 40min',
+    icon: '🌱',
+    isPro: false,
+    color: { bg: 'bg-amber-50', border: 'border-amber-200', badge: 'bg-amber-100 text-amber-700', icon: 'bg-amber-500' },
+    lessons: [
+      {
+        id: '75-1',
+        title: 'Seus ativos reais após 20 anos de carreira',
+        duration: '20 min',
+        content: `# Seus ativos reais após 20 anos de carreira
+
+## O mito do "estou desatualizado"
+
+Profissionais com 40, 50 anos frequentemente subestimam o valor do que acumularam. Enquanto sentem que precisam aprender tecnologias novas (e precisam), esquecem que possuem ativos que profissionais jovens levarão décadas para construir.
+
+## Seus ativos intangíveis
+
+**Julgamento:** Após 20 anos, você sabe distinguir problemas reais de ruído. Você já viu crises, ciclos, modas e mudanças — e sabe o que sobrevive ao tempo. Isso tem valor imenso.
+
+**Rede profissional:** 20 anos de relacionamentos profissionais são um ativo extraordinário. Sua rede sabe que você entrega, conhece seu caráter, confia em você.
+
+**Conhecimento de domínio:** Entendimento profundo de como funciona uma indústria — seus atores, dinâmicas, linguagem, atalhos — leva muito tempo para construir e não se aprende em curso.
+
+**Inteligência emocional:** A maioria das pessoas se torna mais resiliente, menos reativa e melhor em lidar com pessoas ao longo do tempo. Isso é vantagem competitiva real em liderança.
+
+**Histórico comprovado:** Projetos entregues, problemas resolvidos, equipes lideradas — evidência concreta de capacidade, não promessa.
+
+## O que atualizar (e o que não precisa)
+
+**O que vale a pena atualizar:**
+- Ferramentas digitais da sua área (sempre mudando)
+- Tendências estratégicas do setor
+- Habilidades de comunicação digital
+- Idiomas, se abrir mercado internacional
+
+**O que não precisa ser "zerado":**
+- Sua experiência de gestão e liderança
+- Conhecimento de domínio acumulado
+- Rede profissional estabelecida
+- Reputação construída ao longo dos anos`,
+      },
+      {
+        id: '75-2',
+        title: 'Preconceito etário: como navegar e superar',
+        duration: '20 min',
+        content: `# Preconceito etário: como navegar e superar
+
+## A realidade do etarismo no mercado
+
+Etarismo (discriminação por idade) existe no mercado de trabalho. É ilegal no Brasil (Lei 9.029/95 proíbe discriminação por idade), mas acontece de formas sutis — vagas para "profissionais dinâmicos", "perfil startup", "ambiente jovem".
+
+## Como identificar empresas com cultura inclusiva em relação à idade
+
+**Bons sinais:**
+- Diversidade etária visível no time (fotos no LinkedIn, site da empresa)
+- Menção explícita à diversidade e inclusão (incluindo etária)
+- Empresa com histórico de contratar profissionais experientes
+- Cultura que valoriza mentoring e transferência de conhecimento
+
+**Sinais de alerta:**
+- Linguagem da vaga focada em "energia", "dinamismo", "ambiente startup"
+- Time 100% jovem visível nas redes sociais
+- Ausência de lideranças com 40+ anos
+
+## Estratégias para o currículo
+
+**Não inclua data de formatura** se é há mais de 15-20 anos (não é obrigatório no Brasil).
+
+**Foque nos últimos 15 anos de experiência** — não é necessário listar tudo. O que é relevante para a vaga é o que deve aparecer.
+
+**Modernize a formatação** — currículo com visual datado reforça percepção de desatualização.
+
+**Mostre projetos recentes e habilidades atuais** — demonstre que você está aprendendo e usando ferramentas modernas.
+
+## Reenquadrando sua narrativa
+
+Em entrevistas, não se posicione como "ainda jovem" ou "com energia para aprender" — isso reforça o enquadramento etário. Posicione-se como profissional experiente que entrega resultados específicos:
+
+"Nos últimos 5 anos, liderei a transformação digital do departamento de X na empresa Y, implementando [tecnologia] e reduzindo custos em Z%. É exatamente esse tipo de desafio que estou buscando aqui."`,
+      },
+      {
+        id: '75-3',
+        title: 'Caminhos alternativos: consultoria, empreendedorismo e trabalho de impacto',
+        duration: '20 min',
+        content: `# Caminhos alternativos: consultoria, empreendedorismo e trabalho de impacto
+
+## Nem todo caminho é CLT
+
+Profissionais com 20+ anos de experiência têm opções que não existiam no início da carreira. O mercado formal de emprego não é o único — e às vezes não é o melhor.
+
+## Consultoria independente
+
+Sua experiência acumulada tem valor de mercado como consultor:
+
+- **Consultoria por projeto:** Empresas pagam bem por expertise específica por tempo determinado
+- **Mentoria:** Profissionais mais jovens pagam por orientação de carreira e acesso à sua experiência
+- **Interim Management:** Executivos temporários — cada vez mais comum no Brasil para reestruturações e projetos específicos
+
+**Como começar:** Defina claramente qual problema você resolve e para quem. Comunique no LinkedIn. Use sua rede para os primeiros clientes.
+
+## Empreendedorismo com experiência
+
+Diferente do empreendedor jovem que aposta em ideias não testadas, o profissional experiente tem:
+- Conhecimento profundo do mercado
+- Rede de clientes e parceiros potenciais
+- Capacidade de identificar problemas reais (não hipotéticos)
+- Recursos para investir com mais planejamento
+
+O risco do empreendedorismo tardio existe, mas a taxa de sucesso de negócios fundados por pessoas com 40+ é historicamente maior que os fundados por pessoas mais jovens.
+
+## Trabalho de impacto e terceiro setor
+
+Com filhos criados, financeiramente mais estabilizados, muitos profissionais aos 40+ buscam trabalho com propósito além do financeiro. ONGs, organizações de impacto social, empresas B — crescendo muito no Brasil e valorizando experiência de mercado.
+
+**Organizações que conectam:** Movimento ESFI, Instituto Lemann, Endeavor Social, Comunitas.
+
+## Portfólio de carreira
+
+O conceito de "portfólio de carreira": em vez de uma função em uma empresa, você tem combinação de atividades — parte consultoria, parte conselho de empresa, parte mentoria, parte projeto pessoal. Cada vez mais viável para profissionais experientes.`,
+      },
+    ],
+  },
+  {
+    id: 76,
+    title: 'Concursos Públicos: Como Estudar e Passar',
+    desc: 'Estratégia de estudo, gestão do tempo e o que diferencia quem passa de quem tenta por anos sem resultado.',
+    duration: '3h 00min',
+    icon: '📋',
+    isPro: false,
+    color: { bg: 'bg-blue-50', border: 'border-blue-200', badge: 'bg-blue-100 text-blue-700', icon: 'bg-blue-500' },
+    lessons: [
+      {
+        id: '76-1',
+        title: 'Escolhendo o concurso certo e entendendo o que avalia',
+        duration: '25 min',
+        content: `# Escolhendo o concurso certo e entendendo o que avalia
+
+## Por que a escolha do concurso é decisão estratégica
+
+Estudar para concurso errado — muito difícil para seu momento, com pouco número de vagas, ou para cargo que você não vai querer fazer por 30 anos — é desperdício de anos de vida. A escolha importa tanto quanto o estudo.
+
+## Critérios para escolher um concurso
+
+**Relação candidato/vaga:** Concursos com 500:1 são muito mais difíceis que 50:1, mesmo com nível de prova similar.
+
+**Nível de formação exigida:**
+- **Nível médio:** Mais acessível, mas salários geralmente menores
+- **Nível superior:** Exige graduação específica, mais competitivo mas melhor remunerado
+- **Especializado:** Exige experiência ou pós-graduação (magistratura, procuradorias)
+
+**Conteúdo programático:** Quanto se sobrepõe com o que você já sabe? Quanto está disposto a aprender do zero?
+
+**Estabilidade e perspectiva do órgão:** Carreiras como Receita Federal, Banco Central, TCU têm alta reputação e progressão de carreira real. Outros cargos têm estabilidade mas pouca progressão.
+
+## Os concursos mais disputados e por quê
+
+**Receita Federal (Auditor Fiscal):** Uma das melhores carreiras da administração pública. Salário de R$ 21.000+. Prova muito difícil — direito tributário, contabilidade, auditoria.
+
+**Banco Central:** Analista de R$ 20.000+. Questões de altíssimo nível em economia, finanças e tecnologia.
+
+**TCU (Tribunal de Contas da União):** Analista de Controle Externo. Muito respeitado, prova difícil.
+
+**Magistratura/Promotoria:** Exige OAB e anos de experiência prática. Processo em várias fases.
+
+**Polícias Federal e Civil:** Carreira de segurança pública com progressão definida.
+
+**INSS, correios, Caixa:** Nível médio/superior, menor dificuldade relativa, maior número de vagas.`,
+      },
+      {
+        id: '76-2',
+        title: 'Método de estudo para concurso: o que funciona',
+        duration: '25 min',
+        content: `# Método de estudo para concurso: o que funciona
+
+## O erro mais comum dos concurseiros
+
+Estudar muito mas sem método. Ler apostilas passivamente por horas não cria memória de longo prazo. O que cria retenção: prática ativa, revisão espaçada e resolução de questões.
+
+## O método que realmente funciona
+
+**1. Estudo inicial — base teórica:**
+Leia o conteúdo uma vez para entender. Não releia infinitamente — uma leitura bem-feita é suficiente para a maioria dos tópicos.
+
+**2. Resolução imediata de questões:**
+Logo após estudar um tópico, resolva questões sobre ele. Isso ativa a memória ativa e revela lacunas de entendimento que a leitura não revela.
+
+**3. Revisão espaçada:**
+Revise o conteúdo em intervalos crescentes: 1 dia depois → 7 dias → 30 dias → 90 dias. O app Anki implementa isso automaticamente com flashcards.
+
+**4. Simulados:**
+Faça provas inteiras no tempo real da prova. Simula a pressão, mede seu progresso e desenvolve velocidade de leitura e resolução.
+
+**5. Análise de erros:**
+Cada questão errada é uma oportunidade de aprendizado. Entenda por que você errou — conceito não entendido? Distrator bem construído? Falta de atenção?
+
+## Gestão do tempo de estudo
+
+**Quantidade mínima para concursos competitivos:** 4-6 horas diárias de estudo focado. Sem isso, a probabilidade de passar em concursos de alto nível é muito baixa.
+
+**Distribuição:** Misture matérias ao longo do dia — não estude 6 horas seguidas da mesma disciplina.
+
+**Cronograma:** Mapeie o edital completamente. Estime quantas semanas cada matéria exige baseado no peso na prova e sua familiaridade com o conteúdo.
+
+## Plataformas de questões
+
+- **QConcursos:** Maior banco de questões do Brasil
+- **Gran Cursos Online:** Questões e videoaulas
+- **Estratégia Concursos:** Foco em análise de questões por banca
+- **Tecconcursos:** Questões gratuitas, boa para estudo inicial`,
+      },
+      {
+        id: '76-3',
+        title: 'Disciplinas transversais e o dia da prova',
+        duration: '20 min',
+        content: `# Disciplinas transversais e o dia da prova
+
+## Matérias que aparecem em quase todo concurso
+
+**Português (Língua Portuguesa):**
+A matéria mais importante — aparece em todos os concursos e é onde se faz mais ponto. Foco: interpretação de texto, gramática (concordância, regência, crase), redação oficial.
+
+**Raciocínio Lógico:**
+Lógica proposicional, sequências, probabilidade básica, combinatória. Exige muita prática — não se aprende lendo, se aprende resolvendo centenas de questões.
+
+**Informática:**
+Para a maioria dos cargos: Office (Word, Excel), Internet, sistemas operacionais, conceitos de redes e segurança da informação.
+
+**Atualidades:**
+Fatos recentes de política, economia, cultura, ciência. Ler jornal (Folha, Estadão, G1) regularmente é o estudo mais eficiente.
+
+**Legislação específica do órgão:**
+Cada concurso tem legislação própria — estatuto do servidor, lei de criação do órgão, regulamentos específicos. Essa parte exige memorização.
+
+## Estratégia para a redação
+
+A redação discursiva (quando existe) frequentemente diferencia aprovados de reprovados em concursos com nota de corte alta. Elementos avaliados:
+- Estrutura: introdução (com tese), desenvolvimento (argumentos), conclusão
+- Domínio da norma culta
+- Conteúdo: conhecimento do tema, proposta de intervenção
+- Coesão e coerência
+
+Pratique escrever semanalmente sobre temas prováveis da sua área.
+
+## O dia da prova
+
+- **Na véspera:** Não estude matéria nova. Revise o que já sabe. Durma cedo.
+- **Alimentação:** Coma bem antes, leve lanche se a prova for longa.
+- **Leitura do caderno:** Leia todas as questões antes de responder. Identifique as que sabe com certeza e as que têm dúvida.
+- **Gestão do tempo:** Para 120 questões em 4h, você tem 2 minutos por questão. Não fique preso em questão difícil — responda o que sabe, volte ao que tem dúvida.
+- **Não entregue antes:** Use o tempo todo para revisar respostas.`,
+      },
+    ],
+  },
+  {
+    id: 77,
+    title: 'Carreira em Startups: Como Entrar e Crescer',
+    desc: 'O ecossistema de startups brasileiro, como conseguir sua primeira vaga e como prosperar em ambiente de alta velocidade e incerteza.',
+    duration: '3h 00min',
+    icon: '🚀',
+    isPro: false,
+    color: { bg: 'bg-purple-50', border: 'border-purple-200', badge: 'bg-purple-100 text-purple-700', icon: 'bg-purple-500' },
+    lessons: [
+      {
+        id: '77-1',
+        title: 'O ecossistema de startups no Brasil: quem são os players',
+        duration: '25 min',
+        content: `# O ecossistema de startups no Brasil: quem são os players
+
+## Por que trabalhar em startup
+
+Startups oferecem algo que grandes empresas raramente entregam: impacto visível, aprendizado acelerado e a chance de construir algo novo. A contrapartida é incerteza — startups podem fechar, pivotar ou demitir em resposta ao mercado.
+
+## O ecossistema brasileiro
+
+**Hubs principais:**
+- **São Paulo:** Maior hub, especialmente fintechs, edtechs e health techs
+- **Belo Horizonte:** Forte em tech e engenharia
+- **Florianópolis:** Hub de tecnologia com forte cultura de inovação
+- **Recife/Porto Digital:** Referência do Nordeste em tecnologia
+- **Curitiba:** Crescendo em startups de agro e tech
+
+**Estágios de startup:**
+- **Pre-seed:** Ideia + founders. Sem produto, sem receita. Máximo risco.
+- **Seed:** Produto inicial, primeiros usuários, geralmente com cheque de aceleradoras ou anjos.
+- **Série A:** Modelo validado, crescimento acelerado, R$ 5M–50M captados.
+- **Série B+:** Escala, expansão, times maiores.
+- **Late stage / Unicórnio:** Avaliação >US$ 1 bilhão. No Brasil: Nubank, iFood, VTEX, QuintoAndar, Loft, Creditas.
+
+## Onde encontrar vagas em startups
+
+- **Wellfound (AngelList):** Maior plataforma global de vagas em startups
+- **Gupy:** Muitas startups brasileiras usam
+- **LinkedIn:** Vagas em startups de Série A+ geralmente aqui
+- **Sites das próprias startups:** A maioria tem página de "Carreiras"
+- **Comunidades:** ABStartups, Distrito, Cubo Itaú, Google for Startups têm redes de conexão
+
+## Aceleradoras como porta de entrada
+
+Aceleradoras como Y Combinator (EUA), Distrito, Oxigênio (Itaú), Liga Ventures e Wayra frequentemente têm programas de talentos que conectam profissionais com startups do portfólio.`,
+      },
+      {
+        id: '77-2',
+        title: 'Como se destacar no processo seletivo de startup',
+        duration: '20 min',
+        content: `# Como se destacar no processo seletivo de startup
+
+## O que startups realmente avaliam
+
+Startups não contratam cargo — contratam pessoas que vão resolver problemas específicos. Entenda o problema que a empresa quer resolver e mostre que você pode resolvê-lo.
+
+**O que mais importa:**
+
+**Proatividade e ownership:** Startups precisam de pessoas que vêem um problema e resolvem, sem esperar instrução. Na entrevista, mostre exemplos de iniciativas que você tomou sem ser pedido.
+
+**Aprendizado rápido:** Em startup, o cargo evolui mais rápido que o profissional. Demonstre que você aprende rápido — cite tecnologias ou habilidades que aprendeu em pouco tempo e como as aplicou.
+
+**Tolerância à ambiguidade:** Em startup, o processo perfeito não existe. Você vai receber orientações incompletas e precisar tomar decisões com informação incompleta. Mostre que você consegue trabalhar assim.
+
+**Fit cultural:** Cada startup tem cultura própria. Pesquise profundamente — redes sociais da empresa, depoimentos no Glassdoor, conteúdo dos founders. Demonstre que você conhece e se alinha com os valores da empresa.
+
+## O desafio técnico (take-home challenge)
+
+Startups frequentemente dão desafios práticos ao invés de (ou além de) entrevistas técnicas. Para se destacar:
+- Leia o briefing com atenção e cumpra todos os requisitos
+- Vá além do mínimo — uma insight adicional ou melhoria não pedida impressiona
+- Documente bem — mostre seu processo de pensamento, não só o resultado
+- Entregue no prazo ou antes
+
+## Negociando em startup
+
+Em startups early-stage, o salário base pode ser menor que o mercado — compensado (em teoria) por equity. O equity (stock options) pode valer muito se a startup for bem, ou nada se não for.
+
+Perguntas importantes antes de aceitar equity:
+- Qual é a valuation atual da empresa?
+- Quantas ações estão em circulação (para calcular sua % real)?
+- Qual é o vesting schedule? (típico: 4 anos com 1 ano de cliff)
+- Qual é o tipo de instrumento? (opções, warrants, phantom equity?)`,
+      },
+      {
+        id: '77-3',
+        title: 'Prosperando em startup: mentalidade e desenvolvimento de carreira',
+        duration: '20 min',
+        content: `# Prosperando em startup: mentalidade e desenvolvimento de carreira
+
+## A realidade do trabalho em startup
+
+Expectativa: inovação diária, impacto imediato, ambiente descontraído.
+Realidade: muito trabalho manual e repetitivo, muita ambiguidade, pressão constante de resultados, incerteza sobre o futuro.
+
+Ambas são verdade. A questão é se você prospera nesse ambiente.
+
+## Habilidades que aceleram sua carreira em startup
+
+**Generalismo inicial:** Nas primeiras contratações, você vai fazer coisas fora do seu escopo. Isso é feature, não bug — você aprende mais em 1 ano de startup que em 3 em empresa grande.
+
+**Dados primeiro:** Startups bem geridas tomam decisões baseadas em dados. Aprenda SQL básico mesmo que seu cargo não seja de dados — poder puxar seus próprios números é diferencial enorme.
+
+**Comunicação escrita:** Em times que crescem rápido, comunicação por escrito (documentos, Notion, Slack) é mais eficiente que reuniões. Escreva bem, escreva com clareza.
+
+**Construir processos:** Chegou antes da empresa ter processo para algo que você precisa fazer? Construa. Documente. Compartilhe. Isso é o que faz pessoas serem promovidas em startups.
+
+## Crescimento de carreira em startup
+
+Em empresa grande, você cresce quando a hierarquia acima de você libera espaço. Em startup, você cria o espaço:
+- Assume mais responsabilidade do que seu cargo exige
+- Resolve problemas que ninguém resolveu ainda
+- Constrói times quando a empresa cresce
+
+Histórias comuns: analista que vira gerente em 18 meses, desenvolvedor que vira tech lead em 2 anos, marketing que vira head de growth em 1 ano.
+
+## Quando é hora de sair
+
+Sinais de que a startup não está indo bem: pivots frequentes sem clareza estratégica, demissões em ondas, founders pouco comunicativos sobre situação financeira, runway curto sem perspectiva de captação.
+
+Sair no momento certo (não muito cedo, não tarde demais) é parte da inteligência de carreira em startups.`,
+      },
+    ],
+  },
+  {
+    id: 78,
+    title: 'Carta de Apresentação Que Funciona',
+    desc: 'Como escrever uma carta de apresentação que abre portas — estrutura, personalização e os erros que fazem recrutadores ignorar a sua.',
+    duration: '1h 40min',
+    icon: '✉️',
+    isPro: false,
+    color: { bg: 'bg-indigo-50', border: 'border-indigo-200', badge: 'bg-indigo-100 text-indigo-700', icon: 'bg-indigo-500' },
+    lessons: [
+      {
+        id: '78-1',
+        title: 'A estrutura de uma carta de apresentação eficaz',
+        duration: '20 min',
+        content: `# A estrutura de uma carta de apresentação eficaz
+
+## A carta de apresentação ainda importa?
+
+Depende. Muitas empresas não lêem — especialmente as que recebem centenas de candidaturas. Mas quando uma empresa pede, carta mal feita elimina candidatos. E uma carta excelente pode ser o diferencial que abre a porta.
+
+**Quando a carta realmente importa:**
+- Candidaturas para posições seniores e de liderança
+- Empresas menores onde o processo é mais personalizado
+- Quando você está em transição de carreira (carta é o lugar para explicar)
+- Quando você está candidatando para empresa que você admira muito (demonstra pesquisa)
+
+## Estrutura que funciona (3 parágrafos)
+
+**Parágrafo 1 — O gancho:**
+Comece com algo específico sobre a empresa ou a vaga, não com "Venho por meio desta..."
+
+❌ "Venho por meio desta carta manifestar meu interesse na vaga de..."
+✅ "Quando vi que a [empresa] está expandindo para [mercado/área], imediatamente pensei: essa é a oportunidade que estava esperando. Meus últimos 5 anos em [área] me prepararam exatamente para esse desafio."
+
+**Parágrafo 2 — O valor:**
+2-3 realizações específicas e mensuráveis que são diretamente relevantes para a vaga. Não repita o currículo — selecione os pontos mais impactantes e dê contexto.
+
+"Na [empresa anterior], liderei a implementação de [X] que resultou em [resultado concreto]. Antes disso, [segunda realização com número]. Acredito que essa experiência se alinha diretamente com [desafio específico da vaga/empresa]."
+
+**Parágrafo 3 — O fechamento:**
+Confirme seu interesse, mencione o próximo passo desejado, agradeça.
+
+"Estou animado com a possibilidade de contribuir para [objetivo específico da empresa]. Adoraria conversar sobre como minha experiência em [área] pode ajudar [empresa] a [objetivo]. Fico à disposição para uma conversa."
+
+## O que NUNCA colocar
+
+- "Sou uma pessoa proativa, dinâmica e comprometida" — lugares-comuns sem evidência
+- Repetição do currículo em formato de prosa
+- Sua necessidade de emprego ("preciso muito dessa vaga")
+- Erros de ortografia ou nome errado da empresa`,
+      },
+      {
+        id: '78-2',
+        title: 'Personalização: a diferença entre carta genérica e carta que abre portas',
+        duration: '20 min',
+        content: `# Personalização: a diferença entre carta genérica e carta que abre portas
+
+## Por que personalização importa tanto
+
+Uma carta genérica diz ao recrutador: "Esta empresa não é importante o suficiente para eu pesquisar antes de escrever." Uma carta personalizada diz: "Estou genuinamente interessado nesta empresa e fiz minha lição de casa."
+
+## Pesquisa antes de escrever (15 minutos que valem a pena)
+
+**Site da empresa:**
+- Qual é a missão e os valores?
+- Quais são os produtos/serviços e qual o diferencial?
+- Notícias recentes — lançamentos, expansões, conquistas?
+
+**LinkedIn da empresa:**
+- Quem são os founders/líderes?
+- Como está o time crescendo?
+- Que tipo de conteúdo eles compartilham?
+
+**LinkedIn do gestor (se souber quem é):**
+- Qual é o background dele/dela?
+- Que assuntos ele/ela posta?
+- Há algum ponto de conexão?
+
+**Glassdoor:**
+- Como funcionários descrevem a cultura?
+- Quais são os pontos positivos e desafios?
+
+## Como usar a pesquisa na carta
+
+Referências específicas demonstram que você leu sobre a empresa, não só aplicou em massa:
+
+"Li a entrevista do [CEO/fundador] sobre [tema] e me identifiquei muito com a visão de [ponto específico]. É exatamente como penso sobre [área]."
+
+"Percebi que a empresa está expandindo para [mercado] — área em que tenho [X anos] de experiência específica em [aspecto relevante]."
+
+"O case de [produto/parceria/conquista recente] me impressionou muito pelo [aspecto específico]. É o tipo de desafio que me motiva profissionalmente."
+
+## Adaptando o tom
+
+O tom deve combinar com a cultura da empresa:
+- **Startup tech:** Mais direto, menos formal, pode mostrar personalidade
+- **Empresa financeira/jurídica:** Mais formal, mais conservador
+- **Empresa criativa (design, publicidade):** Pode ser criativo na forma, não só no conteúdo
+- **ONG/terceiro setor:** Conexão com a missão é essencial`,
+      },
+    ],
+  },
+  {
+    id: 79,
+    title: 'Soft Skills que Valem Ouro no Mercado',
+    desc: 'As habilidades comportamentais mais valorizadas pelas empresas e como desenvolvê-las de forma concreta e demonstrável.',
+    duration: '2h 30min',
+    icon: '🧠',
+    isPro: false,
+    color: { bg: 'bg-yellow-50', border: 'border-yellow-200', badge: 'bg-yellow-100 text-yellow-700', icon: 'bg-yellow-600' },
+    lessons: [
+      {
+        id: '79-1',
+        title: 'As soft skills mais valorizadas e como desenvolvê-las',
+        duration: '25 min',
+        content: `# As soft skills mais valorizadas e como desenvolvê-las
+
+## Por que soft skills decidem carreiras
+
+Habilidades técnicas abrem a porta. Soft skills decidem quem avança. A maioria das demissões é por razões comportamentais — dificuldade com feedback, problemas de relacionamento, incapacidade de comunicar resultados — não por incompetência técnica.
+
+## Comunicação clara e objetiva
+
+A mais valorizada em todos os níveis. Inclui:
+- **Escuta ativa:** Entender antes de responder. A maioria das pessoas está pensando na resposta enquanto o outro fala.
+- **Estrutura no discurso:** BLUF (Bottom Line Up Front) — comece com a conclusão, depois explique. Profissionais que enrolam perdem audiência.
+- **Adaptação para a audiência:** Comunicar para o CEO é diferente de comunicar para o analista técnico.
+
+**Como desenvolver:** Pratique "elevator pitches" de 30-60 segundos sobre qualquer assunto. Grave-se falando e assista criticamente. Junte-se ao Toastmasters.
+
+## Inteligência emocional (IE)
+
+Daniel Goleman identificou 5 componentes: autoconhecimento, autocontrole, motivação intrínseca, empatia e habilidades sociais.
+
+**O componente mais crítico no trabalho:** Autocontrole em situações de pressão. A pessoa que não perde a compostura em crises ganha confiança de todos ao redor.
+
+**Como desenvolver:** Mindfulness, journaling, terapia, feedback 360. Identifique seus gatilhos emocionais antes de estar em situação de pressão.
+
+## Pensamento crítico e resolução de problemas
+
+Capacidade de analisar situações complexas, identificar causas raiz (não sintomas) e propor soluções que funcionam.
+
+**Ferramenta prática:** Ao enfrentar um problema, pergunte "Por quê?" cinco vezes antes de propor solução. As primeiras respostas são sempre sintomas, não causas.
+
+## Adaptabilidade e aprendizado contínuo
+
+O mercado muda. Quem não se adapta fica obsoleto. Adaptabilidade não é resignação — é capacidade de redirecionar energia e aprender o que a situação exige.
+
+**Como demonstrar:** Liste tecnologias e habilidades que aprendeu nos últimos 2 anos. Se a lista é curta, é sinal de alerta.`,
+      },
+      {
+        id: '79-2',
+        title: 'Liderança sem cargo e influência sem autoridade',
+        duration: '20 min',
+        content: `# Liderança sem cargo e influência sem autoridade
+
+## O que é liderança sem cargo
+
+Você não precisa ter o título de "gerente" para liderar. Influência sem autoridade formal é uma das soft skills mais valorizadas — e mais raras — no mercado.
+
+Pessoas que lideram sem cargo:
+- Influenciam decisões mesmo sem poder formal
+- Fazem outros quererem colaborar com elas
+- Mobilizam recursos e pessoas para um objetivo
+- Funcionam como pontos de referência no time
+
+## Como desenvolver influência
+
+**Credibilidade técnica:** Você precisa saber do que fala. Ninguém segue quem não tem domínio. Mas credibilidade técnica sozinha não cria influência.
+
+**Interesse genuíno nos outros:** Pessoas influentes conhecem os objetivos, preocupações e perspectivas dos colegas. Elas ajudam os outros a atingir seus objetivos — o que cria reciprocidade.
+
+**Comunicar visão:** Articular claramente para onde algo está indo e por que importa motiva pessoas mesmo sem hierarquia. "Aqui está o que estamos tentando construir e por que isso importa para cada um de nós."
+
+**Consistência e confiabilidade:** Fazer o que prometeu, entregar o que disse que entregaria. Confiança se constrói em pequenos atos consistentes ao longo do tempo.
+
+## Gestão de conflito
+
+Conflito não é o problema — conflito mal gerido é o problema. Equipes de alta performance têm conflito de ideias mas não conflito pessoal.
+
+**Framework para conflito:**
+1. Separe o problema das pessoas
+2. Foque em interesses (o que cada parte realmente quer) em vez de posições (o que cada parte está pedindo)
+3. Gere opções antes de decidir
+4. Use critérios objetivos para avaliar as opções
+
+## Feedback: dar e receber
+
+**Dar feedback:** Seja específico, foque em comportamento (não caráter), descreva impacto, faça no privado.
+
+**Receber feedback:** Escute sem defender, agradeça (mesmo que discorde), reflita antes de reagir, decida o que fazer com a informação.
+
+A pessoa que pede feedback regularmente e demonstra mudanças de comportamento com base nele é vista como altamente madura e com potencial de crescimento.`,
+      },
+      {
+        id: '79-3',
+        title: 'Como demonstrar soft skills em entrevistas e no trabalho',
+        duration: '20 min',
+        content: `# Como demonstrar soft skills em entrevistas e no trabalho
+
+## O problema: "Tenho todas as soft skills" não convence ninguém
+
+Autodeclarar soft skills não funciona. "Sou comunicativo, resiliente e trabalho bem em equipe" é o que todo candidato diz. O que convence: evidências concretas.
+
+## Método STAR para soft skills
+
+Use o método STAR (Situação, Tarefa, Ação, Resultado) para transformar suas soft skills em histórias convincentes.
+
+**Exemplo — comunicação:**
+❌ "Sou muito comunicativo e consigo me expressar bem."
+✅ "Numa apresentação para o conselho sobre [projeto], percebi que o CEO estava perdendo o fio. Parei a apresentação, perguntei se poderia reformular, e reapresentei o ponto central em 2 slides ao invés de 10. O projeto foi aprovado na mesma reunião."
+
+**Exemplo — adaptabilidade:**
+❌ "Me adapto bem a mudanças."
+✅ "Quando o sistema X que usávamos foi descontinuado com 2 semanas de aviso, aprendi o sistema substituto nos finais de semana e treinei o time antes do deadline. Migramos sem perder um dia de operação."
+
+## Construindo soft skills no trabalho atual
+
+**Proponha-se para situações desconfortáveis:**
+- Apresentar para um público maior que o usual
+- Liderar um projeto sem experiência prévia naquele tipo
+- Mediar um conflito entre colegas
+
+Cada experiência difícil que você sobrevive e reflete é um desenvolvimento de soft skill.
+
+**Busque feedback estruturado:**
+Peça ao seu gestor e colegas próximos feedback sobre comportamentos específicos que quer desenvolver. "O que eu poderia fazer diferente para comunicar resultados com mais clareza?"
+
+**Mantenha um diário de lições:**
+Ao final de situações difíceis, registre: O que aconteceu? Como reagi? O que funcionou? O que faria diferente? Esse hábito simples acelera o desenvolvimento de inteligência emocional.`,
+      },
+    ],
+  },
+  {
+    id: 80,
+    title: 'Carreira em Engenharia Civil e Construção',
+    desc: 'As trilhas de carreira na engenharia civil: obras, projetos, gestão, incorporação e as novas frentes de tecnologia no setor.',
+    duration: '3h 10min',
+    icon: '🏗️',
+    isPro: true,
+    color: { bg: 'bg-orange-50', border: 'border-orange-200', badge: 'bg-orange-100 text-orange-700', icon: 'bg-orange-600' },
+    lessons: [
+      {
+        id: '80-1',
+        title: 'O mercado de engenharia civil: áreas e oportunidades',
+        duration: '25 min',
+        content: `# O mercado de engenharia civil: áreas e oportunidades
+
+## A engenharia civil mais ampla que parece
+
+Engenharia civil vai muito além de "construir prédios". É um campo diverso com especialidades técnicas distintas e mercados de trabalho diferentes.
+
+## As principais especialidades
+
+### Estruturas
+Cálculo e projeto de estruturas de concreto, aço e madeira. Alta demanda, técnicamente muito exigente.
+- **Salário:** R$ 5.000–18.000 dependendo de nível e empresa
+
+### Geotecnia e Fundações
+Solo, fundações, taludes, contenções. Especialidade crítica para qualquer obra.
+- **Salário:** R$ 6.000–20.000
+
+### Hidráulica e Saneamento
+Sistemas de abastecimento de água, esgoto, drenagem urbana. Muito relevante no contexto de cidades crescentes e crise hídrica.
+- **Salário:** R$ 5.000–16.000
+
+### Infraestrutura e Transportes
+Estradas, aeroportos, ferrovias, obras portuárias. Muito dependente de investimento público.
+- **Salário:** R$ 6.000–20.000
+
+### Gestão de Obras (Engenharia de Produção Civil)
+Planejamento, controle de custos e prazo, gestão de equipes de obra. Carreira de gestão mais que técnica.
+- **Salário:** R$ 7.000–22.000
+
+### Incorporação e Real Estate
+Interface entre engenharia e negócio. Viabilidade de empreendimentos, relação com investidores, aprovação de projetos.
+- **Salário:** R$ 8.000–30.000 (muito dependente de performance de vendas)
+
+### BIM (Building Information Modeling)
+Modelagem digital de construções. Especialidade em alta demanda — digitalização do setor.
+- **Salário:** R$ 5.000–15.000
+
+## Empresas que mais contratam
+
+- **Construtoras:** MRV, Cyrela, Tenda, Tegra, Direcional
+- **Incorporadoras:** JHSF, Gafisa, EzTec, Even
+- **Infraestrutura:** CCR, Ecorodovias, Odebrecht (em recuperação), Vinci
+- **Consultoras:** Mott MacDonald, WSP, Arcadis
+- **Prefeituras e governo estadual:** Grandes contratantes de infraestrutura urbana`,
+      },
+      {
+        id: '80-2',
+        title: 'Tecnologia na construção: BIM, drones e o futuro do setor',
+        duration: '25 min',
+        content: `# Tecnologia na construção: BIM, drones e o futuro do setor
+
+## A digitalização da construção civil
+
+O setor de construção civil é historicamente um dos menos digitalizados. Isso está mudando — e quem entender tecnologia antes dos concorrentes tem vantagem significativa.
+
+## BIM (Building Information Modeling)
+
+BIM não é só um software — é uma metodologia de trabalho que integra todas as disciplinas de um projeto (arquitetura, estruturas, instalações) em um modelo digital 3D único.
+
+**Por que BIM está se tornando obrigatório:**
+- Resolução FAR (Federal Acquisition Regulation) exige BIM em obras públicas de grande porte em muitos países
+- Redução de conflitos entre projetos (detecção automática de interferências)
+- Orçamentação mais precisa (quantitativos extraídos diretamente do modelo)
+- Gestão de manutenção pós-entrega
+
+**Ferramentas principais:**
+- **Autodesk Revit:** O mais usado para modelagem de edifícios
+- **AutoCAD Civil 3D:** Para infraestrutura
+- **Navisworks:** Coordenação e clash detection
+- **Infraworks:** Modelagem de infraestrutura em escala regional
+
+## Drones na construção
+
+Uso crescente em:
+- **Levantamentos topográficos:** Mais rápido e barato que método tradicional
+- **Monitoramento de obra:** Registro fotográfico sistemático do progresso
+- **Inspeção de estruturas:** Pontes, torres, fachadas em altura
+
+Profissional com habilitação de piloto de drone (ANAC) + conhecimento de processamento de imagens (Pix4D, DJI Terra) tem diferencial claro.
+
+## Outras tecnologias emergentes
+
+**Impressão 3D em concreto:** Ainda experimental no Brasil, mas crescendo globalmente. Casas impressas em 24h.
+
+**IoT em obras:** Sensores de temperatura, umidade, movimentação de solo, estruturas em construção.
+
+**Realidade aumentada:** Sobreposição do projeto BIM sobre a obra real para verificar execução.
+
+**Plataformas de gestão de obra:** Sienge, Obra Fácil, Construmanager, Procore (internacional) — digitalizando planejamento, suprimentos e controle.`,
+      },
+      {
+        id: '80-3',
+        title: 'Carreira internacional e certificações para engenheiros civis',
+        duration: '20 min',
+        content: `# Carreira internacional e certificações para engenheiros civis
+
+## Possibilidades de trabalho no exterior
+
+Engenharia civil tem boa empregabilidade internacional, especialmente em países com infraestrutura em desenvolvimento.
+
+**Portugal:** Reconhecimento automático de diplomas pela Ordem dos Engenheiros. Muitos engenheiros brasileiros trabalhando lá — mas salários são menores que norte Europa.
+
+**Emirados Árabes (Dubai):** Muita construção, boa remuneração, isenção de imposto de renda. Exige inglês e experiência comprovada.
+
+**Canadá:** Alta demanda por engenheiros. Processo de reconhecimento de diploma existe (credencial assessment) mas pode ser longo.
+
+**Angola e Moçambique:** Muita obra de infraestrutura, empresas brasileiras atuam com facilidade linguística.
+
+## Certificações relevantes
+
+**CREA (obrigatório no Brasil):**
+Registro no Conselho Regional de Engenharia é obrigatório para exercer a profissão no Brasil. Faça logo após a formatura.
+
+**MBA em Gestão de Projetos:**
+Para quem quer a trilha de gestão ao invés de técnica. Muito valorizado em construtoras e incorporadoras.
+
+**PMP (Project Management Professional):**
+Certificação internacional de gestão de projetos. Valorizada especialmente em grandes obras e projetos de infraestrutura.
+
+**Especialização em BIM:**
+Autodesk Certified Professional é a mais reconhecida. Cursos da própria Autodesk e de faculdades.
+
+**Lean Construction:**
+Adaptação do Lean Manufacturing para construção — redução de desperdícios e aumento de eficiência. Crescendo muito no Brasil como diferencial em construtoras.
+
+## Salários e progressão
+
+| Nível | Experiência | Salário BR |
+|-------|-------------|------------|
+| Júnior (recém-formado) | 0-2 anos | R$ 3.500–6.000 |
+| Pleno | 3-7 anos | R$ 6.000–12.000 |
+| Sênior | 8+ anos | R$ 12.000–22.000 |
+| Gestor de Obras / Diretor | 10+ anos | R$ 18.000–40.000+ |`,
+      },
+    ],
+  },
+  {
+    id: 81,
+    title: 'Carreira em Agronegócio e Ciências Agrárias',
+    desc: 'O maior setor da economia brasileira oferece carreiras técnicas, de gestão e tecnologia. Conheça as funções, empresas e como entrar.',
+    duration: '3h 00min',
+    icon: '🌾',
+    isPro: true,
+    color: { bg: 'bg-lime-50', border: 'border-lime-200', badge: 'bg-lime-100 text-lime-700', icon: 'bg-lime-600' },
+    lessons: [
+      {
+        id: '81-1',
+        title: 'O agronegócio brasileiro: estrutura e oportunidades',
+        duration: '25 min',
+        content: `# O agronegócio brasileiro: estrutura e oportunidades
+
+## Por que agro é uma das melhores carreiras do Brasil
+
+O Brasil é potência agrícola global — maior exportador de soja, açúcar, café, suco de laranja, carne bovina. O agronegócio representa ~25% do PIB. E com a digitalização acelerada do campo, a demanda por profissionais que combinam conhecimento agrícola com tecnologia nunca foi tão alta.
+
+## As principais funções
+
+### Engenheiro Agrônomo
+Gestão técnica de lavouras, solos, pragas, irrigação. A formação mais versátil do setor.
+- **Salário:** R$ 5.000–20.000 (muito amplo dependendo de empresa e especialização)
+
+### Zootecnista
+Especializado em produção animal — bovinos, suínos, aves, aquicultura.
+- **Salário:** R$ 4.500–14.000
+
+### Médico Veterinário (produção animal)
+Sanidade animal em fazendas e frigoríficos. Diferente do vet de pets — foco em saúde do rebanho e eficiência produtiva.
+- **Salário:** R$ 5.000–18.000
+
+### Gestor de Fazenda / Farm Manager
+Administra toda a operação agrícola — pessoas, máquinas, insumos, logística, finanças. Muito valorizado em grandes propriedades.
+- **Salário:** R$ 8.000–25.000
+
+### Analista de Commodities e Trading
+Compra e venda de grãos e commodities no mercado físico e futuro. Trabalha em tradings (Cargill, ADM, Bunge, Louis Dreyfus) ou corretoras.
+- **Salário:** R$ 8.000–30.000+
+
+### AgTech / Precision Agriculture
+Drones, sensores, imagens de satélite, IA aplicada ao campo. A área de maior crescimento.
+- **Salário:** R$ 7.000–20.000
+
+## Empresas que mais contratam
+
+**Grandes players:** Cargill, Bunge, ADM, Louis Dreyfus, JBS, BRF, Marfrig, SLC Agrícola, Raízen
+**Insumos:** Bayer CropScience, Syngenta, BASF, Corteva, FMC
+**AgTechs:** Solinftec, Aegro, Trimble Agriculture, Strider (Syngenta)`,
+      },
+      {
+        id: '81-2',
+        title: 'AgTech: tecnologia que está transformando o campo',
+        duration: '25 min',
+        content: `# AgTech: tecnologia que está transformando o campo
+
+## O que é AgTech
+
+AgTech (Agricultural Technology) é o conjunto de startups e tecnologias aplicadas ao agronegócio. O Brasil tem mais de 1.500 AgTechs — um dos maiores ecossistemas do mundo.
+
+## As principais tecnologias
+
+**Agricultura de Precisão:**
+Sensores de solo, imagens de satélite e drones que mapeiam variabilidade dentro de um mesmo talhão. Em vez de aplicar o mesmo insumo em toda a área, aplica-se a quantidade certa em cada ponto — reduzindo custo e impacto ambiental.
+
+Ferramentas: Trimble, John Deere Operations Center, Climate FieldView, Solinftec
+
+**Drones Agrícolas:**
+Pulverização, mapeamento, contagem de plantas, detecção de pragas. Empresas como XAG, DJI Agras operam no Brasil.
+
+**IoT Rural:**
+Sensores de temperatura e umidade no silo, monitoramento de rebanho com wearables, estações meteorológicas conectadas.
+
+**Plataformas de Gestão:**
+Software que integra financeiro, estoque, operação e resultado da fazenda. Aegro, Cromai, AgriApp.
+
+**Machine Learning aplicado:**
+Modelos de previsão de produtividade, detecção de doenças em imagens de folhas, previsão de demanda e preço de commodities.
+
+## Como entrar em AgTech
+
+Para engenheiros agrônomos, zootecnistas e veterinários: dominar pelo menos uma ferramenta de agricultura de precisão (FieldView, John Deere Operations Center) é diferencial crescente.
+
+Para profissionais de tecnologia (devs, data scientists, designers): AgTechs contratam muito e o conhecimento do negócio agrícola — que você pode aprender — é o diferencial.
+
+## Salários em AgTech
+
+AgTechs bem financiadas (Series A+) pagam salários de mercado de tech — R$ 10.000–25.000 para desenvolvedores plenos, com equity como bônus.`,
+      },
+      {
+        id: '81-3',
+        title: 'Commodities e trading: a carreira financeira do agro',
+        duration: '20 min',
+        content: `# Commodities e trading: a carreira financeira do agro
+
+## O mercado de commodities agrícolas
+
+Commodities agrícolas (soja, milho, café, açúcar, algodão, boi gordo) são negociadas em mercados físico e futuro. O Brasil é exportador relevante em praticamente todas — o que torna o mercado de trading local sofisticado e bem remunerado.
+
+## Funções no trading de commodities
+
+**Trader:**
+Compra e vende commodities buscando lucro na diferença de preço entre regiões, momentos ou qualidades. Trabalha com enorme pressão e volatilidade.
+- **Salário (trader júnior):** R$ 8.000–15.000 + bônus
+- **Salário (trader sênior):** R$ 20.000–60.000+ (bônus podem ser múltiplos do salário)
+
+**Analista de Mercado:**
+Produz análises de oferta, demanda, clima, política e macro para embasar decisões de trading.
+- **Salário:** R$ 6.000–15.000
+
+**Originador:**
+Compra commodity diretamente do produtor. Muito relacionamento, viagem a campo, negociação.
+- **Salário:** R$ 7.000–20.000
+
+## Onde trabalhar em commodities
+
+**Tradings internacionais:** Cargill, Bunge, ADM, Louis Dreyfus, Viterra — as "ABCD" do agro global
+**Cooperativas:** Coamo, Cocamar, Aurora — grandes e crescentes
+**Corretoras:** XP Agro, StoneX, Hedgepoint — assessoria e execução de hedge para produtores
+**B3:** Bolsa onde são negociados futuros de boi, milho, soja, café, açúcar, etanol
+
+## Formação para commodities
+
+Agronomia ou economia como base. MBA em agronegócio (ESALQ/USP é referência) abre muitas portas. CPA-20 (certificação CVM) é exigida para quem opera na B3. Inglês é obrigatório nas tradings internacionais.`,
+      },
+    ],
+  },
+  {
+    id: 82,
+    title: 'Carreira em Educação e EdTech',
+    desc: 'Do ensino tradicional às plataformas digitais: como construir carreira em educação com impacto e remuneração competitiva.',
+    duration: '2h 50min',
+    icon: '📚',
+    isPro: false,
+    color: { bg: 'bg-blue-50', border: 'border-blue-200', badge: 'bg-blue-100 text-blue-700', icon: 'bg-blue-500' },
+    lessons: [
+      {
+        id: '82-1',
+        title: 'Educação além da sala de aula: funções e mercado',
+        duration: '25 min',
+        content: `# Educação além da sala de aula: funções e mercado
+
+## O mercado educacional brasileiro
+
+O Brasil tem o maior sistema privado de educação superior da América Latina. Com mais de 8 milhões de alunos no ensino superior privado, o setor movimenta dezenas de bilhões de reais e emprega centenas de milhares de profissionais.
+
+A EdTech (Educational Technology) adicionou uma nova dimensão: Duolingo, Coursera, Alura, Descomplica, Stoodi, Univesp, Me Salva — cada uma criou modelos de negócio que precisam de profissionais de educação com mentalidade de produto.
+
+## Funções além do professor
+
+**Instructional Designer (Designer Instrucional):**
+Projeta experiências de aprendizado — estrutura curricular, metodologia, sequência de conteúdo, avaliações. É o "arquiteto" do curso.
+- **Salário:** R$ 4.500–12.000
+
+**Learning Experience Designer (LXD):**
+Versão mais centrada na experiência do aluno — UX aplicada ao aprendizado.
+- **Salário:** R$ 6.000–15.000
+
+**Produtor de Conteúdo Educacional:**
+Criação de videoaulas, materiais didáticos, roteiros. Cada vez mais valorizado em plataformas.
+- **Salário:** R$ 4.000–10.000
+
+**Coordenador Pedagógico:**
+Gestão de currículo e qualidade do ensino em escolas e faculdades.
+- **Salário:** R$ 5.000–14.000
+
+**Customer Success em EdTech:**
+Garante que alunos/clientes B2B extraiam valor máximo da plataforma.
+- **Salário:** R$ 4.000–10.000
+
+**Consultor de Treinamento Corporativo (L&D):**
+Desenvolve programas de capacitação dentro de empresas.
+- **Salário:** R$ 6.000–18.000
+
+## Grandes empregadores do setor
+
+Cogna (Kroton), Yduqs, Anima, Ser Educacional — grandes grupos de ensino superior
+Alura, Descomplica, Stoodi, Me Salva — EdTechs de preparação e ensino online
+Coursera, Udemy — plataformas globais com operação no Brasil`,
+      },
+      {
+        id: '82-2',
+        title: 'EdTech: como entrar e crescer nas empresas de tecnologia educacional',
+        duration: '20 min',
+        content: `# EdTech: como entrar e crescer nas empresas de tecnologia educacional
+
+## Por que EdTech é uma das carreiras mais interessantes
+
+EdTech combina o propósito da educação com a velocidade e inovação da tecnologia. Você tem impacto mensurável (quantos alunos completaram o curso? Qual a taxa de aprendizado?) em algo socialmente relevante.
+
+## Funções com mais demanda em EdTechs
+
+**Product Manager de EdTech:**
+Gerencia produtos educacionais com foco em aprendizado e retenção. Diferente de PM de e-commerce — precisa entender psicologia de aprendizado, motivação e comportamento de estudante.
+- **Salário:** R$ 10.000–22.000
+
+**Data Analyst / Scientist em EdTech:**
+Análise de funil de aprendizado, previsão de evasão (churn de alunos), eficácia de conteúdo.
+- **Salário:** R$ 7.000–18.000
+
+**Growth em EdTech:**
+Aquisição de alunos, ativação, retenção. Métricas específicas: CAC por aluno, LTV do aluno, completion rate.
+- **Salário:** R$ 6.000–15.000
+
+## Métricas que toda EdTech acompanha
+
+- **Completion Rate:** % de alunos que completam o curso (geralmente baixa — 5-15% em plataformas abertas)
+- **Engagement:** Tempo médio de estudo, frequência de acesso
+- **NPS do Aluno:** Satisfação com a experiência
+- **Learning Outcomes:** O aluno realmente aprendeu? Avaliações pré e pós.
+- **Churn:** Taxa de cancelamento em plataformas de assinatura
+
+## Como se candidatar para EdTechs
+
+Mostre que você entende educação E tecnologia. Candidatos que só sabem educação são vistos como "professores", não como profissionais de produto. Candidatos que só sabem tech não entendem as nuances do aprendizado.
+
+O diferencial: entender por que adultos desistem de cursos e o que os mantém engajados (ciência do aprendizado, motivação intrínseca, gamificação, comunidade).`,
+      },
+      {
+        id: '82-3',
+        title: 'Criação de cursos online: como monetizar seu conhecimento',
+        duration: '20 min',
+        content: `# Criação de cursos online: como monetizar seu conhecimento
+
+## O mercado de criadores de conteúdo educacional
+
+Criadores independentes que ensinam o que sabem estão construindo negócios de R$ 50.000 a R$ 500.000/mês em nichos específicos. Não é mito — o mercado de infoprodutos no Brasil é um dos maiores do mundo.
+
+## Escolhendo seu nicho
+
+Três fatores para escolher um nicho lucrativo:
+1. **Você tem conhecimento real:** Não ensine o que não pratica
+2. **Há demanda:** Pessoas estão buscando aprender isso e pagando por isso
+3. **Você consegue ser específico:** "Aprenda inglês" é genérico demais. "Inglês para profissionais de TI que querem trabalhar em empresas americanas" é um nicho.
+
+## Estrutura de um curso online que vende
+
+**Transformação clara:** O aluno precisa saber EXATAMENTE onde estará ao terminar seu curso. "Ao final deste curso, você terá portfólio de UX pronto para entrevistas de nível pleno."
+
+**Conteúdo estruturado em módulos:** Progressão lógica do básico ao avançado, com marcos de aprendizado claros.
+
+**Alta retenção:** Vídeos curtos (8-15 min máximo), exercícios práticos, comunidade de alunos.
+
+## Plataformas para vender cursos
+
+**Hotmart:** Maior plataforma de infoprodutos do Brasil. Fácil de usar, boa ferramenta de afiliados.
+**Eduzz:** Alternativa ao Hotmart, taxas ligeiramente menores.
+**Kiwify:** Mais moderna, melhor para checkout otimizado.
+**Teachable / Kajabi:** Plataformas internacionais para quem quer vender em inglês.
+**YouTube + Comunidade paga:** Construir audiência gratuita e converter para produto pago.
+
+## O funil de venda do criador
+
+Audiência gratuita (YouTube, Instagram, LinkedIn) → Isca digital (ebook, aula gratuita) → Email list → Lançamento ou evergreen do curso. A audiência é o ativo mais valioso — construa antes de vender.`,
+      },
+    ],
+  },
+  {
+    id: 83,
+    title: 'Carreira em Hotelaria, Turismo e Eventos',
+    desc: 'As funções, empresas e oportunidades de carreira em um dos setores que mais empregam no Brasil e no mundo.',
+    duration: '2h 40min',
+    icon: '🏨',
+    isPro: false,
+    color: { bg: 'bg-teal-50', border: 'border-teal-200', badge: 'bg-teal-100 text-teal-700', icon: 'bg-teal-500' },
+    lessons: [
+      {
+        id: '83-1',
+        title: 'O setor de hospitalidade: funções e oportunidades',
+        duration: '20 min',
+        content: `# O setor de hospitalidade: funções e oportunidades
+
+## A escala do setor no Brasil
+
+Turismo representa ~8% do PIB mundial e no Brasil está em forte expansão — eventos internacionais, turismo de luxo crescendo, destinos como Gramado, Bonito, Fernando de Noronha e o Nordeste atraindo público nacional e internacional.
+
+## As principais funções
+
+### Gestão Hoteleira
+**Gerente Geral de Hotel:** Administra toda a operação — RH, financeiro, vendas, guest experience.
+- **Salário:** R$ 8.000–30.000 (muito variável por porte e rede)
+
+**Revenue Manager:** Otimiza as tarifas do hotel para maximizar receita por quarto disponível (RevPAR). Alta demanda em redes como Marriott, Hilton, Accor.
+- **Salário:** R$ 7.000–18.000
+
+**Guest Relations / Concierge:** Interface direta com hóspedes VIP.
+- **Salário:** R$ 3.500–8.000
+
+### F&B (Food & Beverage)
+**Chef Executivo:** Responsável por toda a culinária do hotel ou restaurante.
+- **Salário:** R$ 8.000–25.000 (top chefs ganham muito mais)
+
+**Sommelier:** Especialista em vinhos. Crescendo muito com expansão do mercado de vinhos no Brasil.
+- **Salário:** R$ 4.000–12.000
+
+### Turismo e Agências
+**Consultor de Viagens:** Monta roteiros, negocia com fornecedores, cuida da experiência do cliente.
+- **Salário:** R$ 2.500–8.000 + comissão
+
+**Tour Operator:** Operador de pacotes turísticos.
+
+### Eventos
+**Event Planner / Coordenador de Eventos:** Planejamento e execução de eventos corporativos, casamentos, conferências.
+- **Salário:** R$ 3.000–10.000 (freelance pode ser muito mais)
+
+## Idiomas: o ativo mais valorizado
+
+Em hotelaria de luxo, inglês fluente é obrigatório. Espanhol é diferencial. Francês, mandarim e alemão são altamente valorizados em hotéis com público específico.`,
+      },
+      {
+        id: '83-2',
+        title: 'Redes hoteleiras internacionais: como entrar e crescer',
+        duration: '20 min',
+        content: `# Redes hoteleiras internacionais: como entrar e crescer
+
+## Por que trabalhar em redes internacionais
+
+Grandes redes como Marriott, Hilton, Accor, Hyatt e IHG oferecem algo que hotéis independentes raramente têm: programas de trainee e management, transferência internacional, treinamento estruturado e carreira global.
+
+## Programas de trainee e management
+
+Grandes redes têm programas específicos para recém-formados:
+- **Accor Académie:** Trainee com rotação entre departamentos
+- **Marriott Voyage Program:** Management development com possibilidade de transferência internacional
+- **Hilton Elevator Program:** Para quem quer carreira em liderança
+
+Esses programas são competitivos mas são a forma mais rápida de entrar e crescer em uma rede.
+
+## A jornada típica em hotel de luxo
+
+1. **Estágio** durante a faculdade (obrigatório em cursos de hotelaria)
+2. **Trainee ou assistente** em departamento específico (F&B, Recepção, Governança)
+3. **Supervisor** após 2-3 anos
+4. **Gerente de departamento** após 4-6 anos
+5. **Gerente Geral** após 8-12 anos de carreira
+
+A mobilidade geográfica acelera muito a carreira — quem aceita transferência para outros estados ou países progride mais rápido.
+
+## Formação e certificações
+
+**Graduação:** Hotelaria e Turismo (SENAC e FMU têm os melhores cursos no Brasil)
+
+**Certificações internacionais:**
+- **CHM (Certified Hospitality Manager) — AH&LA:** Reconhecida globalmente
+- **Revenue Management — Cornell:** Referência em Revenue Management
+- **WSET (Wine & Spirit Education Trust):** Para sommelier e F&B
+
+**Onde fazer estágio internacional:** Austrália e Portugal aceitam brasileiros com facilidade. Intercâmbio de trabalho (Work and Holiday) é ótima opção para experiência internacional.`,
+      },
+      {
+        id: '83-3',
+        title: 'Gestão de eventos: como construir carreira em um mercado em expansão',
+        duration: '20 min',
+        content: `# Gestão de eventos: como construir carreira em um mercado em expansão
+
+## O mercado de eventos no Brasil
+
+Eventos corporativos, casamentos, festivais, conferências — o setor de eventos movimenta R$ 200+ bilhões/ano no Brasil. Pós-pandemia, cresceu ainda mais com demanda reprimida e maior valorização de experiências presenciais.
+
+## Tipos de eventos e mercados
+
+**Corporativo:** Convenções, lançamentos de produto, team building, congressos profissionais. Maior volume de negócio e clientes mais exigentes.
+
+**Social:** Casamentos, formaturas, festas de 15 anos, aniversários. Ticket alto mas muito dependente de indicação e reputação.
+
+**Feiras e Exposições:** APAS Show, Febraban Tech, Agrishow — eventos B2B de setor específico. Exige conhecimento do setor além de eventos.
+
+**Festivais e Entretenimento:** Rock in Rio, Lollapalooza, festivais gastronômicos. Glamouroso mas extremamente intenso e sazonal.
+
+## Habilidades essenciais
+
+**Gestão de múltiplos fornecedores:** Buffet, decoração, AV, segurança, transporte, acomodação — você orquestra todos simultaneamente.
+
+**Gestão de crise:** Em eventos, algo sempre sai do planejado. A qualidade do profissional aparece em como ele resolve problemas no momento.
+
+**Negociação:** Preços de fornecedores, contratos com espaços, condições de pagamento.
+
+**Marketing e captação:** Especialmente para quem tem empresa própria — conquistar novos clientes é fundamental.
+
+## Começando na área de eventos
+
+- **Estágio e assistência:** Trabalhar como assistente em empresa de eventos é a melhor escola
+- **Voluntariado em eventos:** Muitos festivais aceitam voluntários — você aprende a operação de dentro
+- **Eventos universitários:** Organizar eventos na faculdade cria portfólio inicial
+- **Certificações:** ABNT NBR 15.047 (segurança em eventos) é relevante para eventos de grande porte`,
+      },
+    ],
+  },
+  {
+    id: 84,
+    title: 'Carreira em Engenharia Mecânica e Manufatura',
+    desc: 'As trilhas de carreira para engenheiros mecânicos: indústria, automação, energia e as novas demandas da Indústria 4.0.',
+    duration: '3h 00min',
+    icon: '⚙️',
+    isPro: true,
+    color: { bg: 'bg-slate-50', border: 'border-slate-200', badge: 'bg-slate-100 text-slate-700', icon: 'bg-slate-500' },
+    lessons: [
+      {
+        id: '84-1',
+        title: 'Mercado de trabalho para engenheiros mecânicos',
+        duration: '25 min',
+        content: `# Mercado de trabalho para engenheiros mecânicos
+
+## A versatilidade da engenharia mecânica
+
+Engenharia mecânica é uma das mais versáteis — seus egressos trabalham em indústria, energia, automotivo, aeroespacial, petróleo e gás, manufatura avançada, e cada vez mais em tecnologia e startups.
+
+## Principais áreas de atuação
+
+### Indústria Automotiva
+Uma das maiores empregadoras de mecânicos no Brasil. Volvo, GM, VW, Toyota, Stellantis, Honda — plantas em SP, PR, RS e MG.
+- Funções: engenharia de produto, engenharia de processo, qualidade, manufatura
+- **Salário pleno:** R$ 7.000–18.000
+
+### Óleo e Gás (Petróleo)
+Petrobras, Shell, SLB, Baker Hughes, Halliburton — alta remuneração, exigência técnica alta.
+- **Salário:** R$ 10.000–35.000 (engenheiro offshore pode ganhar muito mais)
+
+### Energia (renovável e convencional)
+Energias renováveis (eólica, solar, hidrelétrica) crescendo muito. Engie, EDP, Casa dos Ventos, Neoenergia.
+- **Salário:** R$ 7.000–20.000
+
+### Manufatura Geral e Bens de Capital
+WEG, Embraer, Weg, Festo, SKF, Bosch, Siemens.
+- **Salário:** R$ 6.000–16.000
+
+### Consultoria em Melhoria de Processos
+Lean, Six Sigma, TPM em ambiente industrial. Pode ser CLT ou consultor independente.
+- **Salário:** R$ 8.000–25.000
+
+## Especialidades mais valorizadas
+
+- **Mecatrônica e Automação:** A mais aquecida — combina mecânica, eletrônica e software
+- **Projetos CAD/CAE:** SolidWorks, ANSYS, Siemens NX — profissionais com domínio têm alta empregabilidade
+- **Termodinâmica e HVAC:** Sistemas de climatização, eficiência energética
+- **Dinâmica e Vibrações:** Rotomaquinaria, análise de falhas`,
+      },
+      {
+        id: '84-2',
+        title: 'Indústria 4.0 e automação: o futuro da engenharia mecânica',
+        duration: '25 min',
+        content: `# Indústria 4.0 e automação: o futuro da engenharia mecânica
+
+## O que é Indústria 4.0
+
+A Quarta Revolução Industrial integra tecnologias digitais ao ambiente industrial: IoT, robótica avançada, manufatura aditiva (impressão 3D), big data, IA e computação em nuvem aplicadas à produção.
+
+Para o engenheiro mecânico, isso não é ameaça — é oportunidade. Quem entende tanto de processos físicos quanto de tecnologia digital é raro e muito valorizado.
+
+## Tecnologias que o mecânico precisa conhecer
+
+**PLC e Automação Industrial:**
+Controladores Lógicos Programáveis (Siemens S7, Allen Bradley) controlam máquinas e linhas de produção. Programar e dar manutenção em PLCs é habilidade muito pedida.
+
+**Robótica Industrial:**
+ABB, FANUC, KUKA — robôs industriais de solda, montagem, movimentação. Programação e integração de robôs é especialidade em alta demanda.
+
+**CAD/CAE/CAM:**
+- **CAD:** SolidWorks, Catia, Inventor — modelagem de peças e montagens
+- **CAE:** ANSYS, Abaqus — simulação de esforços, temperatura, fluidos
+- **CAM:** Mastercam — programação de usinagem CNC
+
+**Digital Twin:**
+Réplica digital de uma máquina ou processo físico que permite simular, monitorar e otimizar em tempo real. Crescendo muito em indústrias de grande escala.
+
+**Manufatura Aditiva (impressão 3D):**
+Prototipagem rápida e, cada vez mais, produção de peças finais. Metais, polímeros, cerâmicas.
+
+## Certificações que agregam valor
+
+- **Green Belt / Black Belt Six Sigma:** Metodologia de melhoria de qualidade e redução de desperdício
+- **Lean Manufacturing / TPM:** Manufatura enxuta
+- **NR-12 (segurança em máquinas):** Obrigatório para trabalho com máquinas industriais no Brasil
+- **PMP:** Para quem segue trilha de gestão de projetos industriais`,
+      },
+      {
+        id: '84-3',
+        title: 'Trilhas de carreira e como se posicionar no mercado',
+        duration: '20 min',
+        content: `# Trilhas de carreira e como se posicionar no mercado
+
+## As duas grandes trilhas
+
+**Trilha técnica (especialista):**
+Engenheiro → Engenheiro Sênior → Especialista/Consultor Técnico → Principal Engineer
+Foco: profundidade técnica crescente em uma especialidade. Valorizado em empresas de engenharia e P&D.
+
+**Trilha de gestão:**
+Engenheiro → Líder Técnico → Gerente de Engenharia → Gerente de Planta → Diretor Industrial
+Foco: liderança de times, gestão de operações, resultado de negócio. Salários mais altos no topo.
+
+## O que diferencia o engenheiro que cresce rápido
+
+**Resultado mensurável:** Não é "participei da implementação do sistema X". É "reduzimos downtime em 23% e OEE subiu de 67% para 78%, economizando R$ 2M/ano." Engenheiros que quantificam impacto crescem mais rápido.
+
+**Gestão de projetos:** Todo engenheiro que lidera implementações precisa saber gerenciar projetos. Mesmo sem certificação formal — cronograma, orçamento, comunicação de progresso.
+
+**Comunicação com não-técnicos:** Saber explicar para o financeiro ou diretoria por que aquele investimento em maquinário faz sentido é habilidade rara e muito valorizada.
+
+## Multinacionais vs. empresas nacionais
+
+**Multinacionais (Bosch, Siemens, ABB, Embraer, GM):**
+- Processos mais estruturados
+- Possibilidade de transferência internacional
+- Programas de trainee bem estruturados
+- Inglês quase sempre necessário
+
+**Empresas nacionais (WEG, Randon, Mahle Metal Leve):**
+- Crescimento mais rápido para posições de liderança
+- Maior impacto visível
+- Menos burocracia
+
+**Startups industriais (deep tech, automação):**
+- Salários menores mas aprendizado muito rápido
+- Equity como upside
+- Trabalho com tecnologias de ponta`,
+      },
+    ],
+  },
+  {
+    id: 85,
+    title: 'Carreira em Comunicação e Relações Públicas',
+    desc: 'As funções, habilidades e oportunidades em comunicação corporativa, relações públicas, assessoria de imprensa e comunicação digital.',
+    duration: '2h 50min',
+    icon: '📢',
+    isPro: false,
+    color: { bg: 'bg-pink-50', border: 'border-pink-200', badge: 'bg-pink-100 text-pink-700', icon: 'bg-pink-500' },
+    lessons: [
+      {
+        id: '85-1',
+        title: 'Comunicação corporativa e RP: o que o mercado quer',
+        duration: '25 min',
+        content: `# Comunicação corporativa e RP: o que o mercado quer
+
+## A evolução das relações públicas
+
+RP tradicional: assessoria de imprensa, press releases, relacionamento com jornalistas. RP moderno: gestão de reputação, comunicação de crise, relações com stakeholders, influenciadores e comunicação digital.
+
+## As principais funções
+
+### Assessor de Imprensa
+Garante cobertura positiva da empresa na mídia. Relacionamento com jornalistas, porta-voz, press releases, respostas a apurações.
+- **Salário (agência):** R$ 3.000–8.000
+- **Salário (in-house):** R$ 5.000–14.000
+
+### Comunicação Corporativa
+Comunicação interna (para colaboradores) e externa (para stakeholders). Em empresas grandes, é área estratégica ligada ao CEO.
+- **Salário (gerente):** R$ 10.000–25.000
+
+### Gerenciamento de Crise
+Especialidade de alta pressão e alta remuneração. Quando a empresa está no centro de uma polêmica, esse profissional lidera a resposta.
+- **Salário:** R$ 15.000–40.000 (consultores de crise independentes cobram muito mais)
+
+### Relações com Investidores (RI)
+Comunicação com acionistas, analistas de mercado, IBGC, CVM. Exclusivo para empresas listadas em bolsa.
+- **Salário:** R$ 10.000–30.000
+
+### Influencer Relations
+Gestão de relacionamento com criadores de conteúdo e influenciadores digitais.
+- **Salário:** R$ 4.000–12.000
+
+### ESG Communication
+Com crescimento de ESG, comunicar a agenda ambiental e social da empresa virou função dedicada.
+- **Salário:** R$ 7.000–18.000
+
+## Agência vs. in-house
+
+**Agência:** Variedade de clientes e setores, aprendizado rápido, mas volume alto e pressão constante.
+**In-house:** Maior profundidade em uma empresa, envolvimento estratégico, melhor equilíbrio de vida.`,
+      },
+      {
+        id: '85-2',
+        title: 'Comunicação digital: social media, conteúdo e estratégia de marca',
+        duration: '20 min',
+        content: `# Comunicação digital: social media, conteúdo e estratégia de marca
+
+## O digital transformou comunicação e RP
+
+Antes, a mídia era gatekeepers do que o público ouvia sobre uma empresa. Hoje, toda empresa tem canal direto com seu público — e todo cliente tem canal direto com a empresa e com sua audiência. Um tweet pode causar crise; um vídeo viral pode gerar mais brand awareness que campanha de R$ 1 milhão.
+
+## Social Media Manager
+
+Gerencia presença da marca nas redes sociais. Não é só postar — é estratégia, criação de conteúdo, análise de métricas, gestão de comunidade e resposta a comentários (inclusive negativos).
+
+**Skills:** Copywriting, noções de design (Canva, mínimo de Figma), análise de dados (Instagram Insights, LinkedIn Analytics), gestão de crise em redes.
+- **Salário:** R$ 4.000–12.000
+
+## Comunicação de conteúdo (Content Marketing)
+
+Criação de conteúdo que educa, informa e constrói autoridade — blogs, white papers, vídeos, podcasts, newsletters.
+
+**Skills:** Redação, SEO, storytelling, ferramentas de análise (Google Analytics, SEMrush).
+- **Salário:** R$ 4.500–13.000
+
+## Gestão de crise em redes sociais
+
+O profissional de comunicação digital precisa saber gerenciar crises que se desenvolvem em horas, não dias:
+1. **Monitoramento:** Ferramentas como Mention, Brandwatch, Hootsuite detectam menções antes de viralizarem
+2. **Protocolo de resposta:** Quem fala, o que diz, em quanto tempo
+3. **Linguagem:** Tom certo para cada situação — empatia em crises envolvendo pessoas, clareza em crises de produto
+4. **Aprendizado pós-crise:** Toda crise é oportunidade de melhorar processos
+
+## Métricas que comunicação digital precisa dominar
+
+- **Alcance vs. Impressões:** Alcance = pessoas únicas; impressões = total de visualizações
+- **Taxa de Engajamento:** (curtidas + comentários + compartilhamentos) / alcance
+- **Share of Voice:** Sua menção vs. concorrentes na mídia e redes
+- **Sentiment Analysis:** % de menções positivas, neutras e negativas`,
+      },
+      {
+        id: '85-3',
+        title: 'Storytelling e comunicação estratégica: o diferencial do profissional de RP',
+        duration: '20 min',
+        content: `# Storytelling e comunicação estratégica: o diferencial do profissional de RP
+
+## Por que storytelling é a habilidade mais valiosa em comunicação
+
+Fatos informam. Histórias convencem. As marcas que constroem conexão emocional com seu público crescem mais, retêm mais e resistem melhor a crises.
+
+O profissional de RP e comunicação que sabe contar histórias é raro — a maioria sabe gerar conteúdo, poucos sabem criar narrativa.
+
+## Os elementos de uma história que engaja
+
+**Personagem:** Alguém com quem o público se identifica — pode ser o fundador, o cliente, o colaborador.
+
+**Conflito:** Toda boa história tem tensão. Qual era o problema, o desafio, a dificuldade?
+
+**Resolução:** Como o conflito foi resolvido? Qual é a transformação?
+
+**Relevância:** Por que isso importa para o público agora?
+
+## Storytelling aplicado a comunicação corporativa
+
+**Lançamento de produto:** Não "apresentamos o produto X com as funcionalidades A, B e C". Mas: "João perdia 3 horas por dia fazendo X manualmente. Hoje, em 5 minutos, o produto Y faz o que ele levava horas — e João usa esse tempo para [o que realmente importa]."
+
+**Relatório de sustentabilidade:** Não números de emissões reduzidas. Mas a história da comunidade que se beneficiou, com nome, rosto e transformação real.
+
+**Comunicação de crise:** A empresa que explica a situação com transparência, mostra empatia pelas pessoas afetadas e apresenta ações concretas cria mais confiança do que a que nega ou minimiza.
+
+## Como desenvolver habilidade de storytelling
+
+- Escreva diariamente — mesmo que internamente. A escrita treina o pensamento narrativo.
+- Leia ficção além de não-ficção — novelistas são os melhores professores de estrutura narrativa
+- Estude cases de comunicação — o que marcas bem-sucedidas contam sobre si mesmas e como
+- Faça cursos de roteiro e escrita criativa — ampliam seu repertório narrativo`,
+      },
+    ],
+  },
+  {
+    id: 86,
+    title: 'Carreira em Contabilidade e Controladoria',
+    desc: 'De contador a CFO: as trilhas de carreira em contabilidade, controladoria, auditoria e finanças corporativas.',
+    duration: '3h 00min',
+    icon: '🧾',
+    isPro: false,
+    color: { bg: 'bg-green-50', border: 'border-green-200', badge: 'bg-green-100 text-green-700', icon: 'bg-green-600' },
+    lessons: [
+      {
+        id: '86-1',
+        title: 'O mercado contábil: funções e oportunidades',
+        duration: '25 min',
+        content: `# O mercado contábil: funções e oportunidades
+
+## Contabilidade vai muito além da obrigação fiscal
+
+O estereótipo do contador como "pessoa que faz declaração de imposto" não representa o mercado moderno. Contabilidade avançada envolve análise estratégica, suporte à tomada de decisão e governança corporativa.
+
+## As principais funções
+
+### Contador / Analista Contábil
+Registros contábeis, conciliações, fechamento mensal, demonstrações financeiras.
+- **Salário BR:** R$ 3.000–8.000 (pleno)
+
+### Analista de Controladoria
+Analisa o desempenho financeiro da empresa, produz relatórios gerenciais, suporta decisões de negócio com dados financeiros.
+- **Salário:** R$ 5.000–14.000
+
+### Controller
+Responsável pelo departamento de controladoria. Relatórios financeiros, controle interno, suporte ao CFO.
+- **Salário:** R$ 12.000–25.000
+
+### Auditor (interno e externo)
+**Auditoria externa (Big 4):** Deloitte, PwC, EY, KPMG. Escola excelente mas muito trabalhosa — ótimo para primeiros 3-5 anos de carreira.
+**Auditoria interna:** Dentro de empresas grandes — avalia controles e riscos.
+- **Salário:** R$ 5.000–18.000
+
+### CFO (Chief Financial Officer)
+O topo da hierarquia financeira. Responsável pela saúde financeira total da empresa.
+- **Salário:** R$ 30.000–150.000+
+
+### Contabilidade Internacional e IFRS
+Com empresas listadas e multinacionais, conhecimento de IFRS (International Financial Reporting Standards) é diferencial crescente.
+- **Adiciona 20-30% ao salário de contador pleno/sênior**
+
+## Escritórios contábeis vs. empresas
+
+**Escritório:** Variedade de clientes, aprendizado mais rápido, geralmente menor remuneração.
+**Empresa (in-house):** Maior profundidade, melhor remuneração, benefícios de empresa grande.`,
+      },
+      {
+        id: '86-2',
+        title: 'Certificações e especializações que dobram o salário',
+        duration: '20 min',
+        content: `# Certificações e especializações que dobram o salário
+
+## Por que certificações importam em contabilidade
+
+Contabilidade é área regulamentada — o CRC (Conselho Regional de Contabilidade) é obrigatório para exercer. Mas certificações adicionais sinalizam especialização que o mercado paga a mais.
+
+## Certificações de alto impacto
+
+**CPA (Certified Public Accountant) — AICPA (EUA):**
+A certificação contábil mais reconhecida globalmente. Exige aprovação em 4 exames e experiência. Abre portas em multinacionais e escritórios Big 4.
+
+**CMA (Certified Management Accountant) — IMA:**
+Foco em controladoria e gestão financeira. Muito valorizado por CFOs e controllers. Reconhecido globalmente.
+- **Profissionais com CMA ganham 25-30% a mais em média**
+
+**IFRS (Certificação em Normas Internacionais):**
+IBRACON, IBGC e outras entidades oferecem especializações em IFRS. Empresas listadas na bolsa ou com matriz no exterior pagam adicional.
+
+**CIA (Certified Internal Auditor) — IIA:**
+Para auditores internos. Certificação internacional com alta credibilidade.
+
+**CRC (obrigatório):**
+Registro no Conselho Regional de Contabilidade. Sem isso, não pode assinar documentos contábeis.
+
+## Especializações em alta
+
+**Tributário:** Planejamento tributário é uma das especializações mais bem pagas em contabilidade. IRPJ, CSLL, PIS/COFINS, ICMS, ISS — o sistema tributário brasileiro é um dos mais complexos do mundo, criando enorme demanda por especialistas.
+
+**BI e Data Analytics em Finanças:** Power BI, Excel avançado, SQL — analistas de controladoria que sabem dashboards são muito mais valorizados.
+
+**ESG Reporting:** Relatórios de sustentabilidade seguindo GRI, SASB ou TCFD são demanda crescente de empresas grandes.`,
+      },
+      {
+        id: '86-3',
+        title: 'A trilha para CFO: de analista a chief financial officer',
+        duration: '20 min',
+        content: `# A trilha para CFO: de analista a chief financial officer
+
+## O que um CFO realmente faz
+
+CFO não é "o contador chefe". É um parceiro estratégico do CEO que:
+- Garante saúde financeira e solvência da empresa
+- Lidera captações (dívida, equity, IPO)
+- Suporta decisões de M&A com análise financeira
+- Gerencia relações com investidores e bancos
+- Constrói e lidera time financeiro
+
+## A trilha típica
+
+**Anos 1-4:** Analista em Big 4 (auditoria) ou analista financeiro em empresa. Base técnica sólida.
+
+**Anos 4-8:** Analista sênior ou gerente em controladoria, FP&A ou tesouraria. Especialização em uma ou duas funções.
+
+**Anos 8-14:** Controller ou Diretor Financeiro. Gestão de time, visão ampla de toda a função financeira.
+
+**Anos 14+:** CFO. Posição estratégica, assento no comitê executivo.
+
+## O que acelera essa trilha
+
+**MBA:** MBA em finanças ou gestão geral de uma escola de reputação (FGV, Insper, FIA) acelera 2-4 anos.
+
+**Experiência em Big 4:** Os 3-5 anos em auditoria são escola incomparável de técnica e rigor.
+
+**Exposição a eventos corporativos:** Participar de captação de recursos, M&A, reestruturação financeira — experiências raras que formam o CFO.
+
+**Mobilidade:** Aceitar posições em empresas menores como CFO mais cedo (startup, PME) pode ser mais rápido que escalar hierarquia em grande empresa.
+
+## Soft skills do CFO moderno
+
+O CFO moderno é comunicador, não só técnico. Precisa:
+- Explicar para o conselho, investidores e analistas de forma clara
+- Influenciar decisões estratégicas com dados financeiros
+- Liderar times de alta performance com culturas diferentes (contábil, tesouraria, FP&A)
+- Gerenciar relações externas com bancos, auditores, reguladores`,
+      },
+    ],
+  },
+  {
+    id: 87,
+    title: 'Carreira em Investment Banking e Mercado Financeiro',
+    desc: 'M&A, equity capital markets, renda fixa e gestão de ativos — as carreiras mais bem pagas do mercado financeiro brasileiro.',
+    duration: '3h 20min',
+    icon: '📈',
+    isPro: true,
+    color: { bg: 'bg-emerald-50', border: 'border-emerald-200', badge: 'bg-emerald-100 text-emerald-700', icon: 'bg-emerald-500' },
+    lessons: [
+      {
+        id: '87-1',
+        title: 'O ecossistema do mercado financeiro: quem são os players',
+        duration: '25 min',
+        content: `# O ecossistema do mercado financeiro: quem são os players
+
+## A estrutura do mercado financeiro
+
+O mercado financeiro brasileiro é um dos mais sofisticados da América Latina. Com a B3 entre as maiores bolsas do mundo por valor de mercado, o setor financeiro emprega centenas de milhares de profissionais em diferentes segmentos.
+
+## Investment Banking
+
+Assessora empresas em transações complexas: M&A (fusões e aquisições), IPOs, emissões de dívida, reestruturações.
+
+**Principais players no Brasil:**
+- **Bancos globais:** Goldman Sachs, JP Morgan, Bank of America, Morgan Stanley, BTG Pactual, UBS
+- **Bancos de nicho:** Itaú BBA, Bradesco BBI, Santander Brasil
+
+**Funções:**
+- **Analista (Analyst):** Modelagem financeira, pitchbooks, due diligence. Recém-formados.
+- **Associado (Associate):** Geralmente pós-MBA. Liderança de modelagem, gestão de processos.
+- **Vice-Presidente (VP):** Execução de deals, gestão de clientes.
+- **Diretor/MD (Managing Director):** Originação de negócios, relações com clientes.
+
+**Salário (analista, top bank):** R$ 15.000–25.000 + bônus (bônus pode ser 2-4x o salário)
+
+## Gestão de Ativos (Asset Management)
+
+Gestoras como XP Asset, BTG Asset, Verde, Absolute, SPX gerenciam carteiras de investidores institucionais e de varejo.
+
+**Funções:** Gestores de fundo, analistas de research, gestores de risco, traders.
+**Salário (analista de research):** R$ 10.000–20.000 + bônus
+
+## Private Equity e Venture Capital
+
+PE (private equity) investe em empresas estabelecidas para reestruturação e crescimento. VC investe em startups.
+
+**Players:** Advent, Vinci Partners, Pátria (PE); Kaszek, Softbank, Monashees (VC)
+**Salário:** Muito variável — mas carry (participação no retorno do fundo) pode ser transformador`,
+      },
+      {
+        id: '87-2',
+        title: 'Como entrar em investment banking: o processo seletivo',
+        duration: '30 min',
+        content: `# Como entrar em investment banking: o processo seletivo
+
+## A realidade do processo seletivo em IB
+
+Investment banking tem um dos processos seletivos mais rigorosos do mercado. Para analistas recém-formados, centenas de candidatos competem por pouquíssimas vagas. Para associados pós-MBA, o processo é diferente mas igualmente competitivo.
+
+## O que os bancos avaliam
+
+**Modelagem financeira:** Você precisa saber construir modelos de valuation do zero. DCF (Discounted Cash Flow), LBO (Leveraged Buyout), precedent transactions, comparable companies.
+
+**Conhecimento técnico:** Conceitos de finanças corporativas, contabilidade (como mudanças em working capital afetam fluxo de caixa), estrutura de capital, derivativos básicos.
+
+**Fit e motivação:** Por que IB? Por que este banco? Quais deals recentes você acompanhou? O que te motiva nessa carreira de alta pressão?
+
+**Capacidade analítica:** Case studies com análise rápida de informação e síntese de recomendação.
+
+## O processo para analistas (recém-formados)
+
+1. **Triagem de currículo:** GPA alto (acima de 8,0 tipicamente), universidade de prestígio, experiências relevantes (estágios em bancos, consultorias, empresas financeiras)
+2. **Teste online:** Raciocínio lógico, matemática, inglês
+3. **Entrevistas técnicas:** Perguntas de valuation, contabilidade, finanças corporativas
+4. **Entrevistas comportamentais:** Por que IB, histórias de superação, liderança
+5. **Superday/dinâmica:** Vários entrevistadores no mesmo dia
+
+## Como se preparar
+
+**Modelagem:** Wall Street Prep, Breaking Into Wall Street, Financial Modeling Institute — cursos pagos mas que ensinam o padrão da indústria.
+
+**Técnico:** "Investment Banking" de Rosenbaum e Pearl é a bíblia. Decassar Financial Statements do ponto de vista de IB.
+
+**Networking:** Muitas vagas não são publicadas — são preenchidas por indicação. Alumni da sua universidade trabalhando em bancos são seu melhor caminho.
+
+**Inglês perfeito:** Todo banco sério exige inglês fluente. Muitas entrevistas são em inglês.`,
+      },
+      {
+        id: '87-3',
+        title: 'Carreira em gestão de ativos e mercado de capitais',
+        duration: '25 min',
+        content: `# Carreira em gestão de ativos e mercado de capitais
+
+## Gestão de Ativos: o que faz um gestor
+
+Um gestor de fundo decide como alocar capital dos investidores para maximizar retorno ajustado a risco. Existem tipos muito diferentes de estratégias — e cada uma exige perfil diferente.
+
+**Long-Only (renda variável):** Compra ações acreditando que vão valorizar. Análise fundamentalista de empresas.
+
+**Long-Short (hedge fund):** Compra papéis que acredita que vão subir e vende (short) papéis que acredita que vão cair. Mais complexo, pode ganhar em qualquer mercado.
+
+**Macro:** Aposta em câmbio, juros, commodities com base em análise macroeconômica.
+
+**Quant:** Estratégias quantitativas baseadas em modelos matemáticos e dados. Alta demanda por estatísticos, matemáticos e programadores.
+
+**Multi-Market / Multimercado:** Combinação de várias estratégias.
+
+## Como entrar em gestão de ativos
+
+**Trilha mais comum:** Estágio ou analista de research em corretora → Analista de research em gestora → Gestor júnior ou co-gestor → Gestor.
+
+**Research:** Analistas de research estudam profundamente setores e empresas, fazem valuation e recomendam compra ou venda para gestores. É a escola clássica de quem quer gerir.
+
+**Certificações obrigatórias:**
+- **CGA (Certificação de Gestores de Ativos) — ANBIMA:** Para gerir fundos no Brasil
+- **CPA-20 — ANBIMA:** Para distribuição de produtos de investimento
+- **CFA (Chartered Financial Analyst):** O mais reconhecido globalmente em investimentos. 3 níveis, muito difícil, muito valorizado.
+
+## Salários em gestão de ativos
+
+| Função | Salário BR | Bônus |
+|--------|-----------|-------|
+| Analista de Research | R$ 8.000–18.000 | 50–100% |
+| Gestor Júnior | R$ 15.000–30.000 | 50–200% |
+| Gestor Sênior | R$ 30.000–80.000 | 100–300%+ |
+| Sócio-Gestor | Carry do fundo | Milhões em bons anos |`,
+      },
+    ],
+  },
+  {
+    id: 88,
+    title: 'Carreira em Psicologia Organizacional e Coaching',
+    desc: 'Como aplicar a psicologia no mundo corporativo: seleção, desenvolvimento, saúde mental no trabalho e coaching executivo.',
+    duration: '2h 50min',
+    icon: '🧘',
+    isPro: false,
+    color: { bg: 'bg-purple-50', border: 'border-purple-200', badge: 'bg-purple-100 text-purple-700', icon: 'bg-purple-500' },
+    lessons: [
+      {
+        id: '88-1',
+        title: 'Psicologia organizacional: funções e mercado',
+        duration: '25 min',
+        content: `# Psicologia organizacional: funções e mercado
+
+## O psicólogo no ambiente corporativo
+
+A psicologia organizacional e do trabalho (POT) aplica princípios da psicologia para melhorar o bem-estar dos trabalhadores e a eficácia das organizações. Com o aumento de discussões sobre saúde mental no trabalho, a valorização dessa área cresceu muito.
+
+## As principais funções
+
+### Psicólogo de Seleção
+Avaliação psicológica de candidatos em processos seletivos — entrevistas de mapeamento de perfil, testes psicológicos, dinâmicas de grupo. Trabalha em RH de empresas ou consultorias de recrutamento.
+- **Salário:** R$ 3.500–9.000
+
+### Psicólogo Clínico Organizacional
+Atendimento psicológico de colaboradores — cada vez mais empresas oferecem suporte psicológico como benefício.
+- **Salário:** R$ 4.000–12.000
+
+### Psicólogo de Treinamento e Desenvolvimento
+Desenvolve e facilita programas de treinamento, workshops de autoconhecimento, desenvolvimento de lideranças.
+- **Salário:** R$ 5.000–14.000
+
+### People Analytics com viés de Psicologia
+Combina conhecimento comportamental com análise de dados — cultura organizacional, clima, engajamento.
+- **Salário:** R$ 7.000–18.000
+
+### Saúde Mental no Trabalho
+Com burnout em alta e LGBTQIA+, inclusão e diversidade em pauta, profissionais especializados em bem-estar no trabalho têm demanda crescente.
+- **Salário:** R$ 6.000–16.000
+
+## Onde trabalhar
+
+- RH de grandes empresas (área de People & Culture)
+- Consultorias de gestão de pessoas (Enora, LHH, Right Management)
+- Empresas de saúde mental corporativa (Vittude, Psicologia Viva, Zenklub)
+- Plataformas de bem-estar (cada vez mais empresas B2B)`,
+      },
+      {
+        id: '88-2',
+        title: 'Coaching executivo: como se tornar e o que o mercado paga',
+        duration: '20 min',
+        content: `# Coaching executivo: como se tornar e o que o mercado paga
+
+## O que é coaching executivo (e o que não é)
+
+Coaching executivo é um processo estruturado de desenvolvimento profissional onde um coach trabalha individualmente com um executivo para acelerar seu desenvolvimento, superar bloqueios específicos e atingir metas profissionais.
+
+**Não é:** Terapia, consultoria (o coach não dá respostas), mentoria (o mentor compartilha experiência própria).
+
+**É:** Facilitação de reflexão, estabelecimento de metas, responsabilização, desenvolvimento de perspectiva.
+
+## Quem contrata coaching executivo
+
+- **Empresas:** Para executivos de alto potencial, novos líderes em transição, C-suite em situações desafiadoras
+- **Profissionais individualmente:** Pagam do próprio bolso para aceleração de carreira
+
+## Como se tornar coach executivo
+
+**Formação recomendada:**
+1. **Certificação de coaching:** ICF (International Coaching Federation) é o padrão ouro. Níveis: ACC, PCC, MCC. Cursos credenciados pela ICF são o caminho.
+2. **Experiência prévia como executivo:** Os coaches mais bem pagos têm histórico executivo real — quem nunca geriu um time dificilmente coacha gestores de forma profunda.
+3. **Psicologia ou área afim:** Não é obrigatório, mas embasamento teórico em comportamento humano é diferencial.
+
+## Remuneração
+
+**Sessão de coaching executivo:** R$ 400–2.000 por sessão (60-90 min)
+**Programa completo (10-16 sessões):** R$ 8.000–40.000 por coachee
+**Coach de C-suite / top management:** R$ 50.000–150.000+ por programa anual
+
+Coaches com credencial MCC da ICF e histórico comprovado podem cobrar valores muito acima da média.`,
+      },
+      {
+        id: '88-3',
+        title: 'Saúde mental no trabalho: uma área em explosão',
+        duration: '20 min',
+        content: `# Saúde mental no trabalho: uma área em explosão
+
+## O contexto
+
+Burnout foi reconhecido pela OMS como síndrome ocupacional em 2019. O Brasil tem uma das maiores taxas de burnout do mundo. Ansiedade e depressão são as doenças que mais afastam trabalhadores. O resultado: demanda por profissionais de saúde mental no contexto corporativo nunca foi tão alta.
+
+## Startups de saúde mental corporativa
+
+Um ecossistema novo e crescente:
+- **Vittude:** Plataforma de psicoterapia com parceria corporativa
+- **Zenklub:** Bem-estar emocional para empresas
+- **Psicologia Viva:** Teleconsulta com psicólogos
+- **Namu:** Meditação e mindfulness para empresas
+- **Cuco Health:** Saúde mental para startups
+
+Essas empresas contratam psicólogos, mas também profissionais de produto, marketing, customer success e dados.
+
+## Programas de bem-estar corporativo
+
+Grandes empresas estruturam programas internos:
+- **EAP (Employee Assistance Program):** Canal de aconselhamento confidencial para colaboradores
+- **Mindfulness e meditação:** Programas de redução de estresse baseados em evidência
+- **Treinamento de gestores:** Capacitação em como identificar sinais de sofrimento no time
+- **Políticas de trabalho flexível:** Autonomia reduz estresse e aumenta engajamento
+
+## Como entrar na área de saúde mental corporativa
+
+Para psicólogos: especialização em psicologia organizacional e do trabalho (CFP regulamenta as especializações). Experiência em atendimento clínico + conhecimento do contexto corporativo é o perfil ideal.
+
+Para não-psicólogos: gestão de programas de bem-estar, customer success em plataformas de saúde mental, product management em healthtechs focadas no trabalho.`,
+      },
+    ],
+  },
+  {
+    id: 89,
+    title: 'Carreira em Audiovisual, Cinema e Streaming',
+    desc: 'As funções do mercado audiovisual brasileiro: de produtor a editor, passando pelas novas oportunidades abertas por streamings como Netflix e Prime.',
+    duration: '3h 00min',
+    icon: '🎬',
+    isPro: false,
+    color: { bg: 'bg-rose-50', border: 'border-rose-200', badge: 'bg-rose-100 text-rose-700', icon: 'bg-rose-500' },
+    lessons: [
+      {
+        id: '89-1',
+        title: 'O mercado audiovisual brasileiro: estrutura e oportunidades',
+        duration: '25 min',
+        content: `# O mercado audiovisual brasileiro: estrutura e oportunidades
+
+## A nova era do audiovisual brasileiro
+
+A chegada de streamings como Netflix, Amazon Prime, Disney+ e Apple TV+ ao Brasil abriu oportunidades sem precedentes para profissionais do audiovisual. Produções brasileiras (Round 6 BR, Bom Dia, Verônica, 3%, Entre Irmãs) ganharam audiência global.
+
+Além do cinema e TV, o mercado de conteúdo digital explodiu — YouTube, TikTok, Instagram e podcasts criaram uma nova economia criativa.
+
+## As principais funções
+
+### Direção
+Diretor de cinema, TV, publicidade ou streaming. Responsável pela visão criativa e execução da obra.
+- **Salário / Cache:** Muito variável — de R$ 5.000 a R$ 200.000 por projeto
+
+### Produção (Produtor Executivo e de Campo)
+Viabiliza a produção financeiramente e logisticamente. Em streamings e produtoras grandes, é posição estratégica.
+- **Salário:** R$ 6.000–25.000
+
+### Roteiro
+Roteirista de séries, filmes, publicidade e conteúdo digital. Com streamings, demanda por roteiristas cresceu muito.
+- **Cache por roteiro:** Muito variável. Roteiristas de séries de streaming podem ganhar R$ 50.000–200.000 por projeto.
+
+### Edição / Montagem
+Montador de vídeo que constrói a narrativa na ilha de edição. Muito demandado especialmente para conteúdo digital.
+- **Salário:** R$ 4.000–15.000
+
+### Fotografia / Direção de Fotografia (DoP)
+Responsável pela imagem — iluminação, enquadramento, movimento de câmera.
+- **Cache:** R$ 500–5.000/dia dependendo de nível e tipo de produção
+
+### Sound Design e Música
+Mixagem de som, trilha sonora, sound design. Área técnica com demanda crescente.
+- **Salário:** R$ 4.000–14.000`,
+      },
+      {
+        id: '89-2',
+        title: 'Conteúdo digital e criação para plataformas: a nova economia criativa',
+        duration: '25 min',
+        content: `# Conteúdo digital e criação para plataformas: a nova economia criativa
+
+## O YouTuber e o criador de conteúdo como profissão
+
+Criador de conteúdo é uma profissão real — e cada vez mais lucrativa. O Brasil é um dos maiores mercados de YouTube e TikTok do mundo. Canais com 100.000 seguidores já conseguem monetização relevante; com 1M+, é possível ganhar muito mais que a maioria dos empregos formais.
+
+## Fontes de receita do criador de conteúdo
+
+**AdSense/Anúncios:** Receita por visualização. YouTube paga em média R$ 3–15 por 1.000 visualizações no Brasil.
+
+**Publipost e Parcerias de marca:** Marcas pagam para serem mencionadas. Cache varia de R$ 500 a R$ 1.000.000 dependendo da audiência e nicho.
+
+**Afiliados:** Você indica produtos e ganha comissão por venda. Amazon, Hotmart, e programas de afiliados de marcas.
+
+**Produtos próprios:** Curso, livro, merchandise — a forma mais lucrativa e sustentável.
+
+**Live e gorjetas:** TikTok Lives, YouTube Lives, Twitch — audiência paga diretamente.
+
+## Ferramentas essenciais
+
+**Gravação:** iPhone 13+ já filma em qualidade profissional. Para começar, não é desculpa para não começar.
+
+**Edição:** DaVinci Resolve (gratuito e profissional), CapCut (mobile, muito popular), Adobe Premiere (padrão da indústria).
+
+**Thumbnail:** Canva para iniciantes, Photoshop para avançados.
+
+**Analytics:** YouTube Studio, TikTok Analytics — entender o que funciona é a diferença entre crescer e estagnar.
+
+## Profissionais de suporte ao criador
+
+Com criadores de conteúdo faturando alto, surgiu mercado para profissionais que os apoiam:
+- **Editor de vídeo:** R$ 2.000–8.000/mês por canal dedicado
+- **Gestor de mídias sociais:** R$ 2.000–6.000/mês
+- **Gestor de tráfego (YouTube Ads, Meta):** R$ 3.000–10.000
+- **Manager de criador:** Negociação de contratos, gestão de agenda`,
+      },
+      {
+        id: '89-3',
+        title: 'Como construir carreira no audiovisual: caminhos e estratégias',
+        duration: '20 min',
+        content: `# Como construir carreira no audiovisual: caminhos e estratégias
+
+## A realidade do mercado audiovisual
+
+O audiovisual é um mercado de projetos, não de empregos fixos. A maioria dos profissionais trabalha como freelancer por projeto (com contrato por prazo determinado) e tem portfólio de trabalhos variados.
+
+## Como entrar: os caminhos práticos
+
+**Assistência:** Em cinema e TV, todo iniciante começa como assistente — de direção, de produção, de fotografia. É a escola prática do mercado. Você aprende fazendo, na set real.
+
+**Publicidade:** Produtoras de publicidade (como Conspiração, Jingle, Vetor Zero) são grandes empregadores de audiovisual e um bom trampolim para projetos maiores.
+
+**Conteúdo digital:** O mercado digital é mais acessível para entrar. Agências de social media, produtoras de conteúdo para marcas, e canais do YouTube estão sempre buscando editores, cinegrafistas e produtores.
+
+**Seu próprio projeto:** Muitos dos melhores profissionais começaram com seu próprio curta-metragem, canal no YouTube ou projeto pessoal. Isso é portfólio real.
+
+## Portfólio: o único currículo que importa no audiovisual
+
+Ninguém te contrata pelo diploma. Te contratam pelo que você já fez.
+
+**Organize seu portfólio:**
+- Site simples (Behance, Cargo, Squarespace) com seus melhores trabalhos
+- Reel de 1-2 minutos com seus melhores momentos
+- Cada projeto com contexto: o que foi seu papel, qual foi o resultado
+
+## Associações e comunidades
+
+- **ABPA (Associação Brasileira de Produtoras Audiovisuais)**
+- **Ancine:** Agência regulatória — publica editais de fomento ao cinema e TV
+- **TAL (Televisão América Latina):** Canal de co-produções latinas
+- Grupos no Facebook e Discord de editores, DPs, roteiristas — onde vagas aparecem antes de qualquer portal`,
+      },
+    ],
+  },
+  {
+    id: 90,
+    title: 'Carreira em Arquitetura e Design de Interiores',
+    desc: 'Das obras residenciais ao urbanismo: as trilhas de carreira em arquitetura, paisagismo e design de interiores no Brasil.',
+    duration: '3h 00min',
+    icon: '🏛️',
+    isPro: false,
+    color: { bg: 'bg-amber-50', border: 'border-amber-200', badge: 'bg-amber-100 text-amber-700', icon: 'bg-amber-600' },
+    lessons: [
+      {
+        id: '90-1',
+        title: 'O mercado de arquitetura: áreas e oportunidades',
+        duration: '25 min',
+        content: `# O mercado de arquitetura: áreas e oportunidades
+
+## A arquitetura além do projeto residencial
+
+O arquiteto e urbanista tem campo de atuação muito mais amplo do que projetos de casas. Entender essa diversidade é o primeiro passo para encontrar onde você pode prosperar.
+
+## Principais áreas de atuação
+
+### Arquitetura Residencial
+O mais conhecido — projetos de residências, reformas, interiores de apartamentos.
+- **Modelo:** Geralmente freelance ou escritório próprio
+- **Honorários:** 8–15% do custo da obra (padrão IAB)
+
+### Arquitetura Comercial e Corporativa
+Escritórios, lojas, restaurantes, hotéis. Maior complexidade técnica, projetos maiores, mais regularidade de trabalho.
+- **Salário (arquiteto em escritório):** R$ 4.500–16.000
+
+### Incorporação e Real Estate
+Desenvolvimento de empreendimentos imobiliários — interface entre arquitetura e negócio. Trabalha com incorporadoras.
+- **Salário:** R$ 7.000–20.000
+
+### Arquitetura de Interiores
+Projeto de ambientes internos — residenciais e comerciais. Pode ser cursado separadamente da arquitetura.
+- **Mercado:** Fortíssimo, especialmente em classe A e B
+
+### Urbanismo e Planejamento
+Projetos urbanos, planos diretores, habitação social, infraestrutura urbana. Muito ligado ao setor público.
+- **Salário (setor público):** R$ 6.000–18.000
+
+### BIM Manager e Coordenação de Projetos
+Com crescimento do BIM, profissionais que gerenciam a modelagem digital são muito demandados em grandes escritórios.
+- **Salário:** R$ 6.000–15.000
+
+### Arquitetura Sustentável e Certificações Verdes
+LEED, AQUA, Procel Edifica — crescendo com demanda por edificações sustentáveis.
+- **Adiciona 20-30% ao salário**`,
+      },
+      {
+        id: '90-2',
+        title: 'Ferramentas digitais e BIM na arquitetura moderna',
+        duration: '25 min',
+        content: `# Ferramentas digitais e BIM na arquitetura moderna
+
+## O impacto da digitalização na arquitetura
+
+A digitalização está transformando o mercado de arquitetura de forma semelhante ao que aconteceu com outros setores. Escritórios que adotam BIM e ferramentas avançadas de visualização têm vantagem competitiva real sobre os que trabalham com AutoCAD 2D tradicional.
+
+## Ferramentas essenciais
+
+**AutoCAD:** Ainda muito usado para 2D. É o mínimo que qualquer escritório espera.
+
+**Revit (Autodesk):** O padrão de BIM para edificações. Se você sabe Revit em nível avançado, nunca falta trabalho.
+
+**SketchUp:** Modelagem 3D mais acessível. Muito usado em design de interiores e projetos menores.
+
+**Rhino + Grasshopper:** Para arquitetura paramétrica e formas complexas. Escritórios de vanguarda usam muito.
+
+**Lumion / D5 Render / Twinmotion:** Renderização em tempo real. Imagens fotorrealistas para apresentações a clientes. Diferencial enorme em apresentações de venda.
+
+**Enscape:** Plugin de renderização integrado ao Revit e SketchUp. Muito usado.
+
+## BIM: por que é obrigatório dominar
+
+BIM (Building Information Modeling) não é só software — é processo de trabalho colaborativo onde arquitetos, estruturistas, elétrica e hidráulica trabalham no mesmo modelo digital.
+
+**Benefícios práticos:**
+- Detecção automática de conflitos entre projetos (clash detection)
+- Quantitativos precisos extraídos do modelo
+- Visualização 3D integrada ao projeto
+- Gestão de informações durante construção e manutenção
+
+Escritórios que fazem BIM eficientemente entregam projetos mais rápidos com menos retrabalho — e cobram por isso.
+
+## Visualização arquitetônica como negócio
+
+Profissionais especializados em renderização e visualização arquitetônica (arquitetos ou não) constroem negócios de freela muito rentáveis — R$ 3.000–15.000 por projeto de visualização para incorporadoras.`,
+      },
+      {
+        id: '90-3',
+        title: 'Abrindo seu escritório e construindo clientes',
+        duration: '20 min',
+        content: `# Abrindo seu escritório e construindo clientes
+
+## A realidade dos escritórios de arquitetura
+
+A grande maioria dos arquitetos trabalha de forma independente ou em pequenos escritórios (2-5 pessoas). Empregar-se em escritório grande é boa escola nos primeiros anos — mas a transição para independência é comum e desejada por muitos.
+
+## Como captar clientes nos primeiros anos
+
+**Rede pessoal (mais importante):**
+Família, amigos, ex-colegas, vizinhos. A maioria dos primeiros clientes vem de quem te conhece. Não tenha vergonha — avise sua rede que está aceitando projetos.
+
+**Instagram e Pinterest:**
+Plataformas visuais são onde clientes de arquitetura e interiores buscam referências e profissionais. Portfolio bem fotografado no Instagram converte muito bem para o mercado residencial.
+
+**Houzz.com:** Plataforma específica para arquitetura e interiores. Clientes buscam profissionais por região.
+
+**Indicação de construtores e decoradores:** Construtoras e lojas de acabamento interagem com clientes na fase de obra — parceria com eles gera indicações.
+
+## Precificação e contratos
+
+**Modelos de cobrança:**
+- **% do custo da obra:** Padrão do IAB. 8-15% dependendo da complexidade.
+- **Por m²:** R$ 80–300/m² de projeto dependendo de complexidade e nível do cliente.
+- **Pacote fixo:** Para projetos de interiores menores, pacote com escopo bem definido.
+
+**Contrato:** Sempre. Defina claramente o escopo, o que está incluído (executivo, aprovação em prefeitura, acompanhamento de obra?), prazo e condições de pagamento.
+
+## CAU: registro obrigatório
+
+O CAU (Conselho de Arquitetura e Urbanismo) é obrigatório para exercer a profissão no Brasil — similar ao CREA para engenheiros. Registre-se logo após a colação de grau.`,
+      },
+    ],
+  },
+  {
+    id: 91,
+    title: 'Gestão de Pessoas e Liderança',
+    desc: 'Como desenvolver as habilidades de liderança que fazem gestores serem promovidos, valorizados e construírem times de alta performance.',
+    duration: '3h 10min',
+    icon: '👑',
+    isPro: false,
+    color: { bg: 'bg-indigo-50', border: 'border-indigo-200', badge: 'bg-indigo-100 text-indigo-700', icon: 'bg-indigo-600' },
+    lessons: [
+      {
+        id: '91-1',
+        title: 'A transição para gestor: o que muda e como se preparar',
+        duration: '25 min',
+        content: `# A transição para gestor: o que muda e como se preparar
+
+## O maior erro da promoção a gestor
+
+A maioria das pessoas é promovida a gestor porque eram excelentes contribuidores individuais (IC). O problema: o que te fez excelente como IC — execução pessoal, profundidade técnica, entrega individual — não é o que te faz excelente como gestor.
+
+Como gestor, seu sucesso é medido pelos resultados do time, não pelos seus. Isso exige uma mudança de identidade que muitos nunca fazem completamente.
+
+## O que muda na transição
+
+**De:** Fazer → **Para:** Facilitar outros a fazerem
+**De:** Saber a resposta → **Para:** Fazer as perguntas certas
+**De:** Resolver problemas → **Para:** Criar capacidade no time de resolver
+**De:** Visibilidade pessoal → **Para:** Dar visibilidade ao time
+**De:** Profundidade técnica → **Para:** Amplitude de perspectiva
+
+## Os primeiros 90 dias como gestor
+
+**Primeiros 30 dias — Ouvir:**
+Não mude nada. Entenda como o time funciona, o que está funcionando, o que não está, o que cada pessoa prioriza e o que as motiva. Converse individualmente com cada membro do time.
+
+**Dias 31-60 — Diagnosticar:**
+Identifique as questões mais críticas. Onde o time está bem? Onde há problemas? O que precisa mudar para o time performar melhor?
+
+**Dias 61-90 — Agir:**
+Comece a implementar mudanças — mas de forma colaborativa, explicando o racional. As primeiras decisões definem como o time te perceberá.
+
+## 1:1 (one-on-one): a ferramenta mais importante do gestor
+
+Reunião semanal ou quinzenal entre gestor e cada membro do time. Não é update de status — é conversa sobre desenvolvimento, bloqueios, perspectivas e bem-estar.
+
+O gestor que cancela 1:1s repetidamente sinaliza que o time não é prioridade. Invista nessas reuniões.`,
+      },
+      {
+        id: '91-2',
+        title: 'Feedback, delegação e construção de times de alta performance',
+        duration: '25 min',
+        content: `# Feedback, delegação e construção de times de alta performance
+
+## Feedback: a ferramenta de desenvolvimento mais poderosa
+
+Gestores que não dão feedback regular privam seus liderados da oportunidade de crescer. Feedback não é crítica — é informação que permite ajuste de comportamento.
+
+**Feedback eficaz:**
+- **Específico:** "Na reunião de ontem, quando o cliente perguntou sobre o prazo, você hesitou por 30 segundos antes de responder" — não "você precisa ser mais confiante".
+- **Oportuno:** Logo após o comportamento, enquanto ainda está fresco.
+- **Focado no comportamento, não na pessoa:** O que a pessoa fez, não quem ela é.
+- **Privado (para críticas):** Nunca corrija publicamente. Elogie em público, critique em privado.
+
+**Modelo SBI (Situation-Behavior-Impact):**
+"Na [situação], quando você [comportamento], o impacto foi [resultado]."
+
+## Delegação eficaz: multiplicador do gestor
+
+O gestor que não delega se torna gargalo. A delegação eficaz requer:
+
+**Clareza de expectativa:** O que precisa ser entregue, quando, e com qual nível de qualidade.
+**Recursos e autoridade:** A pessoa precisa de tudo que precisa para executar — incluindo autoridade para tomar decisões dentro do escopo delegado.
+**Check-ins sem microgerenciamento:** Acompanhe o progresso sem estar em cima o tempo todo.
+**Aceitar que vai ser diferente de como você faria:** Delegação real aceita que o resultado pode ser diferente (e às vezes melhor) que o seu.
+
+## Construindo times de alta performance
+
+**Clareza de propósito:** Times de alta performance sabem exatamente o que estão tentando alcançar e por que importa.
+
+**Segurança psicológica:** Membros se sentem seguros para tomar riscos, discordar e admitir erros sem medo de punição. Pesquisa do Google (Project Aristotle) identificou isso como o fator mais importante em times de alto desempenho.
+
+**Diversidade de perspectivas:** Times homogêneos têm pontos cegos. Perspectivas diversas — de background, função, senioridade — melhoram a qualidade das decisões.
+
+**Rituais de time:** Retrospectivas, celebração de conquistas, momentos de conexão humana — constroem coesão que sustenta alta performance a longo prazo.`,
+      },
+      {
+        id: '91-3',
+        title: 'Liderança em tempos de mudança e adversidade',
+        duration: '20 min',
+        content: `# Liderança em tempos de mudança e adversidade
+
+## Por que a liderança em crise revela o líder real
+
+Qualquer um parece bom líder quando tudo está indo bem. O que diferencia líderes excepcionais é o que fazem quando o ambiente está difícil — demissões em massa, crises de produto, mudanças estratégicas abruptas.
+
+## Princípios de liderança em momentos difíceis
+
+**Comunique com transparência (mesmo sem todas as respostas):**
+Times preferem honestidade sobre incerteza a falsas garantias. "Sei que estão preocupados e que não tenho todas as respostas. O que posso dizer é [o que sei]. Estarei comunicando atualizações assim que houver."
+
+**Seja acessível, não distante:**
+Em crises, líderes que somem aumentam a ansiedade do time. Esteja presente, visível e disponível para conversas individuais.
+
+**Proteja o time do que puder:**
+Parte do papel do gestor é filtrar pressão e ruído que vem de cima para que o time possa focar no trabalho. Isso não é desonestidade — é proteção.
+
+**Decida com informação incompleta:**
+Em crises, você raramente terá 100% das informações antes de precisar agir. Aprenda a decidir bem com informação incompleta e comunicar a decisão com clareza.
+
+## Gerenciando sua própria energia como líder
+
+Líderes são amplificadores de emoção — quando o líder está ansioso, o time fica ansioso. Quando o líder está calmo, o time fica mais calmo.
+
+Isso não significa fingir que tudo está bem. Significa gerenciar sua própria ansiedade fora da vista do time para aparecer com clareza e calma mesmo em momentos difíceis.
+
+**Práticas que ajudam:** Exercise físico regular, sono, coaching ou terapia individual, peer group de líderes (rede de suporte mútuo entre gestores).`,
+      },
+    ],
+  },
+  {
+    id: 92,
+    title: 'Carreira em Saúde Além da Medicina',
+    desc: 'Enfermagem, fisioterapia, nutrição, farmácia e outras carreiras da saúde: mercado, especialidades e oportunidades além do consultório.',
+    duration: '3h 00min',
+    icon: '🏥',
+    isPro: false,
+    color: { bg: 'bg-red-50', border: 'border-red-200', badge: 'bg-red-100 text-red-700', icon: 'bg-red-500' },
+    lessons: [
+      {
+        id: '92-1',
+        title: 'O ecossistema de saúde: carreiras e mercado',
+        duration: '25 min',
+        content: `# O ecossistema de saúde: carreiras e mercado
+
+## Saúde é o maior setor do mundo
+
+O setor de saúde representa ~9% do PIB brasileiro e é um dos que mais cresce globalmente. Com envelhecimento da população, avanços tecnológicos e pandemia que reforçou a valorização da saúde, as perspectivas para profissionais são excelentes.
+
+## Enfermagem
+
+A maior força de trabalho da saúde. Com 2,5 milhões de profissionais no Brasil, é carreira de alta demanda — especialmente em UTI, home care e saúde corporativa.
+
+**Especialidades mais valorizadas:**
+- Enfermeiro UTI / Intensivista: R$ 5.000–12.000
+- CRNA (anestesia — nos EUA, muito bem pago): para quem pensa em trabalhar fora
+- Enfermeiro do Trabalho: R$ 5.000–10.000
+- Gestão Hospitalar com base em enfermagem: R$ 8.000–18.000
+
+## Fisioterapia
+
+Saiu do modelo de "reabilitação pós-cirurgia" para área muito mais ampla: fisioterapia respiratória (muito valorizada pós-pandemia), dermatofuncional, neurológica, esportiva.
+
+**Especialidades em alta:** Fisio respiratória, dermato-funcional (estética), neurológica pediátrica.
+- **Salário:** R$ 3.500–12.000 (consultório próprio pode gerar muito mais)
+
+## Nutrição
+
+Área em explosão com redes sociais, influência da saúde preventiva e demanda por nutricionistas esportivos e funcionais.
+- **Salário em empresa:** R$ 4.000–10.000
+- **Clínica/consultório:** Muito variável — nutricionistas renomados cobram R$ 400–800/consulta
+
+## Farmácia
+
+**Especialidades em alta:** Farmácia hospitalar, farmacêutico clínico, farmacogenômica.
+- **Salário:** R$ 4.500–14.000 (indústria farmacêutica paga mais)
+
+## Psicologia Clínica
+Em forte crescimento. Plataformas digitais ampliam o alcance e reduzem a barreira geográfica.
+- **Consulta:** R$ 150–500 (dependendo de localidade e especialização)`,
+      },
+      {
+        id: '92-2',
+        title: 'Healthtech: oportunidades de carreira na interseção de saúde e tecnologia',
+        duration: '25 min',
+        content: `# Healthtech: oportunidades de carreira na interseção de saúde e tecnologia
+
+## O boom das healthtechs
+
+Telemedicina, diagnóstico por IA, wearables, gestão hospitalar digital, plataformas de saúde mental — a interseção de saúde e tecnologia criou um mercado enorme e altamente fragmentado que está crescendo muito.
+
+No Brasil, empresas como Hapvida, NotreDame Intermédica, Einstein Digital, Dasa, Fleury, Doctoralia, Vitau, Minuto Saúde e dezenas de startups estão contratando profissionais que entendem tanto de saúde quanto de tecnologia.
+
+## Funções na interseção saúde + tech
+
+**Product Manager em Healthtech:**
+Gerencia produtos digitais de saúde. Precisa entender regulação (ANVISA, CFM, LGPD em saúde), privacidade de dados de saúde e o fluxo clínico dos usuários.
+- **Salário:** R$ 12.000–25.000
+
+**UX Researcher em Healthtech:**
+Pesquisa com pacientes e profissionais de saúde sobre experiência de uso. Envolve questões específicas de acessibilidade e usuários em situação de vulnerabilidade.
+- **Salário:** R$ 7.000–16.000
+
+**Clinical Informaticist / Informática em Saúde:**
+Profissional que faz ponte entre TI e área clínica — implementação de prontuários eletrônicos, sistemas hospitalares (HIS, LIS, RIS).
+- **Salário:** R$ 8.000–20.000
+
+**Analista de Dados de Saúde:**
+Análise de dados clínicos e epidemiológicos. Alta demanda em operadoras de saúde (Unimed, Bradesco Saúde, SulAmérica).
+- **Salário:** R$ 7.000–18.000
+
+## Telemedicina: oportunidade para profissionais de saúde
+
+Após regulamentação pelo CFM em 2022, a telemedicina virou mercado real. Médicos, psicólogos, nutricionistas e fonoaudiólogos podem atender remotamente — ampliando alcance geográfico e reduzindo custos de estrutura.
+
+Plataformas: Doctoralia, iClinic, Conexa Saúde, Docway.`,
+      },
+      {
+        id: '92-3',
+        title: 'Gestão hospitalar: carreira corporativa na saúde',
+        duration: '20 min',
+        content: `# Gestão hospitalar: carreira corporativa na saúde
+
+## Gestão hospitalar: onde saúde encontra negócio
+
+Hospitais são empresas complexas — com logística, supply chain, finanças, RH, tecnologia e as especificidades do cuidado clínico. Gestores hospitalares são profissionais raros que entendem tanto de negócio quanto do contexto clínico.
+
+## Trilhas de acesso à gestão hospitalar
+
+**Via clínica:** Médico, enfermeiro ou farmacêutico que assume funções de coordenação/chefia e evolui para gestão. O mais comum no Brasil.
+
+**Via administração:** Administradores e economistas com especialização em saúde. MBA em Gestão de Saúde (FGV, Insper, Einstein) é a porta de entrada.
+
+**Via consultorias:** Consultorias especializadas em saúde (Advisory Board, Deloitte Healthcare) formam gestores generalistas que depois migram para hospitais.
+
+## Funções de gestão em hospitais
+
+**Gerente de Operações:** Coordena fluxo de pacientes, capacidade hospitalar, eficiência operacional.
+- **Salário:** R$ 8.000–18.000
+
+**Controller Hospitalar:** Gestão financeira específica de hospital — custeio por paciente, DRG, faturamento de planos.
+- **Salário:** R$ 9.000–20.000
+
+**Diretor Assistencial / Médico Diretor:** Médico que assume liderança clínica e administrativa.
+- **Salário:** R$ 25.000–60.000
+
+**CEO / Superintendente de Hospital:** Topo da hierarquia hospitalar.
+- **Salário:** R$ 40.000–120.000+
+
+## Certificações relevantes
+
+- **MBA em Gestão de Saúde:** FGV, Insper, Hospital Einstein — muito bem vistos no setor
+- **CPHQ (Certified Professional in Healthcare Quality):** Certificação de qualidade hospitalar
+- **Lean Healthcare:** Lean aplicado ao ambiente hospitalar — muito demandado por grandes grupos`,
+      },
+    ],
+  },
+  {
+    id: 93,
+    title: 'Carreira em Jornalismo e Mídia Digital',
+    desc: 'Como construir carreira em jornalismo na era digital: veículos digitais, podcasts, newsletters e criação de conteúdo jornalístico.',
+    duration: '2h 40min',
+    icon: '📰',
+    isPro: false,
+    color: { bg: 'bg-slate-50', border: 'border-slate-200', badge: 'bg-slate-100 text-slate-700', icon: 'bg-slate-600' },
+    lessons: [
+      {
+        id: '93-1',
+        title: 'O jornalismo em transformação: onde estão as oportunidades',
+        duration: '20 min',
+        content: `# O jornalismo em transformação: onde estão as oportunidades
+
+## A crise e a reinvenção do jornalismo
+
+A publicidade migrou para o digital (Google e Meta capturam ~75% da verba publicitária), o que destruiu o modelo de receita de jornais e TVs tradicionais. Ao mesmo tempo, criou novos modelos — newsletters pagas, podcasts, plataformas de assinatura, jornalismo de dados.
+
+## Onde estão os empregos
+
+**Veículos digitais nativos:** The Intercept Brasil, Nexo Jornal, Agência Pública, Poder360, Piauí, Quartz Brasil. Pequenos mas pagam para jornalistas.
+
+**Portais e grandes grupos de mídia:** Globo, UOL, Terra, Band, Record — ainda são grandes empregadores, mas volumes menores que no passado.
+
+**Assessoria de imprensa:** Para jornalistas que querem trabalhar do lado corporativo. Mais estabilidade, mas diferente da função jornalística clássica.
+
+**Branded content e jornalismo corporativo:** Empresas produzem conteúdo editorial de qualidade para suas audiências.
+
+**Podcasts:** Muitas produções independentes e algumas patrocinadas pagam bem para roteiristas, produtores e apresentadores.
+
+**Freelance:** Escrever para múltiplas publicações. Sustentável para quem tem especialidade de nicho.
+
+## Especializações que fazem diferença
+
+Jornalistas especializados são muito mais valorizados que generalistas:
+- **Jornalismo econômico/financeiro:** Bloomberg, Valor Econômico, InfoMoney
+- **Jornalismo de saúde:** Em alta pós-pandemia
+- **Jornalismo de tecnologia:** The Verge, TecMundo, Olhar Digital
+- **Jornalismo investigativo:** Associado a plataformas de financiamento coletivo e fundações
+- **Data Journalism:** Jornalismo com análise de dados — Python, R, SQL para jornalistas`,
+      },
+      {
+        id: '93-2',
+        title: 'Newsletter e podcast: como criar audiência e monetizar',
+        duration: '20 min',
+        content: `# Newsletter e podcast: como criar audiência e monetizar
+
+## A era das newsletters pagas
+
+Substack, Beehiiv, Ghost, e no Brasil o próprio LinkedIn Newsletter — plataformas que permitem jornalistas e criadores de conteúdo construírem audiência direta e cobrar assinatura.
+
+**Cases de sucesso no Brasil:**
+Jornalistas que saíram de grandes redações e construíram newsletters com milhares de assinantes pagantes. Uma newsletter com 5.000 assinantes a R$ 30/mês = R$ 150.000/mês de receita potencial.
+
+**Como construir uma newsletter:**
+1. Nicho claro: "Finanças para quem odeia planilha" ou "Tecnologia sem jargão" — quanto mais específico, mais fácil de crescer
+2. Consistência: Frequência definida e mantida (semanal é o padrão mais sustentável)
+3. Qualidade sobre quantidade: 1.000 leitores engajados valem mais que 10.000 passivos
+4. Monetização gradual: Comece gratuito, construa confiança, introduza plano pago
+
+## Podcast: como entrar e crescer
+
+Brasil é o 3° maior mercado de podcasts do mundo. Oportunidade ainda presente em muitos nichos.
+
+**Produção mínima viável:**
+- Microfone: ATR2100x (~R$ 400) ou Shure SM7B (~R$ 1.500) para qualidade profissional
+- Interface de áudio: Focusrite Scarlett Solo (~R$ 500)
+- Software de edição: Audacity (gratuito) ou Adobe Audition
+
+**Monetização de podcast:**
+- Publicidade (CPM — custo por mil ouvintes): R$ 20–60/CPM
+- Patreon/Apoia.se: Ouvintes pagam para apoiar
+- Produtos próprios: Curso, mentoria, consultoria
+- Branded content: Empresa financia episódios sobre temas relevantes
+
+**Plataformas de distribuição:** Spotify, Apple Podcasts, Amazon Music. Spotify domina no Brasil com ~70% do mercado de streaming de podcasts.`,
+      },
+      {
+        id: '93-3',
+        title: 'Jornalismo de dados e habilidades digitais para jornalistas',
+        duration: '20 min',
+        content: `# Jornalismo de dados e habilidades digitais para jornalistas
+
+## Por que jornalismo de dados é o futuro
+
+Dados públicos disponíveis (IBGE, TSE, Receita Federal, portais de transparência) permitem investigações jornalísticas que antes exigiriam dezenas de jornalistas e meses de trabalho. Hoje, um jornalista com habilidades de dados pode fazer análises em horas.
+
+## Habilidades técnicas que jornalistas precisam
+
+**Básico (todos deveriam ter):**
+- Excel/Google Sheets avançado: pivot tables, PROCV, gráficos
+- Pesquisa em bancos de dados públicos: Lei de Acesso à Informação, portais de transparência
+- Verificação de fatos (fact-checking): ferramentas como InVid, Google Reverse Image Search
+
+**Intermediário (diferencial real):**
+- SQL: para consultar bancos de dados públicos
+- Python básico (Pandas): para limpar e analisar datasets grandes
+- Visualização de dados: Flourish, Datawrapper, Google Data Studio
+
+**Avançado (especialistas em dados):**
+- Python completo para raspagem e análise
+- R para análise estatística
+- QGIS para mapas e jornalismo geoespacial
+
+## Verificação de imagens e vídeos
+
+Em um mundo de deep fakes e desinformação, saber verificar conteúdo visual é habilidade crítica:
+- **InVid/WeVerify:** Analisa vídeos para detectar manipulação
+- **Google Reverse Image:** Rastreia origem de imagens
+- **TinEye:** Similar ao Google para imagens
+- **Bellingcat:** Guia de OSINT para jornalistas investigativos
+
+## Onde aprender jornalismo de dados
+
+- Knight Center for Journalism (UT Austin): Cursos online gratuitos de alta qualidade, muitos em português
+- Coda.Br: Conferência brasileira de jornalismo de dados com recursos educacionais
+- ABRAJI (Associação Brasileira de Jornalismo Investigativo): Cursos e comunidade`,
+      },
+    ],
+  },
+  {
+    id: 94,
+    title: 'Carreira em Engenharia Química e Petróleo',
+    desc: 'Refino, petroquímica, biocombustíveis e química fina: as oportunidades de carreira para engenheiros químicos no Brasil.',
+    duration: '3h 00min',
+    icon: '🧪',
+    isPro: true,
+    color: { bg: 'bg-cyan-50', border: 'border-cyan-200', badge: 'bg-cyan-100 text-cyan-700', icon: 'bg-cyan-500' },
+    lessons: [
+      {
+        id: '94-1',
+        title: 'Mercado de trabalho para engenheiros químicos',
+        duration: '25 min',
+        content: `# Mercado de trabalho para engenheiros químicos
+
+## A versatilidade da engenharia química
+
+Engenharia química tem uma das mais amplas aplicações entre as engenharias — de refino de petróleo a produção de alimentos, de farmacêutica a agroquímica, de celulose e papel a biocombustíveis.
+
+## Principais setores e funções
+
+### Petróleo e Gás
+Petrobras, Shell, TotalEnergies, SLB — o setor de O&G é o maior empregador de químicos no Brasil.
+- Funções: processo, refino, exploração e produção, engenharia de poço
+- **Salário:** R$ 8.000–40.000 (offshore tem adicional significativo)
+
+### Petroquímica e Química Básica
+Braskem, Oxiteno, Unigel — produção de resinas, polímeros, produtos químicos intermediários.
+- **Salário:** R$ 7.000–20.000
+
+### Farmacêutica
+EMS, Eurofarma, Pfizer, Novartis — síntese de princípios ativos, processos farmacêuticos, validação.
+- **Salário:** R$ 6.000–18.000
+
+### Alimentos e Bebidas
+Ambev, Nestlé, JBS, Cargill — processos de produção de alimentos, controle de qualidade, P&D.
+- **Salário:** R$ 5.500–15.000
+
+### Biocombustíveis e Energia Renovável
+Raízen, São Martinho, Boa Energia — etanol, biodiesel, biogás. Setor em expansão com transição energética.
+- **Salário:** R$ 6.000–18.000
+
+### Celulose e Papel
+Suzano, Klabin, Eldorado — processamento de biomassa, branqueamento, papelagem.
+- **Salário:** R$ 6.500–18.000
+
+### Mineração e Metalurgia
+Vale, Anglo American, Gerdau — hidrometalurgia, tratamento de minérios, processos pirometalúrgicos.
+- **Salário:** R$ 7.000–20.000`,
+      },
+      {
+        id: '94-2',
+        title: 'Simulação de processos e ferramentas computacionais',
+        duration: '25 min',
+        content: `# Simulação de processos e ferramentas computacionais
+
+## Por que simulação é habilidade core em engenharia química
+
+Nenhuma planta química é construída sem antes ser simulada. Simulação de processos permite otimizar design, avaliar condições operacionais, identificar gargalos e reduzir custos antes de colocar dinheiro em hardware real.
+
+## Ferramentas principais
+
+**Aspen HYSYS e Aspen Plus (AspenTech):**
+Os simuladores de processo mais usados no mundo. HYSYS para operações de O&G, Aspen Plus para petroquímica e química fina.
+Dominar pelo menos um é quase obrigatório para trabalhar em processo nas grandes empresas.
+
+**Pro/II (Aveva):**
+Alternativa ao HYSYS, muito usada em refino.
+
+**CHEMCAD:**
+Mais acessível, muito usado em universidades e PMEs.
+
+**Aspen Energy Analyzer:**
+Integração de calor (heat integration) — fundamental para projetos de eficiência energética.
+
+**CFD (Computational Fluid Dynamics):**
+ANSYS Fluent para simulação de fenômenos de transferência. Mais especializado mas muito valorizado.
+
+## Python na engenharia química
+
+Python entrou forte na engenharia química:
+- **SciPy / NumPy:** Para resolução de equações diferenciais de modelos de reator
+- **Matplotlib / Plotly:** Visualização de dados de processo
+- **pandas:** Análise de dados de planta (historiadores como OSIsoft PI)
+- **GEKKO / Pyomo:** Otimização de processo
+
+Engenheiros que combinam conhecimento de processo + Python têm altíssima empregabilidade especialmente em projetos de digitalização de plantas.
+
+## Digitalização de plantas industriais
+
+**Digital Twin de planta:** Modelo digital que espelha a planta real em tempo real. Permite monitoramento avançado e otimização contínua.
+
+**OSIsoft PI / InfluxDB:** Historiadores de dados de processo — armazenam e permitem análise de dados de sensores em tempo real.
+
+**Controle avançado (APC):** Sistemas como Aspen DMC+ e Honeywell Profit Controller para otimização de controle além do PID convencional.`,
+      },
+      {
+        id: '94-3',
+        title: 'Petróleo e gás: oportunidades e como entrar na Petrobras',
+        duration: '20 min',
+        content: `# Petróleo e gás: oportunidades e como entrar na Petrobras
+
+## O setor de O&G no Brasil
+
+Com o pré-sal, o Brasil virou uma das maiores reservas de petróleo do mundo. Petrobras, Shell, TotalEnergies, Equinor, Repsol, PRIO — dezenas de operadoras e centenas de prestadores de serviço (SLB, Halliburton, Baker Hughes, Subsea 7) empregam engenheiros químicos, mecânicos, de petróleo e de produção.
+
+## Funções em O&G para engenheiros químicos
+
+**Engenheiro de Processo (Process Engineer):**
+Design e otimização de unidades de processo — separação, tratamento de gás, refino.
+- **Salário:** R$ 10.000–25.000
+
+**Engenheiro de Reservatórios:**
+Avalia quantidade e comportamento de hidrocarbonetos no reservatório.
+- **Salário:** R$ 12.000–30.000
+
+**Engenheiro de Produção:**
+Garante que o poço produz de forma otimizada — artificial lift, acidificação, workover.
+- **Salário:** R$ 10.000–25.000
+
+**Engenheiro Offshore:**
+Trabalha em plataformas — regime de 14/14 ou 21/21 (dias embarcado/dias em casa). Adicional de periculosidade + diária elevada.
+- **Salário:** R$ 15.000–50.000+
+
+## Processo seletivo da Petrobras
+
+A Petrobras realiza concursos públicos para engenheiros. Processo típico:
+1. Provas objetivas (conhecimentos gerais e técnicos)
+2. Prova discursiva
+3. Exame médico
+4. Admissão
+
+Prepare-se especialmente em: termodinâmica aplicada, transferência de calor e massa, controle de processos, legislação ambiental em O&G.
+
+**Salário Petrobras (engenheiro júnior):** R$ 12.000–16.000 + benefícios extensos (PLR, saúde, previdência privada).
+
+## Pré-sal e o futuro do setor
+
+O pré-sal produz mais de 80% do petróleo brasileiro. Projetos de longa duração garantem demanda por engenheiros por décadas — mas a transição energética exige também profissionais que entendam de captura de CO2, descarbonização de processo e hidrogênio verde.`,
+      },
+    ],
+  },
+  {
+    id: 95,
+    title: 'Carreira em Economia e Política Econômica',
+    desc: 'Do analista econômico ao cargo no Banco Central: as trilhas de carreira para economistas no Brasil.',
+    duration: '3h 00min',
+    icon: '📉',
+    isPro: true,
+    color: { bg: 'bg-blue-50', border: 'border-blue-200', badge: 'bg-blue-100 text-blue-700', icon: 'bg-blue-600' },
+    lessons: [
+      {
+        id: '95-1',
+        title: 'O mercado de trabalho para economistas',
+        duration: '25 min',
+        content: `# O mercado de trabalho para economistas
+
+## A versatilidade da formação em economia
+
+Economistas trabalham em finanças, governo, consultorias, empresas, academia, think tanks e organismos internacionais. A formação quantitativa da economia é cada vez mais valorizada em mundo orientado a dados.
+
+## Principais mercados de trabalho
+
+### Mercado Financeiro
+Economistas são altamente valorizados em bancos, gestoras, corretoras e consultorias financeiras para análise macroeconômica, modelagem e research.
+- **Economista chefe de banco/gestora:** R$ 25.000–80.000+
+- **Analista de research macroeconômico:** R$ 8.000–20.000
+
+### Setor Público
+Banco Central, Ministério da Fazenda, BNDES, IPEA, IBGE, CVM — carreiras públicas para economistas com concurso, em geral bem remuneradas.
+- **Analista do Banco Central:** R$ 20.000+ (um dos melhores concursos do Brasil)
+- **Auditor Fiscal da Receita com especialização em economia:** R$ 21.000+
+
+### Consultorias
+McKinsey, BCG, Oliver Wyman, FGV Projetos, Tendências Consultoria — análise econômica aplicada a questões de negócio e política pública.
+- **Salário:** R$ 8.000–30.000 dependendo de nível e firma
+
+### Organismos Internacionais
+FMI, Banco Mundial, CEPAL, BID — carreiras internacionais para economistas com PhD ou experiência relevante.
+- **Salário:** Em dólar — US$ 60.000–200.000+ dependendo de nível
+
+### Academia
+Professor universitário e pesquisador. Requer mestrado (mínimo para lecturas) e PhD para pesquisa.
+- **Professor titular em universidade federal:** R$ 10.000–18.000
+
+## Especializações mais valorizadas
+
+- **Econometria e métodos quantitativos:** Com Python/R, muito demandado
+- **Economia comportamental:** Aplicações em políticas públicas e negócios
+- **Economia do setor financeiro:** Para mercado financeiro
+- **Economia regulatória:** Para agências reguladoras e empresas reguladas`,
+      },
+      {
+        id: '95-2',
+        title: 'Ferramentas quantitativas para economistas modernos',
+        duration: '25 min',
+        content: `# Ferramentas quantitativas para economistas modernos
+
+## A revolução quantitativa na economia
+
+Economia foi historicamente uma ciência teórica com algum empirismo. A era dos dados mudou tudo — economistas que sabem extrair insights de grandes bases de dados são muito mais valorizados que os puramente teóricos.
+
+## Python e R para economistas
+
+**Python:**
+- Pandas e NumPy para manipulação de dados macroeconômicos
+- Statsmodels para modelos econométricos (OLS, VAR, VECM)
+- Scikit-learn para machine learning aplicado a economia
+- APIs do IBGE, Banco Central e outros para coleta automática de dados
+
+**R:**
+- Tidyverse (dplyr, ggplot2) — padrão em academia de economia
+- Pacote econometrics: plm (dados em painel), vars (VAR), forecast (séries temporais)
+- R é mais forte em econometria; Python em ML e automação
+
+**Qual aprender primeiro?** Para mercado financeiro e consultorias, Python. Para academia, R. Para ambos, aprenda os dois.
+
+## Econometria na prática
+
+**Regressão OLS:** A base. Mas economistas modernos precisam entender endogeneidade, variáveis instrumentais, diferenças-em-diferenças e regressão em descontinuidade (os métodos causais modernos).
+
+**Séries temporais:** ARIMA, VAR, cointegração — fundamentais para análise macroeconômica.
+
+**Dados em painel:** Fixed effects, random effects, diferenças-em-diferenças — muito usados em microeconometria.
+
+## Fontes de dados essenciais para economistas brasileiros
+
+- **SGS (Sistema Gerenciador de Séries Temporais do Banco Central):** Todas as séries macro do Brasil
+- **SIDRA (IBGE):** Dados demográficos, econômicos e agrícolas
+- **IPEADATA:** IPEA — séries temporais extensas
+- **B3:** Dados de mercado financeiro
+- **Tesouro Nacional:** Dados fiscais do governo federal`,
+      },
+      {
+        id: '95-3',
+        title: 'Concurso do Banco Central e carreira pública em economia',
+        duration: '20 min',
+        content: `# Concurso do Banco Central e carreira pública em economia
+
+## Por que o Banco Central é o sonho de muitos economistas
+
+O BCB (Banco Central do Brasil) é uma das instituições mais respeitadas do Brasil — independência institucional, quadro técnico de altíssimo nível, remuneração muito acima de outras carreiras públicas.
+
+**Remuneração inicial (Analista Área 1 — Economia):** Aproximadamente R$ 20.000 + benefícios.
+**Após progressão:** Pode chegar a R$ 30.000–40.000.
+
+## O concurso do BCB
+
+**Áreas para economistas:** Área 1 (Economia e Finanças) e Área 4 (Pesquisa/TI para quem tem formação quantitativa).
+
+**O que cai na prova:**
+- Macroeconomia avançada (IS-LM, modelos de crescimento, teoria monetária)
+- Microeconomia (equilíbrio geral, teoria dos jogos, informação assimétrica)
+- Econometria (OLS, séries temporais, dados em painel)
+- Finanças (avaliação de ativos, gestão de risco, derivativos)
+- Finanças públicas e política fiscal
+- Economia internacional (balanço de pagamentos, câmbio, comércio)
+
+**Nível da prova:** Muito alto. Questões de mestrado/doutorado são frequentes. Candidatos com pós-graduação têm vantagem significativa.
+
+## Outros concursos públicos para economistas
+
+**CVM (Comissão de Valores Mobiliários):** Regulação do mercado de capitais.
+**BNDES:** Banco de desenvolvimento com projetos de infraestrutura e inovação.
+**IPEA:** Pesquisa econômica aplicada — mais acadêmico.
+**AGU / Advocacia Geral da União:** Para economistas interessados em área jurídica-econômica.
+**Receita Federal:** Auditor fiscal com especialização em economia/contabilidade.`,
+      },
+    ],
+  },
+  {
+    id: 96,
+    title: 'Portfólio Profissional: Como Construir e Apresentar',
+    desc: 'Estratégias para criar um portfólio que abre portas — independente da sua área — e como apresentá-lo em processos seletivos.',
+    duration: '2h 20min',
+    icon: '🗂️',
+    isPro: false,
+    color: { bg: 'bg-violet-50', border: 'border-violet-200', badge: 'bg-violet-100 text-violet-700', icon: 'bg-violet-500' },
+    lessons: [
+      {
+        id: '96-1',
+        title: 'Por que portfólio importa em qualquer área',
+        duration: '20 min',
+        content: `# Por que portfólio importa em qualquer área
+
+## O currículo conta o que você fez. O portfólio mostra como você pensa.
+
+Para áreas criativas e técnicas — design, tecnologia, marketing, escrita, audiovisual — o portfólio é mais importante que o currículo. Mas mesmo em áreas menos óbvias, demonstrar trabalho concreto diferencia candidatos.
+
+## O que conta como portfólio em diferentes áreas
+
+**Design e UX:** Cases documentando processo criativo + resultados
+**Desenvolvimento:** Repositório GitHub com projetos reais e documentados
+**Marketing:** Casos de campanhas com métricas de resultado
+**Redação/Jornalismo:** Clipping de publicações, blog próprio, newsletter
+**Gestão e Negócios:** Apresentações de projetos com impacto mensurável, estudos de caso
+**Arquitetura:** Portfólio visual com projetos executados e em andamento
+**Educação:** Materiais didáticos, planos de aula, resultados de alunos
+**Análise de Dados:** Notebooks Jupyter, dashboards no Power BI, análises publicadas
+
+## Os erros mais comuns
+
+**Muito volume, pouca qualidade:** 10 projetos fracos valem menos que 3 projetos excelentes. Seja seletivo.
+
+**Sem contexto:** "Essa é uma landing page que eu fiz." Quem era o cliente? Qual era o objetivo? Qual foi o resultado?
+
+**Sem atualização:** Portfolio com trabalhos de 5 anos atrás sem atualização sinaliza falta de produção recente.
+
+**Difícil de acessar:** Link que não funciona, arquivo muito pesado, sem versão mobile. Elimine qualquer atrito para quem quer ver seu trabalho.
+
+## Formatos de portfólio por área
+
+| Área | Plataforma recomendada |
+|------|----------------------|
+| Design/UX | Behance, Dribbble, Figma Community |
+| Dev | GitHub, site pessoal |
+| Marketing/Negócios | PDF, Notion, site pessoal |
+| Escrita | Substack, Medium, blog próprio |
+| Dados | GitHub, Kaggle, Tableau Public |
+| Audiovisual | Vimeo, YouTube, site pessoal |`,
+      },
+      {
+        id: '96-2',
+        title: 'Estruturando seus cases: o que incluir em cada projeto',
+        duration: '20 min',
+        content: `# Estruturando seus cases: o que incluir em cada projeto
+
+## A estrutura universal de um case de portfólio
+
+Independente da área, um bom case responde cinco perguntas:
+
+**1. Qual era o desafio?**
+Contexto do problema — o cliente, o mercado, o objetivo de negócio. Dê contexto suficiente para o leitor entender a complexidade do que você enfrentou.
+
+**2. Qual foi o seu papel?**
+Especialmente em projetos de time, seja claro sobre O QUE você especificamente fez. "Participei de um projeto de..." é muito diferente de "Fui responsável pela..."
+
+**3. Qual foi sua abordagem?**
+Como você pensou o problema? Que alternativas considerou? Por que escolheu o caminho que escolheu? O processo importa tanto quanto o resultado.
+
+**4. O que você entregou?**
+O resultado concreto — o produto final, a análise, o design, o sistema.
+
+**5. Qual foi o impacto?**
+Métricas quando possível: "aumentou conversão em X%", "reduziu tempo de X para Y", "atingiu Z usuários". Quando não há número, descreva o impacto qualitativo.
+
+## Apresentando projetos sem cliente real
+
+Se você está começando e não tem projetos profissionais:
+
+**Projetos fictícios com problema real:**
+Escolha um problema real que você observou (no seu dia a dia, numa empresa que você usa, num setor que você conhece) e resolva como se fosse um projeto profissional.
+
+**Projetos pro bono:**
+Ofereça seu trabalho para ONGs, pequenas empresas locais ou projetos de impacto. Você entrega valor real e ganha material para o portfólio.
+
+**Reprojetos (redesigns):**
+Critique um produto existente e proponha melhorias. Mostre que você consegue analisar e propor — mesmo sem ter sido contratado para isso.
+
+## Quantos projetos incluir
+
+**Mínimo:** 3 projetos relevantes
+**Ideal:** 4-6 projetos que mostram diversidade de habilidades e tipos de desafio
+**Máximo:** 8 projetos (mais que isso começa a diluir a atenção)
+
+Prefira ter menos projetos com documentação excelente do que muitos projetos superficialmente apresentados.`,
+      },
+    ],
+  },
+  {
+    id: 97,
+    title: 'Carreira em Farmácia, Biotecnologia e Ciências da Vida',
+    desc: 'Da bancada ao mercado: as carreiras em farmácia industrial, biotecnologia, assuntos regulatórios e pesquisa clínica.',
+    duration: '3h 00min',
+    icon: '🔬',
+    isPro: true,
+    color: { bg: 'bg-teal-50', border: 'border-teal-200', badge: 'bg-teal-100 text-teal-700', icon: 'bg-teal-600' },
+    lessons: [
+      {
+        id: '97-1',
+        title: 'Mercado farmacêutico e biotecnológico no Brasil',
+        duration: '25 min',
+        content: `# Mercado farmacêutico e biotecnológico no Brasil
+
+## O setor farmacêutico brasileiro
+
+O Brasil tem o maior mercado farmacêutico da América Latina. Com mais de 70.000 farmácias, dezenas de laboratórios nacionais (EMS, Eurofarma, Hypera, Cristália) e multinacionais (Pfizer, Novartis, Roche, AstraZeneca, MSD), o setor emprega centenas de milhares de profissionais.
+
+## Principais áreas de atuação
+
+### Indústria Farmacêutica
+- **P&D (Pesquisa e Desenvolvimento):** Síntese de moléculas, formulação, desenvolvimento analítico
+- **Produção/Manufatura:** Operação de planta industrial farmacêutica com GMP (Boas Práticas de Manufatura)
+- **Controle de Qualidade:** Análises físico-químicas e microbiológicas de produtos
+- **Assuntos Regulatórios:** Registro e manutenção de produtos na ANVISA
+
+**Salários:** R$ 5.000–20.000 dependendo de área e nível
+
+### Biotecnologia
+Medicamentos biológicos (anticorpos monoclonais, vacinas, hemoderivados) — área de altíssimo crescimento mundial.
+- Biomanguinhos, Butantan, Eurofarma Biologics, EMS Sigma Pharma
+- **Salários:** R$ 7.000–25.000
+
+### CRO (Contract Research Organization)
+Empresas que conduzem pesquisa clínica para indústria farmacêutica: ICON, Parexel, Syneos, PPD.
+- Funções: Monitor de pesquisa clínica (CRA), data management, bioestatística
+- **Salário CRA sênior:** R$ 8.000–18.000 (viagem frequente)
+
+### Farmácia Hospitalar
+Farmacêutico clínico em ambiente hospitalar — farmacovigilância, dispensação, atenção farmacêutica.
+- **Salário:** R$ 5.000–14.000
+
+### Drogarias e Varejo Farmacêutico
+Redes como Raia Drogasil, Pague Menos, Ultrafarma. Gestão de farmácia, atendimento, cargo corporativo.`,
+      },
+      {
+        id: '97-2',
+        title: 'Assuntos regulatórios: a carreira que a ANVISA criou',
+        duration: '25 min',
+        content: `# Assuntos regulatórios: a carreira que a ANVISA criou
+
+## O que faz um profissional de assuntos regulatórios
+
+Assuntos Regulatórios (Regulatory Affairs) é a área que faz a ponte entre a empresa e as agências reguladoras (ANVISA, FDA, EMA). Sem aprovação regulatória, nenhum produto chega ao mercado.
+
+Funções:
+- Preparar e submeter dossiês de registro de medicamentos à ANVISA
+- Acompanhar o processo de análise e responder exigências
+- Garantir conformidade regulatória ao longo do ciclo de vida do produto
+- Monitorar mudanças regulatórias que impactam o portfólio
+- Apoiar exportações (registro em outros países)
+
+## Por que é uma área de alta demanda
+
+Com o aumento de produtos biológicos, genéricos e inovadores no Brasil, a demanda por especialistas em regulatório cresceu muito. É uma das áreas com maior escassez de profissionais qualificados na indústria farmacêutica.
+
+**Salário (analista regulatório pleno):** R$ 6.000–14.000
+**Salário (gerente regulatório):** R$ 15.000–30.000
+
+## O sistema ANVISA e os principais registros
+
+**RDC (Resolução da Diretoria Colegiada):** Principal instrumento regulatório da ANVISA.
+
+**Tipos de registro:**
+- Medicamento novo (NDA): Produto inovador, mais complexo
+- Medicamento genérico/similar: Comprovação de bioequivalência
+- Produto biológico: Complexidade alta, exige caracterização extensiva
+- Suplemento alimentar: Processo mais rápido
+
+**GGMED (Gerência-Geral de Medicamentos):** A área da ANVISA que avalia medicamentos.
+
+## Como entrar em regulatórios
+
+Formação: farmácia, química, biologia, biomedicina, engenharia química.
+
+Diferencial:
+- Pós-graduação em Assuntos Regulatórios (USP, Infarmed)
+- Certificação RAC (Regulatory Affairs Certification) do RAPS — reconhecida internacionalmente
+- Inglês avançado — documentação em inglês é padrão
+- Experiência em laboratório de controle de qualidade como primeiro passo`,
+      },
+      {
+        id: '97-3',
+        title: 'Biotecnologia e carreira acadêmica em ciências da vida',
+        duration: '20 min',
+        content: `# Biotecnologia e carreira acadêmica em ciências da vida
+
+## A biotecnologia no Brasil
+
+Brasil tem capacidade instalada relevante em biotecnologia — Biomanguinhos (Fiocruz), Instituto Butantan, Bionovis, Orygen Biotecnologia. A pandemia de COVID-19 acelerou investimentos e visibilidade do setor.
+
+## Áreas de maior crescimento
+
+**Anticorpos Monoclonais (mAbs):**
+A maior categoria de medicamentos biológicos. Tratamento de câncer, doenças autoimunes, COVID-19. Produção e controle de qualidade de mAbs é especialidade em alta demanda.
+
+**Terapia Gênica e Celular:**
+CAR-T cell, edição genética (CRISPR) — fronteira da medicina. Ainda incipiente no Brasil mas crescendo globalmente. Profissionais com experiência internacional têm vantagem.
+
+**Biossimilares:**
+Versões "genéricas" de medicamentos biológicos. Com várias patentes vencendo globalmente, o mercado de biossimilares está em expansão no Brasil.
+
+**Diagnóstico Molecular:**
+PCR, NGS (next-generation sequencing), diagnóstico de precisão. Pós-pandemia, mercado de diagnóstico expandiu muito.
+
+## Carreira acadêmica: como funciona
+
+**Pós-graduação (Mestrado e Doutorado):**
+Obrigatória para pesquisa e carreira acadêmica. Programas de pós-graduação financiados pela CAPES com bolsas de R$ 2.200 (mestrado) a R$ 3.300 (doutorado).
+
+**Publicações e fator de impacto:**
+Em ciências da vida, a carreira acadêmica é medida pelo número e qualidade das publicações científicas (fator de impacto dos periódicos, h-index do pesquisador).
+
+**Pós-doutorado:** Comum após o PhD — período de pesquisa adicional para fortalecer currículo antes de concorrer a posição permanente.
+
+**Professor universitário:** Concurso público em universidades federais ou processo seletivo em privadas. Cargo cobiçado pela estabilidade e liberdade de pesquisa.
+
+## Para quem não quer academia
+
+Profissionais de ciências da vida têm saída excelente na indústria. O PhD é valorizado em P&D e assuntos regulatórios de grandes farmacêuticas — e salários na indústria são geralmente maiores que na academia.`,
+      },
+    ],
+  },
+  {
+    id: 98,
+    title: 'Empreendedorismo: Do Zero ao Primeiro Cliente',
+    desc: 'Como validar uma ideia de negócio, construir seu MVP, conseguir os primeiros clientes e evitar os erros que destroem a maioria das startups.',
+    duration: '3h 20min',
+    icon: '💡',
+    isPro: false,
+    color: { bg: 'bg-yellow-50', border: 'border-yellow-200', badge: 'bg-yellow-100 text-yellow-700', icon: 'bg-yellow-500' },
+    lessons: [
+      {
+        id: '98-1',
+        title: 'Validação de ideia: antes de construir, confirme que alguém vai pagar',
+        duration: '25 min',
+        content: `# Validação de ideia: antes de construir, confirme que alguém vai pagar
+
+## O erro mais caro do empreendedor iniciante
+
+Construir por meses (ou anos) um produto sem confirmar que alguém pagaria por ele. A maioria das startups falha não por problema técnico, mas por falta de mercado — o produto foi construído para um problema que não existe ou que o cliente resolve de outra forma.
+
+## O que é validação de ideia
+
+Validar uma ideia é obter evidência real (não opinião) de que:
+1. O problema que você quer resolver realmente existe e é doloroso o suficiente
+2. Sua solução proposta resolve o problema de forma que as pessoas pagariam
+3. Você consegue alcançar os clientes de forma economicamente viável
+
+## Como validar sem construir nada
+
+**Entrevistas de problema:**
+Converse com 20-30 potenciais clientes sobre O PROBLEMA — não sobre sua solução. "Como você resolve X hoje? Qual é a maior dificuldade? Com que frequência isso acontece? Quanto custa (em tempo ou dinheiro)?"
+
+**Regras de entrevista:** Não mencione sua solução. Pergunte sobre comportamentos passados, não opiniões futuras ("você compraria?" não vale nada — "quanto você gastou com isso no último mês?" é ouro).
+
+**Landing page + tráfego pago:**
+Crie uma página descrevendo sua solução e botão "quero saber mais" ou "pre-compra". Coloque R$ 200-500 em anúncios. Quantas pessoas clicaram? Quantas forneceram email? Isso é sinal de demanda real.
+
+**Venda antes de construir:**
+O teste definitivo de validação é alguém pagar antes de o produto existir. "Estou construindo X. O preço será Y. Você me pagaria Z agora para ter acesso em beta?" Se a resposta for sim e eles pagarem, você tem validação.
+
+## Métricas de validação
+
+- **Taxa de resposta a entrevistas:** Pessoas topam falar porque o problema é real para elas
+- **Conversão na landing page:** >3-5% de visitante para email é sinal positivo
+- **Pré-vendas:** Mesmo 3-5 clientes pagando antes é validação real`,
+      },
+      {
+        id: '98-2',
+        title: 'MVP: construa o mínimo que aprende o máximo',
+        duration: '25 min',
+        content: `# MVP: construa o mínimo que aprende o máximo
+
+## O que é MVP (Minimum Viable Product)
+
+MVP não é "produto incompleto" — é a versão mais simples do produto que permite testar sua hipótese principal com clientes reais, gerando aprendizado máximo com esforço mínimo.
+
+O objetivo do MVP não é escalar — é aprender.
+
+## Tipos de MVP
+
+**MVP de Concierge:**
+Você faz manualmente o que o software fará no futuro. Antes de construir um sistema de recomendação de vinho, você envia recomendações personalizadas por WhatsApp para 10 clientes que pagam. Se eles amam e continuam, você construiu o algoritmo.
+
+**MVP de Landing Page:**
+Página que descreve o produto como se existisse. Coleta emails de interessados. Mede demanda antes de construir.
+
+**Produto Wizard of Oz:**
+Por trás da interface profissional, há pessoas executando manualmente. Clientes acham que é automatizado. Você aprende o que funciona antes de automatizar.
+
+**Fake Door Test:**
+Adiciona botão/feature no produto existente que leva a mensagem "em breve". Mede quantas pessoas clicam — sem construir nada.
+
+**MVP digital mínimo:**
+Para produtos de software: versão com 20% das features que resolvem 80% do problema. Construa rápido, coloque clientes usando, aprenda.
+
+## O ciclo de aprendizado: Build-Measure-Learn
+
+Eric Ries (Lean Startup) definiu o ciclo que todo empreendedor deve seguir:
+
+1. **Build:** Construa a menor versão que testa sua hipótese
+2. **Measure:** Meça o comportamento real dos usuários (não opiniões)
+3. **Learn:** O que os dados dizem? Sua hipótese foi confirmada ou refutada?
+4. **Repeat:** Ajuste e repita — mais rápido que o concorrente
+
+A velocidade de iteração nesse ciclo é o que separa startups de sucesso das que ficam presas construindo produto que ninguém usa.
+
+## Quanto tempo para um MVP
+
+**Ideal:** 4-8 semanas
+**Máximo razoável:** 3 meses
+**Sinal de problema:** 6+ meses sem colocar nas mãos de clientes reais
+
+Se está levando mais que isso, você provavelmente está construindo demais antes de validar.`,
+      },
+      {
+        id: '98-3',
+        title: 'Primeiros clientes e crescimento inicial',
+        duration: '25 min',
+        content: `# Primeiros clientes e crescimento inicial
+
+## Os primeiros 10 clientes: a fase mais difícil
+
+Nenhum canal de marketing funciona para quem tem zero clientes. Você precisa de clientes para ter cases, para ter referências, para ter dados de uso. Como conseguir os primeiros sem nenhum desses?
+
+## Estratégias para os primeiros 10 clientes
+
+**Sua rede pessoal:**
+O caminho mais rápido e subestimado. Ex-colegas, amigos, família, ex-clientes, conhecidos do LinkedIn. Não peça "se conheça alguém que precise, manda contato." Peça introdução específica para pessoas com o perfil do seu cliente.
+
+**Comunidades onde seu cliente está:**
+Grupos do Facebook, Slack, Reddit, LinkedIn, WhatsApp — entre nas comunidades onde seu cliente ideal passa tempo e seja útil (não spam). Ao ser reconhecido como alguém que entrega valor, surgem oportunidades.
+
+**Cold outreach (abordagem direta):**
+Email ou LinkedIn direto para o cliente ideal. Funciona quando personalizado e específico. Taxa de resposta de 5-15% é boa. Com 100 abordagens = 5-15 conversas = 1-3 clientes.
+
+**Parceiros complementares:**
+Quem já atende seu cliente-alvo com produto complementar? Parceria com eles pode dar acesso à base de clientes deles rapidamente.
+
+## Seus primeiros clientes são professores
+
+Trate os primeiros 10 clientes como parceiros de desenvolvimento, não como usuários. Fale com eles toda semana. Entenda profundamente como usam o produto, o que funciona, o que não funciona, o que precisam que você ainda não tem.
+
+Esses clientes definem o produto — se você ouvir bem, o produto que emerge dessas conversas será muito melhor do que o que você imaginou sozinho.
+
+## Quando escalar
+
+Escale quando:
+- Você tem clientes pagando e voltando (retenção)
+- Você entende por que eles ficam (e pode replicar)
+- O CAC (custo de aquisição) é menor que o LTV (valor de vida do cliente)
+- Você tem equipe para executar a escala sem que a qualidade caia
+
+Escalar antes de ter retenção é jogar dinheiro fora — você enche o balde furado.`,
+      },
+    ],
+  },
+  {
+    id: 99,
+    title: 'Carreira em Moda e Varejo Fashion',
+    desc: 'Do estilismo ao e-commerce de moda: as funções, marcas e trilhas de carreira no setor de moda brasileiro.',
+    duration: '2h 50min',
+    icon: '👗',
+    isPro: false,
+    color: { bg: 'bg-pink-50', border: 'border-pink-200', badge: 'bg-pink-100 text-pink-700', icon: 'bg-pink-600' },
+    lessons: [
+      {
+        id: '99-1',
+        title: 'O mercado de moda no Brasil: estrutura e oportunidades',
+        duration: '25 min',
+        content: `# O mercado de moda no Brasil: estrutura e oportunidades
+
+## O Brasil no mapa da moda global
+
+O Brasil tem o maior mercado de moda da América Latina e é o 5° maior do mundo em número de empresas do setor. A São Paulo Fashion Week (SPFW) posiciona o país como referência de tendências latino-americanas. Com crescimento do e-commerce de moda e marcas brasileiras conquistando mercados internacionais, o setor oferece carreiras diversas.
+
+## Principais funções
+
+### Design de Moda / Estilismo
+Criação de coleções — pesquisa de tendências, desenvolvimento de moldes, definição de matérias-primas, construção de identidade visual da marca.
+- **Salário (designer pleno):** R$ 4.000–12.000
+- **Diretor criativo:** R$ 15.000–40.000+
+
+### Produção de Moda
+Planejamento e execução da produção — gestão de fornecedores, controle de qualidade, logística de produção.
+- **Salário:** R$ 4.500–12.000
+
+### Merchandising e Compras
+Define o sortimento da coleção — quais produtos, em quais quantidades, a que preços. Combina análise de dados com intuição de tendências.
+- **Salário:** R$ 5.000–16.000
+
+### Varejo e Visual Merchandising
+Como os produtos são apresentados no ponto de venda — layout de loja, vitrine, experiência de compra.
+- **Salário:** R$ 3.500–9.000
+
+### E-commerce de Moda
+Gestão de canal digital — fotografia de produto, descrições, precificação, gestão de marketplace (Shein, Renner, Dafiti).
+- **Salário:** R$ 5.000–15.000
+
+### Marketing e Branding de Moda
+Construção de imagem de marca, campanhas, relações com influenciadores, fashion week.
+- **Salário:** R$ 5.000–18.000
+
+## Empresas que mais contratam
+
+**Fast fashion:** Renner, Riachuelo, C&A, Marisa, Hering, Malwee
+**Premium:** Osklen, Animale, Reserva, Farm Rio, Chilli Beans
+**Luxo:** Harrods BR, Shopee Luxo, multimarcas de luxo
+**E-commerce:** Dafiti, Shein Brasil, MercadoLivre Moda`,
+      },
+      {
+        id: '99-2',
+        title: 'Sustentabilidade e inovação na moda',
+        duration: '20 min',
+        content: `# Sustentabilidade e inovação na moda
+
+## Por que sustentabilidade é o futuro da moda
+
+A indústria da moda é uma das mais poluentes do mundo — 10% das emissões globais de CO2, maior consumidora de água após agricultura, produz milhões de toneladas de resíduos. Consumidores, especialmente millennials e Gen Z, escolhem marcas com credenciais ambientais reais.
+
+## O movimento de moda sustentável no Brasil
+
+Marcas brasileiras como Insecta Shoes (calçados veganos e sustentáveis), Água de Coco (surf e sustentabilidade), Vestes do Futuro e dezenas de outras estão construindo negócios onde sustentabilidade é proposta de valor central.
+
+**Funções emergentes em moda sustentável:**
+- Especialista em materiais sustentáveis (algodão orgânico, tecidos reciclados, biopolímeros)
+- Gestor de economia circular (programas de devolução, upcycling, reparo)
+- Analista de cadeia de suprimentos ética (rastreabilidade, certificações como GOTS, Oeko-Tex)
+- ESG Manager em varejistas de moda
+
+## Inovação tecnológica em moda
+
+**Fit technology (provadores virtuais):** Aplicativos que permitem "experimentar" roupas virtualmente usando AR — reduz devoluções e aumenta conversão.
+
+**Customização em escala:** Impressão digital em tecidos permite personalização de peças em volumes menores, viabilizando slow fashion com preço acessível.
+
+**Blockchain para rastreabilidade:** Marcas premium usam blockchain para provar a origem e cadeia de custódia de seus produtos.
+
+**Design generativo com IA:** Ferramentas de IA que geram propostas de estampa e silhueta para designers explorarem variações rapidamente.
+
+## Como entrar em moda sustentável
+
+Faculdade de moda é ponto de partida. Mas especializações em sustentabilidade (certificações GOTS, Fair Trade, B Corp) e conhecimento de análise de impacto ambiental (LCA — Life Cycle Assessment) são diferenciais que abrem portas nas marcas mais inovadoras do setor.`,
+      },
+      {
+        id: '99-3',
+        title: 'Construindo carreira em moda: portfolio e primeiros passos',
+        duration: '20 min',
+        content: `# Construindo carreira em moda: portfolio e primeiros passos
+
+## O portfólio em moda
+
+Em moda, o portfólio é obrigatório para qualquer função criativa. Deve mostrar:
+- Pesquisa de tendências (mood boards, referências)
+- Processo criativo (sketches, desenvolvimento de coleção)
+- Resultado final (lookbook, editorial)
+- Capacidade técnica (fichas técnicas, conhecimento de materiais)
+
+**Formatos:** Book impresso para entrevistas presenciais + PDF digital + Instagram/Pinterest para visibilidade online.
+
+## Estágios: como conseguir e aproveitar
+
+Estágio é a porta de entrada da moda. Como conseguir:
+- **Candidatura direta:** Site das marcas e no LinkedIn
+- **SENAI e SENAC:** Parceiros de estágio com convênios com marcas
+- **Fashion Weeks e eventos:** Trabalhar como produtor/assistente em desfiles cria conexões
+- **Multimarcas e boutiques independentes:** Para começar mais rapidamente que nas grandes marcas
+
+Como aproveitar o estágio:
+- Faça mais do que o pedido
+- Observe tudo — o processo criativo, a operação, o relacionamento com fornecedores
+- Construa rede com todos no escritório (o estagiário de hoje é o diretor de amanhã)
+
+## Redes sociais como portfólio
+
+Instagram funciona como portfólio em moda. Perfis que mostram:
+- Desenvolvimento de coleções (processo + resultado)
+- Street style e curadoria de tendências
+- Expertise em nicho específico (moda sustentável, upcycling, cores da temporada)
+
+... atraem atenção de marcas e recrutadores. Fashion designers e estilistas que constroem audiência no Instagram frequentemente são abordados por marcas antes de precisar procurar emprego.
+
+## Internacionalização
+
+Mercados como Portugal, Itália e EUA têm comunidades de moda que acolhem profissionais brasileiros. São Paulo Fashion Week e outros eventos geram visibilidade internacional para talentos locais. Programas de intercâmbio em Milão (Istituto Marangoni), Nova York (FIT) ou Paris (ESMOD) são trampolins para carreira internacional.`,
+      },
+    ],
+  },
+  {
+    id: 100,
+    title: 'Carreira em Administração e Gestão Empresarial',
+    desc: 'Da entrada ao C-suite: as trilhas de carreira para administradores, gestores e líderes empresariais em qualquer setor.',
+    duration: '3h 10min',
+    icon: '🏢',
+    isPro: false,
+    color: { bg: 'bg-blue-50', border: 'border-blue-200', badge: 'bg-blue-100 text-blue-700', icon: 'bg-blue-500' },
+    lessons: [
+      {
+        id: '100-1',
+        title: 'Administração de empresas: a formação mais versátil',
+        duration: '25 min',
+        content: `# Administração de empresas: a formação mais versátil
+
+## Por que administração continua sendo a formação mais empregável
+
+Administração é o curso superior mais popular do Brasil — e com razão. Toda empresa, independente de tamanho e setor, precisa de pessoas que entendam de gestão, finanças, marketing, pessoas e estratégia.
+
+A formação em Administração dá base para atuar em praticamente qualquer área de negócio, e a especialização (feita durante ou após a graduação) é o que define a trilha de carreira específica.
+
+## As principais trilhas
+
+### Gestão Financeira e Controladoria
+Análise financeira, planejamento orçamentário, controle de custos, relações com investidores.
+- **Trilha:** Analista financeiro → Supervisor → Controller → CFO
+
+### Gestão de Marketing e Comercial
+Marketing estratégico, desenvolvimento de marca, gestão de canal, vendas B2B e B2C.
+- **Trilha:** Analista → Coordenador → Gerente → Diretor de Marketing/CMO
+
+### Gestão de Operações
+Processos, supply chain, qualidade, produtividade. Muito demandado em indústria, logística e varejo.
+- **Trilha:** Analista → Supervisor de operações → Gerente → COO
+
+### Gestão de Pessoas (RH)
+Recrutamento, desenvolvimento, remuneração, cultura organizacional.
+- **Trilha:** Analista de RH → BP → HRBP → CHRO (Chief HR Officer)
+
+### Estratégia e Consultoria
+Análise estratégica, planejamento, M&A, transformação organizacional.
+- **Trilha:** Analista → Consultor → Sócio (consultoria) ou Diretor de Estratégia (empresa)
+
+### Empreendedorismo
+Fundação de empresa própria — a trilha não-linear, mas cada vez mais buscada.
+
+## O MBA como acelerador de carreira
+
+MBA (Master of Business Administration) é o principal investimento de carreira para administradores que querem acelerar. No Brasil, FGV, Insper e USP têm os mais reconhecidos. No exterior, Wharton, Harvard, Kellogg, INSEAD são destinos de brasileiro`,
+      },
+      {
+        id: '100-2',
+        title: 'Habilidades que diferenciam gestores que chegam ao topo',
+        duration: '25 min',
+        content: `# Habilidades que diferenciam gestores que chegam ao topo
+
+## O que separa administradores medianos dos excepcionais
+
+A formação técnica em administração é condição necessária mas não suficiente. Os gestores que chegam ao C-suite têm em comum um conjunto de habilidades que transcendem o conhecimento técnico.
+
+## Pensamento estratégico
+
+Capacidade de ver o quadro completo — entender como as partes se relacionam, identificar o que realmente importa entre o ruído de operações diárias, e tomar decisões com perspectiva de longo prazo.
+
+Como desenvolver: leia sobre estratégia empresarial além dos livros de administração. Biografia de líderes empresariais, casos de empresas em situações extremas (turnaround, disrupção, crise). Procure mentores que já estiveram onde você quer chegar.
+
+## Capacidade de execução
+
+Estratégia sem execução é ficção. Os melhores gestores são obcecados não só por criar bons planos mas por garantir que eles se tornem realidade — o que exige follow-up rigoroso, gestão de prioridades, e disposição para resolver obstáculos.
+
+## Gestão de stakeholders
+
+Em qualquer posição de gestão, você precisa influenciar pessoas que não têm obrigação de te seguir — pares, fornecedores, conselho, investidores. Isso exige capacidade de construir alianças, comunicar com clareza e criar situações de ganha-ganha.
+
+## Tomada de decisão com incerteza
+
+Gestores são pagos para decidir — especialmente quando a informação é incompleta. Desenvolver framework de decisão (qual informação mínima você precisa? Qual é o custo de esperar por mais informação?) é habilidade crítica.
+
+## Construindo sua reputação como gestor
+
+Reputação é construída em pequenos atos consistentes ao longo do tempo:
+- **Entregue o que promete** — confiabilidade cria credibilidade
+- **Trate pessoas bem** — memórias de como você tratou as pessoas persistem décadas
+- **Assuma responsabilidade** — tanto por sucessos quanto por fracassos do seu time
+- **Desenvolva pessoas** — gestores que fazem outros crescerem são lembrados positivamente`,
+      },
+      {
+        id: '100-3',
+        title: 'Do analista ao C-suite: mapeando sua jornada executiva',
+        duration: '20 min',
+        content: `# Do analista ao C-suite: mapeando sua jornada executiva
+
+## A trajetória não é linear
+
+A carreira executiva moderna raramente é uma linha reta do analista ao CEO. Movimentos laterais (entre funções), saltos para empresas menores com maior responsabilidade, e até retrocessos temporários fazem parte do caminho.
+
+O que importa é a direção geral: você está acumulando experiências que te preparam para o próximo nível?
+
+## Os marcos críticos de uma carreira executiva
+
+**Primeiro cargo de gestão:**
+O maior salto na carreira — de gerir seu próprio trabalho para gerir o trabalho dos outros. Como você faz essa transição define muito do que virá.
+
+**Primeira P&L (gestão de resultado financeiro):**
+Ser responsável por uma linha de receita e custos, não só por um departamento. Isso você para no mapa como potencial executivo sênior.
+
+**Experiência em crise:**
+Liderar através de uma crise — reestruturação, turnaround, falha de produto — é a escola mais intensa de liderança. Quem passa por isso e sai bem é visto diferente pelo mercado.
+
+**Liderança em mudança:**
+Implementar mudança significativa em uma organização resistente é desafio que poucos têm coragem de assumir e menos ainda executam bem.
+
+## Acelerando sua chegada ao topo
+
+**Escolha a empresa certa:** Uma empresa em crescimento cria oportunidades mais rápido que uma estagnada. Crescimento cria vagas de liderança que não existiriam em ambiente estável.
+
+**Gerencie sua visibilidade interna:** O bom trabalho não fala por si mesmo — você precisa ter visibilidade com as pessoas que decidem promoções. Isso não é autopromoção — é garantir que seu impacto seja conhecido.
+
+**Construa rede externa:** Executivos que só são conhecidos dentro de sua empresa têm menos opções do que os que têm reputação no mercado. Palestras, artigos, participação em conselhos consultivos constroem perfil externo.
+
+**Invista em desenvolvimento:** Coaching executivo, cursos em escolas de negócio, leitura sistemática. Líderes que chegam ao topo são aprendizes perpétuos — e demonstram isso claramente.`,
+      },
+    ],
+  },
+  {
+    id: 101,
     title: 'Gestão Financeira para Profissionais',
     desc: 'Controle seu dinheiro, construa reservas e invista de forma inteligente para ter mais liberdade e segurança na carreira.',
     duration: '3h 10min',
@@ -11335,7 +21189,7 @@ Se sim para as três: vá. Trajetórias não-lineares construídas com intençã
     color: { bg: 'bg-emerald-50', border: 'border-emerald-200', badge: 'bg-emerald-100 text-emerald-700', icon: 'bg-emerald-500' },
     lessons: [
       {
-        id: '41-1',
+        id: '101-1',
         title: 'Orçamento pessoal: a base de tudo',
         duration: '30 min',
         content: `# Orçamento pessoal: a base de tudo
@@ -11388,7 +21242,7 @@ Profissionais de alta renda frequentemente têm menos patrimônio do que profiss
 Revisar mensalmente em 30 minutos transforma completamente sua relação com o dinheiro.`,
       },
       {
-        id: '41-2',
+        id: '101-2',
         title: 'Fundo de emergência: sua proteção profissional',
         duration: '25 min',
         content: `# Fundo de emergência: sua proteção profissional
@@ -11443,7 +21297,7 @@ O fundo de emergência não é apenas uma questão financeira — é uma questã
 - Renda R$5.000, meta R$30.000 → ~15 meses poupando 25%`,
       },
       {
-        id: '41-3',
+        id: '101-3',
         title: 'Investimentos para quem não é especialista',
         duration: '35 min',
         content: `# Investimentos para quem não é especialista
@@ -11497,7 +21351,7 @@ Para quem tem fundo de emergência formado e horizonte de 5+ anos:
 5. Revisão anual, não diária — não fique olhando a carteira todo dia`,
       },
       {
-        id: '41-4',
+        id: '101-4',
         title: 'CLT vs PJ: o que vale mais para você?',
         duration: '40 min',
         content: `# CLT vs PJ: o que vale mais para você?
@@ -11560,7 +21414,7 @@ Exemplo: CLT de R$10.000 → PJ de no mínimo R$14.000 para equivaler.
     ],
   },
   {
-    id: 42,
+    id: 102,
     title: 'Comunicação Digital e Presença Online',
     desc: 'Domine a etiqueta digital, comunique-se com impacto em ambientes remotos e construa uma presença online que abre portas.',
     duration: '2h 45min',
@@ -11569,7 +21423,7 @@ Exemplo: CLT de R$10.000 → PJ de no mínimo R$14.000 para equivaler.
     color: { bg: 'bg-violet-50', border: 'border-violet-200', badge: 'bg-violet-100 text-violet-700', icon: 'bg-violet-500' },
     lessons: [
       {
-        id: '42-1',
+        id: '102-1',
         title: 'Etiqueta digital no ambiente profissional',
         duration: '30 min',
         content: `# Etiqueta digital no ambiente profissional
@@ -11620,7 +21474,7 @@ Com equipes remotas e híbridas, sua comunicação digital é sua presença. Voc
 Ao iniciar uma mensagem, inclua tudo que o destinatário precisa saber para responder sem precisar perguntar de volta. "Oi, tudo bem?" seguido de esperar resposta para depois fazer a pergunta real desperdiça o tempo de todos.`,
       },
       {
-        id: '42-2',
+        id: '102-2',
         title: 'Reuniões remotas de alto impacto',
         duration: '25 min',
         content: `# Reuniões remotas de alto impacto
@@ -11668,7 +21522,7 @@ A reunião pode ser substituída quando:
 - **Câmera ligada**: presença visual aumenta engajamento percebido em 40%`,
       },
       {
-        id: '42-3',
+        id: '102-3',
         title: 'Construindo presença digital profissional',
         duration: '35 min',
         content: `# Construindo presença digital profissional
@@ -11723,7 +21577,7 @@ Você não precisa criar conteúdo viral. Você precisa ser consistente e genuí
 ❌ Inatividade total — perfil abandonado passa imagem negativa`,
       },
       {
-        id: '42-4',
+        id: '102-4',
         title: 'Comunicação escrita de alto impacto',
         duration: '35 min',
         content: `# Comunicação escrita de alto impacto
@@ -11779,7 +21633,7 @@ Imagine que cada frase precisa passar por uma máquina que extrai apenas o suco 
     ],
   },
   {
-    id: 43,
+    id: 103,
     title: 'Inteligência Artificial para Profissionais',
     desc: 'Domine IA generativa para turbinar sua produtividade, construir diferenciais de carreira e posicionar-se no mercado do futuro.',
     duration: '3h 00min',
@@ -11788,7 +21642,7 @@ Imagine que cada frase precisa passar por uma máquina que extrai apenas o suco 
     color: { bg: 'bg-cyan-50', border: 'border-cyan-200', badge: 'bg-cyan-100 text-cyan-700', icon: 'bg-cyan-500' },
     lessons: [
       {
-        id: '43-1',
+        id: '103-1',
         title: 'IA generativa: o que é e por que muda tudo',
         duration: '30 min',
         content: `# IA generativa: o que é e por que muda tudo
@@ -11837,7 +21691,7 @@ Um analista que usa IA produz 3-5x mais em menos tempo. Um redator que usa IA ex
 | "Preciso saber programar para usar IA" | As melhores ferramentas usam linguagem natural |`,
       },
       {
-        id: '43-2',
+        id: '103-2',
         title: 'Prompt engineering: o novo superpoder',
         duration: '40 min',
         content: `# Prompt engineering: o novo superpoder
@@ -11901,7 +21755,7 @@ Forneça exemplos do que você quer antes de pedir:
 Raramente o primeiro prompt dá o melhor resultado. Trate como conversa — dê feedback à IA: "Ficou muito formal, torne mais direto" ou "Aprofunde o ponto 2".`,
       },
       {
-        id: '43-3',
+        id: '103-3',
         title: 'IA aplicada à sua área: casos práticos',
         duration: '45 min',
         content: `# IA aplicada à sua área: casos práticos
@@ -11966,7 +21820,7 @@ Raramente o primeiro prompt dá o melhor resultado. Trate como conversa — dê 
 > ⚠️ **Importante para todas as áreas**: IA comete erros e alucina. Nunca use output de IA sem revisão crítica para documentos importantes, dados financeiros ou decisões jurídicas.`,
       },
       {
-        id: '43-4',
+        id: '103-4',
         title: 'Ética, limites e futuro da IA no trabalho',
         duration: '45 min',
         content: `# Ética, limites e futuro da IA no trabalho

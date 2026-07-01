@@ -4,6 +4,8 @@ import { supabase, supabaseConfigured } from '../../lib/supabase'
 
 // ─── Config ────────────────────────────────────────────────────────────────────
 
+const ADMIN_EMAIL = 'chrisafonsocontato@gmail.com'
+
 const CATEGORIES = [
   { id: 'all',     label: 'Todos',    icon: '🌐' },
   { id: 'vitoria', label: 'Vitórias', icon: '🏆' },
@@ -57,10 +59,10 @@ const SEED_POSTS = [
   },
   {
     id: 'seed_2', user_id: 'seed', user_name: 'Pedro L.', category: 'dica',
-    content: 'compartilhando uma coisa que tá funcionando pra mim: quando aplico pra uma vaga, procuro alguém do time no linkedin e mando uma mensagem curta dizendo que me candidatei e por que me interessa. bem direta mesmo, sem enrolação. umas 4 de cada 10 vezes a pessoa passa meu nome internamente. minha taxa de resposta das aplicações subiu muito. demorei a ter coragem de fazer isso mas vale.',
+    content: 'Compartilhando uma coisa que tá funcionando pra mim: quando aplico pra uma vaga, procuro alguém do time no linkedin e mando uma mensagem curta dizendo que me candidatei e por que me interessa. Bem direta mesmo, sem enrolação. Umas 4 de cada 10 vezes a pessoa passa meu nome internamente. minha taxa de resposta das aplicações subiu muito. demorei a ter coragem de fazer isso mas vale.',
     likes_count: 89, comments_count: 1, created_at: ago(5 * 3600000),
     comments: [
-      { id: 'sc3', user_name: 'Carla M.', content: 'fiz isso semana passada e funcionou!! você compartilha a mensagem que manda? to curiosa pra ver o tom que você usa', created_at: ago(3 * 3600000) },
+      { id: 'sc3', user_name: 'Carla M.', content: 'Fiz isso semana passada e funcionou!! vc compartilha a mensagem que manda? to curiosa pra ver o tom que usa', created_at: ago(3 * 3600000) },
     ],
   },
   {
@@ -84,11 +86,11 @@ const SEED_POSTS = [
   },
   {
     id: 'seed_5', user_id: 'seed', user_name: 'João F.', category: 'duvida',
-    content: 'galera, alguém já fez "home assignment" em processo tech? recebi um antes mesmo da primeira conversa com a empresa, estimativa de 5h. tô na dúvida se vale a pena fazer ou se é red flag. como vocês avaliam?',
+    content: 'Galera, alguém já fez "home assignment" em processo tech? recebi um antes mesmo da primeira conversa com a empresa, estimativa de 5h. tô na dúvida se vale a pena fazer ou se é red flag. como vocês avaliam?',
     likes_count: 22, comments_count: 2, created_at: ago(26 * 3600000),
     comments: [
       { id: 'sc9', user_name: 'Lucas R.', content: '5h tá dentro do razoável. o que geralmente avaliam: código limpo, README mostrando como você raciocinou, estrutura que indica que você sabe o que tá fazendo. trata como miniatura de projeto real. é uma entrevista disfarçada.', created_at: ago(24 * 3600000) },
-      { id: 'sc10', user_name: 'Pedro L.', content: 'red flag seria: mais de 8h, pedido muito específico pra resolver problema real do negócio deles, sem entrevista depois. 5h com contexto técnico claro = normal em empresa séria.', created_at: ago(22 * 3600000) },
+      { id: 'sc10', user_name: 'Pedro L.', content: 'Red flag seria: mais de 8h, pedido muito específico pra resolver problema real do negócio deles, sem entrevista depois. 5h com contexto técnico claro = normal em empresa séria.', created_at: ago(22 * 3600000) },
     ],
   },
   {
@@ -101,7 +103,7 @@ const SEED_POSTS = [
   },
   {
     id: 'seed_7', user_id: 'seed', user_name: 'Rafa M.', category: 'duvida',
-    content: 'alguém conseguiu emprego em portugal sem ter morado lá antes? tô pesquisando faz meses e fico em dúvida sobre como deixar o linkedin atrativo pra recrutadores de lá. meu perfil tá em pt-br — preciso mudar o idioma? colocar que estou aberto a relocação onde?',
+    content: 'Alguém conseguiu emprego em Portugal sem ter morado lá antes? tô pesquisando faz meses e fico em dúvida sobre como deixar o linkedin atrativo pra recrutadores de lá. meu perfil tá em pt-br — preciso mudar o idioma? colocar que estou aberto a relocação onde?',
     likes_count: 31, comments_count: 2, created_at: ago(4 * 24 * 3600000),
     comments: [
       { id: 'sc12', user_name: 'Carla M.', content: 'tem um módulo inteiro aqui sobre isso (mercado europeu), fala de linkedin, vistos, diferenças culturais na candidatura... me ajudou muito quando tava na mesma dúvida', created_at: ago(3.8 * 24 * 3600000) },
@@ -116,7 +118,7 @@ const SEED_POSTS = [
   },
   {
     id: 'seed_9', user_id: 'seed', user_name: 'Bruno K.', category: 'dica',
-    content: 'mudança simples que fez diferença no linkedin: troquei meu headline de "Analista de Dados" pra "Data Analyst | Python · SQL · Power BI | ajudando empresas a tomar decisões com dados". parece besteira mas as visualizações do perfil subiram muito em duas semanas. palavras-chave técnicas + o que você faz de verdade = recrutador te acha.',
+    content: 'Mudança simples que fez diferença no LinkedIn: troquei meu headline de "Analista de Dados" pra "Data Analyst | Python · SQL · Power BI | ajudando empresas a tomar decisões com dados". parece besteira mas as visualizações do perfil subiram muito em duas semanas. palavras-chave técnicas + o que você faz de verdade = recrutador te acha.',
     likes_count: 67, comments_count: 1, created_at: ago(6 * 24 * 3600000),
     comments: [
       { id: 'sc14', user_name: 'Sofia T.', content: 'fui fazer o meu agora 😅 você separou as skills com · mesmo? funcionou no mobile também?', created_at: ago(5.5 * 24 * 3600000) },
@@ -266,7 +268,7 @@ function Composer({ user, onPost, defaultCategory, onCancel }) {
 
 // ─── Comments ─────────────────────────────────────────────────────────────────
 
-function CommentsSection({ post, user, onAddComment }) {
+function CommentsSection({ post, user, isAdmin, onAddComment, onDeleteComment }) {
   const [comments, setComments] = useState(post.comments || null)
   const [text, setText] = useState('')
   const [busy, setBusy] = useState(false)
@@ -290,6 +292,11 @@ function CommentsSection({ post, user, onAddComment }) {
     setBusy(false)
   }
 
+  const deleteComment = async (commentId) => {
+    await onDeleteComment(post.id, commentId)
+    setComments((prev) => (prev || []).filter((c) => c.id !== commentId))
+  }
+
   const list = comments || []
 
   return (
@@ -298,12 +305,20 @@ function CommentsSection({ post, user, onAddComment }) {
         <p className="text-center text-xs text-slate-400 py-2">Carregando comentários...</p>
       )}
       {list.map((c) => (
-        <div key={c.id} className="flex gap-2.5">
+        <div key={c.id} className="flex gap-2.5 group">
           <Avatar name={c.user_name} size="sm" />
           <div className="flex-1 bg-slate-50 rounded-xl px-3 py-2">
             <div className="flex items-baseline gap-2 mb-0.5">
               <span className="font-semibold text-slate-700 text-xs">{c.user_name}</span>
               <span className="text-slate-400 text-[11px]">{formatTime(c.created_at)}</span>
+              {isAdmin && (
+                <button
+                  onClick={() => deleteComment(c.id)}
+                  className="ml-auto text-[10px] text-slate-300 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all"
+                >
+                  excluir
+                </button>
+              )}
             </div>
             <p className="text-slate-600 text-xs leading-relaxed">{c.content}</p>
           </div>
@@ -332,13 +347,14 @@ function CommentsSection({ post, user, onAddComment }) {
 
 // ─── Post card ────────────────────────────────────────────────────────────────
 
-function PostCard({ post, user, onLike, onDelete, onAddComment }) {
+function PostCard({ post, user, isAdmin, onLike, onDelete, onAddComment, onDeleteComment }) {
   const [showComments, setShowComments] = useState(false)
   const commentCount = post.comments_count ?? post.comments?.length ?? 0
   const isOwn = post.user_id === user?.id && post.user_id !== 'seed'
+  const canDelete = isOwn || isAdmin
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+    <div className={`bg-white rounded-2xl border shadow-sm hover:shadow-md transition-shadow ${isAdmin && !isOwn ? 'border-slate-200' : 'border-slate-100'}`}>
       <div className="p-5">
         <div className="flex items-start justify-between mb-3">
           <div className="flex items-center gap-3">
@@ -348,10 +364,13 @@ function PostCard({ post, user, onLike, onDelete, onAddComment }) {
               <div className="flex items-center gap-2 mt-0.5">
                 <span className="text-slate-400 text-xs">{formatTime(post.created_at)}</span>
                 <CatBadge category={post.category} />
+                {post.user_id === 'seed' && isAdmin && (
+                  <span className="text-[10px] text-slate-400 font-medium">seed</span>
+                )}
               </div>
             </div>
           </div>
-          {isOwn && (
+          {canDelete && (
             <button
               onClick={() => onDelete(post.id)}
               className="text-slate-300 hover:text-red-400 text-xs transition-colors"
@@ -388,7 +407,13 @@ function PostCard({ post, user, onLike, onDelete, onAddComment }) {
         </div>
 
         {showComments && (
-          <CommentsSection post={post} user={user} onAddComment={onAddComment} />
+          <CommentsSection
+            post={post}
+            user={user}
+            isAdmin={isAdmin}
+            onAddComment={onAddComment}
+            onDeleteComment={onDeleteComment}
+          />
         )}
       </div>
     </div>
@@ -426,6 +451,7 @@ export default function CommunityPage({ user }) {
   const [composerCategory, setComposerCategory] = useState('geral')
   const [loading, setLoading] = useState(true)
 
+  const isAdmin = user?.email === ADMIN_EMAIL || !supabaseConfigured
   const challenge = getWeekChallenge()
 
   // ── Load ────────────────────────────────────────────────────────────────────
@@ -564,6 +590,26 @@ export default function CommunityPage({ user }) {
     return comment
   }
 
+  const handleDeleteComment = async (postId, commentId) => {
+    if (supabaseConfigured) {
+      await supabase.from('community_comments').delete().eq('id', commentId)
+      await supabase.from('community_posts').update({ comments_count: supabase.rpc ? undefined : undefined }).eq('id', postId)
+    } else {
+      setPosts((prev) => prev.map((p) => {
+        if (p.id !== postId) return p
+        const updated = { ...p, comments: (p.comments || []).filter((c) => c.id !== commentId), comments_count: Math.max(0, (p.comments_count || 0) - 1) }
+        if (p.user_id !== 'seed') {
+          const saved = LS.get(LOCAL_POSTS_KEY, [])
+          LS.set(LOCAL_POSTS_KEY, saved.map((sp) => sp.id === postId ? updated : sp))
+        }
+        return updated
+      }))
+    }
+    setPosts((prev) => prev.map((p) =>
+      p.id === postId ? { ...p, comments_count: Math.max(0, (p.comments_count || 0) - 1) } : p
+    ))
+  }
+
   // ── Filter & sort ────────────────────────────────────────────────────────────
 
   const filtered = posts
@@ -591,7 +637,12 @@ export default function CommunityPage({ user }) {
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-black text-slate-800">Comunidade</h1>
+          <div className="flex items-center gap-2">
+            <h1 className="text-2xl font-black text-slate-800">Comunidade</h1>
+            {isAdmin && (
+              <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-600 border border-red-200">Admin</span>
+            )}
+          </div>
           <p className="text-slate-500 text-sm mt-1">Partilhe, aprenda e cresça com outros na mesma jornada.</p>
         </div>
         <button
@@ -670,9 +721,11 @@ export default function CommunityPage({ user }) {
               key={p.id}
               post={p}
               user={user}
+              isAdmin={isAdmin}
               onLike={handleLike}
               onDelete={handleDelete}
               onAddComment={handleAddComment}
+              onDeleteComment={handleDeleteComment}
             />
           ))}
         </div>
