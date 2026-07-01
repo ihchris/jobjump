@@ -13,7 +13,7 @@ import {
 // ─── Categorias e Trilhas ──────────────────────────────────────────────────────
 
 const CAT_MAP = {
-  busca:         { label: 'Busca',         icon: '🎯', ids: [1,2,3,4,5,6,9,11,14,15,16,17,19,22,25,27,28,31,49] },
+  busca:         { label: 'Busca',         icon: '🎯', ids: [1,2,3,4,5,6,9,11,14,15,16,17,19,22,25,28,31,49] },
   crescimento:   { label: 'Crescimento',   icon: '📈', ids: [7,8,12,13,18,20,24,29,30,34,35,37,39,40,41,43,46,50,52,56] },
   tech:          { label: 'Tech',          icon: '💻', ids: [26,33,36,48,59] },
   internacional: { label: 'Internacional', icon: '🌍', ids: [10,21,32,38,45,54] },
@@ -48,6 +48,11 @@ const STATUS_FILTERS = [
   { id: 'inprogress', label: 'Em progresso' },
   { id: 'done',       label: 'Concluídos' },
 ]
+
+// lições que o utilizador consegue abrir: todo o módulo Pro, ou lições
+// individualmente marcadas como Pro dentro de um módulo grátis
+const accessibleLessons = (mod, user) => mod.lessons.filter((l) => !l.isPro || isPaid(user.plan))
+const isLessonLocked    = (mod, l, user) => (mod.isPro || l.isPro) && !isPaid(user.plan)
 
 // ─── Certificado de conclusão ─────────────────────────────────────────────
 function downloadCertificate(mod, userName) {
@@ -320,8 +325,9 @@ function LessonView({ mod, lesson, progress, onMarkDone, onBack, onNext }) {
 // ─── Vista do módulo ───────────────────────────────────────────────────────
 function ModuleView({ mod, user, progress, onOpenLesson, onBack, onOpenQuiz }) {
   const locked     = mod.isPro && !isPaid(user.plan)
-  const mCompleted = mod.lessons.filter((l) => progress[l.id]).length
-  const pct        = Math.round((mCompleted / mod.lessons.length) * 100)
+  const lessons    = accessibleLessons(mod, user)
+  const mCompleted = lessons.filter((l) => progress[l.id]).length
+  const pct        = lessons.length ? Math.round((mCompleted / lessons.length) * 100) : 0
   const hasQuiz    = !!QUIZZES[mod.id]
   const scores     = getQuizScores()
   const bestScore  = scores[mod.id]
@@ -361,26 +367,30 @@ function ModuleView({ mod, user, progress, onOpenLesson, onBack, onOpenQuiz }) {
 
       <div className="space-y-3">
         {mod.lessons.map((l, i) => {
-          const done = progress[l.id]
+          const done         = progress[l.id]
+          const lessonLocked = isLessonLocked(mod, l, user)
           return (
             <div
               key={l.id}
-              onClick={() => !locked && onOpenLesson(l)}
+              onClick={() => !lessonLocked && onOpenLesson(l)}
               className={`bg-white rounded-xl p-4 border border-slate-100 flex items-center gap-4 transition-all
-                ${locked ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:shadow-md hover:border-blue-200'}`}
+                ${lessonLocked ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:shadow-md hover:border-blue-200'}`}
             >
               <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0
                 ${done ? 'bg-green-100 text-green-600' : 'bg-slate-100 text-slate-500'}`}>
                 {done ? '✓' : i + 1}
               </div>
               <div className="flex-1 min-w-0">
-                <div className="font-semibold text-slate-700 text-sm">{l.title}</div>
+                <div className="font-semibold text-slate-700 text-sm flex items-center gap-2">
+                  {l.title}
+                  {!locked && l.isPro && <Badge className="bg-amber-100 text-amber-700 text-[10px]">Pro</Badge>}
+                </div>
                 <div className="text-slate-400 text-xs">⏱ {l.duration}
                   {LS.get(`nj_notes_${l.id}`) ? ' · 📝 tem notas' : ''}
                 </div>
               </div>
-              {!locked && <span className="text-slate-300 text-sm">{done ? '✅' : '→'}</span>}
-              {locked && <span className="text-slate-300">🔒</span>}
+              {!lessonLocked && <span className="text-slate-300 text-sm">{done ? '✅' : '→'}</span>}
+              {lessonLocked && <span className="text-slate-300">🔒</span>}
             </div>
           )
         })}
@@ -441,8 +451,9 @@ function ModuleView({ mod, user, progress, onOpenLesson, onBack, onOpenQuiz }) {
 
 function ModuleCard({ m, user, progress, onOpenModule, rank }) {
   const locked     = m.isPro && !isPaid(user.plan)
-  const mCompleted = m.lessons.filter((l) => progress[l.id]).length
-  const pct        = Math.round((mCompleted / m.lessons.length) * 100)
+  const lessons    = accessibleLessons(m, user)
+  const mCompleted = lessons.filter((l) => progress[l.id]).length
+  const pct        = lessons.length ? Math.round((mCompleted / lessons.length) * 100) : 0
   const hasQuiz    = !!QUIZZES[m.id]
   return (
     <div
@@ -521,7 +532,8 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis }) {
 
     if (catFilter !== 'all' && MODULE_CAT[m.id] !== catFilter) return false
 
-    const pct = Math.round(m.lessons.filter((l) => progress[l.id]).length / m.lessons.length * 100)
+    const lessons = accessibleLessons(m, user)
+    const pct = lessons.length ? Math.round(lessons.filter((l) => progress[l.id]).length / lessons.length * 100) : 0
     if (statusFilter === 'free')       return !m.isPro
     if (statusFilter === 'pro')        return m.isPro
     if (statusFilter === 'inprogress') return pct > 0 && pct < 100
@@ -708,7 +720,8 @@ export default function ModulesPage({ user, progress, setProgress, selectedModul
   const getNextLesson = () => {
     if (!mod || !lesson) return null
     const idx = mod.lessons.findIndex((l) => l.id === lesson.id)
-    return idx >= 0 && idx < mod.lessons.length - 1 ? mod.lessons[idx + 1] : null
+    const next = idx >= 0 && idx < mod.lessons.length - 1 ? mod.lessons[idx + 1] : null
+    return next && !isLessonLocked(mod, next, user) ? next : null
   }
 
   const goNext = () => {

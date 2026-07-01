@@ -182,13 +182,6 @@ export const QUIZZES = {
     { q: 'Como usar IA para praticar entrevistas?', opts: ['Memorizar respostas geradas pela IA', 'Pedir à IA que simule um entrevistador, responder em voz alta e pedir feedback detalhado', 'Enviar respostas da IA literalmente na entrevista real', 'Apenas para pesquisar perguntas comuns'], correct: 1 },
     { q: 'O que é "chain of thought prompting"?', opts: ['Técnica de escrita criativa', 'Pedir à IA que mostre o raciocínio passo a passo, melhorando a qualidade de análises complexas', 'Formato de email profissional', 'Tipo de entrevista'], correct: 1 },
   ],
-  27: [
-    { q: 'O que é o "Sprint de 30 Dias" para busca de emprego?', opts: ['Programa de exercícios físicos', 'Metodologia intensiva com ações diárias estruturadas que comprimem meses de busca em 30 dias', 'Curso rápido de tecnologia', 'Meta de enviar 30 CVs por dia'], correct: 1 },
-    { q: 'Qual é a primeira ação do Sprint de 30 Dias?', opts: ['Enviar CVs em massa', 'Definir o perfil-alvo exato: cargo, setor, nível e tipo de empresa', 'Criar conta em todas as plataformas', 'Fazer cursos online'], correct: 1 },
-    { q: 'Por que candidaturas em volume sem qualidade falham?', opts: ['Empresas preferem menos candidatos', 'ATS e recrutadores rejeitam CVs genéricos — personalização aumenta taxa de resposta em 3-5x', 'Plataformas limitam candidaturas', 'Não falham — quanto mais melhor'], correct: 1 },
-    { q: 'O que é o "método de candidatura em 3 camadas" no Sprint?', opts: ['Candidatar para 3 vagas por dia', 'Candidatura direta + ativação de rede + abordagem proativa a recrutadores da empresa simultaneamente', 'Usar 3 plataformas diferentes', 'Ter 3 versões de CV'], correct: 1 },
-    { q: 'Como manter a motivação durante um sprint intensivo de busca?', opts: ['Trabalhar 16h por dia sem parar', 'Celebrar micro-vitórias, ter metas diárias mínimas e incorporar descanso estruturado', 'Ignorar rejeições completamente', 'Comparar-se com outros candidatos'], correct: 1 },
-  ],
   28: [
     { q: 'Qual é o maior desafio de carreira para profissionais acima de 40 anos?', opts: ['Falta de habilidades técnicas', 'Preconceito de idade combinado com salário mais alto — precisam demonstrar valor claro e adaptabilidade', 'Falta de experiência', 'Não há desafios específicos'], correct: 1 },
     { q: 'Como um profissional sênior deve posicionar sua experiência?', opts: ['Listar todos os 20+ anos de experiência no CV', 'Focar nos últimos 10-15 anos relevantes e destacar resultados em vez de cargo e tempo', 'Omitir experiências antigas', 'Colocar foto jovem'], correct: 1 },
