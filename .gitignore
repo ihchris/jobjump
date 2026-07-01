@@ -1,7 +1,36 @@
+# Dependências
 node_modules/
+
+# Build
 dist/
+dist-ssr/
+
+# Variáveis de ambiente
 .env
 .env.local
 .env.*.local
+
+# Logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Arquivos temporários e pessoais
+*.bak
+*.tmp
+lembrete.txt
+PRODUCAO.txt
+
+# Claude Code
+.claude/

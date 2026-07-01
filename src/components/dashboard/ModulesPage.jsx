@@ -485,238 +485,188 @@ function ModuleCard({ m, user, progress, onOpenModule, rank }) {
   )
 }
 
-// ─── Secção de recomendações do diagnóstico ───────────────────────────────────
+// ─── Tabs de navegação de categoria ────────────────────────────────────────────
 
-function RecommendedSection({ diagnosis, user, progress, onOpenModule, onSeeAll }) {
-  const topIds = (diagnosis.roadmap || []).slice(0, 3)
-  const modules = topIds.map((id) => MODULES.find((m) => m.id === id)).filter(Boolean)
-  if (!modules.length) return null
+const CAT_TABS = [
+  { id: 'all',           label: 'Todos',         icon: '🌐', selBg: 'bg-slate-800'   },
+  { id: 'busca',         label: 'Busca',         icon: '🎯', selBg: 'bg-blue-600'    },
+  { id: 'tech',          label: 'Tech',          icon: '💻', selBg: 'bg-violet-600'  },
+  { id: 'crescimento',   label: 'Crescimento',   icon: '📈', selBg: 'bg-emerald-600' },
+  { id: 'internacional', label: 'Internacional', icon: '🌍', selBg: 'bg-amber-500'   },
+  { id: 'areas',         label: 'Áreas',         icon: '🏷️', selBg: 'bg-rose-600'    },
+]
 
-  const goalLabels = {
-    first_job: 'primeiro emprego', new_company: 'mudar de empresa',
-    career_change: 'mudar de área', abroad: 'trabalhar no exterior', promotion: 'crescer na empresa',
-  }
-  const goal = goalLabels[diagnosis.answers?.goal] || 'seu objetivo'
-
-  return (
-    <div className="mb-6 bg-gradient-to-br from-blue-50 to-violet-50 border border-blue-200 rounded-2xl p-5">
-      <div className="flex items-center justify-between mb-3">
-        <div>
-          <div className="flex items-center gap-2 mb-0.5">
-            <span className="text-lg">📍</span>
-            <h2 className="font-black text-slate-800 text-sm">Recomendados para você</h2>
-          </div>
-          <p className="text-slate-500 text-xs">Com base no seu diagnóstico — foco em {goal}</p>
-        </div>
-        <button
-          onClick={onSeeAll}
-          className="text-xs text-blue-600 font-semibold hover:underline flex-shrink-0"
-        >
-          Ver roteiro completo →
-        </button>
-      </div>
-      <div className="space-y-2">
-        {modules.map((m, i) => {
-          const locked = m.isPro && !isPaid(user.plan)
-          const pct = Math.round(m.lessons.filter((l) => progress[l.id]).length / m.lessons.length * 100)
-          return (
-            <div
-              key={m.id}
-              onClick={() => !locked && onOpenModule(m)}
-              className={`bg-white rounded-xl p-3 flex items-center gap-3 border border-slate-100 transition-all
-                ${locked ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer hover:border-blue-300 hover:shadow-sm'}`}
-            >
-              <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-black flex-shrink-0">
-                {i + 1}
-              </div>
-              <div className={`w-9 h-9 ${m.color.icon} rounded-lg flex items-center justify-center text-xl flex-shrink-0`}>
-                {locked ? '🔒' : m.icon}
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="font-semibold text-slate-800 text-xs truncate">{m.title}</div>
-                <div className="text-slate-400 text-[11px]">{m.lessons.length} lições · {m.duration}{pct > 0 && pct < 100 ? ` · ${pct}% feito` : pct === 100 ? ' · ✓ Concluído' : ''}</div>
-              </div>
-              {!locked && <span className="text-slate-300 text-sm">→</span>}
-            </div>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
-
-// ─── Secção de trilhas ────────────────────────────────────────────────────────
-
-function TrilhasSection({ onSelectTrilha, activeTrilha }) {
-  return (
-    <div className="mb-5">
-      <h2 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Trilhas Curadas</h2>
-      <div className="flex gap-3 overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
-        {TRILHAS.map((t) => (
-          <button
-            key={t.id}
-            onClick={() => onSelectTrilha(activeTrilha === t.id ? null : t.id)}
-            className={`flex-shrink-0 rounded-2xl p-4 text-left border transition-all w-44
-              ${activeTrilha === t.id
-                ? 'bg-blue-600 border-blue-600 text-white'
-                : 'bg-white border-slate-200 hover:border-blue-300 hover:shadow-sm'}`}
-          >
-            <div className="text-2xl mb-1.5">{t.icon}</div>
-            <div className={`font-bold text-xs mb-0.5 ${activeTrilha === t.id ? 'text-white' : 'text-slate-800'}`}>{t.label}</div>
-            <div className={`text-[11px] leading-tight ${activeTrilha === t.id ? 'text-blue-100' : 'text-slate-400'}`}>{t.desc}</div>
-            <div className={`text-[10px] font-semibold mt-2 ${activeTrilha === t.id ? 'text-blue-200' : 'text-slate-400'}`}>{t.ids.length} módulos</div>
-          </button>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-// ─── Lista de módulos com filtros ──────────────────────────────────────────
+// ─── Lista de módulos ──────────────────────────────────────────────────────────
 
 function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis }) {
-  const [search, setSearch] = useState('')
-  const [catFilter, setCatFilter] = useState('all')
-  const [statusFilter, setStatusFilter] = useState('all')
-  const [activeTrilha, setActiveTrilha] = useState(null)
+  const [search, setSearch]         = useState('')
+  const [catFilter, setCatFilter]   = useState('all')
+  const [statusFilter, setStatus]   = useState('all')
+  const [activeTrilha, setTrilha]   = useState(null)
+  const [trilhaOpen, setTrilhaOpen] = useState(false)
 
   const diagnosis = getDiagnosis()
-
+  const diagIds   = new Set(diagnosis?.roadmap || [])
   const trilhaIds = activeTrilha ? new Set(TRILHAS.find((t) => t.id === activeTrilha)?.ids || []) : null
+  const isTrilhasMode = trilhaOpen || !!activeTrilha
 
+  // ── filter ─────────────────────────────────────────────────────────────────
   const filtered = MODULES.filter((m) => {
-    // trilha override
     if (trilhaIds) return trilhaIds.has(m.id)
+    if (catFilter === 'recommended') return diagIds.has(m.id)
 
     const q = search.toLowerCase()
-    const matchSearch = !q || m.title.toLowerCase().includes(q) || m.desc.toLowerCase().includes(q) ||
-      m.lessons.some((l) => l.title.toLowerCase().includes(q))
-    if (!matchSearch) return false
+    if (q && !m.title.toLowerCase().includes(q) && !m.desc.toLowerCase().includes(q) &&
+        !m.lessons.some((l) => l.title.toLowerCase().includes(q))) return false
 
-    // category filter
     if (catFilter !== 'all' && MODULE_CAT[m.id] !== catFilter) return false
 
-    // status filter
-    const completed = m.lessons.filter((l) => progress[l.id]).length
-    const pct = Math.round((completed / m.lessons.length) * 100)
-    if (statusFilter === 'free') return !m.isPro
-    if (statusFilter === 'pro') return m.isPro
+    const pct = Math.round(m.lessons.filter((l) => progress[l.id]).length / m.lessons.length * 100)
+    if (statusFilter === 'free')       return !m.isPro
+    if (statusFilter === 'pro')        return m.isPro
     if (statusFilter === 'inprogress') return pct > 0 && pct < 100
-    if (statusFilter === 'done') return pct === 100
+    if (statusFilter === 'done')       return pct === 100
     return true
   })
 
-  // keep trilha order when a trilha is active
   const sorted = activeTrilha
     ? TRILHAS.find((t) => t.id === activeTrilha)?.ids.map((id) => filtered.find((m) => m.id === id)).filter(Boolean) || filtered
-    : filtered
+    : catFilter === 'recommended'
+      ? (diagnosis?.roadmap || []).map((id) => filtered.find((m) => m.id === id)).filter(Boolean)
+      : filtered
 
-  const selectTrilha = (id) => {
-    setActiveTrilha(id)
-    if (id) { setCatFilter('all'); setStatusFilter('all'); setSearch('') }
+  // ── handlers ───────────────────────────────────────────────────────────────
+  const pickCat = (id) => {
+    setCatFilter(id); setTrilha(null); setTrilhaOpen(false); setSearch('')
+  }
+  const toggleTrilhaPanel = () => {
+    const next = !trilhaOpen
+    setTrilhaOpen(next)
+    if (!next) setTrilha(null)
+    setCatFilter('all'); setSearch('')
   }
 
+  // ── render ─────────────────────────────────────────────────────────────────
   return (
-    <div className="p-6 animate-fade-in">
-      <h1 className="text-2xl font-black text-slate-800 mb-1">Módulos de Aprendizagem</h1>
-      <p className="text-slate-500 text-sm mb-5">Sua jornada para conseguir o emprego perfeito.</p>
+    <div className="p-4 sm:p-6 animate-fade-in">
 
-      {/* Recomendados */}
-      {diagnosis ? (
-        <RecommendedSection
-          diagnosis={diagnosis}
-          user={user}
-          progress={progress}
-          onOpenModule={onOpenModule}
-          onSeeAll={onGoToDiagnosis}
-        />
-      ) : (
-        <button
-          onClick={onGoToDiagnosis}
-          className="w-full mb-5 bg-gradient-to-r from-blue-50 to-violet-50 border border-blue-200 rounded-2xl p-4 flex items-center gap-4 hover:border-blue-300 transition-all text-left"
-        >
-          <span className="text-3xl">🗺️</span>
-          <div>
-            <div className="font-bold text-slate-800 text-sm">Descubra sua trilha ideal</div>
-            <div className="text-slate-500 text-xs">Faça o diagnóstico de carreira e receba módulos personalizados para o seu perfil.</div>
-          </div>
-          <span className="ml-auto text-blue-500 font-semibold text-sm flex-shrink-0">Fazer agora →</span>
-        </button>
-      )}
-
-      {/* Trilhas */}
-      <TrilhasSection onSelectTrilha={selectTrilha} activeTrilha={activeTrilha} />
-
-      {/* Search */}
-      {!activeTrilha && (
-        <div className="relative mb-4">
+      {/* ── Header ── */}
+      <div className="flex items-center justify-between gap-3 mb-5">
+        <div>
+          <h1 className="text-2xl font-black text-slate-800">Módulos</h1>
+          <p className="text-[11px] text-slate-400 mt-0.5">{MODULES.length} módulos de carreira</p>
+        </div>
+        <div className="relative">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">🔍</span>
           <input
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Pesquisar módulos e lições..."
-            className="w-full pl-9 pr-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            onChange={(e) => { setSearch(e.target.value); setCatFilter('all'); setTrilha(null); setTrilhaOpen(false) }}
+            placeholder="Pesquisar..."
+            className="w-36 sm:w-44 pl-8 pr-3 py-2 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
           />
-          {search && (
-            <button onClick={() => setSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs">✕</button>
-          )}
+          {search && <button onClick={() => setSearch('')} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs">✕</button>}
+        </div>
+      </div>
+
+      {/* ── Diagnóstico / Para você ── */}
+      {diagnosis ? (
+        <button
+          onClick={() => pickCat(catFilter === 'recommended' ? 'all' : 'recommended')}
+          className={`w-full mb-4 rounded-2xl px-4 py-3 flex items-center gap-3 transition-all text-left
+            ${catFilter === 'recommended'
+              ? 'bg-gradient-to-r from-blue-600 to-violet-600 shadow-md'
+              : 'bg-white border border-slate-200 hover:border-blue-200 hover:shadow-sm'}`}
+        >
+          <span className="text-lg">📍</span>
+          <div className="flex-1">
+            <span className={`font-bold text-sm ${catFilter === 'recommended' ? 'text-white' : 'text-slate-800'}`}>Para você</span>
+            <span className={`text-xs ml-2 ${catFilter === 'recommended' ? 'text-white/70' : 'text-slate-400'}`}>{diagnosis.roadmap.length} módulos do seu roteiro</span>
+          </div>
+          <span className={`text-xs font-semibold ${catFilter === 'recommended' ? 'text-white/70' : 'text-blue-500'}`}>
+            {catFilter === 'recommended' ? '✓ ativo' : 'filtrar →'}
+          </span>
+        </button>
+      ) : (
+        <button
+          onClick={onGoToDiagnosis}
+          className="w-full mb-4 bg-gradient-to-r from-blue-600 to-violet-600 rounded-2xl px-4 py-3.5 flex items-center gap-3 hover:shadow-md hover:shadow-blue-100 transition-all text-left"
+        >
+          <span className="text-xl">🗺️</span>
+          <div className="flex-1">
+            <div className="font-bold text-white text-sm">Descubra sua trilha personalizada</div>
+            <div className="text-white/70 text-xs">6 perguntas · módulos certos para o seu perfil</div>
+          </div>
+          <span className="text-white/60 text-lg">→</span>
+        </button>
+      )}
+
+      {/* ── Tabs de categoria ── */}
+      <div className="flex gap-2 overflow-x-auto pb-2 mb-1" style={{ scrollbarWidth: 'none' }}>
+        {CAT_TABS.map((t) => {
+          const isActive = catFilter === t.id && !isTrilhasMode
+          return (
+            <button
+              key={t.id}
+              onClick={() => pickCat(t.id)}
+              className={`flex-shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold transition-all
+                ${isActive
+                  ? `${t.selBg} text-white shadow-sm`
+                  : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'}`}
+            >
+              {t.icon} {t.label}
+            </button>
+          )
+        })}
+        <button
+          onClick={toggleTrilhaPanel}
+          className={`flex-shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold transition-all
+            ${isTrilhasMode
+              ? 'bg-indigo-600 text-white shadow-sm'
+              : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'}`}
+        >
+          🛤️ Trilhas <span className={`transition-transform duration-200 inline-block ${isTrilhasMode ? 'rotate-180' : ''}`}>▾</span>
+        </button>
+      </div>
+
+      {/* ── Trilha cards (estilo original) ── */}
+      {isTrilhasMode && (
+        <div className="flex gap-3 overflow-x-auto py-3 mb-1" style={{ scrollbarWidth: 'none' }}>
+          {TRILHAS.map((t) => (
+            <button
+              key={t.id}
+              onClick={() => setTrilha(activeTrilha === t.id ? null : t.id)}
+              className={`flex-shrink-0 rounded-2xl p-4 text-left border-2 transition-all w-44
+                ${activeTrilha === t.id
+                  ? 'bg-indigo-600 border-indigo-600 text-white shadow-md'
+                  : 'bg-white border-slate-200 hover:border-indigo-300 hover:shadow-sm'}`}
+            >
+              <div className="text-2xl mb-2">{t.icon}</div>
+              <div className={`font-bold text-xs mb-1 leading-tight ${activeTrilha === t.id ? 'text-white' : 'text-slate-800'}`}>{t.label}</div>
+              <div className={`text-[11px] leading-snug ${activeTrilha === t.id ? 'text-indigo-200' : 'text-slate-400'}`}>{t.desc}</div>
+              <div className={`text-[10px] font-semibold mt-2 ${activeTrilha === t.id ? 'text-indigo-300' : 'text-slate-400'}`}>{t.ids.length} módulos</div>
+            </button>
+          ))}
         </div>
       )}
 
-      {/* Filters */}
-      {!activeTrilha && (
-        <div className="space-y-2 mb-5">
-          {/* Category filters */}
-          <div className="flex gap-2 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none' }}>
-            {CATEGORY_FILTERS.map((f) => (
-              <button
-                key={f.id}
-                onClick={() => setCatFilter(f.id)}
-                className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all flex-shrink-0
-                  ${catFilter === f.id ? 'bg-slate-800 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
-              >
-                {f.icon} {f.label}
-              </button>
-            ))}
-          </div>
-          {/* Status filters */}
-          <div className="flex gap-2 flex-wrap items-center">
-            {STATUS_FILTERS.map((f) => (
-              <button
-                key={f.id}
-                onClick={() => setStatusFilter(f.id)}
-                className={`px-3 py-1 rounded-full text-xs font-semibold transition-all
-                  ${statusFilter === f.id ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-500 hover:border-slate-300'}`}
-              >
-                {f.label}
-              </button>
-            ))}
-            <span className="text-xs text-slate-400 ml-auto">{sorted.length} de {MODULES.length} módulos</span>
-          </div>
-        </div>
-      )}
-
-      {/* Active trilha header */}
-      {activeTrilha && (
-        <div className="flex items-center gap-3 mb-4">
-          {(() => { const t = TRILHAS.find((x) => x.id === activeTrilha); return t ? (
-            <>
-              <span className="text-2xl">{t.icon}</span>
-              <div>
-                <div className="font-black text-slate-800 text-sm">{t.label}</div>
-                <div className="text-slate-500 text-xs">{t.desc}</div>
-              </div>
-            </>
-          ) : null })()}
+      {/* ── Status + count ── */}
+      <div className="flex items-center gap-1.5 my-4 flex-wrap">
+        {[['free','Grátis'],['pro','Pro'],['inprogress','Em progresso'],['done','Concluídos']].map(([id, label]) => (
           <button
-            onClick={() => selectTrilha(null)}
-            className="ml-auto text-xs text-slate-400 hover:text-slate-600 border border-slate-200 rounded-full px-3 py-1"
+            key={id}
+            onClick={() => setStatus(statusFilter === id ? 'all' : id)}
+            className={`px-2.5 py-1 rounded-full text-[11px] font-semibold transition-all
+              ${statusFilter === id ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'}`}
           >
-            ✕ Limpar trilha
+            {label}
           </button>
-        </div>
-      )}
+        ))}
+        <span className="text-[11px] text-slate-400 ml-auto">
+          {activeTrilha && `${TRILHAS.find((t) => t.id === activeTrilha)?.icon} `}{sorted.length} módulos
+        </span>
+      </div>
 
+      {/* ── Module list ── */}
       {sorted.length === 0 ? (
         <div className="text-center py-12 text-slate-400">
           <div className="text-4xl mb-3">🔍</div>
@@ -731,7 +681,7 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis }) {
               user={user}
               progress={progress}
               onOpenModule={onOpenModule}
-              rank={activeTrilha ? i + 1 : undefined}
+              rank={activeTrilha || catFilter === 'recommended' ? i + 1 : undefined}
             />
           ))}
         </div>

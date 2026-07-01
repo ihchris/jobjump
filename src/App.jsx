@@ -28,7 +28,7 @@ function DemoApp() {
   const goPrivacy = () => { setPrevPage(page); setPage('privacy') }
   const backFromLegal = () => setPage(prevPage)
 
-  const handleDemoAuth = (name, email, plan = 'pro') => {
+  const handleDemoAuth = (name, email, plan = 'free') => {
     const demoUser = { id: 'demo-user', name: name || 'Utilizador Demo', email: email || 'demo@jobjump.co', plan }
     LS.set(DEMO_USER_KEY, demoUser)
     setUser(demoUser)
@@ -85,7 +85,7 @@ function DemoApp() {
 function DemoAuthPage({ mode, onAuth, onBack, onPrivacy }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [plan, setPlan] = useState('pro')
+  const [plan, setPlan] = useState('free')
   const [acceptedTerms, setAcceptedTerms] = useState(false)
   const [showTerms, setShowTerms] = useState(false)
   const [error, setError] = useState('')
@@ -129,9 +129,9 @@ function DemoAuthPage({ mode, onAuth, onBack, onPrivacy }) {
           <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Seu nome" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
           <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="E-mail (opcional)" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
           <select value={plan} onChange={(e) => setPlan(e.target.value)} className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="free">Plano Grátis (demo)</option>
             <option value="pro">Plano Pro Mensal (demo)</option>
             <option value="annual">Plano Pro Anual (demo)</option>
-            <option value="free">Plano Grátis (demo)</option>
           </select>
         </div>
         {mode === 'register' && (
