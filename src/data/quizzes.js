@@ -168,103 +168,89 @@ export const QUIZZES = {
     { q: 'O que é uma "quick win" nos primeiros 90 dias?', opts: ['Aumento salarial rápido', 'Resultado pequeno mas visível que demonstra sua competência e constrói confiança', 'Promoção antecipada', 'Resolver o maior problema da empresa'], correct: 1 },
     { q: 'Como gerir expectativas com o gestor nos primeiros meses?', opts: ['Nunca questionar diretrizes', 'Alinhar prioridades e critérios de sucesso explicitamente desde a primeira semana', 'Trabalhar em segredo e surpreender', 'Pedir pouco para ser difícil de avaliar'], correct: 1 },
   ],
-  25: [
+  26: [
     { q: 'O que deve estar num GitHub de desenvolvedor para impressionar recrutadores?', opts: ['O máximo de repositórios possível', 'Projetos completos com README claro, código limpo e histórico de commits consistente', 'Apenas projetos de faculdade', 'Forks de outros projetos sem contribuição'], correct: 1 },
     { q: 'O que é um README bem escrito num repositório?', opts: ['Apenas o nome do projeto', 'Descrição do problema, solução, como rodar, tecnologias usadas e screenshots/demo', 'Lista de todos os arquivos', 'Documentação técnica completa em 50 páginas'], correct: 1 },
     { q: 'O que é "green contribution graph" e por que importa?', opts: ['Gráfico de performance financeira', 'Histórico de contribuições diárias no GitHub que mostra consistência e atividade real', 'Certificação ambiental', 'Indicador de qualidade de código'], correct: 1 },
     { q: 'Como criar um projeto de portfólio relevante para devs?', opts: ['Clonar projetos populares sem modificar', 'Resolver um problema real (seu ou de alguém), usar tecnologias pedidas em vagas que quer, e documentar bem', 'Fazer todos os tutoriais disponíveis', 'Apenas projetos em grupo'], correct: 1 },
     { q: 'O que é "GitHub Pages" e para que serve?', opts: ['Rede social de programadores', 'Serviço gratuito do GitHub para hospedar sites estáticos — ideal para portfólio pessoal', 'Plataforma de emprego tech', 'Sistema de code review'], correct: 1 },
   ],
-  26: [
-    { q: 'O que é um "prompt" no contexto de IA?', opts: ['Código de programação', 'Instrução em linguagem natural dada a um modelo de IA para obter uma resposta específica', 'Atalho de teclado', 'Tipo de algoritmo'], correct: 1 },
-    { q: 'Como usar IA para otimizar um CV para uma vaga específica?', opts: ['Pedir para a IA reescrever tudo', 'Pedir análise de gap entre CV e JD, identificar palavras-chave ausentes e sugerir frases com resultados', 'Copiar o CV gerado sem editar', 'Usar IA apenas para correção gramatical'], correct: 1 },
-    { q: 'Qual é o risco ético de usar IA na busca de emprego?', opts: ['Usar IA para qualquer coisa é antiético', 'Usar IA para inventar experiências ou competências que não possui', 'Usar IA para melhorar redação de experiências reais', 'Usar IA para pesquisar a empresa'], correct: 1 },
-    { q: 'Como usar IA para praticar entrevistas?', opts: ['Memorizar respostas geradas pela IA', 'Pedir à IA que simule um entrevistador, responder em voz alta e pedir feedback detalhado', 'Enviar respostas da IA literalmente na entrevista real', 'Apenas para pesquisar perguntas comuns'], correct: 1 },
-    { q: 'O que é "chain of thought prompting"?', opts: ['Técnica de escrita criativa', 'Pedir à IA que mostre o raciocínio passo a passo, melhorando a qualidade de análises complexas', 'Formato de email profissional', 'Tipo de entrevista'], correct: 1 },
-  ],
   28: [
+    { q: 'O que é o "Sprint de 30 Dias" para busca de emprego?', opts: ['Programa de exercícios físicos', 'Metodologia intensiva com ações diárias estruturadas que comprimem meses de busca em 30 dias', 'Curso rápido de tecnologia', 'Meta de enviar 30 CVs por dia'], correct: 1 },
+    { q: 'Qual é a primeira ação do Sprint de 30 Dias?', opts: ['Enviar CVs em massa', 'Definir o perfil-alvo exato: cargo, setor, nível e tipo de empresa', 'Criar conta em todas as plataformas', 'Fazer cursos online'], correct: 1 },
+    { q: 'Por que candidaturas em volume sem qualidade falham?', opts: ['Empresas preferem menos candidatos', 'ATS e recrutadores rejeitam CVs genéricos — personalização aumenta taxa de resposta em 3-5x', 'Plataformas limitam candidaturas', 'Não falham — quanto mais melhor'], correct: 1 },
+    { q: 'O que é o "método de candidatura em 3 camadas" no Sprint?', opts: ['Candidatar para 3 vagas por dia', 'Candidatura direta + ativação de rede + abordagem proativa a recrutadores da empresa simultaneamente', 'Usar 3 plataformas diferentes', 'Ter 3 versões de CV'], correct: 1 },
+    { q: 'Como manter a motivação durante um sprint intensivo de busca?', opts: ['Trabalhar 16h por dia sem parar', 'Celebrar micro-vitórias, ter metas diárias mínimas e incorporar descanso estruturado', 'Ignorar rejeições completamente', 'Comparar-se com outros candidatos'], correct: 1 },
+  ],
+  29: [
     { q: 'Qual é o maior desafio de carreira para profissionais acima de 40 anos?', opts: ['Falta de habilidades técnicas', 'Preconceito de idade combinado com salário mais alto — precisam demonstrar valor claro e adaptabilidade', 'Falta de experiência', 'Não há desafios específicos'], correct: 1 },
     { q: 'Como um profissional sênior deve posicionar sua experiência?', opts: ['Listar todos os 20+ anos de experiência no CV', 'Focar nos últimos 10-15 anos relevantes e destacar resultados em vez de cargo e tempo', 'Omitir experiências antigas', 'Colocar foto jovem'], correct: 1 },
     { q: 'O que é "reverse mentoring" e como ajuda profissionais 40+?', opts: ['Mentoria de seniors para juniors', 'Aprender com profissionais mais jovens sobre tendências digitais e novas formas de trabalho', 'Programa de aposentadoria', 'Mentoria online'], correct: 1 },
     { q: 'Por que profissionais 40+ têm vantagem em certas situações?', opts: ['Não têm vantagem alguma', 'Maturidade emocional, rede consolidada, julgamento aprimorado e histórico comprovado de resultados', 'Apenas por terem mais certificados', 'Por trabalharem mais horas'], correct: 1 },
     { q: 'Como adaptar o LinkedIn para profissionais sênior acima de 40?', opts: ['Omitir o ano de formatura para esconder a idade', 'Focar em conquistas mensuráveis recentes, mostrar atualização tecnológica e networking ativo', 'Usar foto de 20 anos atrás', 'Não usar LinkedIn'], correct: 1 },
   ],
-  29: [
-    { q: 'O que diferencia um plano de carreira de 5 anos de uma lista de desejos?', opts: ['O número de metas', 'Metas SMART com indicadores claros, prazos e ações concretas para cada etapa', 'Ter mais ambição', 'Envolver outra pessoa na criação'], correct: 1 },
-    { q: 'O que são metas SMART?', opts: ['Smart, Modern, Agile, Results, Timely', 'Specific, Measurable, Achievable, Relevant, Time-bound — critérios para metas eficazes', 'Método de coaching executivo', 'Sigla para avaliação de desempenho'], correct: 1 },
-    { q: 'Com que frequência revisar o plano de carreira de 5 anos?', opts: ['Nunca — um plano sólido não muda', 'A cada 6-12 meses ou após grandes mudanças de mercado ou vida pessoal', 'A cada semana', 'Apenas quando mudar de emprego'], correct: 1 },
-    { q: 'Como identificar o próximo passo ideal na carreira?', opts: ['Copiar a trajetória de alguém que admira', 'Analisar suas forças, o mercado, o que te energiza e conversar com pessoas que ocupam o cargo desejado', 'Escolher pelo maior salário', 'Fazer o que o gestor sugerir'], correct: 1 },
-    { q: 'O que é "career capital" no contexto de planejamento?', opts: ['Dinheiro economizado para mudar de carreira', 'Habilidades raras e valiosas que você acumula e que criam mais opções e autonomia na carreira', 'Certificações específicas', 'Networking com executivos'], correct: 1 },
-  ],
-  31: [
+  32: [
     { q: 'Qual visto permite trabalhar nos EUA?', opts: ['B1/B2 (turismo)', 'H-1B (trabalhador especializado), O-1 (habilidade extraordinária) e L-1 (transferência interna)', 'Apenas cidadania americana', 'Green Card obrigatório para qualquer trabalho'], correct: 1 },
     { q: 'O que é o "résumé" americano e como difere do CV brasileiro?', opts: ['São idênticos', 'Résumé é mais curto (1 página ideal), sem foto, sem dados pessoais como CPF, focado em impacto quantificado', 'Résumé tem mais páginas', 'Résumé inclui foto obrigatória'], correct: 1 },
     { q: 'Qual plataforma é mais importante para vagas no Canadá?', opts: ['Catho', 'LinkedIn + Indeed.ca + Job Bank Canada (plataforma oficial do governo)', 'Facebook Marketplace', 'SINE'], correct: 1 },
     { q: 'O que é o "Express Entry" no Canadá?', opts: ['Visto de turismo rápido', 'Sistema de pontuação para imigração permanente qualificada — baseado em experiência, idioma e educação', 'Programa de intercâmbio', 'Visto de trabalho temporário'], correct: 1 },
     { q: 'Como construir network no mercado americano ou canadense remotamente?', opts: ['Apenas enviar cold emails', 'LinkedIn em inglês com conteúdo relevante, participar de comunidades da área e informational interviews', 'Esperar ser recrutado passivamente', 'Apenas aplicar via ATS online'], correct: 1 },
   ],
-  32: [
+  33: [
     { q: 'O que diferencia Product Manager de Product Owner?', opts: ['São sinônimos', 'PM tem visão estratégica de longo prazo e P&L; PO é mais tático, focado em backlog e sprints com o time dev', 'PO tem mais autoridade', 'PM é cargo mais júnior'], correct: 1 },
     { q: 'O que é "product discovery"?', opts: ['Lançamento de produto', 'Processo de validar problemas e soluções antes de construir — entrevistas com usuários, prototipagem e testes', 'Pesquisa de mercado externa', 'Análise de concorrentes'], correct: 1 },
     { q: 'O que é um "PRD" (Product Requirements Document)?', opts: ['Relatório financeiro do produto', 'Documento que descreve o problema, solução proposta, casos de uso e critérios de aceite', 'Manual do usuário', 'Contrato com fornecedores'], correct: 1 },
     { q: 'Como um aspirante a PM sem experiência pode entrar na área?', opts: ['Esperar oportunidade interna', 'Fazer projetos pessoais de PM, escrever case studies, buscar transição interna e fazer cursos reconhecidos', 'Fazer MBA obrigatoriamente', 'Começar como desenvolvedor'], correct: 1 },
     { q: 'Quais métricas um PM deve dominar?', opts: ['Apenas NPS', 'Retenção, churn, DAU/MAU, conversion rate, LTV, CAC e métricas específicas do produto', 'Apenas receita', 'Apenas satisfação do cliente'], correct: 1 },
   ],
-  33: [
+  34: [
     { q: 'O que é burnout segundo a OMS?', opts: ['Cansaço normal do trabalho', 'Síndrome resultante de estresse crônico no trabalho com exaustão, cinismo e redução de eficácia profissional', 'Depressão causada pelo trabalho', 'Preguiça profissional'], correct: 1 },
     { q: 'Quais são os 3 sinais mais comuns de burnout?', opts: ['Fome, sede, sono', 'Exaustão emocional, despersonalização (distância emocional) e sensação de ineficácia', 'Irritação, choro e raiva', 'Apenas cansaço físico'], correct: 1 },
     { q: 'O que é "quiet quitting"?', opts: ['Pedir demissão silenciosamente', 'Fazer apenas o mínimo exigido pelo cargo, sem envolvimento emocional além das atribuições formais', 'Trabalho remoto sem comunicar', 'Faltar ao trabalho sem aviso'], correct: 1 },
     { q: 'Como estabelecer limites saudáveis no trabalho?', opts: ['Recusar todo projeto extra', 'Comunicar disponibilidade claramente, aprender a dizer não com alternativas e proteger tempo pessoal', 'Trabalhar menos horas que o contrato', 'Ignorar mensagens de colegas'], correct: 1 },
     { q: 'Qual é a diferença entre estresse e burnout?', opts: ['São a mesma coisa', 'Estresse é tensão que pode ser resolvida com descanso; burnout é estado crônico onde o descanso não resolve', 'Burnout é menos grave', 'Apenas médicos podem diagnosticar a diferença'], correct: 1 },
   ],
-  34: [
+  35: [
     { q: 'O que é storytelling profissional?', opts: ['Contar histórias de ficção', 'A arte de comunicar experiências, dados e ideias numa narrativa que cativa, é memorável e gera ação', 'Técnica de apresentação de slides', 'Habilidade de improviso'], correct: 1 },
     { q: 'Qual estrutura narrativa é mais eficaz em apresentações executivas?', opts: ['Começar pelos dados', 'Problema → Impacto → Solução → Resultado — ou começar pelo "e daí?" (MINTO Pyramid Principle)', 'Listar todos os fatos primeiro', 'Usar jargão técnico para credibilidade'], correct: 1 },
     { q: 'O que é "comunicação ascendente" no contexto corporativo?', opts: ['Apresentar para a diretoria', 'Comunicação de colaboradores para gestores ou executivos, adaptando a linguagem ao nível de detalhe esperado', 'Enviar emails para superiores', 'Pedir promoção'], correct: 1 },
     { q: 'Como simplificar uma comunicação técnica para audiência não técnica?', opts: ['Evitar o tema complexo', 'Usar analogias, focar no impacto/benefício em vez dos detalhes técnicos e checar entendimento', 'Falar mais devagar', 'Usar mais slides'], correct: 1 },
     { q: 'O que é "executive presence" (presença executiva)?', opts: ['Ser alto e imponente', 'Combinação de clareza de comunicação, confiança, gravitas e capacidade de influenciar sem autoridade formal', 'Ter cargo executivo', 'Vestir-se formalmente em todas as ocasiões'], correct: 1 },
   ],
-  35: [
+  36: [
     { q: 'Qual é a diferença entre Data Analyst, Data Scientist e Data Engineer?', opts: ['São o mesmo cargo com nomes diferentes', 'Analyst analisa dados existentes; Scientist cria modelos preditivos; Engineer constrói pipelines e infra de dados', 'Data Engineer é mais sênior que Scientist', 'Apenas o salário diferencia'], correct: 1 },
     { q: 'Quais habilidades são essenciais para Analista de Dados?', opts: ['Apenas Excel', 'SQL + Python (ou R) + visualização (Tableau/Power BI) + pensamento analítico + storytelling de dados', 'Apenas machine learning', 'Programação em C++'], correct: 1 },
     { q: 'O que é um "data pipeline"?', opts: ['Tubo físico de internet', 'Fluxo automatizado de coleta, processamento, transformação e carregamento de dados entre sistemas', 'Dashboard de dados', 'Relatório automatizado'], correct: 1 },
     { q: 'O que diferencia Business Intelligence de Data Science?', opts: ['São a mesma coisa', 'BI foca em análise descritiva (o que aconteceu); DS usa estatística e ML para prever (o que vai acontecer)', 'BI é mais avançado', 'Data Science não usa dados históricos'], correct: 1 },
     { q: 'Qual é o melhor caminho para entrar na área de dados sem experiência?', opts: ['Apenas fazer um bootcamp de 2 semanas', 'Aprender SQL + Python, construir projetos com dados públicos, publicar no GitHub e kaggle', 'Fazer mestrado em estatística obrigatoriamente', 'Candidatar para vagas sênior e aprender no trabalho'], correct: 1 },
   ],
-  36: [
+  37: [
     { q: 'O que é mentoria de carreira?', opts: ['Curso online de carreira', 'Relação de aprendizado entre um profissional mais experiente (mentor) que orienta alguém em desenvolvimento', 'Consultoria paga de carreira', 'Avaliação de desempenho'], correct: 1 },
     { q: 'Como encontrar um mentor relevante?', opts: ['Apenas perguntar a desconhecidos no LinkedIn', 'Identificar profissionais 5-10 anos à frente da sua trajetória desejada e construir relação antes de pedir mentoria', 'Inscrever-se em programas formais exclusivamente', 'Pedir para o CEO da empresa'], correct: 1 },
     { q: 'O que torna uma sessão de mentoria produtiva?', opts: ['Apenas ouvir o mentor falar', 'Chegar com perguntas específicas, dúvidas reais e atualizar o mentor sobre implementação de conselhos anteriores', 'Gravar tudo para estudar depois', 'Fazer reuniões mensais de 3 horas'], correct: 1 },
     { q: 'O que é "reverse mentoring"?', opts: ['Mentoria inversa — júnior ensina sênior', 'Profissional mais jovem mentoria sênior sobre novas tecnologias, redes sociais e tendências de mercado', 'Mentoria formal de empresa', 'Mentoria sem troca de experiências'], correct: 0 },
     { q: 'O que o mentorado deve oferecer em troca da mentoria?', opts: ['Pagamento sempre', 'Respeito ao tempo, preparo, implementação dos conselhos e atualização dos resultados', 'Nada — é favor do mentor', 'Indicações profissionais'], correct: 1 },
   ],
-  37: [
+  38: [
     { q: 'O que é uma multinacional?', opts: ['Empresa muito grande', 'Organização com operações em múltiplos países, geralmente com sede central e filiais locais', 'Empresa com mais de 1000 funcionários', 'Empresa que exporta produtos'], correct: 1 },
     { q: 'Qual é a principal diferença cultural em multinacionais americanas vs. europeias?', opts: ['Sem diferença', 'Americanas tendem ao desempenho individual e velocidade; europeias ao consenso, equilíbrio vida-trabalho e longo prazo', 'Europeias pagam mais', 'Americanas têm menos burocracia'], correct: 1 },
     { q: 'O que é "matriz vs. filial" em multinacional?', opts: ['Diferentes departamentos', 'Tensão estrutural entre as decisões da sede global e as necessidades do mercado local', 'Hierarquia de cargos', 'Diferença de benefícios'], correct: 1 },
     { q: 'Como se destacar numa multinacional?', opts: ['Trabalhar mais horas que todos', 'Ter resultado visível internacionalmente, dominar idiomas, participar de projetos globais e construir rede além do país', 'Ser o mais antigo', 'Apenas ter inglês fluente'], correct: 1 },
     { q: 'O que é um "expatriado" (expat) no contexto corporativo?', opts: ['Funcionário demitido', 'Profissional enviado pela empresa para trabalhar em outro país com pacote de relocação e benefícios especiais', 'Trabalhador remoto', 'Viajante frequente a trabalho'], correct: 1 },
   ],
-  38: [
+  39: [
     { q: 'O que é MEI?', opts: ['Micro Empresa Individual', 'Microempreendedor Individual — regime simplificado para trabalhadores autônomos com faturamento até R$81k/ano', 'Plano de previdência', 'Regime tributário de grandes empresas'], correct: 1 },
     { q: 'Qual é a principal vantagem de ser PJ em vez de CLT?', opts: ['Mais estabilidade', 'Salário líquido mais alto (sem IR progressivo e INSS patronal), mais flexibilidade e deduções fiscais', 'Férias garantidas', 'Seguro-desemprego'], correct: 1 },
     { q: 'O que não existe no regime PJ que existe na CLT?', opts: ['Imposto de renda', 'FGTS, seguro-desemprego, décimo terceiro, férias remuneradas e horas extras garantidos por lei', 'Previdência social', 'Plano de saúde'], correct: 1 },
     { q: 'Como calcular se vale mais ser PJ ou CLT?', opts: ['PJ sempre vale mais', 'Comparar salário líquido: CLT bruto - impostos - benefícios vs. PJ bruto - custos de empresa - benefícios que deve contratar', 'CLT sempre tem mais benefícios', 'Depende apenas do salário bruto'], correct: 1 },
     { q: 'O que é "pejotização" e qual o risco?', opts: ['Empresa que vira startup', 'Prática de contratar CLT como PJ para reduzir custos trabalhistas — pode ser reconhecida como vínculo empregatício', 'Regime fiscal especial', 'Transição de MEI para empresa'], correct: 1 },
   ],
-  39: [
+  40: [
     { q: 'O que é "design de carreira" segundo Bill Burnett e Dave Evans?', opts: ['Design gráfico aplicado ao CV', 'Aplicar princípios de design thinking à vida profissional: prototipar, iterar e aceitar múltiplos futuros possíveis', 'Criar portfólio visual', 'Metodologia de RH'], correct: 1 },
     { q: 'O que é um "Workview" e "Lifeview"?', opts: ['Plataformas de emprego', 'Workview: suas crenças sobre o trabalho ideal; Lifeview: sua visão de mundo — juntos guiam decisões de carreira', 'Currículos modernos', 'Avaliações de personalidade'], correct: 1 },
     { q: 'O que é "prototipagem de carreira"?', opts: ['Criar um CV modelo', 'Fazer experiências pequenas e baratas (conversas, projetos laterais, voluntariado) antes de mudar de carreira', 'Planejar em Excel', 'Fazer MBA exploratório'], correct: 1 },
     { q: 'O que é a "bússola de vida" no Design de Carreira?', opts: ['Ferramenta de navegação literal', 'Clareza sobre o que dá energia vs. drena, o que importa e o que você quer de verdade — guia decisões', 'Teste de personalidade MBTI', 'Lista de metas de vida'], correct: 1 },
     { q: 'Como tomar decisões difíceis de carreira com mais clareza?', opts: ['Deixar o tempo decidir', 'Identificar e questionar crenças limitantes, prototipar alternativas e aceitar que não existe escolha perfeita', 'Ouvir apenas quem te conhece há mais tempo', 'Seguir a escolha mais segura'], correct: 1 },
-  ],
-  40: [
-    { q: 'O que é "career agility"?', opts: ['Trabalhar em pé', 'Capacidade de se adaptar rapidamente a mudanças de mercado, tecnologia e contexto sem perder o fio da carreira', 'Mudar de emprego frequentemente', 'Ser promovido rapidamente'], correct: 1 },
-    { q: 'O que é aprendizagem contínua ("lifelong learning") no contexto de carreira?', opts: ['Fazer cursos toda semana', 'Mentalidade de aprendizado constante e intencional para manter-se relevante num mercado em constante mudança', 'Ter vários diplomas', 'Aprender apenas habilidades técnicas'], correct: 1 },
-    { q: 'Quais habilidades serão mais relevantes no mercado de trabalho de 2030?', opts: ['Apenas programação', 'Pensamento crítico, criatividade, inteligência emocional, colaboração e literacia em IA', 'Apenas idiomas estrangeiros', 'Habilidades manuais exclusivamente'], correct: 1 },
-    { q: 'O que é "ikigai" aplicado à carreira?', opts: ['Técnica japonesa de entrevista', 'Conceito japonês que representa a interseção entre o que você ama, é bom, o mundo precisa e te pagam', 'Dieta de produtividade', 'Método de negociação'], correct: 1 },
-    { q: 'Como construir uma carreira antifrágil?', opts: ['Depender de um único empregador', 'Diversificar habilidades, redes e fontes de renda; aprender com adversidades e construir optionalidade', 'Evitar riscos completamente', 'Ter emprego público com estabilidade'], correct: 1 },
   ],
   30: [
     { q: 'O que diferencia um plano de carreira de 5 anos de uma simples lista de desejos?', opts: ['O número de metas listadas', 'Metas SMART com indicadores, prazos e ações concretas para cada etapa', 'Ter validação de um coach', 'Estar escrito num caderno especial'], correct: 1 },
