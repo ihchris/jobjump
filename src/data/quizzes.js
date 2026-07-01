@@ -280,21 +280,21 @@ export const QUIZZES = {
     { q: 'Qual é o maior risco de não fazer autoconhecimento antes de definir um plano de carreira?', opts: ['Gastar dinheiro com cursos errados', 'Perseguir uma trajetória que não alinha com seus valores, energia e forças reais', 'Não conseguir emprego rapidamente', 'Planejar metas muito ambiciosas'], correct: 1 },
     { q: 'O que é uma "conversa de carreira" com gestor e por que é importante?', opts: ['Reunião para pedir aumento', 'Diálogo intencional sobre desenvolvimento, ambições e próximos passos — alinha expectativas e acelera crescimento', 'Avaliação de desempenho formal', 'Reunião para falar sobre promoção'], correct: 1 },
   ],
-  41: [
+  101: [
     { q: 'O que é a regra dos 50-30-20 no orçamento pessoal?', opts: ['50% lazer, 30% investimento, 20% necessidades', '50% necessidades, 30% desejos e lazer, 20% poupança e investimentos', '50% investimento, 30% necessidades, 20% lazer', '50% moradia, 30% alimentação, 20% transporte'], correct: 1 },
     { q: 'O que é fundo de emergência e qual o tamanho ideal?', opts: ['Poupança para viagens', 'Reserva líquida equivalente a 6-12 meses de gastos para cobrir imprevistos sem endividar', 'Investimento de longo prazo', 'Seguro de vida'], correct: 1 },
     { q: 'Qual é a diferença entre renda fixa e renda variável?', opts: ['Renda fixa paga mais', 'Renda fixa tem retorno previsível (CDB, Tesouro); renda variável tem retorno incerto mas potencialmente maior (ações, FIIs)', 'Renda variável é mais segura', 'São a mesma coisa com nomes diferentes'], correct: 1 },
     { q: 'O que é o FGTS e quando pode ser sacado?', opts: ['Fundo obrigatório com livre saque', 'Fundo de Garantia por Tempo de Serviço — saque em demissão sem justa causa, compra de imóvel, doença grave e outros casos previstos em lei', 'Previdência privada', 'Seguro-desemprego'], correct: 1 },
     { q: 'Qual é o principal erro financeiro de profissionais recém-promovidos?', opts: ['Investir muito cedo', 'Inflar o padrão de vida imediatamente com todo o aumento salarial sem aumentar proporcionalmente os investimentos', 'Pedir aumento de salário', 'Mudar de emprego após promoção'], correct: 1 },
   ],
-  42: [
+  102: [
     { q: 'O que é etiqueta digital no ambiente profissional?', opts: ['Regras de design de e-mail', 'Conjunto de normas de comportamento e comunicação respeitosa em ambientes digitais e remotos', 'Protocolo de segurança de dados', 'Formato de assinatura de email'], correct: 1 },
     { q: 'Qual é a regra de ouro ao responder emails profissionais?', opts: ['Responder imediatamente para mostrar eficiência', 'Responder em até 24-48h úteis com clareza e objetividade, adaptando o tom ao contexto', 'Usar responder a todos sempre', 'Escrever o máximo de detalhes possível'], correct: 1 },
     { q: 'O que é "síndrome da câmera desligada" em reuniões remotas?', opts: ['Problema técnico de câmera', 'Tendência de desligar a câmera reduzindo engajamento, conexão e presença percebida na equipe remota', 'Política de privacidade', 'Forma de economizar internet'], correct: 1 },
     { q: 'Como evitar mal-entendidos em comunicação por texto (email, Slack, WhatsApp)?', opts: ['Usar muitos emojis', 'Ser explícito no tom, adicionar contexto necessário e confirmar entendimento em mensagens críticas', 'Escrever mensagens muito curtas', 'Evitar comunicação por texto sempre que possível'], correct: 1 },
     { q: 'O que é "presença digital profissional" e por que importa?', opts: ['Ter muitos seguidores', 'A percepção que colegas, gestores e recrutadores formam sobre você com base no que publicam e como se comunica online', 'Ter perfil em todas as redes', 'Postar diariamente no LinkedIn'], correct: 1 },
   ],
-  43: [
+  103: [
     { q: 'O que é IA Generativa e como difere de IA tradicional?', opts: ['São a mesma coisa', 'IA generativa cria conteúdo novo (texto, imagem, código); IA tradicional classifica ou prediz com base em dados existentes', 'IA generativa é menos poderosa', 'IA tradicional é mais recente'], correct: 1 },
     { q: 'Quais profissões têm mais habilidades transferíveis para trabalhar com IA?', opts: ['Apenas programadores', 'Qualquer profissional que saiba estruturar problemas, comunicar claramente e avaliar criticamente resultados', 'Apenas cientistas de dados', 'Apenas gestores'], correct: 1 },
     { q: 'O que é "prompt engineering" e por que é uma habilidade de mercado?', opts: ['Programação de robôs', 'A capacidade de formular instruções precisas para modelos de IA, obtendo melhores resultados — habilidade valorizada em todas as áreas', 'Engenharia de software', 'Criação de chatbots'], correct: 1 },
