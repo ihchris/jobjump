@@ -11,6 +11,8 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
   const [success, setSuccess] = useState('')
   const [acceptedTerms, setAcceptedTerms] = useState(false)
   const [showTerms, setShowTerms] = useState(false)
+  const [showReset, setShowReset] = useState(false)
+  const [resetEmail, setResetEmail] = useState('')
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
 
@@ -68,8 +70,56 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
     setLoading(false)
   }
 
+  const handleReset = async () => {
+    if (!resetEmail.trim() || !resetEmail.includes('@')) { setError('Introduza um e-mail válido.'); return }
+    setLoading(true); setError('')
+    const { error: err } = await supabase.auth.resetPasswordForEmail(resetEmail.trim(), {
+      redirectTo: window.location.origin,
+    })
+    setLoading(false)
+    if (err) { setError(err.message); return }
+    setSuccess('Link enviado! Verifique o seu e-mail para redefinir a senha.')
+  }
+
   const inp =
     'w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all'
+
+  if (showReset) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
+          <div className="text-center mb-8">
+            <img src="/logo.png" alt="JobJump" className="h-14 w-auto mx-auto mb-3" />
+            <h1 className="text-2xl font-black text-slate-800">Redefinir senha</h1>
+            <p className="text-slate-500 text-sm mt-1">Enviaremos um link para o seu e-mail</p>
+          </div>
+          <div className="space-y-4">
+            <input
+              className={inp}
+              type="email"
+              placeholder="O seu e-mail"
+              value={resetEmail}
+              onChange={(e) => setResetEmail(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleReset()}
+              autoFocus
+            />
+            <div aria-live="polite">
+              {error   && <p className="text-red-500 text-sm bg-red-50 px-3 py-2 rounded-lg">{error}</p>}
+              {success && <p className="text-green-700 text-sm bg-green-50 px-3 py-2 rounded-lg">{success}</p>}
+            </div>
+            <Btn onClick={handleReset} variant="primary" size="md" className="w-full" disabled={loading}>
+              {loading ? <Spinner size="w-4 h-4" color="border-white" /> : 'Enviar link de redefinição'}
+            </Btn>
+          </div>
+          <div className="mt-4 text-center">
+            <button onClick={() => { setShowReset(false); setError(''); setSuccess('') }} className="text-slate-400 text-sm hover:text-slate-600">
+              ← Voltar ao login
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   if (showTerms) {
     return (
@@ -222,6 +272,17 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
               'Entrar'
             )}
           </Btn>
+          {mode === 'login' && (
+            <div className="text-center">
+              <button
+                type="button"
+                onClick={() => { setShowReset(true); setResetEmail(form.email); setError(''); setSuccess('') }}
+                className="text-sm text-slate-400 hover:text-blue-600 transition-colors"
+              >
+                Esqueceu a senha?
+              </button>
+            </div>
+          )}
         </div>
 
         <div className="mt-6 text-center text-sm text-slate-500">

@@ -69,8 +69,8 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
   const [name, setName] = useState(user.name)
   const [saved, setSaved] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
-  const [checkoutStatus, setCheckoutStatus] = useState(null)
   const [upgradeLoading, setUpgradeLoading] = useState(false)
+  const [upgradeError, setUpgradeError] = useState(null)
   const [theme, setTheme] = useState(() => localStorage.getItem('nj_theme') || 'system')
   const [profilePrivate, setProfilePrivate] = useState(false)
   const [netProfile, setNetProfile] = useState({ area: '', bio: '', job_title: '', location: '', linkedin_url: '', skills: [], avatar_url: null, open_to_mentor: false, looking_for_peer: false })
@@ -78,16 +78,6 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
   const [skillInput, setSkillInput] = useState('')
   const [avatarUploading, setAvatarUploading] = useState(false)
   const fileRef = useRef(null)
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    const status = params.get('checkout')
-    if (status) {
-      setCheckoutStatus(status)
-      window.history.replaceState({}, '', window.location.pathname)
-      if (status === 'success') refreshUser()
-    }
-  }, [])
 
   useEffect(() => {
     if (supabaseConfigured && user?.id) {
@@ -205,14 +195,15 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
 
   const handleUpgrade = async () => {
     setUpgradeLoading(true)
+    setUpgradeError(null)
     try {
       const { data, error } = await supabase.functions.invoke('create-checkout', {
-        body: { returnUrl: window.location.href },
+        body: { returnUrl: window.location.origin, plan: 'pro' },
       })
       if (error) throw error
       if (data?.url) window.location.href = data.url
     } catch {
-      alert('Erro ao iniciar checkout. Tente novamente.')
+      setUpgradeError('Erro ao iniciar checkout. Tente novamente.')
     }
     setUpgradeLoading(false)
   }
@@ -227,17 +218,6 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
   return (
     <div className="p-6 animate-fade-in max-w-xl">
       <h1 className="text-2xl font-black text-slate-800 mb-6">Configurações</h1>
-
-      {checkoutStatus === 'success' && (
-        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl text-green-800 font-medium text-sm animate-fade-in">
-          🎉 Pagamento processado com sucesso! {planLabel(user.plan)} ativado. Aproveite o acesso total!
-        </div>
-      )}
-      {checkoutStatus === 'cancelled' && (
-        <div className="mb-6 p-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-600 text-sm animate-fade-in">
-          Checkout cancelado. Você pode fazer upgrade a qualquer momento.
-        </div>
-      )}
 
       <div className="space-y-4">
         {/* Aparência */}
@@ -475,26 +455,35 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
             </div>
           </div>
           {!isPaid(user.plan) ? (
-            <Btn
-              onClick={handleUpgrade}
-              variant="primary"
-              size="md"
-              className="w-full"
-              disabled={upgradeLoading}
-            >
-              {upgradeLoading ? 'Redirecionando...' : '⭐ Fazer upgrade para Pro — R$29,90/mês'}
-            </Btn>
+            <>
+              <Btn
+                onClick={handleUpgrade}
+                variant="primary"
+                size="md"
+                className="w-full"
+                disabled={upgradeLoading}
+              >
+                {upgradeLoading ? 'Redirecionando...' : '⭐ Fazer upgrade para Pro — R$29,90/mês'}
+              </Btn>
+              {upgradeError && (
+                <p className="text-red-500 text-xs text-center mt-2 bg-red-50 px-3 py-2 rounded-lg">{upgradeError}</p>
+              )}
+            </>
           ) : (
             <p className="text-xs text-slate-400 text-center">
               Para cancelar a assinatura, acesse o{' '}
-              <a
-                href="https://billing.stripe.com/p/login/test_xxx"
-                target="_blank"
-                rel="noreferrer"
-                className="underline hover:text-slate-600"
-              >
-                portal de faturamento
-              </a>
+              {import.meta.env.VITE_STRIPE_BILLING_PORTAL_URL ? (
+                <a
+                  href={import.meta.env.VITE_STRIPE_BILLING_PORTAL_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline hover:text-slate-600"
+                >
+                  portal de faturamento
+                </a>
+              ) : (
+                <span className="font-semibold">portal de faturamento (configure VITE_STRIPE_BILLING_PORTAL_URL)</span>
+              )}
               .
             </p>
           )}

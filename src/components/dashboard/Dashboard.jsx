@@ -71,6 +71,19 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
   const [showOnboarding, setShowOnboarding] = useState(() => !LS.get(ONBOARDING_KEY, false))
   const [msgUnread, setMsgUnread] = useState(0)
   const [msgInitPeerId, setMsgInitPeerId] = useState(null)
+  const [checkoutBanner, setCheckoutBanner] = useState(null) // 'success' | 'cancelled'
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const status = params.get('checkout')
+    if (status) {
+      window.history.replaceState({}, '', window.location.pathname)
+      setCheckoutBanner(status)
+      if (status === 'success') refreshUser()
+      const t = setTimeout(() => setCheckoutBanner(null), 6000)
+      return () => clearTimeout(t)
+    }
+  }, [])
 
   const saveProgress = (fn) => {
     setProgress((prev) => {
@@ -122,6 +135,18 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
       )}
 
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+        {checkoutBanner === 'success' && (
+          <div className="flex items-center gap-3 px-5 py-3 bg-emerald-600 text-white text-sm font-semibold flex-shrink-0">
+            🎉 Bem-vindo ao Pro! O seu plano foi atualizado com sucesso.
+            <button onClick={() => setCheckoutBanner(null)} className="ml-auto text-white/70 hover:text-white text-lg leading-none">×</button>
+          </div>
+        )}
+        {checkoutBanner === 'cancelled' && (
+          <div className="flex items-center gap-3 px-5 py-3 bg-amber-500 text-white text-sm font-semibold flex-shrink-0">
+            Checkout cancelado. Pode fazer upgrade a qualquer momento nas Configurações.
+            <button onClick={() => setCheckoutBanner(null)} className="ml-auto text-white/70 hover:text-white text-lg leading-none">×</button>
+          </div>
+        )}
         <div className="md:hidden flex items-center gap-3 px-4 bg-white border-b border-slate-200 fixed top-0 left-0 right-0 z-30 h-14 shadow-sm">
           <button
             onClick={() => setSidebarOpen(true)}
