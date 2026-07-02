@@ -130,6 +130,31 @@ const SEED_POSTS = [
 const LOCAL_POSTS_KEY = 'nj_community_v2'
 const LOCAL_LIKES_KEY = 'nj_community_v2_likes'
 
+// ─── Perfis demo (modo sem Supabase) ──────────────────────────────────────────
+
+const AREA_LABELS = {
+  tech:'Tecnologia / Dev', product_ux:'Product Design / UX', data_ai:'Dados, Analytics e IA',
+  marketing:'Marketing / Comunicação', sales:'Vendas / Comercial', hr:'RH / Pessoas',
+  finance:'Financeiro / Controladoria', management:'Gestão / Operações', consulting:'Consultoria',
+  law:'Direito / Jurídico', engineering:'Engenharia', agro:'Agronegócio',
+  health:'Saúde e Ciências da Vida', education:'Educação / EdTech', logistics:'Logística',
+  security:'Segurança da Informação', investment:'Mercado Financeiro', creative:'Audiovisual e Design',
+  media:'Jornalismo e Mídia', hospitality:'Turismo e Hotelaria', fashion:'Moda e Varejo',
+  public:'Concursos Públicos', startup:'Startups e Empreendedorismo', purpose:'ESG e Terceiro Setor',
+}
+
+const SEED_PROFILES = {
+  'Maria S.': { area:'marketing',   bio:'Analista de Marketing em SP. Fechei um contrato após 4 meses de busca — reescrever o CV para ATS fez toda a diferença.', open_to_mentor:true,  looking_for_peer:false },
+  'Pedro L.': { area:'sales',       bio:'Profissional de vendas B2B. Acredito que networking direto com o time é o diferencial na candidatura.', open_to_mentor:false, looking_for_peer:true },
+  'Lucas R.': { area:'finance',     bio:'Analista financeiro. Aprendi a negociar salário — e quero ajudar outros a não deixar dinheiro na mesa.', open_to_mentor:true,  looking_for_peer:false },
+  'Carla M.': { area:'creative',    bio:'Fiz transição de RH para UX/Design em 6 meses, 1h por dia antes do trabalho. Acredito em aprendizado contínuo.', open_to_mentor:false, looking_for_peer:true },
+  'João F.':  { area:'tech',        bio:'Dev frontend buscando o próximo desafio. Curioso por natureza, especialmente sobre processos seletivos técnicos.', open_to_mentor:false, looking_for_peer:true },
+  'Sofia T.': { area:'hr',          bio:'RH estratégico — processos seletivos, cultura e bem-estar. Partilho aprendizagens sobre saúde mental na busca de emprego.', open_to_mentor:true,  looking_for_peer:false },
+  'Ana O.':   { area:'product_ux',  bio:'Pesquisadora UX em transição de carreira. Portfólio em construção, trocando figurinhas com quem está no mesmo caminho.', open_to_mentor:false, looking_for_peer:true },
+  'Rafa M.':  { area:'management',  bio:'Gestão de projetos internacionais. Explorando oportunidades na Europa — dicas sobre mercado europeu sempre bem-vindas.', open_to_mentor:false, looking_for_peer:true },
+  'Bruno K.': { area:'tech',        bio:'Especialista em ATS e otimização de CV. Pequenas mudanças de formatação que geram mais retornos.', open_to_mentor:true,  looking_for_peer:false },
+}
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function getWeekChallenge() {
@@ -173,6 +198,99 @@ function CatBadge({ category }) {
     <span className={`inline-flex items-center gap-0.5 text-[11px] font-semibold px-2 py-0.5 rounded-full ${m.color}`}>
       {m.icon} {m.label}
     </span>
+  )
+}
+
+// ─── Profile modal ────────────────────────────────────────────────────────────
+
+function ProfileModal({ name, userId, onClose }) {
+  const [profile, setProfile] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    let cancelled = false
+    const load = async () => {
+      if (!userId || userId === 'seed' || userId === 'local') {
+        const seed = SEED_PROFILES[name]
+        if (!cancelled) setProfile(seed ? { name, ...seed } : { name })
+      } else if (supabaseConfigured) {
+        const { data } = await supabase
+          .from('profiles')
+          .select('name, area, bio, open_to_mentor, looking_for_peer, profile_private')
+          .eq('id', userId)
+          .single()
+        if (!cancelled) setProfile(data || { name })
+      } else {
+        if (!cancelled) setProfile({ name })
+      }
+      if (!cancelled) setLoading(false)
+    }
+    load()
+    return () => { cancelled = true }
+  }, [userId, name])
+
+  const displayName = profile?.name || name
+
+  return (
+    <div
+      className="fixed inset-0 bg-black/50 z-50 flex items-end sm:items-center justify-center p-4 animate-fade-in"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-sm"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="p-6 text-center">
+          <div className={`w-16 h-16 ${avatarColor(displayName)} rounded-full flex items-center justify-center text-white font-black text-2xl mx-auto mb-4`}>
+            {displayName.slice(0, 2).toUpperCase()}
+          </div>
+
+          {loading ? (
+            <div className="space-y-2 animate-pulse">
+              <div className="h-5 bg-slate-200 rounded-lg w-36 mx-auto" />
+              <div className="h-3 bg-slate-100 rounded w-24 mx-auto" />
+            </div>
+          ) : profile?.profile_private ? (
+            <>
+              <h2 className="font-black text-slate-800 text-lg mb-4">{displayName}</h2>
+              <div className="flex flex-col items-center gap-2 text-slate-400">
+                <span className="text-3xl">🔒</span>
+                <span className="text-sm">Este utilizador optou por manter o perfil privado.</span>
+              </div>
+            </>
+          ) : (
+            <>
+              <h2 className="font-black text-slate-800 text-lg mb-1">{displayName}</h2>
+              {profile?.area && (
+                <span className="inline-block text-blue-600 text-xs font-semibold px-3 py-1 bg-blue-50 rounded-full mb-3">
+                  {AREA_LABELS[profile.area] || profile.area}
+                </span>
+              )}
+              {profile?.bio ? (
+                <p className="text-slate-600 text-sm leading-relaxed mb-4">{profile.bio}</p>
+              ) : (
+                <p className="text-slate-400 text-sm mb-4">Perfil de networking não preenchido.</p>
+              )}
+              {(profile?.open_to_mentor || profile?.looking_for_peer) && (
+                <div className="flex justify-center gap-2 flex-wrap">
+                  {profile.open_to_mentor && (
+                    <span className="text-xs px-2.5 py-1 rounded-full bg-violet-100 text-violet-700 font-semibold">🧭 Disponível para mentoria</span>
+                  )}
+                  {profile.looking_for_peer && (
+                    <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 font-semibold">🔎 Busca parceiro(a)</span>
+                  )}
+                </div>
+              )}
+            </>
+          )}
+        </div>
+        <div className="border-t border-slate-100 px-6 py-3 flex justify-center">
+          <button onClick={onClose} className="text-sm text-slate-500 hover:text-slate-700 font-semibold transition-colors">
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -269,7 +387,7 @@ function Composer({ user, onPost, defaultCategory, onCancel }) {
 
 // ─── Comments ─────────────────────────────────────────────────────────────────
 
-function CommentsSection({ post, user, isAdmin, onAddComment, onDeleteComment }) {
+function CommentsSection({ post, user, isAdmin, onAddComment, onDeleteComment, onClickName }) {
   const [comments, setComments] = useState(post.comments || null)
   const [text, setText] = useState('')
   const [busy, setBusy] = useState(false)
@@ -307,10 +425,17 @@ function CommentsSection({ post, user, isAdmin, onAddComment, onDeleteComment })
       )}
       {list.map((c) => (
         <div key={c.id} className="flex gap-2.5 group">
-          <Avatar name={c.user_name} size="sm" />
+          <button onClick={() => onClickName({ name: c.user_name, userId: c.user_id || 'seed' })} className="flex-shrink-0">
+            <Avatar name={c.user_name} size="sm" />
+          </button>
           <div className="flex-1 bg-slate-50 rounded-xl px-3 py-2">
             <div className="flex items-baseline gap-2 mb-0.5">
-              <span className="font-semibold text-slate-700 text-xs">{c.user_name}</span>
+              <button
+                onClick={() => onClickName({ name: c.user_name, userId: c.user_id || 'seed' })}
+                className="font-semibold text-slate-700 text-xs hover:text-blue-600 transition-colors"
+              >
+                {c.user_name}
+              </button>
               <span className="text-slate-400 text-[11px]">{formatTime(c.created_at)}</span>
               {isAdmin && (
                 <button
@@ -348,7 +473,7 @@ function CommentsSection({ post, user, isAdmin, onAddComment, onDeleteComment })
 
 // ─── Post card ────────────────────────────────────────────────────────────────
 
-function PostCard({ post, user, isAdmin, onLike, onDelete, onAddComment, onDeleteComment }) {
+function PostCard({ post, user, isAdmin, onLike, onDelete, onAddComment, onDeleteComment, onClickName }) {
   const [showComments, setShowComments] = useState(false)
   const commentCount = post.comments_count ?? post.comments?.length ?? 0
   const isOwn = post.user_id === user?.id && post.user_id !== 'seed'
@@ -359,9 +484,16 @@ function PostCard({ post, user, isAdmin, onLike, onDelete, onAddComment, onDelet
       <div className="p-5">
         <div className="flex items-start justify-between mb-3">
           <div className="flex items-center gap-3">
-            <Avatar name={post.user_name} />
+            <button onClick={() => onClickName({ name: post.user_name, userId: post.user_id })} className="flex-shrink-0">
+              <Avatar name={post.user_name} />
+            </button>
             <div>
-              <div className="font-semibold text-slate-800 text-sm">{post.user_name}</div>
+              <button
+                onClick={() => onClickName({ name: post.user_name, userId: post.user_id })}
+                className="font-semibold text-slate-800 text-sm hover:text-blue-600 transition-colors text-left"
+              >
+                {post.user_name}
+              </button>
               <div className="flex items-center gap-2 mt-0.5">
                 <span className="text-slate-400 text-xs">{formatTime(post.created_at)}</span>
                 <CatBadge category={post.category} />
@@ -414,6 +546,7 @@ function PostCard({ post, user, isAdmin, onLike, onDelete, onAddComment, onDelet
             isAdmin={isAdmin}
             onAddComment={onAddComment}
             onDeleteComment={onDeleteComment}
+            onClickName={onClickName}
           />
         )}
       </div>
@@ -499,6 +632,7 @@ export default function CommunityPage({ user }) {
   const [composerOpen, setComposerOpen] = useState(false)
   const [composerCategory, setComposerCategory] = useState('geral')
   const [loading, setLoading] = useState(true)
+  const [profileTarget, setProfileTarget] = useState(null) // { name, userId }
 
   const isAdmin = user?.email === ADMIN_EMAIL || !supabaseConfigured
   const challenge = getWeekChallenge()
@@ -684,6 +818,13 @@ export default function CommunityPage({ user }) {
 
   return (
     <div className="p-4 sm:p-6 space-y-5 animate-fade-in max-w-2xl">
+      {profileTarget && (
+        <ProfileModal
+          name={profileTarget.name}
+          userId={profileTarget.userId}
+          onClose={() => setProfileTarget(null)}
+        />
+      )}
 
       {/* Header */}
       <div className="flex items-start justify-between">
@@ -780,6 +921,7 @@ export default function CommunityPage({ user }) {
               onDelete={handleDelete}
               onAddComment={handleAddComment}
               onDeleteComment={handleDeleteComment}
+              onClickName={setProfileTarget}
             />
           ))}
         </div>

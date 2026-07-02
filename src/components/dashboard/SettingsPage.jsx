@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { supabase } from '../../lib/supabase'
+import { supabase, supabaseConfigured } from '../../lib/supabase'
+import { LS } from '../../utils/storage'
 import { Btn, Badge, Modal } from '../ui'
 import { isPaid, planLabel, planDesc } from '../../utils/plans'
 
@@ -42,6 +43,7 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [checkoutStatus, setCheckoutStatus] = useState(null)
   const [upgradeLoading, setUpgradeLoading] = useState(false)
+  const [profilePrivate, setProfilePrivate] = useState(false)
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -52,6 +54,25 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
       if (status === 'success') refreshUser()
     }
   }, [])
+
+  useEffect(() => {
+    if (supabaseConfigured && user?.id) {
+      supabase.from('profiles').select('profile_private').eq('id', user.id).single()
+        .then(({ data }) => { if (data) setProfilePrivate(data.profile_private ?? false) })
+    } else {
+      setProfilePrivate(LS.get('nj_profile_private', false))
+    }
+  }, [user?.id])
+
+  const toggleProfilePrivate = async () => {
+    const next = !profilePrivate
+    setProfilePrivate(next)
+    if (supabaseConfigured && user?.id) {
+      await supabase.from('profiles').update({ profile_private: next }).eq('id', user.id)
+    } else {
+      LS.set('nj_profile_private', next)
+    }
+  }
 
   const saveName = async () => {
     const newName = name.trim() || user.name
@@ -176,6 +197,38 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
 
         {/* Referidos */}
         <ReferralSection userId={user.id} />
+
+        {/* Visibilidade do perfil */}
+        <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm">
+          <h2 className="font-bold text-slate-700 mb-1">Visibilidade do perfil</h2>
+          <p className="text-slate-400 text-xs mb-4">Controla se outros membros podem ver o seu perfil de networking ao clicar no seu nome na comunidade.</p>
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="text-sm font-semibold text-slate-700">
+                {profilePrivate ? '🔒 Perfil privado' : '🌐 Perfil público'}
+              </div>
+              <div className="text-xs text-slate-400 mt-0.5">
+                {profilePrivate
+                  ? 'O seu perfil não é visível para outros membros.'
+                  : 'Outros membros podem ver a sua área, bio e interesses.'}
+              </div>
+            </div>
+            <button
+              onClick={toggleProfilePrivate}
+              className={`relative inline-flex h-6 w-11 flex-shrink-0 rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+                profilePrivate ? 'bg-slate-300' : 'bg-blue-600'
+              }`}
+              role="switch"
+              aria-checked={!profilePrivate}
+            >
+              <span
+                className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ${
+                  profilePrivate ? 'translate-x-0' : 'translate-x-5'
+                }`}
+              />
+            </button>
+          </div>
+        </div>
 
         {/* Dados */}
         <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm">
