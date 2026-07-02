@@ -573,7 +573,8 @@ export default function CommunityPage({ user }) {
         .from('community_comments')
         .insert({ post_id: postId, user_id: user.id, user_name: userName, content })
         .select().single()
-      await supabase.from('community_posts').update({ comments_count: supabase.rpc ? undefined : undefined }).eq('id', postId)
+      const current = posts.find((p) => p.id === postId)?.comments_count || 0
+      await supabase.from('community_posts').update({ comments_count: current + 1 }).eq('id', postId)
       return data || comment
     }
 
@@ -593,7 +594,8 @@ export default function CommunityPage({ user }) {
   const handleDeleteComment = async (postId, commentId) => {
     if (supabaseConfigured) {
       await supabase.from('community_comments').delete().eq('id', commentId)
-      await supabase.from('community_posts').update({ comments_count: supabase.rpc ? undefined : undefined }).eq('id', postId)
+      const current = posts.find((p) => p.id === postId)?.comments_count || 0
+      await supabase.from('community_posts').update({ comments_count: Math.max(0, current - 1) }).eq('id', postId)
     } else {
       setPosts((prev) => prev.map((p) => {
         if (p.id !== postId) return p

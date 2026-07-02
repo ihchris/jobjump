@@ -5,6 +5,7 @@ import { QUIZZES } from '../../data/quizzes'
 import { renderMarkdown } from '../../utils/markdown'
 import { LS } from '../../utils/storage'
 import { isPaid } from '../../utils/plans'
+import LessonQA from './LessonQA'
 import {
   addXP, XP_LESSON, XP_MODULE, saveQuizScore,
   buildGamState, checkNewBadges, getQuizScores, getDiagnosis,
@@ -245,7 +246,7 @@ function ModuleQuiz({ mod, onDone, progress, onXP }) {
 }
 
 // ─── Vista da lição ────────────────────────────────────────────────────────
-function LessonView({ mod, lesson, progress, onMarkDone, onBack, onNext }) {
+function LessonView({ mod, lesson, user, progress, onMarkDone, onBack, onNext }) {
   const done = progress[lesson.id]
   const [toast, setToast] = useState(null)
   const [badgeToast, setBadgeToast] = useState(null)
@@ -317,6 +318,8 @@ function LessonView({ mod, lesson, progress, onMarkDone, onBack, onNext }) {
             )}
           </div>
         </div>
+
+        <LessonQA user={user} moduleId={mod.id} lessonId={lesson.id} />
       </div>
     </div>
   )
@@ -804,6 +807,7 @@ export default function ModulesPage({ user, progress, setProgress, selectedModul
       <LessonView
         mod={mod}
         lesson={lesson}
+        user={user}
         progress={progress}
         onMarkDone={markDone}
         onBack={backToMod}

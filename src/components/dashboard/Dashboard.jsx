@@ -149,7 +149,7 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
           )}
           {tab === 'templates' && <TemplatesPage user={user} />}
           {tab === 'tools' && <ToolsPage />}
-          {tab === 'networking' && <NetworkingPage />}
+          {tab === 'networking' && <NetworkingPage user={user} />}
           {tab === 'community' && <CommunityPage user={user} />}
           {tab === 'coach' && <CoachPage user={user} />}
           {tab === 'planner' && <PlannerPage user={user} />}

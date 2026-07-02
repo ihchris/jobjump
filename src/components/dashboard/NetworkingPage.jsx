@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { LS } from '../../utils/storage'
+import NetworkingCommunity from './NetworkingCommunity'
 
 const CRM_KEY = 'nj_crm'
 
@@ -196,7 +197,8 @@ function StatsBar({ contacts }) {
   )
 }
 
-export default function NetworkingPage() {
+export default function NetworkingPage({ user }) {
+  const [mainTab, setMainTab] = useState('community')
   const [contacts, setContacts] = useState(() => LS.get(CRM_KEY, []))
   const [adding, setAdding] = useState(false)
   const [editId, setEditId] = useState(null)
@@ -268,9 +270,37 @@ export default function NetworkingPage() {
       {scriptsFor && <ScriptsModal contact={scriptsFor} onClose={() => setScriptsFor(null)} />}
 
       {/* Header */}
+      <div>
+        <h1 className="text-2xl font-black text-slate-800">Networking</h1>
+        <p className="text-slate-500 text-sm mt-1">Construa sua rede — conecte-se com outros membros da comunidade e gerencie seus contatos externos.</p>
+      </div>
+
+      {/* Tabs principais */}
+      <div className="flex gap-2">
+        <button
+          onClick={() => setMainTab('community')}
+          className={`flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold transition-all
+            ${mainTab === 'community' ? 'bg-blue-600 text-white shadow-sm' : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'}`}
+        >
+          🤝 Comunidade de Networking
+        </button>
+        <button
+          onClick={() => setMainTab('crm')}
+          className={`flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold transition-all
+            ${mainTab === 'crm' ? 'bg-blue-600 text-white shadow-sm' : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'}`}
+        >
+          📇 CRM Pessoal
+        </button>
+      </div>
+
+      {mainTab === 'community' && <NetworkingCommunity user={user} />}
+
+      {mainTab === 'crm' && (
+      <>
+      {/* Sub-header do CRM */}
       <div className="flex items-start justify-between flex-wrap gap-3">
         <div>
-          <h1 className="text-2xl font-black text-slate-800">CRM de Networking</h1>
+          <h2 className="font-bold text-slate-800">CRM de Networking</h2>
           <p className="text-slate-500 text-sm mt-1">70-85% dos empregos são preenchidos por networking. Gerencie cada contato.</p>
         </div>
         {!adding && !editId && (
@@ -460,6 +490,8 @@ export default function NetworkingPage() {
 
       {contacts.length > 0 && (
         <p className="text-xs text-slate-400">Dados salvos localmente no seu navegador.</p>
+      )}
+      </>
       )}
     </div>
   )
