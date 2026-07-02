@@ -170,7 +170,7 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
               onGoNetworking={() => goTab('networking')}
             />
           )}
-          {tab === 'community' && <CommunityPage user={user} />}
+          {tab === 'community' && <CommunityPage user={user} onGoToMessages={goToMessages} />}
           {tab === 'coach' && <CoachPage user={user} />}
           {tab === 'planner' && <PlannerPage user={user} />}
           {tab === 'settings' && (

@@ -37,6 +37,34 @@ function ReferralSection({ userId }) {
   )
 }
 
+const AREA_OPTIONS = [
+  { value: '', label: 'Selecione a sua área...' },
+  { value: 'tech', label: 'Tecnologia / Dev' },
+  { value: 'product_ux', label: 'Product Design / UX' },
+  { value: 'data_ai', label: 'Dados, Analytics e IA' },
+  { value: 'marketing', label: 'Marketing / Comunicação' },
+  { value: 'sales', label: 'Vendas / Comercial' },
+  { value: 'hr', label: 'RH / Pessoas' },
+  { value: 'finance', label: 'Financeiro / Controladoria' },
+  { value: 'management', label: 'Gestão / Operações' },
+  { value: 'consulting', label: 'Consultoria' },
+  { value: 'law', label: 'Direito / Jurídico' },
+  { value: 'engineering', label: 'Engenharia' },
+  { value: 'agro', label: 'Agronegócio' },
+  { value: 'health', label: 'Saúde e Ciências da Vida' },
+  { value: 'education', label: 'Educação / EdTech' },
+  { value: 'logistics', label: 'Logística' },
+  { value: 'security', label: 'Segurança da Informação' },
+  { value: 'investment', label: 'Mercado Financeiro' },
+  { value: 'creative', label: 'Audiovisual e Design' },
+  { value: 'media', label: 'Jornalismo e Mídia' },
+  { value: 'hospitality', label: 'Turismo e Hotelaria' },
+  { value: 'fashion', label: 'Moda e Varejo' },
+  { value: 'public', label: 'Concursos Públicos' },
+  { value: 'startup', label: 'Startups e Empreendedorismo' },
+  { value: 'purpose', label: 'ESG e Terceiro Setor' },
+]
+
 export default function SettingsPage({ user, onLogout, refreshUser }) {
   const [name, setName] = useState(user.name)
   const [saved, setSaved] = useState(false)
@@ -44,6 +72,8 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
   const [checkoutStatus, setCheckoutStatus] = useState(null)
   const [upgradeLoading, setUpgradeLoading] = useState(false)
   const [profilePrivate, setProfilePrivate] = useState(false)
+  const [netProfile, setNetProfile] = useState({ area: '', bio: '', open_to_mentor: false, looking_for_peer: false })
+  const [netSaved, setNetSaved] = useState(false)
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -57,10 +87,18 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
 
   useEffect(() => {
     if (supabaseConfigured && user?.id) {
-      supabase.from('profiles').select('profile_private').eq('id', user.id).single()
-        .then(({ data }) => { if (data) setProfilePrivate(data.profile_private ?? false) })
+      supabase.from('profiles')
+        .select('profile_private, area, bio, open_to_mentor, looking_for_peer')
+        .eq('id', user.id).single()
+        .then(({ data }) => {
+          if (!data) return
+          setProfilePrivate(data.profile_private ?? false)
+          setNetProfile({ area: data.area || '', bio: data.bio || '', open_to_mentor: data.open_to_mentor || false, looking_for_peer: data.looking_for_peer || false })
+        })
     } else {
       setProfilePrivate(LS.get('nj_profile_private', false))
+      const saved = LS.get('nj_net_profile', null)
+      if (saved) setNetProfile({ area: saved.area || '', bio: saved.bio || '', open_to_mentor: saved.open_to_mentor || false, looking_for_peer: saved.looking_for_peer || false })
     }
   }, [user?.id])
 
@@ -72,6 +110,16 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
     } else {
       LS.set('nj_profile_private', next)
     }
+  }
+
+  const saveNetProfile = async () => {
+    if (supabaseConfigured && user?.id) {
+      await supabase.from('profiles').update(netProfile).eq('id', user.id)
+    } else {
+      LS.set('nj_net_profile', netProfile)
+    }
+    setNetSaved(true)
+    setTimeout(() => setNetSaved(false), 2000)
   }
 
   const saveName = async () => {
@@ -123,6 +171,79 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
       )}
 
       <div className="space-y-4">
+        {/* Perfil de Networking */}
+        <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm">
+          <h2 className="font-bold text-slate-700 mb-1">Perfil de Networking</h2>
+          <p className="text-slate-400 text-xs mb-4">Visível para outros membros na aba Comunidade e Networking.</p>
+
+          {/* Preview */}
+          {netProfile.area && (
+            <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100 mb-4">
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0 bg-blue-500`}>
+                {(user.name || 'U').slice(0, 2).toUpperCase()}
+              </div>
+              <div className="min-w-0">
+                <div className="font-semibold text-slate-800 text-sm">{user.name}</div>
+                <div className="text-blue-600 text-xs font-semibold mt-0.5">
+                  {AREA_OPTIONS.find((o) => o.value === netProfile.area)?.label}
+                </div>
+                {netProfile.bio && <p className="text-slate-500 text-xs mt-1 leading-relaxed line-clamp-2">{netProfile.bio}</p>}
+                <div className="flex gap-1.5 mt-1.5 flex-wrap">
+                  {netProfile.open_to_mentor && <span className="text-[10px] px-2 py-0.5 rounded-full bg-violet-100 text-violet-700 font-semibold">🧭 Mentor(a)</span>}
+                  {netProfile.looking_for_peer && <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-semibold">🔎 Parceiro(a)</span>}
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div className="space-y-3">
+            <div>
+              <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-1">Área de atuação</label>
+              <select
+                value={netProfile.area}
+                onChange={(e) => setNetProfile((p) => ({ ...p, area: e.target.value }))}
+                className={inp}
+              >
+                {AREA_OPTIONS.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
+              </select>
+            </div>
+            <div>
+              <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-1">Bio <span className="font-normal normal-case text-slate-400">(em que você trabalha, o que está buscando...)</span></label>
+              <textarea
+                rows={3}
+                maxLength={280}
+                value={netProfile.bio}
+                onChange={(e) => setNetProfile((p) => ({ ...p, bio: e.target.value }))}
+                placeholder="Ex: Desenvolvedora frontend com 3 anos de exp., buscando vaga sênior em produto..."
+                className={`${inp} resize-none`}
+              />
+              <div className="text-right text-xs text-slate-300 mt-0.5">{netProfile.bio.length}/280</div>
+            </div>
+            <div className="flex flex-col gap-2.5 pt-1">
+              {[
+                { key: 'open_to_mentor', icon: '🧭', label: 'Disponível para mentoria', desc: 'Apareço como mentor(a) no diretório' },
+                { key: 'looking_for_peer', icon: '🔎', label: 'Buscando parceiro(a)', desc: 'Quero encontrar alguém para estudo/responsabilidade' },
+              ].map(({ key, icon, label, desc }) => (
+                <label key={key} className="flex items-center gap-3 cursor-pointer group">
+                  <div
+                    onClick={() => setNetProfile((p) => ({ ...p, [key]: !p[key] }))}
+                    className={`relative inline-flex h-5 w-9 flex-shrink-0 rounded-full border-2 border-transparent transition-colors duration-200 cursor-pointer ${netProfile[key] ? 'bg-blue-600' : 'bg-slate-200'}`}
+                  >
+                    <span className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition duration-200 ${netProfile[key] ? 'translate-x-4' : 'translate-x-0'}`} />
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-slate-700">{icon} {label}</div>
+                    <div className="text-xs text-slate-400">{desc}</div>
+                  </div>
+                </label>
+              ))}
+            </div>
+            <Btn onClick={saveNetProfile} variant="primary" size="sm" disabled={!netProfile.area}>
+              {netSaved ? '✓ Perfil guardado' : 'Guardar perfil'}
+            </Btn>
+          </div>
+        </div>
+
         {/* Conta */}
         <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm">
           <h2 className="font-bold text-slate-700 mb-4">Informações da conta</h2>

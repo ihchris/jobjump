@@ -203,7 +203,7 @@ function CatBadge({ category }) {
 
 // ─── Profile modal ────────────────────────────────────────────────────────────
 
-function ProfileModal({ name, userId, onClose }) {
+function ProfileModal({ name, userId, onClose, onMessage }) {
   const [profile, setProfile] = useState(null)
   const [loading, setLoading] = useState(true)
 
@@ -284,10 +284,18 @@ function ProfileModal({ name, userId, onClose }) {
             </>
           )}
         </div>
-        <div className="border-t border-slate-100 px-6 py-3 flex justify-center">
+        <div className="border-t border-slate-100 px-6 py-3 flex items-center justify-between gap-3">
           <button onClick={onClose} className="text-sm text-slate-500 hover:text-slate-700 font-semibold transition-colors">
             Fechar
           </button>
+          {!loading && !profile?.profile_private && onMessage && userId && userId !== 'seed' && userId !== 'local' && (
+            <button
+              onClick={() => { onClose(); onMessage(userId) }}
+              className="flex items-center gap-1.5 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-xl transition-colors"
+            >
+              💬 Enviar mensagem
+            </button>
+          )}
         </div>
       </div>
     </div>
@@ -625,7 +633,7 @@ function AdminNotifPanel() {
 
 // ─── Main page ────────────────────────────────────────────────────────────────
 
-export default function CommunityPage({ user }) {
+export default function CommunityPage({ user, onGoToMessages }) {
   const [posts, setPosts] = useState([])
   const [category, setCategory] = useState('all')
   const [sort, setSort] = useState('recent')
@@ -823,6 +831,7 @@ export default function CommunityPage({ user }) {
           name={profileTarget.name}
           userId={profileTarget.userId}
           onClose={() => setProfileTarget(null)}
+          onMessage={onGoToMessages ? (id) => { setProfileTarget(null); onGoToMessages(id) } : null}
         />
       )}
 
