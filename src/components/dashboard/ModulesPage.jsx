@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Btn, Badge, ProgressBar } from '../ui'
-import { MODULES } from '../../data/modules'
-import { QUIZZES } from '../../data/quizzes'
 import { renderMarkdown } from '../../utils/markdown'
 import { LS } from '../../utils/storage'
 import { isPaid } from '../../utils/plans'
@@ -10,6 +8,8 @@ import {
   addXP, XP_LESSON, XP_MODULE, saveQuizScore,
   buildGamState, checkNewBadges, getQuizScores, getDiagnosis,
 } from '../../utils/gamification'
+import { addNotification } from '../../utils/notifications'
+import { getModules, getLessonContent, getQuiz } from '../../lib/content'
 
 // ─── Categorias e Trilhas ──────────────────────────────────────────────────────
 
@@ -155,9 +155,8 @@ function BadgeToast({ badge, onDone }) {
 }
 
 // ─── Quiz ─────────────────────────────────────────────────────────────────
-function ModuleQuiz({ mod, onDone, progress, onXP }) {
-  const questions = QUIZZES[mod.id]
-  const scores    = getQuizScores()
+function ModuleQuiz({ questions, mod, onDone, progress, onXP }) {
+  const scores = getQuizScores()
   const best      = scores[mod.id] ?? -1
 
   const [current, setCurrent] = useState(0)
@@ -246,7 +245,7 @@ function ModuleQuiz({ mod, onDone, progress, onXP }) {
 }
 
 // ─── Vista da lição ────────────────────────────────────────────────────────
-function LessonView({ mod, lesson, user, progress, onMarkDone, onBack, onNext }) {
+function LessonView({ mod, lesson, user, progress, onMarkDone, onBack, onNext, modules }) {
   const done = progress[lesson.id]
   const [toast, setToast] = useState(null)
   const [badgeToast, setBadgeToast] = useState(null)
@@ -255,18 +254,25 @@ function LessonView({ mod, lesson, user, progress, onMarkDone, onBack, onNext })
     const wasAlreadyDone = progress[id]
     onMarkDone(id)
     if (!wasAlreadyDone) {
-      const newXP = addXP(XP_LESSON)
+      addXP(XP_LESSON)
+      addNotification('xp', 'Lição concluída!', `+${XP_LESSON} XP · ${lesson.title}`)
       setToast({ xp: XP_LESSON, label: 'Lição concluída!' })
       // check if module is now complete
       setTimeout(() => {
         const updatedProgress = { ...progress, [id]: true }
         if (mod.lessons.every((l) => updatedProgress[l.id])) {
           addXP(XP_MODULE)
+          addNotification('module', `Módulo concluído! 🎓`, `+${XP_MODULE} XP · "${mod.title}"`)
           setToast({ xp: XP_MODULE, label: `Módulo "${mod.title}" concluído!` })
         }
-        const state = buildGamState(updatedProgress, MODULES)
+        const state = buildGamState(updatedProgress, modules || [])
         const newBadges = checkNewBadges(state)
-        if (newBadges.length) setBadgeToast(newBadges[0])
+        if (newBadges.length) {
+          setBadgeToast(newBadges[0])
+          newBadges.forEach((b) =>
+            addNotification('badge', `Badge desbloqueado: ${b.label}`, b.desc, b.icon)
+          )
+        }
       }, 300)
     }
   }
@@ -296,7 +302,23 @@ function LessonView({ mod, lesson, user, progress, onMarkDone, onBack, onNext })
         </div>
 
         <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 sm:p-8">
-          <div className="prose max-w-none" dangerouslySetInnerHTML={renderMarkdown(lesson.content)} />
+          {lesson.content == null
+            ? (
+              <div className="space-y-3 animate-pulse">
+                {[1,2,3,4].map((i) => (
+                  <div key={i} className={`h-4 bg-slate-100 rounded-full ${i === 4 ? 'w-2/3' : 'w-full'}`} />
+                ))}
+              </div>
+            )
+            : lesson.content === ''
+            ? (
+              <div className="text-center py-10 text-slate-400">
+                <div className="text-3xl mb-2">🔒</div>
+                <p className="text-sm">Conteúdo disponível apenas para utilizadores Pro.</p>
+              </div>
+            )
+            : <div className="prose max-w-none" dangerouslySetInnerHTML={renderMarkdown(lesson.content)} />
+          }
         </div>
 
         <LessonNotes lessonId={lesson.id} />
@@ -331,7 +353,7 @@ function ModuleView({ mod, user, progress, onOpenLesson, onBack, onOpenQuiz }) {
   const lessons    = accessibleLessons(mod, user)
   const mCompleted = lessons.filter((l) => progress[l.id]).length
   const pct        = lessons.length ? Math.round((mCompleted / lessons.length) * 100) : 0
-  const hasQuiz    = !!QUIZZES[mod.id]
+  const hasQuiz    = mod.hasQuiz ?? false
   const scores     = getQuizScores()
   const bestScore  = scores[mod.id]
   const allDone    = pct === 100
@@ -457,7 +479,7 @@ function ModuleCard({ m, user, progress, onOpenModule, rank }) {
   const lessons    = accessibleLessons(m, user)
   const mCompleted = lessons.filter((l) => progress[l.id]).length
   const pct        = lessons.length ? Math.round((mCompleted / lessons.length) * 100) : 0
-  const hasQuiz    = !!QUIZZES[m.id]
+  const hasQuiz    = m.hasQuiz ?? false
   return (
     <div
       onClick={() => onOpenModule(m)}
@@ -514,7 +536,7 @@ const CAT_TABS = [
 
 const PRO_TEASER_COUNT = 6
 
-function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade }) {
+function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade, modules }) {
   const [search, setSearch]         = useState('')
   const [catFilter, setCatFilter]   = useState('all')
   const [statusFilter, setStatus]   = useState('all')
@@ -526,11 +548,11 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade }
   const trilhaIds = activeTrilha ? new Set(TRILHAS.find((t) => t.id === activeTrilha)?.ids || []) : null
   const isTrilhasMode = trilhaOpen || !!activeTrilha
 
-  const freeCount = MODULES.filter((m) => !m.isPro).length
-  const proCount  = MODULES.length - freeCount
+  const freeCount = modules.filter((m) => !m.isPro).length
+  const proCount  = modules.length - freeCount
 
   // ── filter ─────────────────────────────────────────────────────────────────
-  const filtered = MODULES.filter((m) => {
+  const filtered = modules.filter((m) => {
     if (trilhaIds) return trilhaIds.has(m.id)
     if (catFilter === 'recommended') return diagIds.has(m.id)
 
@@ -585,7 +607,7 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade }
           <h1 className="text-2xl font-black text-slate-800">Módulos</h1>
           <p className="text-[11px] text-slate-400 mt-0.5">
             {isPaid(user.plan)
-              ? `${MODULES.length} módulos de carreira`
+              ? `${modules.length} módulos de carreira`
               : `${freeCount} módulos grátis para começar · ${proCount} Pro`}
           </p>
         </div>
@@ -755,18 +777,51 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade }
 
 // ─── Componente principal ──────────────────────────────────────────────────
 export default function ModulesPage({ user, progress, setProgress, selectedModule: initModule, selectedLesson: initLesson, setSelectedModule, setSelectedLesson, onGoToDiagnosis, onUpgrade }) {
-  const [view, setView]     = useState(initModule ? (initLesson ? 'lesson' : 'module') : 'list')
-  const [mod, setMod]       = useState(initModule || null)
-  const [lesson, setLesson] = useState(initLesson || null)
-  const [xpToast, setXpToast] = useState(null)
+  const [modules, setModules]     = useState([])
+  const [view, setView]           = useState(initModule ? (initLesson ? 'lesson' : 'module') : 'list')
+  const [mod, setMod]             = useState(initModule || null)
+  const [lesson, setLesson]       = useState(initLesson || null)
+  const [quiz, setQuiz]           = useState(null)
+  const [xpToast, setXpToast]     = useState(null)
 
-  const openModule  = (m) => { setMod(m); setView('module'); setSelectedModule(m) }
-  const openLesson  = (l) => { setLesson(l); setView('lesson'); setSelectedLesson(l) }
-  const openQuiz    = ()  => setView('quiz')
-  const backToList  = ()  => { setView('list'); setMod(null); setSelectedModule(null) }
-  const backToMod   = ()  => { setView('module'); setLesson(null); setSelectedLesson(null) }
+  // Load module list (stubs, no content) on mount
+  useEffect(() => {
+    getModules().then(setModules)
+  }, [])
 
-  const markDone = (id) => setProgress((p) => ({ ...p, [id]: !p[id] }))
+  // Sync initModule prop changes (navigating from Diagnosis page)
+  useEffect(() => {
+    if (initModule) {
+      // Find matching module in loaded list for correct hasQuiz/etc
+      const found = modules.find((m) => m.id === initModule.id)
+      setMod(found || initModule)
+    }
+  }, [initModule, modules])
+
+  const openModule = (m) => { setMod(m); setView('module'); setSelectedModule(m) }
+
+  const openLesson = async (l) => {
+    // Navigate immediately with null content (shows skeleton)
+    setLesson({ ...l, content: null })
+    setView('lesson')
+    setSelectedLesson(l)
+    const content = await getLessonContent(l.id, mod?.id)
+    // content is null if RLS blocked it (free user, pro lesson) → show locked state
+    setLesson({ ...l, content: content ?? '' })
+  }
+
+  const openQuiz = async () => {
+    setQuiz(null)
+    setView('quiz')
+    if (mod) {
+      const questions = await getQuiz(mod.id)
+      setQuiz(questions)
+    }
+  }
+
+  const backToList = () => { setView('list'); setMod(null); setSelectedModule(null) }
+  const backToMod  = () => { setView('module'); setLesson(null); setSelectedLesson(null); setQuiz(null) }
+  const markDone   = (id) => setProgress((p) => ({ ...p, [id]: !p[id] }))
 
   const getNextLesson = () => {
     if (!mod || !lesson) return null
@@ -791,12 +846,16 @@ export default function ModulesPage({ user, progress, setProgress, selectedModul
         <h1 className="text-xl font-black text-slate-800 mb-1">🧠 Quiz — {mod.title}</h1>
         <p className="text-slate-500 text-sm mb-6">5 perguntas sobre o que você aprendeu. Tire 5/5 para ganhar +50 XP!</p>
         <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
-          <ModuleQuiz
-            mod={mod}
-            progress={progress}
-            onDone={backToMod}
-            onXP={(xp, label) => setXpToast({ xp, label })}
-          />
+          {quiz === null
+            ? <div className="text-center py-8 text-slate-400 text-sm animate-pulse">A carregar quiz…</div>
+            : <ModuleQuiz
+                questions={quiz}
+                mod={mod}
+                progress={progress}
+                onDone={backToMod}
+                onXP={(xp, label) => setXpToast({ xp, label })}
+              />
+          }
         </div>
       </div>
     )
@@ -812,6 +871,7 @@ export default function ModulesPage({ user, progress, setProgress, selectedModul
         onMarkDone={markDone}
         onBack={backToMod}
         onNext={getNextLesson() ? goNext : null}
+        modules={modules}
       />
     )
   }
@@ -829,5 +889,14 @@ export default function ModulesPage({ user, progress, setProgress, selectedModul
     )
   }
 
-  return <ModuleList user={user} progress={progress} onOpenModule={openModule} onGoToDiagnosis={onGoToDiagnosis} onUpgrade={onUpgrade} />
+  return (
+    <ModuleList
+      user={user}
+      progress={progress}
+      onOpenModule={openModule}
+      onGoToDiagnosis={onGoToDiagnosis}
+      onUpgrade={onUpgrade}
+      modules={modules}
+    />
+  )
 }

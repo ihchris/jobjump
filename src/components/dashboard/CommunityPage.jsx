@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { LS } from '../../utils/storage'
 import { supabase, supabaseConfigured } from '../../lib/supabase'
+import { addNotification } from '../../utils/notifications'
 
 // ─── Config ────────────────────────────────────────────────────────────────────
 
@@ -441,6 +442,54 @@ function CommunityStats({ userPostsCount }) {
   )
 }
 
+// ─── Admin: painel de notificação de sistema ──────────────────────────────────
+
+function AdminNotifPanel() {
+  const [title, setTitle]   = useState('')
+  const [body, setBody]     = useState('')
+  const [sent, setSent]     = useState(false)
+
+  const handleSend = (e) => {
+    e.preventDefault()
+    if (!title.trim()) return
+    addNotification('system', title.trim(), body.trim())
+    setTitle('')
+    setBody('')
+    setSent(true)
+    setTimeout(() => setSent(false), 3000)
+  }
+
+  return (
+    <form onSubmit={handleSend} className="bg-red-50 border border-red-200 rounded-2xl p-4">
+      <div className="flex items-center gap-2 mb-3">
+        <span className="text-sm font-bold text-red-700">📢 Enviar Notificação de Sistema</span>
+        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-red-100 text-red-600">ADMIN</span>
+      </div>
+      <input
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="Título da notificação"
+        maxLength={80}
+        className="w-full text-sm border border-red-200 rounded-xl px-3 py-2 mb-2 focus:outline-none focus:ring-2 focus:ring-red-300 bg-white"
+        required
+      />
+      <input
+        value={body}
+        onChange={(e) => setBody(e.target.value)}
+        placeholder="Mensagem (opcional)"
+        maxLength={160}
+        className="w-full text-sm border border-red-200 rounded-xl px-3 py-2 mb-3 focus:outline-none focus:ring-2 focus:ring-red-300 bg-white"
+      />
+      <button
+        type="submit"
+        className="bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-4 py-2 rounded-xl transition-colors"
+      >
+        {sent ? '✓ Enviada!' : 'Enviar'}
+      </button>
+    </form>
+  )
+}
+
 // ─── Main page ────────────────────────────────────────────────────────────────
 
 export default function CommunityPage({ user }) {
@@ -654,6 +703,9 @@ export default function CommunityPage({ user }) {
           + Publicar
         </button>
       </div>
+
+      {/* Admin: enviar notificação de sistema */}
+      {isAdmin && <AdminNotifPanel />}
 
       {/* Stats */}
       <CommunityStats userPostsCount={userPostsCount} />

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { LS } from '../../utils/storage'
 import Sidebar from './Sidebar'
+import NotificationBell from './NotificationBell'
 import DashHome from './DashHome'
 import ModulesPage from './ModulesPage'
 import TemplatesPage from './TemplatesPage'
@@ -125,6 +126,7 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
             </svg>
           </button>
           <img src="/logo.png" alt="JobJump" className="h-6 w-auto" />
+          <NotificationBell className="ml-auto" />
         </div>
 
         <main className="flex-1 overflow-y-auto overscroll-contain pt-14 md:pt-0">

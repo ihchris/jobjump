@@ -1,4 +1,5 @@
 import { LS } from './storage'
+import { addNotification } from './notifications'
 
 // ─── Níveis ───────────────────────────────────────────────────────────────────
 export const LEVELS = [
@@ -84,7 +85,10 @@ export const touchStreak = () => {
   LS.set(KEY_STREAK_DATE, today)
   LS.set(KEY_STREAK_BEST, best)
 
-  if (next > prev) addXP(XP_STREAK)
+  if (next > prev) {
+    addXP(XP_STREAK)
+    addNotification('streak', `${next} dias seguidos! 🔥`, `+${XP_STREAK} XP · Mantém o streak!`)
+  }
   return next
 }
 
@@ -102,13 +106,21 @@ export const saveQuizScore   = (modId, score) => {
     LS.set(KEY_PERFECT, p)
   }
   const xp = score === 5 ? XP_QUIZ_PERF : score >= 3 ? XP_QUIZ_PASS : 0
-  if (xp > 0) addXP(xp)
+  if (xp > 0) {
+    addXP(xp)
+    const label = score === 5 ? 'Quiz perfeito! 💯' : 'Quiz concluído!'
+    addNotification('xp', label, `+${xp} XP · ${score}/5 respostas corretas`)
+  }
   return score
 }
 
 // ─── Diagnóstico ─────────────────────────────────────────────────────────────
 export const getDiagnosis = ()    => LS.get(KEY_DIAGNOSIS, null)
-export const saveDiagnosis = (d)  => { LS.set(KEY_DIAGNOSIS, d); addXP(XP_DIAGNOSIS) }
+export const saveDiagnosis = (d)  => {
+  LS.set(KEY_DIAGNOSIS, d)
+  addXP(XP_DIAGNOSIS)
+  addNotification('xp', 'Diagnóstico concluído! 🗺️', `+${XP_DIAGNOSIS} XP · Roteiro personalizado criado`)
+}
 
 // ─── Estado global para checar badges ────────────────────────────────────────
 export const buildGamState = (progress, modules) => {

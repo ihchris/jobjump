@@ -1,6 +1,95 @@
+import { useState, useEffect, useRef } from 'react'
 import { Badge } from '../ui'
 import { isPaid, planBadge } from '../../utils/plans'
 import { getXP, getLevel, getLevelProgress } from '../../utils/gamification'
+import {
+  getNotifications, getUnreadCount,
+  markRead, markAllRead, clearNotifications,
+  NOTIF_TYPES, timeAgo,
+} from '../../utils/notifications'
+
+function SidebarBell() {
+  const [open, setOpen]     = useState(false)
+  const [notifs, setNotifs] = useState(getNotifications)
+  const [unread, setUnread] = useState(getUnreadCount)
+  const ref                 = useRef(null)
+
+  const refresh = () => { setNotifs(getNotifications()); setUnread(getUnreadCount()) }
+
+  useEffect(() => {
+    window.addEventListener('nj:notification', refresh)
+    return () => window.removeEventListener('nj:notification', refresh)
+  }, [])
+
+  useEffect(() => {
+    if (!open) return
+    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false) }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [open])
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="relative w-9 h-9 flex items-center justify-center rounded-xl text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+        aria-label="Notificações"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+          <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+        </svg>
+        {unread > 0 && (
+          <span className="absolute top-1 right-1 min-w-[14px] h-3.5 px-0.5 flex items-center justify-center rounded-full bg-rose-500 text-white text-[9px] font-bold leading-none">
+            {unread > 9 ? '9+' : unread}
+          </span>
+        )}
+      </button>
+
+      {open && (
+        <div className="absolute left-0 top-11 z-50 w-80 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden animate-fade-in">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100">
+            <span className="font-bold text-slate-800 text-sm">Notificações</span>
+            <div className="flex items-center gap-2">
+              {unread > 0 && (
+                <button onClick={markAllRead} className="text-xs text-blue-600 hover:text-blue-800 font-medium">Marcar todas lidas</button>
+              )}
+              {notifs.length > 0 && (
+                <button onClick={clearNotifications} className="text-xs text-slate-400 hover:text-slate-600">Limpar</button>
+              )}
+            </div>
+          </div>
+          <div className="max-h-80 overflow-y-auto divide-y divide-slate-50">
+            {notifs.length === 0 ? (
+              <div className="py-10 text-center text-slate-400 text-sm">
+                <div className="text-3xl mb-2">🔔</div>Sem notificações
+              </div>
+            ) : (
+              notifs.map((n) => {
+                const meta = NOTIF_TYPES[n.type] || NOTIF_TYPES.system
+                return (
+                  <button key={n.id} onClick={() => markRead(n.id)}
+                    className={`w-full text-left px-4 py-3 flex gap-3 items-start hover:bg-slate-50 transition-colors ${n.read ? 'opacity-60' : ''}`}
+                  >
+                    <span className={`mt-0.5 w-8 h-8 rounded-xl flex-shrink-0 flex items-center justify-center text-base ${meta.color}`}>{n.icon}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-1">
+                        <span className="font-semibold text-xs text-slate-800 leading-snug">{n.title}</span>
+                        {!n.read && <span className="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0 mt-1" />}
+                      </div>
+                      {n.body && <p className="text-xs text-slate-500 mt-0.5 leading-snug">{n.body}</p>}
+                      <span className="text-[10px] text-slate-400 mt-1 block">{timeAgo(n.createdAt)}</span>
+                    </div>
+                  </button>
+                )
+              })
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
 
 const TABS = [
   { id: 'home', label: 'Dashboard', icon: '🏠' },
@@ -26,14 +115,15 @@ export default function Sidebar({ tab, setTab, user, onLogout, mobile, onClose }
     <div className={`flex flex-col bg-[#1e3a5f] text-white ${mobile ? 'fixed inset-y-0 left-0 z-50 w-[280px] shadow-2xl sidebar-slide-in' : 'w-64 h-full'}`}>
       <div className="p-5 border-b border-white/10">
         <div className="flex items-center gap-3">
-          <div>
+          <div className="flex-1 min-w-0">
             <img src="/logo.png" alt="JobJump" className="h-8 w-auto brightness-0 invert" />
             <div className="text-blue-300 text-xs mt-0.5">Coach de Carreira</div>
           </div>
+          {!mobile && <SidebarBell />}
           {mobile && (
             <button
               onClick={onClose}
-              className="ml-auto w-9 h-9 flex items-center justify-center rounded-xl text-white/60 hover:text-white hover:bg-white/10 active:bg-white/20 transition-colors touch-manipulation text-xl"
+              className="w-9 h-9 flex items-center justify-center rounded-xl text-white/60 hover:text-white hover:bg-white/10 active:bg-white/20 transition-colors touch-manipulation text-xl"
               aria-label="Fechar menu"
             >
               &times;
