@@ -17,8 +17,9 @@ const ONBOARDING_KEY = 'nj_onboarded'
 
 const ONBOARDING_STEPS = [
   { icon: '🗺️', title: 'Comece pelo Diagnóstico', desc: 'Responda 6 perguntas rápidas e receba um roteiro personalizado dos módulos mais importantes para o seu momento agora. +30 XP garantidos!' },
-  { icon: '📚', title: '40 módulos de carreira', desc: 'Do CV perfeito à negociação salarial. Cada lição concluída dá XP e desbloqueia conquistas. Comece pelos módulos gratuitos!' },
-  { icon: '🛠️', title: '24 ferramentas interativas', desc: 'Construtor STAR, extrator ATS, rastreador de candidaturas, simulador de entrevistas, scripts de negociação e muito mais.' },
+  { icon: '📚', title: '102 módulos de carreira', desc: 'Do CV perfeito a trilhas de carreira específicas para dezenas de áreas. Cada lição concluída dá XP e desbloqueia conquistas. Comece pelos 43 módulos gratuitos!' },
+  { icon: '🛠️', title: '30 ferramentas interativas', desc: 'Construtor STAR, extrator ATS, rastreador de candidaturas, simulador de entrevistas, scripts de negociação e muito mais.' },
+  { icon: '🤝', title: 'Rede de apoio real', desc: 'Conecte-se com outros membros por área, encontre um mentor ou parceiro de responsabilidade, e tire dúvidas direto nas lições.' },
   { icon: '🏆', title: 'Sistema de XP e conquistas', desc: 'Suba de nível, desbloqueie badges e mantenha seu streak diário. Cada ação conta — lições, quizzes e diagnóstico geram XP.' },
 ]
 

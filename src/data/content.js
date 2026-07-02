@@ -6,12 +6,14 @@ export const TESTIMONIALS = [
 ]
 
 export const FAQ = [
-  { q: 'O plano Grátis é mesmo gratuito para sempre?', a: 'Sim! O plano Grátis dá acesso permanente aos primeiros 2 módulos: CV e Carta de Motivação. São os fundamentos que ajudam imediatamente. Você pode fazer upgrade para Pro a qualquer momento.' },
-  { q: 'O que está incluído no Plano Pro?', a: 'O Plano Pro (R$29,90/mês) inclui acesso total a todos os 28 módulos (137 lições), templates com download real (CVs, cartas, scripts, planilhas), Coach IA ilimitado, 17 ferramentas interativas (incluindo Elevator Pitch, Gerador de Bullets, Script de Negociação, Simulador de Entrevistas e Rastreador Kanban), e suporte por e-mail. Cancele a qualquer momento.' },
+  { q: 'Qual a diferença entre o JobJump e o LinkedIn?', a: 'O LinkedIn é uma rede social e vitrine — assume que você já sabe o que fazer e só te dá visibilidade. O JobJump é um plano de ação: diagnóstico personalizado, 102 módulos estruturados como curso (não um feed infinito), Coach de IA 1:1, ferramentas práticas (calculadora CLT vs PJ, extrator ATS, simulador de entrevistas) e uma rede de networking curada por área e objetivo — não pedidos de conexão frios. E custa uma fração do LinkedIn Premium.' },
+  { q: 'O plano Grátis é mesmo gratuito para sempre?', a: 'Sim! O plano Grátis dá acesso permanente a 43 módulos completos, incluindo CV, Carta de Motivação, LinkedIn, IA na busca de emprego e várias trilhas de carreira. Você pode fazer upgrade para Pro a qualquer momento.' },
+  { q: 'O que está incluído no Plano Pro?', a: 'O Plano Pro (R$29,90/mês) inclui acesso total aos 102 módulos, templates com download real (CVs, cartas, scripts, planilhas), Coach IA ilimitado, 30 ferramentas interativas (incluindo Elevator Pitch, Gerador de Bullets, Script de Negociação, Simulador de Entrevistas e Rastreador Kanban), e suporte prioritário. Cancele a qualquer momento.' },
   { q: 'Posso cancelar a qualquer momento?', a: 'Absolutamente. Não há contratos ou fidelidade. Cancele a assinatura Pro quando quiser e continue com o plano Grátis gratuitamente.' },
-  { q: 'O conteúdo funciona para Portugal e Brasil?', a: 'Sim! O conteúdo foi criado para o mercado lusófono, abordando diferenças culturais e de mercado entre Portugal e Brasil, com exemplos práticos para ambos os contextos.' },
+  { q: 'O conteúdo funciona para Portugal e Brasil?', a: 'Sim! O conteúdo foi criado para o mercado lusófono, abordando diferenças culturais e de mercado entre Portugal e Brasil — incluindo temas específicos como CLT vs PJ vs MEI, concursos públicos e negociação salarial em Reais.' },
   { q: 'Quanto tempo demora para ver resultados?', a: 'Em média os usuários relatam receber primeiras respostas positivas em 2 a 4 semanas após aplicar as técnicas dos módulos.' },
   { q: 'O Coach IA substitui um coach de carreira real?', a: 'O Coach IA é uma ferramenta poderosa e disponível 24/7, mas complementa — não substitui — coaching humano. Para questões do dia a dia sobre CV, entrevistas e networking, é muito eficaz.' },
+  { q: 'Como funciona o networking dentro da plataforma?', a: 'Você monta um perfil de networking (área, bio, se quer ser mentor ou procura um parceiro de responsabilidade), navega no diretório de membros filtrando por área, envia pedidos de conexão e conversa por mensagem direta com quem aceitar. É curado por objetivo, não conexões em massa como no LinkedIn.' },
 ]
 
 export const TIPS = [
