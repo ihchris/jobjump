@@ -71,6 +71,7 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [checkoutStatus, setCheckoutStatus] = useState(null)
   const [upgradeLoading, setUpgradeLoading] = useState(false)
+  const [theme, setTheme] = useState(() => localStorage.getItem('nj_theme') || 'system')
   const [profilePrivate, setProfilePrivate] = useState(false)
   const [netProfile, setNetProfile] = useState({ area: '', bio: '', job_title: '', location: '', linkedin_url: '', skills: [], avatar_url: null, open_to_mentor: false, looking_for_peer: false })
   const [netSaved, setNetSaved] = useState(false)
@@ -116,6 +117,14 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
       })
     }
   }, [user?.id])
+
+  const applyTheme = (t) => {
+    setTheme(t)
+    localStorage.setItem('nj_theme', t)
+    const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches
+    const isDark = t === 'dark' || (t === 'system' && prefersDark)
+    document.documentElement.classList.toggle('dark', isDark)
+  }
 
   const toggleProfilePrivate = async () => {
     const next = !profilePrivate
@@ -231,6 +240,32 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
       )}
 
       <div className="space-y-4">
+        {/* Aparência */}
+        <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm">
+          <h2 className="font-bold text-slate-700 mb-1">Aparência</h2>
+          <p className="text-slate-400 text-xs mb-4">Escolha o tema da interface.</p>
+          <div className="grid grid-cols-3 gap-2">
+            {[
+              { value: 'light',  icon: '☀️', label: 'Claro' },
+              { value: 'system', icon: '💻', label: 'Auto' },
+              { value: 'dark',   icon: '🌙', label: 'Escuro' },
+            ].map(({ value, icon, label }) => (
+              <button
+                key={value}
+                onClick={() => applyTheme(value)}
+                className={`flex flex-col items-center gap-1.5 py-3 px-2 rounded-xl border-2 text-sm font-semibold transition-all ${
+                  theme === value
+                    ? 'border-blue-600 bg-blue-50 text-blue-700'
+                    : 'border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'
+                }`}
+              >
+                <span className="text-xl">{icon}</span>
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Perfil de Networking */}
         <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm">
           <h2 className="font-bold text-slate-700 mb-1">Perfil de Networking</h2>
