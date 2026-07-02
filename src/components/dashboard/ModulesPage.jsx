@@ -509,7 +509,9 @@ const CAT_TABS = [
 
 // ─── Lista de módulos ──────────────────────────────────────────────────────────
 
-function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis }) {
+const PRO_TEASER_COUNT = 6
+
+function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade }) {
   const [search, setSearch]         = useState('')
   const [catFilter, setCatFilter]   = useState('all')
   const [statusFilter, setStatus]   = useState('all')
@@ -520,6 +522,9 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis }) {
   const diagIds   = new Set(diagnosis?.roadmap || [])
   const trilhaIds = activeTrilha ? new Set(TRILHAS.find((t) => t.id === activeTrilha)?.ids || []) : null
   const isTrilhasMode = trilhaOpen || !!activeTrilha
+
+  const freeCount = MODULES.filter((m) => !m.isPro).length
+  const proCount  = MODULES.length - freeCount
 
   // ── filter ─────────────────────────────────────────────────────────────────
   const filtered = MODULES.filter((m) => {
@@ -547,6 +552,15 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis }) {
       ? (diagnosis?.roadmap || []).map((id) => filtered.find((m) => m.id === id)).filter(Boolean)
       : filtered
 
+  // free users browsing the unfiltered list get free modules first, with only a
+  // teaser of Pro modules — showing all ~59 locked cards in a row isn't attractive
+  const isDefaultView = catFilter === 'all' && statusFilter === 'all' && !search && !isTrilhasMode
+  const collapsePro    = isDefaultView && !isPaid(user.plan)
+  const freeList       = collapsePro ? sorted.filter((m) => !m.isPro) : []
+  const proList        = collapsePro ? sorted.filter((m) => m.isPro) : []
+  const proTeaser      = proList.slice(0, PRO_TEASER_COUNT)
+  const proHiddenCount = proList.length - proTeaser.length
+
   // ── handlers ───────────────────────────────────────────────────────────────
   const pickCat = (id) => {
     setCatFilter(id); setTrilha(null); setTrilhaOpen(false); setSearch('')
@@ -566,7 +580,11 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis }) {
       <div className="flex items-center justify-between gap-3 mb-5">
         <div>
           <h1 className="text-2xl font-black text-slate-800">Módulos</h1>
-          <p className="text-[11px] text-slate-400 mt-0.5">{MODULES.length} módulos de carreira</p>
+          <p className="text-[11px] text-slate-400 mt-0.5">
+            {isPaid(user.plan)
+              ? `${MODULES.length} módulos de carreira`
+              : `${freeCount} módulos grátis para começar · ${proCount} Pro`}
+          </p>
         </div>
         <div className="relative">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">🔍</span>
@@ -684,6 +702,36 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis }) {
           <div className="text-4xl mb-3">🔍</div>
           <p className="text-sm">Nenhum módulo encontrado{search ? ` para "${search}"` : ''}.</p>
         </div>
+      ) : collapsePro ? (
+        <div className="space-y-4">
+          {freeList.map((m) => (
+            <ModuleCard key={m.id} m={m} user={user} progress={progress} onOpenModule={onOpenModule} />
+          ))}
+
+          {proTeaser.length > 0 && (
+            <div className="pt-2 pb-1 flex items-center gap-2">
+              <span className="text-xs font-bold text-amber-600 uppercase tracking-wide">⭐ Módulos Pro</span>
+              <div className="flex-1 h-px bg-slate-200" />
+            </div>
+          )}
+          {proTeaser.map((m) => (
+            <ModuleCard key={m.id} m={m} user={user} progress={progress} onOpenModule={onOpenModule} />
+          ))}
+
+          {proHiddenCount > 0 && (
+            <button
+              onClick={onUpgrade}
+              className="w-full bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-dashed border-amber-300 rounded-2xl p-6 text-center hover:border-amber-400 hover:shadow-md transition-all group"
+            >
+              <div className="text-3xl mb-2">🔓</div>
+              <div className="font-black text-slate-800 mb-1">+{proHiddenCount} módulos Pro esperando por você</div>
+              <p className="text-slate-500 text-sm mb-4">Vendas, Tech, carreira internacional, liderança e muito mais — desbloqueie tudo com o Pro.</p>
+              <span className="inline-flex items-center gap-2 bg-amber-500 text-white font-bold text-sm px-5 py-2.5 rounded-xl group-hover:bg-amber-600 transition-colors">
+                ⭐ Ver planos Pro →
+              </span>
+            </button>
+          )}
+        </div>
       ) : (
         <div className="space-y-4">
           {sorted.map((m, i) => (
@@ -703,7 +751,7 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis }) {
 }
 
 // ─── Componente principal ──────────────────────────────────────────────────
-export default function ModulesPage({ user, progress, setProgress, selectedModule: initModule, selectedLesson: initLesson, setSelectedModule, setSelectedLesson, onGoToDiagnosis }) {
+export default function ModulesPage({ user, progress, setProgress, selectedModule: initModule, selectedLesson: initLesson, setSelectedModule, setSelectedLesson, onGoToDiagnosis, onUpgrade }) {
   const [view, setView]     = useState(initModule ? (initLesson ? 'lesson' : 'module') : 'list')
   const [mod, setMod]       = useState(initModule || null)
   const [lesson, setLesson] = useState(initLesson || null)
@@ -777,5 +825,5 @@ export default function ModulesPage({ user, progress, setProgress, selectedModul
     )
   }
 
-  return <ModuleList user={user} progress={progress} onOpenModule={openModule} onGoToDiagnosis={onGoToDiagnosis} />
+  return <ModuleList user={user} progress={progress} onOpenModule={openModule} onGoToDiagnosis={onGoToDiagnosis} onUpgrade={onUpgrade} />
 }
