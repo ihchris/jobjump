@@ -4,6 +4,34 @@ import { MODULES } from '../../data/modules'
 import { saveDiagnosis, getDiagnosis, XP_DIAGNOSIS } from '../../utils/gamification'
 import { isPaid } from '../../utils/plans'
 
+// ─── Área de interesse → módulos de carreira relevantes ──────────────────────
+const AREA_MODULE_MAP = {
+  tech:        [26, 17, 36, 33, 48, 59, 68, 66],
+  product_ux:  [67, 33],
+  data_ai:     [36, 59, 69, 103],
+  marketing:   [8, 22, 11, 44, 85],
+  sales:       [5, 6, 35, 42],
+  hr:          [5, 13, 20, 51, 63],
+  finance:     [25, 39, 6, 47, 101, 86],
+  management:  [13, 35, 40, 91, 70],
+  consulting:  [23, 70, 35],
+  law:         [72],
+  engineering: [80, 84, 94],
+  agro:        [81],
+  health:      [92, 97],
+  education:   [82],
+  logistics:   [58, 55],
+  security:    [61, 68],
+  investment:  [87, 47],
+  creative:    [89, 90],
+  media:       [93, 85],
+  hospitality: [83],
+  fashion:     [99, 55],
+  public:      [76],
+  startup:     [77, 98, 53],
+  purpose:     [57],
+}
+
 // ─── Mapa de prioridades por perfil ──────────────────────────────────────────
 function buildRoadmap(answers) {
   const { status, area, experience, goal, urgency, challenge } = answers
@@ -27,13 +55,8 @@ function buildRoadmap(answers) {
   if (goal === 'abroad')        add([10, 15, 21, 32, 54, 64], 25)
   if (goal === 'promotion')     add([18, 13, 35, 91, 46], 20)
 
-  // por área
-  if (area === 'tech')          add([26, 17, 36, 33, 48, 59, 68], 15)
-  if (area === 'marketing')     add([8, 22, 11, 44], 15)
-  if (area === 'sales')         add([5, 6, 35, 42], 15)
-  if (area === 'hr')            add([5, 13, 20, 51, 63], 15)
-  if (area === 'finance')       add([25, 39, 6, 47, 101], 15)
-  if (area === 'management')    add([13, 35, 40, 91, 70], 15)
+  // por área — cobre as principais trilhas de carreira do catálogo
+  if (AREA_MODULE_MAP[area]) add(AREA_MODULE_MAP[area], 15)
 
   // por experiência
   if (experience === 'none')    add([20, 14, 30, 22, 79], 15)
@@ -63,8 +86,8 @@ function buildRoadmap(answers) {
   // um roteiro 100% Pro logo após o diagnóstico não motiva ninguém a continuar —
   // garante uma base de módulos grátis (que o usuário já pode começar agora) e
   // usa os módulos Pro mais relevantes como destaque, não como parede
-  const TOTAL    = 10
-  const MIN_FREE = 4
+  const TOTAL    = 16
+  const MIN_FREE = 7
   const guaranteedFree = ranked.filter(([id]) => !proIds.has(id)).slice(0, MIN_FREE)
   const guaranteedSet  = new Set(guaranteedFree.map(([id]) => id))
   const fillCount = Math.max(0, TOTAL - guaranteedFree.length)
@@ -106,15 +129,35 @@ const STEPS = [
   },
   {
     id: 'area',
-    question: 'Em qual área você trabalha ou quer trabalhar?',
+    question: 'Em qual área você trabalha ou tem interesse?',
     icon: '🏷️',
+    grid: true,
     options: [
-      { value: 'tech',       label: 'Tecnologia / Desenvolvimento', icon: '💻' },
-      { value: 'marketing',  label: 'Marketing / Comunicação', icon: '📣' },
-      { value: 'sales',      label: 'Vendas / Comercial', icon: '🤝' },
-      { value: 'hr',         label: 'RH / Pessoas', icon: '👥' },
-      { value: 'finance',    label: 'Financeiro / Controladoria', icon: '💹' },
-      { value: 'management', label: 'Gestão / Operações / Outra', icon: '⚙️' },
+      { value: 'tech',        label: 'Tecnologia / Dev', icon: '💻' },
+      { value: 'product_ux',  label: 'Product Design / UX', icon: '🎨' },
+      { value: 'data_ai',     label: 'Dados, Analytics e IA', icon: '📊' },
+      { value: 'marketing',   label: 'Marketing / Comunicação', icon: '📣' },
+      { value: 'sales',       label: 'Vendas / Comercial', icon: '🤝' },
+      { value: 'hr',          label: 'RH / Pessoas', icon: '👥' },
+      { value: 'finance',     label: 'Financeiro / Controladoria', icon: '💹' },
+      { value: 'management',  label: 'Gestão / Operações', icon: '⚙️' },
+      { value: 'consulting',  label: 'Consultoria', icon: '📈' },
+      { value: 'law',         label: 'Direito / Jurídico', icon: '⚖️' },
+      { value: 'engineering', label: 'Engenharia (Civil/Mecânica/Química)', icon: '🏗️' },
+      { value: 'agro',        label: 'Agronegócio', icon: '🌾' },
+      { value: 'health',      label: 'Saúde e Ciências da Vida', icon: '🩺' },
+      { value: 'education',   label: 'Educação / EdTech', icon: '📚' },
+      { value: 'logistics',   label: 'Logística / Supply Chain', icon: '📦' },
+      { value: 'security',    label: 'Segurança da Informação', icon: '🔐' },
+      { value: 'investment',  label: 'Mercado Financeiro / Banking', icon: '🏦' },
+      { value: 'creative',    label: 'Audiovisual, Arquitetura e Design', icon: '🎬' },
+      { value: 'media',       label: 'Jornalismo e Mídia Digital', icon: '📰' },
+      { value: 'hospitality', label: 'Turismo e Hotelaria', icon: '🏨' },
+      { value: 'fashion',     label: 'Moda e Varejo', icon: '👗' },
+      { value: 'public',      label: 'Concursos Públicos', icon: '🏛️' },
+      { value: 'startup',     label: 'Startups e Empreendedorismo', icon: '🚀' },
+      { value: 'purpose',     label: 'ESG e Terceiro Setor', icon: '🌱' },
+      { value: 'other',       label: 'Outra área / Ainda não sei', icon: '🔀' },
     ],
   },
   {
@@ -278,19 +321,34 @@ export default function DiagnosisPage({ user, onNavigateModule }) {
       <div className="mb-6">
         <div className="text-3xl mb-3">{currentStep.icon}</div>
         <h2 className="text-lg font-black text-slate-800 mb-4">{currentStep.question}</h2>
-        <div className="space-y-2">
-          {(currentStep.getOptions ? currentStep.getOptions(answers) : currentStep.options).map((opt) => (
-            <button
-              key={opt.value}
-              onClick={() => select(opt.value)}
-              className="w-full flex items-center gap-4 text-left bg-white border border-slate-200 rounded-2xl p-4 hover:border-blue-400 hover:bg-blue-50 transition-all group"
-            >
-              <span className="text-2xl flex-shrink-0">{opt.icon}</span>
-              <span className="font-semibold text-slate-700 text-sm group-hover:text-blue-700">{opt.label}</span>
-              <span className="ml-auto text-slate-300 group-hover:text-blue-400">→</span>
-            </button>
-          ))}
-        </div>
+        {currentStep.grid ? (
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            {(currentStep.getOptions ? currentStep.getOptions(answers) : currentStep.options).map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => select(opt.value)}
+                className="flex flex-col items-center text-center gap-1.5 bg-white border border-slate-200 rounded-xl p-3 hover:border-blue-400 hover:bg-blue-50 transition-all group"
+              >
+                <span className="text-xl">{opt.icon}</span>
+                <span className="font-semibold text-slate-700 text-xs leading-tight group-hover:text-blue-700">{opt.label}</span>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="space-y-2">
+            {(currentStep.getOptions ? currentStep.getOptions(answers) : currentStep.options).map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => select(opt.value)}
+                className="w-full flex items-center gap-4 text-left bg-white border border-slate-200 rounded-2xl p-4 hover:border-blue-400 hover:bg-blue-50 transition-all group"
+              >
+                <span className="text-2xl flex-shrink-0">{opt.icon}</span>
+                <span className="font-semibold text-slate-700 text-sm group-hover:text-blue-700">{opt.label}</span>
+                <span className="ml-auto text-slate-300 group-hover:text-blue-400">→</span>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {step > 0 && (
