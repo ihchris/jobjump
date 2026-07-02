@@ -130,7 +130,8 @@ const Hero = ({ onStart }) => (
             </span>
           </h1>
           <p className="text-blue-100/90 text-lg leading-relaxed mb-8 max-w-lg">
-            40 módulos + 21 ferramentas interativas para fazer seu CV passar pelos filtros ATS,
+            Não é mais uma rede social. É um plano de ação: 102 módulos + 30 ferramentas interativas
+            + uma comunidade que te ajuda de verdade — para fazer seu CV passar pelos filtros ATS,
             arrasar nas entrevistas e negociar o salário que você merece.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mb-6">
@@ -144,7 +145,7 @@ const Hero = ({ onStart }) => (
               Ver planos
             </button>
           </div>
-          <p className="text-blue-300/80 text-sm">Sem cartão de crédito · Acesso imediato · 11 módulos grátis para sempre</p>
+          <p className="text-blue-300/80 text-sm">Sem cartão de crédito · Acesso imediato · 43 módulos grátis para sempre</p>
           {/* Trust row */}
           <div className="flex items-center gap-6 mt-8 pt-8 border-t border-white/10">
             {[['2.400+', 'Formados'], ['89%', 'Mais respostas'], ['3 sem', '1ª entrevista']].map(([n, l]) => (
@@ -254,6 +255,58 @@ const Problems = ({ onStart }) => (
   </section>
 )
 
+// ── JobJump vs LinkedIn ────────────────────────────────────────────────────────
+const Comparison = ({ onStart }) => {
+  const rows = [
+    { label: 'O que é', jj: 'Plano de ação estruturado', li: 'Rede social e vitrine profissional' },
+    { label: 'Por onde começar', jj: 'Diagnóstico personalizado → roteiro pronto', li: 'Você navega sozinho, sem direção' },
+    { label: 'Conteúdo', jj: '102 módulos como curso, com quiz e certificado', li: 'Feed infinito, sem estrutura' },
+    { label: 'Coach', jj: 'IA 1:1, disponível 24/7', li: 'Não existe' },
+    { label: 'Ferramentas práticas', jj: '30 ferramentas (ATS, CLT vs PJ, simulador...)', li: 'Nenhuma — só o campo "Sobre"' },
+    { label: 'Networking', jj: 'Curado por área e objetivo, com mentoria', li: 'Pedidos de conexão em massa, frios' },
+    { label: 'Comunidade', jj: 'Espaço seguro para dúvidas e vulnerabilidade', li: 'Ambiente de vitrine e performance' },
+    { label: 'Foco', jj: 'Mercado brasileiro e português (CLT, PJ, MEI...)', li: 'Genérico, global' },
+    { label: 'Preço', jj: 'R$29,90/mês (43 módulos sempre grátis)', li: 'R$130+/mês no plano Premium' },
+  ]
+
+  return (
+    <section className="py-20 bg-slate-50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12">
+          <Badge className="bg-blue-50 text-blue-600 border border-blue-100 mb-4">🆚 A diferença</Badge>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-800 mb-4">JobJump não é mais um LinkedIn</h2>
+          <p className="text-slate-500 max-w-xl mx-auto">O LinkedIn assume que você já sabe o que fazer. O JobJump te mostra exatamente o próximo passo.</p>
+        </div>
+
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-x-auto">
+          <div className="min-w-[560px]">
+            <div className="grid grid-cols-3 bg-slate-800 text-white text-sm font-bold">
+              <div className="p-4">Critério</div>
+              <div className="p-4 text-blue-300">JobJump</div>
+              <div className="p-4 text-slate-400">LinkedIn</div>
+            </div>
+            {rows.map((r, i) => (
+              <div key={r.label} className={`grid grid-cols-3 text-sm ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}`}>
+                <div className="p-4 font-semibold text-slate-700">{r.label}</div>
+                <div className="p-4 text-slate-800 flex items-start gap-1.5">
+                  <span className="text-green-500 flex-shrink-0">✓</span> {r.jj}
+                </div>
+                <div className="p-4 text-slate-400 flex items-start gap-1.5">
+                  <span className="text-slate-300 flex-shrink-0">✗</span> {r.li}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="text-center mt-10">
+          <Btn onClick={onStart} variant="primary" size="lg">Experimentar grátis →</Btn>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 // ── Módulos ───────────────────────────────────────────────────────────────────
 const ModulesSection = ({ onStart }) => {
   const modules = [
@@ -280,7 +333,7 @@ const ModulesSection = ({ onStart }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
           <Badge className="bg-blue-50 text-blue-600 border border-blue-100 mb-4">📚 Conteúdo completo</Badge>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-800 mb-4">40 módulos. Centenas de lições. Do zero ao emprego.</h2>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-800 mb-4">102 módulos. Centenas de lições. Do zero ao emprego.</h2>
           <p className="text-slate-500 max-w-xl mx-auto">Cada módulo foi criado por especialistas com experiência real em recrutamento e desenvolvimento de carreira.</p>
         </div>
 
@@ -308,8 +361,8 @@ const ModulesSection = ({ onStart }) => {
 
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <div className="font-black text-slate-800 text-lg">Desbloqueie todos os 40 módulos por R$29,90/mês</div>
-            <div className="text-slate-500 text-sm mt-1">Os 11 primeiros são sempre gratuitos. Cancele quando quiser.</div>
+            <div className="font-black text-slate-800 text-lg">Desbloqueie todos os 102 módulos por R$29,90/mês</div>
+            <div className="text-slate-500 text-sm mt-1">43 módulos são sempre gratuitos. Cancele quando quiser.</div>
           </div>
           <Btn onClick={onStart} variant="primary" size="md" className="flex-shrink-0">Começar Pro →</Btn>
         </div>
@@ -325,7 +378,7 @@ const FeaturesSection = () => (
       <div className="text-center mb-14">
         <Badge className="bg-white/10 text-blue-200 border border-white/20 mb-4">⚡ Ferramentas Pro</Badge>
         <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">Ferramentas que trabalham por você</h2>
-        <p className="text-blue-200 max-w-xl mx-auto">21 ferramentas interativas que complementam os módulos e geram resultados imediatos.</p>
+        <p className="text-blue-200 max-w-xl mx-auto">30 ferramentas interativas que complementam os módulos e geram resultados imediatos.</p>
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -374,18 +427,20 @@ const Pricing = ({ onChoosePlan }) => (
           </div>
           <ul className="space-y-3 mb-8 flex-1">
             {[
-              '11 módulos gratuitos (CV, LinkedIn, IA, Psicologia, Recolocação…)',
+              '43 módulos gratuitos (CV, LinkedIn, IA, Psicologia, Recolocação…)',
               '4 templates básicos para download',
               'Coach IA (5 perguntas/dia)',
               'Ferramentas ATS e STAR',
               'Diagnóstico de carreira personalizado',
+              'Comunidade de Networking + Mentoria entre membros',
+              'Dúvidas por lição com a comunidade',
               'Sistema de XP, níveis e conquistas',
             ].map((f) => (
               <li key={f} className="flex items-start gap-2.5 text-sm text-slate-600">
                 <span className="text-green-500 font-bold mt-0.5 flex-shrink-0">✓</span>{f}
               </li>
             ))}
-            {['29 módulos Pro', 'Simulador de entrevistas avançado', 'Script de Negociação Salarial'].map((f) => (
+            {['59 módulos Pro', 'Simulador de entrevistas avançado', 'Script de Negociação Salarial'].map((f) => (
               <li key={f} className="flex items-start gap-2.5 text-sm text-slate-300">
                 <span className="flex-shrink-0 mt-0.5">✗</span>{f}
               </li>
@@ -411,8 +466,8 @@ const Pricing = ({ onChoosePlan }) => (
           </div>
           <ul className="space-y-3 mb-8 flex-1">
             {[
-              '40 módulos completos (11 grátis + 29 Pro)',
-              '21 ferramentas interativas',
+              '102 módulos completos (43 grátis + 59 Pro)',
+              '30 ferramentas interativas',
               '12 templates com download real',
               'Coach IA ilimitado 24/7',
               'Quiz por módulo com XP e conquistas',
@@ -420,7 +475,7 @@ const Pricing = ({ onChoosePlan }) => (
               'Plano Semanal com metas e relatórios',
               'Simulador de entrevistas (40+ perguntas)',
               'Scripts de Negociação + Elevator Pitch',
-              'Comunidade + suporte por email',
+              'Comunidade + Mentoria + suporte por email',
             ].map((f) => (
               <li key={f} className="flex items-start gap-2.5 text-sm text-blue-50">
                 <span className="text-blue-200 font-bold mt-0.5 flex-shrink-0">✓</span>{f}
@@ -449,13 +504,13 @@ const Pricing = ({ onChoosePlan }) => (
           <ul className="space-y-3 mb-8 flex-1">
             {[
               'Tudo do plano Pro Mensal',
-              '40 módulos completos',
-              '21 ferramentas interativas',
+              '102 módulos completos',
+              '30 ferramentas interativas',
               '12 templates com download real',
               'Coach IA ilimitado 24/7',
               'Quiz + XP + conquistas em todos os módulos',
               'Networking CRM + Plano Semanal',
-              'Comunidade + suporte prioritário',
+              'Comunidade + Mentoria + suporte prioritário',
             ].map((f) => (
               <li key={f} className="flex items-start gap-2.5 text-sm text-emerald-50">
                 <span className="text-emerald-200 font-bold mt-0.5 flex-shrink-0">✓</span>{f}
@@ -567,7 +622,7 @@ const LandingFooter = ({ onStart, onTerms }) => (
           Ver plano Pro
         </button>
       </div>
-      <p className="text-blue-400 text-sm mt-4">Sem cartão de crédito · Acesso imediato · 11 módulos grátis para sempre</p>
+      <p className="text-blue-400 text-sm mt-4">Sem cartão de crédito · Acesso imediato · 43 módulos grátis para sempre</p>
     </div>
 
     {/* Bottom bar */}
@@ -595,6 +650,7 @@ export default function LandingPage({ onStart, onLogin, onTerms }) {
       <Hero onStart={onStart} />
       <HowItWorks onStart={onStart} />
       <Problems onStart={onStart} />
+      <Comparison onStart={onStart} />
       <ModulesSection onStart={onStart} />
       <FeaturesSection />
       <Pricing onChoosePlan={onStart} />
