@@ -218,7 +218,7 @@ function ChatThread({ user, peer, messages, onSend, onBack }) {
 }
 
 // ─── Componente principal ─────────────────────────────────────────────────────
-export default function NetworkingCommunity({ user }) {
+export default function NetworkingCommunity({ user, onGoToMessages }) {
   const [subTab, setSubTab] = useState('directory')
   const [profile, setProfile] = useState(null)
   const [members, setMembers] = useState([])
@@ -411,7 +411,7 @@ export default function NetworkingCommunity({ user }) {
                 member={m}
                 connectionState={connectionWith(m.id)}
                 onConnect={(member) => requestConnection(member, 'peer')}
-                onMessage={openChat}
+                onMessage={onGoToMessages ? (m) => onGoToMessages(m.id) : openChat}
               />
             ))}
             {directoryMembers.length === 0 && <p className="text-slate-400 text-sm">Nenhum membro encontrado nessa área ainda.</p>}
@@ -451,7 +451,7 @@ export default function NetworkingCommunity({ user }) {
                   <div className="font-bold text-slate-800 text-sm">{m.name}</div>
                   <div className="text-slate-400 text-xs">{AREA_LABEL[m.area] || m.area}</div>
                 </div>
-                <button onClick={() => openChat(m)} className="text-xs font-bold text-blue-600 hover:text-blue-800">💬 Mensagem</button>
+                <button onClick={() => onGoToMessages ? onGoToMessages(m.id) : openChat(m)} className="text-xs font-bold text-blue-600 hover:text-blue-800">💬 Mensagem</button>
               </div>
             ))}
           </div>
@@ -470,7 +470,7 @@ export default function NetworkingCommunity({ user }) {
                 member={m}
                 connectionState={connectionWith(m.id)}
                 onConnect={(member) => requestConnection(member, 'mentor_request')}
-                onMessage={openChat}
+                onMessage={onGoToMessages ? (m) => onGoToMessages(m.id) : openChat}
                 intent="mentor_request"
               />
             ))}

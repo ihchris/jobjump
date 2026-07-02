@@ -12,6 +12,7 @@ import SettingsPage from './SettingsPage'
 import PlannerPage from './PlannerPage'
 import NetworkingPage from './NetworkingPage'
 import DiagnosisPage from './DiagnosisPage'
+import MessagesPage from './MessagesPage'
 
 // ─── Onboarding Modal ────────────────────────────────────────────────────────
 const ONBOARDING_KEY = 'nj_onboarded'
@@ -68,6 +69,8 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
   const [selectedLesson, setSelectedLesson] = useState(null)
   const [progress, setProgress] = useState(() => LS.get('nj_progress', {}))
   const [showOnboarding, setShowOnboarding] = useState(() => !LS.get(ONBOARDING_KEY, false))
+  const [msgUnread, setMsgUnread] = useState(0)
+  const [msgInitPeerId, setMsgInitPeerId] = useState(null)
 
   const saveProgress = (fn) => {
     setProgress((prev) => {
@@ -80,6 +83,12 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
   const goTab = (t) => {
     setTab(t)
     if (t !== 'modules') { setSelectedModule(null); setSelectedLesson(null) }
+    if (t !== 'messages') setMsgInitPeerId(null)
+  }
+
+  const goToMessages = (peerId) => {
+    setMsgInitPeerId(peerId)
+    goTab('messages')
   }
 
   // navigate to a module directly from the Diagnosis roadmap
@@ -95,7 +104,7 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
     setTab('diagnosis')
   }
 
-  const sidebarProps = { tab, setTab: goTab, user, onLogout }
+  const sidebarProps = { tab, setTab: goTab, user, onLogout, msgUnread }
 
   return (
     <div className="flex h-full overflow-hidden bg-slate-50">
@@ -152,7 +161,15 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
           )}
           {tab === 'templates' && <TemplatesPage user={user} />}
           {tab === 'tools' && <ToolsPage />}
-          {tab === 'networking' && <NetworkingPage user={user} />}
+          {tab === 'networking' && <NetworkingPage user={user} onGoToMessages={goToMessages} />}
+          {tab === 'messages' && (
+            <MessagesPage
+              user={user}
+              initPeerId={msgInitPeerId}
+              onUnreadChange={setMsgUnread}
+              onGoNetworking={() => goTab('networking')}
+            />
+          )}
           {tab === 'community' && <CommunityPage user={user} />}
           {tab === 'coach' && <CoachPage user={user} />}
           {tab === 'planner' && <PlannerPage user={user} />}

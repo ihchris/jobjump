@@ -92,21 +92,22 @@ function SidebarBell() {
 }
 
 const TABS = [
-  { id: 'home', label: 'Dashboard', icon: '🏠' },
-  { id: 'modules', label: 'Módulos', icon: '📚' },
-  { id: 'diagnosis', label: 'Diagnóstico', icon: '🗺️' },
-  { id: 'planner', label: 'Plano Semanal', icon: '📅' },
-  { id: 'templates', label: 'Templates', icon: '📁' },
-  { id: 'tools', label: 'Ferramentas', icon: '🛠️' },
-  { id: 'networking', label: 'Networking', icon: '🤝' },
-  { id: 'community', label: 'Comunidade', icon: '👥' },
-  { id: 'coach', label: 'Coach IA', icon: '🤖' },
-  { id: 'settings', label: 'Configurações', icon: '⚙️' },
+  { id: 'home',       label: 'Dashboard',     icon: '🏠' },
+  { id: 'modules',    label: 'Módulos',        icon: '📚' },
+  { id: 'diagnosis',  label: 'Diagnóstico',    icon: '🗺️' },
+  { id: 'planner',    label: 'Plano Semanal',  icon: '📅' },
+  { id: 'templates',  label: 'Templates',      icon: '📁' },
+  { id: 'tools',      label: 'Ferramentas',    icon: '🛠️' },
+  { id: 'networking', label: 'Networking',     icon: '🤝' },
+  { id: 'messages',   label: 'Mensagens',      icon: '💬' },
+  { id: 'community',  label: 'Comunidade',     icon: '👥' },
+  { id: 'coach',      label: 'Coach IA',       icon: '🤖' },
+  { id: 'settings',   label: 'Configurações',  icon: '⚙️' },
 ]
 
 export { TABS }
 
-export default function Sidebar({ tab, setTab, user, onLogout, mobile, onClose }) {
+export default function Sidebar({ tab, setTab, user, onLogout, mobile, onClose, msgUnread }) {
   const xp    = getXP()
   const level = getLevel(xp)
   const pct   = getLevelProgress(xp)
@@ -142,6 +143,11 @@ export default function Sidebar({ tab, setTab, user, onLogout, mobile, onClose }
           >
             <span>{t.icon}</span>
             <span className="flex-1 text-left">{t.label}</span>
+            {t.id === 'messages' && msgUnread > 0 && tab !== 'messages' && (
+              <span className="w-5 h-5 rounded-full bg-red-500 text-white text-[10px] font-black flex items-center justify-center flex-shrink-0">
+                {msgUnread > 9 ? '9+' : msgUnread}
+              </span>
+            )}
             {t.id === 'community' && tab !== 'community' && (
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />

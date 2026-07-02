@@ -197,7 +197,7 @@ function StatsBar({ contacts }) {
   )
 }
 
-export default function NetworkingPage({ user }) {
+export default function NetworkingPage({ user, onGoToMessages }) {
   const [mainTab, setMainTab] = useState('community')
   const [contacts, setContacts] = useState(() => LS.get(CRM_KEY, []))
   const [adding, setAdding] = useState(false)
@@ -293,7 +293,7 @@ export default function NetworkingPage({ user }) {
         </button>
       </div>
 
-      {mainTab === 'community' && <NetworkingCommunity user={user} />}
+      {mainTab === 'community' && <NetworkingCommunity user={user} onGoToMessages={onGoToMessages} />}
 
       {mainTab === 'crm' && (
       <>
