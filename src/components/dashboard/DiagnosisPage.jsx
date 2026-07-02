@@ -15,50 +15,65 @@ function buildRoadmap(answers) {
   add([1, 2, 3], 10)
 
   // por status
-  if (status === 'unemployed')  add([9, 19, 14], 20)
-  if (status === 'employed')    add([18, 5, 6], 15)
-  if (status === 'freelancer')  add([12, 6, 8], 15)
-  if (status === 'student')     add([20, 14, 30], 15)
+  if (status === 'unemployed')  add([9, 19, 14, 78], 20)
+  if (status === 'employed')    add([18, 5, 6, 71], 15)
+  if (status === 'freelancer')  add([12, 6, 8, 60], 15)
+  if (status === 'student')     add([20, 14, 30, 49], 15)
 
   // por objetivo
-  if (goal === 'first_job')     add([1, 2, 3, 20, 14], 20)
-  if (goal === 'new_company')   add([4, 5, 6, 9], 20)
-  if (goal === 'career_change') add([7, 8, 22, 30], 20)
-  if (goal === 'abroad')        add([10, 15, 21, 32], 25)
-  if (goal === 'promotion')     add([18, 13, 35], 20)
+  if (goal === 'first_job')     add([1, 2, 3, 20, 14, 49], 20)
+  if (goal === 'new_company')   add([4, 5, 6, 9, 65], 20)
+  if (goal === 'career_change') add([7, 8, 22, 30, 71], 20)
+  if (goal === 'abroad')        add([10, 15, 21, 32, 54, 64], 25)
+  if (goal === 'promotion')     add([18, 13, 35, 91, 46], 20)
 
   // por área
-  if (area === 'tech')          add([26, 17, 36, 33], 15)
-  if (area === 'marketing')     add([8, 22, 11], 15)
-  if (area === 'sales')         add([5, 6, 35], 15)
-  if (area === 'hr')            add([5, 13, 20], 15)
-  if (area === 'finance')       add([25, 39, 6], 15)
-  if (area === 'management')    add([13, 35, 40], 15)
+  if (area === 'tech')          add([26, 17, 36, 33, 48, 59, 68], 15)
+  if (area === 'marketing')     add([8, 22, 11, 44], 15)
+  if (area === 'sales')         add([5, 6, 35, 42], 15)
+  if (area === 'hr')            add([5, 13, 20, 51, 63], 15)
+  if (area === 'finance')       add([25, 39, 6, 47, 101], 15)
+  if (area === 'management')    add([13, 35, 40, 91, 70], 15)
 
   // por experiência
-  if (experience === 'none')    add([20, 14, 30, 22], 15)
+  if (experience === 'none')    add([20, 14, 30, 22, 79], 15)
   if (experience === '1-3')     add([4, 5, 9], 10)
   if (experience === '3-7')     add([6, 7, 8], 10)
-  if (experience === '7plus')   add([29, 6, 13, 40], 15)
+  if (experience === '7plus')   add([29, 6, 13, 40, 75], 15)
 
   // por urgência
-  if (urgency === 'urgent')     add([28, 9, 4], 20)
+  if (urgency === 'urgent')     add([28, 9, 4, 78], 20)
   if (urgency === 'medium')     add([5, 8, 6], 10)
 
   // por desafio
-  if (challenge === 'cv')       add([1, 2, 11], 20)
+  if (challenge === 'cv')       add([1, 2, 11, 78, 96], 20)
   if (challenge === 'interview') add([4, 16, 15, 35], 20)
-  if (challenge === 'network')  add([5, 37, 3], 20)
-  if (challenge === 'salary')   add([6, 25, 39], 20)
-  if (challenge === 'motivation') add([14, 34, 30, 9], 20)
+  if (challenge === 'network')  add([5, 37, 3, 74, 65], 20)
+  if (challenge === 'salary')   add([6, 25, 39, 62, 53], 20)
+  if (challenge === 'motivation') add([14, 34, 30, 9, 52], 20)
 
   // ordenar por score, filtrar módulos existentes
   const validIds = new Set(MODULES.map((m) => m.id))
-  return Object.entries(score)
-    .filter(([id]) => validIds.has(Number(id)))
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 8)
-    .map(([id]) => Number(id))
+  const proIds   = new Set(MODULES.filter((m) => m.isPro).map((m) => m.id))
+  const ranked = Object.entries(score)
+    .map(([id, pts]) => [Number(id), pts])
+    .filter(([id]) => validIds.has(id))
+    .sort((a, b) => b[1] - a[1] || a[0] - b[0])
+
+  // um roteiro 100% Pro logo após o diagnóstico não motiva ninguém a continuar —
+  // garante uma base de módulos grátis (que o usuário já pode começar agora) e
+  // usa os módulos Pro mais relevantes como destaque, não como parede
+  const TOTAL    = 10
+  const MIN_FREE = 4
+  const guaranteedFree = ranked.filter(([id]) => !proIds.has(id)).slice(0, MIN_FREE)
+  const guaranteedSet  = new Set(guaranteedFree.map(([id]) => id))
+  const fillCount = Math.max(0, TOTAL - guaranteedFree.length)
+  const filled    = ranked.filter(([id]) => !guaranteedSet.has(id)).slice(0, fillCount)
+
+  const rankIndex = new Map(ranked.map(([id], i) => [id, i]))
+  return [...guaranteedFree, ...filled]
+    .map(([id]) => id)
+    .sort((a, b) => rankIndex.get(a) - rankIndex.get(b))
 }
 
 // ─── Passos do questionário ───────────────────────────────────────────────────

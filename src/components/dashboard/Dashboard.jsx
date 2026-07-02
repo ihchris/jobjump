@@ -141,6 +141,7 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
               selectedModule={selectedModule} selectedLesson={selectedLesson}
               setSelectedModule={setSelectedModule} setSelectedLesson={setSelectedLesson}
               onGoToDiagnosis={() => setTab('diagnosis')}
+              onUpgrade={() => goTab('settings')}
             />
           )}
           {tab === 'diagnosis' && (
