@@ -103,33 +103,50 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4" role="form" aria-label={mode === 'register' ? 'Formulário de cadastro' : 'Formulário de login'}>
           {mode === 'register' && (
-            <input
-              className={inp}
-              placeholder="Nome completo"
-              value={form.name}
-              onChange={set('name')}
-              autoComplete="name"
-            />
+            <div>
+              <label htmlFor="auth-name" className="sr-only">Nome completo</label>
+              <input
+                id="auth-name"
+                className={inp}
+                placeholder="Nome completo"
+                value={form.name}
+                onChange={set('name')}
+                autoComplete="name"
+                aria-required="true"
+              />
+            </div>
           )}
-          <input
-            className={inp}
-            type="email"
-            placeholder="E-mail"
-            value={form.email}
-            onChange={set('email')}
-            autoComplete="email"
-          />
-          <input
-            className={inp}
-            type="password"
-            placeholder="Senha"
-            value={form.password}
-            onChange={set('password')}
-            autoComplete={mode === 'register' ? 'new-password' : 'current-password'}
-            onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
-          />
+          <div>
+            <label htmlFor="auth-email" className="sr-only">E-mail</label>
+            <input
+              id="auth-email"
+              className={inp}
+              type="email"
+              placeholder="E-mail"
+              value={form.email}
+              onChange={set('email')}
+              autoComplete="email"
+              aria-required="true"
+              aria-invalid={!!error && !form.email}
+            />
+          </div>
+          <div>
+            <label htmlFor="auth-password" className="sr-only">Senha</label>
+            <input
+              id="auth-password"
+              className={inp}
+              type="password"
+              placeholder="Senha"
+              value={form.password}
+              onChange={set('password')}
+              autoComplete={mode === 'register' ? 'new-password' : 'current-password'}
+              onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
+              aria-required="true"
+              aria-invalid={!!error && !form.password}
+            />
+          </div>
 
           {mode === 'register' && (
             <div>
@@ -181,12 +198,14 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
             </label>
           )}
 
-          {error && (
-            <p className="text-red-500 text-sm bg-red-50 px-3 py-2 rounded-lg">{error}</p>
-          )}
-          {success && (
-            <p className="text-green-700 text-sm bg-green-50 px-3 py-2 rounded-lg">{success}</p>
-          )}
+          <div aria-live="polite" aria-atomic="true">
+            {error && (
+              <p role="alert" className="text-red-500 text-sm bg-red-50 px-3 py-2 rounded-lg">{error}</p>
+            )}
+            {success && (
+              <p className="text-green-700 text-sm bg-green-50 px-3 py-2 rounded-lg">{success}</p>
+            )}
+          </div>
 
           <Btn
             onClick={handleSubmit}

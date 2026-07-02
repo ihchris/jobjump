@@ -1,45 +1,41 @@
-/**
- * Camada de serviço para conteúdo de módulos.
- *
- * • Em produção (Supabase configurado): lê de Supabase com RLS.
- *   O conteúdo Pro é bloqueado a nível de base de dados para utilizadores free.
- *
- * • Em demo mode (sem Supabase): usa os dados locais como fallback,
- *   permitindo desenvolvimento sem credenciais.
- */
 import { supabase, supabaseConfigured } from './supabase'
-import { MODULES as LOCAL_MODULES } from '../data/modules'
-import { QUIZZES as LOCAL_QUIZZES } from '../data/quizzes'
 
-// Cache em memória por sessão (evita fetches repetidos)
+// modules.js (~1MB) carregado apenas quando necessário, não no bundle inicial
+let localDataCache = null
+async function getLocalData() {
+  if (localDataCache) return localDataCache
+  const [{ MODULES }, { QUIZZES }] = await Promise.all([
+    import('../data/modules'),
+    import('../data/quizzes'),
+  ])
+  localDataCache = { MODULES, QUIZZES }
+  return localDataCache
+}
+
 let modulesCache = null
 
-/**
- * Retorna todos os módulos com stubs de lição (sem conteúdo).
- * Shape idêntico ao MODULES local mas sem `lesson.content`.
- */
 export async function getModules() {
   if (!supabaseConfigured) {
-    return LOCAL_MODULES.map((m) => ({
+    const { MODULES, QUIZZES } = await getLocalData()
+    return MODULES.map((m) => ({
       ...m,
-      hasQuiz: !!LOCAL_QUIZZES[m.id],
+      hasQuiz: !!QUIZZES[m.id],
       lessons: m.lessons.map(({ content: _c, ...stub }) => stub),
     }))
   }
 
   if (modulesCache) return modulesCache
 
-  const [{ data: mods, error: mErr }, { data: stubs, error: lErr }] = await Promise.all([
+  const [{ data: mods, error: mErr }, { data: stubs }] = await Promise.all([
     supabase.from('modules').select('id, title, description, duration, icon, is_pro, has_quiz, color_config').order('sort_order'),
     supabase.from('lessons').select('id, module_id, title, duration, is_pro, sort_order').order('sort_order'),
   ])
 
   if (mErr || !mods) {
-    console.error('[content] getModules error:', mErr)
-    // Graceful fallback to local stubs
-    return LOCAL_MODULES.map((m) => ({
+    const { MODULES, QUIZZES } = await getLocalData()
+    return MODULES.map((m) => ({
       ...m,
-      hasQuiz: !!LOCAL_QUIZZES[m.id],
+      hasQuiz: !!QUIZZES[m.id],
       lessons: m.lessons.map(({ content: _c, ...stub }) => stub),
     }))
   }
@@ -62,15 +58,11 @@ export async function getModules() {
   return modulesCache
 }
 
-/**
- * Busca o conteúdo markdown de uma lição.
- * Retorna null se o utilizador não tiver acesso (RLS) ou em caso de erro.
- */
 export async function getLessonContent(lessonId, moduleId) {
   if (!supabaseConfigured) {
-    const mod    = LOCAL_MODULES.find((m) => m.id === moduleId)
-    const lesson = mod?.lessons.find((l) => l.id === lessonId)
-    return lesson?.content ?? null
+    const { MODULES } = await getLocalData()
+    const mod = MODULES.find((m) => m.id === moduleId)
+    return mod?.lessons.find((l) => l.id === lessonId)?.content ?? null
   }
 
   const { data, error } = await supabase
@@ -80,19 +72,18 @@ export async function getLessonContent(lessonId, moduleId) {
     .single()
 
   if (error) {
-    if (error.code !== 'PGRST116') console.error('[content] getLessonContent error:', error)
+    if (error.code !== 'PGRST116') console.error('[content] getLessonContent:', error)
     return null
   }
 
   return data?.content ?? null
 }
 
-/**
- * Busca as perguntas do quiz de um módulo.
- * Retorna [] se não autorizado (RLS) ou se não existir quiz.
- */
 export async function getQuiz(moduleId) {
-  if (!supabaseConfigured) return LOCAL_QUIZZES[moduleId] ?? []
+  if (!supabaseConfigured) {
+    const { QUIZZES } = await getLocalData()
+    return QUIZZES[moduleId] ?? []
+  }
 
   const { data, error } = await supabase
     .from('quizzes')
@@ -104,7 +95,6 @@ export async function getQuiz(moduleId) {
   return data?.questions ?? []
 }
 
-/** Invalida o cache de módulos (usar após mudanças de plano). */
 export function invalidateModulesCache() {
   modulesCache = null
 }

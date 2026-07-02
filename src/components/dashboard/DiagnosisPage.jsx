@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Btn } from '../ui'
-import { MODULES } from '../../data/modules'
+import { getModules } from '../../lib/content'
 import { saveDiagnosis, getDiagnosis, XP_DIAGNOSIS } from '../../utils/gamification'
 import { isPaid } from '../../utils/plans'
 
@@ -33,7 +33,7 @@ const AREA_MODULE_MAP = {
 }
 
 // ─── Mapa de prioridades por perfil ──────────────────────────────────────────
-function buildRoadmap(answers) {
+function buildRoadmap(answers, modules) {
   const { status, area, experience, goal, urgency, challenge } = answers
 
   const score = {}
@@ -76,8 +76,8 @@ function buildRoadmap(answers) {
   if (challenge === 'motivation') add([14, 34, 30, 9, 52], 20)
 
   // ordenar por score, filtrar módulos existentes
-  const validIds = new Set(MODULES.map((m) => m.id))
-  const proIds   = new Set(MODULES.filter((m) => m.isPro).map((m) => m.id))
+  const validIds = new Set(modules.map((m) => m.id))
+  const proIds   = new Set(modules.filter((m) => m.isPro).map((m) => m.id))
   const ranked = Object.entries(score)
     .map(([id, pts]) => [Number(id), pts])
     .filter(([id]) => validIds.has(id))
@@ -197,8 +197,8 @@ const STEPS = [
 ]
 
 // ─── Resultado / Roadmap ──────────────────────────────────────────────────────
-function RoadmapResult({ answers, roadmap, user, onNavigate, onReset }) {
-  const modules = roadmap.map((id) => MODULES.find((m) => m.id === id)).filter(Boolean)
+function RoadmapResult({ answers, roadmap, user, onNavigate, onReset, allModules }) {
+  const modules = roadmap.map((id) => allModules.find((m) => m.id === id)).filter(Boolean)
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -256,6 +256,9 @@ function RoadmapResult({ answers, roadmap, user, onNavigate, onReset }) {
 
 // ─── Componente principal ─────────────────────────────────────────────────────
 export default function DiagnosisPage({ user, onNavigateModule }) {
+  const [allModules, setAllModules] = useState([])
+  useEffect(() => { getModules().then(setAllModules) }, [])
+
   const existing = getDiagnosis()
   const [step, setStep] = useState(existing ? 'result' : 0)
   const [answers, setAnswers] = useState(existing?.answers || {})
@@ -270,7 +273,7 @@ export default function DiagnosisPage({ user, onNavigateModule }) {
     if (step < STEPS.length - 1) {
       setStep(step + 1)
     } else {
-      const rm = buildRoadmap(next)
+      const rm = buildRoadmap(next, allModules)
       setRoadmap(rm)
       saveDiagnosis({ answers: next, roadmap: rm })
       setStep('result')
@@ -294,6 +297,7 @@ export default function DiagnosisPage({ user, onNavigateModule }) {
           user={user}
           onNavigate={onNavigateModule}
           onReset={reset}
+          allModules={allModules}
         />
       </div>
     )

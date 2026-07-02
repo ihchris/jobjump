@@ -9,6 +9,7 @@ const SYSTEM_PROMPT =
   'Mantém as respostas concisas e accionáveis.'
 
 const FREE_DAILY_LIMIT = 5
+const COOLDOWN_SECONDS = 5
 
 const cors = {
   'Access-Control-Allow-Origin': '*',
@@ -26,30 +27,45 @@ Deno.serve(async (req) => {
     Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
   )
 
-  // Verificar JWT e obter utilizador
   const token = authHeader.replace('Bearer ', '')
   const { data: { user }, error: authError } = await supabase.auth.getUser(token)
   if (authError || !user) return new Response('Unauthorized', { status: 401 })
 
-  // Verificar plano
   const { data: profile } = await supabase
     .from('profiles')
     .select('plan')
     .eq('id', user.id)
     .single()
-  const isPro = profile?.plan === 'pro'
 
-  // Aplicar limite diário para plano grátis
+  const isPro = profile?.plan === 'pro' || profile?.plan === 'annual'
+
   if (!isPro) {
     const today = new Date().toISOString().split('T')[0]
     const { data: usage } = await supabase
       .from('coach_usage')
-      .select('count')
+      .select('count, last_request_at')
       .eq('user_id', user.id)
       .eq('date', today)
       .single()
 
     const currentCount = usage?.count ?? 0
+
+    // Cooldown entre pedidos para prevenir spam
+    if (usage?.last_request_at) {
+      const secondsSince = (Date.now() - new Date(usage.last_request_at).getTime()) / 1000
+      if (secondsSince < COOLDOWN_SECONDS) {
+        const retryAfter = Math.ceil(COOLDOWN_SECONDS - secondsSince)
+        return new Response(
+          JSON.stringify({
+            error: 'cooldown',
+            message: `Aguarda ${retryAfter} segundos antes do próximo pedido.`,
+            retryAfter,
+          }),
+          { status: 429, headers: { 'Content-Type': 'application/json', ...cors } }
+        )
+      }
+    }
+
     if (currentCount >= FREE_DAILY_LIMIT) {
       return new Response(
         JSON.stringify({
@@ -60,9 +76,8 @@ Deno.serve(async (req) => {
       )
     }
 
-    // Incrementar contador (upsert)
     await supabase.from('coach_usage').upsert(
-      { user_id: user.id, date: today, count: currentCount + 1 },
+      { user_id: user.id, date: today, count: currentCount + 1, last_request_at: new Date().toISOString() },
       { onConflict: 'user_id,date' }
     )
   }

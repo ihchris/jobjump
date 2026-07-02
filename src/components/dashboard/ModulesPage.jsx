@@ -777,16 +777,17 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade, 
 
 // ─── Componente principal ──────────────────────────────────────────────────
 export default function ModulesPage({ user, progress, setProgress, selectedModule: initModule, selectedLesson: initLesson, setSelectedModule, setSelectedLesson, onGoToDiagnosis, onUpgrade }) {
-  const [modules, setModules]     = useState([])
-  const [view, setView]           = useState(initModule ? (initLesson ? 'lesson' : 'module') : 'list')
-  const [mod, setMod]             = useState(initModule || null)
-  const [lesson, setLesson]       = useState(initLesson || null)
-  const [quiz, setQuiz]           = useState(null)
-  const [xpToast, setXpToast]     = useState(null)
+  const [modules, setModules]         = useState([])
+  const [modulesLoading, setModLoad]  = useState(true)
+  const [view, setView]               = useState(initModule ? (initLesson ? 'lesson' : 'module') : 'list')
+  const [mod, setMod]                 = useState(initModule || null)
+  const [lesson, setLesson]           = useState(initLesson || null)
+  const [quiz, setQuiz]               = useState(null)
+  const [xpToast, setXpToast]         = useState(null)
 
   // Load module list (stubs, no content) on mount
   useEffect(() => {
-    getModules().then(setModules)
+    getModules().then((list) => { setModules(list); setModLoad(false) })
   }, [])
 
   // Sync initModule prop changes (navigating from Diagnosis page)
@@ -886,6 +887,31 @@ export default function ModulesPage({ user, progress, setProgress, selectedModul
         onBack={backToList}
         onOpenQuiz={openQuiz}
       />
+    )
+  }
+
+  if (modulesLoading) {
+    return (
+      <div className="p-4 sm:p-6 animate-fade-in">
+        <div className="h-8 w-32 bg-slate-200 rounded-lg animate-pulse mb-1" />
+        <div className="h-4 w-48 bg-slate-100 rounded animate-pulse mb-5" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm space-y-3 animate-pulse">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-slate-200" />
+                <div className="flex-1 space-y-1.5">
+                  <div className="h-4 w-3/4 bg-slate-200 rounded" />
+                  <div className="h-3 w-1/2 bg-slate-100 rounded" />
+                </div>
+              </div>
+              <div className="h-3 w-full bg-slate-100 rounded" />
+              <div className="h-3 w-5/6 bg-slate-100 rounded" />
+              <div className="h-8 w-full bg-slate-100 rounded-xl" />
+            </div>
+          ))}
+        </div>
+      </div>
     )
   }
 

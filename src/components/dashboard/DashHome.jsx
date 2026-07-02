@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Btn, ProgressBar } from '../ui'
-import { MODULES } from '../../data/modules'
+import { getModules } from '../../lib/content'
 import { TIPS } from '../../data/content'
 import { LS } from '../../utils/storage'
 import { isPaid } from '../../utils/plans'
@@ -12,13 +12,17 @@ import {
 } from '../../utils/gamification'
 
 export default function DashHome({ user, progress, setTab, setSelectedModule, setSelectedLesson }) {
-  const allLessons    = MODULES.flatMap((m) => m.lessons.map((l) => ({ ...l, moduleId: m.id, isPro: m.isPro || !!l.isPro })))
+  const [modules, setModules] = useState([])
+  useEffect(() => { getModules().then(setModules) }, [])
+  useEffect(() => { touchStreak() }, [])
+
+  const allLessons    = modules.flatMap((m) => m.lessons.map((l) => ({ ...l, moduleId: m.id, isPro: m.isPro || !!l.isPro })))
   const accessible    = allLessons.filter((l) => !l.isPro || isPaid(user.plan))
   const completedCount = Object.values(progress).filter(Boolean).length
   const pct           = accessible.length > 0 ? Math.round((completedCount / accessible.length) * 100) : 0
   const tip           = TIPS[new Date().getDay() % TIPS.length]
   const nextLesson    = accessible.find((l) => !progress[l.id])
-  const nextModule    = nextLesson ? MODULES.find((m) => m.lessons.some((l) => l.id === nextLesson.id)) : null
+  const nextModule    = nextLesson ? modules.find((m) => m.lessons.some((l) => l.id === nextLesson.id)) : null
   const allDone       = completedCount === accessible.length && accessible.length > 0
   const hasDiagnosis  = !!getDiagnosis()
 
@@ -29,13 +33,11 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
   const streak      = getStreak()
   const bestStreak  = getBestStreak()
   const earnedIds   = getAllEarnedBadgeIds()
-  const gamState    = buildGamState(progress, MODULES)
+  const gamState    = buildGamState(progress, modules)
   const earnedBadges = BADGES.filter((b) => earnedIds.has(b.id))
 
-  useEffect(() => { touchStreak() }, [])
-
-  const proModuleCount  = MODULES.length
-  const freeModuleCount = MODULES.filter((m) => !m.isPro).length
+  const proModuleCount  = modules.length
+  const freeModuleCount = modules.filter((m) => !m.isPro).length
   const unlockedModules = isPaid(user.plan) ? proModuleCount : freeModuleCount
 
   const followUpAlerts = (() => {
@@ -122,7 +124,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
           <div className="flex-1">
             <div className="font-black text-white text-base leading-tight">Desbloqueie todos os módulos Pro</div>
             <div className="text-white/80 text-xs mt-0.5">
-              {MODULES.filter((m) => m.isPro).length} módulos exclusivos · Templates · Coach IA ilimitado
+              {modules.filter((m) => m.isPro).length} módulos exclusivos · Templates · Coach IA ilimitado
             </div>
           </div>
           <div className="flex-shrink-0 bg-white/20 group-hover:bg-white/30 transition-colors text-white font-bold text-sm px-4 py-2 rounded-xl">
@@ -271,7 +273,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
       <div>
         <h2 className="font-bold text-slate-800 mb-4">Módulos de aprendizagem</h2>
         <div className="space-y-3">
-          {MODULES.map((m) => {
+          {modules.map((m) => {
             const mCompleted = m.lessons.filter((l) => progress[l.id]).length
             const locked = m.isPro && !isPaid(user.plan)
             const mPct = Math.round((mCompleted / m.lessons.length) * 100)

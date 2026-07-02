@@ -1,11 +1,25 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { supabase, supabaseConfigured } from './lib/supabase'
 import { LS } from './utils/storage'
-import LandingPage from './components/landing/LandingPage'
-import AuthPage from './components/auth/AuthPage'
-import Dashboard from './components/dashboard/Dashboard'
-import TermsOfService from './components/legal/TermsOfService'
-import PrivacyPolicy from './components/legal/PrivacyPolicy'
+
+// Heavy pages: code-split so the initial bundle only loads landing + auth
+const LandingPage  = lazy(() => import('./components/landing/LandingPage'))
+const AuthPage     = lazy(() => import('./components/auth/AuthPage'))
+const Dashboard    = lazy(() => import('./components/dashboard/Dashboard'))
+const TermsOfService = lazy(() => import('./components/legal/TermsOfService'))
+const PrivacyPolicy  = lazy(() => import('./components/legal/PrivacyPolicy'))
+
+function PageLoader() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-slate-50">
+      <div className="animate-spin w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full" />
+    </div>
+  )
+}
+
+function WithSuspense({ children }) {
+  return <Suspense fallback={<PageLoader />}>{children}</Suspense>
+}
 
 // ─── Demo mode (sem Supabase configurado) ─────────────────────────────────
 const DEMO_USER_KEY = 'nj_demo_user'
@@ -41,14 +55,16 @@ function DemoApp() {
     setPage('landing')
   }
 
-  if (page === 'terms') return <TermsOfService onBack={backFromLegal} />
-  if (page === 'privacy') return <PrivacyPolicy onBack={backFromLegal} />
+  if (page === 'terms') return <WithSuspense><TermsOfService onBack={backFromLegal} /></WithSuspense>
+  if (page === 'privacy') return <WithSuspense><PrivacyPolicy onBack={backFromLegal} /></WithSuspense>
 
   if (page === 'dashboard' && user) {
     return (
       <div className="flex flex-col h-[100dvh]">
         <div className="flex-1 min-h-0">
-          <Dashboard user={user} onLogout={onLogout} refreshUser={() => {}} />
+          <WithSuspense>
+            <Dashboard user={user} onLogout={onLogout} refreshUser={() => {}} />
+          </WithSuspense>
         </div>
         <DemoBanner />
       </div>
@@ -71,12 +87,14 @@ function DemoApp() {
 
   return (
     <>
-      <LandingPage
-        onStart={() => { setAuthMode('register'); setPage('auth') }}
-        onLogin={() => { setAuthMode('login'); setPage('auth') }}
-        onTerms={goTerms}
-        onPrivacy={goPrivacy}
-      />
+      <WithSuspense>
+        <LandingPage
+          onStart={() => { setAuthMode('register'); setPage('auth') }}
+          onLogin={() => { setAuthMode('login'); setPage('auth') }}
+          onTerms={goTerms}
+          onPrivacy={goPrivacy}
+        />
+      </WithSuspense>
       <DemoBanner />
     </>
   )
