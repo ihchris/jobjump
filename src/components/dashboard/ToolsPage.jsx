@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react'
 import { Btn, Badge } from '../ui'
 import { LS } from '../../utils/storage'
 
+// ─── Formatação de moeda partilhada entre as calculadoras ─────────────────────
+const formatBRL = (n, opts) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', ...opts })
+
 // ─── Ferramenta 1: Construtor de Respostas STAR ───────────────────────────────
 const STAR_LIBRARY_KEY = 'nj_star_library'
 
@@ -249,7 +252,7 @@ function SalaryCalculator() {
     const anchor = Math.round(high * 1.15 / 100) * 100
     setResult({ low, high, anchor })
   }
-  const fmt = (n) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 })
+  const fmt = (n) => formatBRL(n, { maximumFractionDigits: 0 })
   const sel = 'w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white'
   return (
     <div className="space-y-4">
@@ -995,7 +998,7 @@ function OfferComparator() {
     setResult({ totalA, totalB, qualA, qualB, scoreA, scoreB })
   }
 
-  const fmt = (n) => Math.round(n).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 })
+  const fmt = (n) => formatBRL(n, { maximumFractionDigits: 0 })
 
   const inp = 'w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white'
 
@@ -2747,10 +2750,10 @@ function CLTPJCalculator() {
     const inss = Math.min(cltBruto * 0.14, 908.85)
     const baseIR = cltBruto - inss
     let ir = 0
-    if (baseIR > 4664.68) ir = (baseIR - 4664.68) * 0.275 - 869.36
-    else if (baseIR > 3751.06) ir = (baseIR - 3751.06) * 0.225 - 636.13
-    else if (baseIR > 2826.66) ir = (baseIR - 2826.66) * 0.15 - 354.8
-    else if (baseIR > 2259.21) ir = (baseIR - 2259.21) * 0.075
+    if (baseIR > 4664.68) ir = baseIR * 0.275 - 896.00
+    else if (baseIR > 3751.06) ir = baseIR * 0.225 - 662.77
+    else if (baseIR > 2826.66) ir = baseIR * 0.15 - 381.44
+    else if (baseIR > 2259.21) ir = baseIR * 0.075 - 169.44
     ir = Math.max(0, ir)
     const cltLiquido = cltBruto - inss - ir + beneficiosCLT
     const fgts = cltBruto * 0.08
@@ -2765,7 +2768,7 @@ function CLTPJCalculator() {
     setResult({ cltBruto, pjBruto, cltLiquido, pjLiquido, totalCLT, inss, ir, fgts, decimoTerceiro, ferias, impostosPJ, despesasPJ, beneficiosCLT })
   }
 
-  const fmt = (v) => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+  const fmt = formatBRL
   const inp = 'w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
 
   return (
@@ -2856,6 +2859,7 @@ function ReferenceLetter() {
   const gerar = () => {
     if (!form.candidato || !form.referente || !form.cargo) return
     const hoje = new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })
+    const primeiroNome = form.candidato.split(' ')[0]
     const carta = form.tipo === 'formal'
       ? `${hoje}
 
@@ -2863,13 +2867,13 @@ function ReferenceLetter() {
 
 Escrevo esta carta para recomendar com entusiasmo ${form.candidato} para qualquer oportunidade profissional que venha a buscar.
 
-Tive o privilégio de trabalhar com ${form.candidato.split(' ')[0]} por ${form.tempo || 'um período significativo'} na empresa ${form.empresa || '[Empresa]'}, onde exerceu a função de ${form.cargo}. Durante esse período, pude observar de perto seu desenvolvimento e contribuições.
+Tive o privilégio de trabalhar com ${primeiroNome} por ${form.tempo || 'um período significativo'} na empresa ${form.empresa || '[Empresa]'}, onde exerceu a função de ${form.cargo}. Durante esse período, pude observar de perto seu desenvolvimento e contribuições.
 
-${form.candidato.split(' ')[0]} demonstrou consistentemente ${form.qualidades || 'excelente competência técnica, proatividade e capacidade de trabalho em equipe'}. ${form.resultado ? `Um exemplo notável foi quando ${form.resultado}.` : ''}
+${primeiroNome} demonstrou consistentemente ${form.qualidades || 'excelente competência técnica, proatividade e capacidade de trabalho em equipe'}. ${form.resultado ? `Um exemplo notável foi quando ${form.resultado}.` : ''}
 
 É um(a) profissional que se destaca pela sua integridade, comprometimento e capacidade de entregar resultados mesmo em situações desafiadoras. Não tenho dúvidas de que será um ativo valioso para qualquer equipe ou organização.
 
-Recomendo ${form.candidato.split(' ')[0]} sem qualquer reserva e coloco-me à disposição para fornecer informações adicionais.
+Recomendo ${primeiroNome} sem qualquer reserva e coloco-me à disposição para fornecer informações adicionais.
 
 Atenciosamente,
 
@@ -2881,11 +2885,11 @@ Prezados(as),
 
 É com grande prazer que escrevo em apoio à candidatura de ${form.candidato}.
 
-Trabalhei com ${form.candidato.split(' ')[0]} por ${form.tempo || 'vários meses'} em ${form.empresa || '[Empresa]'}, onde atuou como ${form.cargo}. Desde o início, chamou atenção pela sua ${form.qualidades || 'dedicação, criatividade e vontade de aprender'}.
+Trabalhei com ${primeiroNome} por ${form.tempo || 'vários meses'} em ${form.empresa || '[Empresa]'}, onde atuou como ${form.cargo}. Desde o início, chamou atenção pela sua ${form.qualidades || 'dedicação, criatividade e vontade de aprender'}.
 
-${form.resultado ? `Durante nossa colaboração, ${form.resultado}. Esse resultado reflete muito bem a postura proativa e o comprometimento que ${form.candidato.split(' ')[0]} traz para tudo que faz.` : `${form.candidato.split(' ')[0]} sempre demonstrou uma postura proativa e grande comprometimento com os resultados da equipe.`}
+${form.resultado ? `Durante nossa colaboração, ${form.resultado}. Esse resultado reflete muito bem a postura proativa e o comprometimento que ${primeiroNome} traz para tudo que faz.` : `${primeiroNome} sempre demonstrou uma postura proativa e grande comprometimento com os resultados da equipe.`}
 
-Tenho plena confiança de que ${form.candidato.split(' ')[0]} trará contribuições significativas para o seu time. Recomendo-o(a) com confiança.
+Tenho plena confiança de que ${primeiroNome} trará contribuições significativas para o seu time. Recomendo-o(a) com confiança.
 
 Com os melhores cumprimentos,
 ${form.referente}
@@ -2942,60 +2946,65 @@ ${form.referente}
 }
 
 // ─── Ferramenta 27: Analisador de Gap de Habilidades ──────────────────────────
+const CARGO_SKILLS = {
+  'Analista de Dados': {
+    essenciais: ['SQL', 'Python', 'Excel', 'Power BI ou Tableau', 'Estatística básica'],
+    diferenciais: ['Machine Learning', 'Spark', 'dbt', 'Airflow', 'Cloud (AWS/GCP/Azure)'],
+  },
+  'Product Manager': {
+    essenciais: ['Roadmap', 'Priorização (ICE/RICE)', 'Análise de métricas', 'Comunicação executiva', 'SQL básico'],
+    diferenciais: ['Discovery de produto', 'A/B testing', 'OKR', 'Figma', 'Gestão de stakeholders'],
+  },
+  'Desenvolvedor Front-end': {
+    essenciais: ['HTML/CSS', 'JavaScript', 'React', 'Git', 'APIs REST'],
+    diferenciais: ['TypeScript', 'Testes (Jest/Cypress)', 'Next.js', 'Performance web', 'Acessibilidade'],
+  },
+  'Desenvolvedor Back-end': {
+    essenciais: ['Linguagem (Python/Java/Node)', 'APIs REST', 'SQL', 'Git', 'Docker'],
+    diferenciais: ['Microserviços', 'Kubernetes', 'Cloud', 'CI/CD', 'Mensageria (Kafka/RabbitMQ)'],
+  },
+  'Marketing Digital': {
+    essenciais: ['Google Ads', 'Meta Ads', 'Analytics', 'SEO básico', 'Email marketing'],
+    diferenciais: ['CRM (HubSpot/RD)', 'Growth hacking', 'Copywriting avançado', 'Automação', 'Data Studio'],
+  },
+  'Vendas B2B': {
+    essenciais: ['Prospecção', 'SPIN Selling', 'CRM (Salesforce/Pipedrive)', 'Negociação', 'Comunicação persuasiva'],
+    diferenciais: ['Social Selling', 'MEDDIC', 'Account Based Marketing', 'Forecasting', 'Gestão de pipeline'],
+  },
+  'Recursos Humanos': {
+    essenciais: ['CLT e legislação', 'Recrutamento e seleção', 'Folha de pagamento', 'Treinamento e desenvolvimento', 'HRBP'],
+    diferenciais: ['People Analytics', 'DISC/MBTI', 'D&I', 'OKR aplicado a pessoas', 'Employer branding'],
+  },
+  'UX/UI Designer': {
+    essenciais: ['Figma', 'Pesquisa com usuários', 'Wireframes', 'Prototipagem', 'Design Systems'],
+    diferenciais: ['Motion design', 'Testes de usabilidade', 'Acessibilidade', 'DesignOps', 'Métricas UX'],
+  },
+  'Gestor / Liderança': {
+    essenciais: ['Gestão de times', 'OKR/KPI', 'Feedback', 'Comunicação executiva', 'Resolução de conflitos'],
+    diferenciais: ['Coaching', 'Gestão financeira', 'Storytelling executivo', 'Gestão de mudança', 'Desenvolvimento de pessoas'],
+  },
+  'Financeiro / Controladoria': {
+    essenciais: ['Excel avançado', 'Contabilidade', 'Fluxo de caixa', 'DRE/Balanço', 'SAP ou ERP'],
+    diferenciais: ['Power BI', 'Python para finanças', 'M&A básico', 'IFRS', 'Valuation'],
+  },
+}
+
 function SkillsGapAnalyzer() {
   const [cargo, setCargo] = useState('')
   const [skills, setSkills] = useState('')
   const [result, setResult] = useState(null)
-
-  const CARGO_SKILLS = {
-    'Analista de Dados': {
-      essenciais: ['SQL', 'Python', 'Excel', 'Power BI ou Tableau', 'Estatística básica'],
-      diferenciais: ['Machine Learning', 'Spark', 'dbt', 'Airflow', 'Cloud (AWS/GCP/Azure)'],
-    },
-    'Product Manager': {
-      essenciais: ['Roadmap', 'Priorização (ICE/RICE)', 'Análise de métricas', 'Comunicação executiva', 'SQL básico'],
-      diferenciais: ['Discovery de produto', 'A/B testing', 'OKR', 'Figma', 'Gestão de stakeholders'],
-    },
-    'Desenvolvedor Front-end': {
-      essenciais: ['HTML/CSS', 'JavaScript', 'React', 'Git', 'APIs REST'],
-      diferenciais: ['TypeScript', 'Testes (Jest/Cypress)', 'Next.js', 'Performance web', 'Acessibilidade'],
-    },
-    'Desenvolvedor Back-end': {
-      essenciais: ['Linguagem (Python/Java/Node)', 'APIs REST', 'SQL', 'Git', 'Docker'],
-      diferenciais: ['Microserviços', 'Kubernetes', 'Cloud', 'CI/CD', 'Mensageria (Kafka/RabbitMQ)'],
-    },
-    'Marketing Digital': {
-      essenciais: ['Google Ads', 'Meta Ads', 'Analytics', 'SEO básico', 'Email marketing'],
-      diferenciais: ['CRM (HubSpot/RD)', 'Growth hacking', 'Copywriting avançado', 'Automação', 'Data Studio'],
-    },
-    'Vendas B2B': {
-      essenciais: ['Prospecção', 'SPIN Selling', 'CRM (Salesforce/Pipedrive)', 'Negociação', 'Comunicação persuasiva'],
-      diferenciais: ['Social Selling', 'MEDDIC', 'Account Based Marketing', 'Forecasting', 'Gestão de pipeline'],
-    },
-    'Recursos Humanos': {
-      essenciais: ['CLT e legislação', 'Recrutamento e seleção', 'Folha de pagamento', 'Treinamento e desenvolvimento', 'HRBP'],
-      diferenciais: ['People Analytics', 'DISC/MBTI', 'D&I', 'OKR aplicado a pessoas', 'Employer branding'],
-    },
-    'UX/UI Designer': {
-      essenciais: ['Figma', 'Pesquisa com usuários', 'Wireframes', 'Prototipagem', 'Design Systems'],
-      diferenciais: ['Motion design', 'Testes de usabilidade', 'Acessibilidade', 'DesignOps', 'Métricas UX'],
-    },
-    'Gestor / Liderança': {
-      essenciais: ['Gestão de times', 'OKR/KPI', 'Feedback', 'Comunicação executiva', 'Resolução de conflitos'],
-      diferenciais: ['Coaching', 'Gestão financeira', 'Storytelling executivo', 'Gestão de mudança', 'Desenvolvimento de pessoas'],
-    },
-    'Financeiro / Controladoria': {
-      essenciais: ['Excel avançado', 'Contabilidade', 'Fluxo de caixa', 'DRE/Balanço', 'SAP ou ERP'],
-      diferenciais: ['Power BI', 'Python para finanças', 'M&A básico', 'IFRS', 'Valuation'],
-    },
-  }
 
   const analisar = () => {
     if (!cargo || !skills) return
     const info = CARGO_SKILLS[cargo]
     if (!info) return
     const mySkills = skills.toLowerCase().split(/[,;\n]+/).map((s) => s.trim()).filter(Boolean)
-    const checkSkill = (s) => mySkills.some((ms) => s.toLowerCase().split(/\s+/).some((word) => ms.includes(word.toLowerCase())))
+    const STOP_WORDS = new Set(['ou', 'de', 'e', 'da', 'do', 'em', 'a', 'o', 'com', 'para'])
+    const tokenize = (s) => s.toLowerCase().split(/[^a-zà-ú0-9]+/).filter((w) => w.length > 2 && !STOP_WORDS.has(w))
+    const checkSkill = (s) => {
+      const words = tokenize(s)
+      return mySkills.some((ms) => words.some((word) => ms.includes(word)))
+    }
 
     const essenciaisOk = info.essenciais.filter(checkSkill)
     const essenciasFaltando = info.essenciais.filter((s) => !checkSkill(s))
@@ -3070,13 +3079,7 @@ function SkillsGapAnalyzer() {
 }
 
 // ─── Ferramenta 28: Perguntas para Fazer ao Entrevistador ─────────────────────
-function InterviewQuestionsGenerator() {
-  const [area, setArea] = useState('')
-  const [tipo, setTipo] = useState('')
-  const [selected, setSelected] = useState([])
-  const [copied, setCopied] = useState(false)
-
-  const PERGUNTAS = {
+const PERGUNTAS = {
     role: {
       label: 'Sobre o cargo',
       icon: '🎯',
@@ -3147,7 +3150,13 @@ function InterviewQuestionsGenerator() {
         'Há alguma dúvida sobre meu perfil que não tenha ficado clara?',
       ],
     },
-  }
+}
+
+function InterviewQuestionsGenerator() {
+  const [area, setArea] = useState('')
+  const [tipo, setTipo] = useState('')
+  const [selected, setSelected] = useState([])
+  const [copied, setCopied] = useState(false)
 
   const toggleSelect = (cat, idx) => {
     const key = `${cat}-${idx}`
@@ -3286,6 +3295,9 @@ function PersonalBioGenerator() {
 }
 
 // ─── Ferramenta 30: Planejador de Networking Semanal ──────────────────────────
+const TIPOS = { conexao: { label: 'Conexão', color: 'bg-blue-100 text-blue-700' }, mensagem: { label: 'Mensagem', color: 'bg-green-100 text-green-700' }, post: { label: 'Publicação', color: 'bg-purple-100 text-purple-700' }, followup: { label: 'Follow-up', color: 'bg-amber-100 text-amber-700' }, reuniao: { label: 'Reunião', color: 'bg-red-100 text-red-700' } }
+const DIAS = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta']
+
 function WeeklyNetworkingPlanner() {
   const WEEK_KEY = 'nj_networking_week'
   const [meta, setMeta] = useState(() => LS.get(WEEK_KEY + '_meta', { conexoes: 5, mensagens: 10, posts: 2 }))
@@ -3325,9 +3337,6 @@ function WeeklyNetworkingPlanner() {
 
   const done = tarefas.filter((t) => t.done).length
   const pct = tarefas.length ? Math.round((done / tarefas.length) * 100) : 0
-
-  const TIPOS = { conexao: { label: 'Conexão', color: 'bg-blue-100 text-blue-700' }, mensagem: { label: 'Mensagem', color: 'bg-green-100 text-green-700' }, post: { label: 'Publicação', color: 'bg-purple-100 text-purple-700' }, followup: { label: 'Follow-up', color: 'bg-amber-100 text-amber-700' }, reuniao: { label: 'Reunião', color: 'bg-red-100 text-red-700' } }
-  const DIAS = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta']
   const inp = 'px-3 py-2 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
 
   return (
