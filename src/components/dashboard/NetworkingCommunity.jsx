@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { LS } from '../../utils/storage'
 import { supabase, supabaseConfigured } from '../../lib/supabase'
+import ProfileModal from './ProfileModal'
 
 // ─── Áreas (mesmo vocabulário do Diagnóstico, para consistência) ──────────────
 const AREA_LIST = [
@@ -40,14 +41,14 @@ function avatarColor(name) {
 
 // ─── Modo demo: membros simulados ──────────────────────────────────────────────
 const SEED_MEMBERS = [
-  { id: 'seed_m1', name: 'Beatriz Nunes',  area: 'tech',       bio: 'Frontend há 4 anos, migrando para dados. Adoro trocar ideia sobre transição de carreira.', open_to_mentor: false, looking_for_peer: true },
-  { id: 'seed_m2', name: 'Rodrigo Alves',  area: 'finance',    bio: 'Controller há 8 anos. Já ajudei várias pessoas a entrar em FP&A — de boa em conversar.', open_to_mentor: true,  looking_for_peer: false },
-  { id: 'seed_m3', name: 'Camila Duarte',  area: 'marketing',  bio: 'Growth marketer, atualmente buscando vaga sênior. Bora fazer parceria de responsabilidade?', open_to_mentor: false, looking_for_peer: true },
-  { id: 'seed_m4', name: 'Thiago Ramos',   area: 'data_ai',    bio: 'Data Scientist, 6 anos de mercado. Mentor voluntário para quem está migrando pra dados.', open_to_mentor: true,  looking_for_peer: false },
-  { id: 'seed_m5', name: 'Larissa Prado',  area: 'hr',         bio: 'People Partner numa scale-up. Feliz em trocar figurinha sobre processos seletivos.', open_to_mentor: true,  looking_for_peer: true },
-  { id: 'seed_m6', name: 'Gustavo Lima',   area: 'consulting', bio: 'Ex-Big4, hoje em consultoria independente. Buscando parceiros de estudo para case interview.', open_to_mentor: false, looking_for_peer: true },
-  { id: 'seed_m7', name: 'Fernanda Costa', area: 'law',        bio: 'Advogada migrando para compliance corporativo. Adoraria encontrar mentor(a) da área.', open_to_mentor: false, looking_for_peer: true },
-  { id: 'seed_m8', name: 'Marcelo Vieira', area: 'management',  bio: 'Head de operações, 12 anos de experiência. Mentor de gestão e liderança.', open_to_mentor: true, looking_for_peer: false },
+  { id: 'seed_m1', name: 'Beatriz Nunes',  area: 'tech',       job_title: 'Frontend Developer → Dados', location: 'São Paulo, SP',      bio: 'Frontend há 4 anos, migrando para dados. Adoro trocar ideia sobre transição de carreira.', open_to_mentor: false, looking_for_peer: true,  skills: ['React','TypeScript','Python','SQL'],     linkedin_url: '', profile_private: false },
+  { id: 'seed_m2', name: 'Rodrigo Alves',  area: 'finance',    job_title: 'Controller Sênior',           location: 'Rio de Janeiro, RJ', bio: 'Controller há 8 anos. Já ajudei várias pessoas a entrar em FP&A — de boa em conversar.',  open_to_mentor: true,  looking_for_peer: false, skills: ['FP&A','Excel','Power BI','Valuation'],  linkedin_url: '', profile_private: false },
+  { id: 'seed_m3', name: 'Camila Duarte',  area: 'marketing',  job_title: 'Growth Marketer',             location: 'Belo Horizonte, MG', bio: 'Growth marketer, atualmente buscando vaga sênior. Bora fazer parceria de responsabilidade?', open_to_mentor: false, looking_for_peer: true,  skills: ['SEO','CRM','Growth','Analytics'],       linkedin_url: '', profile_private: false },
+  { id: 'seed_m4', name: 'Thiago Ramos',   area: 'data_ai',    job_title: 'Data Scientist Sênior',       location: 'Campinas, SP',       bio: 'Data Scientist, 6 anos de mercado. Mentor voluntário para quem está migrando pra dados.',  open_to_mentor: true,  looking_for_peer: false, skills: ['Python','ML','SQL','Spark'],            linkedin_url: '', profile_private: false },
+  { id: 'seed_m5', name: 'Larissa Prado',  area: 'hr',         job_title: 'People Partner',              location: 'Florianópolis, SC',  bio: 'People Partner numa scale-up. Feliz em trocar figurinha sobre processos seletivos.',       open_to_mentor: true,  looking_for_peer: true,  skills: ['HRBP','Recrutamento','D&I','OKRs'],    linkedin_url: '', profile_private: false },
+  { id: 'seed_m6', name: 'Gustavo Lima',   area: 'consulting', job_title: 'Consultor Independente',      location: 'São Paulo, SP',      bio: 'Ex-Big4, hoje em consultoria independente. Buscando parceiros de estudo para case interview.', open_to_mentor: false, looking_for_peer: true, skills: ['Strategy','Cases','Excel','PowerPoint'], linkedin_url: '', profile_private: false },
+  { id: 'seed_m7', name: 'Fernanda Costa', area: 'law',        job_title: 'Advogada → Compliance',       location: 'Curitiba, PR',       bio: 'Advogada migrando para compliance corporativo. Adoraria encontrar mentor(a) da área.',     open_to_mentor: false, looking_for_peer: true,  skills: ['LGPD','Contratos','Compliance','GDPR'], linkedin_url: '', profile_private: false },
+  { id: 'seed_m8', name: 'Marcelo Vieira', area: 'management', job_title: 'Head de Operações',           location: 'Porto Alegre, RS',   bio: 'Head de operações, 12 anos de experiência. Mentor de gestão e liderança.',              open_to_mentor: true,  looking_for_peer: false, skills: ['Agile','OKRs','Gestão','PMP'],          linkedin_url: '', profile_private: false },
 ]
 
 const SEED_REPLIES = [
@@ -142,21 +143,27 @@ function ProfileEditor({ user, profile, onSave }) {
 }
 
 // ─── Card de membro ─────────────────────────────────────────────────────────
-function MemberCard({ member, connectionState, onConnect, onMessage, intent }) {
+function MemberCard({ member, connectionState, onConnect, onMessage, onViewProfile, intent }) {
   return (
     <div className="bg-white rounded-2xl border border-slate-100 p-4 flex items-start gap-3">
-      <div className={`w-10 h-10 rounded-full ${avatarColor(member.name)} text-white flex items-center justify-center font-black text-sm flex-shrink-0`}>
-        {member.name[0]?.toUpperCase()}
-      </div>
+      <button onClick={() => onViewProfile(member)} className="flex-shrink-0">
+        {member.avatar_url
+          ? <img src={member.avatar_url} alt={member.name} className="w-10 h-10 rounded-full object-cover" />
+          : <div className={`w-10 h-10 rounded-full ${avatarColor(member.name)} text-white flex items-center justify-center font-black text-sm`}>{member.name[0]?.toUpperCase()}</div>
+        }
+      </button>
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="font-bold text-slate-800 text-sm">{member.name}</span>
+          <button onClick={() => onViewProfile(member)} className="font-bold text-slate-800 text-sm hover:text-blue-600 transition-colors">
+            {member.name}
+          </button>
           {member.area && <span className="text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 font-semibold">{AREA_LABEL[member.area] || member.area}</span>}
           {member.open_to_mentor && <span className="text-xs px-2 py-0.5 rounded-full bg-violet-100 text-violet-700 font-semibold">🧭 Mentor(a)</span>}
           {member.looking_for_peer && <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-semibold">🔎 Parceiro(a)</span>}
         </div>
-        {member.bio && <p className="text-slate-500 text-xs mt-1 leading-relaxed">{member.bio}</p>}
-        <div className="mt-2">
+        {member.job_title && <p className="text-slate-400 text-xs mt-0.5">{member.job_title}{member.location ? ` · 📍 ${member.location}` : ''}</p>}
+        {member.bio && <p className="text-slate-500 text-xs mt-1 leading-relaxed line-clamp-2">{member.bio}</p>}
+        <div className="mt-2 flex items-center gap-3">
           {connectionState === 'accepted' ? (
             <button onClick={() => onMessage(member)} className="text-xs font-bold text-blue-600 hover:text-blue-800">💬 Mensagem</button>
           ) : connectionState === 'pending' ? (
@@ -226,13 +233,14 @@ export default function NetworkingCommunity({ user, onGoToMessages }) {
   const [messages, setMessages] = useState([])
   const [areaFilter, setAreaFilter] = useState('all')
   const [chatWith, setChatWith] = useState(null)
+  const [profileTarget, setProfileTarget] = useState(null) // member object
 
   // ── Load ──────────────────────────────────────────────────────────────────
   const load = useCallback(async () => {
     if (supabaseConfigured) {
       const [profileRes, membersRes, connRes] = await Promise.all([
         supabase.from('profiles').select('area, bio, open_to_mentor, looking_for_peer').eq('id', user.id).single(),
-        supabase.from('profiles').select('id, name, plan, area, bio, open_to_mentor, looking_for_peer').neq('id', user.id),
+        supabase.from('profiles').select('id, name, plan, area, bio, open_to_mentor, looking_for_peer, avatar_url, job_title, location, linkedin_url, skills, profile_private').neq('id', user.id),
         supabase.from('connections').select('*').or(`requester_id.eq.${user.id},addressee_id.eq.${user.id}`),
       ])
       setProfile(profileRes.data || null)
@@ -370,6 +378,18 @@ export default function NetworkingCommunity({ user, onGoToMessages }) {
 
   return (
     <div className="space-y-5">
+      {profileTarget && (
+        <ProfileModal
+          name={profileTarget.name}
+          userId={profileTarget.id}
+          prefetchedProfile={profileTarget}
+          onClose={() => setProfileTarget(null)}
+          onMessage={profileTarget.id !== user.id
+            ? (id) => { setProfileTarget(null); onGoToMessages ? onGoToMessages(id) : openChat(membersById[id]) }
+            : null}
+          currentUser={user}
+        />
+      )}
       <ProfileEditor user={user} profile={profile} onSave={saveProfile} />
 
       {!supabaseConfigured && (
@@ -412,6 +432,7 @@ export default function NetworkingCommunity({ user, onGoToMessages }) {
                 connectionState={connectionWith(m.id)}
                 onConnect={(member) => requestConnection(member, 'peer')}
                 onMessage={onGoToMessages ? (m) => onGoToMessages(m.id) : openChat}
+                onViewProfile={setProfileTarget}
               />
             ))}
             {directoryMembers.length === 0 && <p className="text-slate-400 text-sm">Nenhum membro encontrado nessa área ainda.</p>}
@@ -429,9 +450,14 @@ export default function NetworkingCommunity({ user, onGoToMessages }) {
                 if (!m) return null
                 return (
                   <div key={c.id} className="bg-white rounded-2xl border border-amber-200 p-4 flex items-center gap-3">
-                    <div className={`w-10 h-10 rounded-full ${avatarColor(m.name)} text-white flex items-center justify-center font-black text-sm`}>{m.name[0]}</div>
+                    <button onClick={() => setProfileTarget(m)} className="flex-shrink-0">
+                      {m.avatar_url
+                        ? <img src={m.avatar_url} alt={m.name} className="w-10 h-10 rounded-full object-cover" />
+                        : <div className={`w-10 h-10 rounded-full ${avatarColor(m.name)} text-white flex items-center justify-center font-black text-sm`}>{m.name[0]}</div>
+                      }
+                    </button>
                     <div className="flex-1">
-                      <div className="font-bold text-slate-800 text-sm">{m.name}</div>
+                      <button onClick={() => setProfileTarget(m)} className="font-bold text-slate-800 text-sm hover:text-blue-600 transition-colors">{m.name}</button>
                       <div className="text-slate-400 text-xs">{c.intent === 'mentor_request' ? 'Pediu mentoria' : 'Quer se conectar'}</div>
                     </div>
                     <button onClick={() => respondConnection(c, true)} className="text-xs font-bold bg-blue-600 text-white px-3 py-1.5 rounded-lg hover:bg-blue-700">Aceitar</button>
@@ -446,9 +472,14 @@ export default function NetworkingCommunity({ user, onGoToMessages }) {
             {acceptedConnections.length === 0 && <p className="text-slate-400 text-sm">Ainda sem conexões — visite o Diretório para começar.</p>}
             {acceptedConnections.map((m) => (
               <div key={m.id} className="bg-white rounded-2xl border border-slate-100 p-4 flex items-center gap-3">
-                <div className={`w-10 h-10 rounded-full ${avatarColor(m.name)} text-white flex items-center justify-center font-black text-sm`}>{m.name[0]}</div>
+                <button onClick={() => setProfileTarget(m)} className="flex-shrink-0">
+                  {m.avatar_url
+                    ? <img src={m.avatar_url} alt={m.name} className="w-10 h-10 rounded-full object-cover" />
+                    : <div className={`w-10 h-10 rounded-full ${avatarColor(m.name)} text-white flex items-center justify-center font-black text-sm`}>{m.name[0]}</div>
+                  }
+                </button>
                 <div className="flex-1">
-                  <div className="font-bold text-slate-800 text-sm">{m.name}</div>
+                  <button onClick={() => setProfileTarget(m)} className="font-bold text-slate-800 text-sm hover:text-blue-600 transition-colors block">{m.name}</button>
                   <div className="text-slate-400 text-xs">{AREA_LABEL[m.area] || m.area}</div>
                 </div>
                 <button onClick={() => onGoToMessages ? onGoToMessages(m.id) : openChat(m)} className="text-xs font-bold text-blue-600 hover:text-blue-800">💬 Mensagem</button>
@@ -471,6 +502,7 @@ export default function NetworkingCommunity({ user, onGoToMessages }) {
                 connectionState={connectionWith(m.id)}
                 onConnect={(member) => requestConnection(member, 'mentor_request')}
                 onMessage={onGoToMessages ? (m) => onGoToMessages(m.id) : openChat}
+                onViewProfile={setProfileTarget}
                 intent="mentor_request"
               />
             ))}
