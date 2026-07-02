@@ -144,15 +144,15 @@ const AREA_LABELS = {
 }
 
 const SEED_PROFILES = {
-  'Maria S.': { area:'marketing',   bio:'Analista de Marketing em SP. Fechei um contrato após 4 meses de busca — reescrever o CV para ATS fez toda a diferença.', open_to_mentor:true,  looking_for_peer:false },
-  'Pedro L.': { area:'sales',       bio:'Profissional de vendas B2B. Acredito que networking direto com o time é o diferencial na candidatura.', open_to_mentor:false, looking_for_peer:true },
-  'Lucas R.': { area:'finance',     bio:'Analista financeiro. Aprendi a negociar salário — e quero ajudar outros a não deixar dinheiro na mesa.', open_to_mentor:true,  looking_for_peer:false },
-  'Carla M.': { area:'creative',    bio:'Fiz transição de RH para UX/Design em 6 meses, 1h por dia antes do trabalho. Acredito em aprendizado contínuo.', open_to_mentor:false, looking_for_peer:true },
-  'João F.':  { area:'tech',        bio:'Dev frontend buscando o próximo desafio. Curioso por natureza, especialmente sobre processos seletivos técnicos.', open_to_mentor:false, looking_for_peer:true },
-  'Sofia T.': { area:'hr',          bio:'RH estratégico — processos seletivos, cultura e bem-estar. Partilho aprendizagens sobre saúde mental na busca de emprego.', open_to_mentor:true,  looking_for_peer:false },
-  'Ana O.':   { area:'product_ux',  bio:'Pesquisadora UX em transição de carreira. Portfólio em construção, trocando figurinhas com quem está no mesmo caminho.', open_to_mentor:false, looking_for_peer:true },
-  'Rafa M.':  { area:'management',  bio:'Gestão de projetos internacionais. Explorando oportunidades na Europa — dicas sobre mercado europeu sempre bem-vindas.', open_to_mentor:false, looking_for_peer:true },
-  'Bruno K.': { area:'tech',        bio:'Especialista em ATS e otimização de CV. Pequenas mudanças de formatação que geram mais retornos.', open_to_mentor:true,  looking_for_peer:false },
+  'Maria S.': { area:'marketing',  job_title:'Analista de Marketing Sênior', location:'São Paulo, SP', bio:'Fechei um contrato após 4 meses de busca — reescrever o CV para ATS fez toda a diferença. Feliz em compartilhar o que aprendi.', open_to_mentor:true,  looking_for_peer:false, skills:['Google Ads','SEO','CRM','Copywriting'], linkedin_url:'' },
+  'Pedro L.': { area:'sales',      job_title:'Executivo de Vendas B2B', location:'Campinas, SP', bio:'Acredito que networking direto com o time é o diferencial. Passando por processo seletivo em 3 empresas — bora trocar experiência?', open_to_mentor:false, looking_for_peer:true,  skills:['CRM','Outbound','Negociação','SaaS'], linkedin_url:'' },
+  'Lucas R.': { area:'finance',    job_title:'Analista Financeiro Pleno', location:'Rio de Janeiro, RJ', bio:'Aprendi a negociar salário — e quero ajudar outros a não deixar dinheiro na mesa. Aqui para trocar experiências sobre FP&A.', open_to_mentor:true,  looking_for_peer:false, skills:['Excel','Power BI','FP&A','Valuation'], linkedin_url:'' },
+  'Carla M.': { area:'creative',   job_title:'UX/UI Designer', location:'Florianópolis, SC', bio:'Fiz transição de RH para UX/Design em 6 meses, 1h por dia antes do trabalho. Tenho portfólio público — me pergunte!', open_to_mentor:false, looking_for_peer:true,  skills:['Figma','User Research','Prototipagem','Acessibilidade'], linkedin_url:'' },
+  'João F.':  { area:'tech',       job_title:'Frontend Developer', location:'Remoto (Brasil)', bio:'Dev frontend buscando o próximo desafio. Curioso por natureza, especialmente sobre processos técnicos e pair programming.', open_to_mentor:false, looking_for_peer:true,  skills:['React','TypeScript','Node.js','CSS'], linkedin_url:'' },
+  'Sofia T.': { area:'hr',         job_title:'People Partner', location:'Belo Horizonte, MG', bio:'RH estratégico — processos seletivos, cultura e bem-estar. Partilho aprendizagens sobre saúde mental na busca de emprego.', open_to_mentor:true,  looking_for_peer:false, skills:['Employer Branding','ATS','HRBP','D&I'], linkedin_url:'' },
+  'Ana O.':   { area:'product_ux', job_title:'UX Researcher', location:'São Paulo, SP', bio:'Pesquisadora UX em transição de carreira. Portfólio em construção, trocando figurinhas com quem está no mesmo caminho.', open_to_mentor:false, looking_for_peer:true,  skills:['Pesquisa Qualitativa','Entrevistas','Usabilidade','Figma'], linkedin_url:'' },
+  'Rafa M.':  { area:'management', job_title:'Gerente de Projetos', location:'Lisboa, Portugal', bio:'Gestão de projetos internacionais. Explorando oportunidades na Europa — dicas sobre mercado europeu são sempre bem-vindas.', open_to_mentor:false, looking_for_peer:true,  skills:['PMP','Agile','Scrum','OKRs'], linkedin_url:'' },
+  'Bruno K.': { area:'tech',       job_title:'Engenheiro de Software Sênior', location:'Curitiba, PR', bio:'Especialista em ATS e otimização de CV. Pequenas mudanças de formatação que geram muito mais retornos de recrutadores.', open_to_mentor:true,  looking_for_peer:false, skills:['Python','AWS','System Design','SQL'], linkedin_url:'' },
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -183,8 +183,12 @@ function avatarColor(name) {
 
 // ─── UI atoms ─────────────────────────────────────────────────────────────────
 
-function Avatar({ name, size = 'md' }) {
+function Avatar({ name, size = 'md', src }) {
+  const [imgErr, setImgErr] = useState(false)
   const sz = size === 'sm' ? 'w-7 h-7 text-xs' : size === 'lg' ? 'w-11 h-11 text-base' : 'w-9 h-9 text-sm'
+  if (src && !imgErr) {
+    return <img src={src} alt={name} className={`${sz} rounded-full object-cover flex-shrink-0`} onError={() => setImgErr(true)} />
+  }
   return (
     <div className={`${sz} ${avatarColor(name)} rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 select-none`}>
       {(name || '?').slice(0, 2).toUpperCase()}
@@ -203,25 +207,29 @@ function CatBadge({ category }) {
 
 // ─── Profile modal ────────────────────────────────────────────────────────────
 
-function ProfileModal({ name, userId, onClose, onMessage }) {
+function ProfileModal({ name, userId, onClose, onMessage, currentUser }) {
   const [profile, setProfile] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [expanded, setExpanded] = useState(false)
+  const [imgErr, setImgErr] = useState(false)
 
   useEffect(() => {
     let cancelled = false
     const load = async () => {
-      if (!userId || userId === 'seed' || userId === 'local') {
+      if (!userId || userId === 'seed') {
         const seed = SEED_PROFILES[name]
         if (!cancelled) setProfile(seed ? { name, ...seed } : { name })
       } else if (supabaseConfigured) {
         const { data } = await supabase
           .from('profiles')
-          .select('name, area, bio, open_to_mentor, looking_for_peer, profile_private')
+          .select('name, area, bio, open_to_mentor, looking_for_peer, profile_private, avatar_url, job_title, location, linkedin_url, skills')
           .eq('id', userId)
           .single()
         if (!cancelled) setProfile(data || { name })
       } else {
-        if (!cancelled) setProfile({ name })
+        // demo mode — show logged-in user's own profile data
+        const saved = LS.get('nj_net_profile', null)
+        if (!cancelled) setProfile(saved ? { name, ...saved } : { name })
       }
       if (!cancelled) setLoading(false)
     }
@@ -230,19 +238,137 @@ function ProfileModal({ name, userId, onClose, onMessage }) {
   }, [userId, name])
 
   const displayName = profile?.name || name
+  const isSeed = !userId || userId === 'seed'
+  const canDM = !profile?.profile_private && onMessage && !isSeed && userId !== currentUser?.id
 
+  // Small reusable avatar (handles photo + initials fallback)
+  const AvatarDisplay = ({ sizeClass, textClass }) => {
+    if (profile?.avatar_url && !imgErr) {
+      return (
+        <img src={profile.avatar_url} alt={displayName}
+          className={`${sizeClass} rounded-full object-cover flex-shrink-0`}
+          onError={() => setImgErr(true)} />
+      )
+    }
+    return (
+      <div className={`${sizeClass} ${avatarColor(displayName)} rounded-full flex items-center justify-center text-white font-black flex-shrink-0`}>
+        <span className={textClass}>{displayName.slice(0, 2).toUpperCase()}</span>
+      </div>
+    )
+  }
+
+  // ── Expanded (full profile) ──────────────────────────────────────────────────
+  if (expanded) {
+    return (
+      <div className="fixed inset-0 bg-black/60 z-50 flex items-end sm:items-center justify-center p-2 sm:p-4 animate-fade-in" onClick={onClose}>
+        <div className="bg-white rounded-3xl shadow-2xl w-full max-w-lg max-h-[90vh] flex flex-col overflow-hidden" onClick={(e) => e.stopPropagation()}>
+
+          {/* Cover header */}
+          <div className="bg-gradient-to-br from-blue-600 to-indigo-700 px-6 pt-6 pb-14 relative flex-shrink-0">
+            <button onClick={() => setExpanded(false)} className="absolute top-4 left-4 flex items-center gap-1 text-white/70 hover:text-white text-sm transition-colors">
+              ← Voltar
+            </button>
+            <button onClick={onClose} className="absolute top-4 right-4 w-7 h-7 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 text-white text-lg transition-colors">×</button>
+          </div>
+
+          {/* Avatar + action row */}
+          <div className="-mt-10 px-6 flex items-end justify-between flex-shrink-0">
+            <div className="border-4 border-white rounded-full shadow-lg">
+              <AvatarDisplay sizeClass="w-20 h-20" textClass="text-2xl" />
+            </div>
+            {canDM && (
+              <button
+                onClick={() => { onClose(); onMessage(userId) }}
+                className="mb-1 flex items-center gap-1.5 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-xl transition-colors shadow"
+              >
+                💬 Mensagem
+              </button>
+            )}
+          </div>
+
+          {/* Scrollable body */}
+          <div className="flex-1 overflow-y-auto px-6 py-5 space-y-5">
+            {loading ? (
+              <div className="animate-pulse space-y-3">
+                <div className="h-7 bg-slate-200 rounded w-48" />
+                <div className="h-4 bg-slate-100 rounded w-32" />
+              </div>
+            ) : profile?.profile_private ? (
+              <div className="text-center py-8">
+                <div className="text-4xl mb-3">🔒</div>
+                <h2 className="font-black text-slate-800 text-xl mb-2">{displayName}</h2>
+                <p className="text-slate-400 text-sm">Este utilizador optou por manter o perfil privado.</p>
+              </div>
+            ) : (
+              <>
+                <div>
+                  <h2 className="font-black text-slate-800 text-xl leading-tight">{displayName}</h2>
+                  {profile?.job_title && <p className="text-slate-500 text-sm mt-0.5">{profile.job_title}</p>}
+                  {profile?.location && (
+                    <p className="text-slate-400 text-xs mt-1 flex items-center gap-1">
+                      <span>📍</span>{profile.location}
+                    </p>
+                  )}
+                </div>
+
+                {profile?.area && (
+                  <span className="inline-block text-blue-600 text-xs font-semibold px-3 py-1 bg-blue-50 rounded-full">
+                    {AREA_LABELS[profile.area] || profile.area}
+                  </span>
+                )}
+
+                {profile?.bio && (
+                  <div>
+                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Sobre</p>
+                    <p className="text-slate-600 text-sm leading-relaxed">{profile.bio}</p>
+                  </div>
+                )}
+
+                {profile?.skills?.length > 0 && (
+                  <div>
+                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Skills</p>
+                    <div className="flex flex-wrap gap-2">
+                      {profile.skills.map((s) => (
+                        <span key={s} className="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-semibold">{s}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {(profile?.open_to_mentor || profile?.looking_for_peer) && (
+                  <div>
+                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Disponibilidade</p>
+                    <div className="flex gap-2 flex-wrap">
+                      {profile.open_to_mentor && <span className="text-xs px-2.5 py-1 rounded-full bg-violet-100 text-violet-700 font-semibold">🧭 Disponível para mentoria</span>}
+                      {profile.looking_for_peer && <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 font-semibold">🔎 Busca parceiro(a)</span>}
+                    </div>
+                  </div>
+                )}
+
+                {profile?.linkedin_url && (
+                  <a
+                    href={profile.linkedin_url.startsWith('http') ? profile.linkedin_url : `https://${profile.linkedin_url}`}
+                    target="_blank" rel="noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    🔗 Ver LinkedIn
+                  </a>
+                )}
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // ── Compact card (default) ───────────────────────────────────────────────────
   return (
-    <div
-      className="fixed inset-0 bg-black/50 z-50 flex items-end sm:items-center justify-center p-4 animate-fade-in"
-      onClick={onClose}
-    >
-      <div
-        className="bg-white rounded-2xl shadow-2xl w-full max-w-sm"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-end sm:items-center justify-center p-4 animate-fade-in" onClick={onClose}>
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm" onClick={(e) => e.stopPropagation()}>
         <div className="p-6 text-center">
-          <div className={`w-16 h-16 ${avatarColor(displayName)} rounded-full flex items-center justify-center text-white font-black text-2xl mx-auto mb-4`}>
-            {displayName.slice(0, 2).toUpperCase()}
+          <div className="mb-4 flex justify-center">
+            <AvatarDisplay sizeClass="w-16 h-16" textClass="text-2xl" />
           </div>
 
           {loading ? (
@@ -260,27 +386,28 @@ function ProfileModal({ name, userId, onClose, onMessage }) {
             </>
           ) : (
             <>
-              <h2 className="font-black text-slate-800 text-lg mb-1">{displayName}</h2>
+              <h2 className="font-black text-slate-800 text-lg leading-tight">{displayName}</h2>
+              {profile?.job_title && <p className="text-slate-500 text-xs mt-0.5 mb-1">{profile.job_title}</p>}
+              {profile?.location && <p className="text-slate-400 text-[11px] mb-2">📍 {profile.location}</p>}
               {profile?.area && (
                 <span className="inline-block text-blue-600 text-xs font-semibold px-3 py-1 bg-blue-50 rounded-full mb-3">
                   {AREA_LABELS[profile.area] || profile.area}
                 </span>
               )}
               {profile?.bio ? (
-                <p className="text-slate-600 text-sm leading-relaxed mb-4">{profile.bio}</p>
+                <p className="text-slate-600 text-sm leading-relaxed mb-3 line-clamp-3">{profile.bio}</p>
               ) : (
-                <p className="text-slate-400 text-sm mb-4">Perfil de networking não preenchido.</p>
+                <p className="text-slate-400 text-sm mb-3">Perfil de networking não preenchido.</p>
               )}
               {(profile?.open_to_mentor || profile?.looking_for_peer) && (
-                <div className="flex justify-center gap-2 flex-wrap">
-                  {profile.open_to_mentor && (
-                    <span className="text-xs px-2.5 py-1 rounded-full bg-violet-100 text-violet-700 font-semibold">🧭 Disponível para mentoria</span>
-                  )}
-                  {profile.looking_for_peer && (
-                    <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 font-semibold">🔎 Busca parceiro(a)</span>
-                  )}
+                <div className="flex justify-center gap-2 flex-wrap mb-3">
+                  {profile.open_to_mentor && <span className="text-xs px-2.5 py-1 rounded-full bg-violet-100 text-violet-700 font-semibold">🧭 Mentoria</span>}
+                  {profile.looking_for_peer && <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 font-semibold">🔎 Parceiro(a)</span>}
                 </div>
               )}
+              <button onClick={() => setExpanded(true)} className="text-xs text-blue-600 hover:text-blue-800 font-semibold transition-colors">
+                Ver perfil completo →
+              </button>
             </>
           )}
         </div>
@@ -288,7 +415,7 @@ function ProfileModal({ name, userId, onClose, onMessage }) {
           <button onClick={onClose} className="text-sm text-slate-500 hover:text-slate-700 font-semibold transition-colors">
             Fechar
           </button>
-          {!loading && !profile?.profile_private && onMessage && userId && userId !== 'seed' && userId !== 'local' && (
+          {!loading && canDM && (
             <button
               onClick={() => { onClose(); onMessage(userId) }}
               className="flex items-center gap-1.5 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-xl transition-colors"
@@ -832,6 +959,7 @@ export default function CommunityPage({ user, onGoToMessages }) {
           userId={profileTarget.userId}
           onClose={() => setProfileTarget(null)}
           onMessage={onGoToMessages ? (id) => { setProfileTarget(null); onGoToMessages(id) } : null}
+          currentUser={user}
         />
       )}
 
