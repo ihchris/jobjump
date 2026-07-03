@@ -3,6 +3,8 @@ import { Btn, Badge } from '../ui'
 import { TEMPLATES } from '../../data/templates'
 import { TEMPLATE_GENERATORS } from '../../utils/templateGenerators'
 import { isPaid } from '../../utils/plans'
+import BookmarkButton from './BookmarkButton'
+import { bookmarkTemplate } from '../../utils/bookmarks'
 
 const FORMAT_COLORS = {
   DOCX: 'bg-blue-50 text-blue-600',
@@ -95,13 +97,13 @@ export default function TemplatesPage({ user }) {
               return (
                 <div
                   key={t.id}
-                  className={`bg-white rounded-2xl border p-5 shadow-sm transition-all duration-200 ${
+                  className={`relative bg-white rounded-2xl border p-5 shadow-sm transition-all duration-200 ${
                     locked ? 'border-slate-100 opacity-80' : 'border-slate-100 hover:shadow-md hover:border-blue-100'
                   }`}
                 >
                   <div className="flex items-start justify-between mb-3">
                     <span className="text-3xl">{t.icon}</span>
-                    <div className="flex gap-1.5 flex-wrap justify-end">
+                    <div className="flex gap-1.5 flex-wrap justify-end items-start">
                       <Badge className={`text-xs ${FORMAT_COLORS[t.format] || 'bg-slate-100 text-slate-500'}`}>
                         {FORMAT_LABELS[t.format] || t.format}
                       </Badge>
@@ -119,6 +121,16 @@ export default function TemplatesPage({ user }) {
 
                   <h3 className="font-bold text-slate-800 mb-1 text-sm">{t.title}</h3>
                   <p className="text-slate-500 text-xs mb-4 leading-relaxed">{t.desc}</p>
+                  <div className="absolute top-3 left-3">
+                    <BookmarkButton
+                      type="template"
+                      refId={`tpl_${t.id}`}
+                      title={t.title}
+                      subtitle={t.desc}
+                      meta={{ templateId: t.id, format: t.format, isPro: t.isPro }}
+                      size="sm"
+                    />
+                  </div>
 
                   <Btn
                     onClick={() => handleDownload(t)}

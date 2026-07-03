@@ -96,6 +96,8 @@ const TABS = [
   { id: 'modules',    label: 'Módulos',        icon: '📚' },
   { id: 'diagnosis',  label: 'Diagnóstico',    icon: '🗺️' },
   { id: 'planner',    label: 'Plano Semanal',  icon: '📅' },
+  { id: 'journal',    label: 'Diário',         icon: '📓' },
+  { id: 'saved',      label: 'Guardados',      icon: '🔖' },
   { id: 'templates',  label: 'Templates',      icon: '📁' },
   { id: 'tools',      label: 'Ferramentas',    icon: '🛠️' },
   { id: 'networking', label: 'Networking',     icon: '🤝' },

@@ -13,6 +13,9 @@ import PlannerPage from './PlannerPage'
 import NetworkingPage from './NetworkingPage'
 import DiagnosisPage from './DiagnosisPage'
 import MessagesPage from './MessagesPage'
+import SavedPage from './SavedPage'
+import JournalPage from './JournalPage'
+import CommandPalette from './CommandPalette'
 
 // ─── Onboarding Modal ────────────────────────────────────────────────────────
 const ONBOARDING_KEY = 'nj_onboarded'
@@ -85,6 +88,82 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
     }
   }, [])
 
+  // Browser notification for due follow-ups (Tracker) — runs once per session
+  useEffect(() => {
+    if (!('Notification' in window)) return
+    if (Notification.permission !== 'granted') return
+    const cards = LS.get('nj_tracker', [])
+    const today = new Date(); today.setHours(0, 0, 0, 0)
+    const lastNotifKey = 'nj_tracker_last_notif_date'
+    const lastNotif = LS.get(lastNotifKey, null)
+    const todayKey = new Date().toISOString().split('T')[0]
+    if (lastNotif === todayKey) return
+
+    const due = cards.filter((c) => {
+      if (!c.followUpAt) return false
+      const [y, m, d] = c.followUpAt.split('-').map(Number)
+      if (!y) return false
+      const due = new Date(y, m - 1, d)
+      return due.getTime() <= today.getTime()
+    })
+    if (due.length > 0) {
+      try {
+        new Notification('⏰ Follow-up pendente', {
+          body: `${due.length} candidatura${due.length > 1 ? 's' : ''} precisa${due.length > 1 ? 'm' : ''} de follow-up. Toque para abrir o rastreador.`,
+          tag: 'jobjump-followup',
+        })
+        LS.set(lastNotifKey, todayKey)
+      } catch {}
+    }
+  }, [])
+
+  // Navigation handler from Command Palette and SavedPage
+  const navigateFromSearch = (result) => {
+    if (!result) return
+    if (result.kind === 'upgrade-from-search') {
+      setTab('settings')
+      return
+    }
+    if (result.type === 'tool') {
+      setTab('tools')
+      // store target tool id in a small global so ToolsPage can pick it up
+      try {
+        sessionStorage.setItem('nj_pending_tool', result.refId)
+      } catch {}
+      return
+    }
+    if (result.type === 'template') {
+      setTab('templates')
+      return
+    }
+    if (result.type === 'module' || result.type === 'lesson') {
+      setTab('modules')
+      // open specific lesson if given
+      if (result.type === 'lesson' && result.refId) {
+        try {
+          sessionStorage.setItem('nj_pending_lesson', JSON.stringify(result.refId))
+        } catch {}
+      }
+      return
+    }
+  }
+
+  const navigateToLessonFromSaved = (moduleId, lessonId) => {
+    setTab('modules')
+    try {
+      sessionStorage.setItem('nj_pending_lesson', JSON.stringify({ moduleId, lessonId }))
+    } catch {}
+  }
+
+  const navigateToToolFromSaved = (toolId) => {
+    setTab('tools')
+    try { sessionStorage.setItem('nj_pending_tool', toolId) } catch {}
+  }
+
+  const navigateToTemplateFromSaved = () => {
+    setTab('templates')
+  }
+
   const saveProgress = (fn) => {
     setProgress((prev) => {
       const next = typeof fn === 'function' ? fn(prev) : fn
@@ -122,6 +201,7 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
   return (
     <div className="flex h-full overflow-hidden bg-slate-50">
       {showOnboarding && <OnboardingModal onDone={finishOnboarding} />}
+      <CommandPalette user={user} onNavigate={navigateFromSearch} />
 
       <div className="hidden md:block flex-shrink-0 h-full">
         <Sidebar {...sidebarProps} />
@@ -160,7 +240,17 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
             </svg>
           </button>
           <img src="/logo.png" alt="JobJump" className="h-6 w-auto" />
-          <NotificationBell className="ml-auto" />
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent('nj:open-search'))}
+            className="ml-auto p-2 rounded-xl text-slate-500 hover:bg-slate-100 active:bg-slate-200 transition-colors touch-manipulation"
+            aria-label="Pesquisar"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="20" y1="20" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+          <NotificationBell />
         </div>
 
         <main className="flex-1 overflow-y-auto overscroll-contain pt-14 md:pt-0">
@@ -184,8 +274,18 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
           {tab === 'diagnosis' && (
             <DiagnosisPage user={user} onNavigateModule={navigateToModule} />
           )}
+          {tab === 'journal' && (
+            <JournalPage user={user} progress={progress} modules={[]} />
+          )}
+          {tab === 'saved' && (
+            <SavedPage
+              onNavigateLesson={navigateToLessonFromSaved}
+              onNavigateTool={navigateToToolFromSaved}
+              onNavigateTemplate={navigateToTemplateFromSaved}
+            />
+          )}
           {tab === 'templates' && <TemplatesPage user={user} />}
-          {tab === 'tools' && <ToolsPage />}
+          {tab === 'tools' && <ToolsPage user={user} />}
           {tab === 'networking' && <NetworkingPage user={user} onGoToMessages={goToMessages} />}
           {tab === 'messages' && (
             <MessagesPage
@@ -199,7 +299,7 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
           {tab === 'coach' && <CoachPage user={user} />}
           {tab === 'planner' && <PlannerPage user={user} />}
           {tab === 'settings' && (
-            <SettingsPage user={user} onLogout={onLogout} refreshUser={refreshUser} />
+            <SettingsPage user={user} onLogout={onLogout} refreshUser={refreshUser} progress={progress} />
           )}
         </main>
       </div>

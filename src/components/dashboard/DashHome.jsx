@@ -214,7 +214,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
         >
           <div className="text-2xl mb-2">🛠️</div>
           <div className="font-bold text-slate-800 text-sm">Ferramentas</div>
-          <div className="text-slate-500 text-xs mt-0.5">STAR · ATS · Email · Checklist</div>
+          <div className="text-slate-500 text-xs mt-0.5">STAR · ATS · Gravador · Checklist</div>
           <div className="text-blue-600 text-xs font-semibold mt-2 group-hover:underline">Abrir →</div>
         </button>
         <button
@@ -225,6 +225,34 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
           <div className="font-bold text-slate-800 text-sm">Diagnóstico</div>
           <div className="text-slate-500 text-xs mt-0.5">Roteiro personalizado de módulos</div>
           <div className="text-violet-600 text-xs font-semibold mt-2 group-hover:underline">{hasDiagnosis ? 'Ver roteiro →' : 'Iniciar →'}</div>
+        </button>
+      </div>
+
+      {/* Novidades — Diário + Guardados */}
+      <div className="grid sm:grid-cols-2 gap-3">
+        <button
+          onClick={() => setTab('journal')}
+          className="bg-gradient-to-br from-violet-50 to-blue-50 rounded-2xl p-4 border border-violet-100 hover:shadow-md hover:border-violet-200 transition-all text-left group"
+        >
+          <div className="flex items-center justify-between mb-2">
+            <div className="text-2xl">📓</div>
+            <span className="text-[10px] font-bold text-violet-700 bg-white px-2 py-0.5 rounded-full">NOVO</span>
+          </div>
+          <div className="font-bold text-slate-800 text-sm">Diário de Carreira</div>
+          <div className="text-slate-500 text-xs mt-0.5">2 min/dia para refletir e manter o streak</div>
+          <div className="text-violet-600 text-xs font-semibold mt-2 group-hover:underline">Refletir →</div>
+        </button>
+        <button
+          onClick={() => setTab('saved')}
+          className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-4 border border-amber-100 hover:shadow-md hover:border-amber-200 transition-all text-left group"
+        >
+          <div className="flex items-center justify-between mb-2">
+            <div className="text-2xl">🔖</div>
+            <span className="text-[10px] font-bold text-amber-700 bg-white px-2 py-0.5 rounded-full">NOVO</span>
+          </div>
+          <div className="font-bold text-slate-800 text-sm">Guardados</div>
+          <div className="text-slate-500 text-xs mt-0.5">Os seus módulos, ferramentas e posts favoritos</div>
+          <div className="text-amber-600 text-xs font-semibold mt-2 group-hover:underline">Abrir →</div>
         </button>
       </div>
 

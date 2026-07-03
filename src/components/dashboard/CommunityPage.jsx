@@ -3,6 +3,7 @@ import { LS } from '../../utils/storage'
 import { supabase, supabaseConfigured } from '../../lib/supabase'
 import { addNotification } from '../../utils/notifications'
 import ProfileModal from './ProfileModal'
+import BookmarkButton from './BookmarkButton'
 
 // ─── Config ────────────────────────────────────────────────────────────────────
 
@@ -415,14 +416,24 @@ function PostCard({ post, user, isAdmin, onLike, onDelete, onAddComment, onDelet
               </div>
             </div>
           </div>
-          {canDelete && (
-            <button
-              onClick={() => onDelete(post.id)}
-              className="text-slate-300 hover:text-red-400 text-xs transition-colors"
-            >
-              excluir
-            </button>
-          )}
+          <div className="flex items-center gap-1">
+            <BookmarkButton
+              type="community_post"
+              refId={post.id}
+              title={(post.content || '').slice(0, 80)}
+              subtitle={`${post.user_name} · ${post.category}`}
+              meta={{ userName: post.user_name, category: post.category }}
+              size="sm"
+            />
+            {canDelete && (
+              <button
+                onClick={() => onDelete(post.id)}
+                className="text-slate-300 hover:text-red-400 text-xs transition-colors px-2"
+              >
+                excluir
+              </button>
+            )}
+          </div>
         </div>
 
         <p className="text-slate-700 text-sm leading-relaxed whitespace-pre-line">{post.content}</p>

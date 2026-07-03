@@ -3,6 +3,13 @@ import { supabase, supabaseConfigured } from '../../lib/supabase'
 import { LS } from '../../utils/storage'
 import { Btn, Badge, Modal } from '../ui'
 import { isPaid, planLabel, planDesc } from '../../utils/plans'
+import {
+  BADGES, getXP, getLevel, getStreak, getBestStreak, getAllEarnedBadgeIds,
+} from '../../utils/gamification'
+import { addNotification } from '../../utils/notifications'
+
+// QR Code via API pública (gratuita, sem chave) com fallback SVG simples
+const QR_API = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data='
 
 function ReferralSection({ userId }) {
   const [copied, setCopied] = useState(false)
@@ -37,6 +44,206 @@ function ReferralSection({ userId }) {
   )
 }
 
+// ─── Perfil Público de Conquistas (Pro) ───────────────────────────────────────
+function PublicAchievementProfile({ user, progress }) {
+  const isPro = isPaid(user?.plan)
+  const [enabled, setEnabled] = useState(() => LS.get('nj_public_profile_enabled', false))
+  const [copied, setCopied] = useState(false)
+  const [imgError, setImgError] = useState(false)
+
+  // Slug gerado a partir do user id (único e curto)
+  const slug = (() => {
+    const id = user?.id || user?.email || 'demo'
+    const cleaned = String(id).toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 10)
+    const slugName = (user?.name || 'user').toLowerCase().split(' ')[0].replace(/[^a-záéíóúãõâêôàüç0-9]/g, '')
+    return `${slugName || 'user'}-${cleaned}`
+  })()
+  const profileUrl = `https://www.jobjump.com.br/u/${slug}`
+
+  const xp = getXP()
+  const level = getLevel(xp)
+  const streak = getStreak()
+  const bestStreak = getBestStreak()
+  const earnedIds = getAllEarnedBadgeIds()
+  const topBadges = BADGES.filter((b) => earnedIds.has(b.id)).slice(0, 5)
+  const completedCount = progress ? Object.values(progress).filter(Boolean).length : 0
+
+  const qrUrl = `${QR_API}${encodeURIComponent(profileUrl)}`
+  const qrDownloadUrl = `${QR_API}${encodeURIComponent(profileUrl)}&download=1`
+
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(profileUrl)
+      setCopied(true)
+      addNotification('system', 'Link copiado!', profileUrl, '🔗')
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      addNotification('system', 'Não foi possível copiar', 'Copie manualmente.', '⚠️')
+    }
+  }
+
+  const toggle = () => {
+    const next = !enabled
+    setEnabled(next)
+    LS.set('nj_public_profile_enabled', next)
+    if (next) addNotification('system', 'Perfil público ativado! 🌐', 'Qualquer pessoa com o link pode ver as suas conquistas.', '🎉')
+  }
+
+  if (!isPro) {
+    return (
+      <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl border-2 border-amber-200 p-5 shadow-sm relative overflow-hidden">
+        <div className="absolute top-3 right-3 bg-amber-400 text-white text-[10px] font-black px-2 py-1 rounded-full">⭐ PRO</div>
+        <h2 className="font-black text-slate-700 mb-1">🌐 Perfil Público de Conquistas</h2>
+        <p className="text-slate-600 text-sm mb-3">
+          Crie uma página pública partilhável com as suas badges, níveis e progresso. Mostre o seu crescimento a recrutadores e LinkedIn — com QR code incluído.
+        </p>
+        <ul className="text-xs text-slate-600 space-y-1 mb-4 list-disc list-inside">
+          <li>Link personalizado (jobjump.com.br/u/seu-nome)</li>
+          <li>QR code para partilhar em cartão, email ou networking</li>
+          <li>Preview com 5 melhores badges + nível + streak</li>
+          <li>Aumenta a sua credibilidade em processos seletivos</li>
+        </ul>
+        <button
+          onClick={() => window.location.hash = ''}
+          className="w-full py-3 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white font-black rounded-xl text-sm shadow-md transition-all"
+        >
+          Fazer upgrade e criar perfil →
+        </button>
+      </div>
+    )
+  }
+
+  return (
+    <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm">
+      <div className="flex items-center justify-between mb-2">
+        <div>
+          <h2 className="font-bold text-slate-700">🌐 Perfil Público de Conquistas</h2>
+          <p className="text-slate-400 text-xs">Partilhe o seu progresso com recrutadores e LinkedIn.</p>
+        </div>
+        <button
+          onClick={toggle}
+          className={`relative inline-flex h-6 w-11 flex-shrink-0 rounded-full border-2 border-transparent transition-colors duration-200 ${
+            enabled ? 'bg-blue-600' : 'bg-slate-200'
+          }`}
+          role="switch"
+          aria-checked={enabled}
+        >
+          <span className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow transition duration-200 ${enabled ? 'translate-x-5' : 'translate-x-0'}`} />
+        </button>
+      </div>
+
+      {!enabled ? (
+        <div className="text-center py-6 text-slate-400 text-sm border border-dashed border-slate-200 rounded-xl">
+          <div className="text-3xl mb-2">🌐</div>
+          Ative para gerar o seu link público e QR code.
+        </div>
+      ) : (
+        <>
+          {/* Preview card */}
+          <div className="mt-3 bg-gradient-to-br from-blue-50 to-violet-50 border border-blue-100 rounded-2xl p-4">
+            <div className="flex items-start gap-3 mb-3">
+              <div className="w-12 h-12 rounded-full bg-blue-500 text-white font-black text-lg flex items-center justify-center flex-shrink-0">
+                {(user?.name || 'U').slice(0, 2).toUpperCase()}
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="font-bold text-slate-800">{user?.name || 'Profissional'}</div>
+                <div className={`text-xs font-semibold ${level.color}`}>
+                  ⭐ Nível {level.level} · {level.label} · {xp} XP
+                </div>
+                {streak > 0 && (
+                  <div className="text-xs text-orange-600 font-semibold mt-0.5">🔥 {streak} dias seguidos (máx: {bestStreak})</div>
+                )}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 mb-3">
+              <div className="bg-white/70 rounded-lg p-2 text-center">
+                <div className="text-lg font-black text-blue-700">{completedCount}</div>
+                <div className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Lições concluídas</div>
+              </div>
+              <div className="bg-white/70 rounded-lg p-2 text-center">
+                <div className="text-lg font-black text-violet-700">{earnedIds.size}/{BADGES.length}</div>
+                <div className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Conquistas</div>
+              </div>
+            </div>
+
+            {topBadges.length > 0 && (
+              <div>
+                <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Top conquistas</div>
+                <div className="flex flex-wrap gap-1.5">
+                  {topBadges.map((b) => (
+                    <span key={b.id} className="text-xs px-2 py-1 rounded-full bg-violet-50 text-violet-700 font-semibold border border-violet-200">
+                      {b.icon} {b.label}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Link */}
+          <div className="mt-4">
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-1">
+              Link público
+            </label>
+            <div className="flex gap-2">
+              <input
+                readOnly
+                value={profileUrl}
+                className="flex-1 px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono text-slate-600 focus:outline-none"
+                onClick={(e) => e.target.select()}
+              />
+              <button
+                onClick={copyLink}
+                className={`px-4 py-2 rounded-lg text-xs font-bold transition-colors whitespace-nowrap ${copied ? 'bg-green-600 text-white' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+              >
+                {copied ? '✓ Copiado!' : 'Copiar'}
+              </button>
+            </div>
+          </div>
+
+          {/* QR Code */}
+          <div className="mt-4 flex flex-col sm:flex-row gap-4 items-center">
+            <div className="w-32 h-32 bg-white border-2 border-slate-200 rounded-2xl flex items-center justify-center overflow-hidden flex-shrink-0">
+              {imgError ? (
+                <div className="text-center text-slate-400 text-xs p-2">
+                  <div className="text-xl mb-1">🔗</div>
+                  QR indisponível<br/>(use o link acima)
+                </div>
+              ) : (
+                <img
+                  src={qrUrl}
+                  alt="QR Code"
+                  className="w-full h-full object-contain"
+                  onError={() => setImgError(true)}
+                />
+              )}
+            </div>
+            <div className="flex-1 text-xs text-slate-500 space-y-1.5">
+              <p className="font-semibold text-slate-700">📱 Como usar o QR code?</p>
+              <p>• Imprima num cartão de visita para eventos de networking</p>
+              <p>• Cole no seu email de candidatura</p>
+              <p>• Adicione ao perfil do LinkedIn (em "Links")</p>
+              <p>• Apresente ao recrutador em qualquer entrevista</p>
+              {!imgError && (
+                <a
+                  href={qrDownloadUrl}
+                  download={`jobjump-${slug}.png`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-block mt-2 text-blue-600 hover:text-blue-800 font-semibold underline"
+                >
+                  ⬇ Descarregar QR code (PNG)
+                </a>
+              )}
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
+
 const AREA_OPTIONS = [
   { value: '', label: 'Selecione a sua área...' },
   { value: 'tech', label: 'Tecnologia / Dev' },
@@ -65,7 +272,7 @@ const AREA_OPTIONS = [
   { value: 'purpose', label: 'ESG e Terceiro Setor' },
 ]
 
-export default function SettingsPage({ user, onLogout, refreshUser }) {
+export default function SettingsPage({ user, onLogout, refreshUser, progress }) {
   const [name, setName] = useState(user.name)
   const [saved, setSaved] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
@@ -491,6 +698,9 @@ export default function SettingsPage({ user, onLogout, refreshUser }) {
 
         {/* Referidos */}
         <ReferralSection userId={user.id} />
+
+        {/* Perfil Público de Conquistas (Pro) */}
+        <PublicAchievementProfile user={user} progress={progress} />
 
         {/* Visibilidade do perfil */}
         <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm">

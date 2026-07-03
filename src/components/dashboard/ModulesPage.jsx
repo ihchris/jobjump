@@ -4,6 +4,7 @@ import { renderMarkdown } from '../../utils/markdown'
 import { LS } from '../../utils/storage'
 import { isPaid } from '../../utils/plans'
 import LessonQA from './LessonQA'
+import BookmarkButton from './BookmarkButton'
 import {
   addXP, XP_LESSON, XP_MODULE, saveQuizScore,
   buildGamState, checkNewBadges, getQuizScores, getDiagnosis,
@@ -292,13 +293,22 @@ function LessonView({ mod, lesson, user, progress, onMarkDone, onBack, onNext, m
 
       <div className="max-w-3xl">
         <div className="flex items-start justify-between gap-4 mb-6">
-          <div>
+          <div className="flex-1 min-w-0">
             <h1 className="text-2xl font-black text-slate-800">{lesson.title}</h1>
             <span className="text-slate-400 text-sm">⏱ {lesson.duration}</span>
           </div>
-          <Btn onClick={() => handleMarkDone(lesson.id)} variant={done ? 'success' : 'secondary'} size="sm">
-            {done ? '✓ Concluída' : 'Marcar como concluída'}
-          </Btn>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <BookmarkButton
+              type="lesson"
+              refId={`${mod.id}::${lesson.id}`}
+              title={lesson.title}
+              subtitle={mod.title}
+              meta={{ moduleId: mod.id, lessonId: lesson.id, duration: lesson.duration }}
+            />
+            <Btn onClick={() => handleMarkDone(lesson.id)} variant={done ? 'success' : 'secondary'} size="sm">
+              {done ? '✓ Concluída' : 'Marcar como concluída'}
+            </Btn>
+          </div>
         </div>
 
         <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 sm:p-8">
@@ -798,6 +808,30 @@ export default function ModulesPage({ user, progress, setProgress, selectedModul
       setMod(found || initModule)
     }
   }, [initModule, modules])
+
+  // Handle pending-lesson navigation from Command Palette / SavedPage
+  useEffect(() => {
+    if (modulesLoading || !modules.length) return
+    try {
+      const raw = sessionStorage.getItem('nj_pending_lesson')
+      if (!raw) return
+      sessionStorage.removeItem('nj_pending_lesson')
+      const { moduleId, lessonId } = JSON.parse(raw)
+      const m = modules.find((x) => x.id === moduleId)
+      if (!m) return
+      setMod(m)
+      setSelectedModule(m)
+      const l = m.lessons?.find((x) => x.id === lessonId)
+      if (l) {
+        setLesson({ ...l, content: null })
+        setView('lesson')
+        setSelectedLesson(l)
+        getLessonContent(l.id, m.id).then((c) => setLesson({ ...l, content: c ?? '' }))
+      } else {
+        setView('module')
+      }
+    } catch {}
+  }, [modules, modulesLoading])
 
   const openModule = (m) => { setMod(m); setView('module'); setSelectedModule(m) }
 

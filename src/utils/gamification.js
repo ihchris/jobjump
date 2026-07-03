@@ -1,5 +1,7 @@
 import { LS } from './storage'
 import { addNotification } from './notifications'
+import { getEntries as getJournalEntries } from './journal'
+import { getBookmarks } from './bookmarks'
 
 // ─── Níveis ───────────────────────────────────────────────────────────────────
 export const LEVELS = [
@@ -29,6 +31,7 @@ export const BADGES = [
   { id: 'fifty_lessons',  icon: '⚡', label: 'Imparável',          desc: 'Concluiu 50 lições',                     check: (s) => s.lessonsCount >= 50 },
   { id: 'streak_7',       icon: '🗓️', label: '7 Dias Seguidos',   desc: '7 dias consecutivos na plataforma',      check: (s) => s.streak >= 7 },
   { id: 'streak_30',      icon: '🏅', label: 'Mês Dedicado',      desc: '30 dias consecutivos na plataforma',     check: (s) => s.streak >= 30 },
+  { id: 'streak_100',     icon: '💎', label: '100 Dias',          desc: '100 dias consecutivos na plataforma',    check: (s) => s.streak >= 100 },
   { id: 'module_1',       icon: '📄', label: 'Mestre do CV',      desc: 'Concluiu o módulo de CV ATS',            check: (s) => s.completedModules.includes(1) },
   { id: 'module_2',       icon: '✉️', label: 'Carta Perfeita',    desc: 'Concluiu o módulo de Carta de Motivação', check: (s) => s.completedModules.includes(2) },
   { id: 'module_3',       icon: '💼', label: 'LinkedIn Expert',   desc: 'Concluiu o módulo de LinkedIn',          check: (s) => s.completedModules.includes(3) },
@@ -44,6 +47,10 @@ export const BADGES = [
   { id: 'level_4',        icon: '🌟', label: 'Especialista',      desc: 'Atingiu o nível Especialista (800 XP)',  check: (s) => s.xp >= 800 },
   { id: 'level_6',        icon: '👑', label: 'Elite',             desc: 'Atingiu o nível Elite (3000 XP)',        check: (s) => s.xp >= 3000 },
   { id: 'diagnosis',      icon: '🗺️', label: 'Roteiro Definido',  desc: 'Completou o diagnóstico inicial',        check: (s) => s.hasDiagnosis },
+  { id: 'interview_recorder', icon: '🎙️', label: 'Em Voz Alta',     desc: 'Gravou 1 simulação de entrevista',       check: (s) => s.recordingsCount >= 1 },
+  { id: 'cv_analyzer',    icon: '🔍', label: 'ATS Ninja',          desc: 'Analisou CV + vaga com score ATS',        check: (s) => s.cvAnalysesCount >= 1 },
+  { id: 'journal_week',   icon: '📓', label: 'Mente Reflexiva',    desc: 'Journaled 5 dias na mesma semana',        check: (s) => s.journalDaysThisWeek >= 5 },
+  { id: 'ten_bookmarks',  icon: '🔖', label: 'Bibliotecário(a)',   desc: 'Guardou 10 recursos',                     check: (s) => s.bookmarksCount >= 10 },
 ]
 
 // ─── Chaves de storage ────────────────────────────────────────────────────────
@@ -56,6 +63,32 @@ const KEY_STREAK       = 'nj_streak'
 const KEY_STREAK_DATE  = 'nj_streak_date'
 const KEY_STREAK_BEST  = 'nj_streak_best'
 
+// ─── Helpers para features novas ──────────────────────────────────────────────
+const KEY_RECORDINGS  = 'nj_recordings'
+const KEY_CV_ANALYSES = 'nj_cv_analyses'
+
+export const getRecordingsCount = () => LS.get(KEY_RECORDINGS, []).length
+export const getCvAnalysesCount = () => LS.get(KEY_CV_ANALYSES, []).length
+export const getBookmarksCount  = () => getBookmarks().length
+
+// Conta dias com entrada no diário nos últimos 7 dias (janela corrida, incluindo hoje —
+// distinto de getWeekSummary(), que usa semana de calendário)
+export const getJournalDaysThisWeek = () => {
+  const entries = getJournalEntries()
+  if (!entries.length) return 0
+  const since = new Date()
+  since.setHours(0, 0, 0, 0)
+  since.setDate(since.getDate() - 6) // janela de 7 dias incluindo hoje
+  const sinceMs = since.getTime()
+  const days = new Set()
+  for (const e of entries) {
+    if (!e?.date) continue
+    const t = new Date(e.date + 'T00:00:00').getTime()
+    if (!isNaN(t) && t >= sinceMs) days.add(e.date)
+  }
+  return days.size
+}
+
 // ─── XP ───────────────────────────────────────────────────────────────────────
 export const getXP        = ()    => LS.get(KEY_XP, 0)
 export const addXP        = (amt) => { const n = getXP() + amt; LS.set(KEY_XP, n); return n }
@@ -66,6 +99,9 @@ export const XP_QUIZ_PASS = 25
 export const XP_QUIZ_PERF = 50
 export const XP_DIAGNOSIS = 30
 export const XP_STREAK    = 5
+export const XP_RECORDING    = 15
+export const XP_CV_ANALYSIS  = 10
+export const XP_JOURNAL      = 8
 
 // ─── Streak ───────────────────────────────────────────────────────────────────
 export const getStreak = () => LS.get(KEY_STREAK, 0)
@@ -136,6 +172,10 @@ export const buildGamState = (progress, modules) => {
     completedModules,
     perfectQuizzes:  getPerfectCount(),
     hasDiagnosis:    !!getDiagnosis(),
+    recordingsCount:      getRecordingsCount(),
+    cvAnalysesCount:      getCvAnalysesCount(),
+    journalDaysThisWeek:  getJournalDaysThisWeek(),
+    bookmarksCount:       getBookmarksCount(),
   }
 }
 

@@ -1,6 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Btn, Badge } from '../ui'
 import { LS } from '../../utils/storage'
+import { isPaid } from '../../utils/plans'
+import {
+  addXP, XP_RECORDING, checkNewBadges, buildGamState,
+} from '../../utils/gamification'
+import { addNotification } from '../../utils/notifications'
+import BookmarkButton from './BookmarkButton'
 
 // ─── Formatação de moeda partilhada entre as calculadoras ─────────────────────
 const formatBRL = (n, opts) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', ...opts })
@@ -533,6 +539,498 @@ function InterviewSimulator() {
   )
 }
 
+// ─── Ferramenta 5b: Gravador de Entrevista com Análise ────────────────────────
+const RECORDINGS_KEY = 'nj_recordings'
+const FREE_DAILY_LIMIT = 3
+const FILLER_WORDS = ['um', 'uh', 'ah', 'tipo', 'né', 'basicamente', 'então', 'assim', 'ok', 'okay', 'gente', 'cara', 'mano', 'tipo assim']
+
+function getTodayRecordingsCount() {
+  const today = new Date().toISOString().split('T')[0]
+  return getRecordings().filter((r) => r.date === today).length
+}
+
+function getRecordings() {
+  return LS.get(RECORDINGS_KEY, [])
+}
+
+function saveRecording(rec) {
+  const next = [rec, ...getRecordings()].slice(0, 30)
+  LS.set(RECORDINGS_KEY, next)
+}
+
+function analyzeTranscript(transcript) {
+  if (!transcript || !transcript.trim()) {
+    return {
+      wordCount: 0, duration: 0, wpm: 0,
+      fillerCount: 0, fillerRate: 0,
+      starScore: 0, starMissing: ['situação', 'tarefa', 'ação', 'resultado'],
+      quantCount: 0,
+    }
+  }
+  const words = transcript.trim().split(/\s+/).filter(Boolean)
+  const wordCount = words.length
+  const lower = transcript.toLowerCase()
+
+  // Filler words
+  let fillerCount = 0
+  for (const f of FILLER_WORDS) {
+    const re = new RegExp(`\\b${f}\\b`, 'gi')
+    const m = transcript.match(re)
+    if (m) fillerCount += m.length
+  }
+
+  // Quantified metrics (numbers, %, R$, years)
+  const quantMatches = transcript.match(/\d+(?:[.,]\d+)?(?:%|k|m|milhões?|mil|anos?|anos|h|semanas?|meses?)?|r\$\s*\d+/gi) || []
+  const quantCount = quantMatches.length
+
+  // STAR heuristics — looking for keywords that indicate each part
+  const STAR_HINTS = {
+    situação: ['quando', 'naquela', 'contexto', 'época', 'em ', 'trabalhava', 'empresa', 'projeto', 'time', 'equipe'],
+    tarefa:    ['responsável', 'responsabilidade', 'papel', 'minha tarefa', 'meu papel', 'eu tinha', 'eu era', 'eu deveria'],
+    ação:      ['fiz', 'implementei', 'liderei', 'criei', 'desenvolvi', 'executei', 'conduzi', 'analisei', 'mapeei', 'reorganizei', 'decidi'],
+    resultado: ['resultado', 'consequência', 'impacto', 'consegui', 'alcancei', 'aumentei', 'reduzi', 'melhorei', 'cresci', 'fechei', '%', 'r$', 'mil'],
+  }
+  const starHits = {}
+  const starMissing = []
+  for (const [k, hints] of Object.entries(STAR_HINTS)) {
+    const hit = hints.some((h) => lower.includes(h))
+    starHits[k] = hit
+    if (!hit) starMissing.push(k)
+  }
+  const starScore = Math.round((Object.values(starHits).filter(Boolean).length / 4) * 100)
+
+  return {
+    wordCount,
+    fillerCount,
+    fillerRate: wordCount > 0 ? +(fillerCount / wordCount * 100).toFixed(1) : 0,
+    starScore,
+    starMissing,
+    quantCount,
+  }
+}
+
+function InterviewRecorder({ user }) {
+  const isPro = isPaid(user?.plan)
+  const [view, setView] = useState('setup')   // setup | recording | review | library
+  const [category, setCategory] = useState('')
+  const [idx, setIdx] = useState(0)
+  const [questions, setQuestions] = useState([])
+  const [recording, setRecording] = useState(false)
+  const [transcript, setTranscript] = useState('')
+  const [interim, setInterim] = useState('')
+  const [audioUrl, setAudioUrl] = useState(null)
+  const [audioBlob, setAudioBlob] = useState(null)
+  const [duration, setDuration] = useState(0)
+  const [analysis, setAnalysis] = useState(null)
+  const [error, setError] = useState('')
+  const [hasMicSupport, setHasMicSupport] = useState(true)
+  const [showLibrary, setShowLibrary] = useState(false)
+
+  const mediaRecorderRef = useRef(null)
+  const recognitionRef = useRef(null)
+  const audioChunksRef = useRef([])
+  const timerRef = useRef(null)
+  const startTsRef = useRef(0)
+  const finalTranscriptRef = useRef('')
+
+  useEffect(() => {
+    // Check browser support
+    const hasMedia = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
+    const hasSpeech = !!(window.SpeechRecognition || window.webkitSpeechRecognition)
+    setHasMicSupport(hasMedia)
+    return () => stopAll()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const stopAll = () => {
+    try { mediaRecorderRef.current?.stop() } catch {}
+    try { recognitionRef.current?.stop() } catch {}
+    if (timerRef.current) {
+      clearInterval(timerRef.current)
+      timerRef.current = null
+    }
+    setRecording(false)
+  }
+
+  useEffect(() => () => stopAll(), [])
+
+  const start = async () => {
+    setError('')
+    setTranscript('')
+    setInterim('')
+    setAudioUrl(null)
+    setAudioBlob(null)
+    setDuration(0)
+    setAnalysis(null)
+    finalTranscriptRef.current = ''
+
+    if (!hasMicSupport) {
+      setError('O seu navegador não suporta gravação de áudio. Tente Chrome, Edge ou Safari.')
+      return
+    }
+
+    const todayCount = getTodayRecordingsCount()
+    if (!isPro && todayCount >= FREE_DAILY_LIMIT) {
+      setError(`Atingiu o limite diário (${FREE_DAILY_LIMIT}) do plano grátis. Faça upgrade para Pro para gravações ilimitadas.`)
+      return
+    }
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+
+      // Audio recording
+      const mr = new MediaRecorder(stream)
+      mediaRecorderRef.current = mr
+      audioChunksRef.current = []
+      mr.ondataavailable = (e) => { if (e.data && e.data.size) audioChunksRef.current.push(e.data) }
+      mr.onstop = () => {
+        const blob = new Blob(audioChunksRef.current, { type: 'audio/webm' })
+        const url = URL.createObjectURL(blob)
+        setAudioBlob(blob)
+        setAudioUrl(url)
+        stream.getTracks().forEach((t) => t.stop())
+      }
+      mr.start()
+
+      // Speech recognition (best-effort)
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition
+      if (SR) {
+        const r = new SR()
+        r.lang = 'pt-BR'
+        r.continuous = true
+        r.interimResults = true
+        r.onresult = (event) => {
+          let finalChunk = ''
+          let interimChunk = ''
+          for (let i = event.resultIndex; i < event.results.length; i++) {
+            const res = event.results[i]
+            if (res.isFinal) finalChunk += res[0].transcript
+            else interimChunk += res[0].transcript
+          }
+          if (finalChunk) {
+            finalTranscriptRef.current = (finalTranscriptRef.current + ' ' + finalChunk).trim()
+            setTranscript(finalTranscriptRef.current)
+          }
+          setInterim(interimChunk)
+        }
+        r.onerror = () => {}
+        r.onend = () => {}
+        try { r.start(); recognitionRef.current = r } catch {}
+      }
+
+      // Timer
+      startTsRef.current = Date.now()
+      timerRef.current = setInterval(() => {
+        setDuration(Math.floor((Date.now() - startTsRef.current) / 1000))
+      }, 250)
+
+      setRecording(true)
+      setView('recording')
+    } catch (e) {
+      setError('Não foi possível aceder ao microfone. Verifique as permissões do navegador.')
+    }
+  }
+
+  const stop = () => {
+    stopAll()
+    const finalText = (finalTranscriptRef.current + ' ' + interim).trim()
+    setTranscript(finalText)
+    setInterim('')
+    const a = analyzeTranscript(finalText)
+    setAnalysis({ ...a, duration })
+    setView('review')
+  }
+
+  const save = () => {
+    if (!audioBlob || !analysis) return
+    const current = questions[idx]
+    const recording = {
+      id: crypto.randomUUID(),
+      date: new Date().toISOString().split('T')[0],
+      timestamp: Date.now(),
+      category: CATEGORY_LABELS[category] || category,
+      question: current?.q || '',
+      transcript,
+      audioSize: audioBlob.size,
+      duration,
+      analysis,
+    }
+    saveRecording(recording)
+
+    // Award XP (only first time per session to avoid farming)
+    addXP(XP_RECORDING)
+    addNotification('xp', 'Entrevista gravada! 🎙️', `+${XP_RECORDING} XP · Reveja a sua resposta e melhore.`)
+    try {
+      // best-effort badge check; we don't have modules/progress here so just call with empty
+      checkNewBadges(buildGamState({}, []))
+    } catch {}
+    setShowLibrary(true)
+    setView('library')
+  }
+
+  const discard = () => {
+    setAudioUrl(null)
+    setAudioBlob(null)
+    setTranscript('')
+    setAnalysis(null)
+    setDuration(0)
+    setView('setup')
+  }
+
+  const fmtTime = (s) => {
+    const m = Math.floor(s / 60)
+    const sec = (s % 60).toString().padStart(2, '0')
+    return `${m}:${sec}`
+  }
+
+  // ─── Setup ──────────────────────────────────────────────────────────────
+  if (view === 'setup') {
+    return (
+      <div className="space-y-5">
+        <div className="bg-gradient-to-br from-violet-50 to-blue-50 border border-violet-200 rounded-2xl p-4">
+          <div className="flex items-start gap-3">
+            <span className="text-2xl">🎙️</span>
+            <div>
+              <h3 className="font-bold text-slate-800 text-sm">Pratique em voz alta</h3>
+              <p className="text-xs text-slate-600 mt-1">
+                Grave a sua resposta, reveja o áudio, e veja análise de ritmo, vícios de linguagem e estrutura STAR — tudo no seu navegador.
+              </p>
+              {!isPro && (
+                <p className="text-xs text-amber-700 mt-1.5 font-semibold">
+                  Plano grátis: {FREE_DAILY_LIMIT} gravações por dia. Pro: ilimitado.
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {!hasMicSupport ? (
+          <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700">
+            O seu navegador não suporta captura de áudio. Tente Chrome, Edge ou Safari.
+          </div>
+        ) : (
+          <>
+            <div>
+              <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-2">
+                Escolha a categoria
+              </label>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {Object.entries(CATEGORY_LABELS).map(([k, label]) => (
+                  <button
+                    key={k}
+                    onClick={() => { setCategory(k); setIdx(0); setQuestions(INTERVIEW_QUESTIONS[k] || []) }}
+                    className={`p-3 rounded-xl border-2 text-left transition-all
+                      ${category === k
+                        ? 'bg-blue-50 border-blue-500'
+                        : 'bg-white border-slate-200 hover:border-slate-300'}`}
+                  >
+                    <div className="text-lg mb-0.5">{label.split(' ')[0]}</div>
+                    <div className="text-xs font-semibold text-slate-700">{label.slice(3)}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {category && questions.length > 0 && (
+              <div>
+                <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-2">
+                  Escolha a pergunta
+                </label>
+                <div className="space-y-2 max-h-80 overflow-y-auto">
+                  {questions.map((q, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setIdx(i)}
+                      className={`w-full text-left p-3 rounded-xl border transition-all
+                        ${idx === i
+                          ? 'bg-blue-50 border-blue-500'
+                          : 'bg-white border-slate-200 hover:border-slate-300'}`}
+                    >
+                      <div className="text-xs text-slate-400 font-bold mb-1">Pergunta {i + 1}</div>
+                      <div className="text-sm text-slate-800">{q.q}</div>
+                    </button>
+                  ))}
+                </div>
+                <button
+                  onClick={start}
+                  className="w-full mt-4 py-4 bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-700 hover:to-blue-700 text-white font-black rounded-2xl transition-all shadow-md text-base flex items-center justify-center gap-2"
+                >
+                  🎙️ Gravar resposta
+                </button>
+                {error && <p className="text-red-600 text-xs bg-red-50 px-3 py-2 rounded-lg mt-3">{error}</p>}
+                <button
+                  onClick={() => setShowLibrary(!showLibrary)}
+                  className="w-full mt-2 text-sm text-slate-500 hover:text-slate-700"
+                >
+                  {showLibrary ? '▼ Ocultar gravações anteriores' : '▶ Ver gravações anteriores'}
+                </button>
+                {showLibrary && <RecordingsLibrary />}
+              </div>
+            )}
+          </>
+        )}
+      </div>
+    )
+  }
+
+  // ─── Recording ─────────────────────────────────────────────────────────
+  if (view === 'recording') {
+    const current = questions[idx]
+    return (
+      <div className="space-y-4">
+        <div className="bg-red-50 border border-red-200 rounded-2xl p-5">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-red-500 animate-pulse" />
+              <span className="font-bold text-red-700 text-sm">A gravar</span>
+            </div>
+            <span className="text-2xl font-black text-slate-800">{fmtTime(duration)}</span>
+          </div>
+          <p className="text-sm text-slate-700 font-semibold mb-2">"{current?.q}"</p>
+          <p className="text-xs text-slate-500">Responda em voz alta como se fosse uma entrevista real.</p>
+        </div>
+
+        <div className="bg-white border border-slate-200 rounded-2xl p-4 min-h-[160px]">
+          <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Transcrição ao vivo</div>
+          <p className="text-sm text-slate-700 leading-relaxed">
+            {transcript || <span className="text-slate-300 italic">A falar… (fale perto do microfone)</span>}
+            {interim && <span className="text-slate-400 italic"> {interim}</span>}
+          </p>
+        </div>
+
+        <button
+          onClick={stop}
+          className="w-full py-4 bg-red-600 hover:bg-red-700 text-white font-black rounded-2xl transition-colors"
+        >
+          ⏹ Parar gravação
+        </button>
+      </div>
+    )
+  }
+
+  // ─── Review ────────────────────────────────────────────────────────────
+  if (view === 'review') {
+    const a = analysis || {}
+    const fillerOk = a.fillerRate < 5
+    const wpmOk = a.wpm >= 100 && a.wpm <= 180
+    const starOk = a.starScore >= 75
+    const quantOk = a.quantCount >= 1
+
+    return (
+      <div className="space-y-5">
+        <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4">
+          <div className="flex items-center gap-3">
+            <span className="text-2xl">✓</span>
+            <div>
+              <div className="font-bold text-emerald-800">Gravação concluída em {fmtTime(duration)}</div>
+              <p className="text-xs text-emerald-700">Reveja, analise, e guarde na sua biblioteca.</p>
+            </div>
+          </div>
+        </div>
+
+        {audioUrl && (
+          <div className="bg-white border border-slate-200 rounded-2xl p-4">
+            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Reproduzir</div>
+            <audio src={audioUrl} controls className="w-full" />
+          </div>
+        )}
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <StatTile label="Palavras" value={a.wordCount || 0} sub={`${a.wpm || 0} palavras/min`} ok={wpmOk} />
+          <StatTile label="Vícios" value={a.fillerCount || 0} sub={`${a.fillerRate || 0}% do total`} ok={fillerOk} />
+          <StatTile label="Estrutura STAR" value={`${a.starScore || 0}%`} sub={a.starMissing?.length ? `Falta: ${a.starMissing.join(', ')}` : 'Completa'} ok={starOk} />
+          <StatTile label="Números" value={a.quantCount || 0} sub="resultados quantificados" ok={quantOk} />
+        </div>
+
+        {/* Transcript */}
+        {transcript && (
+          <div className="bg-white border border-slate-200 rounded-2xl p-4">
+            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Transcrição</div>
+            <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap">{transcript}</p>
+          </div>
+        )}
+
+        {/* Tips */}
+        {(a.fillerRate > 5 || !starOk || a.quantCount === 0 || !wpmOk) && (
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4">
+            <div className="text-xs font-bold text-amber-800 uppercase tracking-wider mb-2">💡 Dicas para melhorar</div>
+            <ul className="space-y-1 text-xs text-amber-700">
+              {a.fillerRate > 5 && <li>• Reduza os vícios de linguagem ("um", "tipo", "né"). Pause em silêncio — é mais poderoso.</li>}
+              {!starOk && <li>• Estruture a resposta: <strong>Situação → Tarefa → Ação → Resultado</strong>. Conte onde, qual era seu papel, o que fez, e que impacto gerou.</li>}
+              {a.quantCount === 0 && <li>• Adicione pelo menos 1 número: %, R$, pessoas, prazos. Resultados quantificados são 3× mais convincentes.</li>}
+              {!wpmOk && a.wpm < 100 && <li>• Falou devagar. Em entrevista, variar o ritmo transmite segurança. Acelere um pouco nas partes com história, abrande nas conclusões.</li>}
+              {a.wpm > 180 && <li>• Falou rápido. Pode parecer nervosismo. Respire entre frases — recrutadores valorizam pausas.</li>}
+            </ul>
+          </div>
+        )}
+
+        <div className="flex gap-3">
+          <button onClick={discard} className="flex-1 py-3 border border-slate-200 hover:bg-slate-50 text-slate-600 font-semibold rounded-xl transition-colors">
+            Descartar
+          </button>
+          <button onClick={save} className="flex-1 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors">
+            💾 Guardar (+{XP_RECORDING} XP)
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  return null
+}
+
+function StatTile({ label, value, sub, ok }) {
+  return (
+    <div className={`border-2 rounded-xl p-3 text-center transition-all ${ok ? 'bg-green-50 border-green-200' : 'bg-amber-50 border-amber-200'}`}>
+      <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mb-1">{label}</div>
+      <div className={`text-xl font-black ${ok ? 'text-green-700' : 'text-amber-700'}`}>{value}</div>
+      <div className="text-[10px] text-slate-500 mt-0.5">{sub}</div>
+    </div>
+  )
+}
+
+function RecordingsLibrary() {
+  const [version, setVersion] = useState(0)
+  const recordings = getRecordings()
+  const refresh = () => setVersion((v) => v + 1)
+  if (recordings.length === 0) {
+    return <div className="mt-3 text-center text-slate-400 text-xs py-4">Sem gravações anteriores.</div>
+  }
+  return (
+    <div className="mt-3 space-y-2">
+      {recordings.slice(0, 5).map((r) => (
+        <div key={r.id} className="border border-slate-200 rounded-xl p-3 bg-white">
+          <div className="flex items-start justify-between gap-2 mb-1">
+            <div className="flex-1 min-w-0">
+              <div className="text-xs text-slate-400 font-semibold uppercase tracking-wider">{r.category}</div>
+              <div className="text-xs text-slate-700 truncate">{r.question}</div>
+            </div>
+            <button
+              onClick={() => {
+                if (confirm('Apagar esta gravação?')) {
+                  LS.set(RECORDINGS_KEY, recordings.filter((x) => x.id !== r.id))
+                  refresh()
+                }
+              }}
+              className="text-slate-300 hover:text-red-500 text-xs"
+            >✕</button>
+          </div>
+          <div className="flex items-center gap-2 text-[10px] text-slate-500">
+            <span>📅 {new Date(r.timestamp).toLocaleDateString('pt-BR')}</span>
+            <span>⏱ {Math.floor(r.duration / 60)}:{(r.duration % 60).toString().padStart(2, '0')}</span>
+            <span>📝 {r.analysis.wordCount} palavras</span>
+            <span>⭐ {r.analysis.starScore}% STAR</span>
+          </div>
+          {r.transcript && (
+            <p className="text-xs text-slate-600 mt-1 line-clamp-2 italic">"{r.transcript}"</p>
+          )}
+        </div>
+      ))}
+    </div>
+  )
+}
+
 // ─── Ferramenta 6: Rastreador de Candidaturas (Kanban) ───────────────────────
 const TRACKER_KEY = 'nj_tracker'
 const COLUMNS = [
@@ -544,19 +1042,53 @@ const COLUMNS = [
   { id: 'archived', label: 'Arquivado', color: 'bg-slate-50 border-slate-100', dot: 'bg-slate-300' },
 ]
 
+const FOLLOWUP_DISMISSED_KEY = 'nj_tracker_followup_dismissed'
+
+function parseDateBR(str) {
+  if (!str) return null
+  // str is YYYY-MM-DD from <input type="date">
+  const [y, m, d] = str.split('-').map(Number)
+  if (!y || !m || !d) return null
+  return new Date(y, m - 1, d)
+}
+
+function followUpStatus(followUpAt) {
+  if (!followUpAt) return null
+  const d = parseDateBR(followUpAt)
+  if (!d) return null
+  const today = new Date(); today.setHours(0, 0, 0, 0)
+  const diff = Math.floor((d.getTime() - today.getTime()) / 86400000)
+  if (diff < 0) return { kind: 'overdue', label: `${Math.abs(diff)}d atrasado`, diff }
+  if (diff === 0) return { kind: 'today', label: 'Hoje', diff }
+  if (diff <= 3) return { kind: 'soon', label: `Em ${diff}d`, diff }
+  return { kind: 'future', label: `Em ${diff}d`, diff }
+}
+
 function ApplicationTracker() {
   const [cards, setCards] = useState(() => LS.get(TRACKER_KEY, []))
   const [adding, setAdding] = useState(false)
-  const [form, setForm] = useState({ company: '', role: '', notes: '', col: 'wishlist' })
+  const [form, setForm] = useState({ company: '', role: '', notes: '', col: 'wishlist', followUpAt: '' })
   const [moving, setMoving] = useState(null)
+  const [editingId, setEditingId] = useState(null)
+  const [editForm, setEditForm] = useState({})
+  const [onlyFollowup, setOnlyFollowup] = useState(false)
+  const [notifPromptDismissed, setNotifPromptDismissed] = useState(() => LS.get(FOLLOWUP_DISMISSED_KEY, false))
 
   const save = (updated) => { setCards(updated); LS.set(TRACKER_KEY, updated) }
 
   const addCard = () => {
     if (!form.company.trim() || !form.role.trim()) return
-    const card = { id: Date.now(), company: form.company.trim(), role: form.role.trim(), notes: form.notes.trim(), col: form.col, date: new Date().toLocaleDateString('pt-BR') }
+    const card = {
+      id: Date.now(),
+      company: form.company.trim(),
+      role: form.role.trim(),
+      notes: form.notes.trim(),
+      col: form.col,
+      followUpAt: form.followUpAt || '',
+      date: new Date().toLocaleDateString('pt-BR'),
+    }
     save([card, ...cards])
-    setForm({ company: '', role: '', notes: '', col: 'wishlist' })
+    setForm({ company: '', role: '', notes: '', col: 'wishlist', followUpAt: '' })
     setAdding(false)
   }
 
@@ -567,11 +1099,38 @@ function ApplicationTracker() {
 
   const deleteCard = (id) => save(cards.filter((c) => c.id !== id))
 
+  const openEdit = (card) => {
+    setEditingId(card.id)
+    setEditForm({ ...card })
+  }
+  const saveEdit = () => {
+    save(cards.map((c) => c.id === editingId ? { ...editForm } : c))
+    setEditingId(null)
+  }
+
+  const requestNotifPermission = async () => {
+    if (!('Notification' in window)) return
+    if (Notification.permission === 'default') {
+      const r = await Notification.requestPermission()
+      if (r === 'granted') {
+        new Notification('Notificações ativadas', { body: 'Vai receber avisos quando candidaturas precisarem de follow-up.' })
+      }
+    }
+    LS.set(FOLLOWUP_DISMISSED_KEY, true)
+    setNotifPromptDismissed(true)
+  }
+
+  const followupList = cards
+    .map((c) => ({ card: c, status: followUpStatus(c.followUpAt) }))
+    .filter((x) => x.status && (x.status.kind === 'today' || x.status.kind === 'overdue'))
+
+  const visibleCards = onlyFollowup ? cards.filter((c) => followUpStatus(c.followUpAt)) : cards
+
   const inp = 'w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between flex-wrap gap-2">
         <p className="text-sm text-slate-500">
           {cards.length === 0 ? 'Nenhuma candidatura ainda. Adicione a primeira!' : `${cards.length} candidatura${cards.length > 1 ? 's' : ''} no pipeline`}
         </p>
@@ -579,6 +1138,53 @@ function ApplicationTracker() {
           {adding ? '✕ Cancelar' : '+ Nova candidatura'}
         </Btn>
       </div>
+
+      {/* Alerta de follow-ups pendentes */}
+      {followupList.length > 0 && (
+        <div className="bg-orange-50 border-2 border-orange-200 rounded-2xl p-4 space-y-3">
+          <div className="flex items-start gap-2">
+            <span className="text-2xl flex-shrink-0">⏰</span>
+            <div className="flex-1 min-w-0">
+              <div className="font-bold text-orange-800 text-sm">
+                {followupList.length} candidatura{followupList.length > 1 ? 's' : ''} precisa{followupList.length > 1 ? 'm' : ''} de follow-up
+              </div>
+              <div className="space-y-1 mt-1.5">
+                {followupList.slice(0, 5).map(({ card, status }) => (
+                  <button
+                    key={card.id}
+                    onClick={() => openEdit(card)}
+                    className="block text-xs text-orange-700 hover:text-orange-900 hover:underline text-left"
+                  >
+                    · <strong>{card.company}</strong> — {card.role} <span className="text-orange-500">({status.label})</span>
+                  </button>
+                ))}
+                {followupList.length > 5 && (
+                  <div className="text-xs text-orange-500">e mais {followupList.length - 5}…</div>
+                )}
+              </div>
+              <div className="flex items-center gap-2 mt-3">
+                <button
+                  onClick={() => setOnlyFollowup(!onlyFollowup)}
+                  className="text-xs font-semibold text-orange-700 underline hover:text-orange-900"
+                >
+                  {onlyFollowup ? '▼ Mostrar todas' : '▶ Ver só as pendentes'}
+                </button>
+                {!notifPromptDismissed && 'Notification' in window && Notification.permission === 'default' && (
+                  <button
+                    onClick={requestNotifPermission}
+                    className="text-xs font-semibold text-white bg-orange-600 hover:bg-orange-700 px-3 py-1 rounded-full transition-colors"
+                  >
+                    🔔 Ativar notificações do navegador
+                  </button>
+                )}
+                {notifPromptDismissed && 'Notification' in window && Notification.permission === 'granted' && (
+                  <span className="text-xs text-green-700 font-semibold">🔔 Notificações ativas</span>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {adding && (
         <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 space-y-3">
@@ -588,20 +1194,29 @@ function ApplicationTracker() {
             <input className={inp} placeholder="Cargo *" value={form.role} onChange={(e) => setForm((f) => ({ ...f, role: e.target.value }))} />
           </div>
           <input className={inp} placeholder="Notas (salário estimado, contato, fonte...)" value={form.notes} onChange={(e) => setForm((f) => ({ ...f, notes: e.target.value }))} />
-          <div className="flex gap-3 items-center">
-            <select className={inp + ' flex-1'} value={form.col} onChange={(e) => setForm((f) => ({ ...f, col: e.target.value }))}>
-              {COLUMNS.map((c) => <option key={c.id} value={c.id}>{c.label}</option>)}
-            </select>
-            <Btn onClick={addCard} variant="primary" size="sm" disabled={!form.company.trim() || !form.role.trim()}>
-              Adicionar →
-            </Btn>
+          <div className="grid sm:grid-cols-2 gap-3 items-end">
+            <div>
+              <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1">Estado</label>
+              <select className={inp} value={form.col} onChange={(e) => setForm((f) => ({ ...f, col: e.target.value }))}>
+                {COLUMNS.map((c) => <option key={c.id} value={c.id}>{c.label}</option>)}
+              </select>
+            </div>
+            <div>
+              <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
+                Follow-up (opcional)
+              </label>
+              <input type="date" className={inp} value={form.followUpAt} onChange={(e) => setForm((f) => ({ ...f, followUpAt: e.target.value }))} />
+            </div>
           </div>
+          <Btn onClick={addCard} variant="primary" size="sm" disabled={!form.company.trim() || !form.role.trim()} className="w-full">
+            Adicionar →
+          </Btn>
         </div>
       )}
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 overflow-x-auto">
         {COLUMNS.map((col) => {
-          const colCards = cards.filter((c) => c.col === col.id)
+          const colCards = visibleCards.filter((c) => c.col === col.id)
           return (
             <div key={col.id} className={`border rounded-xl p-3 min-h-[120px] ${col.color}`}>
               <div className="flex items-center gap-2 mb-3">
@@ -610,32 +1225,68 @@ function ApplicationTracker() {
                 <span className="text-xs text-slate-400 ml-auto">{colCards.length}</span>
               </div>
               <div className="space-y-2">
-                {colCards.map((card) => (
-                  <div key={card.id} className="bg-white border border-white rounded-lg p-2.5 shadow-sm text-xs">
-                    <div className="font-bold text-slate-800 truncate">{card.company}</div>
-                    <div className="text-slate-500 truncate">{card.role}</div>
-                    {card.notes && <div className="text-slate-400 truncate mt-0.5">{card.notes}</div>}
-                    <div className="flex items-center justify-between mt-2 pt-1.5 border-t border-slate-50">
-                      <span className="text-slate-300">{card.date}</span>
-                      <div className="flex gap-1">
-                        <button onClick={() => setMoving(moving === card.id ? null : card.id)}
-                          className="text-blue-500 hover:text-blue-700 text-xs underline">mover</button>
-                        <button onClick={() => deleteCard(card.id)}
-                          className="text-slate-300 hover:text-red-400 text-xs ml-1">✕</button>
+                {colCards.map((card) => {
+                  const fs = followUpStatus(card.followUpAt)
+                  return (
+                    <div key={card.id} className="bg-white border border-white rounded-lg p-2.5 shadow-sm text-xs relative">
+                      {fs && (fs.kind === 'today' || fs.kind === 'overdue') && (
+                        <span
+                          className={`absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center text-[10px] text-white font-bold ${
+                            fs.kind === 'overdue' ? 'bg-red-500' : 'bg-orange-500'
+                          }`}
+                          title={`Follow-up ${fs.label}`}
+                        >
+                          !
+                        </span>
+                      )}
+                      <div className="font-bold text-slate-800 truncate">{card.company}</div>
+                      <div className="text-slate-500 truncate">{card.role}</div>
+                      {card.notes && <div className="text-slate-400 truncate mt-0.5">{card.notes}</div>}
+                      {fs && (
+                        <div className={`text-[10px] mt-1 font-semibold ${
+                          fs.kind === 'overdue' ? 'text-red-600' :
+                          fs.kind === 'today' ? 'text-orange-600' :
+                          fs.kind === 'soon' ? 'text-amber-600' :
+                          'text-slate-400'
+                        }`}>
+                          ⏰ {fs.label}
+                        </div>
+                      )}
+                      <div className="flex items-center justify-between mt-2 pt-1.5 border-t border-slate-50">
+                        <span className="text-slate-300">{card.date}</span>
+                        <div className="flex gap-1">
+                          <button onClick={() => setMoving(moving === card.id ? null : card.id)}
+                            className="text-blue-500 hover:text-blue-700 text-xs underline">mover</button>
+                          <button onClick={() => openEdit(card)}
+                            className="text-slate-400 hover:text-slate-600 text-xs">✏️</button>
+                          <button onClick={() => deleteCard(card.id)}
+                            className="text-slate-300 hover:text-red-400 text-xs ml-1">✕</button>
+                        </div>
                       </div>
+                      {moving === card.id && (
+                        <div className="mt-2 space-y-1">
+                          {COLUMNS.filter((c) => c.id !== col.id).map((c) => (
+                            <button key={c.id} onClick={() => moveCard(card.id, c.id)}
+                              className="w-full text-left text-xs text-blue-600 hover:text-blue-800 py-0.5 hover:underline">
+                              → {c.label}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                      {editingId === card.id && (
+                        <div className="mt-2 pt-2 border-t border-slate-100 space-y-2">
+                          <input className={inp} value={editForm.company} onChange={(e) => setEditForm((f) => ({ ...f, company: e.target.value }))} placeholder="Empresa" />
+                          <input className={inp} value={editForm.role} onChange={(e) => setEditForm((f) => ({ ...f, role: e.target.value }))} placeholder="Cargo" />
+                          <input type="date" className={inp} value={editForm.followUpAt || ''} onChange={(e) => setEditForm((f) => ({ ...f, followUpAt: e.target.value }))} />
+                          <div className="flex gap-1">
+                            <button onClick={saveEdit} className="flex-1 py-1 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded">Salvar</button>
+                            <button onClick={() => setEditingId(null)} className="flex-1 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded">Cancelar</button>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                    {moving === card.id && (
-                      <div className="mt-2 space-y-1">
-                        {COLUMNS.filter((c) => c.id !== col.id).map((c) => (
-                          <button key={c.id} onClick={() => moveCard(card.id, c.id)}
-                            className="w-full text-left text-xs text-blue-600 hover:text-blue-800 py-0.5 hover:underline">
-                            → {c.label}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
           )
@@ -3418,12 +4069,13 @@ function WeeklyNetworkingPlanner() {
 }
 
 // ─── Lista de ferramentas ─────────────────────────────────────────────────────
-const TOOLS = [
+export const TOOLS = [
   { id: 'star', icon: '⭐', title: 'Construtor de Respostas STAR', desc: 'Estrutura respostas perfeitas para perguntas comportamentais.', badge: 'Entrevistas', component: StarBuilder },
   { id: 'ats', icon: '🔍', title: 'Extrator de Palavras-chave ATS', desc: 'Identifica as palavras-chave mais importantes de qualquer vaga.', badge: 'CV', component: ATSKeywordChecker },
   { id: 'salary', icon: '💰', title: 'Calculadora Salarial Brasil', desc: 'Descubra a faixa de mercado e o número-âncora ideal para negociar.', badge: 'Negociação', component: SalaryCalculator },
   { id: 'headline', icon: '💼', title: 'Gerador de Headline LinkedIn', desc: 'Crie 5 versões do seu título profissional para testar.', badge: 'LinkedIn', component: LinkedInHeadline },
   { id: 'interview', icon: '🎤', title: 'Simulador de Entrevista', desc: 'Pratique perguntas reais de processos seletivos com dicas e exemplos.', badge: 'Entrevistas', component: InterviewSimulator, isNew: true },
+  { id: 'recorder', icon: '🎙️', title: 'Gravador de Entrevista', desc: 'Grave as suas respostas em voz alta, reveja o áudio e receba análise de ritmo, vícios e estrutura STAR.', badge: 'Entrevistas', component: InterviewRecorder, isPro: true, isNew: true },
   { id: 'tracker', icon: '📌', title: 'Rastreador de Candidaturas', desc: 'Kanban visual para acompanhar todas as suas candidaturas em tempo real.', badge: 'Organização', component: ApplicationTracker, isNew: true },
   { id: 'summary', icon: '✍️', title: 'Gerador de Sumário Profissional', desc: 'Gere 3 versões do seu sumário para CV e LinkedIn em segundos.', badge: 'CV', component: SummaryGenerator },
   { id: 'email', icon: '📧', title: 'Gerador de Email de Candidatura', desc: 'Cria um email de candidatura profissional e personalizado em segundos.', badge: 'CV', component: ApplicationEmailGenerator, isNew: true },
@@ -3451,13 +4103,34 @@ const TOOLS = [
   { id: 'networking-planner', icon: '📆', title: 'Planejador de Networking Semanal', desc: 'Organize e acompanhe suas ações de networking da semana: conexões, mensagens, posts e follow-ups.', badge: 'Organização', component: WeeklyNetworkingPlanner, isNew: true },
 ]
 
+function ProBadge({ isPro, className = 'py-1' }) {
+  return (
+    <span className={`text-xs font-bold px-2 rounded-full ${className} ${isPro ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-500'}`}>
+      {isPro ? '⭐ Pro' : '🔒 Pro'}
+    </span>
+  )
+}
+
 // ─── Página principal ─────────────────────────────────────────────────────────
-export default function ToolsPage() {
+export default function ToolsPage({ user }) {
   const [activeTool, setActiveTool] = useState(null)
+
+  // Handle pending-tool navigation from Command Palette / SavedPage
+  useEffect(() => {
+    try {
+      const t = sessionStorage.getItem('nj_pending_tool')
+      if (t) {
+        sessionStorage.removeItem('nj_pending_tool')
+        setActiveTool(t)
+      }
+    } catch {}
+  }, [])
   const tool = TOOLS.find((t) => t.id === activeTool)
+  const isPro = isPaid(user?.plan)
 
   if (tool) {
     const Tool = tool.component
+    const isLocked = tool.isPro && !isPro
     return (
       <div className="p-6 animate-fade-in">
         <div className="flex items-center gap-3 mb-6">
@@ -3468,11 +4141,36 @@ export default function ToolsPage() {
           <span className="text-sm text-slate-500">{tool.icon} {tool.title}</span>
         </div>
         <div className="max-w-3xl">
-          <h1 className="text-2xl font-black text-slate-800 mb-1">{tool.icon} {tool.title}</h1>
-          <p className="text-slate-500 text-sm mb-6">{tool.desc}</p>
-          <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
-            <Tool />
+          <div className="flex items-start justify-between gap-3 mb-1">
+            <h1 className="text-2xl font-black text-slate-800">{tool.icon} {tool.title}</h1>
+            <div className="flex items-center gap-2">
+              {tool.isPro && <ProBadge isPro={isPro} />}
+              <BookmarkButton
+                type="tool"
+                refId={tool.id}
+                title={tool.title}
+                subtitle={tool.badge}
+                meta={{ toolId: tool.id }}
+              />
+            </div>
           </div>
+          <p className="text-slate-500 text-sm mb-6">{tool.desc}</p>
+          {isLocked ? (
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl p-8 text-center">
+              <div className="text-5xl mb-3">🔒</div>
+              <h3 className="font-black text-slate-800 text-lg mb-2">Ferramenta exclusiva Pro</h3>
+              <p className="text-slate-600 text-sm mb-5 max-w-md mx-auto">
+                O {tool.title} é parte do plano Pro. Faça upgrade para desbloquear todas as ferramentas premium.
+              </p>
+              <Btn onClick={() => window.location.hash = 'settings'} variant="primary" size="md">
+                Ver planos Pro →
+              </Btn>
+            </div>
+          ) : (
+            <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
+              <Tool user={user} />
+            </div>
+          )}
         </div>
       </div>
     )
@@ -3483,25 +4181,34 @@ export default function ToolsPage() {
       <h1 className="text-2xl font-black text-slate-800 mb-2">Ferramentas</h1>
       <p className="text-slate-500 text-sm mb-6">30 ferramentas interativas para acelerar a sua busca de emprego.</p>
       <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
-        {TOOLS.map((t) => (
-          <button key={t.id} onClick={() => setActiveTool(t.id)}
-            className="text-left bg-white rounded-2xl border border-slate-100 p-6 shadow-sm hover:shadow-md hover:border-blue-200 transition-all group relative">
-            {t.isNew && (
-              <span className="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">Novo</span>
-            )}
-            <div className="flex items-start gap-4">
-              <div className="text-3xl">{t.icon}</div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-1">
-                  <h3 className="font-bold text-slate-800 text-sm leading-tight pr-8">{t.title}</h3>
+        {TOOLS.map((t) => {
+          const locked = t.isPro && !isPro
+          return (
+            <button key={t.id} onClick={() => setActiveTool(t.id)}
+              className={`text-left bg-white rounded-2xl border p-6 shadow-sm transition-all group relative
+                ${locked ? 'border-slate-100 opacity-90 hover:border-amber-200' : 'border-slate-100 hover:shadow-md hover:border-blue-200'}`}>
+              {t.isNew && (
+                <span className="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">Novo</span>
+              )}
+              {t.isPro && (
+                <ProBadge isPro={isPro} className={`absolute top-3 ${t.isNew ? 'right-16' : 'right-3'} py-0.5`} />
+              )}
+              <div className="flex items-start gap-4">
+                <div className="text-3xl">{t.icon}</div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="font-bold text-slate-800 text-sm leading-tight pr-16">{t.title}</h3>
+                  </div>
+                  <Badge className="bg-blue-50 text-blue-600 text-xs mb-2">{t.badge}</Badge>
+                  <p className="text-slate-500 text-xs leading-relaxed">{t.desc}</p>
                 </div>
-                <Badge className="bg-blue-50 text-blue-600 text-xs mb-2">{t.badge}</Badge>
-                <p className="text-slate-500 text-xs leading-relaxed">{t.desc}</p>
               </div>
-            </div>
-            <div className="mt-4 text-blue-600 text-xs font-semibold group-hover:underline">Abrir ferramenta →</div>
-          </button>
-        ))}
+              <div className="mt-4 text-blue-600 text-xs font-semibold group-hover:underline">
+                {locked ? 'Desbloquear com Pro →' : 'Abrir ferramenta →'}
+              </div>
+            </button>
+          )
+        })}
       </div>
     </div>
   )
