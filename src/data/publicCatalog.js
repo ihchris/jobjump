@@ -8,10 +8,10 @@ export const PUBLIC_MODULES = [
     "icon": "📄",
     "isPro": false,
     "color": {
-      "bg": "bg-blue-50",
-      "border": "border-blue-200",
-      "badge": "bg-blue-100 text-blue-700",
-      "icon": "bg-blue-500"
+      "bg": "bg-slate-50",
+      "border": "border-slate-200",
+      "badge": "bg-slate-100 text-slate-700",
+      "icon": "bg-brand-navy"
     },
     "lessons": [
       {
@@ -61,10 +61,10 @@ export const PUBLIC_MODULES = [
     "icon": "✉️",
     "isPro": false,
     "color": {
-      "bg": "bg-indigo-50",
-      "border": "border-indigo-200",
-      "badge": "bg-indigo-100 text-indigo-700",
-      "icon": "bg-indigo-500"
+      "bg": "bg-slate-50",
+      "border": "border-slate-200",
+      "badge": "bg-slate-100 text-slate-700",
+      "icon": "bg-brand-navy"
     },
     "lessons": [
       {
@@ -108,10 +108,10 @@ export const PUBLIC_MODULES = [
     "icon": "💼",
     "isPro": false,
     "color": {
-      "bg": "bg-violet-50",
-      "border": "border-violet-200",
-      "badge": "bg-violet-100 text-violet-700",
-      "icon": "bg-violet-500"
+      "bg": "bg-slate-50",
+      "border": "border-slate-200",
+      "badge": "bg-slate-100 text-slate-700",
+      "icon": "bg-brand-navy"
     },
     "lessons": [
       {
@@ -155,10 +155,10 @@ export const PUBLIC_MODULES = [
     "icon": "🎯",
     "isPro": false,
     "color": {
-      "bg": "bg-orange-50",
-      "border": "border-orange-200",
-      "badge": "bg-orange-100 text-orange-700",
-      "icon": "bg-orange-500"
+      "bg": "bg-slate-50",
+      "border": "border-slate-200",
+      "badge": "bg-slate-100 text-slate-700",
+      "icon": "bg-brand-navy"
     },
     "lessons": [
       {
@@ -202,10 +202,10 @@ export const PUBLIC_MODULES = [
     "icon": "🤝",
     "isPro": false,
     "color": {
-      "bg": "bg-emerald-50",
-      "border": "border-emerald-200",
-      "badge": "bg-emerald-100 text-emerald-700",
-      "icon": "bg-emerald-500"
+      "bg": "bg-slate-50",
+      "border": "border-slate-200",
+      "badge": "bg-slate-100 text-slate-700",
+      "icon": "bg-brand-navy"
     },
     "lessons": [
       {
@@ -249,10 +249,10 @@ export const PUBLIC_MODULES = [
     "icon": "💰",
     "isPro": false,
     "color": {
-      "bg": "bg-yellow-50",
-      "border": "border-yellow-200",
-      "badge": "bg-yellow-100 text-yellow-700",
-      "icon": "bg-yellow-500"
+      "bg": "bg-slate-50",
+      "border": "border-slate-200",
+      "badge": "bg-slate-100 text-slate-700",
+      "icon": "bg-brand-navy"
     },
     "lessons": [
       {
@@ -296,10 +296,10 @@ export const PUBLIC_MODULES = [
     "icon": "🔄",
     "isPro": false,
     "color": {
-      "bg": "bg-rose-50",
-      "border": "border-rose-200",
-      "badge": "bg-rose-100 text-rose-700",
-      "icon": "bg-rose-500"
+      "bg": "bg-slate-50",
+      "border": "border-slate-200",
+      "badge": "bg-slate-100 text-slate-700",
+      "icon": "bg-brand-navy"
     },
     "lessons": [
       {
@@ -343,10 +343,10 @@ export const PUBLIC_MODULES = [
     "icon": "🌟",
     "isPro": false,
     "color": {
-      "bg": "bg-purple-50",
-      "border": "border-purple-200",
-      "badge": "bg-purple-100 text-purple-700",
-      "icon": "bg-purple-500"
+      "bg": "bg-slate-50",
+      "border": "border-slate-200",
+      "badge": "bg-slate-100 text-slate-700",
+      "icon": "bg-brand-navy"
     },
     "lessons": [
       {
@@ -390,10 +390,10 @@ export const PUBLIC_MODULES = [
     "icon": "🧠",
     "isPro": false,
     "color": {
-      "bg": "bg-teal-50",
-      "border": "border-teal-200",
-      "badge": "bg-teal-100 text-teal-700",
-      "icon": "bg-teal-500"
+      "bg": "bg-slate-50",
+      "border": "border-slate-200",
+      "badge": "bg-slate-100 text-slate-700",
+      "icon": "bg-brand-navy"
     },
     "lessons": [
       {
@@ -437,10 +437,10 @@ export const PUBLIC_MODULES = [
     "icon": "🌍",
     "isPro": false,
     "color": {
-      "bg": "bg-cyan-50",
-      "border": "border-cyan-200",
-      "badge": "bg-cyan-100 text-cyan-700",
-      "icon": "bg-cyan-500"
+      "bg": "bg-slate-50",
+      "border": "border-slate-200",
+      "badge": "bg-slate-100 text-slate-700",
+      "icon": "bg-brand-navy"
     },
     "lessons": [
       {

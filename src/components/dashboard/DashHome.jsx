@@ -70,7 +70,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
         <p className="text-xs font-bold uppercase text-brand-muted mb-2">Seu próximo passo</p>
         <h2 className="text-lg font-bold">{!hasDiagnosis ? 'Descubra por onde começar' : nextLesson ? nextLesson.title : 'Revise seu plano de carreira'}</h2>
         <p className="text-sm text-brand-muted mt-2 mb-4">{!hasDiagnosis ? 'Responda a 6 perguntas e receba um roteiro para o seu momento.' : nextLesson ? `${nextModule.title} · ${nextLesson.duration}` : 'Escolha novos objetivos para continuar aprendendo.'}</p>
-        <Btn variant="primary" onClick={() => {
+        <Btn variant="white" onClick={() => {
           if (!hasDiagnosis || !nextLesson) { setTab('diagnosis'); return }
           setSelectedModule(nextModule); setSelectedLesson(nextLesson); setTab('modules')
         }}>{!hasDiagnosis ? 'Fazer diagnóstico →' : nextLesson ? 'Continuar minha aula →' : 'Ver meu roteiro →'}</Btn>
@@ -153,7 +153,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
             <div className="flex-1">
               <div className="font-black text-base mb-0.5">Faça o Diagnóstico de Carreira</div>
               <div className="text-violet-200 text-xs mb-3">6 perguntas · Roteiro personalizado · +30 XP</div>
-              <Btn onClick={() => setTab('diagnosis')} variant="primary" size="sm">Iniciar agora →</Btn>
+              <Btn onClick={() => setTab('diagnosis')} variant="white" size="sm">Iniciar agora →</Btn>
             </div>
           </div>
         </div>
@@ -167,7 +167,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
           <div className="text-brand-muted text-sm mb-4">{nextModule.title} · {nextLesson.duration}</div>
           <Btn
             onClick={() => { setSelectedModule(nextModule); setSelectedLesson(nextLesson); setTab('modules') }}
-            variant="primary"
+            variant="white"
             size="sm"
           >
             Continuar →

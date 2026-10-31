@@ -28,10 +28,10 @@ export const ProgressBar = ({ pct, color = 'bg-brand-accent' }) => (
 )
 
 const VARIANTS = {
-  primary: 'bg-brand-action text-white hover:bg-brand-action-hover active:bg-brand-action-active focus:ring-brand-action shadow-sm',
+  primary: 'bg-brand-action text-white hover:bg-brand-action-hover active:bg-brand-action-active dark:bg-brand-paper dark:text-brand-ink dark:hover:bg-slate-200 focus:ring-slate-500 shadow-sm',
   secondary: 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 active:bg-slate-100 focus:ring-slate-300 shadow-sm',
-  white: 'bg-white text-blue-700 font-black hover:bg-blue-50 active:bg-blue-100 focus:ring-blue-300 shadow-sm',
-  navy: 'bg-brand-navy text-white hover:bg-[#152d4a] active:bg-[#0f2035] focus:ring-[#1e3a5f] shadow-sm',
+  white: 'bg-brand-paper text-brand-ink font-bold hover:bg-slate-100 active:bg-slate-200 focus:ring-slate-400 shadow-sm',
+  navy: 'bg-brand-navy text-white hover:bg-brand-action-hover active:bg-brand-deep focus:ring-slate-500 shadow-sm',
   ghost: 'text-slate-600 hover:bg-slate-100 active:bg-slate-200 focus:ring-slate-300',
   danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 shadow-sm',
   success: 'bg-emerald-600 text-white hover:bg-emerald-700 focus:ring-emerald-500 shadow-sm',
@@ -44,7 +44,7 @@ export const Btn = ({ children, onClick, variant = 'primary', size = 'md', disab
     onClick={onClick}
     type="button"
     disabled={disabled}
-    className={`inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-150
+    className={`inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-150
       focus:outline-none focus:ring-2 focus:ring-offset-2
       ${VARIANTS[variant]} ${SIZES[size]}
       ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
