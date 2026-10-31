@@ -17,8 +17,8 @@ O projeto já está na Vercel e o usuário autorizou commit, pull e push na mast
 1. Importar `ihchris/jobjump` para a conta escolhida. Usar exclusivamente `master` como branch de produção e a raiz do repositório como diretório.
 2. Selecionar Node 24. A Vercel usa `vercel.json`; conferir build `npm run build` e diretório `dist`. As dependências estão fixadas pelo `package-lock.json`.
 3. Não adicionar credenciais do Supabase, Stripe ou outros serviços. Não habilitar a aplicação conectada nesta etapa.
-4. Se já houver um domínio HTTPS real, definir a variável de build `SITE_URL` com sua origem completa, sem caminho ou parâmetros. Essa variável não é secreta. Exemplo apenas de formato: `https://seu-dominio.example`. Não publicar o exemplo como se fosse o endereço real.
-5. Realizar o deploy aprovado. Se o domínio final ainda não existir, o build omite canonical e sitemap, evitando indexar um domínio inventado. Quando o endereço definitivo estiver disponível, definir `SITE_URL` e fazer novo build.
+4. O endereço público confirmado é `https://jobjump-snowy.vercel.app`, definido em `site.config.json`. O build gera canonical, sitemap e URLs de compartilhamento para ele. A variável de build `SITE_URL`, quando definida, tem prioridade e deve conter somente a origem HTTPS do domínio principal, sem caminho ou parâmetros. Não é uma credencial.
+5. O push na master pode acionar o deploy aprovado da demonstração. Se trocar para domínio próprio, atualizar `SITE_URL` na hospedagem ou o endereço confirmado no arquivo de configuração e fazer novo build. Não configurar um endereço fictício.
 6. No painel Domains, adicionar o domínio e aplicar somente os registros DNS indicados pela hospedagem. Conferir os registros atuais antes de editar, preservando email e serviços existentes. O certificado HTTPS é gerenciado pela hospedagem; aguardar sua validação antes de divulgar o endereço.
 7. Escolher um endereço principal, redirecionar os aliases para ele e garantir que `SITE_URL` coincida com esse endereço. Não adicionar regras de redirect com um domínio ainda desconhecido.
 
@@ -30,7 +30,7 @@ A publicação requer uma conta com acesso ao repositório/hospedagem. Nenhum to
 - Testar página inicial → diagnóstico → roteiro → aula → conclusão → reload; abrir ferramentas e baixar um modelo.
 - Confirmar que não há login, cobranças, ofertas de planos pagos, depoimentos sem comprovação ou recursos não liberados na interface.
 - Conferir no navegador que só são solicitados arquivos da própria hospedagem. Testar também a impressão de modelos em nova aba com os headers reais.
-- Conferir title, description, favicon, imagem de compartilhamento e ausência de erros de assets; com `SITE_URL`, validar canonical, URLs absolutas de compartilhamento, `/robots.txt` e `/sitemap.xml`.
+- Conferir title, description, favicon, imagem de compartilhamento e ausência de erros de assets; validar canonical, URLs absolutas de compartilhamento, `/robots.txt` e `/sitemap.xml` usando o endereço confirmado ou o override `SITE_URL`.
 - Conferir HTTPS, domínio principal, redirecionamentos e headers de `vercel.json` no serviço real. A configuração local não comprova propagação de DNS, emissão de certificado ou aplicação de headers pela hospedagem.
 
 ## Rollback e manutenção
@@ -54,3 +54,7 @@ Contas, pagamentos e recursos de servidor não estão configurados ou validados.
 ## Preparação para a oferta única
 
 Veja `docs/product/ONE_TIME_OFFER.md` e `docs/product/LAUNCH_CHECKLIST.md`. A hipótese é pagamento único, sem checkout ativo. As funções legadas do Stripe usam assinatura; não representam a implementação de uma compra única. `offerDraft.js` não é importado pela aplicação pública. Testes de uso e disposição para pagar ainda não foram executados; não divulgar demanda ou resultados como validados.
+
+## Acesso para verificar o site publicado
+
+O acesso deste ambiente a `jobjump-snowy.vercel.app` exige o domínio na política de rede. Uma resposta 403 do proxy ao abrir o túnel CONNECT bloqueia o teste antes de alcançar a hospedagem; não comprova indisponibilidade ou autenticação exigida pelo site. A alteração da allowlist do ambiente não aplica headers nem publica arquivos na Vercel. Após a liberação efetiva de rede, repetir os testes no endereço público.

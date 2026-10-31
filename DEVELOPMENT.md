@@ -58,3 +58,5 @@ Veja [DEPLOYMENT.md](DEPLOYMENT.md). A publicação precisa de aprovação expl�
 O plano de validação está em `docs/product/VALIDATION_PLAN.md`, a hipótese comercial em `ONE_TIME_OFFER.md`, o caderno de treino em `WORKBOOK.md` e as pendências em `LAUNCH_CHECKLIST.md` (no mesmo diretório). Nenhuma pesquisa foi realizada, ninguém foi contatado e não há métricas de compra/retenção. O contrato `src/data/offerDraft.js` é apenas interno e não integra o build público.
 
 O fluxo autorizado é verificar, fazer commit, pull e push exclusivamente na `master` após cada conjunto de alterações. O push pode acionar a Vercel para melhorias gratuitas da demonstração. Configuração de base de dados, ativação de contas, coleta de pesquisa/analytics e cobranças continuam exigindo autorização específica.
+
+O endereço público confirmado fica em `site.config.json`. A variável `SITE_URL` tem prioridade para trocar o domínio de SEO sem alterar código. Build/testes locais verificam a geração dos metadados; disponibilidade e headers reais precisam ser conferidos no domínio publicado.

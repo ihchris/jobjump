@@ -34,5 +34,13 @@ try {
   assert.match(await readFile(path.join(temp, 'dist/index.html'), 'utf8'), /rel="canonical" href="https:\/\/jobjump\.example\/"/)
   assert.match(await readFile(path.join(temp, 'dist/sitemap.xml'), 'utf8'), /https:\/\/jobjump\.example\//)
   assert.throws(() => execFileSync(process.execPath, [script], { cwd: temp, env: { ...process.env, SITE_URL: 'http://invalid.example' }, stdio: 'pipe' }))
+  const site = JSON.parse(await readFile('site.config.json', 'utf8'))
+  const withoutOverride = { ...process.env }; delete withoutOverride.SITE_URL
+  await writeFile(path.join(temp, 'dist/index.html'), fixture)
+  execFileSync(process.execPath, [script], { cwd: temp, env: withoutOverride, stdio: 'pipe' })
+  const defaultHtml = await readFile(path.join(temp, 'dist/index.html'), 'utf8')
+  assert.ok(defaultHtml.includes(`rel="canonical" href="${site.publicOrigin}/"`), 'Confirmed production domain must be used when no override is set')
+  assert.ok(defaultHtml.includes(`content="${site.publicOrigin}/logo.png"`))
+
 } finally { await rm(temp, { recursive: true, force: true }) }
 console.log('PASS: public content completeness, exclusion of unreleased content/integrations, on-demand chunks and production SEO domain validation')

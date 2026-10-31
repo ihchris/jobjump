@@ -1,6 +1,8 @@
 import { readFile, writeFile } from 'node:fs/promises'
 
-const configuredUrl = process.env.SITE_URL
+const site = JSON.parse(await readFile(new URL('../site.config.json', import.meta.url), 'utf8'))
+// A hosting override takes precedence over the confirmed public address.
+const configuredUrl = process.env.SITE_URL || site.publicOrigin
 const robots = ['User-agent: *', 'Allow: /']
 let html = await readFile('dist/index.html', 'utf8')
 if (configuredUrl) {
