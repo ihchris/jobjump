@@ -51,7 +51,7 @@ function genCvClassico() {
   </tr>
 </table>
 
-<div class="note">💡 <strong>Dica JobJump:</strong> Substitua todos os campos ${ph('em cinza')} pelos seus dados reais. Use verbos de ação no passado (liderou, desenvolveu, implementou) e sempre inclua resultados mensuráveis. Salve como .docx após editar.</div>`
+<div class="note">💡 <strong>Dica JobJump:</strong> Substitua todos os campos ${ph('em cinza')} pelos seus dados reais. Use verbos de ação no passado (liderou, desenvolveu, implementou) e descreva resultados verdadeiros; só use números quando puder confirmá-los. Salve como .docx após editar.</div>`
   downloadAsDoc('CV_Classico_JobJump.doc', html)
 }
 
@@ -263,7 +263,7 @@ ${ph('Candidato-me à vaga de [Cargo] com entusiasmo genuíno — não como mais
 <br>
 
 <p><strong>[Parágrafo 2 — PROVA: sua realização mais relevante]</strong><br>
-${ph('Nos últimos X anos, trabalhei em [empresa/contexto] onde [descreva o resultado mais relevante para ESTA vaga — com números]. Por exemplo: "Liderei a migração do sistema de CRM, reduzindo o tempo de atendimento em 40% e aumentando a satisfação do cliente de 7,2 para 8,9 (NPS)." Use o formato: ação + contexto + resultado mensurável.')}</p>
+${ph('Nos últimos X anos, trabalhei em [empresa/contexto] onde [descreva o resultado mais relevante para ESTA vaga — com números]. Por exemplo: "Liderei a migração do sistema de CRM, reduzindo o tempo de atendimento em 40%, conforme os registros de atendimento." Use o formato: ação + contexto + resultado mensurável.')}</p>
 <br>
 
 <p><strong>[Parágrafo 3 — FIT: por que você e a empresa são perfeitos um para o outro]</strong><br>
@@ -794,13 +794,8 @@ function genRastreador() {
     'Próxima Ação', 'Data Próxima Ação', 'Contato (Nome)',
     'Contato (LinkedIn/Email)', 'Salário Estimado (R$)', 'Prioridade', 'Notas'
   ]
-  const rows = [
-    ['Nubank', 'Product Manager', 'LinkedIn', '2025-01-10', 'Triagem', 'Aguardar resposta', '2025-01-17', 'Ana Lima', 'linkedin.com/in/analima', '15000-18000', 'Alta', 'Apliquei referenciado por João Silva. Fit muito bom com produto financeiro.'],
-    ['iFood', 'Data Analyst Sênior', 'Site da empresa', '2025-01-08', 'Entrevista Agendada', 'Preparar case de análise', '2025-01-14', 'Carlos Mendes (Recrutador)', 'cmendes@ifood.com.br', '12000-15000', 'Alta', 'Entrevista técnica com case de SQL agendada para 14/01 às 14h.'],
-    ['Itaú BBA', 'Analista de Estratégia', 'Glassdoor', '2025-01-05', 'Candidatura Enviada', 'Follow-up por email', '2025-01-12', '', '', '10000-13000', 'Média', 'Sem resposta ainda. Verificar se é ATS ou RH.'],
-    ['Startup X', 'Head de Marketing', 'Indicação', '2025-01-03', 'Proposta Recebida', 'Avaliar e negociar', '2025-01-11', 'Pedro Rocha (CEO)', 'pedro@startupx.com', '14000', 'Alta', 'Oferta de R$14k + equity. Negociar para R$15.5k + benefícios.'],
-    ['[Nome da Empresa]', '[Cargo]', '[LinkedIn/Indeed/Indicação/Site]', '[AAAA-MM-DD]', '[Em análise/Triagem/Entrevista/Proposta/Recusado]', '[Ação necessária]', '[AAAA-MM-DD]', '[Nome do Contato]', '[Email ou LinkedIn]', '[Faixa]', '[Alta/Média/Baixa]', '[Suas notas]'],
-  ]
+  // Blank worksheet: no invented candidates, contacts or real-company applications.
+  const rows = [headers.map(() => '')]
   downloadAsCsv('Rastreador_Candidaturas_JobJump.csv', headers, rows)
 }
 

@@ -31,6 +31,25 @@ try {
   const documentDownload = page.waitForEvent('download')
   await page.getByRole('button', { name: /Download/ }).first().click()
   assert.match((await documentDownload).suggestedFilename(), /\.(doc|csv)$/)
+  // Validate the real formats of every remaining document and the blank CSV.
+  const downloads = await page.getByRole('button', { name: /Download/ }).all()
+  for (const button of downloads.slice(1)) {
+    const event = page.waitForEvent('download'); await button.click(); const file = await event
+    const stream = await file.createReadStream(), chunks = []
+    for await (const chunk of stream) chunks.push(chunk)
+    const text = Buffer.concat(chunks).toString('utf8')
+    if (file.suggestedFilename().endsWith('.csv')) {
+      assert.equal(text.split('\r\n').length, 2, 'CSV must have real CRLF records')
+      assert.match(text, /"Empresa","Cargo"/)
+      assert.equal(/Nubank|iFood|@/.test(text), false, 'No fabricated applications or contacts')
+      assert.equal(text.split('\r\n')[1].split(',').length, 12)
+    } else {
+      assert.match(file.suggestedFilename(), /\.doc$/)
+      assert.match(text, /<html/)
+      assert.match(text, /Modelo de treino/)
+    }
+  }
+
   const pdf = page.getByRole('button', { name: /Abrir para salvar PDF/ }).first()
   assert.ok(await pdf.count(), 'At least one printable PDF template must exist')
   {
@@ -49,11 +68,11 @@ try {
   await page.screenshot({ path: '/tmp/jobjump-production-templates.png' })
   await page.getByRole('button', { name: 'Abrir menu' }).click()
   await page.getByRole('navigation', { name: 'Recursos da demonstração' }).getByRole('button', { name: 'Configurações', exact: true }).click()
-  await page.evaluate(() => { localStorage.setItem('another_app_example', 'keep'); localStorage.setItem('nj_networking_week_tasks', JSON.stringify(['example task'])); localStorage.setItem('nj_progress', JSON.stringify({ '1-1': true })) })
+  await page.evaluate(() => { localStorage.setItem('another_app_example', 'keep'); localStorage.setItem('nj_networking_week_tasks', JSON.stringify(['example task'])); localStorage.setItem('nj_practice_tasks', JSON.stringify({ 1: { completedAt: 'example' } })); localStorage.setItem('nj_progress', JSON.stringify({ '1-1': true })) })
   await page.getByRole('button', { name: 'Apagar dados da demonstração' }).click()
   await page.getByRole('button', { name: 'Confirmar exclusão' }).click()
   await page.getByRole('heading', { level: 1 }).filter({ hasText: 'Seu próximo passo' }).waitFor()
-  assert.deepEqual(await page.evaluate(() => [localStorage.getItem('nj_progress'), localStorage.getItem('nj_networking_week_tasks'), localStorage.getItem('another_app_example')]), [null, null, 'keep'])
+  assert.deepEqual(await page.evaluate(() => [localStorage.getItem('nj_progress'), localStorage.getItem('nj_networking_week_tasks'), localStorage.getItem('nj_practice_tasks'), localStorage.getItem('another_app_example')]), [null, null, null, 'keep'])
 
   const blocked = await browser.newPage({ viewport: { width: 390, height: 844 } })
   blocked.on('pageerror', error => errors.push(error.message))
@@ -70,8 +89,8 @@ try {
   await blocked.getByRole('heading', { name: 'Seu Roteiro Personalizado' }).waitFor()
   await blocked.getByRole('button', { name: 'Começar primeira aula' }).click()
   await blocked.locator('main .prose p').first().waitFor()
-  await blocked.getByRole('button', { name: 'Marcar como concluída' }).click()
-  await blocked.getByRole('button', { name: '✓ Concluída' }).waitFor()
+  await blocked.getByRole('button', { name: 'Concluir leitura', exact: true }).click()
+  await blocked.getByRole('button', { name: '✓ Leitura concluída', exact: true }).waitFor()
   await blocked.close()
 
   assert.deepEqual(external, [])

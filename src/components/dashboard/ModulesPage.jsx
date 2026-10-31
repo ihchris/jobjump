@@ -1,3 +1,5 @@
+import { buildRoadmap } from '../../lib/roadmap'
+import PracticeTask from './PracticeTask'
 import { useState, useEffect } from 'react'
 import { Btn, Badge, ProgressBar } from '../ui'
 import { renderMarkdown } from '../../utils/markdown'
@@ -187,14 +189,14 @@ function ModuleQuiz({ questions, mod, onDone, progress, onXP }) {
         setScore(finalScore)
         setFinished(true)
         const earned = saveQuizScore(mod.id, finalScore)
-        if (finalScore >= 3) onXP(finalScore === 5 ? 50 : 25, finalScore === 5 ? 'Quiz perfeito!' : 'Quiz aprovado!')
+        if (earned > 0) onXP(earned, finalScore === 5 ? 'Quiz perfeito!' : 'Quiz aprovado!')
       }
     }, 900)
   }
 
   if (finished) {
     const stars = score >= 5 ? '⭐⭐⭐' : score >= 3 ? '⭐⭐' : '⭐'
-    const msg   = score === 5 ? 'Perfeito! Você domina este conteúdo.' : score >= 3 ? 'Muito bem! Conteúdo absorvido.' : 'Continue estudando — você consegue melhorar.'
+    const msg   = score === 5 ? 'Você acertou todas as questões deste quiz.' : score >= 3 ? 'Continue revisando e aplicando o que estudou.' : 'Continue estudando — você consegue melhorar.'
     return (
       <div className="text-center py-6 space-y-4 animate-fade-in">
         <div className="text-4xl">{stars}</div>
@@ -242,13 +244,14 @@ function ModuleQuiz({ questions, mod, onDone, progress, onXP }) {
 }
 
 // ─── Vista da lição ────────────────────────────────────────────────────────
-function LessonView({ mod, lesson, user, progress, onMarkDone, onBack, onNext, modules }) {
+function LessonView({ mod, lesson, user, progress, onMarkDone, onBack, onNext, modules, onOpenTool, onOpenTemplates, onRetry }) {
   const done = progress[lesson.id]
   const [toast, setToast] = useState(null)
   const [badgeToast, setBadgeToast] = useState(null)
 
   const handleMarkDone = (id) => {
     const wasAlreadyDone = progress[id]
+    if (wasAlreadyDone) return
     onMarkDone(id)
     if (!wasAlreadyDone) {
       addXP(XP_LESSON)
@@ -288,7 +291,7 @@ function LessonView({ mod, lesson, user, progress, onMarkDone, onBack, onNext, m
       </div>
 
       <div className="max-w-3xl">
-        <div className="flex items-start justify-between gap-4 mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
           <div className="flex-1 min-w-0">
             <h1 className="text-2xl font-black text-slate-800">{lesson.title}</h1>
             <span className="text-slate-400 text-sm">⏱ {lesson.duration}</span>
@@ -301,8 +304,8 @@ function LessonView({ mod, lesson, user, progress, onMarkDone, onBack, onNext, m
               subtitle={mod.title}
               meta={{ moduleId: mod.id, lessonId: lesson.id, duration: lesson.duration }}
             />
-            <Btn onClick={() => handleMarkDone(lesson.id)} variant={done ? 'success' : 'secondary'} size="sm">
-              {done ? '✓ Concluída' : 'Marcar como concluída'}
+            <Btn disabled={Boolean(done) || lesson.content == null || lesson.content === ''} onClick={() => handleMarkDone(lesson.id)} variant={done ? 'success' : 'secondary'} size="sm">
+              {done ? '✓ Leitura concluída' : 'Concluir leitura'}
             </Btn>
           </div>
         </div>
@@ -320,28 +323,30 @@ function LessonView({ mod, lesson, user, progress, onMarkDone, onBack, onNext, m
             ? (
               <div className="text-center py-10 text-slate-400">
                 <div className="text-3xl mb-2">🔒</div>
-                <p className="text-sm">Conteúdo disponível apenas para utilizadores Pro.</p>
+                <p role="alert" className="text-sm text-slate-700">Não foi possível carregar esta aula. Seu progresso foi mantido.</p>
+                <Btn onClick={onRetry} variant="secondary" className="mt-4">Tentar carregar novamente</Btn>
               </div>
             )
             : <div className="prose max-w-none" dangerouslySetInnerHTML={renderMarkdown(lesson.content)} />
           }
         </div>
 
+        {lesson.content && <PracticeTask key={mod.id} moduleId={mod.id} onOpenTool={onOpenTool} onOpenTemplates={onOpenTemplates} />}
         <LessonNotes lessonId={lesson.id} />
 
-        <div className="mt-6 flex justify-between items-center">
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
           <button onClick={onBack} className="text-slate-500 hover:text-slate-700 text-sm flex items-center gap-1">
             ← Voltar ao módulo
           </button>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {!done && (
-              <Btn onClick={() => handleMarkDone(lesson.id)} variant="secondary" size="sm">
-                Marcar concluída
+              <Btn disabled={Boolean(done) || lesson.content == null || lesson.content === ''} onClick={() => handleMarkDone(lesson.id)} variant="secondary" size="sm">
+                Registrar leitura
               </Btn>
             )}
             {onNext && (
               <Btn onClick={() => { if (!done) handleMarkDone(lesson.id); onNext() }} variant="primary" size="sm">
-                Próxima lição →
+                {done ? 'Próxima lição →' : 'Concluir leitura e seguir →'}
               </Btn>
             )}
           </div>
@@ -401,10 +406,10 @@ function ModuleView({ mod, user, progress, onOpenLesson, onBack, onOpenQuiz }) {
           const done         = progress[l.id]
           const lessonLocked = isLessonLocked(mod, l, user)
           return (
-            <div
+            <button type="button" disabled={lessonLocked}
               key={l.id}
               onClick={() => !lessonLocked && onOpenLesson(l)}
-              className={`bg-white rounded-xl p-4 border border-slate-100 flex items-center gap-4 transition-all
+              className={`w-full text-left bg-white rounded-xl p-4 border border-slate-100 flex items-center gap-4 transition-all
                 ${lessonLocked ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:shadow-md hover:border-blue-200'}`}
             >
               <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0
@@ -422,7 +427,7 @@ function ModuleView({ mod, user, progress, onOpenLesson, onBack, onOpenQuiz }) {
               </div>
               {!lessonLocked && <span className="text-slate-300 text-sm">{done ? '✅' : '→'}</span>}
               {lessonLocked && <span className="text-slate-300">🔒</span>}
-            </div>
+            </button>
           )
         })}
       </div>
@@ -487,9 +492,9 @@ function ModuleCard({ m, user, progress, onOpenModule, rank }) {
   const pct        = lessons.length ? Math.round((mCompleted / lessons.length) * 100) : 0
   const hasQuiz    = m.hasQuiz ?? false
   return (
-    <div
+    <button type="button"
       onClick={() => onOpenModule(m)}
-      className="bg-white rounded-2xl border border-slate-100 p-5 flex gap-5 items-start transition-all cursor-pointer hover:shadow-md hover:border-blue-200"
+      className="w-full text-left bg-white rounded-2xl border border-slate-100 p-5 flex gap-5 items-start transition-all cursor-pointer hover:shadow-md hover:border-blue-200"
     >
       {rank !== undefined && (
         <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-black flex-shrink-0 mt-1">
@@ -523,7 +528,7 @@ function ModuleCard({ m, user, progress, onOpenModule, rank }) {
           <span>{pct}%</span>
         </div>
       </div>
-    </div>
+    </button>
   )
 }
 
@@ -550,7 +555,8 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade, 
   const [trilhaOpen, setTrilhaOpen] = useState(false)
 
   const diagnosis = getDiagnosis()
-  const diagIds   = new Set(diagnosis?.roadmap || [])
+  const recommendedIds = diagnosis ? buildRoadmap(diagnosis.answers, modules) : []
+  const diagIds   = new Set(recommendedIds)
   const trilhaIds = activeTrilha ? new Set(TRILHAS.find((t) => t.id === activeTrilha)?.ids || []) : null
   const isTrilhasMode = trilhaOpen || !!activeTrilha
 
@@ -580,7 +586,7 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade, 
   const sorted = activeTrilha
     ? TRILHAS.find((t) => t.id === activeTrilha)?.ids.map((id) => filtered.find((m) => m.id === id)).filter(Boolean) || filtered
     : catFilter === 'recommended'
-      ? (diagnosis?.roadmap || []).map((id) => filtered.find((m) => m.id === id)).filter(Boolean)
+      ? recommendedIds.map((id) => filtered.find((m) => m.id === id)).filter(Boolean)
       : filtered
 
   // free users browsing the unfiltered list get free modules first, with only a
@@ -705,7 +711,7 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade, 
               <div className="text-2xl mb-2">{t.icon}</div>
               <div className={`font-bold text-xs mb-1 leading-tight ${activeTrilha === t.id ? 'text-white' : 'text-slate-800'}`}>{t.label}</div>
               <div className={`text-[11px] leading-snug ${activeTrilha === t.id ? 'text-indigo-200' : 'text-slate-400'}`}>{t.desc}</div>
-              <div className={`text-[10px] font-semibold mt-2 ${activeTrilha === t.id ? 'text-indigo-300' : 'text-slate-400'}`}>{t.ids.length} módulos</div>
+              <div className={`text-[10px] font-semibold mt-2 ${activeTrilha === t.id ? 'text-indigo-300' : 'text-slate-400'}`}>{t.ids.filter(id => modules.some(mod => mod.id === id)).length} módulos</div>
             </button>
           ))}
         </div>
@@ -713,7 +719,7 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade, 
 
       {/* ── Status + count ── */}
       <div className="flex items-center gap-1.5 my-4 flex-wrap">
-        {[['free','Grátis'],['pro','Pro'],['inprogress','Em progresso'],['done','Concluídos']].map(([id, label]) => (
+        {[['inprogress','Em progresso'],['done','Leituras concluídas']].map(([id, label]) => (
           <button
             key={id}
             onClick={() => setStatus(statusFilter === id ? 'all' : id)}
@@ -783,7 +789,7 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade, 
 }
 
 // ─── Componente principal ──────────────────────────────────────────────────
-export default function ModulesPage({ user, progress, setProgress, selectedModule: initModule, selectedLesson: initLesson, setSelectedModule, setSelectedLesson, onGoToDiagnosis, onUpgrade }) {
+export default function ModulesPage({ user, progress, setProgress, selectedModule: initModule, selectedLesson: initLesson, setSelectedModule, setSelectedLesson, onGoToDiagnosis, onUpgrade, onOpenTool, onOpenTemplates }) {
   const [modules, setModules]         = useState([])
   const [modulesLoading, setModLoad]  = useState(true)
   const [view, setView]               = useState(initModule ? (initLesson ? 'lesson' : 'module') : 'list')
@@ -850,9 +856,10 @@ export default function ModulesPage({ user, progress, setProgress, selectedModul
     setLesson({ ...l, content: null })
     setView('lesson')
     setSelectedLesson(l)
-    const content = await getLessonContent(l.id, mod?.id)
-    // content is null if RLS blocked it (free user, pro lesson) → show locked state
-    setLesson({ ...l, content: content ?? '' })
+    try {
+      const content = await getLessonContent(l.id, mod?.id)
+      setLesson({ ...l, content: content ?? '' })
+    } catch { setLesson({ ...l, content: '' }) }
   }
 
   const openQuiz = async () => {
@@ -917,6 +924,9 @@ export default function ModulesPage({ user, progress, setProgress, selectedModul
         onBack={backToMod}
         onNext={getNextLesson() ? goNext : null}
         modules={modules}
+        onOpenTool={onOpenTool}
+        onOpenTemplates={onOpenTemplates}
+        onRetry={() => openLesson(lesson)}
       />
     )
   }

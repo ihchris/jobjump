@@ -13,7 +13,7 @@ npm run dev -- --host 0.0.0.0 --port 5173 --strictPort
 
 Não é necessário criar `.env`, configurar Supabase ou informar credenciais. A presença de variáveis antigas do Supabase não ativa o backend: `src/lib/release.js` mantém `PUBLIC_DEMO` ligado. O aplicativo público não importa a aplicação conectada.
 
-O percurso principal é: página inicial → demonstração → diagnóstico de seis perguntas → roteiro → primeira aula. Também é possível navegar para ferramentas, modelos, plano semanal, diário e favoritos. A saída da demonstração não apaga o progresso. Configurações oferece exportação e exclusão confirmada dos registros locais. Sem acesso ao armazenamento, o helper mantém os dados em memória durante a sessão.
+O percurso principal é: página inicial → demonstração → diagnóstico de seis perguntas → três prioridades explicadas → aula → tarefa prática autoavaliada. A leitura e a aplicação têm registros separados; concluir uma leitura não conclui a tarefa. O Início retoma a próxima tarefa pendente. Também é possível navegar para ferramentas, modelos, plano semanal, diário e favoritos. A saída da demonstração não apaga o progresso. Configurações oferece exportação e exclusão confirmada dos registros locais. Sem acesso ao armazenamento, o helper mantém os dados em memória durante a sessão.
 
 ## Validação
 
@@ -21,6 +21,8 @@ Com o servidor de desenvolvimento iniciado:
 
 ```sh
 CHROMIUM_PATH=/usr/bin/chromium npm run test:smoke
+CHROMIUM_PATH=/usr/bin/chromium npm run test:journey
+npm run test:product
 CHROMIUM_PATH=/usr/bin/chromium npm run test:auth
 npm run build
 npm run test:release
@@ -48,3 +50,11 @@ Não use a demonstração como mecanismo de proteção de conteúdo pago. Tudo q
 ## Publicação e etapa comercial
 
 Veja [DEPLOYMENT.md](DEPLOYMENT.md). A publicação precisa de aprovação explícita do responsável. A preparação e os testes locais não publicam o site.
+
+## Preparação para validar valor
+
+`test:product` cobre 25 combinações de dificuldade/objetivo e a consistência de tarefas, ferramentas, modelos e contrato inativo de oferta única. `test:journey` cobre o percurso prático em computador e celular: critérios bloqueiam conclusão antecipada, exportação não afirma verificação profissional, modelo correto recebe foco, próxima tarefa avança e a autoavaliação persiste/pode ser revista.
+
+O plano de validação está em `docs/product/VALIDATION_PLAN.md`, a hipótese comercial em `ONE_TIME_OFFER.md`, o caderno de treino em `WORKBOOK.md` e as pendências em `LAUNCH_CHECKLIST.md` (no mesmo diretório). Nenhuma pesquisa foi realizada, ninguém foi contatado e não há métricas de compra/retenção. O contrato `src/data/offerDraft.js` é apenas interno e não integra o build público.
+
+O fluxo autorizado é verificar, fazer commit, pull e push exclusivamente na `master` após cada conjunto de alterações. O push pode acionar a Vercel para melhorias gratuitas da demonstração. Configuração de base de dados, ativação de contas, coleta de pesquisa/analytics e cobranças continuam exigindo autorização específica.

@@ -127,31 +127,23 @@ export const touchStreak = () => {
 // ─── Quizzes ──────────────────────────────────────────────────────────────────
 export const getQuizScores   = ()              => LS.get(KEY_QUIZ_SCORES, {})
 export const getPerfectCount = ()              => LS.get(KEY_PERFECT, 0)
-export const saveQuizScore   = (modId, score) => {
+export const saveQuizScore = (modId, score) => {
   const scores = getQuizScores()
-  const prev   = scores[modId] ?? -1
-  if (score > prev) {
-    LS.set(KEY_QUIZ_SCORES, { ...scores, [modId]: score })
-  }
-  if (score === 5) {
-    const p = getPerfectCount() + 1
-    LS.set(KEY_PERFECT, p)
-  }
-  const xp = score === 5 ? XP_QUIZ_PERF : score >= 3 ? XP_QUIZ_PASS : 0
-  if (xp > 0) {
-    addXP(xp)
-    const label = score === 5 ? 'Quiz perfeito! 💯' : 'Quiz concluído!'
-    addNotification('xp', label, `+${xp} XP · ${score}/5 respostas corretas`)
-  }
-  return score
+  const previous = scores[modId] ?? -1
+  const reward = value => value === 5 ? XP_QUIZ_PERF : value >= 3 ? XP_QUIZ_PASS : 0
+  if (score > previous) LS.set(KEY_QUIZ_SCORES, { ...scores, [modId]: score })
+  if (score === 5 && previous < 5) LS.set(KEY_PERFECT, getPerfectCount() + 1)
+  const xp = Math.max(0, reward(score) - reward(previous))
+  if (xp > 0) { addXP(xp); addNotification('xp', 'Quiz concluído!', `+${xp} XP · ${score}/5 respostas corretas`) }
+  return xp
 }
 
 // ─── Diagnóstico ─────────────────────────────────────────────────────────────
 export const getDiagnosis = ()    => LS.get(KEY_DIAGNOSIS, null)
 export const saveDiagnosis = (d)  => {
+  const first = !getDiagnosis()
   LS.set(KEY_DIAGNOSIS, d)
-  addXP(XP_DIAGNOSIS)
-  addNotification('xp', 'Diagnóstico concluído! 🗺️', `+${XP_DIAGNOSIS} XP · Roteiro personalizado criado`)
+  if (first) { addXP(XP_DIAGNOSIS); addNotification('xp', 'Diagnóstico concluído! 🗺️', `+${XP_DIAGNOSIS} XP · Roteiro personalizado criado`) }
 }
 
 // ─── Estado global para checar badges ────────────────────────────────────────

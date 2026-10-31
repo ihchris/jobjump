@@ -10,7 +10,9 @@
     "test:smoke": "node tests/smoke.mjs",
     "test:auth": "node tests/auth.mjs",
     "test:release": "node tests/release.mjs",
-    "test:production": "node tests/production.mjs"
+    "test:production": "node tests/production.mjs",
+    "test:product": "node tests/product.mjs",
+    "test:journey": "node tests/journey.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

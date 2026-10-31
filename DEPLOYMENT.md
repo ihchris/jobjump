@@ -10,7 +10,7 @@ O bundle e os headers foram testados em servidor estático local. Nenhuma public
 
 ## Antes de publicar: decisão e aprovação
 
-Revisar a demonstração e aprovar sua publicação. Definir a conta/projeto de hospedagem e, se disponível, o domínio. Não iniciar o import/deploy na hospedagem antes dessa aprovação: o import de um repositório Git pode publicar automaticamente.
+O projeto já está na Vercel e o usuário autorizou commit, pull e push na master após melhorias da demonstração. Definir ou confirmar o projeto e domínio existentes antes de alterar configurações da hospedagem. Ações que ativem contas, coleta de dados ou cobranças continuam dependendo de aprovação específica. Não criar outro projeto de hospedagem para substituir o existente sem necessidade. O push pode publicar automaticamente a demonstração pelo vínculo Git já existente.
 
 ## Publicar na Vercel, após aprovação
 
@@ -50,3 +50,7 @@ Fazer `npm ci`, build e testes antes de novas publicações. Atualizações de d
 7. **Operação e conversão:** definir monitoramento de erros, suporte e métricas mínimas de visita → diagnóstico → cadastro → compra quando esses eventos realmente existirem, com transparência e consentimento quando exigido. Não há trackers ativos nesta versão.
 
 Contas, pagamentos e recursos de servidor não estão configurados ou validados. Nenhum prazo de contratação, garantia comercial ou resultado profissional é prometido nesta demonstração.
+
+## Preparação para a oferta única
+
+Veja `docs/product/ONE_TIME_OFFER.md` e `docs/product/LAUNCH_CHECKLIST.md`. A hipótese é pagamento único, sem checkout ativo. As funções legadas do Stripe usam assinatura; não representam a implementação de uma compra única. `offerDraft.js` não é importado pela aplicação pública. Testes de uso e disposição para pagar ainda não foram executados; não divulgar demanda ou resultados como validados.

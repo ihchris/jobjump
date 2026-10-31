@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Btn, Badge } from '../ui'
 import { TEMPLATES } from '../../data/templates'
 import { TEMPLATE_GENERATORS } from '../../utils/templateGenerators'
@@ -7,20 +7,25 @@ import BookmarkButton from './BookmarkButton'
 import { bookmarkTemplate } from '../../utils/bookmarks'
 
 const FORMAT_COLORS = {
-  DOCX: 'bg-blue-50 text-blue-600',
+  DOC: 'bg-blue-50 text-blue-600',
   PDF: 'bg-red-50 text-red-600',
   CSV: 'bg-green-50 text-green-700',
 }
 
 const FORMAT_LABELS = {
-  DOCX: '📝 Word',
+  DOC: '📝 Word compatível (.doc)',
   PDF: '📄 PDF',
-  CSV: '📊 Planilha',
+  CSV: '📊 Planilha (.csv)',
 }
 
-export default function TemplatesPage({ user }) {
+export default function TemplatesPage({ user, targetTemplate }) {
   const [downloading, setDownloading] = useState(null)
   const [toast, setToast] = useState('')
+  useEffect(() => {
+    if (!targetTemplate?.id) return
+    const frame = requestAnimationFrame(() => { const card = document.getElementById(`template-${targetTemplate.id}`); card?.scrollIntoView({ block: 'center' }); card?.focus({ preventScroll: true }) })
+    return () => cancelAnimationFrame(frame)
+  }, [targetTemplate])
 
   const showToast = (msg, isError = false) => {
     setToast({ msg, isError })
@@ -97,10 +102,12 @@ export default function TemplatesPage({ user }) {
               return (
                 <div
                   key={t.id}
+                  id={`template-${t.id}`} role="article" aria-label={t.title} tabIndex={-1}
                   className={`relative bg-white rounded-2xl border p-5 shadow-sm transition-all duration-200 ${
                     locked ? 'border-slate-100 opacity-80' : 'border-slate-100 hover:shadow-md hover:border-blue-100'
-                  }`}
+                  } ${targetTemplate?.id === t.id ? 'ring-2 ring-slate-400' : ''}`}
                 >
+                  {targetTemplate?.id === t.id && <p role="status" className="text-xs font-semibold text-slate-700 mb-3">Modelo de apoio selecionado para sua tarefa</p>}
                   <div className="flex items-start justify-between mb-3">
                     <span className="text-3xl">{t.icon}</span>
                     <div className="flex gap-1.5 flex-wrap justify-end items-start">
@@ -157,9 +164,9 @@ export default function TemplatesPage({ user }) {
       <div className="mt-2 p-4 bg-blue-50 border border-blue-100 rounded-xl text-sm text-blue-700">
         <strong>ℹ️ Sobre os formatos:</strong>
         <ul className="mt-1.5 space-y-1 list-disc list-inside">
-          <li><strong>Word (.doc)</strong> — abre no Word, LibreOffice ou Google Docs. Edite e salve como .docx.</li>
+          <li><strong>Word compatível (.doc)</strong> — documento estruturado em HTML para editores compatíveis, não um DOCX nativo. Confira a abertura e a formatação no seu editor antes de usar. Se a vaga pedir .docx, use Salvar como; não basta renomear a extensão.</li>
           <li><strong>PDF</strong> — abre nova aba. Clique em "Salvar como PDF" no menu de impressão do navegador.</li>
-          <li><strong>Planilha (.csv)</strong> — abre no Excel, LibreOffice Calc ou Google Sheets.</li>
+          <li><strong>Planilha (.csv)</strong> — abre no Excel, LibreOffice Calc ou Google Sheets. Se aparecer em uma só coluna, importe como UTF-8 com separador vírgula.</li>
         </ul>
       </div>
     </div>

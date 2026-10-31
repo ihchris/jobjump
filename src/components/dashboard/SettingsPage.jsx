@@ -3,7 +3,7 @@ import { Btn, Modal } from '../ui'
 import { storageAvailable } from '../../utils/storage'
 
 // Only demonstration data; never export legacy credentials or authentication tokens.
-const demoKey = key => /^(nj_(progress|bookmarks|journal|notifications|streak|streak_best|streak_date|star_library|checklist|tracker|networking_week|networking_week_meta|networking_week_tasks|tracker_followup_dismissed|journal_free_truncated|cv_analyses|theme|onboarded)$|nj_gam_|nj_goals_|nj_day_|nj_weekly_prep_|nj_notes_)/.test(key)
+const demoKey = key => /^(nj_(progress|practice_tasks|bookmarks|journal|notifications|streak|streak_best|streak_date|star_library|checklist|tracker|networking_week|networking_week_meta|networking_week_tasks|tracker_followup_dismissed|journal_free_truncated|cv_analyses|theme|onboarded)$|nj_gam_|nj_goals_|nj_day_|nj_weekly_prep_|nj_notes_)/.test(key)
 export default function SettingsPage({ onTerms, onPrivacy }) {
   const [theme, setTheme] = useState(() => { try { return localStorage.getItem('nj_theme') || 'system' } catch { return 'system' } })
   const [clear, setClear] = useState(false)

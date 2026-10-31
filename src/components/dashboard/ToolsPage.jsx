@@ -2465,7 +2465,7 @@ function CVBulletGenerator() {
             </div>
           ))}
           <p className="text-xs text-blue-600 font-medium bg-blue-50 px-3 py-2 rounded-lg">
-            💡 A versão 1 (que inicia com o resultado) tende a ser a mais impactante. CVs que quantificam conquistas têm 40% mais chamadas para entrevistas.
+            💡 A versão 1 (que inicia com o resultado) é uma opção para destacar um resultado verdadeiro. Use números apenas quando forem verdadeiros e verificáveis. Uma redação mais clara não garante entrevistas.
           </p>
         </div>
       )}

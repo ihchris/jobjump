@@ -1,103 +1,11 @@
+import { buildRoadmap, roadmapReason } from '../../lib/roadmap'
+import { PRACTICE_TASKS } from '../../data/practiceTasks'
+import { getPractice } from '../../utils/practice'
 import { useState, useEffect } from 'react'
 import { Btn } from '../ui'
 import { getModules } from '../../lib/content'
 import { saveDiagnosis, getDiagnosis, XP_DIAGNOSIS } from '../../utils/gamification'
 import { hasContentAccess } from '../../utils/plans'
-
-// ─── Área de interesse → módulos de carreira relevantes ──────────────────────
-const AREA_MODULE_MAP = {
-  tech:        [26, 17, 36, 33, 48, 59, 68, 66],
-  product_ux:  [67, 33],
-  data_ai:     [36, 59, 69, 103],
-  marketing:   [8, 22, 11, 44, 85],
-  sales:       [5, 6, 35, 42],
-  hr:          [5, 13, 20, 51, 63],
-  finance:     [25, 39, 6, 47, 101, 86],
-  management:  [13, 35, 40, 91, 70],
-  consulting:  [23, 70, 35],
-  law:         [72],
-  engineering: [80, 84, 94],
-  agro:        [81],
-  health:      [92, 97],
-  education:   [82],
-  logistics:   [58, 55],
-  security:    [61, 68],
-  investment:  [87, 47],
-  creative:    [89, 90],
-  media:       [93, 85],
-  hospitality: [83],
-  fashion:     [99, 55],
-  public:      [76],
-  startup:     [77, 98, 53],
-  purpose:     [57],
-}
-
-// ─── Mapa de prioridades por perfil ──────────────────────────────────────────
-function buildRoadmap(answers, modules) {
-  const { status, area, experience, goal, urgency, challenge } = answers
-
-  const score = {}
-  const add = (ids, pts) => ids.forEach((id) => { score[id] = (score[id] || 0) + pts })
-
-  // sempre útil
-  add([1, 2, 3], 10)
-
-  // por status
-  if (status === 'unemployed')  add([9, 19, 14, 78], 20)
-  if (status === 'employed')    add([18, 5, 6, 71], 15)
-  if (status === 'freelancer')  add([12, 6, 8, 60], 15)
-  if (status === 'student')     add([20, 14, 30, 49], 15)
-
-  // por objetivo
-  if (goal === 'first_job')     add([1, 2, 3, 20, 14, 49], 20)
-  if (goal === 'new_company')   add([4, 5, 6, 9, 65], 20)
-  if (goal === 'career_change') add([7, 8, 22, 30, 71], 20)
-  if (goal === 'abroad')        add([10, 15, 21, 32, 54, 64], 25)
-  if (goal === 'promotion')     add([18, 13, 35, 91, 46], 20)
-
-  // por área — cobre as principais trilhas de carreira do catálogo
-  if (AREA_MODULE_MAP[area]) add(AREA_MODULE_MAP[area], 15)
-
-  // por experiência
-  if (experience === 'none')    add([20, 14, 30, 22, 79], 15)
-  if (experience === '1-3')     add([4, 5, 9], 10)
-  if (experience === '3-7')     add([6, 7, 8], 10)
-  if (experience === '7plus')   add([29, 6, 13, 40, 75], 15)
-
-  // por urgência
-  if (urgency === 'urgent')     add([28, 9, 4, 78], 20)
-  if (urgency === 'medium')     add([5, 8, 6], 10)
-
-  // por desafio
-  if (challenge === 'cv')       add([1, 2, 11, 78, 96], 20)
-  if (challenge === 'interview') add([4, 16, 15, 35], 20)
-  if (challenge === 'network')  add([5, 37, 3, 74, 65], 20)
-  if (challenge === 'salary')   add([6, 25, 39, 62, 53], 20)
-  if (challenge === 'motivation') add([14, 34, 30, 9, 52], 20)
-
-  // ordenar por score, filtrar módulos existentes
-  const validIds = new Set(modules.map((m) => m.id))
-  const proIds   = new Set(modules.filter((m) => m.isPro).map((m) => m.id))
-  const ranked = Object.entries(score)
-    .map(([id, pts]) => [Number(id), pts])
-    .filter(([id]) => validIds.has(id))
-    .sort((a, b) => b[1] - a[1] || a[0] - b[0])
-
-  // um roteiro 100% Pro logo após o diagnóstico não motiva ninguém a continuar —
-  // garante uma base de módulos grátis (que o usuário já pode começar agora) e
-  // usa os módulos Pro mais relevantes como destaque, não como parede
-  const TOTAL    = 16
-  const MIN_FREE = 7
-  const guaranteedFree = ranked.filter(([id]) => !proIds.has(id)).slice(0, MIN_FREE)
-  const guaranteedSet  = new Set(guaranteedFree.map(([id]) => id))
-  const fillCount = Math.max(0, TOTAL - guaranteedFree.length)
-  const filled    = ranked.filter(([id]) => !guaranteedSet.has(id)).slice(0, fillCount)
-
-  const rankIndex = new Map(ranked.map(([id], i) => [id, i]))
-  return [...guaranteedFree, ...filled]
-    .map(([id]) => id)
-    .sort((a, b) => rankIndex.get(a) - rankIndex.get(b))
-}
 
 // ─── Passos do questionário ───────────────────────────────────────────────────
 const STEPS = [
@@ -198,9 +106,11 @@ const STEPS = [
 
 // ─── Resultado / Roadmap ──────────────────────────────────────────────────────
 function RoadmapResult({ answers, roadmap, user, onNavigate, onReset, allModules }) {
-  const modules = roadmap.map((id) => allModules.find((m) => m.id === id)).filter(Boolean)
+  const currentRoadmap = buildRoadmap(answers, allModules)
+  const practice = getPractice()
+  const modules = currentRoadmap.map((id) => allModules.find((m) => m.id === id)).filter(Boolean)
 
-  const firstModule = modules.find(m => !m.isPro || hasContentAccess(user.plan))
+  const firstModule = modules.find(m => !practice[m.id]?.completedAt && (!m.isPro || hasContentAccess(user.plan)))
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -208,22 +118,23 @@ function RoadmapResult({ answers, roadmap, user, onNavigate, onReset, allModules
         <div className="text-3xl mb-2">🗺️</div>
         <h2 className="text-xl font-black mb-1">Seu Roteiro Personalizado</h2>
         <p className="text-brand-muted text-sm">
-          Com base no seu perfil, estes são os módulos que vão gerar mais impacto para você agora.
-          Siga a ordem — cada um prepara o terreno para o próximo.
+          Três prioridades sugeridas pelas suas respostas, usando o catálogo geral da demonstração.
+          Comece por uma aula e aplique a tarefa; o roteiro não avalia seu currículo nem garante resultados.
         </p>
         <div className="mt-3 text-xs text-brand-muted bg-white/10 rounded-xl px-3 py-2 inline-block">
-          +{XP_DIAGNOSIS} XP conquistados por completar o diagnóstico!
+          Roteiro de estudo · {modules.length} prioridades de prática · Dados apenas neste navegador
         </div>
       </div>
 
       {firstModule && (
         <section className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
           <p className="text-xs font-bold uppercase text-blue-700 mb-2">Sua primeira tarefa</p>
-          <h3 className="font-bold text-slate-800">{firstModule.lessons[0]?.title || firstModule.title}</h3>
-          <p className="text-sm text-slate-600 mt-2 mb-4">Comece por esta aula de {firstModule.lessons[0]?.duration || firstModule.duration}. Depois, siga seu roteiro no seu ritmo.</p>
+          <h3 className="font-bold text-slate-800">{PRACTICE_TASKS[firstModule.id]?.title || firstModule.title}</h3>
+          <p className="text-sm text-slate-600 mt-2 mb-4">Leia a aula de apoio ({firstModule.lessons[0]?.duration || firstModule.duration}) e confira os critérios da tarefa prática. O registro de leitura não substitui a aplicação.</p>
           <Btn onClick={() => onNavigate(firstModule, firstModule.lessons[0])}>Começar primeira aula →</Btn>
         </section>
       )}
+      {!firstModule && modules.length > 0 && <p role="status" className="text-slate-700">As três tarefas do roteiro foram declaradas como concluídas. Você pode revisá-las ou refazer o diagnóstico.</p>}
       <div className="space-y-3">
         {modules.map((m, i) => {
           const locked = m.isPro && !hasContentAccess(user.plan)
@@ -244,7 +155,8 @@ function RoadmapResult({ answers, roadmap, user, onNavigate, onReset, allModules
               </div>
               <div className="flex-1 min-w-0">
                 <div className="font-bold text-slate-800 text-sm">{m.title}</div>
-                <div className="text-slate-400 text-xs">{m.lessons.length} lições · {m.duration}</div>
+                <div className="text-slate-600 text-xs mt-1">{roadmapReason(m.id, answers)}</div>
+                <div className="text-slate-500 text-xs mt-1">{practice[m.id]?.completedAt ? '✓ Tarefa declarada como concluída' : PRACTICE_TASKS[m.id]?.title}</div>
               </div>
               {m.isPro && (
                 <span className={`text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${hasContentAccess(user.plan) ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-400'}`}>
@@ -288,7 +200,7 @@ export default function DiagnosisPage({ user, onNavigateModule }) {
     } else {
       const rm = buildRoadmap(next, allModules)
       setRoadmap(rm)
-      saveDiagnosis({ answers: next, roadmap: rm })
+      saveDiagnosis({ answers: next, roadmap: rm, version: 2 })
       setStep('result')
     }
   }
@@ -298,6 +210,8 @@ export default function DiagnosisPage({ user, onNavigateModule }) {
     setAnswers({})
     setRoadmap([])
   }
+
+  if (!allModules.length) return <p role="status" className="p-6 text-slate-600">Preparando seu roteiro…</p>
 
   if (step === 'result') {
     return (

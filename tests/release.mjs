@@ -19,10 +19,10 @@ for (const mod of PUBLIC_MODULES) {
 const manifest = JSON.parse(await readFile('dist/.vite/manifest.json', 'utf8'))
 const entries = Object.keys(manifest)
 assert.equal(entries.filter(key => key.startsWith('src/data/lessons/')).length, 10, 'Only public lesson chunks ship')
-assert.equal(entries.some(key => /CoachPage|AuthPage|ConnectedApp|CommunityPage|MessagesPage/.test(key)), false)
+assert.equal(entries.some(key => /CoachPage|AuthPage|ConnectedApp|CommunityPage|MessagesPage|offerDraft/.test(key)), false)
 for (const name of (await readdir('dist/assets')).filter(name => name.endsWith('.js'))) {
   const source = await readFile(`dist/assets/${name}`, 'utf8')
-  assert.equal(/api\.anthropic\.com|supabase\.co|Coach IA|TESTIMONIALS/.test(source), false, `Unreleased integration in ${name}`)
+  assert.equal(/api\.anthropic\.com|supabase\.co|Coach IA|TESTIMONIALS|candidatura-clara-v1|priceHypothesis/.test(source), false, `Unreleased integration in ${name}`)
 }
 const temp = await mkdtemp(path.join(os.tmpdir(), 'jobjump-seo-'))
 try {

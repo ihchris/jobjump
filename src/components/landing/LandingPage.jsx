@@ -7,8 +7,8 @@ import { FAQ } from '../../data/content'
 
 const steps = [
   ['01', 'Entenda seu momento', 'Responda a seis perguntas sobre sua experiência e seus objetivos.'],
-  ['02', 'Escolha a primeira tarefa', 'Receba um roteiro de aulas e uma sugestão para começar.'],
-  ['03', 'Pratique no seu ritmo', 'Use ferramentas, baixe modelos e organize suas próximas ações.'],
+  ['02', 'Escolha a primeira tarefa', 'Receba três prioridades explicadas e escolha uma tarefa para aplicar.'],
+  ['03', 'Pratique no seu ritmo', 'Prepare seu material, confira os critérios e retome a próxima tarefa.'],
 ]
 
 export default function LandingPage({ onStart, onPreview, onTerms, onPrivacy }) {

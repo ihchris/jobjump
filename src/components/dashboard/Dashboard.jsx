@@ -1,5 +1,5 @@
 import Brand from '../ui/Brand'
-import { useState, useEffect, lazy, Suspense } from 'react'
+import { useState, useEffect, useRef, lazy, Suspense } from 'react'
 import { getModules } from '../../lib/content'
 import { LS } from '../../utils/storage'
 import Sidebar from './Sidebar'
@@ -21,7 +21,10 @@ export default function Dashboard({ user, onLogout, refreshUser, initialTab, onT
   const [selectedModule, setSelectedModule] = useState(null)
   const [selectedLesson, setSelectedLesson] = useState(null)
   const [toolTarget, setToolTarget] = useState(null)
+  const [templateTarget, setTemplateTarget] = useState(null)
   const [progress, setProgress] = useState(() => LS.get('nj_progress', {}))
+  const mainRef = useRef(null)
+  useEffect(() => { mainRef.current?.scrollTo({ top: 0 }) }, [tab, selectedModule?.id, selectedLesson?.id])
   // Navigation handler from Command Palette and SavedPage
   const navigateFromSearch = (result) => {
     if (!result) return
@@ -30,10 +33,7 @@ export default function Dashboard({ user, onLogout, refreshUser, initialTab, onT
       return
     }
     if (result.type === 'tool') { navigateToToolFromSaved(result.refId); return }
-    if (result.type === 'template') {
-      setTab('templates')
-      return
-    }
+    if (result.type === 'template') { navigateToTemplateFromSaved(result.refId); return }
     if (result.type === 'module') {
       getModules().then(modules => { const mod = modules.find(m => m.id === result.refId); if (mod) navigateToModule(mod) })
       return
@@ -54,7 +54,9 @@ export default function Dashboard({ user, onLogout, refreshUser, initialTab, onT
     setTab('tools')
   }
 
-  const navigateToTemplateFromSaved = () => {
+  const navigateToTemplateFromSaved = templateId => {
+    const id = Number(String(templateId).replace(/^tpl_/, ''))
+    setTemplateTarget({ id })
     setTab('templates')
   }
 
@@ -122,7 +124,7 @@ export default function Dashboard({ user, onLogout, refreshUser, initialTab, onT
           <NotificationBell />
         </div>
 
-        <main id="conteudo" tabIndex={-1} className="flex-1 overflow-y-auto overscroll-contain pt-14 md:pt-0">
+        <main ref={mainRef} id="conteudo" tabIndex={-1} className="flex-1 overflow-y-auto scroll-pt-20 overscroll-contain pt-14 md:pt-0">
           <Suspense fallback={<div role="status" className="p-6 text-slate-500">Carregando sua próxima etapa…</div>}>
           {tab === 'home' && (
             <DashHome
@@ -139,6 +141,8 @@ export default function Dashboard({ user, onLogout, refreshUser, initialTab, onT
               setSelectedModule={setSelectedModule} setSelectedLesson={setSelectedLesson}
               onGoToDiagnosis={() => setTab('diagnosis')}
               onUpgrade={() => goTab('settings')}
+              onOpenTool={navigateToToolFromSaved}
+              onOpenTemplates={navigateToTemplateFromSaved}
             />
           )}
           {tab === 'diagnosis' && (
@@ -154,7 +158,7 @@ export default function Dashboard({ user, onLogout, refreshUser, initialTab, onT
               onNavigateTemplate={navigateToTemplateFromSaved}
             />
           )}
-          {tab === 'templates' && <TemplatesPage user={user} />}
+          {tab === 'templates' && <TemplatesPage user={user} targetTemplate={templateTarget} />}
           {tab === 'tools' && <ToolsPage user={user} targetTool={toolTarget} />}
           {tab === 'planner' && <PlannerPage user={user} />}
           {tab === 'settings' && (

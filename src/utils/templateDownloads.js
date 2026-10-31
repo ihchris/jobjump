@@ -37,7 +37,7 @@ export function downloadAsDoc(filename, htmlBody) {
   hr { border: none; border-top: 0.5pt solid #e2e8f0; margin: 8pt 0; }
 </style>
 </head>
-<body>${htmlBody}</body>
+<body><p class="note">Modelo de treino: substitua os marcadores e revise tudo antes de enviar. Use somente experiências, competências e números verdadeiros. Confira o formato solicitado pela vaga.</p>${htmlBody}</body>
 </html>`
   downloadBlob('﻿' + content, filename, 'application/msword')
 }
