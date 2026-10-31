@@ -1,7 +1,8 @@
-import { useState, useEffect, useMemo, useRef } from 'react'
+import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
+import { useDialogFocus } from '../../hooks/useDialogFocus'
 import { getModules } from '../../lib/content'
 import { TEMPLATES } from '../../data/templates'
-import { isPaid } from '../../utils/plans'
+import { hasContentAccess } from '../../utils/plans'
 import { TOOLS } from '../../data/toolCatalog'
 
 export default function CommandPalette({ user, onNavigate, onClose }) {
@@ -11,6 +12,9 @@ export default function CommandPalette({ user, onNavigate, onClose }) {
   const [modulesLoaded, setModulesLoaded] = useState(false)
   const [activeIdx, setActiveIdx] = useState(0)
   const inputRef = useRef(null)
+  const dialogRef = useRef(null)
+  const close = useCallback(() => setOpen(false), [])
+  useDialogFocus(dialogRef, open, close)
 
   // Global hotkey — registered once; reads latest `open` via ref instead of
   // re-subscribing to `keydown` on every open/close.
@@ -53,7 +57,7 @@ export default function CommandPalette({ user, onNavigate, onClose }) {
     return () => window.removeEventListener('nj:open-search', handler)
   }, [])
 
-  const isPro = isPaid(user?.plan)
+  const isPro = hasContentAccess(user?.plan)
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -140,6 +144,7 @@ export default function CommandPalette({ user, onNavigate, onClose }) {
          onClick={() => setOpen(false)}>
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
       <div
+        ref={dialogRef} role="dialog" aria-modal="true" aria-label="Pesquisar no conteúdo" tabIndex={-1}
         className="relative bg-white rounded-2xl shadow-2xl w-full max-w-xl overflow-hidden animate-fade-in"
         onClick={(e) => e.stopPropagation()}
       >
@@ -150,6 +155,7 @@ export default function CommandPalette({ user, onNavigate, onClose }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={onKeyDown}
+            aria-label="Pesquisar módulos, ferramentas e templates"
             placeholder="Pesquisar módulos, ferramentas, templates…"
             className="flex-1 text-sm focus:outline-none placeholder:text-slate-300"
           />

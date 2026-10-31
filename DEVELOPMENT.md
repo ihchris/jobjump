@@ -1,43 +1,50 @@
-# Desenvolvimento
+# JobJump: demonstração pública local
 
-Use Node 24 e npm 11, validados neste ambiente.
+Trabalhar apenas na branch `master`. Esta versão não cria contas, não conecta base de dados e não cobra pagamentos. A seleção pública contém 10 módulos, 30 ferramentas e modelos para download; conteúdos e funcionalidades não liberados não são apresentados como disponíveis. O progresso fica no navegador.
+
+## Desenvolver
+
+Node 24 está fixado em `.nvmrc`. npm 11 foi validado.
 
 ```sh
 npm ci
 npm run dev -- --host 0.0.0.0 --port 5173 --strictPort
-npm run build
 ```
 
-Sem as variáveis do Supabase, o aplicativo usa o modo demonstração. Não copie os valores fictícios de `.env.example`. O botão **Experimentar sem cadastro** abre o diagnóstico e a primeira aula sem criar uma conta. O progresso da demonstração fica neste navegador. Pagamentos, IA e conexões reais não fazem parte da prévia.
+Não é necessário criar `.env`, configurar Supabase ou informar credenciais. A presença de variáveis antigas do Supabase não ativa o backend: `src/lib/release.js` mantém `PUBLIC_DEMO` ligado. O aplicativo público não importa a aplicação conectada.
 
-## Verificações
+O percurso principal é: página inicial → demonstração → diagnóstico de seis perguntas → roteiro → primeira aula. Também é possível navegar para ferramentas, modelos, plano semanal, diário e favoritos. A saída da demonstração não apaga o progresso. Configurações oferece exportação e exclusão confirmada dos registros locais. Sem acesso ao armazenamento, o helper mantém os dados em memória durante a sessão.
 
-Com o servidor de desenvolvimento iniciado e Chromium instalado:
+## Validação
+
+Com o servidor de desenvolvimento iniciado:
 
 ```sh
 CHROMIUM_PATH=/usr/bin/chromium npm run test:smoke
 CHROMIUM_PATH=/usr/bin/chromium npm run test:auth
+npm run build
+npm run test:release
+CHROMIUM_PATH=/usr/bin/chromium npm run test:production
 ```
 
-Em outra máquina, instale o navegador do Playwright com `npx playwright install chromium` e omita `CHROMIUM_PATH`. `BASE_URL` permite selecionar outra porta do servidor de desenvolvimento. O teste de autenticação usa respostas simuladas e imports do servidor Vite: ele não comprova autenticação real nem faz solicitações aos provedores.
+Em outra máquina, instale o Chromium do Playwright com `npx playwright install chromium` e omita `CHROMIUM_PATH`. O smoke test aceita `BASE_URL` e cobre 1440px, 390px e 320px. Ele valida diagnóstico, carregamento sob demanda, conclusão de aula, persistência após reload, geração STAR, extração de palavras-chave, busca por teclado, tema, exportação, navegação legal e fechamento de diálogos por teclado. Falha se houver solicitações externas ou erros de runtime.
 
-O smoke test cobre tela inicial, diagnóstico de seis perguntas, recomendação, abertura da primeira aula, saída da prévia e ausência de rolagem horizontal em 1440px, 390px e 320px. Também verifica que os textos das aulas só são solicitados ao abrir um módulo. No computador, o smoke test verifica também conclusão de aula e os avisos de indisponibilidade de pagamento e coach na demonstração. O teste de autenticação cobre erro de login, solicitação de recuperação e confirmação/atualização de senha com backend simulado.
+`test:auth` usa um backend simulado para validar componentes de autenticação preservados para a etapa futura; não comprova email ou autenticação real e não faz parte do percurso público.
 
-Os metadados estão em `src/data/moduleCatalog.js`; os textos, em `src/data/lessons/`. `src/data/modules.js` mantém a exportação completa usada pelo script de seed do Supabase, sem integrar o bundle do navegador.
+`test:release` verifica a completude da seleção pública, a ausência de conteúdo excluído, o número de perguntas dos quizzes, os limites do bundle e a geração de metadados por domínio. `test:production` inicia e encerra seu próprio servidor estático local com os headers configurados para deployment; verifica o bundle, download de documento, impressão em nova aba sob CSP, exclusão limitada aos dados da demonstração e funcionamento com armazenamento bloqueado. Isso não substitui validação na hospedagem real.
 
-## Integrações externas: validação ainda necessária
+## Conteúdo e arquitetura
 
-Não há projeto Supabase nem provedores de pagamento/IA configurados neste ambiente. Antes de publicar essas funcionalidades, use um projeto de testes e as configurações de `.env.example` e `SECURITY_CRITICAL.md`. Nunca use chaves privadas em variáveis `VITE_`.
+- `src/data/publicCatalog.js`: seleção revisada de metadados, sem bloqueio de pagamento na demo.
+- `src/data/publicQuizzes.js`: cinco perguntas por módulo da seleção pública.
+- `src/lib/content.js`: só importa os dez arquivos de aulas liberados, sob demanda. A biblioteca restante fica preservada no repositório, fora do build público.
+- `src/data/toolCatalog.js`: ferramentas locais publicadas. O gravador foi retirado da seleção para não depender de microfone ou reconhecimento de voz do navegador.
+- `src/components/ui/Brand.jsx`: identidade visual compartilhada; tokens de cor em `tailwind.config.js`.
+- `src/integrations/`: aplicação conectada e acesso remoto preservados para uma etapa posterior. Seu uso exige revisão; alternar uma flag, sozinho, não conclui a integração.
+- `supabase/migrations/` e funções de checkout/webhook: estrutura futura, sem aplicação ou deploy automático.
 
-- Aplicar e verificar as migrações de `supabase/migrations/`, dados iniciais e políticas de acesso no projeto escolhido.
-- Configurar URL e chave pública do Supabase, URLs de redirecionamento e funções necessárias.
-- Testar cadastro com confirmação por email, login válido/inválido, logout e recuperação completa por um link recebido. O link deve abrir a tela de nova senha; após atualizar, verificar login com a nova senha.
-- Configurar Stripe em modo de teste, preços mensal/anual e webhook. Testar checkout concluído, cancelado e recusado; verificar o plano no banco após o webhook e impedir acesso Pro para planos gratuitos. O retorno do checkout sozinho não comprova pagamento.
-- Configurar Anthropic somente no servidor. Testar sessão ausente/expirada, limite de uso, indisponibilidade do provedor e resposta válida do coach.
-- Verificar logs sem registrar credenciais ou dados sensíveis. Não executar testes de cobrança em produção.
+Não use a demonstração como mecanismo de proteção de conteúdo pago. Tudo que é entregue ao navegador pode ser copiado. Uma oferta paga exige autorização validada no servidor e conteúdo protegido na origem.
 
-As configurações e testes reais acima dependem do projeto e das contas escolhidos pelo responsável. O build e testes locais não substituem essa validação.
+## Publicação e etapa comercial
 
-## Identidade visual
-
-A marca compartilhada está em `src/components/ui/Brand.jsx`, com símbolo turquesa e nome legível em fundos claros e escuros. `public/logo.png` contém a composição redesenhada completa; o site usa o ícone transparente `public/brand-icon.webp`, convertido sem perdas, e a versão PNG como favicon.
+Veja [DEPLOYMENT.md](DEPLOYMENT.md). A publicação precisa de aprovação explícita do responsável. A preparação e os testes locais não publicam o site.

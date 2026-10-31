@@ -80,15 +80,21 @@ export function openAsPrintPdf(title, htmlBody) {
 </style>
 </head>
 <body>
-<button class="print-btn" onclick="window.print()">⬇ Salvar como PDF</button>
+<button class="print-btn">⬇ Salvar como PDF</button>
 ${htmlBody}
 <div class="footer">JobJump — Plataforma de busca de emprego &bull; Gerado em ${date} &bull; Para salvar: clique em "Salvar como PDF" ou use Arquivo → Imprimir → Salvar como PDF</div>
-<script>window.onload = function() { setTimeout(function() { window.print(); }, 700); };</script>
+
 </body>
 </html>`
   const blob = new Blob([content], { type: 'text/html;charset=utf-8' })
   const url = URL.createObjectURL(blob)
   const win = window.open(url, '_blank')
+  if (win) {
+    win.addEventListener('load', () => {
+      win.document.querySelector('.print-btn')?.addEventListener('click', () => win.print())
+      win.opener = null
+    }, { once: true })
+  }
   if (!win) {
     const a = document.createElement('a')
     a.href = url
@@ -101,7 +107,11 @@ ${htmlBody}
 }
 
 export function downloadAsCsv(filename, headers, rows) {
-  const esc = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`
+  const esc = value => {
+    const text = String(value ?? '')
+    const safe = /^[=+\-@\t\r]/.test(text) ? `'${text}` : text
+    return `"${safe.replace(/"/g, '""')}"`
+  }
   const lines = [headers.map(esc).join(','), ...rows.map((r) => r.map(esc).join(','))]
   downloadBlob('﻿' + lines.join('\r\n'), filename, 'text/csv;charset=utf-8')
 }

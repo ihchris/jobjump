@@ -1,3 +1,5 @@
+import { useRef, useId } from 'react'
+import { useDialogFocus } from '../../hooks/useDialogFocus'
 export const Spinner = ({ size = 'w-5 h-5', color = 'border-blue-600' }) => (
   <div className={`${size} border-2 border-gray-200 ${color} border-t-transparent rounded-full animate-spin`} />
 )
@@ -17,7 +19,7 @@ export const Badge = ({ children, className = '' }) => (
 )
 
 export const ProgressBar = ({ pct, color = 'bg-brand-accent' }) => (
-  <div className="w-full bg-gray-100 rounded-full h-2">
+  <div className="w-full bg-slate-100 rounded-full h-2">
     <div
       className={`${color} h-2 rounded-full transition-all duration-500`}
       style={{ width: `${pct}%` }}
@@ -40,6 +42,7 @@ const SIZES = { sm: 'px-3 py-1.5 text-sm', md: 'px-5 py-2.5 text-sm', lg: 'px-6 
 export const Btn = ({ children, onClick, variant = 'primary', size = 'md', disabled = false, className = '' }) => (
   <button
     onClick={onClick}
+    type="button"
     disabled={disabled}
     className={`inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-150
       focus:outline-none focus:ring-2 focus:ring-offset-2
@@ -52,17 +55,21 @@ export const Btn = ({ children, onClick, variant = 'primary', size = 'md', disab
 )
 
 export const Modal = ({ open, onClose, children, title }) => {
+  const ref = useRef(null)
+  const titleId = useId()
+  useDialogFocus(ref, open, onClose)
   if (!open) return null
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
       <div
+        ref={ref} role="dialog" aria-modal="true" aria-labelledby={titleId} tabIndex={-1}
         className="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 animate-fade-in"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-bold text-slate-800">{title}</h3>
-          <button onClick={onClose} className="text-slate-400 hover:text-slate-600 text-2xl leading-none">&times;</button>
+          <h3 id={titleId} className="text-lg font-bold text-slate-800">{title}</h3>
+          <button onClick={onClose} aria-label="Fechar diálogo" className="text-slate-400 hover:text-slate-600 text-2xl leading-none">&times;</button>
         </div>
         {children}
       </div>

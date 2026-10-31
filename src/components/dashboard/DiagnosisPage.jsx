@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Btn } from '../ui'
 import { getModules } from '../../lib/content'
 import { saveDiagnosis, getDiagnosis, XP_DIAGNOSIS } from '../../utils/gamification'
-import { isPaid } from '../../utils/plans'
+import { hasContentAccess } from '../../utils/plans'
 
 // ─── Área de interesse → módulos de carreira relevantes ──────────────────────
 const AREA_MODULE_MAP = {
@@ -135,7 +135,7 @@ const STEPS = [
     options: [
       { value: 'tech',        label: 'Tecnologia / Dev', icon: '💻' },
       { value: 'product_ux',  label: 'Product Design / UX', icon: '🎨' },
-      { value: 'data_ai',     label: 'Dados, Analytics e IA', icon: '📊' },
+      { value: 'data_ai',     label: 'Dados e Analytics', icon: '📊' },
       { value: 'marketing',   label: 'Marketing / Comunicação', icon: '📣' },
       { value: 'sales',       label: 'Vendas / Comercial', icon: '🤝' },
       { value: 'hr',          label: 'RH / Pessoas', icon: '👥' },
@@ -200,7 +200,7 @@ const STEPS = [
 function RoadmapResult({ answers, roadmap, user, onNavigate, onReset, allModules }) {
   const modules = roadmap.map((id) => allModules.find((m) => m.id === id)).filter(Boolean)
 
-  const firstModule = modules.find(m => !m.isPro || isPaid(user.plan))
+  const firstModule = modules.find(m => !m.isPro || hasContentAccess(user.plan))
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -226,7 +226,7 @@ function RoadmapResult({ answers, roadmap, user, onNavigate, onReset, allModules
       )}
       <div className="space-y-3">
         {modules.map((m, i) => {
-          const locked = m.isPro && !isPaid(user.plan)
+          const locked = m.isPro && !hasContentAccess(user.plan)
           return (
             <button
               type="button"
@@ -247,8 +247,8 @@ function RoadmapResult({ answers, roadmap, user, onNavigate, onReset, allModules
                 <div className="text-slate-400 text-xs">{m.lessons.length} lições · {m.duration}</div>
               </div>
               {m.isPro && (
-                <span className={`text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${isPaid(user.plan) ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-400'}`}>
-                  {isPaid(user.plan) ? '⭐ Pro' : '🔒 Pro'}
+                <span className={`text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${hasContentAccess(user.plan) ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-400'}`}>
+                  {hasContentAccess(user.plan) ? '⭐ Pro' : '🔒 Pro'}
                 </span>
               )}
               {!locked && <span className="text-slate-300">→</span>}
@@ -280,6 +280,7 @@ export default function DiagnosisPage({ user, onNavigateModule }) {
   const progress = typeof step === 'number' ? Math.round((step / STEPS.length) * 100) : 100
 
   const select = (value) => {
+    if (!allModules.length) return
     const next = { ...answers, [currentStep.id]: value }
     setAnswers(next)
     if (step < STEPS.length - 1) {
@@ -341,6 +342,7 @@ export default function DiagnosisPage({ user, onNavigateModule }) {
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
             {(currentStep.getOptions ? currentStep.getOptions(answers) : currentStep.options).map((opt) => (
               <button
+                disabled={!allModules.length}
                 key={opt.value}
                 onClick={() => select(opt.value)}
                 className="flex flex-col items-center text-center gap-1.5 bg-white border border-slate-200 rounded-xl p-3 hover:border-blue-400 hover:bg-blue-50 transition-all group"
@@ -354,6 +356,7 @@ export default function DiagnosisPage({ user, onNavigateModule }) {
           <div className="space-y-2">
             {(currentStep.getOptions ? currentStep.getOptions(answers) : currentStep.options).map((opt) => (
               <button
+                disabled={!allModules.length}
                 key={opt.value}
                 onClick={() => select(opt.value)}
                 className="w-full flex items-center gap-4 text-left bg-white border border-slate-200 rounded-2xl p-4 hover:border-blue-400 hover:bg-blue-50 transition-all group"

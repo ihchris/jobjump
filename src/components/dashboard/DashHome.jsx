@@ -3,7 +3,7 @@ import { Btn, ProgressBar } from '../ui'
 import { getModules } from '../../lib/content'
 import { TIPS } from '../../data/content'
 import { LS } from '../../utils/storage'
-import { isPaid } from '../../utils/plans'
+import { hasContentAccess } from '../../utils/plans'
 import {
   BADGES, LEVELS,
   getXP, getLevel, getLevelProgress,
@@ -17,8 +17,8 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
   useEffect(() => { touchStreak() }, [])
 
   const allLessons    = modules.flatMap((m) => m.lessons.map((l) => ({ ...l, moduleId: m.id, isPro: m.isPro || !!l.isPro })))
-  const accessible    = allLessons.filter((l) => !l.isPro || isPaid(user.plan))
-  const completedCount = Object.values(progress).filter(Boolean).length
+  const accessible    = allLessons.filter((l) => !l.isPro || hasContentAccess(user.plan))
+  const completedCount = accessible.filter(l => progress[l.id]).length
   const pct           = accessible.length > 0 ? Math.round((completedCount / accessible.length) * 100) : 0
   const tip           = TIPS[new Date().getDay() % TIPS.length]
   const roadmap = getDiagnosis()?.roadmap || []
@@ -40,7 +40,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
 
   const proModuleCount  = modules.length
   const freeModuleCount = modules.filter((m) => !m.isPro).length
-  const unlockedModules = isPaid(user.plan) ? proModuleCount : freeModuleCount
+  const unlockedModules = hasContentAccess(user.plan) ? proModuleCount : freeModuleCount
 
   const followUpAlerts = (() => {
     const cards = LS.get('nj_tracker', [])
@@ -101,7 +101,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
           { label: 'Progresso', value: `${pct}%`, sub: `${completedCount}/${accessible.length} lições`, color: 'text-blue-600' },
-          { label: 'Módulos', value: `${unlockedModules}/${proModuleCount}`, sub: isPaid(user.plan) ? 'Acesso total' : 'Upgrade para mais', color: 'text-slate-800' },
+          { label: 'Módulos', value: `${unlockedModules}/${proModuleCount}`, sub: hasContentAccess(user.plan) ? 'Acesso total' : 'Upgrade para mais', color: 'text-slate-800' },
           { label: 'Streak', value: `🔥 ${streak}`, sub: streak === 1 ? 'dia seguido' : 'dias seguidos', color: 'text-orange-500' },
           { label: 'Conquistas', value: `${earnedBadges.length}/${BADGES.length}`, sub: 'desbloqueadas', color: 'text-violet-600' },
         ].map((s) => (
@@ -127,7 +127,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
       </div>
 
       {/* Upgrade CTA — só para free */}
-      {!isPaid(user.plan) && (
+      {!hasContentAccess(user.plan) && (
         <button
           onClick={() => setTab('settings')}
           className="w-full bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 rounded-2xl p-5 text-left flex items-center gap-4 transition-all shadow-md shadow-orange-100 group"
@@ -136,7 +136,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
           <div className="flex-1">
             <div className="font-black text-white text-base leading-tight">Desbloqueie todos os módulos Pro</div>
             <div className="text-white/80 text-xs mt-0.5">
-              {modules.filter((m) => m.isPro).length} módulos exclusivos · Templates · Coach IA ilimitado
+              {modules.filter((m) => m.isPro).length} módulos da biblioteca · Templates
             </div>
           </div>
           <div className="flex-shrink-0 bg-white/20 group-hover:bg-white/30 transition-colors text-white font-bold text-sm px-4 py-2 rounded-xl">
@@ -226,7 +226,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
         >
           <div className="text-2xl mb-2">🛠️</div>
           <div className="font-bold text-slate-800 text-sm">Ferramentas</div>
-          <div className="text-slate-500 text-xs mt-0.5">STAR · ATS · Gravador · Checklist</div>
+          <div className="text-slate-500 text-xs mt-0.5">STAR · ATS · Checklist</div>
           <div className="text-blue-600 text-xs font-semibold mt-2 group-hover:underline">Abrir →</div>
         </button>
         <button
@@ -315,7 +315,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
         <div className="space-y-3">
           {modules.map((m) => {
             const mCompleted = m.lessons.filter((l) => progress[l.id]).length
-            const locked = m.isPro && !isPaid(user.plan)
+            const locked = m.isPro && !hasContentAccess(user.plan)
             const mPct = Math.round((mCompleted / m.lessons.length) * 100)
             return (
               <div

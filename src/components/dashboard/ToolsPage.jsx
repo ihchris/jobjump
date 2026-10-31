@@ -2,7 +2,7 @@ import { TOOLS as toolCatalog } from '../../data/toolCatalog'
 import { useState, useEffect, useRef } from 'react'
 import { Btn, Badge } from '../ui'
 import { LS } from '../../utils/storage'
-import { isPaid } from '../../utils/plans'
+import { hasContentAccess } from '../../utils/plans'
 import {
   addXP, XP_RECORDING, checkNewBadges, buildGamState,
 } from '../../utils/gamification'
@@ -58,8 +58,8 @@ function StarBuilder() {
           { k: 'result', label: '🏆 Resultado', placeholder: 'Qual foi o impacto? Usa números! Ex: "A taxa de conversão mobile subiu 34% em 6 semanas, recuperando R$180k em receita..."', rows: 3 },
         ].map(({ k, label, placeholder, rows }) => (
           <div key={k}>
-            <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">{label}</label>
-            <textarea className={inp} rows={rows} placeholder={placeholder} value={form[k]} onChange={set(k)} />
+            <label htmlFor={`star-${k}`} className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">{label}</label>
+            <textarea id={`star-${k}`} className={inp} rows={rows} placeholder={placeholder} value={form[k]} onChange={set(k)} />
           </div>
         ))}
       </div>
@@ -135,11 +135,12 @@ const STOP_WORDS = new Set([
   'be','are','or','as','this','have','it','that','you','we','will','all','our',
 ])
 
+const SHORT_SKILLS = new Set(['r', 'c', 'c#', 'c++', 'rh', 'ui', 'ux', 'go', 'bi'])
+const keywordTokens = text => (text.toLowerCase().match(/\.?[\p{L}\p{N}][\p{L}\p{N}+#.-]*/gu) || []).map(word => word.replace(/[.-]+$/, ''))
 function extractKeywords(text) {
-  const words = text.toLowerCase().replace(/[^a-záéíóúãõâêôàüç\s-]/gi, ' ').split(/\s+/)
-    .filter((w) => w.length > 3 && !STOP_WORDS.has(w))
-  const freq = {}
-  words.forEach((w) => { freq[w] = (freq[w] || 0) + 1 })
+  const words = keywordTokens(text).filter(word => (word.length >= 3 || SHORT_SKILLS.has(word)) && !STOP_WORDS.has(word))
+  const freq = Object.create(null)
+  words.forEach(word => { freq[word] = (freq[word] || 0) + 1 })
   return Object.entries(freq).sort((a, b) => b[1] - a[1]).slice(0, 25).map(([word, count]) => ({ word, count }))
 }
 
@@ -150,9 +151,9 @@ function ATSKeywordChecker() {
   const analyze = () => {
     if (!jobDesc.trim()) return
     const keywords = extractKeywords(jobDesc)
-    const cvLower = cvText.toLowerCase()
-    const matched = keywords.filter((k) => cvLower.includes(k.word))
-    const missing = keywords.filter((k) => !cvLower.includes(k.word))
+    const cvWords = new Set(keywordTokens(cvText))
+    const matched = keywords.filter(k => cvWords.has(k.word))
+    const missing = keywords.filter(k => !cvWords.has(k.word))
     setResult({ keywords, matched, missing })
   }
   const ta = 'w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none'
@@ -160,12 +161,12 @@ function ATSKeywordChecker() {
     <div className="space-y-4">
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">📋 Descrição da vaga (cole aqui)</label>
-          <textarea className={ta} rows={8} placeholder="Cole o texto completo da oferta de emprego aqui..." value={jobDesc} onChange={(e) => setJobDesc(e.target.value)} />
+          <label htmlFor="ats-job" className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">📋 Descrição da vaga (cole aqui)</label>
+          <textarea id="ats-job" className={ta} rows={8} placeholder="Cole o texto completo da oferta de emprego aqui..." value={jobDesc} onChange={(e) => setJobDesc(e.target.value)} />
         </div>
         <div>
-          <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">📄 Texto do seu CV (opcional)</label>
-          <textarea className={ta} rows={8} placeholder="Cole o texto do seu CV aqui para ver o que está faltando..." value={cvText} onChange={(e) => setCvText(e.target.value)} />
+          <label htmlFor="ats-cv" className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">📄 Texto do seu CV (opcional)</label>
+          <textarea id="ats-cv" className={ta} rows={8} placeholder="Cole o texto do seu CV aqui para ver o que está faltando..." value={cvText} onChange={(e) => setCvText(e.target.value)} />
         </div>
       </div>
       <Btn onClick={analyze} variant="primary" size="md" disabled={!jobDesc.trim()}>Analisar palavras-chave →</Btn>
@@ -187,7 +188,7 @@ function ATSKeywordChecker() {
           )}
           {cvText && result.missing.length > 0 && (
             <div className="bg-red-50 border border-red-200 rounded-xl p-4">
-              <p className="text-xs font-bold text-red-700 uppercase tracking-wider mb-2">🔴 Adicione estas palavras ao CV</p>
+              <p className="text-xs font-bold text-red-700 uppercase tracking-wider mb-2">🔎 Revise se correspondem à sua experiência</p>
               <div className="flex flex-wrap gap-2">
                 {result.missing.slice(0, 15).map((k) => (
                   <span key={k.word} className="bg-red-100 text-red-700 text-xs px-2 py-1 rounded-full font-medium">{k.word} ({k.count}×)</span>
@@ -266,27 +267,27 @@ function SalaryCalculator() {
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Área profissional</label>
-          <select className={sel} value={area} onChange={(e) => { setArea(e.target.value); setResult(null) }}>
+          <select aria-label="Área profissional" className={sel} value={area} onChange={(e) => { setArea(e.target.value); setResult(null) }}>
             <option value="">Selecione a área...</option>
             {Object.keys(SALARY_DATA).map((a) => <option key={a} value={a}>{a}</option>)}
           </select>
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Nível de senioridade</label>
-          <select className={sel} value={seniority} onChange={(e) => { setSeniority(e.target.value); setResult(null) }}>
+          <select aria-label="Nível de senioridade" className={sel} value={seniority} onChange={(e) => { setSeniority(e.target.value); setResult(null) }}>
             <option value="">Selecione o nível...</option>
             {Object.entries(SENIORITY_LABELS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
           </select>
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Tipo de empresa</label>
-          <select className={sel} value={company} onChange={(e) => { setCompany(e.target.value); setResult(null) }}>
+          <select aria-label="Tipo de empresa" className={sel} value={company} onChange={(e) => { setCompany(e.target.value); setResult(null) }}>
             {Object.entries(COMPANY_LABELS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
           </select>
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Cidade</label>
-          <select className={sel} value={city} onChange={(e) => { setCity(e.target.value); setResult(null) }}>
+          <select aria-label="Cidade" className={sel} value={city} onChange={(e) => { setCity(e.target.value); setResult(null) }}>
             {Object.entries(CITY_LABELS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
           </select>
         </div>
@@ -344,15 +345,15 @@ function LinkedInHeadline() {
       <div className="grid sm:grid-cols-3 gap-4">
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Cargo / especialidade</label>
-          <input className={inp} placeholder="Ex: Marketing Manager" value={role} onChange={(e) => setRole(e.target.value)} />
+          <input aria-label="Cargo / especialidade" className={inp} placeholder="Ex: Marketing Manager" value={role} onChange={(e) => setRole(e.target.value)} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Proposta de valor</label>
-          <input className={inp} placeholder="Ex: Growth & Aquisição B2B" value={value} onChange={(e) => setValue(e.target.value)} />
+          <input aria-label="Proposta de valor" className={inp} placeholder="Ex: Growth & Aquisição B2B" value={value} onChange={(e) => setValue(e.target.value)} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Palavra-chave extra (opcional)</label>
-          <input className={inp} placeholder="Ex: 8 anos em SaaS" value={keyword} onChange={(e) => setKeyword(e.target.value)} />
+          <input aria-label="Palavra-chave extra (opcional)" className={inp} placeholder="Ex: 8 anos em SaaS" value={keyword} onChange={(e) => setKeyword(e.target.value)} />
         </div>
       </div>
       <Btn onClick={generate} variant="primary" size="md" disabled={!role || !value}>Gerar headlines →</Btn>
@@ -495,7 +496,7 @@ function InterviewSimulator() {
 
       <div>
         <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Sua resposta (escreva como se estivesse na entrevista)</label>
-        <textarea
+        <textarea aria-label="Sua resposta (escreva como se estivesse na entrevista)"
           value={answer}
           onChange={(e) => setAnswer(e.target.value)}
           rows={5}
@@ -611,7 +612,7 @@ function analyzeTranscript(transcript) {
 }
 
 function InterviewRecorder({ user }) {
-  const isPro = isPaid(user?.plan)
+  const isPro = hasContentAccess(user?.plan)
   const [view, setView] = useState('setup')   // setup | recording | review | library
   const [category, setCategory] = useState('')
   const [idx, setIdx] = useState(0)
@@ -1198,7 +1199,7 @@ function ApplicationTracker() {
           <div className="grid sm:grid-cols-2 gap-3 items-end">
             <div>
               <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1">Estado</label>
-              <select className={inp} value={form.col} onChange={(e) => setForm((f) => ({ ...f, col: e.target.value }))}>
+              <select aria-label="Estado" className={inp} value={form.col} onChange={(e) => setForm((f) => ({ ...f, col: e.target.value }))}>
                 {COLUMNS.map((c) => <option key={c.id} value={c.id}>{c.label}</option>)}
               </select>
             </div>
@@ -1206,7 +1207,7 @@ function ApplicationTracker() {
               <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
                 Follow-up (opcional)
               </label>
-              <input type="date" className={inp} value={form.followUpAt} onChange={(e) => setForm((f) => ({ ...f, followUpAt: e.target.value }))} />
+              <input aria-label="Follow-up (opcional)" type="date" className={inp} value={form.followUpAt} onChange={(e) => setForm((f) => ({ ...f, followUpAt: e.target.value }))} />
             </div>
           </div>
           <Btn onClick={addCard} variant="primary" size="sm" disabled={!form.company.trim() || !form.role.trim()} className="w-full">
@@ -1334,23 +1335,23 @@ function SummaryGenerator() {
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Anos de experiência</label>
-          <input className={inp} placeholder="Ex: 8" value={form.years} onChange={set('years')} />
+          <input aria-label="Anos de experiência" className={inp} placeholder="Ex: 8" value={form.years} onChange={set('years')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Área de atuação</label>
-          <input className={inp} placeholder="Ex: Marketing Digital, Engenharia de Software" value={form.area} onChange={set('area')} />
+          <input aria-label="Área de atuação" className={inp} placeholder="Ex: Marketing Digital, Engenharia de Software" value={form.area} onChange={set('area')} />
         </div>
         <div className="sm:col-span-2">
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Maior realização (com número) *</label>
-          <input className={inp} placeholder="Ex: Aumentei a receita em 40% em 12 meses gerenciando equipe de 8 pessoas" value={form.achievement} onChange={set('achievement')} />
+          <input aria-label="Maior realização (com número) *" className={inp} placeholder="Ex: Aumentei a receita em 40% em 12 meses gerenciando equipe de 8 pessoas" value={form.achievement} onChange={set('achievement')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Cargo-alvo</label>
-          <input className={inp} placeholder="Ex: Head de Growth, Desenvolvedor Sênior" value={form.target} onChange={set('target')} />
+          <input aria-label="Cargo-alvo" className={inp} placeholder="Ex: Head de Growth, Desenvolvedor Sênior" value={form.target} onChange={set('target')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Competência diferencial (opcional)</label>
-          <input className={inp} placeholder="Ex: Python e análise preditiva, liderança de squads remotos" value={form.skill} onChange={set('skill')} />
+          <input aria-label="Competência diferencial (opcional)" className={inp} placeholder="Ex: Python e análise preditiva, liderança de squads remotos" value={form.skill} onChange={set('skill')} />
         </div>
       </div>
       <Btn onClick={generate} variant="primary" size="md" disabled={!isReady}>
@@ -1419,31 +1420,31 @@ ${name}`.trim()
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">O seu nome *</label>
-          <input className={inp} placeholder="Ex: João Silva" value={form.name} onChange={set('name')} />
+          <input aria-label="O seu nome *" className={inp} placeholder="Ex: João Silva" value={form.name} onChange={set('name')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Cargo a que se candidata *</label>
-          <input className={inp} placeholder="Ex: Gerente de Marketing" value={form.role} onChange={set('role')} />
+          <input aria-label="Cargo a que se candidata *" className={inp} placeholder="Ex: Gerente de Marketing" value={form.role} onChange={set('role')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Nome da empresa *</label>
-          <input className={inp} placeholder="Ex: TechCorp" value={form.company} onChange={set('company')} />
+          <input aria-label="Nome da empresa *" className={inp} placeholder="Ex: TechCorp" value={form.company} onChange={set('company')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Onde encontrou a vaga</label>
-          <input className={inp} placeholder="Ex: LinkedIn, site da empresa" value={form.source} onChange={set('source')} />
+          <input aria-label="Onde encontrou a vaga" className={inp} placeholder="Ex: LinkedIn, site da empresa" value={form.source} onChange={set('source')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Anos de experiência</label>
-          <input className={inp} placeholder="Ex: 6 anos" value={form.years} onChange={set('years')} />
+          <input aria-label="Anos de experiência" className={inp} placeholder="Ex: 6 anos" value={form.years} onChange={set('years')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Algo específico da vaga/empresa</label>
-          <input className={inp} placeholder="Ex: a cultura data-driven e o foco em crescimento" value={form.specific} onChange={set('specific')} />
+          <input aria-label="Algo específico da vaga/empresa" className={inp} placeholder="Ex: a cultura data-driven e o foco em crescimento" value={form.specific} onChange={set('specific')} />
         </div>
         <div className="sm:col-span-2">
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">A sua maior conquista relevante (com número) *</label>
-          <input className={inp} placeholder="Ex: liderei campanha que gerou R$800k em receita com ROI de 4x" value={form.achievement} onChange={set('achievement')} />
+          <input aria-label="A sua maior conquista relevante (com número) *" className={inp} placeholder="Ex: liderei campanha que gerou R$800k em receita com ROI de 4x" value={form.achievement} onChange={set('achievement')} />
         </div>
       </div>
       <Btn onClick={generate} variant="primary" size="md" disabled={!isReady}>Gerar email →</Btn>
@@ -1660,25 +1661,25 @@ function OfferComparator() {
       <div className="grid grid-cols-2 gap-2">
         <div>
           <label className="text-xs font-bold text-slate-500 block mb-1">Empresa</label>
-          <input className={inp} placeholder="Ex: TechCorp" value={offer.company} onChange={setField(setter)('company')} />
+          <input aria-label="Empresa" className={inp} placeholder="Ex: TechCorp" value={offer.company} onChange={setField(setter)('company')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-500 block mb-1">Cargo</label>
-          <input className={inp} placeholder="Ex: Dev Sênior" value={offer.role} onChange={setField(setter)('role')} />
+          <input aria-label="Cargo" className={inp} placeholder="Ex: Dev Sênior" value={offer.role} onChange={setField(setter)('role')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-500 block mb-1">Salário base (R$/mês)</label>
-          <input className={inp} type="number" placeholder="8000" value={offer.salary} onChange={setField(setter)('salary')} />
+          <input aria-label="Salário base (R$/mês)" className={inp} type="number" placeholder="8000" value={offer.salary} onChange={setField(setter)('salary')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-500 block mb-1">Bónus anual (R$)</label>
-          <input className={inp} type="number" placeholder="12000" value={offer.bonus} onChange={setField(setter)('bonus')} />
+          <input aria-label="Bónus anual (R$)" className={inp} type="number" placeholder="12000" value={offer.bonus} onChange={setField(setter)('bonus')} />
         </div>
       </div>
       <div className="grid grid-cols-2 gap-2">
         <div>
           <label className="text-xs font-bold text-slate-500 block mb-1">Plano de saúde</label>
-          <select className={inp} value={offer.health} onChange={setField(setter)('health')}>
+          <select aria-label="Plano de saúde" className={inp} value={offer.health} onChange={setField(setter)('health')}>
             <option value="none">Sem plano</option>
             <option value="basic">Básico (~R$300/mês)</option>
             <option value="mid">Intermédio (~R$700/mês)</option>
@@ -1687,7 +1688,7 @@ function OfferComparator() {
         </div>
         <div>
           <label className="text-xs font-bold text-slate-500 block mb-1">Home office</label>
-          <select className={inp} value={offer.remote} onChange={setField(setter)('remote')}>
+          <select aria-label="Home office" className={inp} value={offer.remote} onChange={setField(setter)('remote')}>
             <option value="none">Presencial</option>
             <option value="hybrid">Híbrido (~R$300/mês economia)</option>
             <option value="full">100% remoto (~R$700/mês economia)</option>
@@ -1695,15 +1696,15 @@ function OfferComparator() {
         </div>
         <div>
           <label className="text-xs font-bold text-slate-500 block mb-1">VA/VR (R$/mês)</label>
-          <input className={inp} type="number" placeholder="800" value={offer.meal} onChange={setField(setter)('meal')} />
+          <input aria-label="VA/VR (R$/mês)" className={inp} type="number" placeholder="800" value={offer.meal} onChange={setField(setter)('meal')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-500 block mb-1">Budget formação (R$/ano)</label>
-          <input className={inp} type="number" placeholder="3000" value={offer.training} onChange={setField(setter)('training')} />
+          <input aria-label="Budget formação (R$/ano)" className={inp} type="number" placeholder="3000" value={offer.training} onChange={setField(setter)('training')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-500 block mb-1">Previdência (matching)</label>
-          <select className={inp} value={offer.pension} onChange={setField(setter)('pension')}>
+          <select aria-label="Previdência (matching)" className={inp} value={offer.pension} onChange={setField(setter)('pension')}>
             <option value="none">Sem previdência</option>
             <option value="partial">Parcial (~R$400/mês)</option>
             <option value="full">Total (~R$800/mês)</option>
@@ -1711,7 +1712,7 @@ function OfferComparator() {
         </div>
         <div>
           <label className="text-xs font-bold text-slate-500 block mb-1">Auxílio saúde/gym (R$/mês)</label>
-          <input className={inp} type="number" placeholder="150" value={offer.gym} onChange={setField(setter)('gym')} />
+          <input aria-label="Auxílio saúde/gym (R$/mês)" className={inp} type="number" placeholder="150" value={offer.gym} onChange={setField(setter)('gym')} />
         </div>
       </div>
       <div className="border-t border-slate-100 pt-3 space-y-2">
@@ -1819,39 +1820,39 @@ function LinkedInAboutGenerator() {
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Anos de experiência *</label>
-          <input className={inp} placeholder="Ex: 7" value={form.years} onChange={set('years')} />
+          <input aria-label="Anos de experiência *" className={inp} placeholder="Ex: 7" value={form.years} onChange={set('years')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Área de atuação *</label>
-          <input className={inp} placeholder="Ex: Engenharia de Software, Marketing B2B" value={form.area} onChange={set('area')} />
+          <input aria-label="Área de atuação *" className={inp} placeholder="Ex: Engenharia de Software, Marketing B2B" value={form.area} onChange={set('area')} />
         </div>
         <div className="sm:col-span-2">
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Cargo ou posição actual</label>
-          <input className={inp} placeholder="Ex: Senior Product Manager na TechCorp" value={form.role} onChange={set('role')} />
+          <input aria-label="Cargo ou posição actual" className={inp} placeholder="Ex: Senior Product Manager na TechCorp" value={form.role} onChange={set('role')} />
         </div>
         <div className="sm:col-span-2">
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Principal conquista / o que fazes bem *</label>
-          <textarea className={ta} rows={2} placeholder="Ex: Aumentei a taxa de retenção de clientes em 35% redesenhando o processo de onboarding" value={form.achievement1} onChange={set('achievement1')} />
+          <textarea aria-label="Principal conquista / o que fazes bem *" className={ta} rows={2} placeholder="Ex: Aumentei a taxa de retenção de clientes em 35% redesenhando o processo de onboarding" value={form.achievement1} onChange={set('achievement1')} />
         </div>
         <div className="sm:col-span-2">
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Segunda conquista (opcional)</label>
-          <textarea className={ta} rows={2} placeholder="Ex: Construí e liderei equipe de 8 pessoas do zero em contexto de startup" value={form.achievement2} onChange={set('achievement2')} />
+          <textarea aria-label="Segunda conquista (opcional)" className={ta} rows={2} placeholder="Ex: Construí e liderei equipe de 8 pessoas do zero em contexto de startup" value={form.achievement2} onChange={set('achievement2')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Especialidade técnica</label>
-          <input className={inp} placeholder="Ex: Python, análise de dados e machine learning" value={form.skill} onChange={set('skill')} />
+          <input aria-label="Especialidade técnica" className={inp} placeholder="Ex: Python, análise de dados e machine learning" value={form.skill} onChange={set('skill')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Traço de personalidade profissional</label>
-          <input className={inp} placeholder="Ex: Apaixonado por resolver problemas complexos com dados" value={form.personality} onChange={set('personality')} />
+          <input aria-label="Traço de personalidade profissional" className={inp} placeholder="Ex: Apaixonado por resolver problemas complexos com dados" value={form.personality} onChange={set('personality')} />
         </div>
         <div className="sm:col-span-2">
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">O que procura agora *</label>
-          <input className={inp} placeholder="Ex: Oportunidades como Head of Product em empresas de growth stage" value={form.target} onChange={set('target')} />
+          <input aria-label="O que procura agora *" className={inp} placeholder="Ex: Oportunidades como Head of Product em empresas de growth stage" value={form.target} onChange={set('target')} />
         </div>
         <div className="sm:col-span-2">
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Call to action / contato (opcional)</label>
-          <input className={inp} placeholder="Ex: Fala comigo em joao@email.com ou envia mensagem aqui no LinkedIn" value={form.contact} onChange={set('contact')} />
+          <input aria-label="Call to action / contato (opcional)" className={inp} placeholder="Ex: Fala comigo em joao@email.com ou envia mensagem aqui no LinkedIn" value={form.contact} onChange={set('contact')} />
         </div>
       </div>
       <button onClick={generate} disabled={!isReady} className={`w-full py-3 font-bold rounded-xl text-sm transition-colors ${isReady ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-slate-100 text-slate-400 cursor-not-allowed'}`}>
@@ -1985,41 +1986,41 @@ ${name}`
       <div className="grid sm:grid-cols-2 gap-3">
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">O seu nome *</label>
-          <input className={inp} placeholder="Ex: Ana Santos" value={form.name} onChange={set('name')} />
+          <input aria-label="O seu nome *" className={inp} placeholder="Ex: Ana Santos" value={form.name} onChange={set('name')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Nome do entrevistador</label>
-          <input className={inp} placeholder="Ex: Pedro" value={form.interviewer} onChange={set('interviewer')} />
+          <input aria-label="Nome do entrevistador" className={inp} placeholder="Ex: Pedro" value={form.interviewer} onChange={set('interviewer')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Cargo *</label>
-          <input className={inp} placeholder="Ex: Marketing Manager" value={form.role} onChange={set('role')} />
+          <input aria-label="Cargo *" className={inp} placeholder="Ex: Marketing Manager" value={form.role} onChange={set('role')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Empresa *</label>
-          <input className={inp} placeholder="Ex: Empresa X" value={form.company} onChange={set('company')} />
+          <input aria-label="Empresa *" className={inp} placeholder="Ex: Empresa X" value={form.company} onChange={set('company')} />
         </div>
         {type === 'thankyou' && (
           <div className="sm:col-span-2">
             <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Algo específico que te entusiasmou na conversa</label>
-            <input className={inp} placeholder="Ex: a cultura de autonomia da equipe e o projeto de expansão para o Brasil" value={form.highlight} onChange={set('highlight')} />
+            <input aria-label="Algo específico que te entusiasmou na conversa" className={inp} placeholder="Ex: a cultura de autonomia da equipe e o projeto de expansão para o Brasil" value={form.highlight} onChange={set('highlight')} />
           </div>
         )}
         {type === 'rejection' && (
           <div className="sm:col-span-2">
             <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">O que você aprendeu no processo (opcional)</label>
-            <input className={inp} placeholder="Ex: a forma como a equipe aborda problemas de produto" value={form.highlight} onChange={set('highlight')} />
+            <input aria-label="O que você aprendeu no processo (opcional)" className={inp} placeholder="Ex: a forma como a equipe aborda problemas de produto" value={form.highlight} onChange={set('highlight')} />
           </div>
         )}
         {type === 'offer_delay' && (
           <>
             <div>
               <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Empresa da outra proposta (opcional)</label>
-              <input className={inp} placeholder="Ex: Empresa Y" value={form.other_company} onChange={set('other_company')} />
+              <input aria-label="Empresa da outra proposta (opcional)" className={inp} placeholder="Ex: Empresa Y" value={form.other_company} onChange={set('other_company')} />
             </div>
             <div>
               <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Prazo de resposta</label>
-              <input className={inp} placeholder="Ex: sexta-feira, dia 15" value={form.deadline} onChange={set('deadline')} />
+              <input aria-label="Prazo de resposta" className={inp} placeholder="Ex: sexta-feira, dia 15" value={form.deadline} onChange={set('deadline')} />
             </div>
           </>
         )}
@@ -2093,7 +2094,7 @@ function CVAnalyzer() {
     <div className="space-y-4">
       <div>
         <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Cola aqui o texto do seu CV</label>
-        <textarea
+        <textarea aria-label="Cola aqui o texto do seu CV"
           className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
           rows={10}
           placeholder="Cola o conteúdo do seu CV aqui (texto simples). No PDF: selecione tudo → copia → cola aqui..."
@@ -2227,15 +2228,15 @@ function Plan9090Generator() {
       <div className="grid sm:grid-cols-3 gap-4">
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Cargo / função</label>
-          <input className={inp} placeholder="Ex: Product Manager" value={form.role} onChange={set('role')} />
+          <input aria-label="Cargo / função" className={inp} placeholder="Ex: Product Manager" value={form.role} onChange={set('role')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Empresa</label>
-          <input className={inp} placeholder="Ex: Startup XYZ" value={form.company} onChange={set('company')} />
+          <input aria-label="Empresa" className={inp} placeholder="Ex: Startup XYZ" value={form.company} onChange={set('company')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Tipo de função</label>
-          <select className={inp} value={form.seniority} onChange={set('seniority')}>
+          <select aria-label="Tipo de função" className={inp} value={form.seniority} onChange={set('seniority')}>
             <option value="individual">Contribuidor Individual</option>
             <option value="lead">Tech / Team Lead</option>
             <option value="manager">Gestor/a de Equipe</option>
@@ -2324,15 +2325,15 @@ function ElevatorPitch() {
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Cargo / profissão *</label>
-          <input className={inp} placeholder="Ex: Analista de Marketing Digital" value={form.role} onChange={set('role')} />
+          <input aria-label="Cargo / profissão *" className={inp} placeholder="Ex: Analista de Marketing Digital" value={form.role} onChange={set('role')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Área / setor (opcional)</label>
-          <input className={inp} placeholder="Ex: e-commerce, saúde, fintech, varejo" value={form.area} onChange={set('area')} />
+          <input aria-label="Área / setor (opcional)" className={inp} placeholder="Ex: e-commerce, saúde, fintech, varejo" value={form.area} onChange={set('area')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Anos de experiência</label>
-          <select className={inp} value={form.experience} onChange={set('experience')}>
+          <select aria-label="Anos de experiência" className={inp} value={form.experience} onChange={set('experience')}>
             <option value="0-1">Menos de 1 ano (júnior / estágio)</option>
             <option value="2-4">2–4 anos (pleno)</option>
             <option value="5-9">5–9 anos (sênior)</option>
@@ -2341,11 +2342,11 @@ function ElevatorPitch() {
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">O que você busca a seguir</label>
-          <input className={inp} placeholder="Ex: liderança de equipe em startup B2B" value={form.goal} onChange={set('goal')} />
+          <input aria-label="O que você busca a seguir" className={inp} placeholder="Ex: liderança de equipe em startup B2B" value={form.goal} onChange={set('goal')} />
         </div>
         <div className="sm:col-span-2">
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Sua maior conquista (com número, se possível)</label>
-          <textarea className={inp} rows={2} placeholder="Ex: Aumentei a taxa de conversão do e-mail marketing de 2% para 6,5% em 4 meses, gerando R$140k em receita adicional." value={form.achievement} onChange={set('achievement')} />
+          <textarea aria-label="Sua maior conquista (com número, se possível)" className={inp} rows={2} placeholder="Ex: Aumentei a taxa de conversão do e-mail marketing de 2% para 6,5% em 4 meses, gerando R$140k em receita adicional." value={form.achievement} onChange={set('achievement')} />
         </div>
       </div>
       <button onClick={generate} disabled={!form.role} className="px-6 py-3 bg-blue-600 text-white font-bold rounded-xl text-sm hover:bg-blue-700 transition-colors disabled:opacity-50">
@@ -2423,7 +2424,7 @@ function CVBulletGenerator() {
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Tipo de bullet</label>
-          <select className={inp} value={form.type} onChange={set('type')}>
+          <select aria-label="Tipo de bullet" className={inp} value={form.type} onChange={set('type')}>
             <option value="results">Resultado / Impacto nos números</option>
             <option value="leadership">Liderança / Gestão de pessoas</option>
             <option value="project">Projeto / Entrega / Produto</option>
@@ -2432,19 +2433,19 @@ function CVBulletGenerator() {
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Empresa / setor (opcional)</label>
-          <input className={inp} placeholder="Ex: startup SaaS, banco, varejo" value={form.company_type} onChange={set('company_type')} />
+          <input aria-label="Empresa / setor (opcional)" className={inp} placeholder="Ex: startup SaaS, banco, varejo" value={form.company_type} onChange={set('company_type')} />
         </div>
         <div className="sm:col-span-2">
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">O que você fez (descreva a ação) *</label>
-          <textarea className={inp} rows={2} placeholder="Ex: sistema de automação de relatórios que antes eram feitos manualmente pela equipe de dados" value={form.what} onChange={set('what')} />
+          <textarea aria-label="O que você fez (descreva a ação) *" className={inp} rows={2} placeholder="Ex: sistema de automação de relatórios que antes eram feitos manualmente pela equipe de dados" value={form.what} onChange={set('what')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Contexto / desafio enfrentado</label>
-          <input className={inp} placeholder="Ex: crescimento de 300% em 6 meses, equipe de 3 pessoas" value={form.context} onChange={set('context')} />
+          <input aria-label="Contexto / desafio enfrentado" className={inp} placeholder="Ex: crescimento de 300% em 6 meses, equipe de 3 pessoas" value={form.context} onChange={set('context')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Resultado — com número! *</label>
-          <input className={inp} placeholder="Ex: 12h/semana economizadas, 40% menos erros, R$180k" value={form.result} onChange={set('result')} />
+          <input aria-label="Resultado — com número! *" className={inp} placeholder="Ex: 12h/semana economizadas, 40% menos erros, R$180k" value={form.result} onChange={set('result')} />
         </div>
       </div>
       <button onClick={generate} disabled={!form.what} className="px-6 py-3 bg-blue-600 text-white font-bold rounded-xl text-sm hover:bg-blue-700 transition-colors disabled:opacity-50">
@@ -2520,7 +2521,7 @@ function NegotiationScript() {
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Situação</label>
-          <select className={inp} value={form.situation} onChange={set('situation')}>
+          <select aria-label="Situação" className={inp} value={form.situation} onChange={set('situation')}>
             <option value="new_job">Nova proposta de emprego</option>
             <option value="promotion">Promoção interna</option>
             <option value="renewal">Renovação / reajuste salarial</option>
@@ -2528,7 +2529,7 @@ function NegotiationScript() {
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Mercado</label>
-          <select className={inp} value={form.market} onChange={set('market')}>
+          <select aria-label="Mercado" className={inp} value={form.market} onChange={set('market')}>
             <option value="brazil">Brasil (R$)</option>
             <option value="portugal">Portugal (€)</option>
           </select>
@@ -2550,7 +2551,7 @@ function NegotiationScript() {
         )}
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Anos de experiência na área</label>
-          <input className={inp} type="number" placeholder="Ex: 5" value={form.experience} onChange={set('experience')} />
+          <input aria-label="Anos de experiência na área" className={inp} type="number" placeholder="Ex: 5" value={form.experience} onChange={set('experience')} />
         </div>
         {[['s1', 'Seu diferencial 1 *', 'Ex: Aumentei as vendas em 35% no último ano'], ['s2', 'Seu diferencial 2', 'Ex: Liderei equipe de 8 pessoas durante reestruturação'], ['s3', 'Seu diferencial 3', 'Ex: Certificação PMP + inglês fluente + mercado internacional']].map(([k, lbl, ph]) => (
           <div key={k}>
@@ -2958,7 +2959,7 @@ function LinkedInOutreachGenerator() {
         ))}
         <div className="sm:col-span-2">
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Ponto em comum (opcional)</label>
-          <input className={inp} placeholder="Ex: Vi sua palestra no RD Summit, li seu artigo sobre liderança, estamos no mesmo grupo de Alumni USP..." value={form.commonGround} onChange={set('commonGround')} />
+          <input aria-label="Ponto em comum (opcional)" className={inp} placeholder="Ex: Vi sua palestra no RD Summit, li seu artigo sobre liderança, estamos no mesmo grupo de Alumni USP..." value={form.commonGround} onChange={set('commonGround')} />
         </div>
       </div>
       <Btn onClick={generate} variant="primary" size="md" disabled={!form.recipientRole || !form.company || !form.myRole || !form.purpose}>
@@ -3001,7 +3002,7 @@ const SENIORITY_SIGNALS = {
 }
 
 const SKILL_CATEGORIES = {
-  tecnica: { label: '⚙️ Técnicas', keywords: ['python', 'sql', 'excel', 'power bi', 'tableau', 'java', 'javascript', 'react', 'node', 'aws', 'azure', 'gcp', 'docker', 'kubernetes', 'git', 'figma', 'sketch', 'photoshop', 'illustrator', 'autocad', 'sap', 'salesforce', 'hubspot', 'google analytics', 'meta ads', 'google ads', 'r ', 'matlab', 'html', 'css', 'typescript', 'php', 'c++', 'c#', '.net', 'swift', 'kotlin', 'flutter', 'mongodb', 'postgresql', 'mysql', 'redis', 'kafka', 'spark', 'hadoop', 'machine learning', 'inteligência artificial', 'ia', 'data science', 'tableau', 'looker', 'dbt', 'airflow', 'jira', 'confluence', 'notion', 'slack'] },
+  tecnica: { label: '⚙️ Técnicas', keywords: ['python', 'sql', 'excel', 'power bi', 'tableau', 'java', 'javascript', 'react', 'node', 'aws', 'azure', 'gcp', 'docker', 'kubernetes', 'git', 'figma', 'sketch', 'photoshop', 'illustrator', 'autocad', 'sap', 'salesforce', 'hubspot', 'google analytics', 'meta ads', 'google ads', 'r ', 'matlab', 'html', 'css', 'typescript', 'php', 'c++', 'c#', '.net', 'swift', 'kotlin', 'flutter', 'mongodb', 'postgresql', 'mysql', 'redis', 'kafka', 'spark', 'hadoop', 'data science', 'tableau', 'looker', 'dbt', 'airflow', 'jira', 'confluence', 'notion', 'slack'] },
   soft: { label: '🧠 Comportamentais', keywords: ['comunicação', 'liderança', 'trabalho em equipe', 'proatividade', 'organização', 'resiliência', 'adaptabilidade', 'criatividade', 'inovação', 'análise crítica', 'pensamento analítico', 'negociação', 'empatia', 'colaboração', 'autonomia', 'ownership', 'accountability', 'foco em resultado', 'orientado a dados', 'data-driven', 'aprendizado rápido'] },
   idioma: { label: '🌍 Idiomas', keywords: ['inglês', 'inglês avançado', 'inglês fluente', 'inglês intermediário', 'espanhol', 'francês', 'alemão', 'mandarim', 'inglês técnico', 'english', 'bilíngue'] },
   educacao: { label: '🎓 Formação', keywords: ['graduação', 'ensino superior', 'pós-graduação', 'mba', 'mestrado', 'doutorado', 'certificação', 'certificado', 'bacharel', 'tecnólogo'] },
@@ -3062,7 +3063,7 @@ function JobDescriptionAnalyzer() {
     <div className="space-y-4">
       <div>
         <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Cole a descrição completa da vaga</label>
-        <textarea
+        <textarea aria-label="Cole a descrição completa da vaga"
           className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
           rows={8} placeholder="Cole aqui todo o texto da vaga — título, descrição, requisitos, benefícios..."
           value={text} onChange={(e) => setText(e.target.value)}
@@ -3163,7 +3164,7 @@ function ThankYouEmailGenerator() {
         ))}
         <div className="sm:col-span-2">
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Destaque da conversa (opcional)</label>
-          <input className={inp} placeholder="Ex: o projeto de expansão para o Nordeste, a cultura de autonomia da equipe, o desafio de escalar o produto" value={form.highlight} onChange={set('highlight')} />
+          <input aria-label="Destaque da conversa (opcional)" className={inp} placeholder="Ex: o projeto de expansão para o Nordeste, a cultura de autonomia da equipe, o desafio de escalar o produto" value={form.highlight} onChange={set('highlight')} />
         </div>
       </div>
       <Btn onClick={generate} variant="primary" size="md" disabled={!form.interviewer || !form.role || !form.company}>
@@ -3431,19 +3432,19 @@ function CLTPJCalculator() {
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Salário Bruto CLT (R$)</label>
-          <input type="number" className={inp} placeholder="Ex: 8000" value={form.clt} onChange={set('clt')} />
+          <input aria-label="Salário Bruto CLT (R$)" type="number" className={inp} placeholder="Ex: 8000" value={form.clt} onChange={set('clt')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Valor Bruto PJ / mês (R$)</label>
-          <input type="number" className={inp} placeholder="Ex: 12000" value={form.pj} onChange={set('pj')} />
+          <input aria-label="Valor Bruto PJ / mês (R$)" type="number" className={inp} placeholder="Ex: 12000" value={form.pj} onChange={set('pj')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Benefícios CLT / mês (R$)</label>
-          <input type="number" className={inp} placeholder="VR + VT + plano de saúde... Ex: 1200" value={form.beneficios} onChange={set('beneficios')} />
+          <input aria-label="Benefícios CLT / mês (R$)" type="number" className={inp} placeholder="VR + VT + plano de saúde... Ex: 1200" value={form.beneficios} onChange={set('beneficios')} />
         </div>
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Despesas PJ / mês (R$)</label>
-          <input type="number" className={inp} placeholder="Contabilidade + plano de saúde próprio... Ex: 800" value={form.despesas} onChange={set('despesas')} />
+          <input aria-label="Despesas PJ / mês (R$)" type="number" className={inp} placeholder="Contabilidade + plano de saúde próprio... Ex: 800" value={form.despesas} onChange={set('despesas')} />
         </div>
       </div>
       <Btn onClick={calcular} variant="primary" size="md" disabled={!form.clt || !form.pj}>Calcular comparativo →</Btn>
@@ -3568,7 +3569,7 @@ ${form.referente}
         ))}
         <div>
           <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Estilo da carta</label>
-          <select className={inp} value={form.tipo} onChange={set('tipo')}>
+          <select aria-label="Estilo da carta" className={inp} value={form.tipo} onChange={set('tipo')}>
             <option value="formal">Formal (para empresas grandes)</option>
             <option value="calido">Caloroso (para startups / cultura aberta)</option>
           </select>
@@ -3576,11 +3577,11 @@ ${form.referente}
       </div>
       <div>
         <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Principais qualidades (separe por vírgula)</label>
-        <input className={inp} placeholder="Ex: liderança, resolução de problemas, comunicação excepcional" value={form.qualidades} onChange={set('qualidades')} />
+        <input aria-label="Principais qualidades (separe por vírgula)" className={inp} placeholder="Ex: liderança, resolução de problemas, comunicação excepcional" value={form.qualidades} onChange={set('qualidades')} />
       </div>
       <div>
         <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Resultado ou conquista marcante (opcional)</label>
-        <textarea className={ta} rows={2} placeholder="Ex: liderou o projeto X que gerou 30% de aumento de receita..." value={form.resultado} onChange={set('resultado')} />
+        <textarea aria-label="Resultado ou conquista marcante (opcional)" className={ta} rows={2} placeholder="Ex: liderou o projeto X que gerou 30% de aumento de receita..." value={form.resultado} onChange={set('resultado')} />
       </div>
       <Btn onClick={gerar} variant="primary" size="md" disabled={!form.candidato || !form.referente || !form.cargo}>Gerar carta →</Btn>
       {output && (
@@ -3672,14 +3673,14 @@ function SkillsGapAnalyzer() {
     <div className="space-y-4">
       <div>
         <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Cargo que você deseja</label>
-        <select className={inp} value={cargo} onChange={(e) => setCargo(e.target.value)}>
+        <select aria-label="Cargo que você deseja" className={inp} value={cargo} onChange={(e) => setCargo(e.target.value)}>
           <option value="">Selecione o cargo...</option>
           {Object.keys(CARGO_SKILLS).map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
       </div>
       <div>
         <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Suas habilidades atuais (separe por vírgula)</label>
-        <textarea className={inp + ' resize-none'} rows={3} placeholder="Ex: SQL, Python, Excel, Power BI, comunicação, liderança de equipes..." value={skills} onChange={(e) => setSkills(e.target.value)} />
+        <textarea aria-label="Suas habilidades atuais (separe por vírgula)" className={inp + ' resize-none'} rows={3} placeholder="Ex: SQL, Python, Excel, Power BI, comunicação, liderança de equipes..." value={skills} onChange={(e) => setSkills(e.target.value)} />
       </div>
       <Btn onClick={analisar} variant="primary" size="md" disabled={!cargo || !skills}>Analisar gap →</Btn>
       {result && (
@@ -3919,11 +3920,11 @@ function PersonalBioGenerator() {
       </div>
       <div>
         <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Conquista de destaque</label>
-        <input className={inp} placeholder="Ex: Lancei produto que alcançou 500k usuários em 6 meses" value={form.conquista} onChange={set('conquista')} />
+        <input aria-label="Conquista de destaque" className={inp} placeholder="Ex: Lancei produto que alcançou 500k usuários em 6 meses" value={form.conquista} onChange={set('conquista')} />
       </div>
       <div>
         <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-1">Missão ou propósito profissional (opcional)</label>
-        <input className={inp} placeholder="Ex: Ajudo empresas a construir produtos que as pessoas amam usar" value={form.missao} onChange={set('missao')} />
+        <input aria-label="Missão ou propósito profissional (opcional)" className={inp} placeholder="Ex: Ajudo empresas a construir produtos que as pessoas amam usar" value={form.missao} onChange={set('missao')} />
       </div>
       <Btn onClick={gerar} variant="primary" size="md" disabled={!form.nome || !form.cargo}>Gerar bios →</Btn>
       {output.curta && (
@@ -4070,7 +4071,7 @@ function WeeklyNetworkingPlanner() {
 }
 
 // ─── Lista de ferramentas ─────────────────────────────────────────────────────
-const toolComponents = {'star':StarBuilder,'ats':ATSKeywordChecker,'salary':SalaryCalculator,'headline':LinkedInHeadline,'interview':InterviewSimulator,'recorder':InterviewRecorder,'tracker':ApplicationTracker,'summary':SummaryGenerator,'email':ApplicationEmailGenerator,'checklist':ApplicationChecklist,'offercompare':OfferComparator,'about':LinkedInAboutGenerator,'followup':FollowUpEmailGenerator,'cvscore':CVAnalyzer,'plan9090':Plan9090Generator,'pitch':ElevatorPitch,'bullets':CVBulletGenerator,'negotiation':NegotiationScript,'linkedin-outreach':LinkedInOutreachGenerator,'job-analyzer':JobDescriptionAnalyzer,'thankyou-email':ThankYouEmailGenerator,'role-questions':RoleQuestionSimulator,'interview-timer':InterviewTimer,'strengths-mapper':StrengthsMapper,'cover-letter':CoverLetterGenerator,'clt-pj':CLTPJCalculator,'reference-letter':ReferenceLetter,'skills-gap':SkillsGapAnalyzer,'interview-questions':InterviewQuestionsGenerator,'personal-bio':PersonalBioGenerator,'networking-planner':WeeklyNetworkingPlanner}
+const toolComponents = {'star':StarBuilder,'ats':ATSKeywordChecker,'salary':SalaryCalculator,'headline':LinkedInHeadline,'interview':InterviewSimulator,'tracker':ApplicationTracker,'summary':SummaryGenerator,'email':ApplicationEmailGenerator,'checklist':ApplicationChecklist,'offercompare':OfferComparator,'about':LinkedInAboutGenerator,'followup':FollowUpEmailGenerator,'cvscore':CVAnalyzer,'plan9090':Plan9090Generator,'pitch':ElevatorPitch,'bullets':CVBulletGenerator,'negotiation':NegotiationScript,'linkedin-outreach':LinkedInOutreachGenerator,'job-analyzer':JobDescriptionAnalyzer,'thankyou-email':ThankYouEmailGenerator,'role-questions':RoleQuestionSimulator,'interview-timer':InterviewTimer,'strengths-mapper':StrengthsMapper,'cover-letter':CoverLetterGenerator,'clt-pj':CLTPJCalculator,'reference-letter':ReferenceLetter,'skills-gap':SkillsGapAnalyzer,'interview-questions':InterviewQuestionsGenerator,'personal-bio':PersonalBioGenerator,'networking-planner':WeeklyNetworkingPlanner}
 export const TOOLS = toolCatalog.map(tool => ({ ...tool, component: toolComponents[tool.id] }))
 
 function ProBadge({ isPro, className = 'py-1' }) {
@@ -4082,8 +4083,9 @@ function ProBadge({ isPro, className = 'py-1' }) {
 }
 
 // ─── Página principal ─────────────────────────────────────────────────────────
-export default function ToolsPage({ user }) {
+export default function ToolsPage({ user, targetTool }) {
   const [activeTool, setActiveTool] = useState(null)
+  useEffect(() => { if (targetTool?.id) setActiveTool(targetTool.id) }, [targetTool])
 
   // Handle pending-tool navigation from Command Palette / SavedPage
   useEffect(() => {
@@ -4096,7 +4098,7 @@ export default function ToolsPage({ user }) {
     } catch {}
   }, [])
   const tool = TOOLS.find((t) => t.id === activeTool)
-  const isPro = isPaid(user?.plan)
+  const isPro = hasContentAccess(user?.plan)
 
   if (tool) {
     const Tool = tool.component
@@ -4114,7 +4116,7 @@ export default function ToolsPage({ user }) {
           <div className="flex items-start justify-between gap-3 mb-1">
             <h1 className="text-2xl font-black text-slate-800">{tool.icon} {tool.title}</h1>
             <div className="flex items-center gap-2">
-              {tool.isPro && <ProBadge isPro={isPro} />}
+              {tool.isPro && user.plan !== 'demo' && <ProBadge isPro={isPro} />}
               <BookmarkButton
                 type="tool"
                 refId={tool.id}
@@ -4149,7 +4151,8 @@ export default function ToolsPage({ user }) {
   return (
     <div className="p-6 animate-fade-in">
       <h1 className="text-2xl font-black text-slate-800 mb-2">Ferramentas</h1>
-      <p className="text-slate-500 text-sm mb-6">30 ferramentas interativas para acelerar a sua busca de emprego.</p>
+      <p className="text-slate-500 text-sm mb-6">{TOOLS.length} ferramentas locais para preparar sua busca de emprego.</p>
+      <p className="text-slate-600 text-sm mb-6">Os resultados usam modelos e regras locais. Revise os textos antes de usar; pontuações e cálculos são orientativos e não garantem aprovação nem substituem aconselhamento profissional.</p>
       <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
         {TOOLS.map((t) => {
           const locked = t.isPro && !isPro
@@ -4160,7 +4163,7 @@ export default function ToolsPage({ user }) {
               {t.isNew && (
                 <span className="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">Novo</span>
               )}
-              {t.isPro && (
+              {t.isPro && user.plan !== 'demo' && (
                 <ProBadge isPro={isPro} className={`absolute top-3 ${t.isNew ? 'right-16' : 'right-3'} py-0.5`} />
               )}
               <div className="flex items-start gap-4">

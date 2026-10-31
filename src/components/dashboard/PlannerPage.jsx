@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { LS } from '../../utils/storage'
-import { isPaid } from '../../utils/plans'
+import { hasContentAccess } from '../../utils/plans'
 
 // ─── Week helpers ──────────────────────────────────────────────────────────────
 function getMondayOf(date) {
@@ -672,7 +672,7 @@ export default function PlannerPage({ user }) {
       </div>
 
       {/* Dica */}
-      {!isPaid(user.plan) && (
+      {!hasContentAccess(user.plan) && (
         <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex items-start gap-3">
           <span className="text-2xl">💡</span>
           <div>

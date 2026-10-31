@@ -4,12 +4,17 @@
 
 @layer base {
   * { font-family: 'Inter', system-ui, sans-serif; }
+  :where(button, a, input, textarea, select, summary):focus-visible { outline: 2px solid #2563eb; outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
   ::-webkit-scrollbar { width: 5px; height: 5px; }
   ::-webkit-scrollbar-track { background: #f1f5f9; }
   ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
 }
 
 @layer utilities {
+  .text-slate-400 { color: #64748b; }
   .animate-fade-in { animation: fadeIn 0.2s ease-out; }
   .sidebar-slide-in { animation: sidebarSlideIn 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
   .touch-manipulation { touch-action: manipulation; }

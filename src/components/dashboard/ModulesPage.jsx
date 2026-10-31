@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react'
 import { Btn, Badge, ProgressBar } from '../ui'
 import { renderMarkdown } from '../../utils/markdown'
 import { LS } from '../../utils/storage'
-import { isPaid } from '../../utils/plans'
-import LessonQA from './LessonQA'
+import { hasContentAccess } from '../../utils/plans'
 import BookmarkButton from './BookmarkButton'
 import {
   addXP, XP_LESSON, XP_MODULE, saveQuizScore,
@@ -29,7 +28,7 @@ Object.entries(CAT_MAP).forEach(([cat, { ids }]) => ids.forEach((id) => { MODULE
 const TRILHAS = [
   { id: 'essencial',    icon: '🎯', label: 'Trilha Essencial',   desc: 'CV, LinkedIn, Entrevistas e Negociação',         ids: [1,3,4,5,6] },
   { id: 'primeiro',     icon: '🚀', label: 'Primeiro Emprego',   desc: 'Do zero à primeira contratação',                ids: [49,1,2,3,4] },
-  { id: 'tech',         icon: '💻', label: 'Carreira em Tech',   desc: 'Dados, PM, Dev, DevOps e IA',                   ids: [36,33,26,48,59] },
+  { id: 'tech',         icon: '💻', label: 'Carreira em Tech',   desc: 'Dados, produto e desenvolvimento',                   ids: [36,33,26,48,59] },
   { id: 'exterior',     icon: '🌍', label: 'Trabalhar Fora',     desc: 'Portugal, EUA, Austrália e remoto internacional', ids: [21,10,15,32,45] },
   { id: 'transicao',    icon: '🔀', label: 'Mudar de Área',      desc: 'Transição estratégica com portfólio e plano',    ids: [7,8,22,30,40] },
 ]
@@ -45,24 +44,21 @@ const CATEGORY_FILTERS = [
 
 const STATUS_FILTERS = [
   { id: 'all',        label: 'Todos' },
-  { id: 'free',       label: 'Grátis' },
-  { id: 'pro',        label: 'Pro' },
   { id: 'inprogress', label: 'Em progresso' },
   { id: 'done',       label: 'Concluídos' },
 ]
 
 // lições que o utilizador consegue abrir: todo o módulo Pro, ou lições
 // individualmente marcadas como Pro dentro de um módulo grátis
-const accessibleLessons = (mod, user) => mod.lessons.filter((l) => !l.isPro || isPaid(user.plan))
-const isLessonLocked    = (mod, l, user) => (mod.isPro || l.isPro) && !isPaid(user.plan)
+const accessibleLessons = (mod, user) => mod.lessons.filter((l) => !l.isPro || hasContentAccess(user.plan))
+const isLessonLocked    = (mod, l, user) => (mod.isPro || l.isPro) && !hasContentAccess(user.plan)
 
 // ─── Certificado de conclusão ─────────────────────────────────────────────
 function downloadCertificate(mod, userName) {
   const date = new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })
   const html = `<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8">
-<title>Certificado — ${mod.title}</title>
+<title>Registro de estudo — ${mod.title}</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Inter', sans-serif; background: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
   .cert { width: 800px; background: white; border: 8px solid #1e3a5f; padding: 60px; text-align: center; position: relative; }
@@ -83,8 +79,8 @@ function downloadCertificate(mod, userName) {
 <div class="cert">
   <div class="icon">${mod.icon}</div>
   <div class="logo">JobJump</div>
-  <div class="sub">Coach de Carreira</div>
-  <div class="certifica">Certifica que</div>
+  <div class="sub">Registro pessoal da demonstração</div>
+  <div class="certifica">Registro local de estudo</div>
   <div class="nome">${userName || 'Profissional'}</div>
   <p class="texto">concluiu com sucesso todas as lições do módulo</p>
   <div class="modulo">${mod.title}</div>
@@ -94,11 +90,11 @@ function downloadCertificate(mod, userName) {
     <div class="ass-cargo">Plataforma de Desenvolvimento de Carreira</div>
   </div>
 </div>
-<script>window.onload = () => window.print()</script>
+<p>Registro pessoal da demonstração. Sem certificação oficial. Use o menu Imprimir para salvar este documento.</p>
 </body></html>`
 
   const win = window.open('', '_blank')
-  if (win) { win.document.write(html); win.document.close() }
+  if (win) { win.document.write(html); win.document.close(); win.opener = null }
 }
 
 // ─── Notas por lição ───────────────────────────────────────────────────────
@@ -351,7 +347,7 @@ function LessonView({ mod, lesson, user, progress, onMarkDone, onBack, onNext, m
           </div>
         </div>
 
-        <LessonQA user={user} moduleId={mod.id} lessonId={lesson.id} />
+
       </div>
     </div>
   )
@@ -359,7 +355,7 @@ function LessonView({ mod, lesson, user, progress, onMarkDone, onBack, onNext, m
 
 // ─── Vista do módulo ───────────────────────────────────────────────────────
 function ModuleView({ mod, user, progress, onOpenLesson, onBack, onOpenQuiz }) {
-  const locked     = mod.isPro && !isPaid(user.plan)
+  const locked     = mod.isPro && !hasContentAccess(user.plan)
   const lessons    = accessibleLessons(mod, user)
   const mCompleted = lessons.filter((l) => progress[l.id]).length
   const pct        = lessons.length ? Math.round((mCompleted / lessons.length) * 100) : 0
@@ -470,10 +466,10 @@ function ModuleView({ mod, user, progress, onOpenLesson, onBack, onOpenQuiz }) {
                 <span className="text-xl">🏆</span>
                 <span className="font-bold text-amber-800 text-sm">Certificado de Conclusão</span>
               </div>
-              <p className="text-amber-700 text-xs">Você concluiu todas as lições deste módulo. Baixe seu certificado!</p>
+              <p className="text-amber-700 text-xs">Você concluiu todas as lições deste módulo. Gere seu registro pessoal de estudo, sem certificação oficial.</p>
             </div>
             <Btn onClick={() => downloadCertificate(mod, user.name)} variant="primary" size="sm" className="flex-shrink-0">
-              Baixar certificado →
+              Gerar registro de estudo →
             </Btn>
           </div>
         </div>
@@ -485,7 +481,7 @@ function ModuleView({ mod, user, progress, onOpenLesson, onBack, onOpenQuiz }) {
 // ─── Cartão de módulo reutilizável ────────────────────────────────────────────
 
 function ModuleCard({ m, user, progress, onOpenModule, rank }) {
-  const locked     = m.isPro && !isPaid(user.plan)
+  const locked     = m.isPro && !hasContentAccess(user.plan)
   const lessons    = accessibleLessons(m, user)
   const mCompleted = lessons.filter((l) => progress[l.id]).length
   const pct        = lessons.length ? Math.round((mCompleted / lessons.length) * 100) : 0
@@ -509,8 +505,8 @@ function ModuleCard({ m, user, progress, onOpenModule, rank }) {
           <div className="flex gap-1 flex-shrink-0">
             {hasQuiz && <span className="text-xs bg-violet-100 text-violet-600 font-bold px-1.5 py-0.5 rounded-full">Quiz</span>}
             {m.isPro && (
-              <Badge className={isPaid(user.plan) ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-500'}>
-                {isPaid(user.plan) ? '⭐ Pro' : '🔒 Pro'}
+              <Badge className={hasContentAccess(user.plan) ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-500'}>
+                {hasContentAccess(user.plan) ? '⭐ Pro' : '🔒 Pro'}
               </Badge>
             )}
           </div>
@@ -590,7 +586,7 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade, 
   // free users browsing the unfiltered list get free modules first, with only a
   // teaser of Pro modules — showing all ~59 locked cards in a row isn't attractive
   const isDefaultView = catFilter === 'all' && statusFilter === 'all' && !search && !isTrilhasMode
-  const collapsePro    = isDefaultView && !isPaid(user.plan)
+  const collapsePro    = isDefaultView && !hasContentAccess(user.plan)
   const freeList       = collapsePro ? sorted.filter((m) => !m.isPro) : []
   const proList        = collapsePro ? sorted.filter((m) => m.isPro) : []
   const proTeaser      = proList.slice(0, PRO_TEASER_COUNT)
@@ -616,7 +612,7 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade, 
         <div>
           <h1 className="text-2xl font-black text-slate-800">Módulos</h1>
           <p className="text-[11px] text-slate-400 mt-0.5">
-            {isPaid(user.plan)
+            {hasContentAccess(user.plan)
               ? `${modules.length} módulos de carreira`
               : `${freeCount} módulos grátis para começar · ${proCount} Pro`}
           </p>
@@ -626,6 +622,7 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade, 
           <input
             value={search}
             onChange={(e) => { setSearch(e.target.value); setCatFilter('all'); setTrilha(null); setTrilhaOpen(false) }}
+            aria-label="Pesquisar módulos"
             placeholder="Pesquisar..."
             className="w-36 sm:w-44 pl-8 pr-3 py-2 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
           />
@@ -667,7 +664,7 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade, 
 
       {/* ── Tabs de categoria ── */}
       <div className="flex gap-2 overflow-x-auto pb-2 mb-1" style={{ scrollbarWidth: 'none' }}>
-        {CAT_TABS.map((t) => {
+        {CAT_TABS.filter(t => t.id === 'all' || modules.some(m => MODULE_CAT[m.id] === t.id)).map((t) => {
           const isActive = catFilter === t.id && !isTrilhasMode
           return (
             <button
@@ -696,7 +693,7 @@ function ModuleList({ user, progress, onOpenModule, onGoToDiagnosis, onUpgrade, 
       {/* ── Trilha cards (estilo original) ── */}
       {isTrilhasMode && (
         <div className="flex gap-3 overflow-x-auto py-3 mb-1" style={{ scrollbarWidth: 'none' }}>
-          {TRILHAS.map((t) => (
+          {TRILHAS.filter(t => t.ids.some(id => modules.some(m => m.id === id))).map((t) => (
             <button
               key={t.id}
               onClick={() => setTrilha(activeTrilha === t.id ? null : t.id)}
@@ -818,6 +815,7 @@ export default function ModulesPage({ user, progress, setProgress, selectedModul
       // Find matching module in loaded list for correct hasQuiz/etc
       const found = modules.find((m) => m.id === initModule.id)
       setMod(found || initModule)
+      setView(initLesson ? 'lesson' : 'module')
     }
   }, [initModule, modules])
 

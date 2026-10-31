@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Btn, Badge } from '../ui'
 import { TEMPLATES } from '../../data/templates'
 import { TEMPLATE_GENERATORS } from '../../utils/templateGenerators'
-import { isPaid } from '../../utils/plans'
+import { hasContentAccess } from '../../utils/plans'
 import BookmarkButton from './BookmarkButton'
 import { bookmarkTemplate } from '../../utils/bookmarks'
 
@@ -28,7 +28,7 @@ export default function TemplatesPage({ user }) {
   }
 
   const handleDownload = async (t) => {
-    if (t.isPro && !isPaid(user.plan)) {
+    if (t.isPro && !hasContentAccess(user.plan)) {
       showToast('🔒 Template exclusivo do Plano Pro. Faça upgrade em Configurações para desbloquear.', true)
       return
     }
@@ -44,7 +44,7 @@ export default function TemplatesPage({ user }) {
       await new Promise((res) => setTimeout(res, 100))
       generator()
       if (t.format === 'PDF') {
-        showToast(`✅ ${t.title} — uma nova aba foi aberta com o documento. Use "Salvar como PDF" no menu de impressão.`)
+        showToast(`✅ ${t.title} — documento preparado em nova aba ou arquivo HTML, se o navegador bloqueou a janela. Use o menu Imprimir para salvar como PDF.`)
       } else {
         showToast(`✅ ${t.title} baixado com sucesso! Confira sua pasta de downloads.`)
       }
@@ -91,7 +91,7 @@ export default function TemplatesPage({ user }) {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {TEMPLATES.filter((t) => t.type === cat).map((t) => {
-              const locked = t.isPro && !isPaid(user.plan)
+              const locked = t.isPro && !hasContentAccess(user.plan)
               const isLoading = downloading === t.id
 
               return (
@@ -109,11 +109,11 @@ export default function TemplatesPage({ user }) {
                       </Badge>
                       {t.isPro && (
                         <Badge className={
-                          isPaid(user.plan)
+                          hasContentAccess(user.plan)
                             ? 'bg-amber-100 text-amber-700 text-xs'
                             : 'bg-slate-100 text-slate-400 text-xs'
                         }>
-                          {isPaid(user.plan) ? '⭐ Pro' : '🔒 Pro'}
+                          {user.plan === 'demo' ? 'Demo' : hasContentAccess(user.plan) ? '⭐ Pro' : '🔒 Pro'}
                         </Badge>
                       )}
                     </div>

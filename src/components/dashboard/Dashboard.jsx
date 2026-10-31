@@ -1,123 +1,27 @@
 import Brand from '../ui/Brand'
 import { useState, useEffect, lazy, Suspense } from 'react'
+import { getModules } from '../../lib/content'
 import { LS } from '../../utils/storage'
 import Sidebar from './Sidebar'
 import NotificationBell from './NotificationBell'
 import DashHome from './DashHome'
 const ModulesPage = lazy(() => import('./ModulesPage'))
 const TemplatesPage = lazy(() => import('./TemplatesPage'))
-const CommunityPage = lazy(() => import('./CommunityPage'))
-const CoachPage = lazy(() => import('./CoachPage'))
 const ToolsPage = lazy(() => import('./ToolsPage'))
 const SettingsPage = lazy(() => import('./SettingsPage'))
 const PlannerPage = lazy(() => import('./PlannerPage'))
-const NetworkingPage = lazy(() => import('./NetworkingPage'))
 const DiagnosisPage = lazy(() => import('./DiagnosisPage'))
-const MessagesPage = lazy(() => import('./MessagesPage'))
 const SavedPage = lazy(() => import('./SavedPage'))
 const JournalPage = lazy(() => import('./JournalPage'))
 import CommandPalette from './CommandPalette'
 
-// ─── Onboarding Modal ────────────────────────────────────────────────────────
-const ONBOARDING_KEY = 'nj_onboarded'
-
-const ONBOARDING_STEPS = [
-  { icon: '🗺️', title: 'Comece pelo Diagnóstico', desc: 'Responda 6 perguntas rápidas e receba um roteiro personalizado dos módulos mais importantes para o seu momento agora. +30 XP garantidos!' },
-  { icon: '📚', title: '102 módulos de carreira', desc: 'Do CV perfeito a trilhas de carreira específicas para dezenas de áreas. Cada lição concluída dá XP e desbloqueia conquistas. Comece pelos 43 módulos gratuitos!' },
-  { icon: '🛠️', title: '30 ferramentas interativas', desc: 'Construtor STAR, extrator ATS, rastreador de candidaturas, simulador de entrevistas, scripts de negociação e muito mais.' },
-  { icon: '🤝', title: 'Rede de apoio real', desc: 'Conecte-se com outros membros por área, encontre um mentor ou parceiro de responsabilidade, e tire dúvidas direto nas lições.' },
-  { icon: '🏆', title: 'Sistema de XP e conquistas', desc: 'Suba de nível, desbloqueie badges e mantenha seu streak diário. Cada ação conta — lições, quizzes e diagnóstico geram XP.' },
-]
-
-function OnboardingModal({ onDone }) {
-  const [step, setStep] = useState(0)
-  const s = ONBOARDING_STEPS[step]
-  const isLast = step === ONBOARDING_STEPS.length - 1
-
-  return (
-    <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 animate-fade-in">
-      <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 text-center">
-        <div className="text-5xl mb-4">{s.icon}</div>
-        <div className="flex justify-center gap-1.5 mb-5">
-          {ONBOARDING_STEPS.map((_, i) => (
-            <div key={i} className={`h-1.5 rounded-full transition-all ${i === step ? 'w-6 bg-blue-600' : 'w-1.5 bg-slate-200'}`} />
-          ))}
-        </div>
-        <h2 className="text-xl font-black text-slate-800 mb-3">{s.title}</h2>
-        <p className="text-slate-500 text-sm leading-relaxed mb-8">{s.desc}</p>
-        <div className="flex gap-3">
-          {step > 0 && (
-            <button onClick={() => setStep(step - 1)} className="flex-1 py-3 rounded-xl border border-slate-200 text-slate-600 font-semibold text-sm hover:bg-slate-50">
-              Voltar
-            </button>
-          )}
-          <button
-            onClick={() => isLast ? onDone() : setStep(step + 1)}
-            className="flex-1 py-3 rounded-xl bg-blue-600 text-white font-black text-sm hover:bg-blue-700 transition-colors"
-          >
-            {isLast ? 'Começar agora! 🚀' : 'Próximo →'}
-          </button>
-        </div>
-        <button onClick={onDone} className="text-xs text-slate-400 hover:text-slate-600 mt-4 underline block mx-auto">
-          Pular introdução
-        </button>
-      </div>
-    </div>
-  )
-}
-
-export default function Dashboard({ user, onLogout, refreshUser, initialTab }) {
+export default function Dashboard({ user, onLogout, refreshUser, initialTab, onTerms, onPrivacy }) {
   const [tab, setTab] = useState(initialTab || 'home')
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [selectedModule, setSelectedModule] = useState(null)
   const [selectedLesson, setSelectedLesson] = useState(null)
+  const [toolTarget, setToolTarget] = useState(null)
   const [progress, setProgress] = useState(() => LS.get('nj_progress', {}))
-  const [showOnboarding, setShowOnboarding] = useState(() => !initialTab && !LS.get(ONBOARDING_KEY, false))
-  const [msgUnread, setMsgUnread] = useState(0)
-  const [msgInitPeerId, setMsgInitPeerId] = useState(null)
-  const [checkoutBanner, setCheckoutBanner] = useState(null) // 'success' | 'cancelled'
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    const status = params.get('checkout')
-    if (status) {
-      window.history.replaceState({}, '', window.location.pathname)
-      setCheckoutBanner(status)
-      if (status === 'success') refreshUser()
-      const t = setTimeout(() => setCheckoutBanner(null), 6000)
-      return () => clearTimeout(t)
-    }
-  }, [])
-
-  // Browser notification for due follow-ups (Tracker) — runs once per session
-  useEffect(() => {
-    if (!('Notification' in window)) return
-    if (Notification.permission !== 'granted') return
-    const cards = LS.get('nj_tracker', [])
-    const today = new Date(); today.setHours(0, 0, 0, 0)
-    const lastNotifKey = 'nj_tracker_last_notif_date'
-    const lastNotif = LS.get(lastNotifKey, null)
-    const todayKey = new Date().toISOString().split('T')[0]
-    if (lastNotif === todayKey) return
-
-    const due = cards.filter((c) => {
-      if (!c.followUpAt) return false
-      const [y, m, d] = c.followUpAt.split('-').map(Number)
-      if (!y) return false
-      const due = new Date(y, m - 1, d)
-      return due.getTime() <= today.getTime()
-    })
-    if (due.length > 0) {
-      try {
-        new Notification('⏰ Follow-up pendente', {
-          body: `${due.length} candidatura${due.length > 1 ? 's' : ''} precisa${due.length > 1 ? 'm' : ''} de follow-up. Toque para abrir o rastreador.`,
-          tag: 'jobjump-followup',
-        })
-        LS.set(lastNotifKey, todayKey)
-      } catch {}
-    }
-  }, [])
-
   // Navigation handler from Command Palette and SavedPage
   const navigateFromSearch = (result) => {
     if (!result) return
@@ -125,40 +29,29 @@ export default function Dashboard({ user, onLogout, refreshUser, initialTab }) {
       setTab('settings')
       return
     }
-    if (result.type === 'tool') {
-      setTab('tools')
-      // store target tool id in a small global so ToolsPage can pick it up
-      try {
-        sessionStorage.setItem('nj_pending_tool', result.refId)
-      } catch {}
-      return
-    }
+    if (result.type === 'tool') { navigateToToolFromSaved(result.refId); return }
     if (result.type === 'template') {
       setTab('templates')
       return
     }
-    if (result.type === 'module' || result.type === 'lesson') {
-      setTab('modules')
-      // open specific lesson if given
-      if (result.type === 'lesson' && result.refId) {
-        try {
-          sessionStorage.setItem('nj_pending_lesson', JSON.stringify(result.refId))
-        } catch {}
-      }
+    if (result.type === 'module') {
+      getModules().then(modules => { const mod = modules.find(m => m.id === result.refId); if (mod) navigateToModule(mod) })
       return
     }
+    if (result.type === 'lesson') navigateToLessonFromSaved(result.refId.moduleId, result.refId.lessonId)
   }
 
   const navigateToLessonFromSaved = (moduleId, lessonId) => {
-    setTab('modules')
-    try {
-      sessionStorage.setItem('nj_pending_lesson', JSON.stringify({ moduleId, lessonId }))
-    } catch {}
+    getModules().then(modules => {
+      const mod = modules.find(m => m.id === Number(moduleId))
+      const lesson = mod?.lessons.find(l => l.id === lessonId)
+      if (mod && lesson) navigateToModule(mod, lesson)
+    })
   }
 
-  const navigateToToolFromSaved = (toolId) => {
+  const navigateToToolFromSaved = toolId => {
+    setToolTarget({ id: toolId })
     setTab('tools')
-    try { sessionStorage.setItem('nj_pending_tool', toolId) } catch {}
   }
 
   const navigateToTemplateFromSaved = () => {
@@ -176,12 +69,6 @@ export default function Dashboard({ user, onLogout, refreshUser, initialTab }) {
   const goTab = (t) => {
     setTab(t)
     if (t !== 'modules') { setSelectedModule(null); setSelectedLesson(null) }
-    if (t !== 'messages') setMsgInitPeerId(null)
-  }
-
-  const goToMessages = (peerId) => {
-    setMsgInitPeerId(peerId)
-    goTab('messages')
   }
 
   // navigate to a module directly from the Diagnosis roadmap
@@ -191,17 +78,10 @@ export default function Dashboard({ user, onLogout, refreshUser, initialTab }) {
     setTab('modules')
   }
 
-  const finishOnboarding = () => {
-    LS.set(ONBOARDING_KEY, true)
-    setShowOnboarding(false)
-    setTab('diagnosis')
-  }
-
-  const sidebarProps = { tab, setTab: goTab, user, onLogout, msgUnread }
+  const sidebarProps = { tab, setTab: goTab, user, onLogout }
 
   return (
     <div className="flex h-full overflow-hidden bg-slate-50">
-      {showOnboarding && <OnboardingModal onDone={finishOnboarding} />}
       <CommandPalette user={user} onNavigate={navigateFromSearch} />
 
       <div className="hidden md:block flex-shrink-0 h-full">
@@ -216,18 +96,6 @@ export default function Dashboard({ user, onLogout, refreshUser, initialTab }) {
       )}
 
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-        {checkoutBanner === 'success' && (
-          <div className="flex items-center gap-3 px-5 py-3 bg-emerald-600 text-white text-sm font-semibold flex-shrink-0">
-            🎉 Bem-vindo ao Pro! O seu plano foi atualizado com sucesso.
-            <button onClick={() => setCheckoutBanner(null)} className="ml-auto text-white/70 hover:text-white text-lg leading-none">×</button>
-          </div>
-        )}
-        {checkoutBanner === 'cancelled' && (
-          <div className="flex items-center gap-3 px-5 py-3 bg-amber-500 text-white text-sm font-semibold flex-shrink-0">
-            Checkout cancelado. Pode fazer upgrade a qualquer momento nas Configurações.
-            <button onClick={() => setCheckoutBanner(null)} className="ml-auto text-white/70 hover:text-white text-lg leading-none">×</button>
-          </div>
-        )}
         <div className="md:hidden flex items-center gap-3 px-4 bg-white border-b border-slate-200 fixed top-0 left-0 right-0 z-30 h-14 shadow-sm">
           <button
             onClick={() => setSidebarOpen(true)}
@@ -254,9 +122,8 @@ export default function Dashboard({ user, onLogout, refreshUser, initialTab }) {
           <NotificationBell />
         </div>
 
-        <main className="flex-1 overflow-y-auto overscroll-contain pt-14 md:pt-0">
+        <main id="conteudo" tabIndex={-1} className="flex-1 overflow-y-auto overscroll-contain pt-14 md:pt-0">
           <Suspense fallback={<div role="status" className="p-6 text-slate-500">Carregando sua próxima etapa…</div>}>
-          {user.id === 'preview-user' && ['networking', 'messages', 'community'].includes(tab) && <section className="p-6"><h1 className="text-2xl font-bold">Conexões com a comunidade</h1><p className="text-slate-600 mt-3">Na sua conta, você poderá encontrar profissionais, trocar mensagens e participar da comunidade. Esses recursos não estão disponíveis na demonstração.</p></section>}
           {tab === 'home' && (
             <DashHome
               user={user} progress={progress}
@@ -288,21 +155,10 @@ export default function Dashboard({ user, onLogout, refreshUser, initialTab }) {
             />
           )}
           {tab === 'templates' && <TemplatesPage user={user} />}
-          {tab === 'tools' && <ToolsPage user={user} />}
-          {tab === 'networking' && user.id !== 'preview-user' && <NetworkingPage user={user} onGoToMessages={goToMessages} />}
-          {tab === 'messages' && user.id !== 'preview-user' && (
-            <MessagesPage
-              user={user}
-              initPeerId={msgInitPeerId}
-              onUnreadChange={setMsgUnread}
-              onGoNetworking={() => goTab('networking')}
-            />
-          )}
-          {tab === 'community' && user.id !== 'preview-user' && <CommunityPage user={user} onGoToMessages={goToMessages} />}
-          {tab === 'coach' && <CoachPage user={user} />}
+          {tab === 'tools' && <ToolsPage user={user} targetTool={toolTarget} />}
           {tab === 'planner' && <PlannerPage user={user} />}
           {tab === 'settings' && (
-            <SettingsPage user={user} onLogout={onLogout} refreshUser={refreshUser} progress={progress} />
+            <SettingsPage onTerms={onTerms} onPrivacy={onPrivacy} />
           )}
           </Suspense>
         </main>

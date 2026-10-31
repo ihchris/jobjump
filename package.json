@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prepare-deployment.mjs",
     "preview": "vite preview",
     "test:smoke": "node tests/smoke.mjs",
-    "test:auth": "node tests/auth.mjs"
+    "test:auth": "node tests/auth.mjs",
+    "test:release": "node tests/release.mjs",
+    "test:production": "node tests/production.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

@@ -6,7 +6,8 @@ import ErrorBoundary from './components/ErrorBoundary.jsx'
 
 // Apply theme before React renders to avoid FOUC
 ;(() => {
-  const saved = localStorage.getItem('nj_theme')
+  let saved
+  try { saved = localStorage.getItem('nj_theme') } catch {}
   const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches
   const isDark = saved === 'dark' || ((!saved || saved === 'system') && prefersDark)
   if (isDark) document.documentElement.classList.add('dark')

@@ -4,7 +4,7 @@ import {
   getEntries, saveEntry, getEntryFor, getWeekSummary, getJournalStreak, todayKey,
   enforceFreeHistory, isTruncatedForFree,
 } from '../../utils/journal'
-import { isPaid } from '../../utils/plans'
+import { hasContentAccess } from '../../utils/plans'
 import {
   addXP, XP_JOURNAL, checkNewBadges, buildGamState,
 } from '../../utils/gamification'
@@ -71,7 +71,7 @@ function MoodSparkline({ days }) {
 }
 
 export default function JournalPage({ user, progress, modules }) {
-  const isPro = isPaid(user?.plan)
+  const isPro = hasContentAccess(user?.plan)
   const today = todayKey()
   const [version, setVersion] = useState(0)
   const [truncated, setTruncated] = useState(false)
@@ -211,7 +211,7 @@ export default function JournalPage({ user, progress, modules }) {
               <label className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">
                 ✨ O que correu bem hoje?
               </label>
-              <textarea
+              <textarea aria-label="✨ O que correu bem hoje?"
                 value={form.wentWell}
                 onChange={(e) => setForm((f) => ({ ...f, wentWell: e.target.value }))}
                 rows={3}
@@ -223,7 +223,7 @@ export default function JournalPage({ user, progress, modules }) {
               <label className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">
                 🎯 O que pode melhorar amanhã?
               </label>
-              <textarea
+              <textarea aria-label="🎯 O que pode melhorar amanhã?"
                 value={form.toImprove}
                 onChange={(e) => setForm((f) => ({ ...f, toImprove: e.target.value }))}
                 rows={3}
@@ -235,7 +235,7 @@ export default function JournalPage({ user, progress, modules }) {
               <label className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">
                 🙏 Gratidão
               </label>
-              <textarea
+              <textarea aria-label="🙏 Gratidão"
                 value={form.gratitude}
                 onChange={(e) => setForm((f) => ({ ...f, gratitude: e.target.value }))}
                 rows={2}
