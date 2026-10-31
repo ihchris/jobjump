@@ -1,3 +1,4 @@
+import Brand from '../ui/Brand'
 import { useState, useEffect } from 'react'
 import { Btn, Badge, Stars } from '../ui'
 import { TESTIMONIALS, FAQ } from '../../data/content'
@@ -12,15 +13,11 @@ const LandingNav = ({ onLogin, onStart }) => {
   }, [])
   return (
     <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-      scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100' : 'bg-transparent'
+      scrolled ? 'bg-white/95 dark:bg-brand-navy/95 backdrop-blur-md shadow-sm border-b border-slate-100' : 'bg-transparent'
     }`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <div className="flex items-center">
-          <img
-            src="/logo.png"
-            alt="JobJump"
-            className={`h-9 w-auto transition-all duration-300 ${scrolled ? '' : 'brightness-0 invert'}`}
-          />
+          <Brand light={!scrolled} className="h-10" />
         </div>
         <div className={`hidden sm:flex items-center gap-6 text-sm font-medium transition-colors ${scrolled ? 'text-slate-600' : 'text-blue-100'}`}>
           <a href="#como-funciona" className="hover:text-blue-500 transition-colors">Como funciona</a>
@@ -32,7 +29,7 @@ const LandingNav = ({ onLogin, onStart }) => {
           <button onClick={onLogin} className={`text-sm font-semibold px-4 py-2 rounded-xl transition-colors ${
             scrolled ? 'text-slate-600 hover:text-blue-600' : 'text-blue-100 hover:text-white'
           }`}>Entrar</button>
-          <Btn onClick={onStart} variant={scrolled ? 'primary' : 'white'} size="sm">Criar conta grátis</Btn>
+          <Btn onClick={onStart} variant="primary" size="sm">Começar grátis</Btn>
         </div>
       </div>
     </nav>
@@ -53,7 +50,7 @@ const AppPreview = () => (
           <div className="w-3 h-3 rounded-full bg-yellow-400/70" />
           <div className="w-3 h-3 rounded-full bg-green-400/70" />
         </div>
-        <div className="flex-1 bg-white/10 rounded-md text-blue-200 text-xs px-3 py-1 text-center">jobjump.co · Dashboard</div>
+        <div className="flex-1 bg-white/10 rounded-md text-brand-muted text-xs px-3 py-1 text-center">jobjump.co · Dashboard</div>
       </div>
       {/* Content */}
       <div className="p-4 space-y-3">
@@ -62,7 +59,7 @@ const AppPreview = () => (
           {[['68%', 'Progresso'], ['5🔥', 'Dias seguidos'], ['4/5', 'Conquistas']].map(([v, l]) => (
             <div key={l} className="bg-white/10 rounded-xl p-2.5 text-center">
               <div className="text-white font-black text-base">{v}</div>
-              <div className="text-blue-200 text-xs">{l}</div>
+              <div className="text-brand-muted text-xs">{l}</div>
             </div>
           ))}
         </div>
@@ -77,7 +74,7 @@ const AppPreview = () => (
             <div className="flex-1 min-w-0">
               <div className="text-white text-xs font-semibold truncate">{m.title}</div>
               <div className="w-full bg-white/10 rounded-full h-1.5 mt-1.5">
-                <div className="bg-blue-300 h-1.5 rounded-full transition-all" style={{ width: `${m.prog}%` }} />
+                <div className="bg-brand-accent h-1.5 rounded-full transition-all" style={{ width: `${m.prog}%` }} />
               </div>
             </div>
             {m.done && <span className="text-green-400 text-sm flex-shrink-0">✓</span>}
@@ -85,7 +82,7 @@ const AppPreview = () => (
         ))}
         {/* ATS tool preview */}
         <div className="bg-white/10 rounded-xl p-3">
-          <div className="text-blue-200 text-xs mb-2">🔍 Análise ATS — última vaga</div>
+          <div className="text-brand-muted text-xs mb-2">🔍 Análise ATS — última vaga</div>
           <div className="flex gap-2">
             <div className="bg-green-400/20 text-green-300 text-xs px-2 py-1 rounded-full">python ✓</div>
             <div className="bg-green-400/20 text-green-300 text-xs px-2 py-1 rounded-full">sql ✓</div>
@@ -96,17 +93,17 @@ const AppPreview = () => (
     </div>
     {/* Floating badges */}
     <div className="absolute -top-4 -right-4 bg-green-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg animate-bounce">
-      +3 entrevistas 🎉
+      Exemplo de progresso
     </div>
     <div className="absolute -bottom-3 -left-4 bg-white text-slate-800 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-      💰 Negociou +R$3.200
+      Prévia ilustrativa
     </div>
   </div>
 )
 
 // ── Hero ──────────────────────────────────────────────────────────────────────
-const Hero = ({ onStart }) => (
-  <section className="relative min-h-screen bg-gradient-to-br from-[#0f2340] via-[#1e3a5f] to-[#1d4ed8] overflow-hidden flex items-center pt-16">
+const Hero = ({ onStart, onPreview }) => (
+  <section className="relative min-h-screen bg-gradient-to-br from-brand-deep via-brand-navy to-[#1e3a5f] overflow-hidden flex items-center pt-16">
     {/* Background pattern */}
     <div className="absolute inset-0 opacity-10" style={{
       backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
@@ -119,39 +116,38 @@ const Hero = ({ onStart }) => (
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left: Copy */}
         <div>
-          <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 text-blue-200 text-sm px-4 py-2 rounded-full mb-6">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            +2.400 profissionais já conseguiram emprego
+          <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 text-brand-muted text-sm px-4 py-2 rounded-full mb-6">
+            <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
+            Para quem busca emprego ou quer mudar de carreira
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-black text-white leading-[1.1] mb-5">
-            Pare de enviar CVs<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300">
-              que ninguém lê.
+            Seu próximo passo<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-teal-100">
+              na carreira começa aqui.
             </span>
           </h1>
-          <p className="text-blue-100/90 text-lg leading-relaxed mb-8 max-w-lg">
-            Não é mais uma rede social. É um plano de ação: 102 módulos + 30 ferramentas interativas
-            + uma comunidade que te ajuda de verdade — para fazer seu CV passar pelos filtros ATS,
-            arrasar nas entrevistas e negociar o salário que você merece.
+          <p className="text-brand-muted text-lg leading-relaxed mb-8 max-w-lg">
+            Descubra o que melhorar no seu currículo e na sua preparação para entrevistas.
+            Responda a 6 perguntas e receba um roteiro de aulas e tarefas para colocar em prática, uma etapa de cada vez.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 mb-6">
-            <Btn onClick={onStart} variant="white" size="lg" className="text-base">
-              Começar Gratuitamente →
+          <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 mb-6">
+            <Btn onClick={onStart} variant="primary" size="lg" className="text-base whitespace-nowrap">
+              Criar plano grátis →
             </Btn>
             <button
-              onClick={() => document.getElementById('precos')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-6 py-3 text-blue-100 hover:text-white border border-blue-400/40 hover:border-blue-300/60 rounded-xl font-semibold text-base transition-all hover:bg-white/5"
+              onClick={onPreview}
+              className="px-4 py-3 text-blue-100 hover:text-white border border-blue-400/40 hover:border-blue-300/60 rounded-xl font-semibold text-sm whitespace-nowrap transition-all hover:bg-white/5"
             >
-              Ver planos
+              Experimentar sem cadastro
             </button>
           </div>
-          <p className="text-blue-300/80 text-sm">Sem cartão de crédito · Acesso imediato · 43 módulos grátis para sempre</p>
+          <p className="text-brand-muted text-sm">Sem cartão de crédito · Acesso imediato · 43 módulos grátis para sempre</p>
           {/* Trust row */}
           <div className="flex items-center gap-6 mt-8 pt-8 border-t border-white/10">
-            {[['2.400+', 'Formados'], ['89%', 'Mais respostas'], ['3 sem', '1ª entrevista']].map(([n, l]) => (
+            {[['6', 'Perguntas no diagnóstico'], ['43', 'Módulos grátis'], ['30', 'Ferramentas práticas']].map(([n, l]) => (
               <div key={l}>
                 <div className="text-2xl font-black text-white">{n}</div>
-                <div className="text-blue-300 text-xs mt-0.5">{l}</div>
+                <div className="text-brand-muted text-xs mt-0.5">{l}</div>
               </div>
             ))}
           </div>
@@ -179,8 +175,8 @@ const HowItWorks = ({ onStart }) => (
     <div className="max-w-6xl mx-auto px-4 sm:px-6">
       <div className="text-center mb-14">
         <Badge className="bg-blue-50 text-blue-600 border border-blue-100 mb-4">🗺️ Como funciona</Badge>
-        <h2 className="text-3xl sm:text-4xl font-black text-slate-800 mb-4">Da vaga ao emprego em 4 passos</h2>
-        <p className="text-slate-500 max-w-xl mx-auto">Um processo estruturado que já funcionou para mais de 2.400 profissionais.</p>
+        <h2 className="text-3xl sm:text-4xl font-black text-slate-800 mb-4">Do diagnóstico à prática em 4 passos</h2>
+        <p className="text-slate-500 max-w-xl mx-auto">Um caminho para escolher prioridades e transformar aprendizado em ação.</p>
       </div>
 
       <div className="relative">
@@ -189,10 +185,10 @@ const HowItWorks = ({ onStart }) => (
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { step: '01', icon: '📄', color: 'bg-blue-50 border-blue-200 text-blue-600', dot: 'bg-blue-600', title: 'Otimize seu CV', desc: 'Aprenda a passar pelos filtros ATS e chegar à mão dos recrutadores com o CV certo.' },
-            { step: '02', icon: '🔍', color: 'bg-violet-50 border-violet-200 text-violet-600', dot: 'bg-violet-600', title: 'Encontre as vagas', desc: 'Use nossas ferramentas e estratégias para identificar as melhores oportunidades.' },
-            { step: '03', icon: '🎤', color: 'bg-emerald-50 border-emerald-200 text-emerald-600', dot: 'bg-emerald-600', title: 'Arrase nas entrevistas', desc: 'Pratique com o simulador de entrevistas e aprenda o método STAR na prática.' },
-            { step: '04', icon: '💰', color: 'bg-amber-50 border-amber-200 text-amber-600', dot: 'bg-amber-600', title: 'Negocie com confiança', desc: 'Saiba exatamente quanto pedir e como responder para maximizar seu salário.' },
+            { step: '01', icon: '📄', color: 'bg-blue-50 border-blue-200 text-blue-600', dot: 'bg-blue-600', title: 'Descubra sua prioridade', desc: 'Responda a 6 perguntas sobre seu momento e seus objetivos de carreira.' },
+            { step: '02', icon: '🔍', color: 'bg-violet-50 border-violet-200 text-violet-600', dot: 'bg-violet-600', title: 'Receba seu roteiro', desc: 'Veja os módulos recomendados para o seu perfil, na ordem em que pode estudá-los.' },
+            { step: '03', icon: '🎤', color: 'bg-emerald-50 border-emerald-200 text-emerald-600', dot: 'bg-emerald-600', title: 'Faça sua primeira aula', desc: 'Abra a tarefa recomendada e aplique uma melhoria no currículo ou na preparação.' },
+            { step: '04', icon: '💰', color: 'bg-amber-50 border-amber-200 text-amber-600', dot: 'bg-amber-600', title: 'Pratique e acompanhe', desc: 'Use ferramentas, organize sua semana e acompanhe as aulas concluídas.' },
           ].map((s) => (
             <div key={s.step} className="relative text-center">
               <div className={`relative w-14 h-14 mx-auto rounded-2xl border-2 ${s.color} flex items-center justify-center text-2xl mb-4 shadow-sm`}>
@@ -282,7 +278,7 @@ const Comparison = ({ onStart }) => {
           <div className="min-w-[560px]">
             <div className="grid grid-cols-3 bg-slate-800 text-white text-sm font-bold">
               <div className="p-4">Critério</div>
-              <div className="p-4 text-blue-300">JobJump</div>
+              <div className="p-4 text-brand-muted">JobJump</div>
               <div className="p-4 text-slate-400">LinkedIn</div>
             </div>
             {rows.map((r, i) => (
@@ -373,12 +369,12 @@ const ModulesSection = ({ onStart }) => {
 
 // ── Features ──────────────────────────────────────────────────────────────────
 const FeaturesSection = () => (
-  <section className="py-20 bg-[#0f2340]">
+  <section className="py-20 bg-brand-deep">
     <div className="max-w-6xl mx-auto px-4 sm:px-6">
       <div className="text-center mb-14">
-        <Badge className="bg-white/10 text-blue-200 border border-white/20 mb-4">⚡ Ferramentas Pro</Badge>
+        <Badge className="bg-white/10 text-brand-muted border border-white/20 mb-4">⚡ Ferramentas Pro</Badge>
         <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">Ferramentas que trabalham por você</h2>
-        <p className="text-blue-200 max-w-xl mx-auto">30 ferramentas interativas que complementam os módulos e geram resultados imediatos.</p>
+        <p className="text-brand-muted max-w-xl mx-auto">30 ferramentas interativas que complementam os módulos e geram resultados imediatos.</p>
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -396,7 +392,7 @@ const FeaturesSection = () => (
             )}
             <div className="text-2xl mb-3">{f.icon}</div>
             <h3 className="font-bold text-white mb-1.5">{f.title}</h3>
-            <p className="text-blue-200/80 text-sm leading-relaxed">{f.desc}</p>
+            <p className="text-brand-muted text-sm leading-relaxed">{f.desc}</p>
           </div>
         ))}
       </div>
@@ -452,17 +448,17 @@ const Pricing = ({ onChoosePlan }) => (
         </div>
 
         {/* Pro */}
-        <div className="rounded-2xl border-2 border-blue-600 p-8 relative bg-gradient-to-b from-blue-600 to-blue-700 flex flex-col shadow-xl shadow-blue-600/20">
+        <div className="rounded-2xl border-2 border-brand-action p-8 relative bg-brand-navy flex flex-col shadow-xl shadow-blue-600/20">
           <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
             <span className="bg-amber-400 text-amber-900 text-xs font-black px-4 py-1.5 rounded-full shadow-sm">✦ MAIS POPULAR</span>
           </div>
           <div className="mb-6">
-            <div className="font-black text-blue-200 text-xs uppercase tracking-widest mb-3">Pro Mensal</div>
+            <div className="font-black text-brand-muted text-xs uppercase tracking-widest mb-3">Pro Mensal</div>
             <div className="flex items-end gap-1 mb-2">
               <span className="text-5xl font-black text-white">R$29</span>
-              <span className="text-blue-200 mb-2">,90/mês</span>
+              <span className="text-brand-muted mb-2">,90/mês</span>
             </div>
-            <p className="text-blue-200 text-sm">Cancele a qualquer momento. Sem fidelidade.</p>
+            <p className="text-brand-muted text-sm">Cancele a qualquer momento. Sem fidelidade.</p>
           </div>
           <ul className="space-y-3 mb-8 flex-1">
             {[
@@ -478,28 +474,28 @@ const Pricing = ({ onChoosePlan }) => (
               'Comunidade + Mentoria + suporte por email',
             ].map((f) => (
               <li key={f} className="flex items-start gap-2.5 text-sm text-blue-50">
-                <span className="text-blue-200 font-bold mt-0.5 flex-shrink-0">✓</span>{f}
+                <span className="text-brand-muted font-bold mt-0.5 flex-shrink-0">✓</span>{f}
               </li>
             ))}
           </ul>
-          <Btn onClick={() => onChoosePlan('pro')} variant="white" size="md" className="w-full font-black">
+          <Btn onClick={() => onChoosePlan('pro')} variant="primary" size="md" className="w-full font-black">
             Começar Pro agora →
           </Btn>
-          <p className="text-center text-blue-200 text-xs mt-3">7 dias de teste — se não gostar, devolvemos</p>
+          <p className="text-center text-brand-muted text-xs mt-3">7 dias de teste — se não gostar, devolvemos</p>
         </div>
 
         {/* Pro Anual */}
-        <div className="rounded-2xl border-2 border-emerald-500 p-8 relative bg-gradient-to-b from-emerald-600 to-emerald-700 flex flex-col shadow-xl shadow-emerald-600/20">
+        <div className="rounded-2xl border-2 border-brand-accent p-8 relative bg-brand-navy flex flex-col shadow-xl shadow-slate-900/10">
           <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-            <span className="bg-emerald-300 text-emerald-900 text-xs font-black px-4 py-1.5 rounded-full shadow-sm">✦ ECONOMIZE 33%</span>
+            <span className="bg-brand-accent text-brand-deep text-xs font-black px-4 py-1.5 rounded-full shadow-sm">✦ ECONOMIZE 33%</span>
           </div>
           <div className="mb-6">
-            <div className="font-black text-emerald-200 text-xs uppercase tracking-widest mb-3">Pro Anual</div>
+            <div className="font-black text-brand-muted text-xs uppercase tracking-widest mb-3">Pro Anual</div>
             <div className="flex items-end gap-1 mb-1">
               <span className="text-5xl font-black text-white">R$19</span>
-              <span className="text-emerald-200 mb-2">,90/mês</span>
+              <span className="text-brand-muted mb-2">,90/mês</span>
             </div>
-            <p className="text-emerald-200 text-sm">Cobrado como R$238,80/ano · <span className="line-through opacity-60">R$358,80</span></p>
+            <p className="text-brand-muted text-sm">Cobrado como R$238,80/ano · <span className="line-through">R$358,80</span></p>
           </div>
           <ul className="space-y-3 mb-8 flex-1">
             {[
@@ -512,15 +508,15 @@ const Pricing = ({ onChoosePlan }) => (
               'Networking CRM + Plano Semanal',
               'Comunidade + Mentoria + suporte prioritário',
             ].map((f) => (
-              <li key={f} className="flex items-start gap-2.5 text-sm text-emerald-50">
-                <span className="text-emerald-200 font-bold mt-0.5 flex-shrink-0">✓</span>{f}
+              <li key={f} className="flex items-start gap-2.5 text-sm text-brand-muted">
+                <span className="text-brand-muted font-bold mt-0.5 flex-shrink-0">✓</span>{f}
               </li>
             ))}
           </ul>
-          <Btn onClick={() => onChoosePlan('annual')} variant="white" size="md" className="w-full font-black">
+          <Btn onClick={() => onChoosePlan('annual')} variant="primary" size="md" className="w-full font-black">
             Começar Anual agora →
           </Btn>
-          <p className="text-center text-emerald-200 text-xs mt-3">7 dias de teste — se não gostar, devolvemos</p>
+          <p className="text-center text-brand-muted text-xs mt-3">7 dias de teste — se não gostar, devolvemos</p>
         </div>
       </div>
 
@@ -597,22 +593,22 @@ const FAQSection = () => {
 
 // ── Footer CTA ────────────────────────────────────────────────────────────────
 const LandingFooter = ({ onStart, onTerms }) => (
-  <footer className="bg-gradient-to-br from-[#0f2340] to-[#1e3a5f] text-white">
+  <footer className="bg-gradient-to-br from-brand-deep to-brand-navy text-white">
     {/* CTA Block */}
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-20 text-center">
-      <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-blue-200 text-sm px-4 py-2 rounded-full mb-6">
-        <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+      <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-brand-muted text-sm px-4 py-2 rounded-full mb-6">
+        <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
         Comece hoje — é gratuito
       </div>
       <h2 className="text-3xl sm:text-4xl font-black mb-4 leading-tight">
         Pronto para conseguir<br />
-        <span className="text-blue-300">o emprego que você merece?</span>
+        <span className="text-brand-muted">o emprego que você merece?</span>
       </h2>
-      <p className="text-blue-200 text-lg mb-8 max-w-lg mx-auto">
+      <p className="text-brand-muted text-lg mb-8 max-w-lg mx-auto">
         Junte-se a mais de 2.400 profissionais que transformaram sua busca de emprego.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <Btn onClick={onStart} variant="white" size="lg" className="text-base">
+        <Btn onClick={onStart} variant="primary" size="lg" className="text-base">
           Criar conta grátis →
         </Btn>
         <button
@@ -622,16 +618,16 @@ const LandingFooter = ({ onStart, onTerms }) => (
           Ver plano Pro
         </button>
       </div>
-      <p className="text-blue-400 text-sm mt-4">Sem cartão de crédito · Acesso imediato · 43 módulos grátis para sempre</p>
+      <p className="text-brand-muted text-sm mt-4">Sem cartão de crédito · Acesso imediato · 43 módulos grátis para sempre</p>
     </div>
 
     {/* Bottom bar */}
     <div className="border-t border-white/10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-blue-300 text-sm">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-brand-muted text-sm">
         <div className="flex items-center">
-          <img src="/logo.png" alt="JobJump" className="h-7 w-auto brightness-0 invert" />
+          <Brand light className="h-7" />
         </div>
-        <span className="text-blue-400">© 2025 JobJump. Todos os direitos reservados.</span>
+        <span className="text-brand-muted">© 2025 JobJump. Todos os direitos reservados.</span>
         <div className="flex gap-5">
           <span className="hover:text-white cursor-pointer transition-colors">Privacidade</span>
           <span className="hover:text-white cursor-pointer transition-colors" onClick={onTerms}>Termos</span>
@@ -643,11 +639,11 @@ const LandingFooter = ({ onStart, onTerms }) => (
 )
 
 // ── Root ──────────────────────────────────────────────────────────────────────
-export default function LandingPage({ onStart, onLogin, onTerms }) {
+export default function LandingPage({ onStart, onLogin, onTerms, onPreview }) {
   return (
     <div>
       <LandingNav onLogin={onLogin} onStart={onStart} />
-      <Hero onStart={onStart} />
+      <Hero onStart={onStart} onPreview={onPreview} />
       <HowItWorks onStart={onStart} />
       <Problems onStart={onStart} />
       <Comparison onStart={onStart} />

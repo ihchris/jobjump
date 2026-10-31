@@ -1,9 +1,12 @@
+import Brand from './components/ui/Brand'
 import { useState, useEffect, lazy, Suspense } from 'react'
 import { supabase, supabaseConfigured } from './lib/supabase'
+import { setContentDemoMode } from './lib/content'
 import { LS } from './utils/storage'
 
 // Heavy pages: code-split so the initial bundle only loads landing + auth
 const LandingPage  = lazy(() => import('./components/landing/LandingPage'))
+const RecoveryPage = lazy(() => import('./components/auth/RecoveryPage'))
 const AuthPage     = lazy(() => import('./components/auth/AuthPage'))
 const Dashboard    = lazy(() => import('./components/dashboard/Dashboard'))
 const TermsOfService = lazy(() => import('./components/legal/TermsOfService'))
@@ -27,15 +30,15 @@ const DEMO_USER_KEY = 'nj_demo_user'
 function DemoBanner() {
   return (
     <div className="w-full bg-amber-500 text-white text-xs text-center py-2 px-4 flex-shrink-0">
-      ⚠️ <strong>Modo Demo</strong> — configure o arquivo <code className="bg-amber-600 px-1 rounded">.env.local</code> com as credenciais do Supabase para ativar autenticação e pagamentos reais.
+      ⚠️ <strong>Demonstração</strong> — progresso salvo neste navegador. Login, pagamentos e coach IA reais não estão disponíveis nesta prévia.
     </div>
   )
 }
 
-function DemoApp() {
-  const [page, setPage] = useState(() => LS.get(DEMO_USER_KEY) ? 'dashboard' : 'landing')
+function DemoApp({ preview = false, onExit, onPreview }) {
+  const [page, setPage] = useState(() => preview || LS.get(DEMO_USER_KEY) ? 'dashboard' : 'landing')
   const [authMode, setAuthMode] = useState('register')
-  const [user, setUser] = useState(() => LS.get(DEMO_USER_KEY))
+  const [user, setUser] = useState(() => preview ? { id: 'preview-user', name: 'Visitante', plan: 'free' } : LS.get(DEMO_USER_KEY))
   const [prevPage, setPrevPage] = useState('landing')
 
   const goTerms = () => { setPrevPage(page); setPage('terms') }
@@ -63,7 +66,7 @@ function DemoApp() {
       <div className="flex flex-col h-[100dvh]">
         <div className="flex-1 min-h-0">
           <WithSuspense>
-            <Dashboard user={user} onLogout={onLogout} refreshUser={() => {}} />
+            <Dashboard user={user} initialTab={preview ? 'diagnosis' : undefined} onLogout={preview ? onExit : onLogout} refreshUser={() => {}} />
           </WithSuspense>
         </div>
         <DemoBanner />
@@ -89,6 +92,7 @@ function DemoApp() {
     <>
       <WithSuspense>
         <LandingPage
+          onPreview={onPreview}
           onStart={() => { setAuthMode('register'); setPage('auth') }}
           onLogin={() => { setAuthMode('login'); setPage('auth') }}
           onTerms={goTerms}
@@ -139,7 +143,7 @@ function DemoAuthPage({ mode, onAuth, onBack, onPrivacy }) {
           ← Voltar
         </button>
         <div className="text-center mb-8">
-          <img src="/logo.png" alt="JobJump" className="h-14 w-auto mx-auto mb-3" />
+          <Brand className="h-14  mx-auto mb-3" />
           <h1 className="text-xl font-black text-slate-800">Modo Demo</h1>
           <p className="text-slate-500 text-sm mt-1">Entre sem credenciais reais</p>
         </div>
@@ -207,13 +211,14 @@ async function fetchProfile(authUser) {
   return data ? { ...data, email: authUser.email } : null
 }
 
-function SupabaseApp() {
+function SupabaseApp({ onPreview }) {
   const [page, setPage] = useState('landing')
   const [prevPage, setPrevPage] = useState('landing')
   const [authMode, setAuthMode] = useState('register')
   const [defaultPlan, setDefaultPlan] = useState('free')
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [recovering, setRecovering] = useState(() => new URLSearchParams(window.location.hash.slice(1)).get('type') === 'recovery')
 
   const goTerms = () => { setPrevPage(page); setPage('terms') }
   const goPrivacy = () => { setPrevPage(page); setPage('privacy') }
@@ -229,6 +234,7 @@ function SupabaseApp() {
     })
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === 'PASSWORD_RECOVERY') { setRecovering(true); setLoading(false); return }
       if (event === 'SIGNED_IN' && session) {
         const profile = await fetchProfile(session.user)
         if (profile) { setUser(profile); setPage('dashboard') }
@@ -263,6 +269,8 @@ function SupabaseApp() {
     }
   }
 
+  if (recovering) return <WithSuspense><RecoveryPage onDone={() => { setRecovering(false); setPage('landing') }} /></WithSuspense>
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-50">
@@ -286,10 +294,14 @@ function SupabaseApp() {
       />
     )
   }
-  return <LandingPage onStart={goAuth} onLogin={() => { setAuthMode('login'); setPage('auth') }} onTerms={goTerms} onPrivacy={goPrivacy} />
+  return <LandingPage onPreview={onPreview} onStart={goAuth} onLogin={() => { setAuthMode('login'); setPage('auth') }} onTerms={goTerms} onPrivacy={goPrivacy} />
 }
 
 // ─── Root ──────────────────────────────────────────────────────────────────
 export default function App() {
-  return supabaseConfigured ? <SupabaseApp /> : <DemoApp />
+  const [preview, setPreview] = useState(false)
+  const openPreview = () => { setContentDemoMode(true); setPreview(true) }
+  const closePreview = () => { setContentDemoMode(false); setPreview(false) }
+  if (preview) return <DemoApp key="preview" preview onExit={closePreview} />
+  return supabaseConfigured ? <SupabaseApp onPreview={openPreview} /> : <DemoApp key="demo" onPreview={openPreview} />
 }

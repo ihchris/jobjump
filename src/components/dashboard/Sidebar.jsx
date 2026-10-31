@@ -1,3 +1,4 @@
+import Brand from '../ui/Brand'
 import { useState, useEffect, useRef } from 'react'
 import { Badge } from '../ui'
 import { isPaid, planBadge } from '../../utils/plans'
@@ -92,7 +93,7 @@ function SidebarBell() {
 }
 
 const TABS = [
-  { id: 'home',       label: 'Dashboard',     icon: '🏠' },
+  { id: 'home',       label: 'Início',     icon: '🏠' },
   { id: 'modules',    label: 'Módulos',        icon: '📚' },
   { id: 'diagnosis',  label: 'Diagnóstico',    icon: '🗺️' },
   { id: 'planner',    label: 'Plano Semanal',  icon: '📅' },
@@ -115,12 +116,12 @@ export default function Sidebar({ tab, setTab, user, onLogout, mobile, onClose, 
   const pct   = getLevelProgress(xp)
 
   return (
-    <div className={`flex flex-col bg-[#1e3a5f] text-white ${mobile ? 'fixed inset-y-0 left-0 z-50 w-[280px] shadow-2xl sidebar-slide-in' : 'w-64 h-full'}`}>
+    <div className={`flex flex-col bg-brand-navy text-white ${mobile ? 'fixed inset-y-0 left-0 z-50 w-[280px] shadow-2xl sidebar-slide-in' : 'w-64 h-full'}`}>
       <div className="p-5 border-b border-white/10">
         <div className="flex items-center gap-3">
           <div className="flex-1 min-w-0">
-            <img src="/logo.png" alt="JobJump" className="h-8 w-auto brightness-0 invert" />
-            <div className="text-blue-300 text-xs mt-0.5">Coach de Carreira</div>
+            <Brand light className="h-8" />
+            <div className="text-brand-muted text-xs mt-0.5">Coach de Carreira</div>
           </div>
           {!mobile && <SidebarBell />}
           {mobile && (
@@ -136,12 +137,21 @@ export default function Sidebar({ tab, setTab, user, onLogout, mobile, onClose, 
       </div>
 
       <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
-        {TABS.map((t) => (
+        {[
+          { label: 'Seu próximo passo', ids: ['home', 'diagnosis', 'planner'] },
+          { label: 'Aprender e praticar', ids: ['modules', 'templates', 'tools', 'coach'] },
+          { label: 'Minha organização', ids: ['journal', 'saved'] },
+          { label: 'Conexões', ids: ['networking', 'messages', 'community'] },
+          { label: 'Conta', ids: ['settings'] },
+        ].map((group, index) => {
+          const items = TABS.filter(t => group.ids.includes(t.id))
+          const links = items.map((t) => (
           <button
             key={t.id}
+            aria-current={tab === t.id ? 'page' : undefined}
             onClick={() => { setTab(t.id); if (mobile) onClose() }}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all touch-manipulation
-              ${tab === t.id ? 'bg-white/15 text-white' : 'text-blue-200 hover:bg-white/10 hover:text-white active:bg-white/20'}`}
+              ${tab === t.id ? 'bg-white/10 text-white border-l-2 border-brand-accent' : 'text-brand-muted hover:bg-white/10 hover:text-white active:bg-white/20'}`}
           >
             <span>{t.icon}</span>
             <span className="flex-1 text-left">{t.label}</span>
@@ -152,12 +162,19 @@ export default function Sidebar({ tab, setTab, user, onLogout, mobile, onClose, 
             )}
             {t.id === 'community' && tab !== 'community' && (
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-accent" />
               </span>
             )}
           </button>
-        ))}
+          ))
+          return index === 0 ? <div key={group.label}><p className="px-4 pt-2 pb-1 text-xs text-brand-muted">{group.label}</p>{links}</div> : (
+            <details key={group.label} open={items.some(t => t.id === tab) || undefined} className="pt-2">
+              <summary className="px-4 py-3 text-sm font-semibold text-blue-100 cursor-pointer rounded-xl hover:bg-white/10">{group.label}</summary>
+              {links}
+            </details>
+          )
+        })}
       </nav>
 
       {/* Upgrade CTA — só para free */}
@@ -181,10 +198,10 @@ export default function Sidebar({ tab, setTab, user, onLogout, mobile, onClose, 
             <span className={`font-bold ${level.color.replace('text-', 'text-').replace('600', '300').replace('500', '300')}`}>
               Nível {level.level} · {level.label}
             </span>
-            <span className="text-blue-300">{xp} XP</span>
+            <span className="text-brand-muted">{xp} XP</span>
           </div>
           <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-            <div className="h-full bg-blue-400 rounded-full transition-all" style={{ width: `${pct}%` }} />
+            <div className="h-full bg-brand-accent rounded-full transition-all" style={{ width: `${pct}%` }} />
           </div>
         </div>
 
@@ -194,14 +211,14 @@ export default function Sidebar({ tab, setTab, user, onLogout, mobile, onClose, 
           </div>
           <div className="min-w-0">
             <div className="font-semibold text-sm truncate">{user.name}</div>
-            <Badge className={`text-xs ${isPaid(user.plan) ? 'bg-amber-400/20 text-amber-300' : 'bg-white/10 text-blue-300'}`}>
+            <Badge className={`text-xs ${isPaid(user.plan) ? 'bg-amber-400/20 text-amber-300' : 'bg-white/10 text-brand-muted'}`}>
               {planBadge(user.plan)}
             </Badge>
           </div>
         </div>
         <button
           onClick={onLogout}
-          className="w-full text-left text-sm text-blue-300 hover:text-white px-1 py-1 transition-colors flex items-center gap-2"
+          className="w-full text-left text-sm text-brand-muted hover:text-white px-1 py-1 transition-colors flex items-center gap-2"
         >
           <span>→</span> Sair
         </button>

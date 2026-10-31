@@ -1,20 +1,21 @@
-import { useState, useEffect } from 'react'
+import Brand from '../ui/Brand'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { LS } from '../../utils/storage'
 import Sidebar from './Sidebar'
 import NotificationBell from './NotificationBell'
 import DashHome from './DashHome'
-import ModulesPage from './ModulesPage'
-import TemplatesPage from './TemplatesPage'
-import CommunityPage from './CommunityPage'
-import CoachPage from './CoachPage'
-import ToolsPage from './ToolsPage'
-import SettingsPage from './SettingsPage'
-import PlannerPage from './PlannerPage'
-import NetworkingPage from './NetworkingPage'
-import DiagnosisPage from './DiagnosisPage'
-import MessagesPage from './MessagesPage'
-import SavedPage from './SavedPage'
-import JournalPage from './JournalPage'
+const ModulesPage = lazy(() => import('./ModulesPage'))
+const TemplatesPage = lazy(() => import('./TemplatesPage'))
+const CommunityPage = lazy(() => import('./CommunityPage'))
+const CoachPage = lazy(() => import('./CoachPage'))
+const ToolsPage = lazy(() => import('./ToolsPage'))
+const SettingsPage = lazy(() => import('./SettingsPage'))
+const PlannerPage = lazy(() => import('./PlannerPage'))
+const NetworkingPage = lazy(() => import('./NetworkingPage'))
+const DiagnosisPage = lazy(() => import('./DiagnosisPage'))
+const MessagesPage = lazy(() => import('./MessagesPage'))
+const SavedPage = lazy(() => import('./SavedPage'))
+const JournalPage = lazy(() => import('./JournalPage'))
 import CommandPalette from './CommandPalette'
 
 // ─── Onboarding Modal ────────────────────────────────────────────────────────
@@ -65,13 +66,13 @@ function OnboardingModal({ onDone }) {
   )
 }
 
-export default function Dashboard({ user, onLogout, refreshUser }) {
-  const [tab, setTab] = useState('home')
+export default function Dashboard({ user, onLogout, refreshUser, initialTab }) {
+  const [tab, setTab] = useState(initialTab || 'home')
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [selectedModule, setSelectedModule] = useState(null)
   const [selectedLesson, setSelectedLesson] = useState(null)
   const [progress, setProgress] = useState(() => LS.get('nj_progress', {}))
-  const [showOnboarding, setShowOnboarding] = useState(() => !LS.get(ONBOARDING_KEY, false))
+  const [showOnboarding, setShowOnboarding] = useState(() => !initialTab && !LS.get(ONBOARDING_KEY, false))
   const [msgUnread, setMsgUnread] = useState(0)
   const [msgInitPeerId, setMsgInitPeerId] = useState(null)
   const [checkoutBanner, setCheckoutBanner] = useState(null) // 'success' | 'cancelled'
@@ -184,9 +185,9 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
   }
 
   // navigate to a module directly from the Diagnosis roadmap
-  const navigateToModule = (mod) => {
+  const navigateToModule = (mod, lesson = null) => {
     setSelectedModule(mod)
-    setSelectedLesson(null)
+    setSelectedLesson(lesson)
     setTab('modules')
   }
 
@@ -239,7 +240,7 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
               <line x1="3" y1="16" x2="19" y2="16" />
             </svg>
           </button>
-          <img src="/logo.png" alt="JobJump" className="h-6 w-auto" />
+          <Brand className="h-6" />
           <button
             onClick={() => window.dispatchEvent(new CustomEvent('nj:open-search'))}
             className="ml-auto p-2 rounded-xl text-slate-500 hover:bg-slate-100 active:bg-slate-200 transition-colors touch-manipulation"
@@ -254,6 +255,8 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
         </div>
 
         <main className="flex-1 overflow-y-auto overscroll-contain pt-14 md:pt-0">
+          <Suspense fallback={<div role="status" className="p-6 text-slate-500">Carregando sua próxima etapa…</div>}>
+          {user.id === 'preview-user' && ['networking', 'messages', 'community'].includes(tab) && <section className="p-6"><h1 className="text-2xl font-bold">Conexões com a comunidade</h1><p className="text-slate-600 mt-3">Na sua conta, você poderá encontrar profissionais, trocar mensagens e participar da comunidade. Esses recursos não estão disponíveis na demonstração.</p></section>}
           {tab === 'home' && (
             <DashHome
               user={user} progress={progress}
@@ -286,8 +289,8 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
           )}
           {tab === 'templates' && <TemplatesPage user={user} />}
           {tab === 'tools' && <ToolsPage user={user} />}
-          {tab === 'networking' && <NetworkingPage user={user} onGoToMessages={goToMessages} />}
-          {tab === 'messages' && (
+          {tab === 'networking' && user.id !== 'preview-user' && <NetworkingPage user={user} onGoToMessages={goToMessages} />}
+          {tab === 'messages' && user.id !== 'preview-user' && (
             <MessagesPage
               user={user}
               initPeerId={msgInitPeerId}
@@ -295,12 +298,13 @@ export default function Dashboard({ user, onLogout, refreshUser }) {
               onGoNetworking={() => goTab('networking')}
             />
           )}
-          {tab === 'community' && <CommunityPage user={user} onGoToMessages={goToMessages} />}
+          {tab === 'community' && user.id !== 'preview-user' && <CommunityPage user={user} onGoToMessages={goToMessages} />}
           {tab === 'coach' && <CoachPage user={user} />}
           {tab === 'planner' && <PlannerPage user={user} />}
           {tab === 'settings' && (
             <SettingsPage user={user} onLogout={onLogout} refreshUser={refreshUser} progress={progress} />
           )}
+          </Suspense>
         </main>
       </div>
     </div>

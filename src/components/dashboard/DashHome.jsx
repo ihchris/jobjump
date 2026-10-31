@@ -21,7 +21,9 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
   const completedCount = Object.values(progress).filter(Boolean).length
   const pct           = accessible.length > 0 ? Math.round((completedCount / accessible.length) * 100) : 0
   const tip           = TIPS[new Date().getDay() % TIPS.length]
-  const nextLesson    = accessible.find((l) => !progress[l.id])
+  const roadmap = getDiagnosis()?.roadmap || []
+  const recommended = roadmap.flatMap(id => accessible.filter(l => l.moduleId === id))
+  const nextLesson    = [...recommended, ...accessible].find((l) => !progress[l.id])
   const nextModule    = nextLesson ? modules.find((m) => m.lessons.some((l) => l.id === nextLesson.id)) : null
   const allDone       = completedCount === accessible.length && accessible.length > 0
   const hasDiagnosis  = !!getDiagnosis()
@@ -63,6 +65,16 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
         <h1 className="text-2xl font-black text-slate-800">Olá, {user.name?.split(' ')[0]}! 👋</h1>
         <p className="text-slate-500 text-sm mt-1">Aqui está seu progresso até agora.</p>
       </div>
+
+      <section className="bg-brand-navy text-white rounded-2xl p-5">
+        <p className="text-xs font-bold uppercase text-brand-muted mb-2">Seu próximo passo</p>
+        <h2 className="text-lg font-bold">{!hasDiagnosis ? 'Descubra por onde começar' : nextLesson ? nextLesson.title : 'Revise seu plano de carreira'}</h2>
+        <p className="text-sm text-brand-muted mt-2 mb-4">{!hasDiagnosis ? 'Responda a 6 perguntas e receba um roteiro para o seu momento.' : nextLesson ? `${nextModule.title} · ${nextLesson.duration}` : 'Escolha novos objetivos para continuar aprendendo.'}</p>
+        <Btn variant="primary" onClick={() => {
+          if (!hasDiagnosis || !nextLesson) { setTab('diagnosis'); return }
+          setSelectedModule(nextModule); setSelectedLesson(nextLesson); setTab('modules')
+        }}>{!hasDiagnosis ? 'Fazer diagnóstico →' : nextLesson ? 'Continuar minha aula →' : 'Ver meu roteiro →'}</Btn>
+      </section>
 
       {/* XP / Level card */}
       <div className={`${level.bg} rounded-2xl p-5 border border-slate-100`}>
@@ -141,7 +153,7 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
             <div className="flex-1">
               <div className="font-black text-base mb-0.5">Faça o Diagnóstico de Carreira</div>
               <div className="text-violet-200 text-xs mb-3">6 perguntas · Roteiro personalizado · +30 XP</div>
-              <Btn onClick={() => setTab('diagnosis')} variant="white" size="sm">Iniciar agora →</Btn>
+              <Btn onClick={() => setTab('diagnosis')} variant="primary" size="sm">Iniciar agora →</Btn>
             </div>
           </div>
         </div>
@@ -149,13 +161,13 @@ export default function DashHome({ user, progress, setTab, setSelectedModule, se
 
       {/* Next lesson CTA */}
       {nextLesson && nextModule && !allDone && (
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-5 text-white">
-          <div className="text-xs font-semibold text-blue-200 uppercase tracking-wider mb-2">Próxima lição</div>
+        <div className="bg-brand-navy rounded-2xl p-5 text-white">
+          <div className="text-xs font-semibold text-brand-muted uppercase tracking-wider mb-2">Próxima lição</div>
           <div className="font-bold text-lg mb-1">{nextLesson.title}</div>
-          <div className="text-blue-200 text-sm mb-4">{nextModule.title} · {nextLesson.duration}</div>
+          <div className="text-brand-muted text-sm mb-4">{nextModule.title} · {nextLesson.duration}</div>
           <Btn
             onClick={() => { setSelectedModule(nextModule); setSelectedLesson(nextLesson); setTab('modules') }}
-            variant="white"
+            variant="primary"
             size="sm"
           >
             Continuar →

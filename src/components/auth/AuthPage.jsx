@@ -1,3 +1,4 @@
+import Brand from '../ui/Brand'
 import { useState } from 'react'
 import { supabase } from '../../lib/supabase'
 import { Btn, Spinner } from '../ui'
@@ -37,7 +38,7 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
     }
 
     setLoading(true)
-
+    try {
     if (mode === 'register') {
       const { error: err } = await supabase.auth.signUp({
         email: form.email.trim(),
@@ -48,10 +49,11 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
       if (form.plan === 'pro' || form.plan === 'annual') {
         const { data: { session } } = await supabase.auth.getSession()
         if (session) {
-          const { data } = await supabase.functions.invoke('create-checkout', {
+          const { data, error: checkoutError } = await supabase.functions.invoke('create-checkout', {
             body: { returnUrl: window.location.origin, plan: form.plan },
           })
           if (data?.url) { window.location.href = data.url; return }
+          if (checkoutError || !data?.url) { setError('Conta criada, mas não foi possível abrir o pagamento. Entre na sua conta para tentar novamente.'); return }
         }
       }
       setSuccess('Conta criada! Verifique seu e-mail para confirmar o cadastro.')
@@ -67,18 +69,23 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
       }
     }
 
-    setLoading(false)
+    } catch {
+      setError('Não foi possível conectar. Verifique sua internet e tente novamente.')
+    } finally { setLoading(false) }
   }
 
   const handleReset = async () => {
     if (!resetEmail.trim() || !resetEmail.includes('@')) { setError('Introduza um e-mail válido.'); return }
     setLoading(true); setError('')
+    try {
     const { error: err } = await supabase.auth.resetPasswordForEmail(resetEmail.trim(), {
       redirectTo: window.location.origin,
     })
     setLoading(false)
     if (err) { setError(err.message); return }
     setSuccess('Link enviado! Verifique o seu e-mail para redefinir a senha.')
+    } catch { setError('Não foi possível enviar o link. Tente novamente.') }
+    finally { setLoading(false) }
   }
 
   const inp =
@@ -89,7 +96,7 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
         <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
           <div className="text-center mb-8">
-            <img src="/logo.png" alt="JobJump" className="h-14 w-auto mx-auto mb-3" />
+            <Brand className="h-14  mx-auto mb-3" />
             <h1 className="text-2xl font-black text-slate-800">Redefinir senha</h1>
             <p className="text-slate-500 text-sm mt-1">Enviaremos um link para o seu e-mail</p>
           </div>
@@ -142,7 +149,7 @@ export default function AuthPage({ mode: initialMode, defaultPlan, onBack }) {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
-          <img src="/logo.png" alt="JobJump" className="h-14 w-auto mx-auto mb-3" />
+          <Brand className="h-14  mx-auto mb-3" />
           <h1 className="text-2xl font-black text-slate-800">
             {mode === 'register' ? 'Crie sua conta' : 'Bem-vindo de volta'}
           </h1>

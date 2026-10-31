@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { supabase, supabaseConfigured } from '../../lib/supabase'
+import { supabase as configuredClient, supabaseConfigured as backendConfigured } from '../../lib/supabase'
 import { LS } from '../../utils/storage'
 import { Btn, Badge, Modal } from '../ui'
 import { isPaid, planLabel, planDesc } from '../../utils/plans'
@@ -273,6 +273,9 @@ const AREA_OPTIONS = [
 ]
 
 export default function SettingsPage({ user, onLogout, refreshUser, progress }) {
+  const isDemo = user.id === 'preview-user' || user.id === 'demo-user'
+  const supabase = isDemo ? null : configuredClient
+  const supabaseConfigured = !isDemo && backendConfigured
   const [name, setName] = useState(user.name)
   const [saved, setSaved] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
@@ -389,6 +392,7 @@ export default function SettingsPage({ user, onLogout, refreshUser, progress }) 
   const removeSkill = (s) => setNetProfile((p) => ({ ...p, skills: p.skills.filter((x) => x !== s) }))
 
   const saveName = async () => {
+    if (!supabase) { setSaved(true); setTimeout(() => setSaved(false), 2000); return }
     const newName = name.trim() || user.name
     const { error } = await supabase
       .from('profiles')
@@ -401,6 +405,9 @@ export default function SettingsPage({ user, onLogout, refreshUser, progress }) 
   }
 
   const handleUpgrade = async () => {
+    if (!supabase || user.id === 'preview-user' || user.id === 'demo-user') {
+      setUpgradeError('Pagamentos indisponíveis na demonstração. Nenhuma cobrança será realizada.'); return
+    }
     setUpgradeLoading(true)
     setUpgradeError(null)
     try {
@@ -408,7 +415,8 @@ export default function SettingsPage({ user, onLogout, refreshUser, progress }) 
         body: { returnUrl: window.location.origin, plan: 'pro' },
       })
       if (error) throw error
-      if (data?.url) window.location.href = data.url
+      if (!data?.url) throw new Error('Checkout indisponível')
+      window.location.href = data.url
     } catch {
       setUpgradeError('Erro ao iniciar checkout. Tente novamente.')
     }
@@ -416,6 +424,7 @@ export default function SettingsPage({ user, onLogout, refreshUser, progress }) 
   }
 
   const handleDeleteAccount = async () => {
+    if (!supabase) { onLogout(); return }
     await supabase.auth.signOut()
   }
 

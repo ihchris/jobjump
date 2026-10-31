@@ -795,6 +795,18 @@ export default function ModulesPage({ user, progress, setProgress, selectedModul
   const [quiz, setQuiz]               = useState(null)
   const [xpToast, setXpToast]         = useState(null)
 
+  // Direct recommendations carry metadata; load the body just as a lesson click does.
+  useEffect(() => {
+    if (!initModule || !initLesson) return
+    let cancelled = false
+    setLesson({ ...initLesson, content: null })
+    setView('lesson')
+    getLessonContent(initLesson.id, initModule.id)
+      .then(content => { if (!cancelled) setLesson({ ...initLesson, content: content ?? '' }) })
+      .catch(() => { if (!cancelled) setLesson({ ...initLesson, content: '' }) })
+    return () => { cancelled = true }
+  }, [initModule?.id, initLesson?.id])
+
   // Load module list (stubs, no content) on mount
   useEffect(() => {
     getModules().then((list) => { setModules(list); setModLoad(false) })

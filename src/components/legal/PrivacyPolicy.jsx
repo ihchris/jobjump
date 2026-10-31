@@ -1,3 +1,4 @@
+import Brand from '../ui/Brand'
 const Section = ({ id, title, children }) => (
   <section id={id} className="mb-10">
     <h2 className="text-lg font-black text-[#1e3a5f] mb-3 pb-2 border-b border-slate-200">{title}</h2>
@@ -54,7 +55,7 @@ export default function PrivacyPolicy({ onBack }) {
       <div className="bg-white border-b border-slate-200 sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="JobJump" className="h-7 w-auto" />
+            <Brand className="h-7" />
           </div>
           <button
             onClick={onBack}

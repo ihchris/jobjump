@@ -1,11 +1,12 @@
 import { supabase, supabaseConfigured } from './supabase'
 
-// modules.js (~1MB) carregado apenas quando necessário, não no bundle inicial
+// The catalog never imports lesson bodies; Vite creates a chunk per module.
+const lessonLoaders = import.meta.glob('../data/lessons/*.js')
 let localDataCache = null
 async function getLocalData() {
   if (localDataCache) return localDataCache
   const [{ MODULES }, { QUIZZES }] = await Promise.all([
-    import('../data/modules'),
+    import('../data/moduleCatalog'),
     import('../data/quizzes'),
   ])
   localDataCache = { MODULES, QUIZZES }
@@ -13,9 +14,11 @@ async function getLocalData() {
 }
 
 let modulesCache = null
+let demoMode = false
+export function setContentDemoMode(enabled) { demoMode = enabled; modulesCache = null }
 
 export async function getModules() {
-  if (!supabaseConfigured) {
+  if (demoMode || !supabaseConfigured) {
     const { MODULES, QUIZZES } = await getLocalData()
     return MODULES.map((m) => ({
       ...m,
@@ -59,10 +62,11 @@ export async function getModules() {
 }
 
 export async function getLessonContent(lessonId, moduleId) {
-  if (!supabaseConfigured) {
-    const { MODULES } = await getLocalData()
-    const mod = MODULES.find((m) => m.id === moduleId)
-    return mod?.lessons.find((l) => l.id === lessonId)?.content ?? null
+  if (demoMode || !supabaseConfigured) {
+    const load = lessonLoaders[`../data/lessons/${moduleId}.js`]
+    if (!load) return null
+    const { default: lessons } = await load()
+    return lessons[lessonId] ?? null
   }
 
   const { data, error } = await supabase
@@ -80,7 +84,7 @@ export async function getLessonContent(lessonId, moduleId) {
 }
 
 export async function getQuiz(moduleId) {
-  if (!supabaseConfigured) {
+  if (demoMode || !supabaseConfigured) {
     const { QUIZZES } = await getLocalData()
     return QUIZZES[moduleId] ?? []
   }

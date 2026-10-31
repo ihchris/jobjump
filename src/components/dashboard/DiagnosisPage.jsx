@@ -200,28 +200,40 @@ const STEPS = [
 function RoadmapResult({ answers, roadmap, user, onNavigate, onReset, allModules }) {
   const modules = roadmap.map((id) => allModules.find((m) => m.id === id)).filter(Boolean)
 
+  const firstModule = modules.find(m => !m.isPro || isPaid(user.plan))
+
   return (
     <div className="space-y-6 animate-fade-in">
-      <div className="bg-gradient-to-r from-blue-600 to-violet-600 rounded-2xl p-6 text-white">
+      <div className="bg-brand-navy rounded-2xl p-6 text-white">
         <div className="text-3xl mb-2">🗺️</div>
         <h2 className="text-xl font-black mb-1">Seu Roteiro Personalizado</h2>
-        <p className="text-blue-100 text-sm">
+        <p className="text-brand-muted text-sm">
           Com base no seu perfil, estes são os módulos que vão gerar mais impacto para você agora.
           Siga a ordem — cada um prepara o terreno para o próximo.
         </p>
-        <div className="mt-3 text-xs text-blue-200 bg-white/10 rounded-xl px-3 py-2 inline-block">
+        <div className="mt-3 text-xs text-brand-muted bg-white/10 rounded-xl px-3 py-2 inline-block">
           +{XP_DIAGNOSIS} XP conquistados por completar o diagnóstico!
         </div>
       </div>
 
+      {firstModule && (
+        <section className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
+          <p className="text-xs font-bold uppercase text-blue-700 mb-2">Sua primeira tarefa</p>
+          <h3 className="font-bold text-slate-800">{firstModule.lessons[0]?.title || firstModule.title}</h3>
+          <p className="text-sm text-slate-600 mt-2 mb-4">Comece por esta aula de {firstModule.lessons[0]?.duration || firstModule.duration}. Depois, siga seu roteiro no seu ritmo.</p>
+          <Btn onClick={() => onNavigate(firstModule, firstModule.lessons[0])}>Começar primeira aula →</Btn>
+        </section>
+      )}
       <div className="space-y-3">
         {modules.map((m, i) => {
           const locked = m.isPro && !isPaid(user.plan)
           return (
-            <div
+            <button
+              type="button"
+              disabled={locked}
               key={m.id}
               onClick={() => !locked && onNavigate(m)}
-              className={`bg-white rounded-2xl border p-4 flex items-center gap-4 transition-all
+              className={`w-full text-left bg-white rounded-2xl border p-4 flex items-center gap-4 transition-all
                 ${locked ? 'opacity-60 cursor-not-allowed border-slate-100' : 'cursor-pointer hover:shadow-md hover:border-blue-200 border-slate-100'}`}
             >
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-black">
@@ -240,7 +252,7 @@ function RoadmapResult({ answers, roadmap, user, onNavigate, onReset, allModules
                 </span>
               )}
               {!locked && <span className="text-slate-300">→</span>}
-            </div>
+            </button>
           )
         })}
       </div>
@@ -316,7 +328,7 @@ export default function DiagnosisPage({ user, onNavigateModule }) {
       {/* Progress bar */}
       <div className="h-1.5 bg-slate-100 rounded-full mb-8 overflow-hidden">
         <div
-          className="h-full bg-blue-600 rounded-full transition-all duration-500"
+          className="h-full bg-brand-accent rounded-full transition-all duration-500"
           style={{ width: `${progress}%` }}
         />
       </div>

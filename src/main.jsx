@@ -15,7 +15,7 @@ import ErrorBoundary from './components/ErrorBoundary.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ErrorBoundary>
-      <App />
+      <Suspense fallback={<div role="status" className="min-h-screen flex items-center justify-center text-slate-500">Carregando…</div>}><App /></Suspense>
     </ErrorBoundary>
   </StrictMode>,
 )

@@ -40,6 +40,9 @@ export default function CoachPage({ user }) {
   const send = async () => {
     const text = input.trim()
     if (!text || loading) return
+    if (!supabase || user.id === 'preview-user' || user.id === 'demo-user') {
+      setMsgs(m => [...m, { role: 'assistant', content: 'O coach IA não está disponível na demonstração. Explore as aulas e ferramentas para conhecer o produto.', ts: Date.now() }]); return
+    }
     if (Date.now() - lastSent < THROTTLE_MS) return
     if (text.length > MAX_MSG_LENGTH) {
       setMsgs((m) => [...m, {

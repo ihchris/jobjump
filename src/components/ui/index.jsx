@@ -16,7 +16,7 @@ export const Badge = ({ children, className = '' }) => (
   </span>
 )
 
-export const ProgressBar = ({ pct, color = 'bg-blue-600' }) => (
+export const ProgressBar = ({ pct, color = 'bg-brand-accent' }) => (
   <div className="w-full bg-gray-100 rounded-full h-2">
     <div
       className={`${color} h-2 rounded-full transition-all duration-500`}
@@ -26,10 +26,10 @@ export const ProgressBar = ({ pct, color = 'bg-blue-600' }) => (
 )
 
 const VARIANTS = {
-  primary: 'bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 focus:ring-blue-500 shadow-sm',
+  primary: 'bg-brand-action text-white hover:bg-brand-action-hover active:bg-brand-action-active focus:ring-brand-action shadow-sm',
   secondary: 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 active:bg-slate-100 focus:ring-slate-300 shadow-sm',
   white: 'bg-white text-blue-700 font-black hover:bg-blue-50 active:bg-blue-100 focus:ring-blue-300 shadow-sm',
-  navy: 'bg-[#1e3a5f] text-white hover:bg-[#152d4a] active:bg-[#0f2035] focus:ring-[#1e3a5f] shadow-sm',
+  navy: 'bg-brand-navy text-white hover:bg-[#152d4a] active:bg-[#0f2035] focus:ring-[#1e3a5f] shadow-sm',
   ghost: 'text-slate-600 hover:bg-slate-100 active:bg-slate-200 focus:ring-slate-300',
   danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 shadow-sm',
   success: 'bg-emerald-600 text-white hover:bg-emerald-700 focus:ring-emerald-500 shadow-sm',

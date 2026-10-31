@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useRef } from 'react'
 import { getModules } from '../../lib/content'
 import { TEMPLATES } from '../../data/templates'
 import { isPaid } from '../../utils/plans'
-import { TOOLS } from './ToolsPage'
+import { TOOLS } from '../../data/toolCatalog'
 
 export default function CommandPalette({ user, onNavigate, onClose }) {
   const [open, setOpen] = useState(false)
